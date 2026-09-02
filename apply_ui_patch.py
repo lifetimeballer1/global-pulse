@@ -6,17 +6,15 @@ s = p.read_text(encoding='utf-8')
 css = '''
 /* Global Pulse UI stability patch */
 html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behavior:none!important}
-body.gp-modal-open{position:fixed!important;width:100%!important;left:0;right:0}
 .drawer-backdrop{display:none!important;position:fixed!important;inset:0!important;z-index:9998!important;background:#02060b!important;opacity:1!important;visibility:hidden!important;pointer-events:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .drawer-backdrop.open{display:block!important;visibility:visible!important;pointer-events:auto!important}
 .drawer{position:fixed!important;z-index:9999!important;background:#07101a!important;opacity:1!important;visibility:visible!important;isolation:isolate!important;box-shadow:-24px 0 60px rgba(0,0,0,.55)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.drawer *{opacity:1}
+.drawer *{opacity:1!important}
 @media(max-width:720px){.drawer{background:#07101a!important;box-shadow:0 -20px 50px rgba(0,0,0,.6)!important}}
 .gp-focus-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;padding:10px 12px;border:1px solid #315274;background:#081827;color:#eef5ff;border-radius:10px}
 .gp-focus-bar b{color:#62a0ff;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .gp-focus-bar button{min-height:32px;padding:6px 10px}
 '''
-
 if 'Global Pulse UI stability patch' not in s:
     s = s.replace('</style>', css + '\n</style>', 1)
 
@@ -38,47 +36,41 @@ js = r'''
   function hitsFor(c){
     const markers=Array.isArray(DATA?.markers)?DATA.markers:[];
     const aliases=(c.name+' '+(c.actors||'')).toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>3);
-    return markers.filter(m=>{
-      if(String(m.conflictId||'')===String(c.id))return true;
-      const text=(m.title+' '+m.detail+' '+m.why+' '+m.region+' '+m.country).toLowerCase();
-      return aliases.some(a=>text.includes(a));
-    });
+    return markers.filter(m=>String(m.conflictId||'')===String(c.id)||aliases.some(a=>(m.title+' '+m.detail+' '+m.why+' '+m.region+' '+m.country).toLowerCase().includes(a)));
   }
-  window.openConflict=function(id){
+  function showConflict(id){
     const c=typeof findConflict==='function'?findConflict(id):null;if(!c)return;
-    document.querySelectorAll('.ccard').forEach(x=>x.classList.toggle('selected',x.dataset.id===id));
     const hits=hitsFor(c);
-    const related=hits.length?`<div class="drawer-section"><div class="label">Map signals</div><p>${hits.length} linked signal${hits.length===1?'':'s'} found for this theater.</p></div>`:'<div class="drawer-section"><div class="label">Map signals</div><p>No directly linked source-map markers yet. The map will still center on this theater.</p></div>';
-    $('drawerBody').innerHTML=`<button class="drawer-close" id="drawerInnerClose" aria-label="Close">✕</button><span class="tag ${/HIGH|CRITICAL/.test(c.escalation||'')?'red':'amber'}">${esc(c.escalation||'MONITORING')}</span><span class="tag blue">${esc(c.region||'')}</span><h3>${esc(c.name)}</h3><div class="muted">${esc(c.category||'')} · ${esc(c.status||'Monitoring')} · ${esc(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Actors / coverage</div><p>${esc(c.actors||'Not available')}</p></div><div class="drawer-section"><div class="label">Facts</div><p>${esc(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Latest signal</div><p>${esc(c.recent||'No recent signal.')}</p></div>${related}<button class="filter active" id="focusConflict" style="margin-top:12px;width:100%">Focus theater on map</button>`;
-    $('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');
-    $('drawerInnerClose').onclick=closeDrawer; $('focusConflict').onclick=()=>focusConflictOnMap(c);
-  };
-  window.closeDrawer=function(){
-    $('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open');
-    document.querySelectorAll('.ccard.selected').forEach(x=>x.classList.remove('selected'));
-  };
-  window.focusConflictOnMap=function(c){
-    const hits=hitsFor(c), [lat,lng,z]=coordsFor(c);
-    activeLayer='all';document.querySelectorAll('[data-layer]').forEach(x=>x.classList.toggle('active',x.dataset.layer==='all'));
-    if(typeof renderMap==='function')renderMap();
-    closeDrawer();
+    document.querySelectorAll('.ccard').forEach(x=>x.classList.toggle('selected',x.dataset.id===id));
+    $('drawerBody').innerHTML=`<button class="drawer-close" id="drawerInnerClose" aria-label="Close">✕</button><span class="tag ${/HIGH|CRITICAL/.test(c.escalation||'')?'red':'amber'}">${esc(c.escalation||'MONITORING')}</span><span class="tag blue">${esc(c.region||'')}</span><h3>${esc(c.name)}</h3><div class="muted">${esc(c.category||'')} · ${esc(c.status||'Monitoring')} · ${esc(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Actors / coverage</div><p>${esc(c.actors||'Not available')}</p></div><div class="drawer-section"><div class="label">Facts</div><p>${esc(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Latest signal</div><p>${esc(c.recent||'No recent signal.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${hits.length?hits.length+' linked signal'+(hits.length===1?'':'s')+' found.':'No directly linked source-map markers yet. The map will still center on this theater.'}</p></div><button class="filter active" id="focusConflict" style="margin-top:12px;width:100%">Focus theater on map</button>`;
+    document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');
+    $('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');
+    $('drawerInnerClose').onclick=closeModal;$('focusConflict').onclick=()=>focusConflict(c);
+  }
+  function closeModal(){
+    $('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open');document.querySelectorAll('.ccard.selected').forEach(x=>x.classList.remove('selected'));
+  }
+  function focusConflict(c){
+    const hits=hitsFor(c),coord=coordsFor(c);activeLayer='all';document.querySelectorAll('[data-layer]').forEach(x=>x.classList.toggle('active',x.dataset.layer==='all'));
+    if(typeof renderMap==='function')renderMap();closeModal();
     setTimeout(()=>{
-      if(!map)return;
-      map.invalidateSize(true);
+      if(!map)return;map.invalidateSize(true);
       const pts=hits.map(m=>[Number(m.lat),Number(m.lng)]).filter(p=>Number.isFinite(p[0])&&Number.isFinite(p[1]));
-      if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});
-      else map.flyTo([lat,lng],z,{duration:.8});
-      const ms=$('mapSection');if(ms)ms.scrollIntoView({behavior:'smooth',block:'start'});
-      let bar=$('gpFocusBar');if(!bar){bar=document.createElement('div');bar.id='gpFocusBar';bar.className='gp-focus-bar';const mapHead=$('mapSection')?.querySelector('.section-head');if(mapHead)mapHead.insertAdjacentElement('afterend',bar)}
+      if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([coord[0],coord[1]],coord[2],{duration:.8});
+      $('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});
+      let bar=$('gpFocusBar');if(!bar){bar=document.createElement('div');bar.id='gpFocusBar';bar.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',bar)}
       bar.innerHTML=`<div><b>Theater focus</b><div>${esc(c.name)} · ${esc(c.region||'')} · ${hits.length} linked map signal${hits.length===1?'':'s'}</div></div><button class="filter" id="clearGpFocus">Clear focus</button>`;
-      $('clearGpFocus').onclick=()=>{bar.remove();if(map){map.flyTo([24,10],2,{duration:.7});renderMap();}};
-    },300);
-  };
-  const backdrop=$('drawerBackdrop');if(backdrop)backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeDrawer()});
+      $('clearGpFocus').onclick=()=>{bar.remove();if(map){map.flyTo([24,10],2,{duration:.7});renderMap()}};
+    },250);
+  }
+  window.__gpShowConflict=showConflict;window.__gpCloseModal=closeModal;
+  /* Capture phase is intentional: it prevents the original lexical openConflict() handler from opening the old transparent drawer. */
+  document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();showConflict(card.dataset.id)}},true);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();closeModal()}},true);
+  const backdrop=$('drawerBackdrop');if(backdrop)backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeModal()});
 })();
 </script>
 '''
-
 if 'Global Pulse: reliable theater modal + map focus' not in s:
     s = s.replace('</body>', js + '\n</body>', 1)
 
