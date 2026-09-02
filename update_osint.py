@@ -20,6 +20,7 @@ DATA = ROOT / "data"
 SNAP = DATA / "snapshot.json"
 MID = "1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY"
 KML_URL = f"https://www.google.com/maps/d/kml?forcekml=1&mid={MID}"
+MAP_URL = f"https://www.google.com/maps/d/viewer?mid={MID}"
 NS = {"k": "http://www.opengis.net/kml/2.2"}
 MAX_POINTS = 250
 SOURCE = "Global War News Map"
@@ -63,7 +64,6 @@ def parse_points(kml_bytes):
         if not (-90 <= lat <= 90 and -180 <= lng <= 180):
             continue
 
-        # Keep distinct locations even when the map reuses a generic title.
         key = (name.lower()[:120], round(lat, 4), round(lng, 4))
         if key in seen:
             continue
@@ -78,11 +78,13 @@ def parse_points(kml_bytes):
         if any(k in blob for k in ("nato", "nuclear", "patriot", "blockade", "hormuz", "critical", "major")):
             importance = 1
 
-        url_match = re.search(r"https?://(?:x\.com|twitter\.com)/[^\s\)\"']+", description, re.I)
-        url = url_match.group(0).rstrip(".,;)")[:300] if url_match else ""
+        urls = re.findall(r"https?://[^\s<>\"']+", description, re.I)
+        urls = [u.rstrip(".,;:)]}")[:500] for u in urls]
+        social_url = next((u for u in urls if re.search(r"(?:x\.com|twitter\.com)/", u, re.I)), "")
+        url = social_url or (urls[0] if urls else "")
 
         title = name[:150] if name else "Global War News Map report"
-        detail = description[:260] if description else "Imported point from Global War News Map"
+        detail = description[:360] if description else "Imported point from Global War News Map"
         out.append({
             "lat": round(lat, 5),
             "lng": round(lng, 5),
@@ -92,6 +94,8 @@ def parse_points(kml_bytes):
             "title": title,
             "detail": detail,
             "url": url,
+            "sourceUrl": url or MAP_URL,
+            "sourceMapUrl": MAP_URL,
             "confidence": "SOURCE MAP REPORT / UNVERIFIED",
             "source": SOURCE,
         })
@@ -104,8 +108,6 @@ def main():
     DATA.mkdir(exist_ok=True)
     snap = json.loads(SNAP.read_text()) if SNAP.exists() else {}
 
-    # Remove only markers previously imported from this map. Strategic,
-    # economic, military, and other OSINT markers remain untouched.
     base = [
         m for m in snap.get("markers", [])
         if m.get("source") != SOURCE
