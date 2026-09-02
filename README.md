@@ -1,31 +1,27 @@
-# Global Pulse
+# Global Pulse v2
+No-key news dashboard package.
 
-**World Economics & Conflict Dashboard** — a single-page “situation room” view combining:
+## Structure
+- `index.html` — front-end dashboard (Leaflet map, tension score, stories)
+- `update_snapshot.py` — refreshes public RSS feeds into `data/snapshot.json`
+- `data/snapshot.json` — current state served by the page
+- `data/history.json` — tension history for the trend chart
+- `.github/workflows/refresh.yml` — GitHub Action that runs the updater every 30 minutes
 
-- **Global Tension Index** (illustrative 0–100% composite)
-- Interactive country relationship map (D3 force-directed)
-- Hourly-style news digest (sample stories)
-- Economic pulse panel (oil, VIX, indices, yields)
+## Install
+1. Copy these files into a GitHub repository (or replace an existing one).
+2. Push to GitHub.
+3. Enable GitHub Actions if prompted. The workflow refreshes public feeds every 30 minutes and commits updated snapshot/history.
+4. For a live site, enable GitHub Pages (serve from root or `/docs` as preferred).
 
-## Live page
-
-Once GitHub Pages is enabled:
-
-**https://lifetimeballer1.github.io/global-pulse/**
-
-### Enable Pages
-1. Go to the repository **Settings → Pages**
-2. Under **Source**, select **Deploy from a branch**
-3. Branch: `main` / folder: `/ (root)`
-4. Save — the site usually appears within a minute or two
+## Local refresh
+```bash
+python3 update_snapshot.py
+```
 
 ## Notes
-
-- This is a **static demo**. The Tension Index and stories are sample data shaped around the September 2026 picture (Iran/Hormuz risk, Russia–Ukraine, China–Taiwan pressure, China–Russia alignment, elevated oil).
-- The Index is explicitly labeled as an **illustrative model**, not a forecast or prediction.
-- Framing is slightly more attentive to revisionist pressure, energy leverage, and deterrence costs while staying within mainstream reporting.
-- For a production version you would add a scheduled backend (Vercel Cron / Netlify function) pulling GDELT, market APIs, etc., and overwrite a JSON snapshot the frontend loads.
-
-## License
-
-Demo / illustrative use. Source links in a live system should point to original reporting.
+- Headlines come from public RSS feeds (BBC, Guardian, NPR).
+- This version intentionally does not invent random market or news data.
+- Tension scoring and breakdown are still illustrative until you define a transparent scoring pipeline.
+- Map markers and social links are optional fields in the snapshot; they are preserved across refreshes if present.
+- Direct X/Twitter live ingestion is not included because reliable live access generally requires platform access; optional public links can be stored in `social`.

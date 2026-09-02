@@ -1,0 +1,28 @@
+name: Refresh snapshot
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Update snapshot
+        run: python update_snapshot.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json data/history.json
+          git diff --staged --quiet || git commit -m "Refresh public feed snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
