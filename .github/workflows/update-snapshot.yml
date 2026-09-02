@@ -1,74 +1,40 @@
-name: Update Global Pulse Snapshot
+name: Global Pulse Data Refresh
 
 on:
   schedule:
-    # Every 30 minutes
-    - cron: '*/30 * * * *'
-  workflow_dispatch: # allow manual run from Actions tab
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: global-pulse-refresh
+  cancel-in-progress: true
+
 jobs:
-  update:
+  refresh:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Refresh snapshot (no API keys)
-        run: |
-          python3 << 'EOF'
-          import json
-          from datetime import datetime, timezone
-          import random
-          from pathlib import Path
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-          path = Path("data/snapshot.json")
-          data = json.loads(path.read_text(encoding="utf-8"))
-
-          now = datetime.now(timezone.utc)
-          data["updatedAt"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-
-          # Mild random walk on tension index so the gauge moves over time
-          # Stays in a realistic band; still labeled illustrative
-          base = data.get("tension", 64)
-          delta = random.choice([-2, -1, 0, 0, 1, 2])
-          data["tension"] = max(45, min(78, base + delta))
-
-          # Age story relative times a bit so the feed feels fresh
-          ages = ["just now", "15m ago", "30m ago", "1h ago", "2h ago", "3h ago", "4h ago", "6h ago"]
-          for i, s in enumerate(data.get("stories", [])):
-              s["time"] = ages[min(i, len(ages) - 1)]
-
-          # Tiny jitter on oil / VIX style numbers for demo liveliness
-          for e in data.get("econ", []):
-              if e["name"] == "Brent Crude":
-                  # keep around mid-90s
-                  val = 93.5 + random.uniform(-1.5, 2.0)
-                  e["val"] = f"${val:.1f}"
-                  e["chg"] = f"{random.choice(['+', '−'])}{random.uniform(0.2, 3.5):.1f}% (1d)"
-                  e["dir"] = "up" if "+" in e["chg"] else "down"
-              elif e["name"] == "VIX":
-                  val = 15.5 + random.uniform(-1.0, 2.5)
-                  e["val"] = f"{val:.1f}"
-                  e["chg"] = f"{random.choice(['+', '−'])}{random.uniform(0.5, 6.0):.1f}% (1d)"
-                  e["dir"] = "up" if "+" in e["chg"] else "down"
-
-          data["note"] = "Illustrative snapshot. Auto-refreshed every 30 minutes via GitHub Actions. No API keys required."
-
-          path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-          print("Snapshot updated:", data["updatedAt"], "tension=", data["tension"])
-          EOF
+      - name: Refresh public data
+        run: python update_snapshot.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/snapshot.json
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json data/history.json data/sources.json
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No data changes"
           else
-            git commit -m "chore: refresh snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+            git commit -m "data: refresh Global Pulse $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           fi
