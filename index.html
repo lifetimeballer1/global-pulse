@@ -3,192 +3,69 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Global Pulse — Intelligence Dashboard</title>
+<meta name="theme-color" content="#060d14">
+<title>Global Pulse — Global Conflict & Intelligence Monitor</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <style>
-:root{--bg:#060d14;--panel:#0c1520;--panel2:#09131c;--line:#1c2d42;--text:#eef5ff;--muted:#8fa3b8;--blue:#5b9cff;--amber:#ffc857;--red:#ff6b7a;--green:#4ade80;--purple:#a78bfa;--orange:#fb923c;--cyan:#38bdf8;--safe-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-header{position:sticky;top:0;z-index:20;background:rgba(6,13,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-weight:900;letter-spacing:.14em;font-size:15px}.logo b{color:var(--blue)}
-.badge{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:11px;color:var(--muted)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15)}
-.wrap{max-width:1400px;margin:0 auto;padding:14px 14px 88px;display:grid;gap:14px;position:relative;z-index:1}
-.grid{display:grid;grid-template-columns:1.1fr 1.4fr 1fr;gap:14px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
-h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700}
-.score{font-size:56px;font-weight:900;color:var(--amber);line-height:1;font-variant-numeric:tabular-nums}
-.score-sub{color:var(--muted);font-size:12px;margin-top:6px}.small{color:var(--muted);font-size:12px;line-height:1.4}
-.disclaimer{font-size:11px;color:var(--muted);margin-top:8px}
-.bars{display:grid;gap:10px}.bar{display:grid;grid-template-columns:minmax(100px,1.1fr) 1fr 36px;gap:8px;align-items:center;font-size:12px}
-.track{height:8px;background:var(--panel2);border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:20px}
-.item,.story,.ccard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px}
-.changes,.stories,.conflicts{display:grid;gap:9px}
-.story h3,.ccard h3{font-size:13.5px;margin:3px 0 5px;font-weight:650;line-height:1.3}
-.story p,.ccard p{margin:0 0 6px;color:var(--muted);font-size:12px}
-.tag{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.25);padding:2px 6px;border-radius:4px;margin:0 4px 4px 0}
-.tag.conflict{color:var(--red);background:rgba(255,107,122,.12);border-color:rgba(255,107,122,.3)}
-.tag.energy{color:var(--orange);background:rgba(251,146,60,.12);border-color:rgba(251,146,60,.3)}
-.tag.military{color:var(--purple);background:rgba(167,139,250,.12);border-color:rgba(167,139,250,.3)}
-.tag.economic{color:var(--green);background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3)}
-.tag.osint{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
-.tag.confirmed{color:var(--green);background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3)}
-.tag.likely{color:var(--blue);background:rgba(91,156,255,.12);border-color:rgba(91,156,255,.3)}
-.tag.social{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
-.tag.high{color:var(--red);background:rgba(255,107,122,.12);border-color:rgba(255,107,122,.3)}
-.tag.mod{color:var(--orange);background:rgba(251,146,60,.12);border-color:rgba(251,146,60,.3)}
-.tag.break{color:#f472b6;background:rgba(244,114,182,.12);border-color:rgba(244,114,182,.3)}
-.tag.bg{color:var(--muted);background:rgba(143,163,184,.1);border-color:rgba(143,163,184,.25)}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.story-link{color:var(--text);text-decoration:none;display:block}.story-link:hover{color:var(--blue);text-decoration:underline}
-.story-open{display:inline-block;margin-top:6px;padding:10px 14px;background:rgba(91,156,255,.14);border:1px solid rgba(91,156,255,.4);border-radius:8px;font-weight:700;font-size:13px;color:var(--blue)!important;text-decoration:none!important}
-canvas{width:100%;height:150px;background:var(--panel2);border-radius:10px;display:block}
-#map{height:520px;border-radius:12px;background:#0a121c;z-index:1;border:1px solid var(--line)}
-.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-button.filter,a.filter{background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;min-height:36px;touch-action:manipulation}
-button.filter.active{color:#fff;border-color:transparent}
-button.filter[data-f="all"].active{background:rgba(91,156,255,.25);border-color:var(--blue);color:var(--blue)}
-button.filter[data-f="conflict"].active{background:rgba(255,107,122,.25);border-color:var(--red);color:var(--red)}
-button.filter[data-f="military"].active{background:rgba(167,139,250,.25);border-color:var(--purple);color:var(--purple)}
-button.filter[data-f="energy"].active{background:rgba(251,146,60,.25);border-color:var(--orange);color:var(--orange)}
-button.filter[data-f="economic"].active{background:rgba(74,222,128,.25);border-color:var(--green);color:var(--green)}
-button.filter[data-f="osint"].active{background:rgba(56,189,248,.25);border-color:var(--cyan);color:var(--cyan)}
-button.filter .count{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:999px;background:rgba(255,255,255,.08);font-size:10px;font-weight:800}
-.legend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px;font-size:11px;color:var(--muted)}
-.legend span{display:inline-flex;align-items:center;gap:5px;cursor:pointer;padding:4px 8px;border-radius:6px;border:1px solid transparent}
-.legend span:hover,.legend span.on{border-color:var(--line);background:rgba(255,255,255,.04)}
-.lg{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
-.map-hint{font-size:11px;color:var(--muted);margin-top:8px}
-.map-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
-.map-meta .small b{color:var(--text)}
-.news-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
-button.tab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);padding:7px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
-button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,156,255,.1)}
-.ccard .row{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-.ccard .label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:8px}
-.ccard .facts{border-left:2px solid var(--green);padding-left:8px;margin-top:6px}
-.ccard .analysis{border-left:2px solid var(--amber);padding-left:8px;margin-top:6px}
-.bottomnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:30;justify-content:space-around;align-items:center;background:rgba(6,13,20,.96);border-top:1px solid var(--line);padding:8px 6px calc(8px + var(--safe-bottom));backdrop-filter:blur(12px)}
-.bottomnav a{text-decoration:none;color:var(--muted);font-size:10px;font-weight:600;padding:8px 6px;border-radius:8px;min-width:48px;text-align:center}
-.leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.5)}
-.leaflet-popup-tip{background:var(--panel)}
-.leaflet-popup-content{margin:12px 14px;font-size:13px;line-height:1.45;min-width:220px}
-.leaflet-popup-content strong{display:block;margin:4px 0 6px;font-size:15px}
-.leaflet-tooltip.gp-tip{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:6px;padding:4px 8px;font-size:11px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(56,189,248,.28)}
-.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(56,189,248,.9);color:#061018;font-weight:800}
-.status-ok{color:var(--green)}
-@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}}
-@media(max-width:720px){header{padding:10px 12px}.wrap{padding:10px 10px 88px;gap:10px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:12px}.score{font-size:48px}#map{height:380px}.bottomnav{display:flex}}
+:root{--bg:#050a10;--panel:#0b131d;--panel2:#081019;--line:#1b2b3d;--text:#eef5ff;--muted:#91a4b8;--blue:#62a0ff;--red:#ff6678;--amber:#ffc857;--green:#48df83;--purple:#aa8df7;--orange:#fb923c;--cyan:#3fc5ff;--safe:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -20%,#10243a 0,#050a10 42%);color:var(--text);font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}button,input{font:inherit}a{color:var(--blue);text-decoration:none}
+header{position:sticky;top:0;z-index:50;background:rgba(5,10,16,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:11px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:950;letter-spacing:.16em}.brand b{color:var(--blue)}.live{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px}.live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(72,223,131,.12)}
+.wrap{max-width:1450px;margin:auto;padding:14px 14px calc(90px + var(--safe));display:grid;gap:14px}.grid{display:grid;grid-template-columns:1fr 1.45fr 1fr;gap:14px}.panel{background:linear-gradient(180deg,rgba(11,19,29,.98),rgba(8,16,25,.98));border:1px solid var(--line);border-radius:15px;padding:15px;min-width:0;box-shadow:0 10px 35px rgba(0,0,0,.16)}h2{margin:0 0 11px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.hero-score{display:flex;align-items:end;justify-content:space-between;gap:10px}.score{font-size:58px;font-weight:950;line-height:.9;color:var(--amber);font-variant-numeric:tabular-nums}.delta{font-size:12px;color:var(--muted);margin-top:8px}.delta.up{color:var(--red)}.delta.down{color:var(--green)}.note{font-size:10px;color:var(--muted);margin:10px 0 0}.bars{display:grid;gap:10px}.bar{display:grid;grid-template-columns:135px 1fr 34px;gap:9px;align-items:center;font-size:12px}.track{height:8px;background:#06101a;border-radius:99px;overflow:hidden;border:1px solid #142334}.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:99px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpi{padding:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px}.kpi strong{display:block;font-size:20px}.kpi span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.items,.stories,.conflicts{display:grid;gap:9px}.item,.story,.ccard{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:11px}.item strong,.story h3,.ccard h3{display:block;margin:2px 0 5px;font-size:13px;line-height:1.3}.muted{color:var(--muted);font-size:11px}.tag{display:inline-block;font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;padding:3px 6px;border-radius:5px;margin:0 4px 4px 0;border:1px solid var(--line);color:var(--muted)}.tag.red{color:var(--red);background:rgba(255,102,120,.1);border-color:rgba(255,102,120,.3)}.tag.green{color:var(--green);background:rgba(72,223,131,.1);border-color:rgba(72,223,131,.3)}.tag.blue{color:var(--blue);background:rgba(98,160,255,.1);border-color:rgba(98,160,255,.3)}.tag.amber{color:var(--amber);background:rgba(255,200,87,.1);border-color:rgba(255,200,87,.3)}
+.section-head{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:10px}.section-head .muted{max-width:760px}.tools{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}button,input{border:1px solid var(--line);background:#09121c;color:var(--text);border-radius:9px;padding:8px 10px;min-height:36px}button{cursor:pointer}.filter.active{border-color:var(--blue);background:rgba(98,160,255,.13);color:var(--blue)}input{min-width:190px;outline:none}input:focus{border-color:var(--blue)}
+.conflicts{grid-template-columns:repeat(3,1fr)}.ccard{position:relative;overflow:hidden}.ccard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line)}.ccard.high:before{background:var(--red)}.ccard.mod:before{background:var(--orange)}.ccard.low:before{background:var(--green)}.ccard h3{font-size:14px}.ccard .meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}.scoreline{display:flex;justify-content:space-between;font-size:11px;margin:8px 0 4px}.facts{border-left:2px solid var(--green);padding-left:8px;margin-top:8px}.analysis{border-left:2px solid var(--amber);padding-left:8px;margin-top:8px}.label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
+.news-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.story h3{font-size:13px}.story .source{font-size:10px;color:var(--muted)}.story-link{color:var(--text)}.story-link:hover{color:var(--blue)}.open{display:inline-block;margin-top:7px;padding:7px 10px;border:1px solid rgba(98,160,255,.35);background:rgba(98,160,255,.1);border-radius:7px;font-size:11px;font-weight:750}
+#map{height:540px;border:1px solid var(--line);border-radius:12px;overflow:hidden}.map-tools{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:5px}.lg{width:9px;height:9px;border-radius:50%}.status{font-size:11px;color:var(--muted);line-height:1.6}.status b{color:var(--text)}canvas{width:100%;height:160px;background:var(--panel2);border-radius:10px}.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}.error{color:var(--red)}
+.bottom{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(5,10,16,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:7px 6px calc(7px + var(--safe));justify-content:space-around}.bottom a{font-size:10px;color:var(--muted);padding:7px 10px;text-align:center}.bottom a:first-child{color:var(--blue)}
+.leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px}.leaflet-popup-tip{background:var(--panel)}.leaflet-popup-content{min-width:220px}.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(63,197,255,.25)}.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(63,197,255,.9);font-weight:900}
+@media(max-width:1050px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}.conflicts{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){header{padding:10px 12px}.wrap{padding:10px 10px calc(82px + var(--safe))}.grid,.conflicts{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:12px}.score{font-size:50px}.bar{grid-template-columns:115px 1fr 30px}#map{height:390px}.bottom{display:flex}.kpis{grid-template-columns:repeat(3,1fr)}input{min-width:0;flex:1}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">GLOBAL <b>PULSE</b></div>
-  <div class="meta" id="meta"><span class="badge"><span class="dot" id="statusDot"></span><span id="metaText">Loading…</span></span></div>
-</header>
+<header><div class="brand">GLOBAL <b>PULSE</b></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div></header>
 <main class="wrap">
-  <section class="grid" id="overview">
-    <div class="panel"><h2>Global Tension Index</h2><div class="score" id="score">—</div><div class="score-sub" id="delta"></div><p class="disclaimer">Illustrative analytical indicator only.</p></div>
-    <div class="panel wide"><h2>Score Breakdown</h2><div class="bars" id="breakdown"></div></div>
-  </section>
-  <section class="grid">
-    <div class="panel"><h2>What Changed</h2><div class="changes" id="changes"></div></div>
-    <div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="160"></canvas><p class="small" style="margin-top:8px" id="chartNote">History from saved refresh snapshots.</p></div>
-    <div class="panel"><h2>Data Status</h2><div id="status" class="small"></div></div>
-  </section>
-  <section class="panel" id="conflicts">
-    <h2>Conflict Tracker</h2>
-    <p class="small" style="margin-bottom:10px">Structured theater briefs. FACTS and ANALYSIS separated.</p>
-    <div class="conflicts" id="conflictList"></div>
-  </section>
-  <section class="grid" id="news">
-    <div class="panel">
-      <h2>Latest Reporting</h2>
-      <div class="news-tabs">
-        <button class="tab active" data-tab="breaking">Breaking</button>
-        <button class="tab" data-tab="background">Background</button>
-        <button class="tab" data-tab="all">All</button>
-      </div>
-      <div class="stories" id="stories"></div>
-    </div>
-    <div class="panel wide" id="mapSection">
-      <h2>World Map · Layers</h2>
-      <div class="map-meta">
-        <div class="small" id="mapCount"><b>—</b> markers visible</div>
-        <button class="filter" type="button" id="fitBtn" style="min-height:32px;padding:6px 10px">Fit to layer</button>
-      </div>
-      <div class="filters" id="filters">
-        <button class="filter active" data-f="all">All <span class="count" data-c="all">0</span></button>
-        <button class="filter" data-f="conflict">Conflict <span class="count" data-c="conflict">0</span></button>
-        <button class="filter" data-f="military">Military <span class="count" data-c="military">0</span></button>
-        <button class="filter" data-f="energy">Energy <span class="count" data-c="energy">0</span></button>
-        <button class="filter" data-f="economic">Economic <span class="count" data-c="economic">0</span></button>
-        <button class="filter" data-f="osint">War OSINT <span class="count" data-c="osint">0</span></button>
-      </div>
-      <div id="map"></div>
-      <div class="legend" id="legend">
-        <span data-leg="conflict"><i class="lg" style="background:#ff6b7a"></i> Conflict</span>
-        <span data-leg="military"><i class="lg" style="background:#a78bfa"></i> Military</span>
-        <span data-leg="energy"><i class="lg" style="background:#fb923c"></i> Energy</span>
-        <span data-leg="economic"><i class="lg" style="background:#4ade80"></i> Economic</span>
-        <span data-leg="osint"><i class="lg" style="background:#38bdf8"></i> War OSINT</span>
-      </div>
-      <p class="map-hint">Tap a layer button to isolate it. Hover markers for titles; click for <b>Status · Why it matters · What to watch</b>. OSINT = SOCIAL / UNVERIFIED. Strategic markers are curated nodes, not live event detections.</p>
-    </div>
-  </section>
-  <section class="panel" id="warmap">
-    <h2>Global War News Map · External OSINT</h2>
-    <p class="small" style="margin-bottom:10px">Community OSINT map. Social-linked items are <b>UNVERIFIED</b>.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-      <a class="filter active" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full War News Map →</a>
-      <a class="filter" style="display:inline-block;text-decoration:none" href="#mapSection" id="jumpOsint">Show War OSINT on our map →</a>
-    </div>
-    <div style="position:relative;width:100%;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0a121c">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&hl=en" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" loading="lazy" allowfullscreen></iframe>
-    </div>
-  </section>
-  <section class="panel" id="social">
-    <h2>Public Social Watch</h2>
-    <div class="changes" id="socialList"></div>
-  </section>
+<section class="grid" id="top">
+  <div class="panel"><h2>Global Tension Index</h2><div class="hero-score"><div><div class="score" id="score">—</div><div class="delta" id="delta">Calculating…</div></div><span class="tag amber" id="riskTag">ANALYTICAL</span></div><p class="note">Composite signal from current public reporting. Not an official government, military, casualty, or market index.</p></div>
+  <div class="panel wide"><h2>Signal Breakdown</h2><div class="bars" id="breakdown"></div></div>
+</section>
+<section class="grid">
+  <div class="panel"><h2>What Changed</h2><div class="items" id="changes"></div></div>
+  <div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="180"></canvas><div class="muted" id="chartNote" style="margin-top:8px">Saved refresh history.</div></div>
+  <div class="panel"><h2>System Status</h2><div class="status" id="status">Checking sources…</div></div>
+</section>
+<section class="panel" id="conflictSection">
+  <div class="section-head"><div><h2>Conflict Intelligence Tracker</h2><div class="muted">30 monitored theaters across Europe, Middle East, Africa, Asia, Latin America and the Caribbean. Live signals replace placeholders as the refresh pipeline runs.</div></div><div class="kpis" style="min-width:260px"><div class="kpi"><strong id="conflictCount">—</strong><span>Theaters</span></div><div class="kpi"><strong id="highCount">—</strong><span>High+</span></div><div class="kpi"><strong id="regionCount">—</strong><span>Regions</span></div></div></div>
+  <div class="tools"><input id="conflictSearch" placeholder="Search conflict, country, actor…" aria-label="Search conflicts"><button class="filter active" data-region="all">All</button><button class="filter" data-region="Europe">Europe</button><button class="filter" data-region="Middle East">Middle East</button><button class="filter" data-region="Africa">Africa</button><button class="filter" data-region="Asia">Asia</button><button class="filter" data-region="Indo-Pacific">Indo-Pacific</button><button class="filter" data-region="Latin America">Latin America</button><button class="filter" data-region="Caribbean">Caribbean</button></div>
+  <div class="conflicts" id="conflictList"></div>
+</section>
+<section class="grid" id="reporting">
+  <div class="panel"><h2>Latest Reporting</h2><div class="news-tabs"><button class="filter active" data-news="breaking">Breaking</button><button class="filter" data-news="background">Background</button><button class="filter" data-news="all">All</button></div><div class="stories" id="stories"></div></div>
+  <div class="panel wide" id="mapSection"><div class="section-head"><div><h2>World Situation Map</h2><div class="muted">Conflict, military, energy, economic and OSINT layers. OSINT is always treated as unverified until independently corroborated.</div></div><button class="filter" id="fit">Fit layer</button></div><div class="map-tools"><button class="filter active" data-layer="all">All</button><button class="filter" data-layer="conflict">Conflict</button><button class="filter" data-layer="military">Military</button><button class="filter" data-layer="energy">Energy</button><button class="filter" data-layer="economic">Economic</button><button class="filter" data-layer="osint">OSINT</button></div><div id="map"></div><div class="legend"><span><i class="lg" style="background:#ff6678"></i>Conflict</span><span><i class="lg" style="background:#aa8df7"></i>Military</span><span><i class="lg" style="background:#fb923c"></i>Energy</span><span><i class="lg" style="background:#48df83"></i>Economic</span><span><i class="lg" style="background:#3fc5ff"></i>OSINT</span></div></div>
+</section>
 </main>
-<nav class="bottomnav">
-  <a href="#overview">Overview</a><a href="#conflicts">Conflicts</a><a href="#news">News</a><a href="#mapSection">Map</a><a href="#warmap">War Map</a>
-</nav>
+<nav class="bottom"><a href="#top">Pulse</a><a href="#conflictSection">Conflicts</a><a href="#reporting">Reports</a><a href="#mapSection">Map</a></nav>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script>
-let S=null,H=[],map=null,layerGroup=null,osintCluster=null,filter='all',newsTab='breaking';
-const LAYER_COLOR={conflict:'#ff6b7a',military:'#a78bfa',energy:'#fb923c',economic:'#4ade80',osint:'#38bdf8'};
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-async function getJSON(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error(path+' '+r.status);return r.json()}
-async function load(){try{const [snap,hist]=await Promise.all([getJSON('data/snapshot.json'),getJSON('data/history.json').catch(()=>[])]);S=snap;H=Array.isArray(hist)?hist:[];render()}catch(e){document.getElementById('metaText').textContent='Data unavailable';document.getElementById('statusDot').style.background='var(--red)'}}
-function layerOf(m){return (m.layer||m.type||'conflict').toLowerCase()}
-function markerColor(m){return LAYER_COLOR[layerOf(m)]||'#69a8ff'}
-function markerRadius(m){const i=Number(m.importance)||2;return i<=1?11:i===2?8:6}
-function confTag(c){const v=(c||'LIKELY').toUpperCase();if(v.includes('CONFIRMED')&&!v.includes('UN'))return{cls:'confirmed',label:'CONFIRMED'};if(v.includes('SOCIAL')||v.includes('UNVERIFIED')||v.includes('UNCONFIRMED'))return{cls:'social',label:v.includes('SOCIAL')?'SOCIAL / UNVERIFIED':'UNCONFIRMED'};return{cls:'likely',label:'LIKELY'}}
-function isBreaking(st){const t=st.time||'';if(/\b0?[0-3]\s*Sep\b/i.test(t)||/\bSep(?:tember)?\s*0?[0-3]\b/i.test(t))return true;if(/(strike|attack|killed|drone|missile|blockade|escalat)/i.test(st.title||''))return true;return false}
-function renderConflicts(){const list=S.conflicts||[];document.getElementById('conflictList').innerHTML=list.length?list.map(c=>{const eCls=(c.escalation||'').toUpperCase().includes('HIGH')?'high':'mod';const cf=confTag(c.confidence);return `<article class="ccard"><div class="row"><span class="tag conflict">${esc(c.region||'theater')}</span><span class="tag ${eCls}">ESC ${esc(c.escalation||'—')}</span><span class="tag ${cf.cls}">${esc(cf.label)}</span></div><h3>${esc(c.name)}</h3><p><b>Status:</b> ${esc(c.status||'—')} · <b>Actors:</b> ${esc(c.actors||'—')}</p><p>${esc(c.recent||'')}</p><div class="label">Facts</div><div class="facts small">${esc(c.facts||'')}</div><div class="label">Analysis</div><div class="analysis small">${esc(c.analysis||'')}</div></article>`}).join(''):'<span class="small">No conflict briefs.</span>'}
-function renderStories(){let stories=S.stories||[];if(newsTab==='breaking')stories=stories.filter(isBreaking);else if(newsTab==='background')stories=stories.filter(s=>!isBreaking(s));document.getElementById('stories').innerHTML=stories.length?stories.map(x=>{const cf=confTag(x.confidence);const br=isBreaking(x);return `<article class="story"><div><span class="tag ${br?'break':'bg'}">${br?'BREAKING':'BACKGROUND'}</span><span class="tag ${cf.cls}">${esc(cf.label)}</span><span class="tag">${esc(x.sourceLabel||'source')}</span><span class="small"> · ${esc(x.time||'')}</span><h3>${x.source?`<a class="story-link" target="_blank" rel="noopener noreferrer" href="${esc(x.source)}">${esc(x.title)}</a>`:esc(x.title)}</h3><p>${esc(x.summary||'')}</p>${x.source?`<a class="story-open" target="_blank" rel="noopener noreferrer" href="${esc(x.source)}">Open full article →</a>`:''}</div></article>`}).join(''):'<span class="small">No items in this tab.</span>'}
-function updateFilterCounts(){const ms=S.markers||[];const counts={all:ms.length,conflict:0,military:0,energy:0,economic:0,osint:0};ms.forEach(m=>{const L=layerOf(m);if(counts[L]!=null)counts[L]++});document.querySelectorAll('#filters .count').forEach(el=>{el.textContent=counts[el.getAttribute('data-c')]??0})}
-function filteredMarkers(){const ms=S.markers||[];if(filter==='all')return ms.slice();return ms.filter(m=>layerOf(m)===filter)}
-function render(){const updated=S.updatedAt?new Date(S.updatedAt).toLocaleString():'—';document.getElementById('metaText').textContent='Last refresh: '+updated+(S.sourceStatus?' · '+S.sourceStatus:'');document.getElementById('statusDot').style.background='var(--green)';document.getElementById('score').textContent=S.tension??'—';const prev=H.length>1?H[H.length-2]?.tension:null;const d=Number.isFinite(prev)?S.tension-prev:null;document.getElementById('delta').innerHTML=d===null?'<span class="small">No previous snapshot yet</span>':`<b>${d>0?'▲':d<0?'▼':'●'} ${Math.abs(d)} vs previous</b>`;document.getElementById('breakdown').innerHTML=Object.entries(S.breakdownScores||{}).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></div></div><b>${esc(v)}</b></div>`).join('')||'';document.getElementById('changes').innerHTML=(S.changes||[]).map(x=>`<div class="item"><span class="tag">${esc(x.kind||'update')}</span><br><b>${esc(x.title)}</b><div class="small">${esc(x.detail||'')}</div></div>`).join('')||'';document.getElementById('status').innerHTML=`<div class="status-ok"><b>${esc(S.sourceStatus||'OK')}</b></div><div style="margin-top:6px">${esc(S.dataNote||'')}</div>`;document.getElementById('socialList').innerHTML=(S.social||[]).map(x=>`<div class="item"><span class="tag social">SOCIAL / UNVERIFIED</span><br><b>${esc(x.label)}</b><div class="small">${esc(x.note||'')}</div>${x.url?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Open →</a>`:''}</div>`).join('')||'';updateFilterCounts();renderConflicts();renderStories();chart();drawMap()}
-function chart(){const c=document.getElementById('chart'),x=c.getContext('2d');const note=document.getElementById('chartNote');const d=H.map(z=>z.tension).filter(Number.isFinite).slice(-50);x.clearRect(0,0,c.width,c.height);if(d.length<2){if(note)note.textContent='Not enough history points yet (need 2+).';x.fillStyle='#8fa3b8';x.font='14px system-ui';x.fillText('Waiting for history…',16,c.height/2);return}if(note)note.textContent='History · '+d.length+' points';const mn=Math.min(...d,40),mx=Math.max(...d,80),p=12;x.strokeStyle='#1c2d42';x.lineWidth=1;for(let g=0;g<4;g++){const Y=p+g*(c.height-2*p)/3;x.beginPath();x.moveTo(p,Y);x.lineTo(c.width-p,Y);x.stroke()}x.strokeStyle='#5b9cff';x.lineWidth=2.5;x.beginPath();d.forEach((v,i)=>{const X=p+i*(c.width-2*p)/(d.length-1);const Y=c.height-p-(v-mn)/(mx-mn||1)*(c.height-2*p);i?x.lineTo(X,Y):x.moveTo(X,Y)});x.stroke();const lastX=p+(d.length-1)*(c.width-2*p)/(d.length-1);const lastY=c.height-p-(d[d.length-1]-mn)/(mx-mn||1)*(c.height-2*p);x.fillStyle='#5b9cff';x.beginPath();x.arc(lastX,lastY,4,0,Math.PI*2);x.fill()}
-function popupHtml(m){const lay=layerOf(m);const layerLabel=lay==='osint'?'OSINT / SOCIAL':lay.toUpperCase();let html=`<span class="tag ${lay}">${esc(layerLabel)}</span><strong>${esc(m.title)}</strong>`;if(m.detail)html+=`<div style="margin:4px 0 8px">${esc(m.detail)}</div>`;if(m.status)html+=`<div class="small"><b>Status:</b> ${esc(m.status)}</div>`;if(m.why)html+=`<div class="small" style="margin-top:4px"><b>Why it matters:</b> ${esc(m.why)}</div>`;if(m.watch)html+=`<div class="small" style="margin-top:4px"><b>What to watch:</b> ${esc(m.watch)}</div>`;if(m.url)html+=`<div style="margin-top:10px"><a target="_blank" rel="noopener" href="${esc(m.url)}">Open source →</a></div>`;if(lay==='osint')html+=`<div class="small" style="margin-top:8px;opacity:.85">SOCIAL MEDIA REPORT — UNVERIFIED</div>`;else html+=`<div class="small" style="margin-top:8px;opacity:.75">Curated theater / node — not a live event detection</div>`;return html}
-function makeCircle(m){const color=markerColor(m),r=markerRadius(m);const circle=L.circleMarker([m.lat,m.lng],{radius:r,color:'#0a121c',weight:2,fillColor:color,fillOpacity:0.95});circle.bindTooltip(esc(m.title),{direction:'top',offset:[0,-8],className:'gp-tip',opacity:0.95});circle.bindPopup(popupHtml(m),{maxWidth:340,autoPanPadding:[40,40]});return circle}
-function fitToVisible(list){if(!map||!list.length)return;try{const b=L.latLngBounds(list.map(m=>[m.lat,m.lng]));map.fitBounds(b.pad(0.35),{maxZoom:filter==='all'?3.2:5,animate:true})}catch(e){}}
-function drawMap(){if(!document.getElementById('map'))return;if(map){map.remove();map=null}map=L.map('map',{worldCopyJump:true,zoomControl:true,scrollWheelZoom:true}).setView([25,40],2.2);L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:8,attribution:'© OpenStreetMap © CARTO'}).addTo(map);layerGroup=L.layerGroup().addTo(map);osintCluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:50,spiderfyOnMaxZoom:true,disableClusteringAtZoom:5});
-function paint(){layerGroup.clearLayers();osintCluster.clearLayers();if(map.hasLayer(osintCluster))map.removeLayer(osintCluster);const list=filteredMarkers();document.getElementById('mapCount').innerHTML=`<b>${list.length}</b> markers visible · layer <b>${filter.toUpperCase()}</b>`;const osint=[],other=[];list.forEach(m=>(layerOf(m)==='osint'?osint:other).push(m));other.forEach(m=>makeCircle(m).addTo(layerGroup));osint.forEach(m=>osintCluster.addLayer(makeCircle(m)));if(osint.length&&(filter==='all'||filter==='osint'))map.addLayer(osintCluster);document.querySelectorAll('#legend span').forEach(el=>{const leg=el.getAttribute('data-leg');el.classList.toggle('on',filter==='all'||filter===leg)})}
-paint();
-document.querySelectorAll('#filters .filter').forEach(b=>{b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('#filters .filter').forEach(q=>q.classList.toggle('active',q===b));paint();fitToVisible(filteredMarkers())}});
-document.querySelectorAll('#legend span').forEach(el=>{el.onclick=()=>{const leg=el.getAttribute('data-leg');filter=leg;document.querySelectorAll('#filters .filter').forEach(q=>q.classList.toggle('active',q.dataset.f===leg));paint();fitToVisible(filteredMarkers())}});
-document.getElementById('fitBtn').onclick=()=>fitToVisible(filteredMarkers());
-document.getElementById('jumpOsint').onclick=(e)=>{e.preventDefault();filter='osint';document.querySelectorAll('#filters .filter').forEach(q=>q.classList.toggle('active',q.dataset.f==='osint'));paint();fitToVisible(filteredMarkers());document.getElementById('mapSection').scrollIntoView({behavior:'smooth'})};
-setTimeout(()=>{if(map){map.invalidateSize();fitToVisible(filteredMarkers())}},150)}
-document.querySelectorAll('.news-tabs .tab').forEach(b=>{b.onclick=()=>{newsTab=b.dataset.tab;document.querySelectorAll('.news-tabs .tab').forEach(q=>q.classList.toggle('active',q===b));if(S)renderStories()}});
-load();setInterval(load,5*60*1000);window.addEventListener('resize',()=>{if(map)setTimeout(()=>map.invalidateSize(),150)});
+const FALLBACK=[
+['ukraine','Ukraine–Russia War','Europe','WAR'],['gaza','Gaza / Israel–Hamas','Middle East','WAR'],['israel-iran','Israel–Iran Regional Front','Middle East','WAR'],['hormuz','Iran / Strait of Hormuz','Middle East','FLASHPOINT'],['yemen','Yemen / Red Sea','Middle East','CONFLICT'],['syria','Syria Conflict / Residual Fronts','Middle East','CONFLICT'],['iraq','Iraq Militia / Security Risk','Middle East','CONFLICT'],['sudan','Sudan Civil War','Africa','WAR'],['south-sudan','South Sudan Instability','Africa','CONFLICT'],['drc','Eastern DRC Conflict','Africa','CONFLICT'],['somalia','Somalia / al-Shabaab','Africa','INSURGENCY'],['ethiopia','Ethiopia Internal Conflict Risk','Africa','CONFLICT'],['nigeria','Nigeria Insurgency / Banditry','Africa','INSURGENCY'],['sahel-mali','Mali / Sahel Insurgency','Africa','INSURGENCY'],['sahel-burkina','Burkina Faso Insurgency','Africa','INSURGENCY'],['sahel-niger','Niger Insurgency / Coup Fallout','Africa','INSURGENCY'],['cameroon','Cameroon Separatist Conflict','Africa','INSURGENCY'],['chad','Chad Security / Sahel Spillover','Africa','FLASHPOINT'],['libya','Libya Political / Militia Risk','Africa','CONFLICT'],['mozambique','Mozambique Cabo Delgado','Africa','INSURGENCY'],['myanmar','Myanmar Civil War','Asia','WAR'],['afghanistan','Afghanistan Security Risk','Asia','INSURGENCY'],['pakistan','Pakistan Militancy / Border Risk','Asia','INSURGENCY'],['taiwan','Taiwan Strait Pressure','Indo-Pacific','FLASHPOINT'],['korea','Korean Peninsula','Indo-Pacific','FLASHPOINT'],['south-china-sea','South China Sea Flashpoint','Indo-Pacific','FLASHPOINT'],['haiti','Haiti Gang Conflict','Caribbean','CRIMINAL CONFLICT'],['mexico','Mexico Cartel Conflict','Latin America','CRIMINAL CONFLICT'],['ecuador','Ecuador Organized Crime Conflict','Latin America','CRIMINAL CONFLICT'],['colombia','Colombia Armed Groups','Latin America','INSURGENCY']
+].map(x=>({id:x[0],name:x[1],region:x[2],category:x[3],status:'Monitoring',actors:'Live source coverage pending',recent:'No live conflict-specific signal has been attached yet.',escalation:'MONITORING',activityScore:0,facts:'Theater is on the Global Pulse monitoring registry.',analysis:'Awaiting current source signals before making an escalation assessment.',confidence:'MONITORING',sourceCount:0}));
+let DATA=null,activeRegion='all',newsMode='breaking',activeLayer='all',map,markerLayer;
+const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function clsEsc(v){return /HIGH|CRITICAL/.test(v)?'high':/MODERATE/.test(v)?'mod':'low'}
+function renderConflicts(){let live=Array.isArray(DATA?.conflicts)?DATA.conflicts:[];const by=new Map(live.map(x=>[x.id,x]));let list=FALLBACK.map(x=>by.get(x.id)||x);live.forEach(x=>{if(!FALLBACK.some(f=>f.id===x.id))list.push(x)});const q=($('conflictSearch').value||'').toLowerCase();list=list.filter(c=>(activeRegion==='all'||c.region===activeRegion)&&(`${c.name} ${c.region} ${c.category} ${c.actors}`.toLowerCase().includes(q)));$('conflictCount').textContent=Array.isArray(DATA?.conflicts)?DATA.conflicts.length:30;$('highCount').textContent=list.filter(c=>/HIGH|CRITICAL/.test(c.escalation||'')).length;$('regionCount').textContent=new Set(list.map(c=>c.region)).size;$('conflictList').innerHTML=list.length?list.map(c=>{const n=Number(c.activityScore||0);return `<article class="ccard ${clsEsc(c.escalation||'')}" data-region="${esc(c.region)}"><div class="meta"><span class="tag red">${esc(c.escalation||'MONITORING')}</span><span class="tag blue">${esc(c.region||'')}</span><span class="tag">${esc(c.category||'')}</span><span class="tag ${c.confidence==='CORROBORATED'?'green':'amber'}">${esc(c.confidence||'MONITORING')}</span></div><h3>${esc(c.name)}</h3><div class="muted">${esc(c.status||'Active monitoring')} · ${esc(c.actors||'')}</div><div class="scoreline"><span>Activity signal</span><b>${n}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,n))}%"></div></div><div class="facts"><div class="label">Facts</div><div class="muted">${esc(c.facts||'No fact summary available.')}</div></div><div class="analysis"><div class="label">Analysis</div><div class="muted">${esc(c.analysis||'No analysis available.')}</div></div><div class="muted" style="margin-top:8px">Latest signal: ${esc(c.recent||'None in current window.')}</div></article>`}).join(''):'<div class="empty">No theaters match this filter.</div>'}
+function renderTop(){const t=Number(DATA?.tension??0);$('score').textContent=t?Math.round(t):'—';const d=Number(DATA?.tensionDelta||0);$('delta').textContent=d?`${d>0?'▲':'▼'} ${Math.abs(d)} from previous refresh`:'No prior comparison';$('delta').className='delta '+(d>0?'up':d<0?'down':'');$('riskTag').textContent=t>=80?'CRITICAL':t>=65?'HIGH':t>=50?'ELEVATED':'LOW';const b=DATA?.breakdownScores||{};$('breakdown').innerHTML=Object.entries(b).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></div></div><b>${Math.round(Number(v)||0)}</b></div>`).join('')||'<div class="empty">No scoring data yet.</div>'}
+function renderChanges(){const c=Array.isArray(DATA?.changes)?DATA.changes:[];$('changes').innerHTML=c.slice(0,8).map(x=>`<div class="item"><span class="tag ${x.kind==='breaking'?'red':'blue'}">${esc(x.kind||'update')}</span><strong>${esc(x.title)}</strong><div class="muted">${esc(x.detail||'')}</div></div>`).join('')||'<div class="empty">No changes reported.</div>'}
+function renderStories(){let s=Array.isArray(DATA?.stories)?DATA.stories:[];s=s.filter(x=>newsMode==='all'||(newsMode==='breaking'?x.breaking:!x.breaking)).slice(0,14);$('stories').innerHTML=s.length?s.map(x=>`<article class="story"><span class="tag ${x.breaking?'red':'blue'}">${x.breaking?'BREAKING':'BACKGROUND'}</span><span class="tag ${x.confidence==='CORROBORATED'?'green':'amber'}">${esc(x.confidence||'DEVELOPING')}</span><a class="story-link" href="${esc(x.source)}" target="_blank" rel="noopener"><h3>${esc(x.title)}</h3></a><div class="source">${esc(x.sourceLabel||'Public source')} · ${esc(x.time||'')}</div><p class="muted">${esc(x.summary||'')}</p><a class="open" href="${esc(x.source)}" target="_blank" rel="noopener">Open source ↗</a></article>`).join(''):'<div class="empty">No stories in this view.</div>'}
+function renderStatus(){const sh=DATA?.sourceHealth||[];const ok=sh.filter(x=>x.status==='ok').length;const total=sh.length;$('liveText').textContent=DATA?.updatedAt?`LIVE · ${new Date(DATA.updatedAt).toLocaleString([], {hour:'2-digit',minute:'2-digit'})}`:'LIVE DATA';$('status').innerHTML=`<b>${ok}/${total||'—'}</b> public feeds healthy<br><b>${esc(DATA?.sourceStatus||'')}</b><br><br><b>Refresh:</b> automatic GitHub Actions pipeline<br><b>Verification:</b> single-source reports remain developing; corroboration is preferred.<br><b>OSINT:</b> unverified until independently confirmed.`}
+function drawChart(){const hist=Array.isArray(DATA?.history)?DATA.history.slice(-30):[];const c=$('chart'),ctx=c.getContext('2d'),dpr=devicePixelRatio||1,w=c.clientWidth,hgt=160;c.width=w*dpr;c.height=hgt*dpr;ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,hgt);ctx.strokeStyle='#1b2b3d';ctx.lineWidth=1;for(let y=20;y<hgt;y+=35){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}if(hist.length<2){ctx.fillStyle='#91a4b8';ctx.font='12px system-ui';ctx.fillText('More refresh points will build the trend line.',12,28);return}const vals=hist.map(x=>Number(x.tension)||0),min=Math.max(0,Math.min(...vals)-5),max=Math.min(100,Math.max(...vals)+5);ctx.strokeStyle='#62a0ff';ctx.lineWidth=2;ctx.beginPath();vals.forEach((v,i)=>{const x=i*(w-20)/(vals.length-1)+10,y=hgt-12-(v-min)/(max-min||1)*(hgt-28);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();$('chartNote').textContent=`${hist.length} saved observations · range ${Math.round(min)}–${Math.round(max)}`}
+function color(type){return {conflict:'#ff6678',military:'#aa8df7',energy:'#fb923c',economic:'#48df83',osint:'#3fc5ff'}[type]||'#62a0ff'}
+function initMap(){map=L.map('map',{zoomControl:true,worldCopyJump:true}).setView([24,10],2);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:7}).addTo(map);markerLayer=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45});markerLayer.addTo(map);renderMap();setTimeout(()=>map.invalidateSize(),250)}
+function renderMap(){if(!map||!markerLayer)return;markerLayer.clearLayers();const markers=Array.isArray(DATA?.markers)?DATA.markers:[];const visible=markers.filter(m=>activeLayer==='all'||m.layer===activeLayer);visible.forEach(m=>{const col=color(m.layer);const icon=L.divIcon({className:'',html:`<div style="width:${m.importance===1?16:12}px;height:${m.importance===1?16:12}px;border-radius:50%;background:${col};box-shadow:0 0 0 3px ${col}33,0 0 16px ${col}66;border:1px solid #fff8"></div>`,iconSize:[18,18],iconAnchor:[9,9]});const popup=`<strong>${esc(m.title||'Marker')}</strong><div style="color:#91a4b8">${esc(m.status||'')}</div><p>${esc(m.detail||'')}</p><b>Why:</b> ${esc(m.why||'')}<br><b>Watch:</b> ${esc(m.watch||'')}${m.confidence?`<br><br><span style="color:#3fc5ff">${esc(m.confidence)}</span>`:''}`;L.marker([m.lat,m.lng],{icon}).bindPopup(popup).addTo(markerLayer)});}
+async function load(){try{const [a,b]=await Promise.all([fetch('data/snapshot.json?ts='+Date.now(),{cache:'no-store'}),fetch('data/history.json?ts='+Date.now(),{cache:'no-store'})]);if(!a.ok)throw new Error('snapshot unavailable');DATA=await a.json();DATA.history=b.ok?await b.json():[];renderTop();renderChanges();renderConflicts();renderStories();renderStatus();drawChart();renderMap()}catch(e){$('liveText').textContent='DATA ERROR';$('liveDot').style.background='var(--red)';$('status').innerHTML=`<span class="error">${esc(e.message)}</span><br>Open the site again after the GitHub data refresh completes.`;renderConflicts()}}
+$('conflictSearch').addEventListener('input',renderConflicts);document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeRegion=b.dataset.region;renderConflicts()}));document.querySelectorAll('[data-news]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-news]').forEach(x=>x.classList.remove('active'));b.classList.add('active');newsMode=b.dataset.news;renderStories()}));document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-layer]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeLayer=b.dataset.layer;renderMap()}));$('fit').addEventListener('click',()=>{if(markerLayer&&markerLayer.getLayers().length)map.fitBounds(markerLayer.getBounds().pad(.12))});window.addEventListener('resize',()=>{drawChart();map?.invalidateSize()});initMap();load();setInterval(load,300000);
 </script>
 </body>
 </html>
