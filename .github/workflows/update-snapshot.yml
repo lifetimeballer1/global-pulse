@@ -6,6 +6,7 @@ on:
     paths:
       - 'update_snapshot.py'
       - 'update_osint.py'
+      - 'patch_index_ui.py'
       - 'data/**'
       - '.github/workflows/update-snapshot.yml'
   schedule:
@@ -31,6 +32,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Apply dashboard UI fixes
+        run: |
+          if grep -q 'background:#050a10;z-index:90;opacity:1' index.html; then
+            echo "UI fixes already applied"
+          else
+            python patch_index_ui.py
+          fi
+
       - name: Refresh public news and conflict data
         run: python update_snapshot.py
 
@@ -41,9 +50,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/snapshot.json data/history.json data/sources.json
+          git add index.html data/snapshot.json data/history.json data/sources.json patch_index_ui.py .github/workflows/update-snapshot.yml
           if git diff --staged --quiet; then
-            echo "No data changes"
+            echo "No changes"
           else
             git commit -m "data: refresh Global Pulse $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
