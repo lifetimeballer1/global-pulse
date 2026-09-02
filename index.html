@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Pulse — World Economics & Conflict Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     :root {
@@ -133,21 +135,45 @@
     .bd-val { font-size: 1.15rem; font-weight: 600; font-family: ui-monospace, monospace; }
     .bd-w { font-size: 0.65rem; color: var(--muted); }
     /* Map */
-    #graph {
+    #map {
       width: 100%;
-      height: 420px;
-      background: #0b1018;
+      height: 480px;
       border-radius: 6px;
+      background: #0b1018;
+      z-index: 0;
     }
-    .node-label {
+    .leaflet-container { background: #0b1018; font-family: inherit; }
+    .leaflet-popup-content-wrapper {
+      background: #111820;
+      color: #e6edf3;
+      border: 1px solid #1e2a3a;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .leaflet-popup-tip { background: #111820; }
+    .leaflet-popup-content { margin: 12px 14px; font-size: 0.85rem; }
+    .leaflet-popup-content strong { color: #fff; }
+    .leaflet-popup-content .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .marker-label {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      color: #e6edf3;
       font-size: 11px;
-      fill: var(--text);
-      pointer-events: none;
-      font-family: ui-monospace, monospace;
+      font-weight: 600;
+      text-shadow: 0 1px 3px #000, 0 0 6px #000;
+      white-space: nowrap;
     }
-    .link { stroke-opacity: 0.65; }
     /* Stories */
-    .stories { overflow-y: auto; max-height: 520px; }
+    .stories { overflow-y: auto; max-height: 560px; }
     .story {
       padding: 12px 0;
       border-bottom: 1px solid var(--border);
@@ -208,17 +234,6 @@
     .econ-card .chg { font-size: 0.75rem; font-family: ui-monospace, monospace; }
     .up { color: var(--ok); }
     .down { color: var(--danger); }
-    .detail-panel {
-      margin-top: 12px;
-      padding: 12px;
-      background: #0d131c;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: none;
-    }
-    .detail-panel.visible { display: block; }
-    .detail-panel h3 { color: var(--text); margin-bottom: 6px; font-size: 0.9rem; }
     footer {
       text-align: center;
       padding: 16px;
@@ -233,9 +248,15 @@
       margin-top: 10px;
       font-size: 0.7rem;
       color: var(--muted);
+      align-items: center;
     }
     .legend span { display: flex; align-items: center; gap: 4px; }
     .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .zoom-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
   </style>
 </head>
 <body>
@@ -292,21 +313,18 @@
       <div id="storyList"></div>
     </div>
 
-    <!-- Center: Network Map -->
+    <!-- Center: World Map -->
     <div class="panel">
-      <h2>Country Relationship Map</h2>
-      <div id="graph"></div>
+      <h2>World Conflict & Economic Map</h2>
+      <div id="map"></div>
       <div class="legend">
-        <span><div class="dot" style="background:var(--alliance)"></div> Alliance / Security</span>
-        <span><div class="dot" style="background:var(--trade)"></div> Trade Partner</span>
-        <span><div class="dot" style="background:var(--conflict)"></div> Active Conflict / Proxy</span>
-        <span><div class="dot" style="background:var(--sanctions)"></div> Sanctions / Coercion</span>
-        <span><div class="dot" style="background:var(--tension)"></div> Diplomatic Tension</span>
+        <span><div class="dot" style="background:#ef4444"></div> Major conflict</span>
+        <span><div class="dot" style="background:#f97316"></div> Regional / active</span>
+        <span><div class="dot" style="background:#eab308"></div> Localized / lower intensity</span>
+        <span><div class="dot" style="background:#22c55e"></div> Economic / energy node</span>
+        <span style="margin-left:8px;opacity:0.8">Zoom in → more detail</span>
       </div>
-      <div class="detail-panel" id="nodeDetail">
-        <h3 id="detailTitle">Select a country</h3>
-        <div id="detailBody"></div>
-      </div>
+      <div class="zoom-hint">Zoomed out shows only the highest-impact theaters. Zoom closer to reveal smaller conflicts and local economic pressure points.</div>
     </div>
 
     <!-- Right: Economic Pulse -->
@@ -326,7 +344,7 @@
   </footer>
 
   <script>
-    // --- Sample data (slightly right-leaning framing: emphasis on revisionist pressure, energy leverage, deterrence costs) ---
+    // --- Sample data ---
     const stories = [
       {
         tag: "conflict",
@@ -403,46 +421,40 @@
       { name: "US 10Y", val: "4.80%", chg: "+5 bp", dir: "up" }
     ];
 
-    // Graph data
-    const nodes = [
-      { id: "US", group: 1, desc: "Primary security guarantor for Europe and Indo-Pacific partners. Deep involvement in Middle East containment of Iranian capabilities. High defense spending and alliance network." },
-      { id: "China", group: 2, desc: "Systemic competitor. Sustained military pressure on Taiwan, deep economic ties with Russia, growing influence via SCO and Belt & Road. Key technology and dual-use supplier to sanctioned states." },
-      { id: "Russia", group: 2, desc: "Ongoing full-scale war in Ukraine. Energy leverage and nuclear signaling. Increasing dependence on Chinese markets and dual-use inputs. SCO alignment with Beijing." },
-      { id: "Iran", group: 3, desc: "Central actor in current Middle East escalation. Proxy network (Hezbollah, Houthis, Iraqi militias) and residual nuclear program risk. Direct exchanges with Israel and US forces have raised oil-risk premium." },
-      { id: "Israel", group: 1, desc: "Active multi-front posture against Iranian axis. Close security coordination with the United States. High operational tempo since 2023–26 cascade of conflicts." },
-      { id: "Ukraine", group: 1, desc: "Defending against Russian invasion. Deep-strike campaign against Russian logistics and energy. Dependent on Western military and financial support." },
-      { id: "Taiwan", group: 1, desc: "Focal point of Chinese military pressure. Critical semiconductor node. Security relationship with the United States and informal partnerships with Japan, Australia and others." },
-      { id: "Saudi", group: 4, desc: "Major oil producer and OPEC+ coordinator. Balancing relations with the US, China and regional actors while managing risk from Iranian and Houthi threats to energy infrastructure." },
-      { id: "EU", group: 1, desc: "Collective economic weight and NATO European pillar. Energy transition and defense spending rising after Ukraine shock. Exposure to Middle East oil and gas disruption." },
-      { id: "India", group: 4, desc: "Strategic autonomy posture. Growing defense and technology ties with the US and partners; continued energy and diplomatic engagement with Russia. Critical swing player in Indo-Pacific balance." },
-      { id: "Japan", group: 1, desc: "Key US ally. Increasing defense outlays and regional security role in response to Chinese and North Korean activity." },
-      { id: "NATO", group: 1, desc: "Collective defense framework. Eastern flank reinforcement continues. Article 5 credibility remains central deterrent against Russian probing." }
-    ];
+    // Map markers: importance 1 = always visible (major), 2 = zoom ≥3, 3 = zoom ≥4.5, 4 = zoom ≥6
+    // type: conflict | economic
+    const markers = [
+      // Major theaters (importance 1)
+      { lat: 48.5, lng: 37.5, importance: 1, type: "conflict", title: "Ukraine–Russia War", detail: "Full-scale conflict continues. Ukraine deep strikes on Russian energy/logistics; Russia pressures Ukrainian infrastructure and front lines. High strategic and humanitarian cost." },
+      { lat: 28.5, lng: 51.0, importance: 1, type: "conflict", title: "Iran / Hormuz Theater", detail: "Direct and proxy exchanges with Israel and US forces. Strait of Hormuz risk remains the dominant global energy security flashpoint. IRGC-linked activity and residual nuclear concerns." },
+      { lat: 23.7, lng: 120.9, importance: 1, type: "conflict", title: "Taiwan Strait Pressure", detail: "Sustained PLA air and naval activity around Taiwan, including median-line crossings. Critical semiconductor and Indo-Pacific deterrence node." },
+      { lat: 31.5, lng: 34.5, importance: 1, type: "conflict", title: "Israel–Iran Axis Front", detail: "Multi-front posture against Iranian proxies and direct exchanges. High operational tempo since the 2023–26 cascade." },
 
-    const links = [
-      { source: "US", target: "NATO", type: "alliance" },
-      { source: "US", target: "Israel", type: "alliance" },
-      { source: "US", target: "Japan", type: "alliance" },
-      { source: "US", target: "Taiwan", type: "alliance" },
-      { source: "US", target: "Ukraine", type: "alliance" },
-      { source: "US", target: "Saudi", type: "trade" },
-      { source: "US", target: "Iran", type: "conflict" },
-      { source: "US", target: "China", type: "tension" },
-      { source: "US", target: "Russia", type: "sanctions" },
-      { source: "China", target: "Russia", type: "trade" },
-      { source: "China", target: "Taiwan", type: "tension" },
-      { source: "China", target: "Iran", type: "trade" },
-      { source: "Russia", target: "Ukraine", type: "conflict" },
-      { source: "Russia", target: "Iran", type: "trade" },
-      { source: "Iran", target: "Israel", type: "conflict" },
-      { source: "Iran", target: "Saudi", type: "tension" },
-      { source: "EU", target: "NATO", type: "alliance" },
-      { source: "EU", target: "Russia", type: "sanctions" },
-      { source: "EU", target: "Ukraine", type: "alliance" },
-      { source: "India", target: "Russia", type: "trade" },
-      { source: "India", target: "US", type: "trade" },
-      { source: "Japan", target: "China", type: "tension" },
-      { source: "Saudi", target: "China", type: "trade" }
+      // Regional / active (importance 2)
+      { lat: 15.5, lng: 32.5, importance: 2, type: "conflict", title: "Sudan Civil War", detail: "Army vs Rapid Support Forces. Intense fighting in North Kordofan and elsewhere. One of the world’s worst humanitarian crises." },
+      { lat: 21.0, lng: 43.0, importance: 2, type: "conflict", title: "Yemen / Red Sea", detail: "Houthi activity and residual risk to Red Sea / Bab el-Mandeb shipping lanes. Intermittent cross-border strikes with Saudi Arabia." },
+      { lat: 19.5, lng: 96.0, importance: 2, type: "conflict", title: "Myanmar Civil War", detail: "Ongoing multi-front fighting between junta and ethnic armed organizations / resistance. High civilian impact." },
+      { lat: 35.0, lng: 38.5, importance: 2, type: "conflict", title: "Syria / Residual Conflict", detail: "Multiple overlapping actors; spillover risk from broader Iran–Israel and regional dynamics." },
+      { lat: 33.3, lng: 44.4, importance: 2, type: "conflict", title: "Iraq – Militia Activity", detail: "Iran-aligned groups remain a pressure point; periodic strikes and political tension with Baghdad and US presence." },
+
+      // Localized / lower intensity (importance 3)
+      { lat: 12.0, lng: 15.0, importance: 3, type: "conflict", title: "Lake Chad / Sahel Insurgency", detail: "Boko Haram / ISWAP and other jihadist groups continue attacks across the Lake Chad basin and Sahel states." },
+      { lat: 0.5, lng: 29.5, importance: 3, type: "conflict", title: "Eastern DRC", detail: "M23 and other armed groups; regional involvement (Rwanda/DRC tensions). Persistent displacement." },
+      { lat: 34.0, lng: 69.2, importance: 3, type: "conflict", title: "Afghanistan–Pakistan Border", detail: "Cross-border friction and militant activity remain elevated after earlier ceasefire breakdowns." },
+      { lat: 41.3, lng: 69.2, importance: 3, type: "conflict", title: "Central Asia Tensions", detail: "SCO region diplomacy concurrent with residual border and water-resource frictions among several states." },
+      { lat: 15.3, lng: 44.2, importance: 3, type: "conflict", title: "Houthi Core Area", detail: "Command and logistics nodes tied to Red Sea interdiction capability." },
+
+      // Economic / energy nodes (appear on closer zoom)
+      { lat: 26.5, lng: 56.5, importance: 2, type: "economic", title: "Strait of Hormuz", detail: "Critical chokepoint for global oil. Current risk premium is the main driver of elevated Brent (~$94–95). Any sustained closure would be systemically disruptive." },
+      { lat: 12.5, lng: 43.5, importance: 3, type: "economic", title: "Bab el-Mandeb / Red Sea", detail: "Secondary chokepoint. Residual Houthi threat continues to influence shipping insurance and rerouting costs." },
+      { lat: 29.3, lng: 48.0, importance: 3, type: "economic", title: "Persian Gulf Energy Complex", detail: "Major producers and export terminals. Saudi, UAE, Kuwait and others balancing security and market share." },
+      { lat: 40.7, lng: -74.0, importance: 3, type: "economic", title: "US Markets / NY", detail: "S&P ~7,631, VIX ~16.3. Defense and energy sectors relatively resilient amid broader risk-off." },
+      { lat: 51.5, lng: -0.1, importance: 3, type: "economic", title: "London / Europe Energy", detail: "European exposure to Middle East oil/gas disruption and elevated defense spending after Ukraine." },
+      { lat: 35.7, lng: 139.7, importance: 3, type: "economic", title: "Tokyo / Indo-Pacific Trade", detail: "Critical node for semiconductor and manufacturing supply chains; sensitive to Taiwan Strait risk." },
+      { lat: 22.3, lng: 114.2, importance: 3, type: "economic", title: "Hong Kong / South China Trade", detail: "Trade and finance hub under the shadow of Taiwan and South China Sea tensions." },
+      { lat: 1.3, lng: 103.8, importance: 4, type: "economic", title: "Singapore / Malacca", detail: "Major refining and shipping hub. Alternative route pressure when Hormuz or Red Sea risk rises." },
+      { lat: 25.2, lng: 55.3, importance: 4, type: "economic", title: "Dubai / UAE Energy Hub", detail: "Regional energy and logistics center; closely watches Hormuz and Iranian retaliation risk." },
+      { lat: 31.2, lng: 121.5, importance: 4, type: "economic", title: "Shanghai / China Export Hub", detail: "Manufacturing and export powerhouse. Sensitive to US–China trade and Taiwan contingency scenarios." }
     ];
 
     // Render stories
@@ -490,69 +502,86 @@
       svg.append("path").attr("d", arcVal).attr("transform", `translate(${width/2},${height-10})`).attr("fill", value > 70 ? "#ef4444" : value > 45 ? "#f59e0b" : "#22c55e");
     })();
 
-    // Force graph
-    (function drawGraph() {
-      const width = document.getElementById("graph").clientWidth || 600;
-      const height = 420;
-      const svg = d3.select("#graph").append("svg").attr("width", width).attr("height", height);
+    // --- Interactive Leaflet world map ---
+    (function initMap() {
+      const map = L.map("map", {
+        center: [25, 40],
+        zoom: 2.4,
+        minZoom: 2,
+        maxZoom: 8,
+        worldCopyJump: true,
+        zoomControl: true
+      });
 
-      const color = {
-        alliance: "#3b82f6",
-        trade: "#22c55e",
-        conflict: "#ef4444",
-        sanctions: "#f59e0b",
-        tension: "#a855f7"
-      };
+      // Dark basemap (CartoDB Dark Matter)
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: "&copy; OpenStreetMap &copy; CARTO",
+        subdomains: "abcd",
+        maxZoom: 19
+      }).addTo(map);
 
-      const simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id).distance(90))
-        .force("charge", d3.forceManyBody().strength(-280))
-        .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collide", d3.forceCollide(28));
+      // Color / size by type + importance
+      function markerStyle(m) {
+        if (m.type === "economic") {
+          return { radius: 7, color: "#166534", fillColor: "#22c55e", fillOpacity: 0.9, weight: 1.5 };
+        }
+        // conflict
+        if (m.importance === 1) return { radius: 11, color: "#7f1d1d", fillColor: "#ef4444", fillOpacity: 0.95, weight: 2 };
+        if (m.importance === 2) return { radius: 8, color: "#9a3412", fillColor: "#f97316", fillOpacity: 0.9, weight: 1.5 };
+        return { radius: 6, color: "#854d0e", fillColor: "#eab308", fillOpacity: 0.85, weight: 1 };
+      }
 
-      const link = svg.append("g")
-        .selectAll("line")
-        .data(links)
-        .join("line")
-        .attr("class", "link")
-        .attr("stroke", d => color[d.type] || "#666")
-        .attr("stroke-width", 2);
+      // Minimum zoom at which this marker becomes visible
+      function minZoomFor(m) {
+        if (m.importance <= 1) return 0;
+        if (m.importance === 2) return 3;
+        if (m.importance === 3) return 4.5;
+        return 6; // importance 4+
+      }
 
-      const node = svg.append("g")
-        .selectAll("g")
-        .data(nodes)
-        .join("g")
-        .call(d3.drag()
-          .on("start", (event, d) => { if (!event.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
-          .on("drag", (event, d) => { d.fx = event.x; d.fy = event.y; })
-          .on("end", (event, d) => { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
-        )
-        .on("click", (event, d) => {
-          const panel = document.getElementById("nodeDetail");
-          document.getElementById("detailTitle").textContent = d.id;
-          document.getElementById("detailBody").textContent = d.desc;
-          panel.classList.add("visible");
+      const layerGroup = L.layerGroup().addTo(map);
+      const leafletMarkers = [];
+
+      markers.forEach(m => {
+        const circle = L.circleMarker([m.lat, m.lng], markerStyle(m));
+        const tagClass = m.type === "economic" ? "economic" : "conflict";
+        const tagLabel = m.type === "economic" ? "Economic" : "Conflict";
+        circle.bindPopup(`
+          <div class="tag ${tagClass}">${tagLabel}</div>
+          <strong>${m.title}</strong><br/><br/>
+          ${m.detail}
+        `);
+        circle._meta = m;
+        leafletMarkers.push(circle);
+      });
+
+      function updateVisibility() {
+        const z = map.getZoom();
+        layerGroup.clearLayers();
+        leafletMarkers.forEach(c => {
+          if (z >= minZoomFor(c._meta)) {
+            layerGroup.addLayer(c);
+          }
         });
+      }
 
-      node.append("circle")
-        .attr("r", 14)
-        .attr("fill", d => d.group === 1 ? "#1e3a5f" : d.group === 2 ? "#3f1d1d" : d.group === 3 ? "#3f2a1d" : "#1d2f1d")
-        .attr("stroke", "#3b82f6")
-        .attr("stroke-width", 1.5);
+      map.on("zoomend", updateVisibility);
+      updateVisibility(); // initial
 
-      node.append("text")
-        .attr("class", "node-label")
-        .attr("dy", 28)
-        .attr("text-anchor", "middle")
-        .text(d => d.id);
-
-      simulation.on("tick", () => {
-        link
-          .attr("x1", d => d.source.x)
-          .attr("y1", d => d.source.y)
-          .attr("x2", d => d.target.x)
-          .attr("y2", d => d.target.y);
-        node.attr("transform", d => `translate(${d.x},${d.y})`);
+      // Optional: subtle connection lines between major related theaters (US-Israel-Iran, Russia-Ukraine, China-Taiwan)
+      // Kept light so the map stays readable
+      const majorLinks = [
+        [[48.5, 37.5], [55.0, 37.0]], // Ukraine approx front to deeper Russia
+        [[31.5, 34.5], [28.5, 51.0]], // Israel – Iran
+        [[23.7, 120.9], [25.0, 121.5]]  // Taiwan area
+      ];
+      majorLinks.forEach(pair => {
+        L.polyline(pair, {
+          color: "#ef4444",
+          weight: 1.5,
+          opacity: 0.35,
+          dashArray: "4 6"
+        }).addTo(map);
       });
     })();
   </script>
