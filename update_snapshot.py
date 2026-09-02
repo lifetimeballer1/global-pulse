@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Build the public Global Pulse snapshot from no-key RSS sources.
 
-The site is intentionally keyless: GitHub Actions fetches public RSS feeds,
-deduplicates stories, derives transparent analytical scores, and writes a
-static snapshot consumed by index.html. Scores are analytical indicators, not
-claims of ground truth.
+The refresh is deliberately transparent: public RSS headlines are collected,
+deduplicated, assigned to specific conflict theaters, and converted into
+analytical activity/escalation signals. A score is never presented as
+battlefield ground truth.
 """
 import hashlib
 import json
 import re
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -38,50 +39,53 @@ FEEDS = [
     ("ReliefWeb", "https://reliefweb.int/updates/rss.xml", "humanitarian"),
 ]
 
+# Each theater has strong identifiers. Generic words such as "attack" are
+# intentionally excluded: they cannot identify a conflict on their own.
 CONFLICTS = [
-    ("ukraine", "Ukraine–Russia War", "Europe", "WAR", "HIGH", "Ukraine Russia Kyiv Donetsk Crimea Kharkiv missile drone strike offensive ceasefire"),
-    ("gaza", "Gaza / Israel–Hamas", "Middle East", "WAR", "HIGH", "Gaza Hamas Israel Rafah Gaza Strip hostage ceasefire strike"),
-    ("israel-iran", "Israel–Iran Regional Front", "Middle East", "WAR", "HIGH", "Israel Iran Tehran missile strike nuclear Hezbollah proxy"),
-    ("hormuz", "Iran / Strait of Hormuz", "Middle East", "FLASHPOINT", "HIGH", "Hormuz tanker Gulf Iran blockade shipping oil"),
-    ("yemen", "Yemen / Red Sea", "Middle East", "CONFLICT", "HIGH", "Yemen Houthi Red Sea ship Bab el-Mandeb missile"),
-    ("syria", "Syria Conflict / Residual Fronts", "Middle East", "CONFLICT", "MODERATE", "Syria Damascus Idlib Kurdish clashes militia"),
-    ("iraq", "Iraq Militia / Security Risk", "Middle East", "CONFLICT", "MODERATE", "Iraq militia rocket Islamic State ISIS Baghdad"),
-    ("sudan", "Sudan Civil War", "Africa", "WAR", "CRITICAL", "Sudan SAF RSF Khartoum Darfur Kordofan famine"),
-    ("south-sudan", "South Sudan Instability", "Africa", "CONFLICT", "HIGH", "South Sudan Juba militia clashes"),
-    ("drc", "Eastern DRC Conflict", "Africa", "CONFLICT", "HIGH", "DRC Congo M23 Goma Rwanda militia"),
-    ("somalia", "Somalia / al-Shabaab", "Africa", "INSURGENCY", "HIGH", "Somalia al-Shabaab Mogadishu militant attack"),
-    ("ethiopia", "Ethiopia Internal Conflict Risk", "Africa", "CONFLICT", "MODERATE", "Ethiopia Amhara Tigray Oromia clashes"),
-    ("nigeria", "Nigeria Insurgency / Banditry", "Africa", "INSURGENCY", "HIGH", "Nigeria Boko Haram ISWAP bandit kidnapping attack"),
-    ("sahel-mali", "Mali / Sahel Insurgency", "Africa", "INSURGENCY", "HIGH", "Mali JNIM Islamic State insurgency attack"),
-    ("sahel-burkina", "Burkina Faso Insurgency", "Africa", "INSURGENCY", "HIGH", "Burkina Faso JNIM militant attack"),
-    ("sahel-niger", "Niger Insurgency / Coup Fallout", "Africa", "INSURGENCY", "HIGH", "Niger JNIM Islamic State insurgency coup"),
-    ("cameroon", "Cameroon Separatist Conflict", "Africa", "INSURGENCY", "MODERATE", "Cameroon Anglophone separatist attack"),
-    ("chad", "Chad Security / Sahel Spillover", "Africa", "FLASHPOINT", "MODERATE", "Chad Sudan border rebels attack"),
-    ("libya", "Libya Political / Militia Risk", "Africa", "CONFLICT", "MODERATE", "Libya militia Tripoli Benghazi clashes"),
-    ("mozambique", "Mozambique Cabo Delgado", "Africa", "INSURGENCY", "MODERATE", "Mozambique Cabo Delgado insurgency Islamic State"),
-    ("myanmar", "Myanmar Civil War", "Asia", "WAR", "HIGH", "Myanmar junta resistance civil war Mandalay Rakhine"),
-    ("afghanistan", "Afghanistan Security Risk", "Asia", "INSURGENCY", "MODERATE", "Afghanistan Taliban ISIS-K attack Kabul"),
-    ("pakistan", "Pakistan Militancy / Border Risk", "Asia", "INSURGENCY", "HIGH", "Pakistan TTP Balochistan militant attack"),
-    ("taiwan", "Taiwan Strait Pressure", "Indo-Pacific", "FLASHPOINT", "HIGH", "Taiwan China PLA blockade military drills"),
-    ("korea", "Korean Peninsula", "Indo-Pacific", "FLASHPOINT", "HIGH", "North Korea missile South Korea artillery nuclear"),
-    ("south-china-sea", "South China Sea Flashpoint", "Indo-Pacific", "FLASHPOINT", "MODERATE", "South China Sea Philippines China collision"),
-    ("haiti", "Haiti Gang Conflict", "Caribbean", "CRIMINAL CONFLICT", "CRITICAL", "Haiti gangs Port-au-Prince police kidnapping"),
-    ("mexico", "Mexico Cartel Conflict", "Latin America", "CRIMINAL CONFLICT", "HIGH", "Mexico cartel CJNG Sinaloa cartel attack drone explosive kidnapping"),
-    ("ecuador", "Ecuador Organized Crime Conflict", "Latin America", "CRIMINAL CONFLICT", "HIGH", "Ecuador gangs prison violence cartel attack"),
-    ("colombia", "Colombia Armed Groups", "Latin America", "INSURGENCY", "MODERATE", "Colombia ELN FARC dissidents armed group attack"),
+    ("ukraine", "Ukraine–Russia War", "Europe", "WAR", "HIGH", ["ukraine", "russia", "kyiv", "kyiv", "donetsk", "crimea", "kharkiv", "zaporizhzhia", "zelensky", "putin"]),
+    ("gaza", "Gaza / Israel–Hamas", "Middle East", "WAR", "HIGH", ["gaza", "hamas", "gaza strip", "rafah", "west bank", "palestinian", "israel-hamas"]),
+    ("israel-iran", "Israel–Iran Regional Front", "Middle East", "WAR", "HIGH", ["israel-iran", "israel iran", "iran israel", "tehran", "iranian nuclear", "iranian missile"]),
+    ("hormuz", "Iran / Strait of Hormuz", "Middle East", "FLASHPOINT", "HIGH", ["strait of hormuz", "hormuz", "persian gulf", "gulf tanker", "iran oil shipping"]),
+    ("yemen", "Yemen / Red Sea", "Middle East", "CONFLICT", "HIGH", ["yemen", "houthi", "red sea", "bab el-mandeb", "aden shipping"]),
+    ("syria", "Syria Conflict / Residual Fronts", "Middle East", "CONFLICT", "MODERATE", ["syria", "syrian", "damascus", "idlib"]),
+    ("iraq", "Iraq Militia / Security Risk", "Middle East", "CONFLICT", "MODERATE", ["iraq", "iraqi", "baghdad", "kurdistan iraq", "iraqi militia"]),
+    ("sudan", "Sudan Civil War", "Africa", "WAR", "CRITICAL", ["sudan", "sudanese", "khartoum", "darfur", "kordofan", "rsf", "saf sudan"]),
+    ("south-sudan", "South Sudan Instability", "Africa", "CONFLICT", "HIGH", ["south sudan", "juba", "south sudanese"]),
+    ("drc", "Eastern DRC Conflict", "Africa", "CONFLICT", "HIGH", ["democratic republic of congo", "drc", "eastern congo", "goma", "m23", "north kivu", "south kivu"]),
+    ("somalia", "Somalia / al-Shabaab", "Africa", "INSURGENCY", "HIGH", ["somalia", "somali", "al-shabaab", "mogadishu"]),
+    ("ethiopia", "Ethiopia Internal Conflict Risk", "Africa", "CONFLICT", "MODERATE", ["ethiopia", "ethiopian", "amhara", "tigray", "oromia"]),
+    ("nigeria", "Nigeria Insurgency / Banditry", "Africa", "INSURGENCY", "HIGH", ["nigeria", "nigerian", "boko haram", "iswap", "banditry", "bandits"]),
+    ("sahel-mali", "Mali / Sahel Insurgency", "Africa", "INSURGENCY", "HIGH", ["mali", "malian", "jnim", "bamako"]),
+    ("sahel-burkina", "Burkina Faso Insurgency", "Africa", "INSURGENCY", "HIGH", ["burkina faso", "burkinabe", "jnim", "ouagadougou"]),
+    ("sahel-niger", "Niger Insurgency / Coup Fallout", "Africa", "INSURGENCY", "HIGH", ["niger", "nigerien", "niamey", "jnim", "islamic state sahel"]),
+    ("cameroon", "Cameroon Separatist Conflict", "Africa", "INSURGENCY", "MODERATE", ["cameroon", "cameroonian", "anglophone", "ambazonia"]),
+    ("chad", "Chad Security / Sahel Spillover", "Africa", "FLASHPOINT", "MODERATE", ["chad", "chadian", "n'djamena", "lake chad"]),
+    ("libya", "Libya Political / Militia Risk", "Africa", "CONFLICT", "MODERATE", ["libya", "libyan", "tripoli libya", "benghazi libya"]),
+    ("mozambique", "Mozambique Cabo Delgado", "Africa", "INSURGENCY", "MODERATE", ["mozambique", "mozambican", "cabo delgado", "mocimboa"]),
+    ("myanmar", "Myanmar Civil War", "Asia", "WAR", "HIGH", ["myanmar", "burma", "myanmarese", "junta", "rakhine", "mandalay", "naypyidaw"]),
+    ("afghanistan", "Afghanistan Security Risk", "Asia", "INSURGENCY", "MODERATE", ["afghanistan", "afghan", "taliban", "isis-k", "kabul"]),
+    ("pakistan", "Pakistan Militancy / Border Risk", "Asia", "INSURGENCY", "HIGH", ["pakistan", "pakistani", "ttp", "balochistan", "islamabad"]),
+    ("taiwan", "Taiwan Strait Pressure", "Indo-Pacific", "FLASHPOINT", "HIGH", ["taiwan", "taiwan strait", "pla", "beijing", "cross-strait"]),
+    ("korea", "Korean Peninsula", "Indo-Pacific", "FLASHPOINT", "HIGH", ["north korea", "south korea", "dprk", "pyongyang", "korean peninsula"]),
+    ("south-china-sea", "South China Sea Flashpoint", "Indo-Pacific", "FLASHPOINT", "MODERATE", ["south china sea", "philippines china", "spratly", "second thomas shoal"]),
+    ("haiti", "Haiti Gang Conflict", "Caribbean", "CRIMINAL CONFLICT", "CRITICAL", ["haiti", "haitian", "port-au-prince", "gang violence haiti"]),
+    ("mexico", "Mexico Cartel Conflict", "Latin America", "CRIMINAL CONFLICT", "HIGH", ["mexico", "mexican", "cjng", "sinaloa cartel", "cartel violence", "mexico cartel"]),
+    ("ecuador", "Ecuador Organized Crime Conflict", "Latin America", "CRIMINAL CONFLICT", "HIGH", ["ecuador", "ecuadorian", "guayaquil", "los choneros", "prison violence ecuador"]),
+    ("colombia", "Colombia Armed Groups", "Latin America", "INSURGENCY", "MODERATE", ["colombia", "colombian", "eln", "farc dissidents", "catatumbo"]),
 ]
 
-BREAKING_RE = re.compile(r"strike|attack|killed|drone|missile|blockade|escalat|invasion|ceasefire|bomb|shell|offensive|mobiliz|sanction|hostage|explosion|raid|coup|clash|shooting", re.I)
-CONFLICT_RE = re.compile(r"war|conflict|military|troops|forces|attack|strike|missile|drone|airstrike|shelling|insurgent|militant|clash|ceasefire|coup|cartel|gang|kidnap", re.I)
+BREAKING_RE = re.compile(r"strike|attack|killed|drone|missile|blockade|escalat|invasion|ceasefire|bomb|shell|offensive|mobiliz|sanction|hostage|explosion|raid|coup|clash|shooting|airstrike", re.I)
+CONFLICT_RE = re.compile(r"war|conflict|military|troops|forces|attack|strike|missile|drone|airstrike|shelling|insurgent|militant|clash|ceasefire|coup|cartel|gang|kidnap|bomb|explosion", re.I)
 ECON_RE = re.compile(r"oil|gas|inflation|tariff|trade|market|stocks|bond|currency|dollar|euro|yuan|yen|interest rate|central bank|economy|sanction|shipping|freight|commodity", re.I)
 DIPLO_RE = re.compile(r"talks|summit|negotiat|diplomat|ceasefire|peace|agreement|treaty|alliance|sanction|tariff|embassy|envoy", re.I)
 MIL_RE = re.compile(r"missile|drone|troops|military|army|navy|air force|fighter|carrier|exercise|mobiliz|weapons|defense", re.I)
+SEVERITY = [("critical", re.compile(r"invasion|mass casualty|massacre|major offensive|missile barrage|bombing campaign|blockade|airstrike|explosion|coup", re.I), 12), ("high", re.compile(r"strike|attack|killed|drone|missile|shelling|clash|raid|hostage|shooting", re.I), 8), ("medium", re.compile(r"troops|military|sanction|ceasefire|mobiliz|threat|warning", re.I), 4)]
 
 
 def fetch(url):
-    req = Request(url, headers={"User-Agent": "GlobalPulse/3.0 (+https://github.com/lifetimeballer1/global-pulse)"})
-    with urlopen(req, timeout=25) as r:
-        return r.read()
+    req = Request(url, headers={"User-Agent": "GlobalPulse/4.0 (+https://github.com/lifetimeballer1/global-pulse)"})
+    with urlopen(req, timeout=25) as response:
+        return response.read()
 
 
 def clean(value):
@@ -89,43 +93,127 @@ def clean(value):
 
 
 def text(node, tag):
-    x = node.find(tag)
-    return (x.text or "").strip() if x is not None and x.text else ""
+    found = node.find(tag)
+    return (found.text or "").strip() if found is not None and found.text else ""
 
 
-def is_breaking(title, summary, pub):
-    return bool(BREAKING_RE.search(f"{title} {summary}")) or bool(re.search(r"\bSep(?:tember)?\s*0?[1-3]\b", pub or "", re.I))
+def is_breaking(title, summary):
+    return bool(BREAKING_RE.search(f"{title} {summary}"))
 
 
-def score_dimension(texts, regex, base=50):
-    hits = sum(1 for t in texts if regex.search(t))
-    return max(0, min(100, base + hits * 4))
+def parse_time(value):
+    if not value:
+        return None
+    try:
+        dt = parsedate_to_datetime(value)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except Exception:
+        try:
+            return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+        except Exception:
+            return None
 
 
-def make_conflicts(stories):
-    corpus = [f"{s['title']} {s['summary']}" for s in stories]
+def recency_weight(value):
+    dt = parse_time(value)
+    if not dt:
+        return 0.65
+    age = max(0.0, (datetime.now(timezone.utc) - dt).total_seconds() / 3600)
+    if age <= 6: return 1.0
+    if age <= 24: return 0.92
+    if age <= 72: return 0.75
+    if age <= 168: return 0.55
+    return 0.35
+
+
+def match_conflict(story, aliases):
+    title = story["title"].lower()
+    summary = story["summary"].lower()
+    score = 0.0
+    matched = []
+    for alias in aliases:
+        a = alias.lower()
+        if a in title:
+            score += 6.0
+            matched.append(alias)
+        elif a in summary:
+            score += 2.5
+            matched.append(alias)
+    if not matched:
+        return 0.0, []
+    severity_bonus = 0
+    text_blob = f"{title} {summary}"
+    for _, rx, points in SEVERITY:
+        if rx.search(text_blob):
+            severity_bonus = max(severity_bonus, points)
+    return min(32.0, score + severity_bonus * recency_weight(story["time"])), matched
+
+
+def baseline_score(level):
+    return {"CRITICAL": 46, "HIGH": 37, "MODERATE": 27}.get(level, 22)
+
+
+def make_conflicts(stories, previous):
     result = []
-    for cid, name, region, kind, baseline, keywords in CONFLICTS:
-        terms = re.compile(keywords, re.I)
-        matches = [s for s in stories if terms.search(f"{s['title']} {s['summary']}")]
-        activity = min(100, 42 + len(matches) * 11)
-        if baseline == "CRITICAL": activity = max(activity, 72)
-        elif baseline == "HIGH": activity = max(activity, 58)
-        escalation = "CRITICAL" if activity >= 82 else "HIGH" if activity >= 68 else "MODERATE" if activity >= 52 else "LOW"
-        confidence = "CORROBORATED" if len({s['sourceLabel'] for s in matches}) >= 2 else "DEVELOPING" if matches else "MONITORING"
-        recent = matches[0]['title'] if matches else "No matching headline in the latest public feed window."
+    previous_by_id = {c.get("id"): c for c in previous.get("conflicts", [])}
+    for cid, name, region, category, baseline, aliases in CONFLICTS:
+        ranked = []
+        for story in stories:
+            score, matched = match_conflict(story, aliases)
+            if score > 0:
+                ranked.append((score, story, matched))
+        ranked.sort(key=lambda x: (x[0], parse_time(x[1]["time"]) or datetime.min.replace(tzinfo=timezone.utc)), reverse=True)
+        source_names = {story["sourceLabel"] for _, story, _ in ranked}
+        recent = ranked[0][1] if ranked else None
+        # Evidence is weighted by source breadth and recency, while repeated
+        # copies from one outlet cannot inflate the signal indefinitely.
+        evidence = sum(min(32.0, score) for score, _, _ in ranked[:8])
+        breadth_bonus = min(18, max(0, len(source_names) - 1) * 5)
+        activity = round(min(100, baseline_score(baseline) + evidence * 0.72 + breadth_bonus))
+        old_activity = previous_by_id.get(cid, {}).get("activityScore")
+        delta = activity - old_activity if isinstance(old_activity, (int, float)) else 0
+        if activity >= 82: escalation = "CRITICAL"
+        elif activity >= 68: escalation = "HIGH"
+        elif activity >= 50: escalation = "MODERATE"
+        else: escalation = "LOW"
+        if len(source_names) >= 3: confidence = "CORROBORATED"
+        elif len(source_names) == 2: confidence = "MULTI-SOURCE"
+        elif len(source_names) == 1: confidence = "DEVELOPING"
+        else: confidence = "MONITORING"
+        if ranked and len(source_names) == 1:
+            confidence = "SINGLE-SOURCE"
+        event_type = "MONITORING"
+        if recent:
+            blob = f"{recent[1]['title']} {recent[1]['summary']}"
+            if re.search(r"missile|drone|airstrike|bomb|explosion|shell", blob, re.I): event_type = "KINETIC"
+            elif re.search(r"troops|military|exercise|mobiliz|weapons", blob, re.I): event_type = "MILITARY POSTURE"
+            elif re.search(r"ceasefire|talks|negotiat|peace|agreement|diplomat", blob, re.I): event_type = "DIPLOMATIC"
+            elif re.search(r"oil|gas|shipping|sanction|trade|tariff", blob, re.I): event_type = "ECONOMIC"
+            elif re.search(r"gang|cartel|kidnap|crime", blob, re.I): event_type = "CRIMINAL VIOLENCE"
+        signals = []
+        for score, story, matched in ranked[:4]:
+            signals.append({"title": story["title"][:180], "source": story["sourceLabel"], "url": story["source"], "time": story["time"], "match": matched[:4], "signal": round(score, 1)})
         result.append({
-            "id": cid, "name": name, "region": region, "category": kind,
-            "status": "Active monitoring", "actors": "See latest reporting and source links.",
-            "recent": recent[:180], "escalation": escalation,
-            "activityScore": activity,
-            "facts": f"Monitored theater; {len(matches)} matching items in the current public feed window.",
-            "analysis": "Activity score is derived from current source coverage and keyword/event signals; it is not a casualty count or ground-truth battlefield assessment.",
-            "confidence": confidence,
-            "sourceCount": len({s['sourceLabel'] for s in matches}),
-            "lastSignal": matches[0]['time'] if matches else None,
+            "id": cid, "name": name, "region": region, "category": category,
+            "status": "Active signal" if ranked else "Monitoring",
+            "recent": recent["title"][:180] if recent else "No specific current signal in the public feed window.",
+            "escalation": escalation, "activityScore": activity, "delta": delta,
+            "signalCount": len(ranked), "sourceCount": len(source_names),
+            "confidence": confidence, "eventType": event_type,
+            "lastSignal": recent["time"] if recent else None,
+            "signals": signals,
+            "facts": f"{len(ranked)} conflict-specific signal(s) from {len(source_names)} source(s) in the current feed window.",
+            "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war.",
         })
+    result.sort(key=lambda c: c["activityScore"], reverse=True)
     return result
+
+
+def score_dimension(stories, regex, base=40):
+    weighted = sum(recency_weight(s["time"]) for s in stories if regex.search(f"{s['title']} {s['summary']}"))
+    return round(max(0, min(100, base + weighted * 3.2)))
 
 
 def main():
@@ -140,52 +228,45 @@ def main():
                 title = clean(text(item, "title") or text(item, "{http://www.w3.org/2005/Atom}title"))
                 link = text(item, "link")
                 if not link:
-                    link_node = item.find("{http://www.w3.org/2005/Atom}link")
-                    link = link_node.attrib.get("href", "") if link_node is not None else ""
+                    node = item.find("{http://www.w3.org/2005/Atom}link")
+                    link = node.attrib.get("href", "") if node is not None else ""
                 summary = clean(text(item, "description") or text(item, "{http://www.w3.org/2005/Atom}summary"))
                 pub = text(item, "pubDate") or text(item, "{http://www.w3.org/2005/Atom}updated")
                 if not title or not link: continue
-                stories.append({
-                    "id": hashlib.sha1(link.encode()).hexdigest()[:12],
-                    "sourceLabel": label, "sourceType": kind,
-                    "title": title[:240], "summary": summary[:320], "source": link,
-                    "time": pub, "tag": "Breaking" if is_breaking(title, summary, pub) else "World",
-                    "confidence": "DEVELOPING", "breaking": is_breaking(title, summary, pub),
-                })
+                stories.append({"id": hashlib.sha1(link.encode()).hexdigest()[:12], "sourceLabel": label, "sourceType": kind, "title": title[:240], "summary": summary[:420], "source": link, "time": pub, "tag": "Breaking" if is_breaking(title, summary) else "World", "confidence": "DEVELOPING", "breaking": is_breaking(title, summary)})
         except Exception as exc:
             errors.append(f"{label}: {type(exc).__name__}")
 
     unique, seen = [], set()
-    for s in stories:
-        if s["id"] not in seen:
-            seen.add(s["id"]); unique.append(s)
-    unique.sort(key=lambda s: (not s["breaking"], s["sourceLabel"], s["title"]))
-    stories = unique[:80]
+    for story in stories:
+        if story["id"] not in seen:
+            seen.add(story["id"]); unique.append(story)
+    unique.sort(key=lambda s: (parse_time(s["time"]) or datetime.min.replace(tzinfo=timezone.utc)), reverse=True)
+    stories = unique[:120]
     old_ids = {s.get("id") for s in old.get("stories", [])}
     new_items = [s for s in stories if s["id"] not in old_ids]
 
-    texts = [f"{s['title']} {s['summary']}" for s in stories]
     breakdown = {
-        "Conflict activity": score_dimension(texts, CONFLICT_RE, 45),
-        "Diplomatic strain": score_dimension(texts, DIPLO_RE, 40),
-        "Economic pressure": score_dimension(texts, ECON_RE, 40),
-        "Market volatility": score_dimension(texts, re.compile(r"market|stocks|bond|currency|oil|gas|VIX|volatil", re.I), 38),
-        "Military posture": score_dimension(texts, MIL_RE, 42),
+        "Conflict activity": score_dimension(stories, CONFLICT_RE, 35),
+        "Diplomatic strain": score_dimension(stories, DIPLO_RE, 32),
+        "Economic pressure": score_dimension(stories, ECON_RE, 32),
+        "Market volatility": score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30),
+        "Military posture": score_dimension(stories, MIL_RE, 34),
     }
     tension = round(sum(breakdown.values()) / len(breakdown))
     old_tension = old.get("tension")
     delta = tension - old_tension if isinstance(old_tension, (int, float)) else 0
 
-    changes = [{"kind": "breaking" if s["breaking"] else "new reporting", "title": s["title"][:140], "detail": f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:8]]
+    changes = [{"kind": "breaking" if s["breaking"] else "new reporting", "title": s["title"][:150], "detail": f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]]
     if not changes:
         changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(FEEDS)} feeds checked; {len(stories)} current stories retained."}]
 
-    conflicts = make_conflicts(stories)
+    conflicts = make_conflicts(stories, old)
     now = datetime.now(timezone.utc).isoformat()
     snapshot = {
         "updatedAt": now,
         "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(FEEDS)-len(errors)}/{len(FEEDS)} feeds healthy",
-        "dataNote": "Public RSS aggregation. Scores are transparent analytical indicators derived from source coverage and event-language signals; they are not official conflict severity measurements.",
+        "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.",
         "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown,
         "changes": changes, "conflicts": conflicts,
         "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories,
@@ -195,7 +276,7 @@ def main():
     history = load_json(HIST, [])
     history.append({"updatedAt": now, "tension": tension, "delta": delta})
     HIST.write_text(json.dumps(history[-240:], ensure_ascii=False, indent=2) + "\n")
-    SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a,b,c in FEEDS], "errors": errors}, indent=2) + "\n")
+    SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a, b, c in FEEDS], "errors": errors}, ensure_ascii=False, indent=2) + "\n")
     print(snapshot["sourceStatus"], "tension", tension, "conflicts", len(conflicts))
     if errors: print("errors:", "; ".join(errors))
 
