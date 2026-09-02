@@ -23,7 +23,7 @@ for label,url in FEEDS:
     try:
         raw=fetch(url)
         root=ET.fromstring(raw)
-        for item in root.findall(".//item")[:8]:
+        for item in root.findall(".//item")[:12]:
             title=text(item,"title")
             link=text(item,"link")
             desc=re.sub("<[^>]+>","",text(item,"description"))
@@ -35,7 +35,7 @@ for label,url in FEEDS:
 seen=set(); unique=[]
 for s in stories:
     if s["id"] not in seen: unique.append(s); seen.add(s["id"])
-stories=unique[:18]
+stories=unique[:24]
 
 snap_path=DATA/"snapshot.json"
 old=json.loads(snap_path.read_text()) if snap_path.exists() else {}
