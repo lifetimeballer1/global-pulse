@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Pulse — World Economics & Conflict Dashboard</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --panel: #111820;
+      --border: #1e2a3a;
+      --text: #e6edf3;
+      --muted: #8b9cb3;
+      --accent: #3b82f6;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --ok: #22c55e;
+      --alliance: #3b82f6;
+      --trade: #22c55e;
+      --conflict: #ef4444;
+      --sanctions: #f59e0b;
+      --tension: #a855f7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #0f1520 0%, var(--bg) 100%);
+    }
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span { color: var(--accent); }
+    .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: ui-monospace, 'Cascadia Code', monospace;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr 340px;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+      padding: 16px;
+      max-width: 1600px;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+    @media (max-width: 1200px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .panel h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    /* Gauge */
+    .gauge-wrap {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .gauge-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 220px;
+    }
+    .gauge-value {
+      font-size: 3.2rem;
+      font-weight: 700;
+      font-family: ui-monospace, monospace;
+      color: var(--warn);
+      line-height: 1;
+    }
+    .gauge-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .gauge-disclaimer {
+      font-size: 0.7rem;
+      color: var(--muted);
+      max-width: 280px;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .breakdown {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .bd-item {
+      background: #0d131c;
+      border-radius: 6px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--accent);
+    }
+    .bd-item.conflict { border-color: var(--danger); }
+    .bd-item.sanctions { border-color: var(--warn); }
+    .bd-item.market { border-color: var(--ok); }
+    .bd-item.diplo { border-color: var(--tension); }
+    .bd-name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
+    .bd-val { font-size: 1.15rem; font-weight: 600; font-family: ui-monospace, monospace; }
+    .bd-w { font-size: 0.65rem; color: var(--muted); }
+    /* Map */
+    #graph {
+      width: 100%;
+      height: 420px;
+      background: #0b1018;
+      border-radius: 6px;
+    }
+    .node-label {
+      font-size: 11px;
+      fill: var(--text);
+      pointer-events: none;
+      font-family: ui-monospace, monospace;
+    }
+    .link { stroke-opacity: 0.65; }
+    /* Stories */
+    .stories { overflow-y: auto; max-height: 520px; }
+    .story {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .story:last-child { border-bottom: none; }
+    .story-meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: ui-monospace, monospace;
+    }
+    .tag {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .tag.conflict { background: rgba(239,68,68,0.2); color: #fca5a5; }
+    .tag.economic { background: rgba(34,197,94,0.2); color: #86efac; }
+    .tag.diplomatic { background: rgba(168,85,247,0.2); color: #d8b4fe; }
+    .story h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .story p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .story a {
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+    .story a:hover { text-decoration: underline; }
+    /* Econ */
+    .econ-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .econ-card {
+      background: #0d131c;
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .econ-card .name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
+    .econ-card .val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      font-family: ui-monospace, monospace;
+      margin: 4px 0;
+    }
+    .econ-card .chg { font-size: 0.75rem; font-family: ui-monospace, monospace; }
+    .up { color: var(--ok); }
+    .down { color: var(--danger); }
+    .detail-panel {
+      margin-top: 12px;
+      padding: 12px;
+      background: #0d131c;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: none;
+    }
+    .detail-panel.visible { display: block; }
+    .detail-panel h3 { color: var(--text); margin-bottom: 6px; font-size: 0.9rem; }
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend span { display: flex; align-items: center; gap: 4px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GLOBAL <span>PULSE</span></div>
+    <div class="meta">
+      Last snapshot: <span id="lastUpdated">2026-09-02 13:00 UTC</span> · Illustrative model · Not a forecast
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Tension Gauge -->
+    <div class="panel gauge-wrap">
+      <div class="gauge-main">
+        <div class="gauge-value" id="tensionValue">64%</div>
+        <div class="gauge-label">Global Tension Index</div>
+        <svg id="gaugeSvg" width="200" height="110" viewBox="0 0 200 110"></svg>
+        <div class="gauge-disclaimer">
+          Illustrative composite (not a prediction). Weighted blend of active conflict intensity, sanctions activity, military posture signals, diplomatic tone, and market volatility. Think Doomsday Clock / risk indices — transparency over black-box forecasting.
+        </div>
+      </div>
+      <div class="breakdown">
+        <div class="bd-item conflict">
+          <div class="bd-name">Active Conflicts</div>
+          <div class="bd-val">28</div>
+          <div class="bd-w">Weight 30%</div>
+        </div>
+        <div class="bd-item sanctions">
+          <div class="bd-name">Sanctions / Energy Leverage</div>
+          <div class="bd-val">High</div>
+          <div class="bd-w">Weight 20%</div>
+        </div>
+        <div class="bd-item diplo">
+          <div class="bd-name">Diplomatic Tone</div>
+          <div class="bd-val">Strained</div>
+          <div class="bd-w">Weight 20%</div>
+        </div>
+        <div class="bd-item market">
+          <div class="bd-name">Market Vol (VIX ~16.3)</div>
+          <div class="bd-val">Moderate</div>
+          <div class="bd-w">Weight 15%</div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-name">Mobilization Mentions</div>
+          <div class="bd-val">Elevated</div>
+          <div class="bd-w">Weight 15%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left: Stories -->
+    <div class="panel stories">
+      <h2>Hourly Digest · Top Stories</h2>
+      <div id="storyList"></div>
+    </div>
+
+    <!-- Center: Network Map -->
+    <div class="panel">
+      <h2>Country Relationship Map</h2>
+      <div id="graph"></div>
+      <div class="legend">
+        <span><div class="dot" style="background:var(--alliance)"></div> Alliance / Security</span>
+        <span><div class="dot" style="background:var(--trade)"></div> Trade Partner</span>
+        <span><div class="dot" style="background:var(--conflict)"></div> Active Conflict / Proxy</span>
+        <span><div class="dot" style="background:var(--sanctions)"></div> Sanctions / Coercion</span>
+        <span><div class="dot" style="background:var(--tension)"></div> Diplomatic Tension</span>
+      </div>
+      <div class="detail-panel" id="nodeDetail">
+        <h3 id="detailTitle">Select a country</h3>
+        <div id="detailBody"></div>
+      </div>
+    </div>
+
+    <!-- Right: Economic Pulse -->
+    <div class="panel">
+      <h2>Economic Pulse</h2>
+      <div class="econ-grid" id="econGrid"></div>
+      <div style="margin-top:16px;font-size:0.75rem;color:var(--muted);">
+        <strong style="color:var(--text);">Conflict-linked notes</strong><br/>
+        Oil remains sensitive to Hormuz risk and Iranian retaliation capacity. Defense and energy equities have outperformed on elevated geopolitical risk. Supply-chain exposure to Red Sea / Bab el-Mandeb still a residual concern even as direct Houthi activity has fluctuated.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Global Pulse is an illustrative dashboard. Tension Index is a transparent weighted model for situational awareness only — not a war forecast or trading signal.<br/>
+    Data snapshot style · Stories link to original reporting where available · Built for GitHub Pages
+  </footer>
+
+  <script>
+    // --- Sample data (slightly right-leaning framing: emphasis on revisionist pressure, energy leverage, deterrence costs) ---
+    const stories = [
+      {
+        tag: "conflict",
+        time: "2h ago",
+        title: "US and Israeli strikes continue against IRGC-linked targets as Hormuz remains contested",
+        summary: "Central Command reported additional strikes on Iranian Revolutionary Guard infrastructure. Oil futures reacted sharply; markets are pricing sustained risk of further disruption to the Strait of Hormuz, through which a large share of global crude still transits.",
+        source: "#",
+        sourceLabel: "Defense reporting"
+      },
+      {
+        tag: "economic",
+        time: "3h ago",
+        title: "Brent holds near $94–95 as energy security premium persists",
+        summary: "Crude remains elevated relative to early-2026 levels after the spring Hormuz shock. Analysts note that even partial reopening of flows has not fully erased the risk premium while Iranian retaliation capacity and proxy activity remain active variables.",
+        source: "#",
+        sourceLabel: "Market data"
+      },
+      {
+        tag: "diplomatic",
+        time: "5h ago",
+        title: "Xi–Putin meeting at SCO reaffirms ‘solid’ partnership amid multipolar rhetoric",
+        summary: "Chinese and Russian leaders used the Bishkek summit to emphasize closer coordination and criticism of ‘unilateralism.’ The optics reinforce the strategic alignment that has helped Moscow sustain its war effort and complicated Western isolation strategies.",
+        source: "#",
+        sourceLabel: "Summit coverage"
+      },
+      {
+        tag: "conflict",
+        time: "6h ago",
+        title: "Ukraine expands deep-strike campaign against Russian energy infrastructure",
+        summary: "Ukrainian long-range drones and missiles continue to hit refineries and logistics nodes inside Russia. The campaign aims to degrade revenue and logistics supporting the war; Moscow continues pressure on Ukrainian cities and energy systems in response.",
+        source: "#",
+        sourceLabel: "Conflict reporting"
+      },
+      {
+        tag: "diplomatic",
+        time: "8h ago",
+        title: "China maintains high tempo of PLA activity around Taiwan",
+        summary: "Taipei reported elevated numbers of aircraft and vessels operating near the island, including median-line crossings. The pattern is consistent with sustained pressure short of kinetic action while Beijing tests response thresholds and domestic resolve in Taiwan and among partners.",
+        source: "#",
+        sourceLabel: "Regional reporting"
+      },
+      {
+        tag: "economic",
+        time: "9h ago",
+        title: "Equity markets soft as yields climb and oil firmness feeds inflation concerns",
+        summary: "Major US indices closed lower. Higher energy costs and bond-market pressure are weighing on rate-cut expectations. Defense and energy sectors remain relative bright spots amid the broader risk-off tone.",
+        source: "#",
+        sourceLabel: "Market wrap"
+      },
+      {
+        tag: "conflict",
+        time: "11h ago",
+        title: "Sudan fighting intensifies around key North Kordofan positions",
+        summary: "Army and Rapid Support Forces continue contesting strategic ground with high civilian cost. The conflict remains one of the world’s most severe humanitarian crises and a reminder that multiple high-intensity wars are running in parallel.",
+        source: "#",
+        sourceLabel: "Africa desk"
+      },
+      {
+        tag: "diplomatic",
+        time: "14h ago",
+        title: "Western capitals stress deterrence while managing escalation risks with Iran",
+        summary: "Officials continue to balance the need to degrade Iranian proxy and nuclear-related capabilities against the risk of broader regional war. Energy markets remain the clearest real-time barometer of perceived escalation probability.",
+        source: "#",
+        sourceLabel: "Policy analysis"
+      }
+    ];
+
+    const econ = [
+      { name: "Brent Crude", val: "$94.5", chg: "+4.6% (1d)", dir: "up" },
+      { name: "WTI", val: "$90.2", chg: "+5.2% (1d)", dir: "up" },
+      { name: "VIX", val: "16.3", chg: "+9.5% (1d)", dir: "up" },
+      { name: "S&P 500", val: "7,631", chg: "−0.7%", dir: "down" },
+      { name: "Gold", val: "$4,325", chg: "−2.9%", dir: "down" },
+      { name: "US 10Y", val: "4.80%", chg: "+5 bp", dir: "up" }
+    ];
+
+    // Graph data
+    const nodes = [
+      { id: "US", group: 1, desc: "Primary security guarantor for Europe and Indo-Pacific partners. Deep involvement in Middle East containment of Iranian capabilities. High defense spending and alliance network." },
+      { id: "China", group: 2, desc: "Systemic competitor. Sustained military pressure on Taiwan, deep economic ties with Russia, growing influence via SCO and Belt & Road. Key technology and dual-use supplier to sanctioned states." },
+      { id: "Russia", group: 2, desc: "Ongoing full-scale war in Ukraine. Energy leverage and nuclear signaling. Increasing dependence on Chinese markets and dual-use inputs. SCO alignment with Beijing." },
+      { id: "Iran", group: 3, desc: "Central actor in current Middle East escalation. Proxy network (Hezbollah, Houthis, Iraqi militias) and residual nuclear program risk. Direct exchanges with Israel and US forces have raised oil-risk premium." },
+      { id: "Israel", group: 1, desc: "Active multi-front posture against Iranian axis. Close security coordination with the United States. High operational tempo since 2023–26 cascade of conflicts." },
+      { id: "Ukraine", group: 1, desc: "Defending against Russian invasion. Deep-strike campaign against Russian logistics and energy. Dependent on Western military and financial support." },
+      { id: "Taiwan", group: 1, desc: "Focal point of Chinese military pressure. Critical semiconductor node. Security relationship with the United States and informal partnerships with Japan, Australia and others." },
+      { id: "Saudi", group: 4, desc: "Major oil producer and OPEC+ coordinator. Balancing relations with the US, China and regional actors while managing risk from Iranian and Houthi threats to energy infrastructure." },
+      { id: "EU", group: 1, desc: "Collective economic weight and NATO European pillar. Energy transition and defense spending rising after Ukraine shock. Exposure to Middle East oil and gas disruption." },
+      { id: "India", group: 4, desc: "Strategic autonomy posture. Growing defense and technology ties with the US and partners; continued energy and diplomatic engagement with Russia. Critical swing player in Indo-Pacific balance." },
+      { id: "Japan", group: 1, desc: "Key US ally. Increasing defense outlays and regional security role in response to Chinese and North Korean activity." },
+      { id: "NATO", group: 1, desc: "Collective defense framework. Eastern flank reinforcement continues. Article 5 credibility remains central deterrent against Russian probing." }
+    ];
+
+    const links = [
+      { source: "US", target: "NATO", type: "alliance" },
+      { source: "US", target: "Israel", type: "alliance" },
+      { source: "US", target: "Japan", type: "alliance" },
+      { source: "US", target: "Taiwan", type: "alliance" },
+      { source: "US", target: "Ukraine", type: "alliance" },
+      { source: "US", target: "Saudi", type: "trade" },
+      { source: "US", target: "Iran", type: "conflict" },
+      { source: "US", target: "China", type: "tension" },
+      { source: "US", target: "Russia", type: "sanctions" },
+      { source: "China", target: "Russia", type: "trade" },
+      { source: "China", target: "Taiwan", type: "tension" },
+      { source: "China", target: "Iran", type: "trade" },
+      { source: "Russia", target: "Ukraine", type: "conflict" },
+      { source: "Russia", target: "Iran", type: "trade" },
+      { source: "Iran", target: "Israel", type: "conflict" },
+      { source: "Iran", target: "Saudi", type: "tension" },
+      { source: "EU", target: "NATO", type: "alliance" },
+      { source: "EU", target: "Russia", type: "sanctions" },
+      { source: "EU", target: "Ukraine", type: "alliance" },
+      { source: "India", target: "Russia", type: "trade" },
+      { source: "India", target: "US", type: "trade" },
+      { source: "Japan", target: "China", type: "tension" },
+      { source: "Saudi", target: "China", type: "trade" }
+    ];
+
+    // Render stories
+    const storyList = document.getElementById("storyList");
+    stories.forEach(s => {
+      const el = document.createElement("div");
+      el.className = "story";
+      el.innerHTML = `
+        <div class="story-meta">
+          <span class="tag ${s.tag}">${s.tag}</span>
+          <span>${s.time}</span>
+        </div>
+        <h3>${s.title}</h3>
+        <p>${s.summary}</p>
+        <a href="${s.source}">${s.sourceLabel} →</a>
+      `;
+      storyList.appendChild(el);
+    });
+
+    // Render econ
+    const econGrid = document.getElementById("econGrid");
+    econ.forEach(e => {
+      const el = document.createElement("div");
+      el.className = "econ-card";
+      el.innerHTML = `
+        <div class="name">${e.name}</div>
+        <div class="val">${e.val}</div>
+        <div class="chg ${e.dir}">${e.chg}</div>
+      `;
+      econGrid.appendChild(el);
+    });
+
+    // Gauge arc
+    (function drawGauge() {
+      const svg = d3.select("#gaugeSvg");
+      const width = 200, height = 110;
+      const radius = 80;
+      const value = 64;
+      const scale = d3.scaleLinear().domain([0, 100]).range([-Math.PI * 0.75, Math.PI * 0.75]);
+
+      const arcBg = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(100));
+      const arcVal = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(value));
+
+      svg.append("path").attr("d", arcBg).attr("transform", `translate(${width/2},${height-10})`).attr("fill", "#1e2a3a");
+      svg.append("path").attr("d", arcVal).attr("transform", `translate(${width/2},${height-10})`).attr("fill", value > 70 ? "#ef4444" : value > 45 ? "#f59e0b" : "#22c55e");
+    })();
+
+    // Force graph
+    (function drawGraph() {
+      const width = document.getElementById("graph").clientWidth || 600;
+      const height = 420;
+      const svg = d3.select("#graph").append("svg").attr("width", width).attr("height", height);
+
+      const color = {
+        alliance: "#3b82f6",
+        trade: "#22c55e",
+        conflict: "#ef4444",
+        sanctions: "#f59e0b",
+        tension: "#a855f7"
+      };
+
+      const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).distance(90))
+        .force("charge", d3.forceManyBody().strength(-280))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide(28));
+
+      const link = svg.append("g")
+        .selectAll("line")
+        .data(links)
+        .join("line")
+        .attr("class", "link")
+        .attr("stroke", d => color[d.type] || "#666")
+        .attr("stroke-width", 2);
+
+      const node = svg.append("g")
+        .selectAll("g")
+        .data(nodes)
+        .join("g")
+        .call(d3.drag()
+          .on("start", (event, d) => { if (!event.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+          .on("drag", (event, d) => { d.fx = event.x; d.fy = event.y; })
+          .on("end", (event, d) => { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+        )
+        .on("click", (event, d) => {
+          const panel = document.getElementById("nodeDetail");
+          document.getElementById("detailTitle").textContent = d.id;
+          document.getElementById("detailBody").textContent = d.desc;
+          panel.classList.add("visible");
+        });
+
+      node.append("circle")
+        .attr("r", 14)
+        .attr("fill", d => d.group === 1 ? "#1e3a5f" : d.group === 2 ? "#3f1d1d" : d.group === 3 ? "#3f2a1d" : "#1d2f1d")
+        .attr("stroke", "#3b82f6")
+        .attr("stroke-width", 1.5);
+
+      node.append("text")
+        .attr("class", "node-label")
+        .attr("dy", 28)
+        .attr("text-anchor", "middle")
+        .text(d => d.id);
+
+      simulation.on("tick", () => {
+        link
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+        node.attr("transform", d => `translate(${d.x},${d.y})`);
+      });
+    })();
+  </script>
+</body>
+</html>
