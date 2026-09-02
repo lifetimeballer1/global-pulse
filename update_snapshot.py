@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public Global Pulse snapshot from no-key RSS sources.
-
-The refresh is deliberately transparent: public RSS headlines are collected,
-deduplicated, assigned to specific conflict theaters, and converted into
-analytical activity/escalation signals. A score is never presented as
-battlefield ground truth.
-"""
+"""Build the public Global Pulse snapshot from no-key RSS sources."""
 import hashlib
 import json
 import re
@@ -39,10 +33,8 @@ FEEDS = [
     ("ReliefWeb", "https://reliefweb.int/updates/rss.xml", "humanitarian"),
 ]
 
-# Each theater has strong identifiers. Generic words such as "attack" are
-# intentionally excluded: they cannot identify a conflict on their own.
 CONFLICTS = [
-    ("ukraine", "Ukraine–Russia War", "Europe", "WAR", "HIGH", ["ukraine", "russia", "kyiv", "kyiv", "donetsk", "crimea", "kharkiv", "zaporizhzhia", "zelensky", "putin"]),
+    ("ukraine", "Ukraine–Russia War", "Europe", "WAR", "HIGH", ["ukraine", "russia", "kyiv", "donetsk", "crimea", "kharkiv", "zaporizhzhia", "zelensky", "putin"]),
     ("gaza", "Gaza / Israel–Hamas", "Middle East", "WAR", "HIGH", ["gaza", "hamas", "gaza strip", "rafah", "west bank", "palestinian", "israel-hamas"]),
     ("israel-iran", "Israel–Iran Regional Front", "Middle East", "WAR", "HIGH", ["israel-iran", "israel iran", "iran israel", "tehran", "iranian nuclear", "iranian missile"]),
     ("hormuz", "Iran / Strait of Hormuz", "Middle East", "FLASHPOINT", "HIGH", ["strait of hormuz", "hormuz", "persian gulf", "gulf tanker", "iran oil shipping"]),
@@ -83,7 +75,7 @@ SEVERITY = [("critical", re.compile(r"invasion|mass casualty|massacre|major offe
 
 
 def fetch(url):
-    req = Request(url, headers={"User-Agent": "GlobalPulse/4.0 (+https://github.com/lifetimeballer1/global-pulse)"})
+    req = Request(url, headers={"User-Agent": "GlobalPulse/4.1 (+https://github.com/lifetimeballer1/global-pulse)"})
     with urlopen(req, timeout=25) as response:
         return response.read()
 
@@ -102,24 +94,19 @@ def is_breaking(title, summary):
 
 
 def parse_time(value):
-    if not value:
-        return None
+    if not value: return None
     try:
         dt = parsedate_to_datetime(value)
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
+        if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
         return dt.astimezone(timezone.utc)
     except Exception:
-        try:
-            return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
-        except Exception:
-            return None
+        try: return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+        except Exception: return None
 
 
 def recency_weight(value):
     dt = parse_time(value)
-    if not dt:
-        return 0.65
+    if not dt: return 0.65
     age = max(0.0, (datetime.now(timezone.utc) - dt).total_seconds() / 3600)
     if age <= 6: return 1.0
     if age <= 24: return 0.92
@@ -128,26 +115,21 @@ def recency_weight(value):
     return 0.35
 
 
+def alias_present(alias, text_value):
+    return re.search(r"(?<![a-z0-9])" + re.escape(alias.lower()) + r"(?![a-z0-9])", text_value.lower()) is not None
+
+
 def match_conflict(story, aliases):
-    title = story["title"].lower()
-    summary = story["summary"].lower()
-    score = 0.0
-    matched = []
+    title, summary = story["title"], story["summary"]
+    score, matched = 0.0, []
     for alias in aliases:
-        a = alias.lower()
-        if a in title:
-            score += 6.0
-            matched.append(alias)
-        elif a in summary:
-            score += 2.5
-            matched.append(alias)
-    if not matched:
-        return 0.0, []
-    severity_bonus = 0
-    text_blob = f"{title} {summary}"
-    for _, rx, points in SEVERITY:
-        if rx.search(text_blob):
-            severity_bonus = max(severity_bonus, points)
+        if alias_present(alias, title):
+            score += 6.0; matched.append(alias)
+        elif alias_present(alias, summary):
+            score += 2.5; matched.append(alias)
+    if not matched: return 0.0, []
+    blob = f"{title} {summary}"
+    severity_bonus = max((points for _, rx, points in SEVERITY if rx.search(blob)), default=0)
     return min(32.0, score + severity_bonus * recency_weight(story["time"])), matched
 
 
@@ -156,34 +138,25 @@ def baseline_score(level):
 
 
 def make_conflicts(stories, previous):
-    result = []
-    previous_by_id = {c.get("id"): c for c in previous.get("conflicts", [])}
+    result, previous_by_id = [], {c.get("id"): c for c in previous.get("conflicts", [])}
     for cid, name, region, category, baseline, aliases in CONFLICTS:
         ranked = []
         for story in stories:
             score, matched = match_conflict(story, aliases)
-            if score > 0:
-                ranked.append((score, story, matched))
+            if score > 0: ranked.append((score, story, matched))
         ranked.sort(key=lambda x: (x[0], parse_time(x[1]["time"]) or datetime.min.replace(tzinfo=timezone.utc)), reverse=True)
         source_names = {story["sourceLabel"] for _, story, _ in ranked}
         recent = ranked[0][1] if ranked else None
-        # Evidence is weighted by source breadth and recency, while repeated
-        # copies from one outlet cannot inflate the signal indefinitely.
         evidence = sum(min(32.0, score) for score, _, _ in ranked[:8])
         breadth_bonus = min(18, max(0, len(source_names) - 1) * 5)
         activity = round(min(100, baseline_score(baseline) + evidence * 0.72 + breadth_bonus))
         old_activity = previous_by_id.get(cid, {}).get("activityScore")
         delta = activity - old_activity if isinstance(old_activity, (int, float)) else 0
-        if activity >= 82: escalation = "CRITICAL"
-        elif activity >= 68: escalation = "HIGH"
-        elif activity >= 50: escalation = "MODERATE"
-        else: escalation = "LOW"
+        escalation = "CRITICAL" if activity >= 82 else "HIGH" if activity >= 68 else "MODERATE" if activity >= 50 else "LOW"
         if len(source_names) >= 3: confidence = "CORROBORATED"
         elif len(source_names) == 2: confidence = "MULTI-SOURCE"
-        elif len(source_names) == 1: confidence = "DEVELOPING"
+        elif len(source_names) == 1: confidence = "SINGLE-SOURCE"
         else: confidence = "MONITORING"
-        if ranked and len(source_names) == 1:
-            confidence = "SINGLE-SOURCE"
         event_type = "MONITORING"
         if recent:
             blob = f"{recent[1]['title']} {recent[1]['summary']}"
@@ -192,9 +165,7 @@ def make_conflicts(stories, previous):
             elif re.search(r"ceasefire|talks|negotiat|peace|agreement|diplomat", blob, re.I): event_type = "DIPLOMATIC"
             elif re.search(r"oil|gas|shipping|sanction|trade|tariff", blob, re.I): event_type = "ECONOMIC"
             elif re.search(r"gang|cartel|kidnap|crime", blob, re.I): event_type = "CRIMINAL VIOLENCE"
-        signals = []
-        for score, story, matched in ranked[:4]:
-            signals.append({"title": story["title"][:180], "source": story["sourceLabel"], "url": story["source"], "time": story["time"], "match": matched[:4], "signal": round(score, 1)})
+        signals = [{"title": story["title"][:180], "source": story["sourceLabel"], "url": story["source"], "time": story["time"], "match": matched[:4], "signal": round(score, 1)} for score, story, matched in ranked[:4]]
         result.append({
             "id": cid, "name": name, "region": region, "category": category,
             "status": "Active signal" if ranked else "Monitoring",
@@ -202,13 +173,11 @@ def make_conflicts(stories, previous):
             "escalation": escalation, "activityScore": activity, "delta": delta,
             "signalCount": len(ranked), "sourceCount": len(source_names),
             "confidence": confidence, "eventType": event_type,
-            "lastSignal": recent["time"] if recent else None,
-            "signals": signals,
+            "lastSignal": recent["time"] if recent else None, "signals": signals,
             "facts": f"{len(ranked)} conflict-specific signal(s) from {len(source_names)} source(s) in the current feed window.",
-            "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war.",
+            "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
         })
-    result.sort(key=lambda c: c["activityScore"], reverse=True)
-    return result
+    return sorted(result, key=lambda c: c["activityScore"], reverse=True)
 
 
 def score_dimension(stories, regex, base=40):
@@ -236,42 +205,23 @@ def main():
                 stories.append({"id": hashlib.sha1(link.encode()).hexdigest()[:12], "sourceLabel": label, "sourceType": kind, "title": title[:240], "summary": summary[:420], "source": link, "time": pub, "tag": "Breaking" if is_breaking(title, summary) else "World", "confidence": "DEVELOPING", "breaking": is_breaking(title, summary)})
         except Exception as exc:
             errors.append(f"{label}: {type(exc).__name__}")
-
     unique, seen = [], set()
     for story in stories:
         if story["id"] not in seen:
             seen.add(story["id"]); unique.append(story)
-    unique.sort(key=lambda s: (parse_time(s["time"]) or datetime.min.replace(tzinfo=timezone.utc)), reverse=True)
+    unique.sort(key=lambda s: parse_time(s["time"]) or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
     stories = unique[:120]
     old_ids = {s.get("id") for s in old.get("stories", [])}
     new_items = [s for s in stories if s["id"] not in old_ids]
-
-    breakdown = {
-        "Conflict activity": score_dimension(stories, CONFLICT_RE, 35),
-        "Diplomatic strain": score_dimension(stories, DIPLO_RE, 32),
-        "Economic pressure": score_dimension(stories, ECON_RE, 32),
-        "Market volatility": score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30),
-        "Military posture": score_dimension(stories, MIL_RE, 34),
-    }
+    breakdown = {"Conflict activity": score_dimension(stories, CONFLICT_RE, 35), "Diplomatic strain": score_dimension(stories, DIPLO_RE, 32), "Economic pressure": score_dimension(stories, ECON_RE, 32), "Market volatility": score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30), "Military posture": score_dimension(stories, MIL_RE, 34)}
     tension = round(sum(breakdown.values()) / len(breakdown))
     old_tension = old.get("tension")
     delta = tension - old_tension if isinstance(old_tension, (int, float)) else 0
-
     changes = [{"kind": "breaking" if s["breaking"] else "new reporting", "title": s["title"][:150], "detail": f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]]
-    if not changes:
-        changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(FEEDS)} feeds checked; {len(stories)} current stories retained."}]
-
+    if not changes: changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(FEEDS)} feeds checked; {len(stories)} current stories retained."}]
     conflicts = make_conflicts(stories, old)
     now = datetime.now(timezone.utc).isoformat()
-    snapshot = {
-        "updatedAt": now,
-        "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(FEEDS)-len(errors)}/{len(FEEDS)} feeds healthy",
-        "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.",
-        "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown,
-        "changes": changes, "conflicts": conflicts,
-        "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories,
-        "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in FEEDS],
-    }
+    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(FEEDS)-len(errors)}/{len(FEEDS)} feeds healthy", "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in FEEDS]}
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n")
     history = load_json(HIST, [])
     history.append({"updatedAt": now, "tension": tension, "delta": delta})
@@ -282,10 +232,8 @@ def main():
 
 
 def load_json(path, default):
-    try:
-        return json.loads(path.read_text()) if path.exists() else default
-    except Exception:
-        return default
+    try: return json.loads(path.read_text()) if path.exists() else default
+    except Exception: return default
 
 
 if __name__ == "__main__":
