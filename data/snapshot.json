@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-02T20:45:00+00:00",
-  "sourceStatus": "Rich map briefs + Conflict tracker + RSS + OSINT",
-  "dataNote": "Strategic map markers include Why / Status / Watch fields. RSS headlines = LIKELY. War OSINT = SOCIAL MEDIA REPORT / UNVERIFIED. Tension illustrative only.",
+  "updatedAt": "2026-09-02T21:11:18.916902+00:00",
+  "sourceStatus": "24 public-feed items loaded; 0 feed errors",
+  "dataNote": "Headlines and links are refreshed from public RSS feeds. No API key is used. Failed feeds do not create substitute or random data.",
   "tension": 60,
   "breakdownScores": {
     "Conflict activity": 72,
@@ -12,55 +12,525 @@
   },
   "changes": [
     {
-      "kind": "map",
-      "title": "Map marker briefs expanded",
-      "detail": "Conflict, military, energy, and economic markers now explain why they matter, status, and what to watch."
+      "kind": "new reporting",
+      "title": "Rosenberg: Putin's veiled threat to UK part of Russia's campaign against West",
+      "detail": "New item from BBC World"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Watch: Jury still unable to reach unanimous decision in Lindsay Clancy case",
+      "detail": "New item from BBC World"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Maltese tycoon acquitted of orchestrating murder of renowned journalist",
+      "detail": "New item from BBC World"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Netherlands moves billions in gold to London in 'crisis preparedness' move",
+      "detail": "New item from BBC World"
+    },
+    {
+      "kind": "new reporting",
+      "title": "US sailors arrive in Thailand's Pattaya after record 250 days at sea",
+      "detail": "New item from BBC World"
     }
   ],
-  "conflicts": [
-    {"id": "ukraine", "name": "Ukraine–Russia War", "region": "Europe", "status": "Active high-intensity", "actors": "Ukraine, Russia, NATO support states", "recent": "Continued deep strikes and front-line pressure; airspace and energy infrastructure remain contested.", "escalation": "HIGH", "facts": "Full-scale conflict ongoing since 2022 with high strategic and humanitarian cost.", "analysis": "Neither side has achieved decisive breakthrough; attrition and long-range strike capacity dominate.", "confidence": "CONFIRMED"},
-    {"id": "hormuz", "name": "Iran / Hormuz Theater", "region": "Middle East", "status": "Elevated kinetic risk", "actors": "Iran, US, Israel, Gulf states", "recent": "Reports of strikes, tanker incidents, and contested civilian-casualty claims around Hormuz approaches.", "escalation": "HIGH", "facts": "Strait of Hormuz remains a critical global oil chokepoint; residual proxy and direct exchange risk.", "analysis": "Energy markets are the clearest real-time barometer of perceived escalation probability.", "confidence": "LIKELY"},
-    {"id": "taiwan", "name": "Taiwan Strait Pressure", "region": "Indo-Pacific", "status": "Sustained military pressure", "actors": "PRC, Taiwan, US and partners", "recent": "Elevated PLA air and naval activity including median-line crossings reported on an ongoing basis.", "escalation": "MODERATE", "facts": "Critical semiconductor and Indo-Pacific deterrence node; activity remains below kinetic threshold.", "analysis": "Pattern consistent with sustained pressure and threshold-testing rather than imminent invasion signals.", "confidence": "LIKELY"},
-    {"id": "israel-iran", "name": "Israel–Iran Axis Front", "region": "Middle East", "status": "Multi-front residual risk", "actors": "Israel, Iran, Lebanese and regional proxies", "recent": "Multi-front posture continues with intermittent exchanges and proxy activity.", "escalation": "MODERATE–HIGH", "facts": "Direct and indirect exchanges have occurred in the broader regional cascade since 2023–26.", "analysis": "Risk of wider regionalization remains elevated when energy and nuclear dossiers interact.", "confidence": "LIKELY"},
-    {"id": "sudan", "name": "Sudan Civil War", "region": "Africa", "status": "Active civil war", "actors": "Sudanese Armed Forces, Rapid Support Forces", "recent": "Fighting continues around strategic positions with severe civilian impact.", "escalation": "MODERATE", "facts": "One of the world’s most severe ongoing humanitarian crises.", "analysis": "Limited external mediation leverage; humanitarian access remains constrained.", "confidence": "CONFIRMED"},
-    {"id": "yemen", "name": "Yemen / Red Sea", "region": "Middle East / Maritime", "status": "Residual interdiction risk", "actors": "Houthis, Saudi Arabia, international shipping", "recent": "Residual threat to Red Sea / Bab el-Mandeb shipping lanes persists.", "escalation": "MODERATE", "facts": "Secondary energy/shipping chokepoint; insurance and rerouting costs remain sensitive.", "analysis": "Risk premium can reprice quickly on renewed interdiction claims.", "confidence": "LIKELY"}
-  ],
   "stories": [
-    {"id": "eef742c7215c", "sourceLabel": "BBC World", "title": "Iran says US strike killed four at wedding in 'war crime' as US denies targeting civilians", "summary": "Iranian media reports two children were among those killed when shrapnel hit a home.", "source": "https://www.bbc.co.uk/news/articles/cj06q4ynpmjo", "time": "Wed, 02 Sep 2026 15:33:19 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "5ff02e054c7c", "sourceLabel": "BBC World", "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says", "summary": "The kingdom condemns the targeting of Sidr in the Strait of Hormuz.", "source": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o", "time": "Wed, 02 Sep 2026 17:33:45 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "15381f586f47", "sourceLabel": "BBC World", "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany", "summary": "Berlin blamed Russia for a failed drone attack on Leipzig airport.", "source": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko", "time": "Wed, 02 Sep 2026 16:49:00 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "4ce72792147b", "sourceLabel": "BBC World", "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations", "summary": "Russia says it will intensify its own attacks on Ukraine.", "source": "https://www.bbc.co.uk/news/articles/c9v9yydy2wvo", "time": "Wed, 02 Sep 2026 16:12:43 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "dd31cd784444", "sourceLabel": "BBC World", "title": "More than 900 killed in Gaza this year despite ceasefire, Hamas-run health ministry says", "summary": "Ministry reports ongoing casualties including children.", "source": "https://www.bbc.co.uk/news/articles/c7708dy33pdo", "time": "Wed, 02 Sep 2026 11:51:46 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "be35ef0f7c1c", "sourceLabel": "BBC World", "title": "Nepal intensifies relief and recovery efforts after deadly floods, UN says", "summary": "More than 1,200 people have died; rescue efforts continue.", "source": "https://www.bbc.co.uk/news/articles/c8xk45k9r1go", "time": "Wed, 02 Sep 2026 15:57:13 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "972c87a769f6", "sourceLabel": "Guardian World", "title": "Trump ally defends Venezuela oil deal amid 'gunpoint diplomacy' criticism", "summary": "US energy secretary denies Washington seeks to commandeer Venezuelan oil.", "source": "https://www.theguardian.com/world/2026/sep/02/venezuela-oil-deal-trump-chris-wright", "time": "Wed, 02 Sep 2026 14:44:39 GMT", "tag": "World", "confidence": "LIKELY"},
-    {"id": "b08b297270e7", "sourceLabel": "Guardian World", "title": "Mark Carney tells US to 'start being serious' amid escalating trade war", "summary": "Canadian PM rebukes tariffs and insults from Washington.", "source": "https://www.theguardian.com/us-news/2026/sep/01/trump-mark-carney-trade-war-canada", "time": "Tue, 01 Sep 2026 15:48:27 GMT", "tag": "World", "confidence": "LIKELY"}
+    {
+      "id": "eef742c7215c",
+      "sourceLabel": "BBC World",
+      "title": "Iran says US strike killed four at wedding in 'war crime' as US denies targeting civilians",
+      "summary": "Iranian media reports two children were among those killed when shrapnel hit a home. Iran then launched missiles and drones at US targets in the Middle East.",
+      "source": "https://www.bbc.co.uk/news/articles/cj06q4ynpmjo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 15:33:19 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "5ff02e054c7c",
+      "sourceLabel": "BBC World",
+      "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
+      "summary": "The kingdom condemns the targeting of Sidr, which was reportedly hit by unknown projectiles in the Strait of Hormuz on Monday.",
+      "source": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 17:33:45 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "15381f586f47",
+      "sourceLabel": "BBC World",
+      "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany",
+      "summary": "Russia is accused of growing increasingly reckless after Berlin blamed Russia for a failed drone attack on Leipzig airport.",
+      "source": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 16:49:00 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "fa0a9425f4a3",
+      "sourceLabel": "BBC World",
+      "title": "Rosenberg: Putin's veiled threat to UK part of Russia's campaign against West",
+      "summary": "The Russian president wants to keep Britain guessing - and stressing - over Moscow's real intentions.",
+      "source": "https://www.bbc.co.uk/news/articles/c62j50n131mo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 11:47:11 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "cd5bad42290d",
+      "sourceLabel": "BBC World",
+      "title": "Watch: Jury still unable to reach unanimous decision in Lindsay Clancy case",
+      "summary": "For a second time in two days, jurors told the judge they could not agree on a verdict in the murder trial.",
+      "source": "https://www.bbc.co.uk/news/videos/cy8z32v7130o?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 20:12:32 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "b6c5af4368d4",
+      "sourceLabel": "BBC World",
+      "title": "Maltese tycoon acquitted of orchestrating murder of renowned journalist",
+      "summary": "Daphne Caruana Galizia exposed corruption and money laundering schemes in Malta before she was killed by a car bomb in 2017.",
+      "source": "https://www.bbc.co.uk/news/articles/c5ye295pxgxo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 19:05:31 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "5ff8f1d38357",
+      "sourceLabel": "BBC World",
+      "title": "Netherlands moves billions in gold to London in 'crisis preparedness' move",
+      "summary": "The Dutch central bank removes some of its gold reserves from the US and Canada, saying it is because of \"increasing geopolitical unrest\".",
+      "source": "https://www.bbc.co.uk/news/articles/cvgy51xlz39o?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 17:21:00 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "27e775b718f5",
+      "sourceLabel": "BBC World",
+      "title": "US sailors arrive in Thailand's Pattaya after record 250 days at sea",
+      "summary": "The USS Abraham Lincoln is docking close to Pattaya, known for its neon-lit nightlife, and for sex tourism.",
+      "source": "https://www.bbc.co.uk/news/articles/cg7k09z4lj9o?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 10:04:28 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "ccedae1703cd",
+      "sourceLabel": "BBC World",
+      "title": "Uber shuts operations in Nigeria and Uganda with immediate effect",
+      "summary": "Nigeria - Africa's most populous country - is proving a tough market for ride-hailing services.",
+      "source": "https://www.bbc.co.uk/news/articles/c86xpv8l9y9o?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 20:21:04 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "b2acf3401cc0",
+      "sourceLabel": "BBC World",
+      "title": "Woman charged with juror intimidation in Lindsay Clancy trial",
+      "summary": "Dawn Light is accused of taking photos of jurors outside the Plymouth courthouse, a practice prohibited by the court.",
+      "source": "https://www.bbc.co.uk/news/articles/cwyze4593zwo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 17:05:09 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "4ce72792147b",
+      "sourceLabel": "BBC World",
+      "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations",
+      "summary": "Chinese and Gulf state airlines are among those still using Russian airspace. Meanwhile, Russia says it will intensify its own attacks on Ukraine.",
+      "source": "https://www.bbc.co.uk/news/articles/c9v9yydy2wvo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 16:12:43 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "dd31cd784444",
+      "sourceLabel": "BBC World",
+      "title": "More than 900 killed in Gaza this year despite ceasefire, Hamas-run health ministry says",
+      "summary": "The ministry says the total number of people killed in the Strip since 10 October is now more than 1,300, including 301 children.",
+      "source": "https://www.bbc.co.uk/news/articles/c7708dy33pdo?at_medium=RSS&at_campaign=rss",
+      "time": "Wed, 02 Sep 2026 11:51:46 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "7af15c78cc3e",
+      "sourceLabel": "Guardian World",
+      "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+      "summary": "Referendum result means fewer seats in parliament and new rules on candidates, ahead of December electionsGuinea-Bissau voters have approved a new constitution, which critics say will undermine democracy, that significantly expands presidential powers ahead of elections due in De",
+      "source": "https://www.theguardian.com/world/2026/sep/02/guinea-bissau-voters-approve-constitution-elections",
+      "time": "Wed, 02 Sep 2026 09:20:55 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "fc3b4e4c2778",
+      "sourceLabel": "Guardian World",
+      "title": "Almost half of world’s farmers poisoned by pesticides every year, experts find",
+      "summary": "Study reveals that pesticide poisoning kills 11,000 people each year, with India accounting for nearly 60% of fatalitiesAlmost half of the world’s farmers are poisoned by pesticides every single year, a study has found.Using publicly available data from 2006-2023, the study, whic",
+      "source": "https://www.theguardian.com/environment/2026/sep/02/50-per-cent-world-farmers-poisoned-pesticides-every-year-experts",
+      "time": "Wed, 02 Sep 2026 06:00:25 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "4338c779fcc3",
+      "sourceLabel": "Guardian World",
+      "title": "South African airline defends dramatic low-level flyby before rugby union clash",
+      "summary": "Cape Town stunt sparks major debate over safety risksAirlink insists flyby conducted according to regulationsA pre-game stunt involving two passenger jets flying dramatically low over a stadium in South Africa drew huge cheers from the estimated crowd of 56,000 people, but also s",
+      "source": "https://www.theguardian.com/sport/2026/aug/31/south-african-airline-defends-dramatic-low-level-flyby-before-rugby-union-springboks-new-zealand",
+      "time": "Mon, 31 Aug 2026 13:44:39 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "e367824de7d4",
+      "sourceLabel": "Guardian World",
+      "title": "Countries legally obliged to consider slavery reparations, says UN committee",
+      "summary": "Guidance says states must implement ‘comprehensive measures’ to address legacy of racial discriminationA UN committee has said countries are legally obliged to consider reparations for the transatlantic slave trade and take other ⁠measures to address the enduring ⁠legacy of racia",
+      "source": "https://www.theguardian.com/world/2026/aug/31/countries-legally-obliged-consider-slavery-reparations-un-committee",
+      "time": "Mon, 31 Aug 2026 11:54:16 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "58bd93cde81f",
+      "sourceLabel": "Guardian World",
+      "title": "Morocco not to blame for Ceuta border breach, says Spanish PM",
+      "summary": "Pedro Sánchez says two countries cooperating and accuses Israel and Russia of spreading fake news about migrationSpain’s prime minister, Pedro Sánchez, has said there is no evidence to suggest the Moroccan government was behind last month’s massive border crossing into Ceuta but ",
+      "source": "https://www.theguardian.com/world/2026/aug/31/morocco-ceuta-border-breach-spanish-pm-migration-pedro-sanchez",
+      "time": "Mon, 31 Aug 2026 10:21:56 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "c280f70cbb01",
+      "sourceLabel": "Guardian World",
+      "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
+      "summary": "Tech company submits to controversial Trump order to rename body of water amid US trade spat with CanadaApple has renamed Lake Ontario as “Lake America” for US users of its Maps app, after an executive order from Donald Trump to change the name of the Great Lake amid his trade sp",
+      "source": "https://www.theguardian.com/technology/2026/sep/02/apple-maps-renames-lake-ontario-lake-america",
+      "time": "Wed, 02 Sep 2026 19:06:39 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "972c87a769f6",
+      "sourceLabel": "Guardian World",
+      "title": "Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism",
+      "summary": "Energy secretary Chris Wright denies US seeks to ‘take’ country’s oil, saying deal is transformation of relationsThe US energy secretary, Chris Wright, has denied Washington is seeking to commandeer huge quantities of Venezuelan oil, amid growing criticism of Donald Trump’s energ",
+      "source": "https://www.theguardian.com/world/2026/sep/02/venezuela-oil-deal-trump-chris-wright",
+      "time": "Wed, 02 Sep 2026 14:44:39 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "9cbb7a007163",
+      "sourceLabel": "Guardian World",
+      "title": "Pete Hegseth criticized for body-shaming Canadian cadets: ‘Literally they’re kids’",
+      "summary": "US defense secretary faces backlash for attempting to mock Canada’s armed forces amid trade warA social media post by Pete Hegseth, the US secretary of defense, body-shaming female members of a Canadian youth development program remained online on Wednesday despite a furious back",
+      "source": "https://www.theguardian.com/us-news/2026/sep/02/pete-hegseth-body-shaming-post",
+      "time": "Wed, 02 Sep 2026 14:44:31 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "bfbbc854d01e",
+      "sourceLabel": "Guardian World",
+      "title": "Tumbler Ridge mass shooting victims file 30 new lawsuits against OpenAI",
+      "summary": "The company says it prioritizes safety, but suits allege its ChatGPT bot induced  shooter to carry out attack in CanadaOpenAI faces 30 new lawsuits filed on behalf of victims of the Tumbler Ridge mass shooting.The suits, filed on Wednesday, allege the company’s ChatGPT chatbot in",
+      "source": "https://www.theguardian.com/world/2026/sep/02/openai-lawsuits-tumbler-ridge-mass-shooting",
+      "time": "Wed, 02 Sep 2026 13:22:57 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "b08b297270e7",
+      "sourceLabel": "Guardian World",
+      "title": "Mark Carney tells US to ‘start being serious’ amid escalating trade war",
+      "summary": "Canadian PM is set to retaliate against tariffs levied by Donald Trump and criticized US officials over insultsUS politics live – latest updatesMark Carney has rebuked Donald Trump’s administration and urged officials in Washington to “start being serious” amid escalating trade t",
+      "source": "https://www.theguardian.com/us-news/2026/sep/01/trump-mark-carney-trade-war-canada",
+      "time": "Tue, 01 Sep 2026 15:48:27 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "8222e694768e",
+      "sourceLabel": "Guardian World",
+      "title": "Japan halves speed limit to 30km/h on all narrow city streets",
+      "summary": "Speed limit dropped from 60km/h for around 70% of general roads in the hope of making narrow streets of crowded cities saferDrivers on residential roads in Japan have been forced to take their foot off the accelerator, after the speed limit was slashed from 60km/h (37mph) to 30km",
+      "source": "https://www.theguardian.com/world/2026/sep/02/japan-new-speed-limit-30kmh-narrow-city-streets",
+      "time": "Wed, 02 Sep 2026 05:15:00 GMT",
+      "tag": "World"
+    },
+    {
+      "id": "677b245840a5",
+      "sourceLabel": "Guardian World",
+      "title": "Hong Kong pro-democracy activist Joshua Wong pleads guilty in second national security case",
+      "summary": "Wong, 29, is accused of urging foreign powers to impose sanctions, blockades and other hostile measures against China Joshua Wong, one of Hong Kong’s most prominent pro-democracy activists, pleaded guilty on Wednesday to conspiring to seek foreign sanctions against Hong Kong and ",
+      "source": "https://www.theguardian.com/world/2026/sep/02/hong-kong-pro-democracy-activist-joshua-wong-pleads-guilty-collusion-china",
+      "time": "Wed, 02 Sep 2026 04:57:27 GMT",
+      "tag": "World"
+    }
   ],
   "markers": [
-    {"lat": 48.5, "lng": 37.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Ukraine–Russia War", "detail": "Europe’s largest high-intensity war since 1945. Active front lines, long-range strikes, and contested airspace.", "why": "Sets European security posture, NATO aid levels, and energy/grain risk pricing.", "status": "Active high-intensity conflict", "watch": "Deep strikes, front advances/retreats, NATO air-defense stocks, civilian infrastructure hits."},
-    {"lat": 28.5, "lng": 51.0, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Iran / Hormuz Theater", "detail": "Direct and proxy exchanges involving Iran, US, Israel, and Gulf states near a global oil artery.", "why": "Hormuz handles a large share of seaborne oil; kinetic risk here moves energy markets fast.", "status": "Elevated kinetic and diplomatic risk", "watch": "Tanker incidents, claimed strikes, Strait transit disruptions, Gulf air-defense alerts."},
-    {"lat": 23.7, "lng": 120.9, "type": "conflict", "layer": "military", "importance": 1, "title": "Taiwan Strait Pressure", "detail": "Sustained PLA air and naval activity around Taiwan; median-line crossings and exercises are common signals.", "why": "Critical Indo-Pacific deterrence node and semiconductor supply-chain risk.", "status": "Military pressure below kinetic threshold", "watch": "Sortie counts, naval block-training, US/partner transit operations, political crisis triggers."},
-    {"lat": 31.5, "lng": 34.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Israel–Iran Axis Front", "detail": "Multi-front residual risk across Israel, Lebanon, Iran, and regional proxies after years of cascading exchanges.", "why": "Can re-open wider Middle East escalation that interacts with energy and nuclear dossiers.", "status": "Multi-front residual / intermittent exchanges", "watch": "Northern front fire, deep-strike claims, proxy mobilization, ceasefire durability."},
-    {"lat": 15.5, "lng": 32.5, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Sudan Civil War", "detail": "Fighting between Sudanese Armed Forces and Rapid Support Forces with severe civilian impact.", "why": "One of the world’s worst active humanitarian crises; regional spillover into the Horn/Sahel.", "status": "Active civil war", "watch": "Control of cities, famine indicators, external backers, humanitarian access."},
-    {"lat": 21.0, "lng": 43.0, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Yemen / Red Sea", "detail": "Houthi and related activity creates residual interdiction risk on Red Sea shipping lanes.", "why": "Affects Bab el-Mandeb traffic, insurance rates, and Asia–Europe container routing.", "status": "Residual maritime interdiction risk", "watch": "Ship attacks, coalition responses, insurance war-risk premiums, Suez diversion rates."},
-    {"lat": 19.5, "lng": 96.0, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Myanmar Civil War", "detail": "Multi-front fighting between the military junta and resistance forces across the country.", "why": "Regional refugee flows, border instability, and limited ASEAN mediation leverage.", "status": "Active multi-front civil conflict", "watch": "Territory shifts, border clashes with neighbors, aid access, elite defections."},
-    {"lat": 26.5, "lng": 56.5, "type": "economic", "layer": "energy", "importance": 1, "title": "Strait of Hormuz", "detail": "Primary oil chokepoint linking Persian Gulf producers to global markets.", "why": "Even temporary disruption can spike crude prices and inflation expectations worldwide.", "status": "Critical chokepoint — risk-sensitive", "watch": "Transit volume claims, naval escorts, mine/drone reports, oil futures reaction."},
-    {"lat": 12.5, "lng": 43.5, "type": "economic", "layer": "energy", "importance": 2, "title": "Bab el-Mandeb / Red Sea", "detail": "Secondary energy and container chokepoint between the Red Sea and the Gulf of Aden.", "why": "Rerouting around Africa raises time/cost for Europe–Asia trade when risk rises.", "status": "Secondary chokepoint — residual threat", "watch": "Attack reports, carrier diversions, war-risk insurance, Suez Canal throughput."},
-    {"lat": 29.3, "lng": 48.0, "type": "economic", "layer": "energy", "importance": 2, "title": "Persian Gulf Energy Complex", "detail": "Cluster of major producers and export terminals (Saudi, UAE, Kuwait, Iraq, Iran exports).", "why": "Production and export security here anchors global spare capacity narratives.", "status": "Strategic energy production zone", "watch": "Facility security incidents, OPEC+ signals, export terminal disruptions."},
-    {"lat": 40.7, "lng": -74.0, "type": "economic", "layer": "economic", "importance": 2, "title": "US Markets / New York", "detail": "Major equity, rates, and risk-sentiment node. Public market moves often lag geopolitical shocks by hours to days.", "why": "Shows how investors price conflict, energy, and policy risk in real time.", "status": "Global risk-pricing hub", "watch": "VIX/equity swings after kinetic headlines, energy equities, USD safe-haven moves."},
-    {"lat": 51.5, "lng": -0.1, "type": "economic", "layer": "economic", "importance": 2, "title": "London / Europe Energy & Defense", "detail": "European exposure to Middle East energy flows, Russian residual risk, and elevated defense spending.", "why": "European gas, power prices, and defense budgets react strongly to Ukraine and Hormuz risk.", "status": "Energy + defense demand node", "watch": "TTF gas prices, defense stock moves, UK/EU policy statements after escalation."},
-    {"lat": 35.7, "lng": 139.7, "type": "economic", "layer": "economic", "importance": 2, "title": "Tokyo / Indo-Pacific Trade", "detail": "Semiconductor and advanced manufacturing supply-chain node sensitive to Taiwan Strait risk.", "why": "Japan is a core US ally and a critical chip/equipment supplier; Strait shocks hit Asian markets first.", "status": "Supply-chain sensitivity node", "watch": "Yen risk-off moves, chip equities, Japanese defense posture statements."},
-    {"lat": 50.55428, "lng": 36.47101, "type": "conflict", "layer": "osint", "importance": 2, "title": "moving around via radio", "detail": "Social/OSINT report near Belgorod–Kharkiv axis. Treat as UNVERIFIED.", "url": "https://x.com/Exilenova_plus/status/2093023007081939372", "confidence": "SOCIAL MEDIA REPORT", "why": "Illustrative OSINT chatter near the front.", "status": "Unverified social report", "watch": "Corroboration by primary media or official statements."},
-    {"lat": 55.05773, "lng": 55.92304, "type": "conflict", "layer": "osint", "importance": 2, "title": "Ozon warehouse hit", "detail": "Claimed drone/strike impact on logistics site. UNVERIFIED.", "url": "https://x.com/wartranslated/status/2092956355132850476", "confidence": "SOCIAL MEDIA REPORT", "why": "Deep-strike logistics targeting narrative.", "status": "Unverified social report", "watch": "Confirmation by Russian or Ukrainian official sources."},
-    {"lat": 53.67815, "lng": 55.91485, "type": "conflict", "layer": "osint", "importance": 2, "title": "drones hit Sterlitamak", "detail": "Claimed drone activity deeper inside Russia. UNVERIFIED.", "url": "https://x.com/wartranslated/status/2092977535793410196", "confidence": "SOCIAL MEDIA REPORT", "why": "Signals expanding strike range narratives.", "status": "Unverified social report", "watch": "Local admin statements, satellite/visual corroboration."},
-    {"lat": 25.96314, "lng": 56.73384, "type": "conflict", "layer": "osint", "importance": 1, "title": "no talks scheduled, blockade remains in effect", "detail": "Hormuz/Gulf blockade-related social claim. UNVERIFIED.", "url": "https://x.com/Osint613/status/2093012623340007784", "confidence": "SOCIAL MEDIA REPORT", "why": "Energy-chokepoint risk narrative.", "status": "Unverified social report", "watch": "Official shipping notices, AIS diversions."},
-    {"lat": 52.52852, "lng": 13.3585, "type": "conflict", "layer": "osint", "importance": 1, "title": "Patriot stockpiles beyond critical", "detail": "Claim about air-defense stock levels. UNVERIFIED.", "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787", "confidence": "SOCIAL MEDIA REPORT", "why": "Air-defense sustainability debate.", "status": "Unverified social report", "watch": "Defense ministry or alliance statements."},
-    {"lat": 35.69, "lng": 51.39, "type": "conflict", "layer": "osint", "importance": 2, "title": "Tehran region watch", "detail": "Iran strike / response watch node. UNVERIFIED social layer.", "url": "https://x.com/search?q=Iran%20strike", "confidence": "SOCIAL MEDIA REPORT", "why": "Tracks claims around Iranian capital region.", "status": "Unverified social report", "watch": "State media and independent verification."},
-    {"lat": 32.08, "lng": 34.78, "type": "conflict", "layer": "osint", "importance": 2, "title": "Israel northern front watch", "detail": "Northern front / Lebanon residual risk watch. UNVERIFIED social layer.", "url": "https://x.com/search?q=Israel%20Lebanon", "confidence": "SOCIAL MEDIA REPORT", "why": "Tracks multi-front residual risk claims.", "status": "Unverified social report", "watch": "Official IDF / Lebanese statements and primary media."}
+    {
+      "lat": 48.5,
+      "lng": 37.5,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 1,
+      "title": "Ukraine–Russia War",
+      "detail": "Europe’s largest high-intensity war since 1945. Active front lines, long-range strikes, and contested airspace.",
+      "why": "Sets European security posture, NATO aid levels, and energy/grain risk pricing.",
+      "status": "Active high-intensity conflict",
+      "watch": "Deep strikes, front advances/retreats, NATO air-defense stocks, civilian infrastructure hits."
+    },
+    {
+      "lat": 28.5,
+      "lng": 51.0,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 1,
+      "title": "Iran / Hormuz Theater",
+      "detail": "Direct and proxy exchanges involving Iran, US, Israel, and Gulf states near a global oil artery.",
+      "why": "Hormuz handles a large share of seaborne oil; kinetic risk here moves energy markets fast.",
+      "status": "Elevated kinetic and diplomatic risk",
+      "watch": "Tanker incidents, claimed strikes, Strait transit disruptions, Gulf air-defense alerts."
+    },
+    {
+      "lat": 23.7,
+      "lng": 120.9,
+      "type": "conflict",
+      "layer": "military",
+      "importance": 1,
+      "title": "Taiwan Strait Pressure",
+      "detail": "Sustained PLA air and naval activity around Taiwan; median-line crossings and exercises are common signals.",
+      "why": "Critical Indo-Pacific deterrence node and semiconductor supply-chain risk.",
+      "status": "Military pressure below kinetic threshold",
+      "watch": "Sortie counts, naval block-training, US/partner transit operations, political crisis triggers."
+    },
+    {
+      "lat": 31.5,
+      "lng": 34.5,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 1,
+      "title": "Israel–Iran Axis Front",
+      "detail": "Multi-front residual risk across Israel, Lebanon, Iran, and regional proxies after years of cascading exchanges.",
+      "why": "Can re-open wider Middle East escalation that interacts with energy and nuclear dossiers.",
+      "status": "Multi-front residual / intermittent exchanges",
+      "watch": "Northern front fire, deep-strike claims, proxy mobilization, ceasefire durability."
+    },
+    {
+      "lat": 15.5,
+      "lng": 32.5,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 2,
+      "title": "Sudan Civil War",
+      "detail": "Fighting between Sudanese Armed Forces and Rapid Support Forces with severe civilian impact.",
+      "why": "One of the world’s worst active humanitarian crises; regional spillover into the Horn/Sahel.",
+      "status": "Active civil war",
+      "watch": "Control of cities, famine indicators, external backers, humanitarian access."
+    },
+    {
+      "lat": 21.0,
+      "lng": 43.0,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 2,
+      "title": "Yemen / Red Sea",
+      "detail": "Houthi and related activity creates residual interdiction risk on Red Sea shipping lanes.",
+      "why": "Affects Bab el-Mandeb traffic, insurance rates, and Asia–Europe container routing.",
+      "status": "Residual maritime interdiction risk",
+      "watch": "Ship attacks, coalition responses, insurance war-risk premiums, Suez diversion rates."
+    },
+    {
+      "lat": 19.5,
+      "lng": 96.0,
+      "type": "conflict",
+      "layer": "conflict",
+      "importance": 2,
+      "title": "Myanmar Civil War",
+      "detail": "Multi-front fighting between the military junta and resistance forces across the country.",
+      "why": "Regional refugee flows, border instability, and limited ASEAN mediation leverage.",
+      "status": "Active multi-front civil conflict",
+      "watch": "Territory shifts, border clashes with neighbors, aid access, elite defections."
+    },
+    {
+      "lat": 26.5,
+      "lng": 56.5,
+      "type": "economic",
+      "layer": "energy",
+      "importance": 1,
+      "title": "Strait of Hormuz",
+      "detail": "Primary oil chokepoint linking Persian Gulf producers to global markets.",
+      "why": "Even temporary disruption can spike crude prices and inflation expectations worldwide.",
+      "status": "Critical chokepoint — risk-sensitive",
+      "watch": "Transit volume claims, naval escorts, mine/drone reports, oil futures reaction."
+    },
+    {
+      "lat": 12.5,
+      "lng": 43.5,
+      "type": "economic",
+      "layer": "energy",
+      "importance": 2,
+      "title": "Bab el-Mandeb / Red Sea",
+      "detail": "Secondary energy and container chokepoint between the Red Sea and the Gulf of Aden.",
+      "why": "Rerouting around Africa raises time/cost for Europe–Asia trade when risk rises.",
+      "status": "Secondary chokepoint — residual threat",
+      "watch": "Attack reports, carrier diversions, war-risk insurance, Suez Canal throughput."
+    },
+    {
+      "lat": 29.3,
+      "lng": 48.0,
+      "type": "economic",
+      "layer": "energy",
+      "importance": 2,
+      "title": "Persian Gulf Energy Complex",
+      "detail": "Cluster of major producers and export terminals (Saudi, UAE, Kuwait, Iraq, Iran exports).",
+      "why": "Production and export security here anchors global spare capacity narratives.",
+      "status": "Strategic energy production zone",
+      "watch": "Facility security incidents, OPEC+ signals, export terminal disruptions."
+    },
+    {
+      "lat": 40.7,
+      "lng": -74.0,
+      "type": "economic",
+      "layer": "economic",
+      "importance": 2,
+      "title": "US Markets / New York",
+      "detail": "Major equity, rates, and risk-sentiment node. Public market moves often lag geopolitical shocks by hours to days.",
+      "why": "Shows how investors price conflict, energy, and policy risk in real time.",
+      "status": "Global risk-pricing hub",
+      "watch": "VIX/equity swings after kinetic headlines, energy equities, USD safe-haven moves."
+    },
+    {
+      "lat": 51.5,
+      "lng": -0.1,
+      "type": "economic",
+      "layer": "economic",
+      "importance": 2,
+      "title": "London / Europe Energy & Defense",
+      "detail": "European exposure to Middle East energy flows, Russian residual risk, and elevated defense spending.",
+      "why": "European gas, power prices, and defense budgets react strongly to Ukraine and Hormuz risk.",
+      "status": "Energy + defense demand node",
+      "watch": "TTF gas prices, defense stock moves, UK/EU policy statements after escalation."
+    },
+    {
+      "lat": 35.7,
+      "lng": 139.7,
+      "type": "economic",
+      "layer": "economic",
+      "importance": 2,
+      "title": "Tokyo / Indo-Pacific Trade",
+      "detail": "Semiconductor and advanced manufacturing supply-chain node sensitive to Taiwan Strait risk.",
+      "why": "Japan is a core US ally and a critical chip/equipment supplier; Strait shocks hit Asian markets first.",
+      "status": "Supply-chain sensitivity node",
+      "watch": "Yen risk-off moves, chip equities, Japanese defense posture statements."
+    },
+    {
+      "lat": 50.55428,
+      "lng": 36.47101,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 2,
+      "title": "moving around via radio",
+      "detail": "Social/OSINT report near Belgorod–Kharkiv axis. Treat as UNVERIFIED.",
+      "url": "https://x.com/Exilenova_plus/status/2093023007081939372",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Illustrative OSINT chatter near the front.",
+      "status": "Unverified social report",
+      "watch": "Corroboration by primary media or official statements."
+    },
+    {
+      "lat": 55.05773,
+      "lng": 55.92304,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 2,
+      "title": "Ozon warehouse hit",
+      "detail": "Claimed drone/strike impact on logistics site. UNVERIFIED.",
+      "url": "https://x.com/wartranslated/status/2092956355132850476",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Deep-strike logistics targeting narrative.",
+      "status": "Unverified social report",
+      "watch": "Confirmation by Russian or Ukrainian official sources."
+    },
+    {
+      "lat": 53.67815,
+      "lng": 55.91485,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 2,
+      "title": "drones hit Sterlitamak",
+      "detail": "Claimed drone activity deeper inside Russia. UNVERIFIED.",
+      "url": "https://x.com/wartranslated/status/2092977535793410196",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Signals expanding strike range narratives.",
+      "status": "Unverified social report",
+      "watch": "Local admin statements, satellite/visual corroboration."
+    },
+    {
+      "lat": 25.96314,
+      "lng": 56.73384,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 1,
+      "title": "no talks scheduled, blockade remains in effect",
+      "detail": "Hormuz/Gulf blockade-related social claim. UNVERIFIED.",
+      "url": "https://x.com/Osint613/status/2093012623340007784",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Energy-chokepoint risk narrative.",
+      "status": "Unverified social report",
+      "watch": "Official shipping notices, AIS diversions."
+    },
+    {
+      "lat": 52.52852,
+      "lng": 13.3585,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 1,
+      "title": "Patriot stockpiles beyond critical",
+      "detail": "Claim about air-defense stock levels. UNVERIFIED.",
+      "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Air-defense sustainability debate.",
+      "status": "Unverified social report",
+      "watch": "Defense ministry or alliance statements."
+    },
+    {
+      "lat": 35.69,
+      "lng": 51.39,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 2,
+      "title": "Tehran region watch",
+      "detail": "Iran strike / response watch node. UNVERIFIED social layer.",
+      "url": "https://x.com/search?q=Iran%20strike",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Tracks claims around Iranian capital region.",
+      "status": "Unverified social report",
+      "watch": "State media and independent verification."
+    },
+    {
+      "lat": 32.08,
+      "lng": 34.78,
+      "type": "conflict",
+      "layer": "osint",
+      "importance": 2,
+      "title": "Israel northern front watch",
+      "detail": "Northern front / Lebanon residual risk watch. UNVERIFIED social layer.",
+      "url": "https://x.com/search?q=Israel%20Lebanon",
+      "confidence": "SOCIAL MEDIA REPORT",
+      "why": "Tracks multi-front residual risk claims.",
+      "status": "Unverified social report",
+      "watch": "Official IDF / Lebanese statements and primary media."
+    }
   ],
   "social": [
-    {"label": "Ozon warehouse hit", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/wartranslated/status/2092956355132850476"},
-    {"label": "drones hit Sterlitamak", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/wartranslated/status/2092977535793410196"},
-    {"label": "Patriot stockpiles beyond critical", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787"},
-    {"label": "no talks scheduled, blockade remains in effect", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/Osint613/status/2093012623340007784"}
+    {
+      "label": "Ozon warehouse hit",
+      "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map",
+      "url": "https://x.com/wartranslated/status/2092956355132850476"
+    },
+    {
+      "label": "drones hit Sterlitamak",
+      "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map",
+      "url": "https://x.com/wartranslated/status/2092977535793410196"
+    },
+    {
+      "label": "Patriot stockpiles beyond critical",
+      "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map",
+      "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787"
+    },
+    {
+      "label": "no talks scheduled, blockade remains in effect",
+      "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map",
+      "url": "https://x.com/Osint613/status/2093012623340007784"
+    }
   ]
 }
