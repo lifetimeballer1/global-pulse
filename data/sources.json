@@ -1,20 +1,92 @@
 {
-  "purpose": "Public no-key sources used by Global Pulse",
-  "policy": "Source links are preserved on stories; analytical scores never represent official measurements.",
+  "updatedAt": "2026-09-02T22:50:04.514110+00:00",
   "feeds": [
-    {"name":"BBC World","type":"international"},
-    {"name":"BBC Middle East","type":"regional"},
-    {"name":"BBC Africa","type":"regional"},
-    {"name":"BBC Asia","type":"regional"},
-    {"name":"BBC Europe","type":"regional"},
-    {"name":"BBC Americas","type":"regional"},
-    {"name":"Guardian World","type":"international"},
-    {"name":"Guardian US","type":"regional"},
-    {"name":"NPR World","type":"international"},
-    {"name":"Al Jazeera","type":"international"},
-    {"name":"DW World","type":"international"},
-    {"name":"France 24","type":"international"},
-    {"name":"Crisis Group","type":"analysis"},
-    {"name":"ReliefWeb","type":"humanitarian"}
+    {
+      "name": "BBC World",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "type": "international",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "BBC Middle East",
+      "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+      "type": "regional",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "BBC Africa",
+      "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml",
+      "type": "regional",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "BBC Asia",
+      "url": "https://feeds.bbci.co.uk/news/world/asia/rss.xml",
+      "type": "regional",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "BBC Europe",
+      "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml",
+      "type": "regional",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "BBC Americas",
+      "url": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+      "type": "regional",
+      "domain": "feeds.bbci.co.uk"
+    },
+    {
+      "name": "Guardian World",
+      "url": "https://www.theguardian.com/world/rss",
+      "type": "international",
+      "domain": "www.theguardian.com"
+    },
+    {
+      "name": "Guardian US",
+      "url": "https://www.theguardian.com/us-news/rss",
+      "type": "regional",
+      "domain": "www.theguardian.com"
+    },
+    {
+      "name": "NPR World",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "type": "international",
+      "domain": "feeds.npr.org"
+    },
+    {
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "type": "international",
+      "domain": "www.aljazeera.com"
+    },
+    {
+      "name": "DW World",
+      "url": "https://rss.dw.com/rdf/rss-en-world",
+      "type": "international",
+      "domain": "rss.dw.com"
+    },
+    {
+      "name": "France 24",
+      "url": "https://www.france24.com/en/rss",
+      "type": "international",
+      "domain": "www.france24.com"
+    },
+    {
+      "name": "Crisis Group",
+      "url": "https://www.crisisgroup.org/rss.xml",
+      "type": "analysis",
+      "domain": "www.crisisgroup.org"
+    },
+    {
+      "name": "ReliefWeb",
+      "url": "https://reliefweb.int/updates/rss.xml",
+      "type": "humanitarian",
+      "domain": "reliefweb.int"
+    }
+  ],
+  "errors": [
+    "ReliefWeb: ParseError"
   ]
 }
