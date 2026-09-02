@@ -107,5 +107,52 @@ const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.ta
 })();
 </script>
 
+
+<script>
+/* Global Pulse: capture-phase conflict click fix v3 */
+(function(){
+const coords={
+'ukraine':[49,31.2,5.2],
+'gaza':[31.4,34.4,5.2],
+'israel-iran':[32,44,5.2],
+'hormuz':[26.3,53.4,5.2],
+'yemen':[15.4,44.2,5.5],
+'syria':[35,38.9,5.2],
+'iraq':[33.2,43.8,5.2],
+'sudan':[15.5,30.2,5.2],
+'south-sudan':[6.8,31.3,5.2],
+'drc':[-1.5,29.2,5.2],
+'somalia':[5.8,46.2,5.2],
+'ethiopia':[9.1,40.5,5.2],
+'nigeria':[9,8.7,5.2],
+'sahel-mali':[17,-3,5.2],
+'sahel-burkina':[12.4,-1.6,5.2],
+'sahel-niger':[17.6,8.1,5.2],
+'cameroon':[5.9,10.2,5.2],
+'chad':[15.3,18.7,5.2],
+'libya':[27,17,5.2],
+'mozambique':[-12.3,40.5,5.2],
+'myanmar':[21,96,5.2],
+'afghanistan':[33.9,67.7,5.2],
+'pakistan':[30.4,69.3,5.2],
+'taiwan':[24,120.7,5.2],
+'korea':[38.5,127.9,5.2],
+'south-china-sea':[12,114,5.2],
+'haiti':[18.97,-72.3,5.2],
+'mexico':[23.6,-102.5,5.2],
+'ecuador':[-1.8,-78.2,5.2],
+'colombia':[4.6,-74.1,5.2]
+};
+function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function getConflict(id){return typeof findConflict==='function'?findConflict(id):null}
+function show(id){const c=getConflict(id);if(!c)return;const m=Array.isArray(DATA?.markers)?DATA.markers:[];const linked=m.filter(x=>String(x.conflictId||'')===String(id));$('drawerBody').innerHTML=`<button class="drawer-close" id="gpClose" aria-label="Close">✕</button><span class="tag amber">${esc2(c.escalation||'MONITORING')}</span> <span class="tag blue">${esc2(c.region||'')}</span><h3>${esc2(c.name)}</h3><div class="muted">${esc2(c.category||'')} · ${esc2(c.status||'Monitoring')} · ${esc2(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Facts</div><p>${esc2(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc2(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${linked.length?linked.length+' directly linked map signal'+(linked.length===1?'':'s')+'.':'No directly linked markers yet; map will center on this theater.'}</p></div><button class="filter active" id="gpFocus" style="width:100%;margin-top:12px">Focus theater on map</button>`;$('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');$('gpClose').onclick=close;$('gpFocus').onclick=()=>focus(c)}
+function close(){$('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open')}
+function focus(c){const m=Array.isArray(DATA?.markers)?DATA.markers:[],linked=m.filter(x=>String(x.conflictId||'')===String(c.id)),p=coords[c.id]||[10,0,2.8];activeLayer='all';if(typeof renderMap==='function')renderMap();close();setTimeout(()=>{if(!map)return;map.invalidateSize(true);const pts=linked.map(x=>[+x.lat,+x.lng]).filter(x=>Number.isFinite(x[0])&&Number.isFinite(x[1]));if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([p[0],p[1]],p[2],{duration:.8});$('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});let b=$('gpFocusBar');if(!b){b=document.createElement('div');b.id='gpFocusBar';b.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',b)}b.innerHTML=`<div><b>Theater focus</b><div>${esc2(c.name)} · ${esc2(c.region||'')}</div></div><button class="filter" id="gpClear">Clear focus</button>`;$('gpClear').onclick=()=>{b.remove();map.flyTo([24,10],2,{duration:.7});renderMap()};},300)}
+document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();show(card.dataset.id)}},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();close()}},true);
+const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.target===back)close()});
+})();
+</script>
+
 </body>
 </html>
