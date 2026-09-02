@@ -1,6 +1,12 @@
 name: Global Pulse Data Refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'update_snapshot.py'
+      - 'data/**'
+      - '.github/workflows/update-snapshot.yml'
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:
