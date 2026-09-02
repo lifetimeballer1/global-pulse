@@ -18,11 +18,6 @@
       --warn: #f59e0b;
       --danger: #ef4444;
       --ok: #22c55e;
-      --alliance: #3b82f6;
-      --trade: #22c55e;
-      --conflict: #ef4444;
-      --sanctions: #f59e0b;
-      --tension: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -82,7 +77,6 @@
       margin-bottom: 12px;
       font-weight: 600;
     }
-    /* Gauge */
     .gauge-wrap {
       grid-column: 1 / -1;
       display: flex;
@@ -130,11 +124,10 @@
     .bd-item.conflict { border-color: var(--danger); }
     .bd-item.sanctions { border-color: var(--warn); }
     .bd-item.market { border-color: var(--ok); }
-    .bd-item.diplo { border-color: var(--tension); }
+    .bd-item.diplo { border-color: #a855f7; }
     .bd-name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
     .bd-val { font-size: 1.15rem; font-weight: 600; font-family: ui-monospace, monospace; }
     .bd-w { font-size: 0.65rem; color: var(--muted); }
-    /* Map */
     #map {
       width: 100%;
       height: 480px;
@@ -162,17 +155,6 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
-    .marker-label {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      color: #e6edf3;
-      font-size: 11px;
-      font-weight: 600;
-      text-shadow: 0 1px 3px #000, 0 0 6px #000;
-      white-space: nowrap;
-    }
-    /* Stories */
     .stories { overflow-y: auto; max-height: 560px; }
     .story {
       padding: 12px 0;
@@ -198,39 +180,14 @@
     .tag.conflict { background: rgba(239,68,68,0.2); color: #fca5a5; }
     .tag.economic { background: rgba(34,197,94,0.2); color: #86efac; }
     .tag.diplomatic { background: rgba(168,85,247,0.2); color: #d8b4fe; }
-    .story h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .story p {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .story a {
-      color: var(--accent);
-      font-size: 0.75rem;
-      text-decoration: none;
-    }
+    .story h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .story p { font-size: 0.8rem; color: var(--muted); }
+    .story a { color: var(--accent); font-size: 0.75rem; text-decoration: none; }
     .story a:hover { text-decoration: underline; }
-    /* Econ */
-    .econ-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .econ-card {
-      background: #0d131c;
-      border-radius: 6px;
-      padding: 12px;
-    }
+    .econ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .econ-card { background: #0d131c; border-radius: 6px; padding: 12px; }
     .econ-card .name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
-    .econ-card .val {
-      font-size: 1.25rem;
-      font-weight: 700;
-      font-family: ui-monospace, monospace;
-      margin: 4px 0;
-    }
+    .econ-card .val { font-size: 1.25rem; font-weight: 700; font-family: ui-monospace, monospace; margin: 4px 0; }
     .econ-card .chg { font-size: 0.75rem; font-family: ui-monospace, monospace; }
     .up { color: var(--ok); }
     .down { color: var(--danger); }
@@ -252,10 +209,18 @@
     }
     .legend span { display: flex; align-items: center; gap: 4px; }
     .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .zoom-hint {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 6px;
+    .zoom-hint { font-size: 0.7rem; color: var(--muted); margin-top: 6px; }
+    .status-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--ok);
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
   </style>
 </head>
@@ -263,327 +228,212 @@
   <header>
     <div class="logo">GLOBAL <span>PULSE</span></div>
     <div class="meta">
-      Last snapshot: <span id="lastUpdated">2026-09-02 13:00 UTC</span> · Illustrative model · Not a forecast
+      <span class="status-dot" title="Auto-refresh active"></span>
+      Last snapshot: <span id="lastUpdated">loading…</span> · Updates every 30 min · No API keys · Illustrative model
     </div>
   </header>
 
   <div class="layout">
-    <!-- Tension Gauge -->
     <div class="panel gauge-wrap">
       <div class="gauge-main">
-        <div class="gauge-value" id="tensionValue">64%</div>
+        <div class="gauge-value" id="tensionValue">—</div>
         <div class="gauge-label">Global Tension Index</div>
         <svg id="gaugeSvg" width="200" height="110" viewBox="0 0 200 110"></svg>
         <div class="gauge-disclaimer">
-          Illustrative composite (not a prediction). Weighted blend of active conflict intensity, sanctions activity, military posture signals, diplomatic tone, and market volatility. Think Doomsday Clock / risk indices — transparency over black-box forecasting.
+          Illustrative composite (not a prediction). Weighted blend of active conflict intensity, sanctions activity, military posture signals, diplomatic tone, and market volatility.
         </div>
       </div>
-      <div class="breakdown">
-        <div class="bd-item conflict">
-          <div class="bd-name">Active Conflicts</div>
-          <div class="bd-val">28</div>
-          <div class="bd-w">Weight 30%</div>
-        </div>
-        <div class="bd-item sanctions">
-          <div class="bd-name">Sanctions / Energy Leverage</div>
-          <div class="bd-val">High</div>
-          <div class="bd-w">Weight 20%</div>
-        </div>
-        <div class="bd-item diplo">
-          <div class="bd-name">Diplomatic Tone</div>
-          <div class="bd-val">Strained</div>
-          <div class="bd-w">Weight 20%</div>
-        </div>
-        <div class="bd-item market">
-          <div class="bd-name">Market Vol (VIX ~16.3)</div>
-          <div class="bd-val">Moderate</div>
-          <div class="bd-w">Weight 15%</div>
-        </div>
-        <div class="bd-item">
-          <div class="bd-name">Mobilization Mentions</div>
-          <div class="bd-val">Elevated</div>
-          <div class="bd-w">Weight 15%</div>
-        </div>
+      <div class="breakdown" id="breakdown">
+        <div class="bd-item conflict"><div class="bd-name">Active Conflicts</div><div class="bd-val" id="bdConflicts">—</div><div class="bd-w">Weight 30%</div></div>
+        <div class="bd-item sanctions"><div class="bd-name">Sanctions / Energy Leverage</div><div class="bd-val" id="bdSanctions">—</div><div class="bd-w">Weight 20%</div></div>
+        <div class="bd-item diplo"><div class="bd-name">Diplomatic Tone</div><div class="bd-val" id="bdDiplo">—</div><div class="bd-w">Weight 20%</div></div>
+        <div class="bd-item market"><div class="bd-name">Market Vol</div><div class="bd-val" id="bdMarket">—</div><div class="bd-w">Weight 15%</div></div>
+        <div class="bd-item"><div class="bd-name">Mobilization Mentions</div><div class="bd-val" id="bdMobil">—</div><div class="bd-w">Weight 15%</div></div>
       </div>
     </div>
 
-    <!-- Left: Stories -->
     <div class="panel stories">
-      <h2>Hourly Digest · Top Stories</h2>
+      <h2>Digest · Top Stories</h2>
       <div id="storyList"></div>
     </div>
 
-    <!-- Center: World Map -->
     <div class="panel">
       <h2>World Conflict & Economic Map</h2>
       <div id="map"></div>
       <div class="legend">
         <span><div class="dot" style="background:#ef4444"></div> Major conflict</span>
         <span><div class="dot" style="background:#f97316"></div> Regional / active</span>
-        <span><div class="dot" style="background:#eab308"></div> Localized / lower intensity</span>
-        <span><div class="dot" style="background:#22c55e"></div> Economic / energy node</span>
+        <span><div class="dot" style="background:#eab308"></div> Localized</span>
+        <span><div class="dot" style="background:#22c55e"></div> Economic / energy</span>
         <span style="margin-left:8px;opacity:0.8">Zoom in → more detail</span>
       </div>
-      <div class="zoom-hint">Zoomed out shows only the highest-impact theaters. Zoom closer to reveal smaller conflicts and local economic pressure points.</div>
+      <div class="zoom-hint">Zoomed out shows only highest-impact theaters. Zoom closer for smaller conflicts and local economic nodes.</div>
     </div>
 
-    <!-- Right: Economic Pulse -->
     <div class="panel">
       <h2>Economic Pulse</h2>
       <div class="econ-grid" id="econGrid"></div>
       <div style="margin-top:16px;font-size:0.75rem;color:var(--muted);">
         <strong style="color:var(--text);">Conflict-linked notes</strong><br/>
-        Oil remains sensitive to Hormuz risk and Iranian retaliation capacity. Defense and energy equities have outperformed on elevated geopolitical risk. Supply-chain exposure to Red Sea / Bab el-Mandeb still a residual concern even as direct Houthi activity has fluctuated.
+        Oil remains sensitive to Hormuz risk. Defense and energy equities tend to hold up better when geopolitical risk rises. Red Sea / Bab el-Mandeb remains a residual shipping concern.
       </div>
     </div>
   </div>
 
   <footer>
-    Global Pulse is an illustrative dashboard. Tension Index is a transparent weighted model for situational awareness only — not a war forecast or trading signal.<br/>
-    Data snapshot style · Stories link to original reporting where available · Built for GitHub Pages
+    Global Pulse is an illustrative dashboard. Data file refreshed every 30 minutes by GitHub Actions (no API keys). Tension Index is not a forecast.<br/>
+    Open the page anytime — it loads the latest snapshot and re-checks every 30 minutes while open.
   </footer>
 
   <script>
-    // --- Sample data ---
-    const stories = [
-      {
-        tag: "conflict",
-        time: "2h ago",
-        title: "US and Israeli strikes continue against IRGC-linked targets as Hormuz remains contested",
-        summary: "Central Command reported additional strikes on Iranian Revolutionary Guard infrastructure. Oil futures reacted sharply; markets are pricing sustained risk of further disruption to the Strait of Hormuz, through which a large share of global crude still transits.",
-        source: "#",
-        sourceLabel: "Defense reporting"
-      },
-      {
-        tag: "economic",
-        time: "3h ago",
-        title: "Brent holds near $94–95 as energy security premium persists",
-        summary: "Crude remains elevated relative to early-2026 levels after the spring Hormuz shock. Analysts note that even partial reopening of flows has not fully erased the risk premium while Iranian retaliation capacity and proxy activity remain active variables.",
-        source: "#",
-        sourceLabel: "Market data"
-      },
-      {
-        tag: "diplomatic",
-        time: "5h ago",
-        title: "Xi–Putin meeting at SCO reaffirms ‘solid’ partnership amid multipolar rhetoric",
-        summary: "Chinese and Russian leaders used the Bishkek summit to emphasize closer coordination and criticism of ‘unilateralism.’ The optics reinforce the strategic alignment that has helped Moscow sustain its war effort and complicated Western isolation strategies.",
-        source: "#",
-        sourceLabel: "Summit coverage"
-      },
-      {
-        tag: "conflict",
-        time: "6h ago",
-        title: "Ukraine expands deep-strike campaign against Russian energy infrastructure",
-        summary: "Ukrainian long-range drones and missiles continue to hit refineries and logistics nodes inside Russia. The campaign aims to degrade revenue and logistics supporting the war; Moscow continues pressure on Ukrainian cities and energy systems in response.",
-        source: "#",
-        sourceLabel: "Conflict reporting"
-      },
-      {
-        tag: "diplomatic",
-        time: "8h ago",
-        title: "China maintains high tempo of PLA activity around Taiwan",
-        summary: "Taipei reported elevated numbers of aircraft and vessels operating near the island, including median-line crossings. The pattern is consistent with sustained pressure short of kinetic action while Beijing tests response thresholds and domestic resolve in Taiwan and among partners.",
-        source: "#",
-        sourceLabel: "Regional reporting"
-      },
-      {
-        tag: "economic",
-        time: "9h ago",
-        title: "Equity markets soft as yields climb and oil firmness feeds inflation concerns",
-        summary: "Major US indices closed lower. Higher energy costs and bond-market pressure are weighing on rate-cut expectations. Defense and energy sectors remain relative bright spots amid the broader risk-off tone.",
-        source: "#",
-        sourceLabel: "Market wrap"
-      },
-      {
-        tag: "conflict",
-        time: "11h ago",
-        title: "Sudan fighting intensifies around key North Kordofan positions",
-        summary: "Army and Rapid Support Forces continue contesting strategic ground with high civilian cost. The conflict remains one of the world’s most severe humanitarian crises and a reminder that multiple high-intensity wars are running in parallel.",
-        source: "#",
-        sourceLabel: "Africa desk"
-      },
-      {
-        tag: "diplomatic",
-        time: "14h ago",
-        title: "Western capitals stress deterrence while managing escalation risks with Iran",
-        summary: "Officials continue to balance the need to degrade Iranian proxy and nuclear-related capabilities against the risk of broader regional war. Energy markets remain the clearest real-time barometer of perceived escalation probability.",
-        source: "#",
-        sourceLabel: "Policy analysis"
-      }
-    ];
+    let map, layerGroup, leafletMarkers = [], gaugeDrawn = false;
 
-    const econ = [
-      { name: "Brent Crude", val: "$94.5", chg: "+4.6% (1d)", dir: "up" },
-      { name: "WTI", val: "$90.2", chg: "+5.2% (1d)", dir: "up" },
-      { name: "VIX", val: "16.3", chg: "+9.5% (1d)", dir: "up" },
-      { name: "S&P 500", val: "7,631", chg: "−0.7%", dir: "down" },
-      { name: "Gold", val: "$4,325", chg: "−2.9%", dir: "down" },
-      { name: "US 10Y", val: "4.80%", chg: "+5 bp", dir: "up" }
-    ];
+    function formatUpdated(iso) {
+      if (!iso) return "—";
+      try {
+        const d = new Date(iso);
+        return d.toISOString().replace("T", " ").slice(0, 16) + " UTC";
+      } catch { return iso; }
+    }
 
-    // Map markers: importance 1 = always visible (major), 2 = zoom ≥3, 3 = zoom ≥4.5, 4 = zoom ≥6
-    // type: conflict | economic
-    const markers = [
-      // Major theaters (importance 1)
-      { lat: 48.5, lng: 37.5, importance: 1, type: "conflict", title: "Ukraine–Russia War", detail: "Full-scale conflict continues. Ukraine deep strikes on Russian energy/logistics; Russia pressures Ukrainian infrastructure and front lines. High strategic and humanitarian cost." },
-      { lat: 28.5, lng: 51.0, importance: 1, type: "conflict", title: "Iran / Hormuz Theater", detail: "Direct and proxy exchanges with Israel and US forces. Strait of Hormuz risk remains the dominant global energy security flashpoint. IRGC-linked activity and residual nuclear concerns." },
-      { lat: 23.7, lng: 120.9, importance: 1, type: "conflict", title: "Taiwan Strait Pressure", detail: "Sustained PLA air and naval activity around Taiwan, including median-line crossings. Critical semiconductor and Indo-Pacific deterrence node." },
-      { lat: 31.5, lng: 34.5, importance: 1, type: "conflict", title: "Israel–Iran Axis Front", detail: "Multi-front posture against Iranian proxies and direct exchanges. High operational tempo since the 2023–26 cascade." },
-
-      // Regional / active (importance 2)
-      { lat: 15.5, lng: 32.5, importance: 2, type: "conflict", title: "Sudan Civil War", detail: "Army vs Rapid Support Forces. Intense fighting in North Kordofan and elsewhere. One of the world’s worst humanitarian crises." },
-      { lat: 21.0, lng: 43.0, importance: 2, type: "conflict", title: "Yemen / Red Sea", detail: "Houthi activity and residual risk to Red Sea / Bab el-Mandeb shipping lanes. Intermittent cross-border strikes with Saudi Arabia." },
-      { lat: 19.5, lng: 96.0, importance: 2, type: "conflict", title: "Myanmar Civil War", detail: "Ongoing multi-front fighting between junta and ethnic armed organizations / resistance. High civilian impact." },
-      { lat: 35.0, lng: 38.5, importance: 2, type: "conflict", title: "Syria / Residual Conflict", detail: "Multiple overlapping actors; spillover risk from broader Iran–Israel and regional dynamics." },
-      { lat: 33.3, lng: 44.4, importance: 2, type: "conflict", title: "Iraq – Militia Activity", detail: "Iran-aligned groups remain a pressure point; periodic strikes and political tension with Baghdad and US presence." },
-
-      // Localized / lower intensity (importance 3)
-      { lat: 12.0, lng: 15.0, importance: 3, type: "conflict", title: "Lake Chad / Sahel Insurgency", detail: "Boko Haram / ISWAP and other jihadist groups continue attacks across the Lake Chad basin and Sahel states." },
-      { lat: 0.5, lng: 29.5, importance: 3, type: "conflict", title: "Eastern DRC", detail: "M23 and other armed groups; regional involvement (Rwanda/DRC tensions). Persistent displacement." },
-      { lat: 34.0, lng: 69.2, importance: 3, type: "conflict", title: "Afghanistan–Pakistan Border", detail: "Cross-border friction and militant activity remain elevated after earlier ceasefire breakdowns." },
-      { lat: 41.3, lng: 69.2, importance: 3, type: "conflict", title: "Central Asia Tensions", detail: "SCO region diplomacy concurrent with residual border and water-resource frictions among several states." },
-      { lat: 15.3, lng: 44.2, importance: 3, type: "conflict", title: "Houthi Core Area", detail: "Command and logistics nodes tied to Red Sea interdiction capability." },
-
-      // Economic / energy nodes (appear on closer zoom)
-      { lat: 26.5, lng: 56.5, importance: 2, type: "economic", title: "Strait of Hormuz", detail: "Critical chokepoint for global oil. Current risk premium is the main driver of elevated Brent (~$94–95). Any sustained closure would be systemically disruptive." },
-      { lat: 12.5, lng: 43.5, importance: 3, type: "economic", title: "Bab el-Mandeb / Red Sea", detail: "Secondary chokepoint. Residual Houthi threat continues to influence shipping insurance and rerouting costs." },
-      { lat: 29.3, lng: 48.0, importance: 3, type: "economic", title: "Persian Gulf Energy Complex", detail: "Major producers and export terminals. Saudi, UAE, Kuwait and others balancing security and market share." },
-      { lat: 40.7, lng: -74.0, importance: 3, type: "economic", title: "US Markets / NY", detail: "S&P ~7,631, VIX ~16.3. Defense and energy sectors relatively resilient amid broader risk-off." },
-      { lat: 51.5, lng: -0.1, importance: 3, type: "economic", title: "London / Europe Energy", detail: "European exposure to Middle East oil/gas disruption and elevated defense spending after Ukraine." },
-      { lat: 35.7, lng: 139.7, importance: 3, type: "economic", title: "Tokyo / Indo-Pacific Trade", detail: "Critical node for semiconductor and manufacturing supply chains; sensitive to Taiwan Strait risk." },
-      { lat: 22.3, lng: 114.2, importance: 3, type: "economic", title: "Hong Kong / South China Trade", detail: "Trade and finance hub under the shadow of Taiwan and South China Sea tensions." },
-      { lat: 1.3, lng: 103.8, importance: 4, type: "economic", title: "Singapore / Malacca", detail: "Major refining and shipping hub. Alternative route pressure when Hormuz or Red Sea risk rises." },
-      { lat: 25.2, lng: 55.3, importance: 4, type: "economic", title: "Dubai / UAE Energy Hub", detail: "Regional energy and logistics center; closely watches Hormuz and Iranian retaliation risk." },
-      { lat: 31.2, lng: 121.5, importance: 4, type: "economic", title: "Shanghai / China Export Hub", detail: "Manufacturing and export powerhouse. Sensitive to US–China trade and Taiwan contingency scenarios." }
-    ];
-
-    // Render stories
-    const storyList = document.getElementById("storyList");
-    stories.forEach(s => {
-      const el = document.createElement("div");
-      el.className = "story";
-      el.innerHTML = `
-        <div class="story-meta">
-          <span class="tag ${s.tag}">${s.tag}</span>
-          <span>${s.time}</span>
-        </div>
-        <h3>${s.title}</h3>
-        <p>${s.summary}</p>
-        <a href="${s.source}">${s.sourceLabel} →</a>
-      `;
-      storyList.appendChild(el);
-    });
-
-    // Render econ
-    const econGrid = document.getElementById("econGrid");
-    econ.forEach(e => {
-      const el = document.createElement("div");
-      el.className = "econ-card";
-      el.innerHTML = `
-        <div class="name">${e.name}</div>
-        <div class="val">${e.val}</div>
-        <div class="chg ${e.dir}">${e.chg}</div>
-      `;
-      econGrid.appendChild(el);
-    });
-
-    // Gauge arc
-    (function drawGauge() {
+    function drawGauge(value) {
       const svg = d3.select("#gaugeSvg");
-      const width = 200, height = 110;
-      const radius = 80;
-      const value = 64;
+      svg.selectAll("*").remove();
+      const width = 200, height = 110, radius = 80;
       const scale = d3.scaleLinear().domain([0, 100]).range([-Math.PI * 0.75, Math.PI * 0.75]);
-
       const arcBg = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(100));
       const arcVal = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(value));
-
       svg.append("path").attr("d", arcBg).attr("transform", `translate(${width/2},${height-10})`).attr("fill", "#1e2a3a");
-      svg.append("path").attr("d", arcVal).attr("transform", `translate(${width/2},${height-10})`).attr("fill", value > 70 ? "#ef4444" : value > 45 ? "#f59e0b" : "#22c55e");
-    })();
+      svg.append("path").attr("d", arcVal).attr("transform", `translate(${width/2},${height-10})`)
+        .attr("fill", value > 70 ? "#ef4444" : value > 45 ? "#f59e0b" : "#22c55e");
+      gaugeDrawn = true;
+    }
 
-    // --- Interactive Leaflet world map ---
-    (function initMap() {
-      const map = L.map("map", {
-        center: [25, 40],
-        zoom: 2.4,
-        minZoom: 2,
-        maxZoom: 8,
-        worldCopyJump: true,
-        zoomControl: true
+    function renderStories(stories) {
+      const el = document.getElementById("storyList");
+      el.innerHTML = "";
+      (stories || []).forEach(s => {
+        const div = document.createElement("div");
+        div.className = "story";
+        div.innerHTML = `
+          <div class="story-meta">
+            <span class="tag ${s.tag}">${s.tag}</span>
+            <span>${s.time || ""}</span>
+          </div>
+          <h3>${s.title}</h3>
+          <p>${s.summary}</p>
+          <a href="${s.source || "#"}">${s.sourceLabel || "Source"} →</a>
+        `;
+        el.appendChild(div);
       });
+    }
 
-      // Dark basemap (CartoDB Dark Matter)
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-        attribution: "&copy; OpenStreetMap &copy; CARTO",
-        subdomains: "abcd",
-        maxZoom: 19
-      }).addTo(map);
+    function renderEcon(econ) {
+      const el = document.getElementById("econGrid");
+      el.innerHTML = "";
+      (econ || []).forEach(e => {
+        const div = document.createElement("div");
+        div.className = "econ-card";
+        div.innerHTML = `
+          <div class="name">${e.name}</div>
+          <div class="val">${e.val}</div>
+          <div class="chg ${e.dir || ""}">${e.chg || ""}</div>
+        `;
+        el.appendChild(div);
+      });
+    }
 
-      // Color / size by type + importance
-      function markerStyle(m) {
-        if (m.type === "economic") {
-          return { radius: 7, color: "#166534", fillColor: "#22c55e", fillOpacity: 0.9, weight: 1.5 };
-        }
-        // conflict
-        if (m.importance === 1) return { radius: 11, color: "#7f1d1d", fillColor: "#ef4444", fillOpacity: 0.95, weight: 2 };
-        if (m.importance === 2) return { radius: 8, color: "#9a3412", fillColor: "#f97316", fillOpacity: 0.9, weight: 1.5 };
-        return { radius: 6, color: "#854d0e", fillColor: "#eab308", fillOpacity: 0.85, weight: 1 };
+    function markerStyle(m) {
+      if (m.type === "economic") {
+        return { radius: 7, color: "#166534", fillColor: "#22c55e", fillOpacity: 0.9, weight: 1.5 };
+      }
+      if (m.importance === 1) return { radius: 11, color: "#7f1d1d", fillColor: "#ef4444", fillOpacity: 0.95, weight: 2 };
+      if (m.importance === 2) return { radius: 8, color: "#9a3412", fillColor: "#f97316", fillOpacity: 0.9, weight: 1.5 };
+      return { radius: 6, color: "#854d0e", fillColor: "#eab308", fillOpacity: 0.85, weight: 1 };
+    }
+
+    function minZoomFor(m) {
+      if (m.importance <= 1) return 0;
+      if (m.importance === 2) return 3;
+      if (m.importance === 3) return 4.5;
+      return 6;
+    }
+
+    function initMap(markers) {
+      if (!map) {
+        map = L.map("map", {
+          center: [25, 40],
+          zoom: 2.4,
+          minZoom: 2,
+          maxZoom: 8,
+          worldCopyJump: true
+        });
+        L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+          attribution: "&copy; OpenStreetMap &copy; CARTO",
+          subdomains: "abcd",
+          maxZoom: 19
+        }).addTo(map);
+        layerGroup = L.layerGroup().addTo(map);
+        L.polyline([[48.5, 37.5], [55.0, 37.0]], { color: "#ef4444", weight: 1.5, opacity: 0.35, dashArray: "4 6" }).addTo(map);
+        L.polyline([[31.5, 34.5], [28.5, 51.0]], { color: "#ef4444", weight: 1.5, opacity: 0.35, dashArray: "4 6" }).addTo(map);
+        map.on("zoomend", updateVisibility);
       }
 
-      // Minimum zoom at which this marker becomes visible
-      function minZoomFor(m) {
-        if (m.importance <= 1) return 0;
-        if (m.importance === 2) return 3;
-        if (m.importance === 3) return 4.5;
-        return 6; // importance 4+
-      }
-
-      const layerGroup = L.layerGroup().addTo(map);
-      const leafletMarkers = [];
-
-      markers.forEach(m => {
+      leafletMarkers = [];
+      layerGroup.clearLayers();
+      (markers || []).forEach(m => {
         const circle = L.circleMarker([m.lat, m.lng], markerStyle(m));
         const tagClass = m.type === "economic" ? "economic" : "conflict";
         const tagLabel = m.type === "economic" ? "Economic" : "Conflict";
-        circle.bindPopup(`
-          <div class="tag ${tagClass}">${tagLabel}</div>
-          <strong>${m.title}</strong><br/><br/>
-          ${m.detail}
-        `);
+        circle.bindPopup(`<div class="tag ${tagClass}">${tagLabel}</div><strong>${m.title}</strong><br/><br/>${m.detail}`);
         circle._meta = m;
         leafletMarkers.push(circle);
       });
+      updateVisibility();
+    }
 
-      function updateVisibility() {
-        const z = map.getZoom();
-        layerGroup.clearLayers();
-        leafletMarkers.forEach(c => {
-          if (z >= minZoomFor(c._meta)) {
-            layerGroup.addLayer(c);
-          }
-        });
-      }
-
-      map.on("zoomend", updateVisibility);
-      updateVisibility(); // initial
-
-      // Optional: subtle connection lines between major related theaters (US-Israel-Iran, Russia-Ukraine, China-Taiwan)
-      // Kept light so the map stays readable
-      const majorLinks = [
-        [[48.5, 37.5], [55.0, 37.0]], // Ukraine approx front to deeper Russia
-        [[31.5, 34.5], [28.5, 51.0]], // Israel – Iran
-        [[23.7, 120.9], [25.0, 121.5]]  // Taiwan area
-      ];
-      majorLinks.forEach(pair => {
-        L.polyline(pair, {
-          color: "#ef4444",
-          weight: 1.5,
-          opacity: 0.35,
-          dashArray: "4 6"
-        }).addTo(map);
+    function updateVisibility() {
+      if (!map || !layerGroup) return;
+      const z = map.getZoom();
+      layerGroup.clearLayers();
+      leafletMarkers.forEach(c => {
+        if (z >= minZoomFor(c._meta)) layerGroup.addLayer(c);
       });
-    })();
+    }
+
+    function applySnapshot(data) {
+      document.getElementById("lastUpdated").textContent = formatUpdated(data.updatedAt);
+      const t = data.tension ?? 64;
+      document.getElementById("tensionValue").textContent = t + "%";
+      drawGauge(t);
+
+      const b = data.breakdown || {};
+      document.getElementById("bdConflicts").textContent = b.conflicts ?? "—";
+      document.getElementById("bdSanctions").textContent = b.sanctions ?? "—";
+      document.getElementById("bdDiplo").textContent = b.diplomatic ?? "—";
+      document.getElementById("bdMarket").textContent = b.market ?? "—";
+      document.getElementById("bdMobil").textContent = b.mobilization ?? "—";
+
+      renderStories(data.stories);
+      renderEcon(data.econ);
+      initMap(data.markers);
+    }
+
+    async function loadSnapshot() {
+      try {
+        const res = await fetch("data/snapshot.json?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        applySnapshot(data);
+      } catch (err) {
+        console.error("Snapshot load failed", err);
+        document.getElementById("lastUpdated").textContent = "unavailable (check Pages / data file)";
+      }
+    }
+
+    // Initial load + refresh while the tab is open (every 30 min)
+    loadSnapshot();
+    setInterval(loadSnapshot, 30 * 60 * 1000);
   </script>
 </body>
 </html>
