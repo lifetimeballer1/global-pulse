@@ -46,7 +46,6 @@ h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;
 .tag.osint{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
 .tag.confirmed{color:var(--green);background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3)}
 .tag.likely{color:var(--blue);background:rgba(91,156,255,.12);border-color:rgba(91,156,255,.3)}
-.tag.unconfirmed{color:var(--amber);background:rgba(255,200,87,.12);border-color:rgba(255,200,87,.3)}
 .tag.social{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
 .tag.high{color:var(--red);background:rgba(255,107,122,.12);border-color:rgba(255,107,122,.3)}
 .tag.mod{color:var(--orange);background:rgba(251,146,60,.12);border-color:rgba(251,146,60,.3)}
@@ -56,8 +55,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 canvas{width:100%;height:150px;background:var(--panel2);border-radius:10px;display:block}
 #map{height:480px;border-radius:12px;background:#0a121c;z-index:1}
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-button.filter{background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;min-height:36px;touch-action:manipulation}
-button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(91,156,255,.08)}
+button.filter,a.filter{background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;min-height:36px;touch-action:manipulation}
+button.filter.active,a.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(91,156,255,.08)}
 .legend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px;font-size:11px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:5px}
 .lg{width:9px;height:9px;border-radius:50%}
@@ -76,7 +75,6 @@ button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,
 .leaflet-popup-tip{background:var(--panel)}
 .leaflet-popup-content{margin:12px 14px;font-size:13px;line-height:1.4}
 .leaflet-popup-content strong{display:block;margin-bottom:4px;font-size:14px}
-.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
 .marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(56,189,248,.25)}
 .marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(56,189,248,.85);color:#061018;font-weight:700}
 .status-ok{color:var(--green)}
@@ -85,8 +83,8 @@ button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,
   header{padding:10px 12px}.wrap{padding:10px 10px 78px;gap:10px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}
   .panel{padding:12px;border-radius:12px}.score{font-size:48px}
   .bar{grid-template-columns:minmax(90px,1fr) 1fr 32px}#map{height:360px}
-  .filters{gap:5px}button.filter{padding:7px 10px;font-size:11px;min-height:34px}
-  .bottomnav{display:flex}.story h3,.ccard h3{font-size:13px}
+  .filters{gap:5px}button.filter,a.filter{padding:7px 10px;font-size:11px;min-height:34px}
+  .bottomnav{display:flex}
 }
 </style>
 </head>
@@ -112,7 +110,7 @@ button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,
 
   <section class="grid">
     <div class="panel"><h2>What Changed</h2><div class="changes" id="changes"></div></div>
-    <div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="160"></canvas><p class="small" style="margin-top:8px">History from saved refresh snapshots.</p></div>
+    <div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="160"></canvas><p class="small" style="margin-top:8px" id="chartNote">History from saved refresh snapshots.</p></div>
     <div class="panel"><h2>Data Status</h2><div id="status" class="small"></div></div>
   </section>
 
@@ -150,17 +148,22 @@ button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,
         <span><i class="lg" style="background:#4ade80"></i> Economic</span>
         <span><i class="lg" style="background:#38bdf8"></i> War OSINT (clustered)</span>
       </div>
-      <p class="map-hint">Strategic markers = curated theaters/nodes. <b>War OSINT</b> points cluster when zoomed out and expand on zoom. OSINT = SOCIAL MEDIA / UNVERIFIED.</p>
+      <p class="map-hint">Strategic markers = curated theaters/nodes. <b>War OSINT</b> points cluster when zoomed out. OSINT = SOCIAL MEDIA / UNVERIFIED.</p>
     </div>
   </section>
 
   <section class="panel" id="warmap">
     <h2>Global War News Map · External OSINT</h2>
-    <p class="small" style="margin-bottom:10px">Community OSINT map. Points also appear under <b>War OSINT</b>. Social-linked items are <b>UNVERIFIED</b> unless corroborated by primary reporting.</p>
-    <div style="position:relative;width:100%;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0a121c">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="small" style="margin-bottom:10px">Community OSINT map (Day 1651). Points also appear under <b>War OSINT</b> on our Leaflet map. Social-linked items are <b>UNVERIFIED</b> unless corroborated by primary reporting.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+      <a class="filter active" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full War News Map →</a>
+      <a class="filter" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&ll=48.5,37.5&z=5">Focus Ukraine theater →</a>
+      <a class="filter" style="display:inline-block;text-decoration:none" href="#mapSection" onclick="document.querySelector('[data-f=osint]')?.click()">Show War OSINT on our map →</a>
     </div>
-    <p class="small" style="margin-top:8px"><a target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full Google My Map →</a> · Maintained by map author, not Global Pulse.</p>
+    <div id="warEmbedWrap" style="position:relative;width:100%;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0a121c">
+      <iframe id="warEmbed" src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&hl=en" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <p class="small" style="margin-top:8px">If the embedded map is blank, use the buttons above — Google sometimes blocks embeds while the public viewer still works. Map data is maintained by the map author, not Global Pulse.</p>
   </section>
 
   <section class="panel" id="social">
@@ -279,12 +282,24 @@ function render(){
 
 function chart(){
   const c=document.getElementById('chart'),x=c.getContext('2d');
+  const note=document.getElementById('chartNote');
   const d=H.map(z=>z.tension).filter(Number.isFinite).slice(-50);
-  x.clearRect(0,0,c.width,c.height);if(d.length<2)return;
+  x.clearRect(0,0,c.width,c.height);
+  if(d.length<2){
+    if(note) note.textContent='Not enough history points yet (need 2+). Trend will appear after the next successful refreshes.';
+    x.fillStyle='#8fa3b8';x.font='14px system-ui';x.fillText('Waiting for history…', 16, c.height/2);
+    return;
+  }
+  if(note) note.textContent='History from saved refresh snapshots · '+d.length+' points';
   const mn=Math.min(...d,40),mx=Math.max(...d,80),p=12;
+  x.strokeStyle='#1c2d42';x.lineWidth=1;
+  for(let g=0;g<4;g++){const Y=p+g*(c.height-2*p)/3;x.beginPath();x.moveTo(p,Y);x.lineTo(c.width-p,Y);x.stroke()}
   x.strokeStyle='#5b9cff';x.lineWidth=2.5;x.beginPath();
   d.forEach((v,i)=>{const X=p+i*(c.width-2*p)/(d.length-1);const Y=c.height-p-(v-mn)/(mx-mn||1)*(c.height-2*p);i?x.lineTo(X,Y):x.moveTo(X,Y)});
   x.stroke();
+  const lastX=p+(d.length-1)*(c.width-2*p)/(d.length-1);
+  const lastY=c.height-p-(d[d.length-1]-mn)/(mx-mn||1)*(c.height-2*p);
+  x.fillStyle='#5b9cff';x.beginPath();x.arc(lastX,lastY,4,0,Math.PI*2);x.fill();
 }
 
 function drawMap(){
