@@ -5,10 +5,11 @@ on:
     branches: [main]
     paths:
       - 'update_snapshot.py'
+      - 'update_osint.py'
       - 'data/**'
       - '.github/workflows/update-snapshot.yml'
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 permissions:
@@ -30,8 +31,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Refresh public data
+      - name: Refresh public news and conflict data
         run: python update_snapshot.py
+
+      - name: Sync Global War News Map
+        run: python update_osint.py
 
       - name: Commit and push if changed
         run: |
