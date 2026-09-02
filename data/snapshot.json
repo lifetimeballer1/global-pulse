@@ -1,112 +1,28 @@
 {
-  "updatedAt": "2026-09-02T17:00:00Z",
-  "tension": 64,
-  "breakdown": {
-    "conflicts": "28",
-    "sanctions": "High",
-    "diplomatic": "Strained",
-    "market": "Moderate",
-    "mobilization": "Elevated"
+  "updatedAt": "2026-09-02T17:57:59.174631+00:00",
+  "sourceStatus": "16 public-feed items loaded; 1 feed errors",
+  "dataNote": "Headlines and links are refreshed from public RSS feeds. No API key is used. Failed feeds do not create substitute or random data.",
+  "tension": 60,
+  "breakdownScores": {
+    "Conflict activity": 72,
+    "Diplomatic strain": 58,
+    "Economic pressure": 54,
+    "Market volatility": 46,
+    "Military posture": 61
   },
-  "stories": [
+  "changes": [
     {
-      "tag": "conflict",
-      "time": "2h ago",
-      "title": "US and Israeli strikes continue against IRGC-linked targets as Hormuz remains contested",
-      "summary": "Central Command reported additional strikes on Iranian Revolutionary Guard infrastructure. Oil futures reacted sharply; markets are pricing sustained risk of further disruption to the Strait of Hormuz, through which a large share of global crude still transits.",
-      "source": "#",
-      "sourceLabel": "Defense reporting"
+      "kind": "new reporting",
+      "title": "Iran says US strike killed four at wedding in 'war crime' as US denies targeting civilians",
+      "detail": "New item from BBC World"
     },
     {
-      "tag": "economic",
-      "time": "3h ago",
-      "title": "Brent holds near $94–95 as energy security premium persists",
-      "summary": "Crude remains elevated relative to early-2026 levels after the spring Hormuz shock. Analysts note that even partial reopening of flows has not fully erased the risk premium while Iranian retaliation capacity and proxy activity remain active variables.",
-      "source": "#",
-      "sourceLabel": "Market data"
-    },
-    {
-      "tag": "diplomatic",
-      "time": "5h ago",
-      "title": "Xi–Putin meeting at SCO reaffirms ‘solid’ partnership amid multipolar rhetoric",
-      "summary": "Chinese and Russian leaders used the Bishkek summit to emphasize closer coordination and criticism of ‘unilateralism.’ The optics reinforce the strategic alignment that has helped Moscow sustain its war effort and complicated Western isolation strategies.",
-      "source": "#",
-      "sourceLabel": "Summit coverage"
-    },
-    {
-      "tag": "conflict",
-      "time": "6h ago",
-      "title": "Ukraine expands deep-strike campaign against Russian energy infrastructure",
-      "summary": "Ukrainian long-range drones and missiles continue to hit refineries and logistics nodes inside Russia. The campaign aims to degrade revenue and logistics supporting the war; Moscow continues pressure on Ukrainian cities and energy systems in response.",
-      "source": "#",
-      "sourceLabel": "Conflict reporting"
-    },
-    {
-      "tag": "diplomatic",
-      "time": "8h ago",
-      "title": "China maintains high tempo of PLA activity around Taiwan",
-      "summary": "Taipei reported elevated numbers of aircraft and vessels operating near the island, including median-line crossings. The pattern is consistent with sustained pressure short of kinetic action while Beijing tests response thresholds and domestic resolve in Taiwan and among partners.",
-      "source": "#",
-      "sourceLabel": "Regional reporting"
-    },
-    {
-      "tag": "economic",
-      "time": "9h ago",
-      "title": "Equity markets soft as yields climb and oil firmness feeds inflation concerns",
-      "summary": "Major US indices closed lower. Higher energy costs and bond-market pressure are weighing on rate-cut expectations. Defense and energy sectors remain relative bright spots amid the broader risk-off tone.",
-      "source": "#",
-      "sourceLabel": "Market wrap"
-    },
-    {
-      "tag": "conflict",
-      "time": "11h ago",
-      "title": "Sudan fighting intensifies around key North Kordofan positions",
-      "summary": "Army and Rapid Support Forces continue contesting strategic ground with high civilian cost. The conflict remains one of the world’s most severe humanitarian crises and a reminder that multiple high-intensity wars are running in parallel.",
-      "source": "#",
-      "sourceLabel": "Africa desk"
-    },
-    {
-      "tag": "diplomatic",
-      "time": "14h ago",
-      "title": "Western capitals stress deterrence while managing escalation risks with Iran",
-      "summary": "Officials continue to balance the need to degrade Iranian proxy and nuclear-related capabilities against the risk of broader regional war. Energy markets remain the clearest real-time barometer of perceived escalation probability.",
-      "source": "#",
-      "sourceLabel": "Policy analysis"
+      "kind": "new reporting",
+      "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
+      "detail": "New item from BBC World"
     }
   ],
-  "econ": [
-    { "name": "Brent Crude", "val": "$94.5", "chg": "+4.6% (1d)", "dir": "up" },
-    { "name": "WTI", "val": "$90.2", "chg": "+5.2% (1d)", "dir": "up" },
-    { "name": "VIX", "val": "16.3", "chg": "+9.5% (1d)", "dir": "up" },
-    { "name": "S&P 500", "val": "7,631", "chg": "−0.7%", "dir": "down" },
-    { "name": "Gold", "val": "$4,325", "chg": "−2.9%", "dir": "down" },
-    { "name": "US 10Y", "val": "4.80%", "chg": "+5 bp", "dir": "up" }
-  ],
-  "markers": [
-    { "lat": 48.5, "lng": 37.5, "importance": 1, "type": "conflict", "title": "Ukraine–Russia War", "detail": "Full-scale conflict continues. Ukraine deep strikes on Russian energy/logistics; Russia pressures Ukrainian infrastructure and front lines. High strategic and humanitarian cost." },
-    { "lat": 28.5, "lng": 51.0, "importance": 1, "type": "conflict", "title": "Iran / Hormuz Theater", "detail": "Direct and proxy exchanges with Israel and US forces. Strait of Hormuz risk remains the dominant global energy security flashpoint. IRGC-linked activity and residual nuclear concerns." },
-    { "lat": 23.7, "lng": 120.9, "importance": 1, "type": "conflict", "title": "Taiwan Strait Pressure", "detail": "Sustained PLA air and naval activity around Taiwan, including median-line crossings. Critical semiconductor and Indo-Pacific deterrence node." },
-    { "lat": 31.5, "lng": 34.5, "importance": 1, "type": "conflict", "title": "Israel–Iran Axis Front", "detail": "Multi-front posture against Iranian proxies and direct exchanges. High operational tempo since the 2023–26 cascade." },
-    { "lat": 15.5, "lng": 32.5, "importance": 2, "type": "conflict", "title": "Sudan Civil War", "detail": "Army vs Rapid Support Forces. Intense fighting in North Kordofan and elsewhere. One of the world’s worst humanitarian crises." },
-    { "lat": 21.0, "lng": 43.0, "importance": 2, "type": "conflict", "title": "Yemen / Red Sea", "detail": "Houthi activity and residual risk to Red Sea / Bab el-Mandeb shipping lanes. Intermittent cross-border strikes with Saudi Arabia." },
-    { "lat": 19.5, "lng": 96.0, "importance": 2, "type": "conflict", "title": "Myanmar Civil War", "detail": "Ongoing multi-front fighting between junta and ethnic armed organizations / resistance. High civilian impact." },
-    { "lat": 35.0, "lng": 38.5, "importance": 2, "type": "conflict", "title": "Syria / Residual Conflict", "detail": "Multiple overlapping actors; spillover risk from broader Iran–Israel and regional dynamics." },
-    { "lat": 33.3, "lng": 44.4, "importance": 2, "type": "conflict", "title": "Iraq – Militia Activity", "detail": "Iran-aligned groups remain a pressure point; periodic strikes and political tension with Baghdad and US presence." },
-    { "lat": 12.0, "lng": 15.0, "importance": 3, "type": "conflict", "title": "Lake Chad / Sahel Insurgency", "detail": "Boko Haram / ISWAP and other jihadist groups continue attacks across the Lake Chad basin and Sahel states." },
-    { "lat": 0.5, "lng": 29.5, "importance": 3, "type": "conflict", "title": "Eastern DRC", "detail": "M23 and other armed groups; regional involvement (Rwanda/DRC tensions). Persistent displacement." },
-    { "lat": 34.0, "lng": 69.2, "importance": 3, "type": "conflict", "title": "Afghanistan–Pakistan Border", "detail": "Cross-border friction and militant activity remain elevated after earlier ceasefire breakdowns." },
-    { "lat": 41.3, "lng": 69.2, "importance": 3, "type": "conflict", "title": "Central Asia Tensions", "detail": "SCO region diplomacy concurrent with residual border and water-resource frictions among several states." },
-    { "lat": 15.3, "lng": 44.2, "importance": 3, "type": "conflict", "title": "Houthi Core Area", "detail": "Command and logistics nodes tied to Red Sea interdiction capability." },
-    { "lat": 26.5, "lng": 56.5, "importance": 2, "type": "economic", "title": "Strait of Hormuz", "detail": "Critical chokepoint for global oil. Current risk premium is the main driver of elevated Brent (~$94–95). Any sustained closure would be systemically disruptive." },
-    { "lat": 12.5, "lng": 43.5, "importance": 3, "type": "economic", "title": "Bab el-Mandeb / Red Sea", "detail": "Secondary chokepoint. Residual Houthi threat continues to influence shipping insurance and rerouting costs." },
-    { "lat": 29.3, "lng": 48.0, "importance": 3, "type": "economic", "title": "Persian Gulf Energy Complex", "detail": "Major producers and export terminals. Saudi, UAE, Kuwait and others balancing security and market share." },
-    { "lat": 40.7, "lng": -74.0, "importance": 3, "type": "economic", "title": "US Markets / NY", "detail": "S&P ~7,631, VIX ~16.3. Defense and energy sectors relatively resilient amid broader risk-off." },
-    { "lat": 51.5, "lng": -0.1, "importance": 3, "type": "economic", "title": "London / Europe Energy", "detail": "European exposure to Middle East oil/gas disruption and elevated defense spending after Ukraine." },
-    { "lat": 35.7, "lng": 139.7, "importance": 3, "type": "economic", "title": "Tokyo / Indo-Pacific Trade", "detail": "Critical node for semiconductor and manufacturing supply chains; sensitive to Taiwan Strait risk." },
-    { "lat": 22.3, "lng": 114.2, "importance": 3, "type": "economic", "title": "Hong Kong / South China Trade", "detail": "Trade and finance hub under the shadow of Taiwan and South China Sea tensions." },
-    { "lat": 1.3, "lng": 103.8, "importance": 4, "type": "economic", "title": "Singapore / Malacca", "detail": "Major refining and shipping hub. Alternative route pressure when Hormuz or Red Sea risk rises." },
-    { "lat": 25.2, "lng": 55.3, "importance": 4, "type": "economic", "title": "Dubai / UAE Energy Hub", "detail": "Regional energy and logistics center; closely watches Hormuz and Iranian retaliation risk." },
-    { "lat": 31.2, "lng": 121.5, "importance": 4, "type": "economic", "title": "Shanghai / China Export Hub", "detail": "Manufacturing and export powerhouse. Sensitive to US–China trade and Taiwan contingency scenarios." }
-  ],
-  "note": "Illustrative snapshot. Auto-refreshed every 30 minutes via GitHub Actions. No API keys required."
+  "stories": [],
+  "markers": [],
+  "social": []
 }

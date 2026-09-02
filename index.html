@@ -29,7 +29,7 @@
 <nav class="bottomnav"><a href="#top">Overview</a><a href="#stories">News</a><a href="#map">Map</a></nav>
 <script>
 let S,H=[],map,layer,filter='all';
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({"&":"&","<":"<",">":">",'"':'"',"'":'&#39;'}[c]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':'&quot;',"'":'&#39;'}[c]));
 async function getJSON(p,f){const r=await fetch(p+"?v="+Date.now());if(!r.ok)throw Error();return r.json()}
 async function load(){try{[S,H]=await Promise.all([getJSON("data/snapshot.json"),getJSON("data/history.json").catch(()=>[])]);render()}catch(e){document.getElementById("meta").textContent="Latest data could not be loaded"}}
 function render(){
