@@ -159,7 +159,7 @@ def make_conflicts(stories, previous):
         else: confidence = "MONITORING"
         event_type = "MONITORING"
         if recent:
-            blob = f"{recent[1]['title']} {recent[1]['summary']}"
+            blob = f"{recent['title']} {recent['summary']}"
             if re.search(r"missile|drone|airstrike|bomb|explosion|shell", blob, re.I): event_type = "KINETIC"
             elif re.search(r"troops|military|exercise|mobiliz|weapons", blob, re.I): event_type = "MILITARY POSTURE"
             elif re.search(r"ceasefire|talks|negotiat|peace|agreement|diplomat", blob, re.I): event_type = "DIPLOMATIC"
