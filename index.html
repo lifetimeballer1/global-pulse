@@ -60,6 +60,7 @@ h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;
 .tag.energy{color:var(--orange);background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.25)}
 .tag.military{color:var(--purple);background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25)}
 .tag.economic{color:var(--green);background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.25)}
+.tag.osint{color:#38bdf8;background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 canvas{width:100%;height:150px;background:var(--panel2);border-radius:10px;display:block}
@@ -166,6 +167,7 @@ button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(
         <button class="filter" data-f="military">Military</button>
         <button class="filter" data-f="energy">Energy</button>
         <button class="filter" data-f="economic">Economic</button>
+        <button class="filter" data-f="osint">War OSINT</button>
       </div>
       <div id="map"></div>
       <div class="legend">
@@ -173,9 +175,32 @@ button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(
         <span><i class="lg" style="background:#a78bfa"></i> Military</span>
         <span><i class="lg" style="background:#fb923c"></i> Energy</span>
         <span><i class="lg" style="background:#4ade80"></i> Economic</span>
+        <span><i class="lg" style="background:#38bdf8"></i> War OSINT</span>
       </div>
-      <p class="map-hint">Markers are curated locations of known theaters and nodes — not live event detections. Tap a marker for detail. Use layers to filter.</p>
+      <p class="map-hint">Strategic markers = curated theaters/nodes. <b>War OSINT</b> layer imports points from the public Global War News Map (social links) — treat as UNVERIFIED. Tap markers for detail.</p>
     </div>
+  </section>
+
+  <section class="panel" id="warmap">
+    <h2>Global War News Map · External OSINT</h2>
+    <p class="small" style="margin-bottom:10px">
+      Live community OSINT map (Day 1651): Ukraine/Russia theater reports, routes, and social-linked events.
+      Points from this map are also available on our Leaflet map under the <b>War OSINT</b> layer.
+      All social-linked items are <b>UNVERIFIED</b> unless corroborated by primary reporting.
+    </p>
+    <div style="position:relative;width:100%;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0a121c">
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="small" style="margin-top:8px">
+      <a target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full Google My Map →</a>
+      · Source data is maintained by the map author, not Global Pulse.
+    </p>
   </section>
 
   <section class="panel" id="social">
@@ -189,6 +214,7 @@ button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(
   <a href="#overview">Overview</a>
   <a href="#news">News</a>
   <a href="#mapSection">Map</a>
+  <a href="#warmap">War Map</a>
   <a href="#social">Signals</a>
 </nav>
 
@@ -199,7 +225,8 @@ const LAYER_COLOR = {
   conflict: '#ff6b7a',
   military: '#a78bfa',
   energy: '#fb923c',
-  economic: '#4ade80'
+  economic: '#4ade80',
+  osint: '#38bdf8'
 };
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
@@ -333,8 +360,10 @@ function drawMap(){
         weight: 1.5
       });
       const lay = layerOf(m);
-      const html = `<span class="tag ${lay}">${esc(lay)}</span><strong>${esc(m.title)}</strong>${esc(m.detail||'')}`;
-      circle.bindPopup(html, { maxWidth: 260 });
+      let html = `<span class="tag ${lay}">${esc(lay === 'osint' ? 'OSINT / SOCIAL' : lay)}</span><strong>${esc(m.title)}</strong>${esc(m.detail||'')}`;
+      if (m.url) html += `<br><a target="_blank" rel="noopener" href="${esc(m.url)}">Open source →</a>`;
+      if (lay === 'osint') html += `<div class="small" style="margin-top:6px;opacity:.85">SOCIAL MEDIA REPORT — UNVERIFIED</div>`;
+      circle.bindPopup(html, { maxWidth: 280 });
       circle.addTo(layerGroup);
     });
   }
