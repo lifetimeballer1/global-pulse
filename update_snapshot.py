@@ -21,6 +21,15 @@ FEEDS = [
     ("Al Jazeera", "https://www.aljazeera.com/xml/rss/all.xml"),
 ]
 
+DEFAULT_CONFLICTS = [
+  {"id":"ukraine","name":"Ukraine–Russia War","region":"Europe","status":"Active high-intensity","actors":"Ukraine, Russia, NATO support states","recent":"Continued deep strikes and front-line pressure.","escalation":"HIGH","facts":"Full-scale conflict ongoing since 2022.","analysis":"Attrition and long-range strike capacity dominate.","confidence":"CONFIRMED"},
+  {"id":"hormuz","name":"Iran / Hormuz Theater","region":"Middle East","status":"Elevated kinetic risk","actors":"Iran, US, Israel, Gulf states","recent":"Strikes, tanker incidents, Hormuz risk.","escalation":"HIGH","facts":"Critical oil chokepoint.","analysis":"Energy markets price escalation quickly.","confidence":"LIKELY"},
+  {"id":"taiwan","name":"Taiwan Strait Pressure","region":"Indo-Pacific","status":"Sustained military pressure","actors":"PRC, Taiwan, US and partners","recent":"Elevated PLA air and naval activity.","escalation":"MODERATE","facts":"Semiconductor and deterrence node.","analysis":"Pressure below kinetic threshold.","confidence":"LIKELY"},
+  {"id":"israel-iran","name":"Israel–Iran Axis Front","region":"Middle East","status":"Multi-front residual risk","actors":"Israel, Iran, regional proxies","recent":"Intermittent exchanges and proxy activity.","escalation":"MODERATE–HIGH","facts":"Cascading regional exchanges since 2023–26.","analysis":"Energy and nuclear dossiers can widen risk.","confidence":"LIKELY"},
+  {"id":"sudan","name":"Sudan Civil War","region":"Africa","status":"Active civil war","actors":"SAF, RSF","recent":"Fighting with severe civilian impact.","escalation":"MODERATE","facts":"Major humanitarian crisis.","analysis":"Limited mediation leverage.","confidence":"CONFIRMED"},
+  {"id":"yemen","name":"Yemen / Red Sea","region":"Middle East / Maritime","status":"Residual interdiction risk","actors":"Houthis, shipping","recent":"Residual Red Sea shipping risk.","escalation":"MODERATE","facts":"Secondary chokepoint.","analysis":"Insurance and routing sensitive.","confidence":"LIKELY"},
+]
+
 BREAKING_RE = re.compile(
     r"strike|attack|killed|drone|missile|blockade|escalat|invasion|ceasefire|"
     r"bomb|shell|offensive|mobiliz|sanction|hostage|explosion|raid",
@@ -35,9 +44,6 @@ def fetch(url):
     req = Request(url, headers={"User-Agent": "GlobalPulse/2.0 (+github.com/lifetimeballer1/global-pulse)"})
     with urlopen(req, timeout=25) as r:
         return r.read()
-
-def confidence_for(title, source_label):
-    return "LIKELY"
 
 def is_breaking(title, pub):
     if BREAKING_RE.search(title or ""):
@@ -78,7 +84,7 @@ def main():
                     "source": link,
                     "time": pub,
                     "tag": "World",
-                    "confidence": confidence_for(title, label),
+                    "confidence": "LIKELY",
                     "breaking": is_breaking(title, pub),
                 })
         except Exception as e:
@@ -113,6 +119,7 @@ def main():
 
     now = datetime.now(timezone.utc).isoformat()
     err_note = f"; {len(errors)} feed errors" if errors else ""
+    conflicts = old.get("conflicts") or DEFAULT_CONFLICTS
     snapshot = {
         "updatedAt": now,
         "sourceStatus": f"{len(stories)} feed items · {len(new_items)} new{err_note}",
@@ -130,7 +137,7 @@ def main():
             "Military posture": 61,
         }),
         "changes": changes,
-        "conflicts": old.get("conflicts", []),
+        "conflicts": conflicts,
         "markers": old.get("markers", []),
         "social": old.get("social", []),
         "stories": stories,
@@ -140,16 +147,14 @@ def main():
 
     history = load_json(HIST, [])
     should_append = True
-    if history:
-        last = history[-1]
-        if str(last.get("updatedAt", ""))[:16] == now[:16]:
-            should_append = False
+    if history and str(history[-1].get("updatedAt", ""))[:16] == now[:16]:
+        should_append = False
     if should_append:
         history.append({"updatedAt": now, "tension": snapshot["tension"]})
     history = history[-240:]
     HIST.write_text(json.dumps(history, ensure_ascii=False, indent=2))
 
-    print(snapshot["sourceStatus"])
+    print(snapshot["sourceStatus"], "conflicts", len(conflicts))
     if errors:
         print("errors:", "; ".join(errors))
 
