@@ -2,7 +2,7 @@ name: Refresh snapshot
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -17,12 +17,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Update snapshot
+      - name: Update snapshot from public RSS
         run: python update_snapshot.py
-      - name: Commit and push
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/snapshot.json data/history.json
-          git diff --staged --quiet || git commit -m "Refresh public feed snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push
+          if git diff --staged --quiet; then
+            echo "No file changes"
+          else
+            git commit -m "Auto-refresh feeds $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
