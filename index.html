@@ -1,439 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Pulse — World Economics & Conflict Dashboard</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <style>
-    :root {
-      --bg: #0a0e14;
-      --panel: #111820;
-      --border: #1e2a3a;
-      --text: #e6edf3;
-      --muted: #8b9cb3;
-      --accent: #3b82f6;
-      --warn: #f59e0b;
-      --danger: #ef4444;
-      --ok: #22c55e;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.45;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, #0f1520 0%, var(--bg) 100%);
-    }
-    .logo {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo span { color: var(--accent); }
-    .meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-family: ui-monospace, 'Cascadia Code', monospace;
-    }
-    .layout {
-      display: grid;
-      grid-template-columns: 320px 1fr 340px;
-      grid-template-rows: auto 1fr;
-      gap: 16px;
-      padding: 16px;
-      max-width: 1600px;
-      margin: 0 auto;
-      min-height: calc(100vh - 60px);
-    }
-    @media (max-width: 1200px) {
-      .layout { grid-template-columns: 1fr; }
-    }
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      overflow: hidden;
-    }
-    .panel h2 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-    .gauge-wrap {
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .gauge-main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 220px;
-    }
-    .gauge-value {
-      font-size: 3.2rem;
-      font-weight: 700;
-      font-family: ui-monospace, monospace;
-      color: var(--warn);
-      line-height: 1;
-    }
-    .gauge-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-    .gauge-disclaimer {
-      font-size: 0.7rem;
-      color: var(--muted);
-      max-width: 280px;
-      margin-top: 8px;
-      text-align: center;
-    }
-    .breakdown {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-    }
-    .bd-item {
-      background: #0d131c;
-      border-radius: 6px;
-      padding: 10px 12px;
-      border-left: 3px solid var(--accent);
-    }
-    .bd-item.conflict { border-color: var(--danger); }
-    .bd-item.sanctions { border-color: var(--warn); }
-    .bd-item.market { border-color: var(--ok); }
-    .bd-item.diplo { border-color: #a855f7; }
-    .bd-name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
-    .bd-val { font-size: 1.15rem; font-weight: 600; font-family: ui-monospace, monospace; }
-    .bd-w { font-size: 0.65rem; color: var(--muted); }
-    #map {
-      width: 100%;
-      height: 480px;
-      border-radius: 6px;
-      background: #0b1018;
-      z-index: 0;
-    }
-    .leaflet-container { background: #0b1018; font-family: inherit; }
-    .leaflet-popup-content-wrapper {
-      background: #111820;
-      color: #e6edf3;
-      border: 1px solid #1e2a3a;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .leaflet-popup-tip { background: #111820; }
-    .leaflet-popup-content { margin: 12px 14px; font-size: 0.85rem; }
-    .leaflet-popup-content strong { color: #fff; }
-    .leaflet-popup-content .tag {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .stories { overflow-y: auto; max-height: 560px; }
-    .story {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .story:last-child { border-bottom: none; }
-    .story-meta {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 4px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      font-family: ui-monospace, monospace;
-    }
-    .tag {
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .tag.conflict { background: rgba(239,68,68,0.2); color: #fca5a5; }
-    .tag.economic { background: rgba(34,197,94,0.2); color: #86efac; }
-    .tag.diplomatic { background: rgba(168,85,247,0.2); color: #d8b4fe; }
-    .story h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
-    .story p { font-size: 0.8rem; color: var(--muted); }
-    .story a { color: var(--accent); font-size: 0.75rem; text-decoration: none; }
-    .story a:hover { text-decoration: underline; }
-    .econ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .econ-card { background: #0d131c; border-radius: 6px; padding: 12px; }
-    .econ-card .name { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
-    .econ-card .val { font-size: 1.25rem; font-weight: 700; font-family: ui-monospace, monospace; margin: 4px 0; }
-    .econ-card .chg { font-size: 0.75rem; font-family: ui-monospace, monospace; }
-    .up { color: var(--ok); }
-    .down { color: var(--danger); }
-    footer {
-      text-align: center;
-      padding: 16px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      align-items: center;
-    }
-    .legend span { display: flex; align-items: center; gap: 4px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .zoom-hint { font-size: 0.7rem; color: var(--muted); margin-top: 6px; }
-    .status-dot {
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--ok);
-      margin-right: 6px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Pulse</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--bg:#071019;--panel:#0e1924;--line:#203247;--text:#eef5ff;--muted:#94a8bc;--blue:#69a8ff;--amber:#ffc857;--red:#ff6b7a;--green:#62dc9b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}header{position:sticky;top:0;z-index:9;background:#071019ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 16px;display:flex;justify-content:space-between;gap:10px}.logo{font-weight:900;letter-spacing:.12em}.logo b{color:var(--blue)}.meta{color:var(--muted);font-size:12px}.wrap{max-width:1500px;margin:auto;padding:14px;display:grid;gap:14px}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}h2{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.score{font-size:64px;font-weight:900;color:var(--amber);line-height:1}.small{color:var(--muted);font-size:12px}.changes,.stories{display:grid;gap:9px}.item,.story{background:#09131d;border:1px solid var(--line);border-radius:10px;padding:10px}.story{display:grid;grid-template-columns:100px 1fr;gap:10px}.story img{width:100px;height:74px;object-fit:cover;border-radius:7px;background:#142131}.story h3{font-size:14px;margin:2px 0 5px}.story p{margin:0 0 7px;color:var(--muted);font-size:12px}.tag{font-size:10px;font-weight:800;text-transform:uppercase;color:var(--amber)}a{color:var(--blue)}canvas{width:100%;height:170px;background:#09131d;border-radius:10px}#map{height:460px;border-radius:10px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}button{background:#09131d;border:1px solid var(--line);color:var(--text);padding:7px 10px;border-radius:8px}button.active{color:var(--blue);border-color:var(--blue)}.bars{display:grid;gap:9px}.bar{display:grid;grid-template-columns:150px 1fr 42px;gap:8px;align-items:center;font-size:12px}.track{height:9px;background:#09131d;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red))}.bottomnav{display:none}@media(max-width:1050px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}}@media(max-width:700px){header{display:block}.meta{margin-top:4px}.wrap{padding:9px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:12px}.story{grid-template-columns:85px 1fr}.story img{width:85px;height:68px}#map{height:380px}.bar{grid-template-columns:110px 1fr 34px}.bottomnav{display:flex;position:fixed;bottom:0;left:0;right:0;justify-content:space-around;background:#071019f5;border-top:1px solid var(--line);padding:10px;z-index:10}.bottomnav a{text-decoration:none;font-size:12px}body{padding-bottom:55px}}
+</style></head>
 <body>
-  <header>
-    <div class="logo">GLOBAL <span>PULSE</span></div>
-    <div class="meta">
-      <span class="status-dot" title="Auto-refresh active"></span>
-      Last snapshot: <span id="lastUpdated">loading…</span> · Updates every 30 min · No API keys · Illustrative model
-    </div>
-  </header>
-
-  <div class="layout">
-    <div class="panel gauge-wrap">
-      <div class="gauge-main">
-        <div class="gauge-value" id="tensionValue">—</div>
-        <div class="gauge-label">Global Tension Index</div>
-        <svg id="gaugeSvg" width="200" height="110" viewBox="0 0 200 110"></svg>
-        <div class="gauge-disclaimer">
-          Illustrative composite (not a prediction). Weighted blend of active conflict intensity, sanctions activity, military posture signals, diplomatic tone, and market volatility.
-        </div>
-      </div>
-      <div class="breakdown" id="breakdown">
-        <div class="bd-item conflict"><div class="bd-name">Active Conflicts</div><div class="bd-val" id="bdConflicts">—</div><div class="bd-w">Weight 30%</div></div>
-        <div class="bd-item sanctions"><div class="bd-name">Sanctions / Energy Leverage</div><div class="bd-val" id="bdSanctions">—</div><div class="bd-w">Weight 20%</div></div>
-        <div class="bd-item diplo"><div class="bd-name">Diplomatic Tone</div><div class="bd-val" id="bdDiplo">—</div><div class="bd-w">Weight 20%</div></div>
-        <div class="bd-item market"><div class="bd-name">Market Vol</div><div class="bd-val" id="bdMarket">—</div><div class="bd-w">Weight 15%</div></div>
-        <div class="bd-item"><div class="bd-name">Mobilization Mentions</div><div class="bd-val" id="bdMobil">—</div><div class="bd-w">Weight 15%</div></div>
-      </div>
-    </div>
-
-    <div class="panel stories">
-      <h2>Digest · Top Stories</h2>
-      <div id="storyList"></div>
-    </div>
-
-    <div class="panel">
-      <h2>World Conflict & Economic Map</h2>
-      <div id="map"></div>
-      <div class="legend">
-        <span><div class="dot" style="background:#ef4444"></div> Major conflict</span>
-        <span><div class="dot" style="background:#f97316"></div> Regional / active</span>
-        <span><div class="dot" style="background:#eab308"></div> Localized</span>
-        <span><div class="dot" style="background:#22c55e"></div> Economic / energy</span>
-        <span style="margin-left:8px;opacity:0.8">Zoom in → more detail</span>
-      </div>
-      <div class="zoom-hint">Zoomed out shows only highest-impact theaters. Zoom closer for smaller conflicts and local economic nodes.</div>
-    </div>
-
-    <div class="panel">
-      <h2>Economic Pulse</h2>
-      <div class="econ-grid" id="econGrid"></div>
-      <div style="margin-top:16px;font-size:0.75rem;color:var(--muted);">
-        <strong style="color:var(--text);">Conflict-linked notes</strong><br/>
-        Oil remains sensitive to Hormuz risk. Defense and energy equities tend to hold up better when geopolitical risk rises. Red Sea / Bab el-Mandeb remains a residual shipping concern.
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    Global Pulse is an illustrative dashboard. Data file refreshed every 30 minutes by GitHub Actions (no API keys). Tension Index is not a forecast.<br/>
-    Open the page anytime — it loads the latest snapshot and re-checks every 30 minutes while open.
-  </footer>
-
-  <script>
-    let map, layerGroup, leafletMarkers = [], gaugeDrawn = false;
-
-    function formatUpdated(iso) {
-      if (!iso) return "—";
-      try {
-        const d = new Date(iso);
-        return d.toISOString().replace("T", " ").slice(0, 16) + " UTC";
-      } catch { return iso; }
-    }
-
-    function drawGauge(value) {
-      const svg = d3.select("#gaugeSvg");
-      svg.selectAll("*").remove();
-      const width = 200, height = 110, radius = 80;
-      const scale = d3.scaleLinear().domain([0, 100]).range([-Math.PI * 0.75, Math.PI * 0.75]);
-      const arcBg = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(100));
-      const arcVal = d3.arc().innerRadius(radius - 12).outerRadius(radius).startAngle(scale(0)).endAngle(scale(value));
-      svg.append("path").attr("d", arcBg).attr("transform", `translate(${width/2},${height-10})`).attr("fill", "#1e2a3a");
-      svg.append("path").attr("d", arcVal).attr("transform", `translate(${width/2},${height-10})`)
-        .attr("fill", value > 70 ? "#ef4444" : value > 45 ? "#f59e0b" : "#22c55e");
-      gaugeDrawn = true;
-    }
-
-    function renderStories(stories) {
-      const el = document.getElementById("storyList");
-      el.innerHTML = "";
-      (stories || []).forEach(s => {
-        const div = document.createElement("div");
-        div.className = "story";
-        div.innerHTML = `
-          <div class="story-meta">
-            <span class="tag ${s.tag}">${s.tag}</span>
-            <span>${s.time || ""}</span>
-          </div>
-          <h3>${s.title}</h3>
-          <p>${s.summary}</p>
-          <a href="${s.source || "#"}">${s.sourceLabel || "Source"} →</a>
-        `;
-        el.appendChild(div);
-      });
-    }
-
-    function renderEcon(econ) {
-      const el = document.getElementById("econGrid");
-      el.innerHTML = "";
-      (econ || []).forEach(e => {
-        const div = document.createElement("div");
-        div.className = "econ-card";
-        div.innerHTML = `
-          <div class="name">${e.name}</div>
-          <div class="val">${e.val}</div>
-          <div class="chg ${e.dir || ""}">${e.chg || ""}</div>
-        `;
-        el.appendChild(div);
-      });
-    }
-
-    function markerStyle(m) {
-      if (m.type === "economic") {
-        return { radius: 7, color: "#166534", fillColor: "#22c55e", fillOpacity: 0.9, weight: 1.5 };
-      }
-      if (m.importance === 1) return { radius: 11, color: "#7f1d1d", fillColor: "#ef4444", fillOpacity: 0.95, weight: 2 };
-      if (m.importance === 2) return { radius: 8, color: "#9a3412", fillColor: "#f97316", fillOpacity: 0.9, weight: 1.5 };
-      return { radius: 6, color: "#854d0e", fillColor: "#eab308", fillOpacity: 0.85, weight: 1 };
-    }
-
-    function minZoomFor(m) {
-      if (m.importance <= 1) return 0;
-      if (m.importance === 2) return 3;
-      if (m.importance === 3) return 4.5;
-      return 6;
-    }
-
-    function initMap(markers) {
-      if (!map) {
-        map = L.map("map", {
-          center: [25, 40],
-          zoom: 2.4,
-          minZoom: 2,
-          maxZoom: 8,
-          worldCopyJump: true
-        });
-        L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-          attribution: "&copy; OpenStreetMap &copy; CARTO",
-          subdomains: "abcd",
-          maxZoom: 19
-        }).addTo(map);
-        layerGroup = L.layerGroup().addTo(map);
-        L.polyline([[48.5, 37.5], [55.0, 37.0]], { color: "#ef4444", weight: 1.5, opacity: 0.35, dashArray: "4 6" }).addTo(map);
-        L.polyline([[31.5, 34.5], [28.5, 51.0]], { color: "#ef4444", weight: 1.5, opacity: 0.35, dashArray: "4 6" }).addTo(map);
-        map.on("zoomend", updateVisibility);
-      }
-
-      leafletMarkers = [];
-      layerGroup.clearLayers();
-      (markers || []).forEach(m => {
-        const circle = L.circleMarker([m.lat, m.lng], markerStyle(m));
-        const tagClass = m.type === "economic" ? "economic" : "conflict";
-        const tagLabel = m.type === "economic" ? "Economic" : "Conflict";
-        circle.bindPopup(`<div class="tag ${tagClass}">${tagLabel}</div><strong>${m.title}</strong><br/><br/>${m.detail}`);
-        circle._meta = m;
-        leafletMarkers.push(circle);
-      });
-      updateVisibility();
-    }
-
-    function updateVisibility() {
-      if (!map || !layerGroup) return;
-      const z = map.getZoom();
-      layerGroup.clearLayers();
-      leafletMarkers.forEach(c => {
-        if (z >= minZoomFor(c._meta)) layerGroup.addLayer(c);
-      });
-    }
-
-    function applySnapshot(data) {
-      document.getElementById("lastUpdated").textContent = formatUpdated(data.updatedAt);
-      const t = data.tension ?? 64;
-      document.getElementById("tensionValue").textContent = t + "%";
-      drawGauge(t);
-
-      const b = data.breakdown || {};
-      document.getElementById("bdConflicts").textContent = b.conflicts ?? "—";
-      document.getElementById("bdSanctions").textContent = b.sanctions ?? "—";
-      document.getElementById("bdDiplo").textContent = b.diplomatic ?? "—";
-      document.getElementById("bdMarket").textContent = b.market ?? "—";
-      document.getElementById("bdMobil").textContent = b.mobilization ?? "—";
-
-      renderStories(data.stories);
-      renderEcon(data.econ);
-      initMap(data.markers);
-    }
-
-    async function loadSnapshot() {
-      try {
-        const res = await fetch("data/snapshot.json?t=" + Date.now(), { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
-        applySnapshot(data);
-      } catch (err) {
-        console.error("Snapshot load failed", err);
-        document.getElementById("lastUpdated").textContent = "unavailable (check Pages / data file)";
-      }
-    }
-
-    // Initial load + refresh while the tab is open (every 30 min)
-    loadSnapshot();
-    setInterval(loadSnapshot, 30 * 60 * 1000);
-  </script>
-</body>
-</html>
+<header><div class="logo">GLOBAL <b>PULSE</b></div><div class="meta" id="meta">Loading…</div></header>
+<main class="wrap">
+<section class="grid">
+<div class="panel"><h2>Global Tension Index</h2><div class="score" id="score">—</div><div id="delta"></div><p class="small">Illustrative indicator built from transparent monitored signals. It is not a prediction or official risk rating.</p></div>
+<div class="panel wide"><h2>Score Breakdown</h2><div class="bars" id="breakdown"></div></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>What Changed?</h2><div class="changes" id="changes"></div></div>
+<div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="180"></canvas><p class="small">History uses saved refresh snapshots; failed refreshes do not create fake points.</p></div>
+<div class="panel"><h2>Data Status</h2><div id="status" class="small"></div></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>Latest Reporting</h2><div class="stories" id="stories"></div></div>
+<div class="panel wide"><h2>World Map</h2><div class="filters"><button class="active" data-f="all">All</button><button data-f="conflict">Conflict</button><button data-f="economic">Economic</button></div><div id="map"></div></div>
+</section>
+<section class="panel"><h2>Public Social Watch</h2><div class="changes" id="social"></div><p class="small">Only direct public links explicitly included in the data are shown. Social posts are supplementary and are not treated as verified reporting.</p></section>
+</main>
+<nav class="bottomnav"><a href="#top">Overview</a><a href="#stories">News</a><a href="#map">Map</a></nav>
+<script>
+let S,H=[],map,layer,filter='all';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({"&":"&","<":"<",">":">",'"':'"',"'":'&#39;'}[c]));
+async function getJSON(p,f){const r=await fetch(p+"?v="+Date.now());if(!r.ok)throw Error();return r.json()}
+async function load(){try{[S,H]=await Promise.all([getJSON("data/snapshot.json"),getJSON("data/history.json").catch(()=>[])]);render()}catch(e){document.getElementById("meta").textContent="Latest data could not be loaded"}}
+function render(){
+ document.getElementById("meta").textContent="Last refresh: "+new Date(S.updatedAt).toLocaleString()+" · "+(S.sourceStatus||"");
+ document.getElementById("score").textContent=S.tension??"—";
+ const p=H.length>1?H[H.length-2]?.tension:null,d=Number.isFinite(p)?S.tension-p:null;
+ document.getElementById("delta").innerHTML=d===null?"<span class=small>No previous snapshot yet</span>`:`<b>${d>0?"▲":d<0?"▼":"●"} ${Math.abs(d)} vs previous refresh</b>`;
+ document.getElementById("breakdown").innerHTML=Object.entries(S.breakdownScores||{}).map(([k,v])=>`<div class=bar><span>${esc(k)}</span><div class=track><div class=fill style="width:${Math.max(0,Math.min(100,v))}%"></div></div><b>${esc(v)}</b></div>`).join("");
+ document.getElementById("changes").innerHTML=(S.changes||[]).map(x=>`<div class=item><span class=tag>${esc(x.kind||"update")}</span><br><b>${esc(x.title)}</b><div class=small>${esc(x.detail||"")}</div></div>`).join("")||"<span class=small>No material change detected.</span>";
+ document.getElementById("status").innerHTML=`<b>${esc(S.sourceStatus||"")}</b><br>${esc(S.dataNote||"")}`;
+ document.getElementById("stories").innerHTML=(S.stories||[]).map(x=>`<article class=story>${x.image?`<img loading=lazy src="${esc(x.image)}" alt="">`:""}<div><span class=tag>${esc(x.sourceLabel||"source")}</span> · <span class=small>${esc(x.time||"")}</span><h3>${esc(x.title)}</h3><p>${esc(x.summary||"")}</p>${x.source?`<a target=_blank rel=noopener href="${esc(x.source)}">Open source →</a>`:""}</div></article>`).join("");
+ document.getElementById("social").innerHTML=(S.social||[]).map(x=>`<div class=item><b>${esc(x.label)}</b><div class=small>${esc(x.note||"")}</div>${x.url?`<a target=_blank rel=noopener href="${esc(x.url)}">Open public post →</a>`:""}</div>`).join("")||"<span class=small>No public social links in this refresh.</span>";
+ chart(); drawMap();
+}
+function chart(){const c=document.getElementById("chart"),x=c.getContext("2d"),d=H.map(z=>z.tension).filter(Number.isFinite).slice(-50);x.clearRect(0,0,c.width,c.height);if(d.length<2)return;const mn=Math.min(...d,40),mx=Math.max(...d,80),p=12;x.strokeStyle="#60a5fa";x.lineWidth=3;x.beginPath();d.forEach((v,i)=>{let X=p+i*(c.width-2*p)/(d.length-1),Y=c.height-p-(v-mn)/(mx-mn||1)*(c.height-2*p);i?x.lineTo(X,Y):x.moveTo(X,Y)});x.stroke()}
+function drawMap(){if(map)map.remove();map=L.map("map").setView([22,8],2);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:8,attribution:"© OpenStreetMap contributors"}).addTo(map);layer=L.layerGroup().addTo(map);function show(){layer.clearLayers();(S.markers||[]).filter(m=>filter==="all"||m.type===filter).forEach(m=>L.circleMarker([m.lat,m.lng],{radius:7,color:m.type==="conflict"?"#ff6b7a":"#62dc9b",fillOpacity:.8}).bindPopup("<b>"+esc(m.title)+"</b><br>"+esc(m.detail||"")).addTo(layer))}show();document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll("[data-f]").forEach(q=>q.classList.toggle("active",q===b));show()})}
+load();setInterval(load,15*60*1000);
+</script></body></html>
