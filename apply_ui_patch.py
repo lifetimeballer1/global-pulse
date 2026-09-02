@@ -16,63 +16,26 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 .gp-focus-bar button{min-height:32px;padding:6px 10px}
 '''
 if 'Global Pulse UI stability patch' not in s:
-    s = s.replace('</style>', css + '\n</style>', 1)
+    s=s.replace('</style>',css+'\n</style>',1)
 
-js = r'''
+js=r'''
 <script>
-/* Global Pulse: reliable theater modal + map focus */
+/* Global Pulse: capture-phase conflict click fix v2 */
 (function(){
-  const theaterCoords={
-    'ukraine-russia-war':[49.0,31.2,5.2],'gaza-israel-hamas':[31.4,34.4,4.5],'israel-iran-regional-front':[32.0,44.0,6.0],'iran-strait-of-hormuz':[26.3,53.4,5.0],'yemen-red-sea':[15.4,44.2,6.0],'syria-conflict-residual-fronts':[35.0,38.9,5.5],'iraq-militia-security-risk':[33.2,43.8,5.5],
-    'sudan-civil-war':[15.5,30.2,5.5],'south-sudan-instability':[6.8,31.3,5.8],'eastern-drc-conflict':[-1.5,29.2,5.2],'somalia-al-shabaab':[5.8,46.2,5.5],'ethiopia-internal-conflict-risk':[9.1,40.5,5.8],'nigeria-insurgency-banditry':[9.0,8.7,5.8],'mali-sahel-insurgency':[17.0,-3.0,6.0],'burkina-faso-insurgency':[12.4,-1.6,5.8],'niger-insurgency-coup-fallout':[17.6,8.1,5.8],'cameroon-separatist-conflict':[5.9,10.2,5.5],'chad-security-sahel-spillover':[15.3,18.7,5.8],'libya-political-militia-risk':[27.0,17.0,5.5],'mozambique-cabo-delgado':[-12.3,40.5,5.5],
-    'myanmar-civil-war':[21.0,96.0,5.8],'afghanistan-security-risk':[33.9,67.7,5.8],'pakistan-militancy-border-risk':[30.4,69.3,5.8],'taiwan-strait-pressure':[24.0,120.7,5.0],'korean-peninsula':[38.5,127.9,5.2],'south-china-sea-flashpoint':[12.0,114.0,6.0],
-    'haiti-gang-conflict':[18.97,-72.3,5.5],'mexico-cartel-conflict':[23.6,-102.5,5.5],'ecuador-organized-crime-conflict':[-1.8,-78.2,5.5],'colombia-armed-groups':[4.6,-74.1,5.5]
-  };
-  function coordsFor(c){
-    if(theaterCoords[c.id])return theaterCoords[c.id];
-    const r=(c.region||'').toLowerCase();
-    return r.includes('europe')?[50,20,5]:r.includes('middle east')?[30,45,5]:r.includes('africa')?[5,20,5]:r.includes('indo-pacific')?[18,115,5]:[10,0,2.8];
-  }
-  function hitsFor(c){
-    const markers=Array.isArray(DATA?.markers)?DATA.markers:[];
-    const aliases=(c.name+' '+(c.actors||'')).toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>3);
-    return markers.filter(m=>String(m.conflictId||'')===String(c.id)||aliases.some(a=>(m.title+' '+m.detail+' '+m.why+' '+m.region+' '+m.country).toLowerCase().includes(a)));
-  }
-  function showConflict(id){
-    const c=typeof findConflict==='function'?findConflict(id):null;if(!c)return;
-    const hits=hitsFor(c);
-    document.querySelectorAll('.ccard').forEach(x=>x.classList.toggle('selected',x.dataset.id===id));
-    $('drawerBody').innerHTML=`<button class="drawer-close" id="drawerInnerClose" aria-label="Close">✕</button><span class="tag ${/HIGH|CRITICAL/.test(c.escalation||'')?'red':'amber'}">${esc(c.escalation||'MONITORING')}</span><span class="tag blue">${esc(c.region||'')}</span><h3>${esc(c.name)}</h3><div class="muted">${esc(c.category||'')} · ${esc(c.status||'Monitoring')} · ${esc(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Actors / coverage</div><p>${esc(c.actors||'Not available')}</p></div><div class="drawer-section"><div class="label">Facts</div><p>${esc(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Latest signal</div><p>${esc(c.recent||'No recent signal.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${hits.length?hits.length+' linked signal'+(hits.length===1?'':'s')+' found.':'No directly linked source-map markers yet. The map will still center on this theater.'}</p></div><button class="filter active" id="focusConflict" style="margin-top:12px;width:100%">Focus theater on map</button>`;
-    document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');
-    $('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');
-    $('drawerInnerClose').onclick=closeModal;$('focusConflict').onclick=()=>focusConflict(c);
-  }
-  function closeModal(){
-    $('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open');document.querySelectorAll('.ccard.selected').forEach(x=>x.classList.remove('selected'));
-  }
-  function focusConflict(c){
-    const hits=hitsFor(c),coord=coordsFor(c);activeLayer='all';document.querySelectorAll('[data-layer]').forEach(x=>x.classList.toggle('active',x.dataset.layer==='all'));
-    if(typeof renderMap==='function')renderMap();closeModal();
-    setTimeout(()=>{
-      if(!map)return;map.invalidateSize(true);
-      const pts=hits.map(m=>[Number(m.lat),Number(m.lng)]).filter(p=>Number.isFinite(p[0])&&Number.isFinite(p[1]));
-      if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([coord[0],coord[1]],coord[2],{duration:.8});
-      $('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});
-      let bar=$('gpFocusBar');if(!bar){bar=document.createElement('div');bar.id='gpFocusBar';bar.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',bar)}
-      bar.innerHTML=`<div><b>Theater focus</b><div>${esc(c.name)} · ${esc(c.region||'')} · ${hits.length} linked map signal${hits.length===1?'':'s'}</div></div><button class="filter" id="clearGpFocus">Clear focus</button>`;
-      $('clearGpFocus').onclick=()=>{bar.remove();if(map){map.flyTo([24,10],2,{duration:.7});renderMap()}};
-    },250);
-  }
-  window.__gpShowConflict=showConflict;window.__gpCloseModal=closeModal;
-  /* Capture phase is intentional: it prevents the original lexical openConflict() handler from opening the old transparent drawer. */
-  document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();showConflict(card.dataset.id)}},true);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();closeModal()}},true);
-  const backdrop=$('drawerBackdrop');if(backdrop)backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeModal()});
+const coords={
+'ukraine-russia-war':[49,31.2,5.2],'gaza-israel-hamas':[31.4,34.4,4.5],'israel-iran-regional-front':[32,44,6],'iran-strait-of-hormuz':[26.3,53.4,5],'yemen-red-sea':[15.4,44.2,6],'syria-conflict-residual-fronts':[35,38.9,5.5],'iraq-militia-security-risk':[33.2,43.8,5.5],'sudan-civil-war':[15.5,30.2,5.5],'south-sudan-instability':[6.8,31.3,5.8],'eastern-drc-conflict':[-1.5,29.2,5.2],'somalia-al-shabaab':[5.8,46.2,5.5],'ethiopia-internal-conflict-risk':[9.1,40.5,5.8],'nigeria-insurgency-banditry':[9,8.7,5.8],'mali-sahel-insurgency':[17,-3,6],'burkina-faso-insurgency':[12.4,-1.6,5.8],'niger-insurgency-coup-fallout':[17.6,8.1,5.8],'cameroon-separatist-conflict':[5.9,10.2,5.5],'chad-security-sahel-spillover':[15.3,18.7,5.8],'libya-political-militia-risk':[27,17,5.5],'mozambique-cabo-delgado':[-12.3,40.5,5.5],'myanmar-civil-war':[21,96,5.8],'afghanistan-security-risk':[33.9,67.7,5.8],'pakistan-militancy-border-risk':[30.4,69.3,5.8],'taiwan-strait-pressure':[24,120.7,5],'korean-peninsula':[38.5,127.9,5.2],'south-china-sea-flashpoint':[12,114,6],'haiti-gang-conflict':[18.97,-72.3,5.5],'mexico-cartel-conflict':[23.6,-102.5,5.5],'ecuador-organized-crime-conflict':[-1.8,-78.2,5.5],'colombia-armed-groups':[4.6,-74.1,5.5]};
+function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function conflict(id){return typeof findConflict==='function'?findConflict(id):null}
+function show(id){const c=conflict(id);if(!c)return;const m=Array.isArray(DATA?.markers)?DATA.markers:[];const linked=m.filter(x=>String(x.conflictId||'')===String(id));$('drawerBody').innerHTML=`<button class="drawer-close" id="gpClose" aria-label="Close">✕</button><span class="tag amber">${esc2(c.escalation||'MONITORING')}</span> <span class="tag blue">${esc2(c.region||'')}</span><h3>${esc2(c.name)}</h3><div class="muted">${esc2(c.category||'')} · ${esc2(c.status||'Monitoring')} · ${esc2(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Facts</div><p>${esc2(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc2(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${linked.length?linked.length+' directly linked map signal'+(linked.length===1?'':'s')+'.':'No directly linked markers yet; map will center on this theater.'}</p></div><button class="filter active" id="gpFocus" style="width:100%;margin-top:12px">Focus theater on map</button>`;$('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');$('gpClose').onclick=close;$('gpFocus').onclick=()=>focus(c)}
+function close(){$('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open')}
+function focus(c){const m=Array.isArray(DATA?.markers)?DATA.markers:[],linked=m.filter(x=>String(x.conflictId||'')===String(c.id)),p=coords[c.id]||[10,0,2.8];activeLayer='all';if(typeof renderMap==='function')renderMap();close();setTimeout(()=>{if(!map)return;map.invalidateSize(true);const pts=linked.map(x=>[+x.lat,+x.lng]).filter(x=>Number.isFinite(x[0])&&Number.isFinite(x[1]));if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([p[0],p[1]],p[2],{duration:.8});$('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});let b=$('gpFocusBar');if(!b){b=document.createElement('div');b.id='gpFocusBar';b.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',b)}b.innerHTML=`<div><b>Theater focus</b><div>${esc2(c.name)} · ${esc2(c.region||'')}</div></div><button class="filter" id="gpClear">Clear focus</button>`;$('gpClear').onclick=()=>{b.remove();map.flyTo([24,10],2,{duration:.7});renderMap()};},300)}
+document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();show(card.dataset.id)}},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();close()}},true);
+const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.target===back)close()});
 })();
 </script>
 '''
-if 'Global Pulse: reliable theater modal + map focus' not in s:
-    s = s.replace('</body>', js + '\n</body>', 1)
-
-p.write_text(s, encoding='utf-8')
+if 'capture-phase conflict click fix v2' not in s:
+    s=s.replace('</body>',js+'\n</body>',1)
+p.write_text(s,encoding='utf-8')
 print('UI patch applied')
