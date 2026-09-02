@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-02T19:59:39.138704+00:00",
-  "sourceStatus": "24 public-feed items loaded; 1 feed errors",
-  "dataNote": "Headlines from public RSS. Map markers are curated illustrative locations of known active theaters and economic/energy nodes — not live event detections. Tension scores are analytical/illustrative only.",
+  "updatedAt": "2026-09-02T20:10:00+00:00",
+  "sourceStatus": "RSS headlines + War OSINT layer active",
+  "dataNote": "Headlines from public RSS. Strategic markers curated. War OSINT layer from Global War News Map (social links) = SOCIAL MEDIA REPORT / UNVERIFIED. Tension illustrative only.",
   "tension": 60,
   "breakdownScores": {
     "Conflict activity": 72,
@@ -12,9 +12,9 @@
   },
   "changes": [
     {
-      "kind": "new reporting",
-      "title": "Iran says US strike killed four at wedding in 'war crime' as US denies targeting civilians",
-      "detail": "New item from BBC World"
+      "kind": "osint",
+      "title": "War OSINT layer added",
+      "detail": "Imported curated points from Global War News Map — labeled UNVERIFIED"
     }
   ],
   "stories": [
@@ -22,8 +22,8 @@
       "id": "eef742c7215c",
       "sourceLabel": "BBC World",
       "title": "Iran says US strike killed four at wedding in 'war crime' as US denies targeting civilians",
-      "summary": "Iranian media reports two children were among those killed when shrapnel hit a home. Iran then launched missiles and drones at US targets in the Middle East.",
-      "source": "https://www.bbc.co.uk/news/articles/cj06q4ynpmjo?at_medium=RSS&at_campaign=rss",
+      "summary": "Iranian media reports two children were among those killed when shrapnel hit a home.",
+      "source": "https://www.bbc.co.uk/news/articles/cj06q4ynpmjo",
       "time": "Wed, 02 Sep 2026 15:33:19 GMT",
       "tag": "World"
     },
@@ -31,8 +31,8 @@
       "id": "5ff02e054c7c",
       "sourceLabel": "BBC World",
       "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
-      "summary": "The kingdom condemns the targeting of Sidr, which was reportedly hit by unknown projectiles in the Strait of Hormuz on Monday.",
-      "source": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
+      "summary": "The kingdom condemns the targeting of Sidr in the Strait of Hormuz.",
+      "source": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o",
       "time": "Wed, 02 Sep 2026 17:33:45 GMT",
       "tag": "World"
     },
@@ -40,26 +40,17 @@
       "id": "15381f586f47",
       "sourceLabel": "BBC World",
       "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany",
-      "summary": "Russia is accused of growing increasingly reckless after Berlin blamed Russia for a failed drone attack on Leipzig airport.",
-      "source": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko?at_medium=RSS&at_campaign=rss",
+      "summary": "Berlin blamed Russia for a failed drone attack on Leipzig airport.",
+      "source": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko",
       "time": "Wed, 02 Sep 2026 16:49:00 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "fa0a9425f4a3",
-      "sourceLabel": "BBC World",
-      "title": "Rosenberg: Putin's veiled threat to UK part of Russia's campaign against West",
-      "summary": "The Russian president wants to keep Britain guessing - and stressing - over Moscow's real intentions.",
-      "source": "https://www.bbc.co.uk/news/articles/c62j50n131mo?at_medium=RSS&at_campaign=rss",
-      "time": "Wed, 02 Sep 2026 11:47:11 GMT",
       "tag": "World"
     },
     {
       "id": "4ce72792147b",
       "sourceLabel": "BBC World",
       "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations",
-      "summary": "Chinese and Gulf state airlines are among those still using Russian airspace. Meanwhile, Russia says it will intensify its own attacks on Ukraine.",
-      "source": "https://www.bbc.co.uk/news/articles/c9v9yydy2wvo?at_medium=RSS&at_campaign=rss",
+      "summary": "Russia says it will intensify its own attacks on Ukraine.",
+      "source": "https://www.bbc.co.uk/news/articles/c9v9yydy2wvo",
       "time": "Wed, 02 Sep 2026 16:12:43 GMT",
       "tag": "World"
     },
@@ -67,8 +58,8 @@
       "id": "dd31cd784444",
       "sourceLabel": "BBC World",
       "title": "More than 900 killed in Gaza this year despite ceasefire, Hamas-run health ministry says",
-      "summary": "The ministry says the total number of people killed in the Strip since 10 October is now more than 1,300, including 301 children.",
-      "source": "https://www.bbc.co.uk/news/articles/c7708dy33pdo?at_medium=RSS&at_campaign=rss",
+      "summary": "Ministry reports ongoing casualties including children.",
+      "source": "https://www.bbc.co.uk/news/articles/c7708dy33pdo",
       "time": "Wed, 02 Sep 2026 11:51:46 GMT",
       "tag": "World"
     },
@@ -76,34 +67,16 @@
       "id": "be35ef0f7c1c",
       "sourceLabel": "BBC World",
       "title": "Nepal intensifies relief and recovery efforts after deadly floods, UN says",
-      "summary": "More than 1,200 people have died and thousands are missing, as rescue efforts continue and aid is airlifted to villages.",
-      "source": "https://www.bbc.co.uk/news/articles/c8xk45k9r1go?at_medium=RSS&at_campaign=rss",
+      "summary": "More than 1,200 people have died; rescue efforts continue.",
+      "source": "https://www.bbc.co.uk/news/articles/c8xk45k9r1go",
       "time": "Wed, 02 Sep 2026 15:57:13 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "4f15b6a88ebe",
-      "sourceLabel": "BBC World",
-      "title": "What we know about reported strike on Iran wedding celebrations",
-      "summary": "BBC Verify looks at footage showing the aftermath of a strike on a building in southern Iran.",
-      "source": "https://www.bbc.co.uk/news/videos/c0lr1krdxxwo?at_medium=RSS&at_campaign=rss",
-      "time": "Wed, 02 Sep 2026 10:33:47 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "7af15c78cc3e",
-      "sourceLabel": "Guardian World",
-      "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
-      "summary": "Referendum result means fewer seats in parliament and new rules on candidates, ahead of December elections.",
-      "source": "https://www.theguardian.com/world/2026/sep/02/guinea-bissau-voters-approve-constitution-elections",
-      "time": "Wed, 02 Sep 2026 09:20:55 GMT",
       "tag": "World"
     },
     {
       "id": "972c87a769f6",
       "sourceLabel": "Guardian World",
       "title": "Trump ally defends Venezuela oil deal amid 'gunpoint diplomacy' criticism",
-      "summary": "Energy secretary Chris Wright denies US seeks to 'take' country's oil, saying deal is transformation of relations.",
+      "summary": "US energy secretary denies Washington seeks to commandeer Venezuelan oil.",
       "source": "https://www.theguardian.com/world/2026/sep/02/venezuela-oil-deal-trump-chris-wright",
       "time": "Wed, 02 Sep 2026 14:44:39 GMT",
       "tag": "World"
@@ -112,58 +85,40 @@
       "id": "b08b297270e7",
       "sourceLabel": "Guardian World",
       "title": "Mark Carney tells US to 'start being serious' amid escalating trade war",
-      "summary": "Canadian PM is set to retaliate against tariffs levied by Donald Trump and criticized US officials over insults.",
+      "summary": "Canadian PM rebukes tariffs and insults from Washington.",
       "source": "https://www.theguardian.com/us-news/2026/sep/01/trump-mark-carney-trade-war-canada",
       "time": "Tue, 01 Sep 2026 15:48:27 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "677b245840a5",
-      "sourceLabel": "Guardian World",
-      "title": "Hong Kong pro-democracy activist Joshua Wong pleads guilty in second national security case",
-      "summary": "Wong, 29, is accused of urging foreign powers to impose sanctions, blockades and other hostile measures against China.",
-      "source": "https://www.theguardian.com/world/2026/sep/02/hong-kong-pro-democracy-activist-joshua-wong-pleads-guilty-collusion-china",
-      "time": "Wed, 02 Sep 2026 04:57:27 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "fc3b4e4c2778",
-      "sourceLabel": "Guardian World",
-      "title": "Almost half of world's farmers poisoned by pesticides every year, experts find",
-      "summary": "Study reveals that pesticide poisoning kills 11,000 people each year, with India accounting for nearly 60% of fatalities.",
-      "source": "https://www.theguardian.com/environment/2026/sep/02/50-per-cent-world-farmers-poisoned-pesticides-every-year-experts",
-      "time": "Wed, 02 Sep 2026 06:00:25 GMT",
-      "tag": "World"
-    },
-    {
-      "id": "8222e694768e",
-      "sourceLabel": "Guardian World",
-      "title": "Japan halves speed limit to 30km/h on all narrow city streets",
-      "summary": "Speed limit dropped from 60km/h for around 70% of general roads in the hope of making narrow streets of crowded cities safer.",
-      "source": "https://www.theguardian.com/world/2026/sep/02/japan-new-speed-limit-30kmh-narrow-city-streets",
-      "time": "Wed, 02 Sep 2026 05:15:00 GMT",
       "tag": "World"
     }
   ],
   "markers": [
-    {"lat": 48.5, "lng": 37.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Ukraine–Russia War", "detail": "Full-scale conflict. High strategic and humanitarian cost. Analytical status: active high-intensity."},
-    {"lat": 28.5, "lng": 51.0, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Iran / Hormuz Theater", "detail": "Direct and proxy exchanges. Strait of Hormuz remains a primary energy-security flashpoint."},
-    {"lat": 23.7, "lng": 120.9, "type": "conflict", "layer": "military", "importance": 1, "title": "Taiwan Strait Pressure", "detail": "Sustained PLA air and naval activity. Critical Indo-Pacific deterrence node."},
-    {"lat": 31.5, "lng": 34.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Israel–Iran Axis Front", "detail": "Multi-front posture and residual regional escalation risk."},
-    {"lat": 15.5, "lng": 32.5, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Sudan Civil War", "detail": "Army vs Rapid Support Forces. Severe humanitarian crisis."},
-    {"lat": 21.0, "lng": 43.0, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Yemen / Red Sea", "detail": "Houthi activity and residual risk to Red Sea shipping lanes."},
-    {"lat": 19.5, "lng": 96.0, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Myanmar Civil War", "detail": "Multi-front fighting between junta and resistance forces."},
-    {"lat": 12.0, "lng": 15.0, "type": "conflict", "layer": "conflict", "importance": 3, "title": "Lake Chad / Sahel", "detail": "Jihadist groups continue attacks across the Lake Chad basin and Sahel."},
-    {"lat": 0.5, "lng": 29.5, "type": "conflict", "layer": "conflict", "importance": 3, "title": "Eastern DRC", "detail": "M23 and other armed groups; regional tensions."},
-    {"lat": 34.0, "lng": 69.2, "type": "conflict", "layer": "conflict", "importance": 3, "title": "Afghanistan–Pakistan Border", "detail": "Cross-border friction and militant activity."},
-    {"lat": 26.5, "lng": 56.5, "type": "economic", "layer": "energy", "importance": 1, "title": "Strait of Hormuz", "detail": "Critical oil chokepoint. Risk premium remains a key driver of energy markets."},
-    {"lat": 12.5, "lng": 43.5, "type": "economic", "layer": "energy", "importance": 2, "title": "Bab el-Mandeb / Red Sea", "detail": "Secondary chokepoint. Residual threat influences shipping insurance and routing."},
-    {"lat": 29.3, "lng": 48.0, "type": "economic", "layer": "energy", "importance": 2, "title": "Persian Gulf Energy Complex", "detail": "Major producers and export terminals. Security and market-share balancing."},
-    {"lat": 40.7, "lng": -74.0, "type": "economic", "layer": "economic", "importance": 2, "title": "US Markets / New York", "detail": "Major equity and volatility node. Delayed public market signals only."},
-    {"lat": 51.5, "lng": -0.1, "type": "economic", "layer": "economic", "importance": 2, "title": "London / Europe Energy", "detail": "European exposure to Middle East energy flows and elevated defense spending."},
-    {"lat": 35.7, "lng": 139.7, "type": "economic", "layer": "economic", "importance": 2, "title": "Tokyo / Indo-Pacific Trade", "detail": "Semiconductor and manufacturing supply-chain node sensitive to Taiwan risk."},
-    {"lat": 1.3, "lng": 103.8, "type": "economic", "layer": "economic", "importance": 3, "title": "Singapore / Malacca", "detail": "Major refining and shipping hub. Alternative route pressure when Hormuz or Red Sea risk rises."},
-    {"lat": 25.2, "lng": 55.3, "type": "economic", "layer": "energy", "importance": 3, "title": "Dubai / UAE Energy Hub", "detail": "Regional energy and logistics center monitoring Hormuz risk."}
+    {"lat": 48.5, "lng": 37.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Ukraine–Russia War", "detail": "Full-scale conflict. High strategic and humanitarian cost."},
+    {"lat": 28.5, "lng": 51.0, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Iran / Hormuz Theater", "detail": "Direct and proxy exchanges; Hormuz energy flashpoint."},
+    {"lat": 23.7, "lng": 120.9, "type": "conflict", "layer": "military", "importance": 1, "title": "Taiwan Strait Pressure", "detail": "Sustained PLA air and naval activity."},
+    {"lat": 31.5, "lng": 34.5, "type": "conflict", "layer": "conflict", "importance": 1, "title": "Israel–Iran Axis Front", "detail": "Multi-front posture and residual escalation risk."},
+    {"lat": 15.5, "lng": 32.5, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Sudan Civil War", "detail": "Army vs RSF; severe humanitarian crisis."},
+    {"lat": 21.0, "lng": 43.0, "type": "conflict", "layer": "conflict", "importance": 2, "title": "Yemen / Red Sea", "detail": "Houthi activity; residual shipping risk."},
+    {"lat": 26.5, "lng": 56.5, "type": "economic", "layer": "energy", "importance": 1, "title": "Strait of Hormuz", "detail": "Critical oil chokepoint."},
+    {"lat": 12.5, "lng": 43.5, "type": "economic", "layer": "energy", "importance": 2, "title": "Bab el-Mandeb / Red Sea", "detail": "Secondary chokepoint."},
+    {"lat": 40.7, "lng": -74.0, "type": "economic", "layer": "economic", "importance": 2, "title": "US Markets / New York", "detail": "Major equity and volatility node."},
+    {"lat": 51.5, "lng": -0.1, "type": "economic", "layer": "economic", "importance": 2, "title": "London / Europe Energy", "detail": "European energy and defense exposure."},
+    {"lat": 50.55428, "lng": 36.47101, "type": "conflict", "layer": "osint", "importance": 2, "title": "moving around via radio", "detail": "https://x.com/Exilenova_plus/status/2093023007081939372", "url": "https://x.com/Exilenova_plus/status/2093023007081939372"},
+    {"lat": 52.23444, "lng": 21.01671, "type": "conflict", "layer": "osint", "importance": 1, "title": "Poland doesn't want nuclear weapons on their soil", "detail": "https://x.com/FaytuksNetwork/status/2093012423229755565", "url": "https://x.com/FaytuksNetwork/status/2093012423229755565"},
+    {"lat": 55.05773, "lng": 55.92304, "type": "conflict", "layer": "osint", "importance": 2, "title": "Ozon warehouse hit", "detail": "https://x.com/wartranslated/status/2092956355132850476", "url": "https://x.com/wartranslated/status/2092956355132850476"},
+    {"lat": 53.67815, "lng": 55.91485, "type": "conflict", "layer": "osint", "importance": 2, "title": "drones hit Sterlitamak", "detail": "https://x.com/wartranslated/status/2092977535793410196", "url": "https://x.com/wartranslated/status/2092977535793410196"},
+    {"lat": 25.96314, "lng": 56.73384, "type": "conflict", "layer": "osint", "importance": 1, "title": "no talks scheduled, blockade remains in effect", "detail": "https://x.com/Osint613/status/2093012623340007784", "url": "https://x.com/Osint613/status/2093012623340007784"},
+    {"lat": 52.38494, "lng": 34.07302, "type": "conflict", "layer": "osint", "importance": 2, "title": "new Russian missile used", "detail": "https://x.com/OSINTWarfare/status/2093008135229170022", "url": "https://x.com/OSINTWarfare/status/2093008135229170022"},
+    {"lat": 52.52852, "lng": 13.3585, "type": "conflict", "layer": "osint", "importance": 1, "title": "Patriot stockpiles beyond critical", "detail": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787", "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787"},
+    {"lat": 59.86338, "lng": 30.31908, "type": "conflict", "layer": "osint", "importance": 2, "title": "car bombing in St. Petersburg", "detail": "https://x.com/wartranslated/status/2092973880226759083", "url": "https://x.com/wartranslated/status/2092973880226759083"},
+    {"lat": 53.9025, "lng": 27.56025, "type": "conflict", "layer": "osint", "importance": 2, "title": "Lukashenko goes to Moscow", "detail": "https://x.com/Archer83Able/status/2092991333812035633", "url": "https://x.com/Archer83Able/status/2092991333812035633"},
+    {"lat": 47.01045, "lng": 28.86381, "type": "conflict", "layer": "osint", "importance": 2, "title": "5 drone incursions into Moldova", "detail": "OSINT report of drone activity near Moldova", "url": "https://x.com/search?q=Moldova%20drone"}
   ],
-  "social": []
+  "social": [
+    {"label": "Ozon warehouse hit", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/wartranslated/status/2092956355132850476"},
+    {"label": "drones hit Sterlitamak", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/wartranslated/status/2092977535793410196"},
+    {"label": "Patriot stockpiles beyond critical", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/Maks_NAFO_FELLA/status/2093011920446009787"},
+    {"label": "car bombing in St. Petersburg", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/wartranslated/status/2092973880226759083"},
+    {"label": "Poland doesn't want nuclear weapons on their soil", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/FaytuksNetwork/status/2093012423229755565"},
+    {"label": "new Russian missile used", "note": "SOCIAL MEDIA REPORT / UNVERIFIED — Global War News Map", "url": "https://x.com/OSINTWarfare/status/2093008135229170022"}
+  ]
 }
