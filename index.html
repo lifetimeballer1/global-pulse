@@ -1,50 +1,360 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Global Pulse</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Global Pulse — Intelligence Dashboard</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-:root{--bg:#071019;--panel:#0e1924;--line:#203247;--text:#eef5ff;--muted:#94a8bc;--blue:#69a8ff;--amber:#ffc857;--red:#ff6b7a;--green:#62dc9b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}header{position:sticky;top:0;z-index:9;background:#071019ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 16px;display:flex;justify-content:space-between;gap:10px}.logo{font-weight:900;letter-spacing:.12em}.logo b{color:var(--blue)}.meta{color:var(--muted);font-size:12px}.wrap{max-width:1500px;margin:auto;padding:14px;display:grid;gap:14px}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}h2{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.score{font-size:64px;font-weight:900;color:var(--amber);line-height:1}.small{color:var(--muted);font-size:12px}.changes,.stories{display:grid;gap:9px}.item,.story{background:#09131d;border:1px solid var(--line);border-radius:10px;padding:10px}.story{display:grid;grid-template-columns:100px 1fr;gap:10px}.story img{width:100px;height:74px;object-fit:cover;border-radius:7px;background:#142131}.story h3{font-size:14px;margin:2px 0 5px}.story p{margin:0 0 7px;color:var(--muted);font-size:12px}.tag{font-size:10px;font-weight:800;text-transform:uppercase;color:var(--amber)}a{color:var(--blue)}canvas{width:100%;height:170px;background:#09131d;border-radius:10px}#map{height:460px;border-radius:10px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}button{background:#09131d;border:1px solid var(--line);color:var(--text);padding:7px 10px;border-radius:8px}button.active{color:var(--blue);border-color:var(--blue)}.bars{display:grid;gap:9px}.bar{display:grid;grid-template-columns:150px 1fr 42px;gap:8px;align-items:center;font-size:12px}.track{height:9px;background:#09131d;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red))}.bottomnav{display:none}@media(max-width:1050px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}}@media(max-width:700px){header{display:block}.meta{margin-top:4px}.wrap{padding:9px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:12px}.story{grid-template-columns:85px 1fr}.story img{width:85px;height:68px}#map{height:380px}.bar{grid-template-columns:110px 1fr 34px}.bottomnav{display:flex;position:fixed;bottom:0;left:0;right:0;justify-content:space-around;background:#071019f5;border-top:1px solid var(--line);padding:10px;z-index:10}.bottomnav a{text-decoration:none;font-size:12px}body{padding-bottom:55px}}
-</style></head>
-<body>
-<header><div class="logo">GLOBAL <b>PULSE</b></div><div class="meta" id="meta">Loading…</div></header>
-<main class="wrap">
-<section class="grid">
-<div class="panel"><h2>Global Tension Index</h2><div class="score" id="score">—</div><div id="delta"></div><p class="small">Illustrative indicator built from transparent monitored signals. It is not a prediction or official risk rating.</p></div>
-<div class="panel wide"><h2>Score Breakdown</h2><div class="bars" id="breakdown"></div></div>
-</section>
-<section class="grid">
-<div class="panel"><h2>What Changed?</h2><div class="changes" id="changes"></div></div>
-<div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="180"></canvas><p class="small">History uses saved refresh snapshots; failed refreshes do not create fake points.</p></div>
-<div class="panel"><h2>Data Status</h2><div id="status" class="small"></div></div>
-</section>
-<section class="grid">
-<div class="panel"><h2>Latest Reporting</h2><div class="stories" id="stories"></div></div>
-<div class="panel wide"><h2>World Map</h2><div class="filters"><button class="active" data-f="all">All</button><button data-f="conflict">Conflict</button><button data-f="economic">Economic</button></div><div id="map"></div></div>
-</section>
-<section class="panel"><h2>Public Social Watch</h2><div class="changes" id="social"></div><p class="small">Only direct public links explicitly included in the data are shown. Social posts are supplementary and are not treated as verified reporting.</p></section>
-</main>
-<nav class="bottomnav"><a href="#top">Overview</a><a href="#stories">News</a><a href="#map">Map</a></nav>
-<script>
-let S,H=[],map,layer,filter='all';
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':'&quot;',"'":'&#39;'}[c]));
-async function getJSON(p,f){const r=await fetch(p+"?v="+Date.now());if(!r.ok)throw Error();return r.json()}
-async function load(){try{[S,H]=await Promise.all([getJSON("data/snapshot.json"),getJSON("data/history.json").catch(()=>[])]);render()}catch(e){document.getElementById("meta").textContent="Latest data could not be loaded"}}
-function render(){
- document.getElementById("meta").textContent="Last refresh: "+new Date(S.updatedAt).toLocaleString()+" · "+(S.sourceStatus||"");
- document.getElementById("score").textContent=S.tension??"—";
- const p=H.length>1?H[H.length-2]?.tension:null,d=Number.isFinite(p)?S.tension-p:null;
- document.getElementById("delta").innerHTML=d===null?"<span class=small>No previous snapshot yet</span>":`<b>${d>0?"▲":d<0?"▼":"●"} ${Math.abs(d)} vs previous refresh</b>`;
- document.getElementById("breakdown").innerHTML=Object.entries(S.breakdownScores||{}).map(([k,v])=>`<div class=bar><span>${esc(k)}</span><div class=track><div class=fill style="width:${Math.max(0,Math.min(100,v))}%"></div></div><b>${esc(v)}</b></div>`).join("");
- document.getElementById("changes").innerHTML=(S.changes||[]).map(x=>`<div class=item><span class=tag>${esc(x.kind||"update")}</span><br><b>${esc(x.title)}</b><div class=small>${esc(x.detail||"")}</div></div>`).join("")||"<span class=small>No material change detected.</span>";
- document.getElementById("status").innerHTML=`<b>${esc(S.sourceStatus||"")}</b><br>${esc(S.dataNote||"")}`;
- document.getElementById("stories").innerHTML=(S.stories||[]).map(x=>`<article class=story>${x.image?`<img loading=lazy src="${esc(x.image)}" alt="">`:""}<div><span class=tag>${esc(x.sourceLabel||"source")}</span> · <span class=small>${esc(x.time||"")}</span><h3>${esc(x.title)}</h3><p>${esc(x.summary||"")}</p>${x.source?`<a target=_blank rel=noopener href="${esc(x.source)}">Open source →</a>`:""}</div></article>`).join("");
- document.getElementById("social").innerHTML=(S.social||[]).map(x=>`<div class=item><b>${esc(x.label)}</b><div class=small>${esc(x.note||"")}</div>${x.url?`<a target=_blank rel=noopener href="${esc(x.url)}">Open public post →</a>`:""}</div>`).join("")||"<span class=small>No public social links in this refresh.</span>";
- chart(); drawMap();
+:root{
+  --bg:#060d14;--panel:#0c1520;--panel2:#09131c;--line:#1c2d42;
+  --text:#eef5ff;--muted:#8fa3b8;--blue:#5b9cff;--amber:#ffc857;
+  --red:#ff6b7a;--green:#4ade80;--purple:#a78bfa;--orange:#fb923c;
+  --safe-bottom:env(safe-area-inset-bottom,0px);
 }
-function chart(){const c=document.getElementById("chart"),x=c.getContext("2d"),d=H.map(z=>z.tension).filter(Number.isFinite).slice(-50);x.clearRect(0,0,c.width,c.height);if(d.length<2)return;const mn=Math.min(...d,40),mx=Math.max(...d,80),p=12;x.strokeStyle="#60a5fa";x.lineWidth=3;x.beginPath();d.forEach((v,i)=>{let X=p+i*(c.width-2*p)/(d.length-1),Y=c.height-p-(v-mn)/(mx-mn||1)*(c.height-2*p);i?x.lineTo(X,Y):x.moveTo(X,Y)});x.stroke()}
-function drawMap(){if(map)map.remove();map=L.map("map").setView([22,8],2);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:8,attribution:"© OpenStreetMap contributors"}).addTo(map);layer=L.layerGroup().addTo(map);function show(){layer.clearLayers();(S.markers||[]).filter(m=>filter==="all"||m.type===filter).forEach(m=>L.circleMarker([m.lat,m.lng],{radius:7,color:m.type==="conflict"?"#ff6b7a":"#62dc9b",fillOpacity:.8}).bindPopup("<b>"+esc(m.title)+"</b><br>"+esc(m.detail||"")).addTo(layer))}show();document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll("[data-f]").forEach(q=>q.classList.toggle("active",q===b));show()})}
-load();setInterval(load,15*60*1000);
-</script></body></html>
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(6,13,20,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.logo{font-weight:900;letter-spacing:.14em;font-size:15px}
+.logo b{color:var(--blue)}
+.meta{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:4px 10px;font-size:11px;color:var(--muted);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15)}
+.wrap{max-width:1400px;margin:0 auto;padding:14px 14px 80px;display:grid;gap:14px}
+.grid{display:grid;grid-template-columns:1.1fr 1.4fr 1fr;gap:14px}
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;
+  min-width:0;
+}
+h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.score{font-size:56px;font-weight:900;color:var(--amber);line-height:1;font-variant-numeric:tabular-nums}
+.score-sub{color:var(--muted);font-size:12px;margin-top:6px}
+.small{color:var(--muted);font-size:12px;line-height:1.4}
+.disclaimer{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(100px,1.1fr) 1fr 36px;gap:8px;align-items:center;font-size:12px}
+.track{height:8px;background:var(--panel2);border-radius:20px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:20px}
+.item,.story{
+  background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px;
+}
+.changes,.stories{display:grid;gap:9px}
+.story h3{font-size:13.5px;margin:3px 0 5px;font-weight:650;line-height:1.3}
+.story p{margin:0 0 6px;color:var(--muted);font-size:12px}
+.tag{
+  display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--amber);background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.25);
+  padding:2px 6px;border-radius:4px;
+}
+.tag.conflict{color:var(--red);background:rgba(255,107,122,.1);border-color:rgba(255,107,122,.25)}
+.tag.energy{color:var(--orange);background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.25)}
+.tag.military{color:var(--purple);background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25)}
+.tag.economic{color:var(--green);background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.25)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+canvas{width:100%;height:150px;background:var(--panel2);border-radius:10px;display:block}
+#map{height:480px;border-radius:12px;background:#0a121c;z-index:1}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+button.filter{
+  background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;
+  min-height:36px;touch-action:manipulation;
+}
+button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(91,156,255,.08)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px;font-size:11px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.lg{width:9px;height:9px;border-radius:50%}
+.map-hint{font-size:11px;color:var(--muted);margin-top:6px}
+.bottomnav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:30;
+  justify-content:space-around;align-items:center;
+  background:rgba(6,13,20,.96);border-top:1px solid var(--line);
+  padding:8px 6px calc(8px + var(--safe-bottom));backdrop-filter:blur(12px);
+}
+.bottomnav a{
+  text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;
+  padding:8px 10px;border-radius:8px;min-width:56px;text-align:center;
+}
+.bottomnav a:active,.bottomnav a:focus{color:var(--blue);background:rgba(91,156,255,.08)}
+.leaflet-popup-content-wrapper{
+  background:var(--panel);color:var(--text);border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.45);
+}
+.leaflet-popup-tip{background:var(--panel)}
+.leaflet-popup-content{margin:12px 14px;font-size:13px;line-height:1.4}
+.leaflet-popup-content strong{display:block;margin-bottom:4px;font-size:14px}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.status-ok{color:var(--green)}
+@media(max-width:1100px){
+  .grid{grid-template-columns:1fr 1fr}
+  .wide{grid-column:span 2}
+}
+@media(max-width:720px){
+  header{padding:10px 12px}
+  .wrap{padding:10px 10px 78px;gap:10px}
+  .grid{grid-template-columns:1fr}
+  .wide{grid-column:auto}
+  .panel{padding:12px;border-radius:12px}
+  .score{font-size:48px}
+  .bar{grid-template-columns:minmax(90px,1fr) 1fr 32px}
+  #map{height:360px}
+  .filters{gap:5px}
+  button.filter{padding:7px 10px;font-size:11px;min-height:34px}
+  .bottomnav{display:flex}
+  .story h3{font-size:13px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">GLOBAL <b>PULSE</b></div>
+  <div class="meta" id="meta">
+    <span class="badge"><span class="dot" id="statusDot"></span><span id="metaText">Loading…</span></span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="grid" id="overview">
+    <div class="panel">
+      <h2>Global Tension Index</h2>
+      <div class="score" id="score">—</div>
+      <div class="score-sub" id="delta"></div>
+      <p class="disclaimer">Illustrative analytical indicator only. Not an official risk rating or forecast.</p>
+    </div>
+    <div class="panel wide">
+      <h2>Score Breakdown</h2>
+      <div class="bars" id="breakdown"></div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel">
+      <h2>What Changed</h2>
+      <div class="changes" id="changes"></div>
+    </div>
+    <div class="panel">
+      <h2>Recent Trend</h2>
+      <canvas id="chart" width="900" height="160"></canvas>
+      <p class="small" style="margin-top:8px">History from saved refresh snapshots. Failed refreshes do not invent points.</p>
+    </div>
+    <div class="panel">
+      <h2>Data Status</h2>
+      <div id="status" class="small"></div>
+    </div>
+  </section>
+
+  <section class="grid" id="news">
+    <div class="panel">
+      <h2>Latest Reporting</h2>
+      <div class="stories" id="stories"></div>
+    </div>
+    <div class="panel wide" id="mapSection">
+      <h2>World Map · Layers</h2>
+      <div class="filters" id="filters">
+        <button class="filter active" data-f="all">All</button>
+        <button class="filter" data-f="conflict">Conflict</button>
+        <button class="filter" data-f="military">Military</button>
+        <button class="filter" data-f="energy">Energy</button>
+        <button class="filter" data-f="economic">Economic</button>
+      </div>
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="lg" style="background:#ff6b7a"></i> Conflict</span>
+        <span><i class="lg" style="background:#a78bfa"></i> Military</span>
+        <span><i class="lg" style="background:#fb923c"></i> Energy</span>
+        <span><i class="lg" style="background:#4ade80"></i> Economic</span>
+      </div>
+      <p class="map-hint">Markers are curated locations of known theaters and nodes — not live event detections. Tap a marker for detail. Use layers to filter.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="social">
+    <h2>Public Social Watch</h2>
+    <div class="changes" id="socialList"></div>
+    <p class="small" style="margin-top:8px">Only direct public links in the data file are shown. Social posts are supplementary and not treated as verified reporting.</p>
+  </section>
+</main>
+
+<nav class="bottomnav" aria-label="Mobile sections">
+  <a href="#overview">Overview</a>
+  <a href="#news">News</a>
+  <a href="#mapSection">Map</a>
+  <a href="#social">Signals</a>
+</nav>
+
+<script>
+let S=null, H=[], map=null, layerGroup=null, filter='all';
+
+const LAYER_COLOR = {
+  conflict: '#ff6b7a',
+  military: '#a78bfa',
+  energy: '#fb923c',
+  economic: '#4ade80'
+};
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+}[c]));
+
+async function getJSON(path){
+  const r = await fetch(path + '?v=' + Date.now(), { cache: 'no-store' });
+  if(!r.ok) throw new Error(path + ' ' + r.status);
+  return r.json();
+}
+
+async function load(){
+  try{
+    const [snap, hist] = await Promise.all([
+      getJSON('data/snapshot.json'),
+      getJSON('data/history.json').catch(() => [])
+    ]);
+    S = snap; H = Array.isArray(hist) ? hist : [];
+    render();
+  }catch(e){
+    document.getElementById('metaText').textContent = 'Data unavailable — check Pages or last commit';
+    document.getElementById('statusDot').style.background = 'var(--red)';
+  }
+}
+
+function layerOf(m){
+  return m.layer || m.type || 'conflict';
+}
+
+function markerColor(m){
+  return LAYER_COLOR[layerOf(m)] || '#69a8ff';
+}
+
+function markerRadius(m){
+  const imp = m.importance || 2;
+  if(imp <= 1) return 9;
+  if(imp === 2) return 7;
+  return 6;
+}
+
+function render(){
+  const updated = S.updatedAt ? new Date(S.updatedAt).toLocaleString() : '—';
+  document.getElementById('metaText').textContent = 'Last refresh: ' + updated + (S.sourceStatus ? ' · ' + S.sourceStatus : '');
+  document.getElementById('statusDot').style.background = 'var(--green)';
+
+  document.getElementById('score').textContent = S.tension ?? '—';
+
+  const prev = H.length > 1 ? H[H.length-2]?.tension : null;
+  const d = Number.isFinite(prev) ? S.tension - prev : null;
+  document.getElementById('delta').innerHTML = d === null
+    ? '<span class="small">No previous snapshot yet</span>'
+    : `<b>${d>0?'▲':d<0?'▼':'●'} ${Math.abs(d)} vs previous refresh</b>`;
+
+  document.getElementById('breakdown').innerHTML = Object.entries(S.breakdownScores || {}).map(([k,v]) =>
+    `<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></div></div><b>${esc(v)}</b></div>`
+  ).join('') || '<span class="small">No breakdown</span>';
+
+  document.getElementById('changes').innerHTML = (S.changes || []).map(x =>
+    `<div class="item"><span class="tag">${esc(x.kind||'update')}</span><br><b>${esc(x.title)}</b><div class="small">${esc(x.detail||'')}</div></div>`
+  ).join('') || '<span class="small">No material change detected.</span>';
+
+  document.getElementById('status').innerHTML =
+    `<div class="status-ok"><b>${esc(S.sourceStatus||'OK')}</b></div>` +
+    `<div style="margin-top:6px">${esc(S.dataNote||'')}</div>` +
+    `<div style="margin-top:8px" class="small">Server refresh target: every 30 min · Page auto-reload: every 15 min while open</div>`;
+
+  const stories = S.stories || [];
+  document.getElementById('stories').innerHTML = stories.length
+    ? stories.map(x => {
+        const tagClass = (x.tag||'').toLowerCase().includes('conflict') ? 'conflict' : '';
+        return `<article class="story">
+          <div><span class="tag ${tagClass}">${esc(x.sourceLabel||'source')}</span>
+          <span class="small"> · ${esc(x.time||'')}</span>
+          <h3>${esc(x.title)}</h3>
+          <p>${esc(x.summary||'')}</p>
+          ${x.source?`<a target="_blank" rel="noopener" href="${esc(x.source)}">Open source →</a>`:''}
+          </div></article>`;
+      }).join('')
+    : '<span class="small">No headlines in this snapshot. Run the Actions refresh workflow.</span>';
+
+  document.getElementById('socialList').innerHTML = (S.social || []).map(x =>
+    `<div class="item"><b>${esc(x.label)}</b><div class="small">${esc(x.note||'')}</div>${x.url?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Open public post →</a>`:''}</div>`
+  ).join('') || '<span class="small">No public social links in this refresh.</span>';
+
+  chart();
+  drawMap();
+}
+
+function chart(){
+  const c = document.getElementById('chart');
+  const x = c.getContext('2d');
+  const d = H.map(z => z.tension).filter(Number.isFinite).slice(-50);
+  x.clearRect(0,0,c.width,c.height);
+  if(d.length < 2) return;
+  const mn = Math.min(...d, 40), mx = Math.max(...d, 80), p = 12;
+  x.strokeStyle = '#5b9cff';
+  x.lineWidth = 2.5;
+  x.beginPath();
+  d.forEach((v,i) => {
+    const X = p + i * (c.width - 2*p) / (d.length - 1);
+    const Y = c.height - p - (v - mn) / (mx - mn || 1) * (c.height - 2*p);
+    i ? x.lineTo(X,Y) : x.moveTo(X,Y);
+  });
+  x.stroke();
+}
+
+function drawMap(){
+  if(map){ map.remove(); map = null; }
+  map = L.map('map', { worldCopyJump: true, zoomControl: true }).setView([22, 12], 2);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 8,
+    attribution: '© OpenStreetMap © CARTO'
+  }).addTo(map);
+  layerGroup = L.layerGroup().addTo(map);
+
+  function show(){
+    layerGroup.clearLayers();
+    const list = (S.markers || []).filter(m => {
+      if(filter === 'all') return true;
+      return layerOf(m) === filter || m.type === filter;
+    });
+    list.forEach(m => {
+      const color = markerColor(m);
+      const r = markerRadius(m);
+      const circle = L.circleMarker([m.lat, m.lng], {
+        radius: r,
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.85,
+        weight: 1.5
+      });
+      const lay = layerOf(m);
+      const html = `<span class="tag ${lay}">${esc(lay)}</span><strong>${esc(m.title)}</strong>${esc(m.detail||'')}`;
+      circle.bindPopup(html, { maxWidth: 260 });
+      circle.addTo(layerGroup);
+    });
+  }
+
+  show();
+
+  document.querySelectorAll('#filters .filter').forEach(b => {
+    b.onclick = () => {
+      filter = b.dataset.f;
+      document.querySelectorAll('#filters .filter').forEach(q => q.classList.toggle('active', q === b));
+      show();
+    };
+  });
+
+  setTimeout(() => { if(map) map.invalidateSize(); }, 120);
+}
+
+load();
+setInterval(load, 15 * 60 * 1000);
+window.addEventListener('resize', () => { if(map) setTimeout(() => map.invalidateSize(), 150); });
+</script>
+</body>
+</html>
