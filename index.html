@@ -5,37 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Global Pulse — Intelligence Dashboard</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <style>
 :root{
   --bg:#060d14;--panel:#0c1520;--panel2:#09131c;--line:#1c2d42;
   --text:#eef5ff;--muted:#8fa3b8;--blue:#5b9cff;--amber:#ffc857;
-  --red:#ff6b7a;--green:#4ade80;--purple:#a78bfa;--orange:#fb923c;
+  --red:#ff6b7a;--green:#4ade80;--purple:#a78bfa;--orange:#fb923c;--cyan:#38bdf8;
   --safe-bottom:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-header{
-  position:sticky;top:0;z-index:20;
-  background:rgba(6,13,20,.92);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-}
-.logo{font-weight:900;letter-spacing:.14em;font-size:15px}
-.logo b{color:var(--blue)}
-.meta{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
-.badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--panel2);border:1px solid var(--line);border-radius:999px;
-  padding:4px 10px;font-size:11px;color:var(--muted);
-}
+header{position:sticky;top:0;z-index:20;background:rgba(6,13,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-weight:900;letter-spacing:.14em;font-size:15px}.logo b{color:var(--blue)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:11px;color:var(--muted)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15)}
 .wrap{max-width:1400px;margin:0 auto;padding:14px 14px 80px;display:grid;gap:14px}
 .grid{display:grid;grid-template-columns:1.1fr 1.4fr 1fr;gap:14px}
-.panel{
-  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;
-  min-width:0;
-}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
 h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700}
 .score{font-size:56px;font-weight:900;color:var(--amber);line-height:1;font-variant-numeric:tabular-nums}
 .score-sub{color:var(--muted);font-size:12px;margin-top:6px}
@@ -45,83 +34,66 @@ h2{margin:0 0 10px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;
 .bar{display:grid;grid-template-columns:minmax(100px,1.1fr) 1fr 36px;gap:8px;align-items:center;font-size:12px}
 .track{height:8px;background:var(--panel2);border-radius:20px;overflow:hidden}
 .fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:20px}
-.item,.story{
-  background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px;
-}
-.changes,.stories{display:grid;gap:9px}
-.story h3{font-size:13.5px;margin:3px 0 5px;font-weight:650;line-height:1.3}
-.story p{margin:0 0 6px;color:var(--muted);font-size:12px}
-.tag{
-  display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--amber);background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.25);
-  padding:2px 6px;border-radius:4px;
-}
+.item,.story,.ccard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px}
+.changes,.stories,.conflicts{display:grid;gap:9px}
+.story h3,.ccard h3{font-size:13.5px;margin:3px 0 5px;font-weight:650;line-height:1.3}
+.story p,.ccard p{margin:0 0 6px;color:var(--muted);font-size:12px}
+.tag{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.25);padding:2px 6px;border-radius:4px;margin:0 4px 4px 0}
 .tag.conflict{color:var(--red);background:rgba(255,107,122,.1);border-color:rgba(255,107,122,.25)}
 .tag.energy{color:var(--orange);background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.25)}
 .tag.military{color:var(--purple);background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25)}
 .tag.economic{color:var(--green);background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.25)}
-.tag.osint{color:#38bdf8;background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
+.tag.osint{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
+.tag.confirmed{color:var(--green);background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3)}
+.tag.likely{color:var(--blue);background:rgba(91,156,255,.12);border-color:rgba(91,156,255,.3)}
+.tag.unconfirmed{color:var(--amber);background:rgba(255,200,87,.12);border-color:rgba(255,200,87,.3)}
+.tag.social{color:var(--cyan);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3)}
+.tag.high{color:var(--red);background:rgba(255,107,122,.12);border-color:rgba(255,107,122,.3)}
+.tag.mod{color:var(--orange);background:rgba(251,146,60,.12);border-color:rgba(251,146,60,.3)}
+.tag.break{color:#f472b6;background:rgba(244,114,182,.12);border-color:rgba(244,114,182,.3)}
+.tag.bg{color:var(--muted);background:rgba(143,163,184,.1);border-color:rgba(143,163,184,.25)}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 canvas{width:100%;height:150px;background:var(--panel2);border-radius:10px;display:block}
 #map{height:480px;border-radius:12px;background:#0a121c;z-index:1}
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-button.filter{
-  background:var(--panel2);border:1px solid var(--line);color:var(--text);
-  padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;
-  min-height:36px;touch-action:manipulation;
-}
+button.filter{background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;min-height:36px;touch-action:manipulation}
 button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(91,156,255,.08)}
 .legend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px;font-size:11px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:5px}
 .lg{width:9px;height:9px;border-radius:50%}
 .map-hint{font-size:11px;color:var(--muted);margin-top:6px}
-.bottomnav{
-  display:none;position:fixed;bottom:0;left:0;right:0;z-index:30;
-  justify-content:space-around;align-items:center;
-  background:rgba(6,13,20,.96);border-top:1px solid var(--line);
-  padding:8px 6px calc(8px + var(--safe-bottom));backdrop-filter:blur(12px);
-}
-.bottomnav a{
-  text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;
-  padding:8px 10px;border-radius:8px;min-width:56px;text-align:center;
-}
+.news-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+button.tab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);padding:7px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;min-height:34px}
+button.tab.active{color:var(--text);border-color:var(--blue);background:rgba(91,156,255,.1)}
+.ccard .row{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.ccard .label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:8px}
+.ccard .facts{border-left:2px solid var(--green);padding-left:8px;margin-top:6px}
+.ccard .analysis{border-left:2px solid var(--amber);padding-left:8px;margin-top:6px}
+.bottomnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:30;justify-content:space-around;align-items:center;background:rgba(6,13,20,.96);border-top:1px solid var(--line);padding:8px 6px calc(8px + var(--safe-bottom));backdrop-filter:blur(12px)}
+.bottomnav a{text-decoration:none;color:var(--muted);font-size:10px;font-weight:600;padding:8px 6px;border-radius:8px;min-width:48px;text-align:center}
 .bottomnav a:active,.bottomnav a:focus{color:var(--blue);background:rgba(91,156,255,.08)}
-.leaflet-popup-content-wrapper{
-  background:var(--panel);color:var(--text);border:1px solid var(--line);
-  border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.45);
-}
+.leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
 .leaflet-popup-tip{background:var(--panel)}
 .leaflet-popup-content{margin:12px 14px;font-size:13px;line-height:1.4}
 .leaflet-popup-content strong{display:block;margin-bottom:4px;font-size:14px}
 .leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(56,189,248,.25)}
+.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:rgba(56,189,248,.85);color:#061018;font-weight:700}
 .status-ok{color:var(--green)}
-@media(max-width:1100px){
-  .grid{grid-template-columns:1fr 1fr}
-  .wide{grid-column:span 2}
-}
+@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}}
 @media(max-width:720px){
-  header{padding:10px 12px}
-  .wrap{padding:10px 10px 78px;gap:10px}
-  .grid{grid-template-columns:1fr}
-  .wide{grid-column:auto}
-  .panel{padding:12px;border-radius:12px}
-  .score{font-size:48px}
-  .bar{grid-template-columns:minmax(90px,1fr) 1fr 32px}
-  #map{height:360px}
-  .filters{gap:5px}
-  button.filter{padding:7px 10px;font-size:11px;min-height:34px}
-  .bottomnav{display:flex}
-  .story h3{font-size:13px}
+  header{padding:10px 12px}.wrap{padding:10px 10px 78px;gap:10px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}
+  .panel{padding:12px;border-radius:12px}.score{font-size:48px}
+  .bar{grid-template-columns:minmax(90px,1fr) 1fr 32px}#map{height:360px}
+  .filters{gap:5px}button.filter{padding:7px 10px;font-size:11px;min-height:34px}
+  .bottomnav{display:flex}.story h3,.ccard h3{font-size:13px}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="logo">GLOBAL <b>PULSE</b></div>
-  <div class="meta" id="meta">
-    <span class="badge"><span class="dot" id="statusDot"></span><span id="metaText">Loading…</span></span>
-  </div>
+  <div class="meta" id="meta"><span class="badge"><span class="dot" id="statusDot"></span><span id="metaText">Loading…</span></span></div>
 </header>
 
 <main class="wrap">
@@ -139,24 +111,25 @@ button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(
   </section>
 
   <section class="grid">
-    <div class="panel">
-      <h2>What Changed</h2>
-      <div class="changes" id="changes"></div>
-    </div>
-    <div class="panel">
-      <h2>Recent Trend</h2>
-      <canvas id="chart" width="900" height="160"></canvas>
-      <p class="small" style="margin-top:8px">History from saved refresh snapshots. Failed refreshes do not invent points.</p>
-    </div>
-    <div class="panel">
-      <h2>Data Status</h2>
-      <div id="status" class="small"></div>
-    </div>
+    <div class="panel"><h2>What Changed</h2><div class="changes" id="changes"></div></div>
+    <div class="panel"><h2>Recent Trend</h2><canvas id="chart" width="900" height="160"></canvas><p class="small" style="margin-top:8px">History from saved refresh snapshots.</p></div>
+    <div class="panel"><h2>Data Status</h2><div id="status" class="small"></div></div>
+  </section>
+
+  <section class="panel" id="conflicts">
+    <h2>Conflict Tracker</h2>
+    <p class="small" style="margin-bottom:10px">Structured theater briefs. FACTS and ANALYSIS are separated. Escalation labels are analytical, not official threat levels.</p>
+    <div class="conflicts" id="conflictList"></div>
   </section>
 
   <section class="grid" id="news">
     <div class="panel">
       <h2>Latest Reporting</h2>
+      <div class="news-tabs">
+        <button class="tab active" data-tab="breaking">Breaking</button>
+        <button class="tab" data-tab="background">Background</button>
+        <button class="tab" data-tab="all">All</button>
+      </div>
       <div class="stories" id="stories"></div>
     </div>
     <div class="panel wide" id="mapSection">
@@ -175,215 +148,191 @@ button.filter.active{color:var(--blue);border-color:var(--blue);background:rgba(
         <span><i class="lg" style="background:#a78bfa"></i> Military</span>
         <span><i class="lg" style="background:#fb923c"></i> Energy</span>
         <span><i class="lg" style="background:#4ade80"></i> Economic</span>
-        <span><i class="lg" style="background:#38bdf8"></i> War OSINT</span>
+        <span><i class="lg" style="background:#38bdf8"></i> War OSINT (clustered)</span>
       </div>
-      <p class="map-hint">Strategic markers = curated theaters/nodes. <b>War OSINT</b> layer imports points from the public Global War News Map (social links) — treat as UNVERIFIED. Tap markers for detail.</p>
+      <p class="map-hint">Strategic markers = curated theaters/nodes. <b>War OSINT</b> points cluster when zoomed out and expand on zoom. OSINT = SOCIAL MEDIA / UNVERIFIED.</p>
     </div>
   </section>
 
   <section class="panel" id="warmap">
     <h2>Global War News Map · External OSINT</h2>
-    <p class="small" style="margin-bottom:10px">
-      Live community OSINT map (Day 1651): Ukraine/Russia theater reports, routes, and social-linked events.
-      Points from this map are also available on our Leaflet map under the <b>War OSINT</b> layer.
-      All social-linked items are <b>UNVERIFIED</b> unless corroborated by primary reporting.
-    </p>
+    <p class="small" style="margin-bottom:10px">Community OSINT map. Points also appear under <b>War OSINT</b>. Social-linked items are <b>UNVERIFIED</b> unless corroborated by primary reporting.</p>
     <div style="position:relative;width:100%;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#0a121c">
-      <iframe
-        src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen>
-      </iframe>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
-    <p class="small" style="margin-top:8px">
-      <a target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full Google My Map →</a>
-      · Source data is maintained by the map author, not Global Pulse.
-    </p>
+    <p class="small" style="margin-top:8px"><a target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1LCWz0ynlXTMgdJYgKS89O_T5u_yh2QY&usp=sharing">Open full Google My Map →</a> · Maintained by map author, not Global Pulse.</p>
   </section>
 
   <section class="panel" id="social">
     <h2>Public Social Watch</h2>
     <div class="changes" id="socialList"></div>
-    <p class="small" style="margin-top:8px">Only direct public links in the data file are shown. Social posts are supplementary and not treated as verified reporting.</p>
+    <p class="small" style="margin-top:8px">Social posts are supplementary and not treated as verified reporting.</p>
   </section>
 </main>
 
 <nav class="bottomnav" aria-label="Mobile sections">
   <a href="#overview">Overview</a>
+  <a href="#conflicts">Conflicts</a>
   <a href="#news">News</a>
   <a href="#mapSection">Map</a>
   <a href="#warmap">War Map</a>
-  <a href="#social">Signals</a>
 </nav>
 
 <script>
-let S=null, H=[], map=null, layerGroup=null, filter='all';
-
-const LAYER_COLOR = {
-  conflict: '#ff6b7a',
-  military: '#a78bfa',
-  energy: '#fb923c',
-  economic: '#4ade80',
-  osint: '#38bdf8'
-};
-
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-}[c]));
+let S=null,H=[],map=null,layerGroup=null,osintCluster=null,filter='all',newsTab='breaking';
+const LAYER_COLOR={conflict:'#ff6b7a',military:'#a78bfa',energy:'#fb923c',economic:'#4ade80',osint:'#38bdf8'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 async function getJSON(path){
-  const r = await fetch(path + '?v=' + Date.now(), { cache: 'no-store' });
-  if(!r.ok) throw new Error(path + ' ' + r.status);
+  const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});
+  if(!r.ok) throw new Error(path+' '+r.status);
   return r.json();
 }
-
 async function load(){
   try{
-    const [snap, hist] = await Promise.all([
-      getJSON('data/snapshot.json'),
-      getJSON('data/history.json').catch(() => [])
-    ]);
-    S = snap; H = Array.isArray(hist) ? hist : [];
-    render();
+    const [snap,hist]=await Promise.all([getJSON('data/snapshot.json'),getJSON('data/history.json').catch(()=>[])]);
+    S=snap;H=Array.isArray(hist)?hist:[];render();
   }catch(e){
-    document.getElementById('metaText').textContent = 'Data unavailable — check Pages or last commit';
-    document.getElementById('statusDot').style.background = 'var(--red)';
+    document.getElementById('metaText').textContent='Data unavailable — check Pages or last commit';
+    document.getElementById('statusDot').style.background='var(--red)';
   }
 }
+function layerOf(m){return m.layer||m.type||'conflict'}
+function markerColor(m){return LAYER_COLOR[layerOf(m)]||'#69a8ff'}
+function markerRadius(m){const i=m.importance||2;return i<=1?9:i===2?7:6}
 
-function layerOf(m){
-  return m.layer || m.type || 'conflict';
+function confTag(c){
+  const v=(c||'LIKELY').toUpperCase();
+  if(v.includes('CONFIRMED')&&!v.includes('UN')) return {cls:'confirmed',label:'CONFIRMED'};
+  if(v.includes('SOCIAL')||v.includes('UNVERIFIED')||v.includes('UNCONFIRMED')) return {cls:'social',label:v.includes('SOCIAL')?'SOCIAL / UNVERIFIED':'UNCONFIRMED'};
+  return {cls:'likely',label:'LIKELY'};
 }
 
-function markerColor(m){
-  return LAYER_COLOR[layerOf(m)] || '#69a8ff';
+function isBreaking(st){
+  const t=st.time||st.updatedAt||'';
+  if(/\b0?[0-2]\s*Sep\b/i.test(t)||/\bSep(?:tember)?\s*0?[12]\b/i.test(t)) return true;
+  if(/\b\d{1,2}h ago\b/i.test(t)) return true;
+  const title=(st.title||'').toLowerCase();
+  if(/(strike|attack|killed|drone|missile|blockade|escalat)/i.test(title)) return true;
+  return false;
 }
 
-function markerRadius(m){
-  const imp = m.importance || 2;
-  if(imp <= 1) return 9;
-  if(imp === 2) return 7;
-  return 6;
+function renderConflicts(){
+  const list=S.conflicts||[];
+  document.getElementById('conflictList').innerHTML=list.length?list.map(c=>{
+    const escLevel=(c.escalation||'').toUpperCase();
+    const eCls=escLevel.includes('HIGH')?'high':'mod';
+    const cf=confTag(c.confidence);
+    return `<article class="ccard">
+      <div class="row">
+        <span class="tag conflict">${esc(c.region||'theater')}</span>
+        <span class="tag ${eCls}">ESC ${esc(c.escalation||'—')}</span>
+        <span class="tag ${cf.cls}">${esc(cf.label)}</span>
+      </div>
+      <h3>${esc(c.name)}</h3>
+      <p><b>Status:</b> ${esc(c.status||'—')} · <b>Actors:</b> ${esc(c.actors||'—')}</p>
+      <p>${esc(c.recent||'')}</p>
+      <div class="label">Facts</div>
+      <div class="facts small">${esc(c.facts||'')}</div>
+      <div class="label">Analysis</div>
+      <div class="analysis small">${esc(c.analysis||'')}</div>
+    </article>`;
+  }).join(''):'<span class="small">No conflict briefs in this snapshot.</span>';
+}
+
+function renderStories(){
+  let stories=S.stories||[];
+  if(newsTab==='breaking') stories=stories.filter(isBreaking);
+  else if(newsTab==='background') stories=stories.filter(s=>!isBreaking(s));
+  document.getElementById('stories').innerHTML=stories.length?stories.map(x=>{
+    const cf=confTag(x.confidence);
+    const br=isBreaking(x);
+    return `<article class="story"><div>
+      <span class="tag ${br?'break':'bg'}">${br?'BREAKING':'BACKGROUND'}</span>
+      <span class="tag ${cf.cls}">${esc(cf.label)}</span>
+      <span class="tag">${esc(x.sourceLabel||'source')}</span>
+      <span class="small"> · ${esc(x.time||'')}</span>
+      <h3>${esc(x.title)}</h3>
+      <p>${esc(x.summary||'')}</p>
+      ${x.source?`<a target="_blank" rel="noopener" href="${esc(x.source)}">Open source →</a>`:''}
+    </div></article>`;
+  }).join(''):'<span class="small">No items in this tab. Try All or run Actions refresh.</span>';
 }
 
 function render(){
-  const updated = S.updatedAt ? new Date(S.updatedAt).toLocaleString() : '—';
-  document.getElementById('metaText').textContent = 'Last refresh: ' + updated + (S.sourceStatus ? ' · ' + S.sourceStatus : '');
-  document.getElementById('statusDot').style.background = 'var(--green)';
-
-  document.getElementById('score').textContent = S.tension ?? '—';
-
-  const prev = H.length > 1 ? H[H.length-2]?.tension : null;
-  const d = Number.isFinite(prev) ? S.tension - prev : null;
-  document.getElementById('delta').innerHTML = d === null
-    ? '<span class="small">No previous snapshot yet</span>'
-    : `<b>${d>0?'▲':d<0?'▼':'●'} ${Math.abs(d)} vs previous refresh</b>`;
-
-  document.getElementById('breakdown').innerHTML = Object.entries(S.breakdownScores || {}).map(([k,v]) =>
-    `<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></div></div><b>${esc(v)}</b></div>`
-  ).join('') || '<span class="small">No breakdown</span>';
-
-  document.getElementById('changes').innerHTML = (S.changes || []).map(x =>
-    `<div class="item"><span class="tag">${esc(x.kind||'update')}</span><br><b>${esc(x.title)}</b><div class="small">${esc(x.detail||'')}</div></div>`
-  ).join('') || '<span class="small">No material change detected.</span>';
-
-  document.getElementById('status').innerHTML =
-    `<div class="status-ok"><b>${esc(S.sourceStatus||'OK')}</b></div>` +
-    `<div style="margin-top:6px">${esc(S.dataNote||'')}</div>` +
-    `<div style="margin-top:8px" class="small">Server refresh target: every 30 min · Page auto-reload: every 15 min while open</div>`;
-
-  const stories = S.stories || [];
-  document.getElementById('stories').innerHTML = stories.length
-    ? stories.map(x => {
-        const tagClass = (x.tag||'').toLowerCase().includes('conflict') ? 'conflict' : '';
-        return `<article class="story">
-          <div><span class="tag ${tagClass}">${esc(x.sourceLabel||'source')}</span>
-          <span class="small"> · ${esc(x.time||'')}</span>
-          <h3>${esc(x.title)}</h3>
-          <p>${esc(x.summary||'')}</p>
-          ${x.source?`<a target="_blank" rel="noopener" href="${esc(x.source)}">Open source →</a>`:''}
-          </div></article>`;
-      }).join('')
-    : '<span class="small">No headlines in this snapshot. Run the Actions refresh workflow.</span>';
-
-  document.getElementById('socialList').innerHTML = (S.social || []).map(x =>
-    `<div class="item"><b>${esc(x.label)}</b><div class="small">${esc(x.note||'')}</div>${x.url?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Open public post →</a>`:''}</div>`
-  ).join('') || '<span class="small">No public social links in this refresh.</span>';
-
+  const updated=S.updatedAt?new Date(S.updatedAt).toLocaleString():'—';
+  document.getElementById('metaText').textContent='Last refresh: '+updated+(S.sourceStatus?' · '+S.sourceStatus:'');
+  document.getElementById('statusDot').style.background='var(--green)';
+  document.getElementById('score').textContent=S.tension??'—';
+  const prev=H.length>1?H[H.length-2]?.tension:null;
+  const d=Number.isFinite(prev)?S.tension-prev:null;
+  document.getElementById('delta').innerHTML=d===null?'<span class="small">No previous snapshot yet</span>':`<b>${d>0?'▲':d<0?'▼':'●'} ${Math.abs(d)} vs previous refresh</b>`;
+  document.getElementById('breakdown').innerHTML=Object.entries(S.breakdownScores||{}).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></div></div><b>${esc(v)}</b></div>`).join('')||'<span class="small">No breakdown</span>';
+  document.getElementById('changes').innerHTML=(S.changes||[]).map(x=>`<div class="item"><span class="tag">${esc(x.kind||'update')}</span><br><b>${esc(x.title)}</b><div class="small">${esc(x.detail||'')}</div></div>`).join('')||'<span class="small">No material change detected.</span>';
+  document.getElementById('status').innerHTML=`<div class="status-ok"><b>${esc(S.sourceStatus||'OK')}</b></div><div style="margin-top:6px">${esc(S.dataNote||'')}</div><div style="margin-top:8px" class="small">Server refresh ~30 min · Page reload 15 min · OSINT KML weekly</div>`;
+  document.getElementById('socialList').innerHTML=(S.social||[]).map(x=>`<div class="item"><span class="tag social">SOCIAL / UNVERIFIED</span><br><b>${esc(x.label)}</b><div class="small">${esc(x.note||'')}</div>${x.url?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Open public post →</a>`:''}</div>`).join('')||'<span class="small">No public social links in this refresh.</span>';
+  renderConflicts();
+  renderStories();
   chart();
   drawMap();
 }
 
 function chart(){
-  const c = document.getElementById('chart');
-  const x = c.getContext('2d');
-  const d = H.map(z => z.tension).filter(Number.isFinite).slice(-50);
-  x.clearRect(0,0,c.width,c.height);
-  if(d.length < 2) return;
-  const mn = Math.min(...d, 40), mx = Math.max(...d, 80), p = 12;
-  x.strokeStyle = '#5b9cff';
-  x.lineWidth = 2.5;
-  x.beginPath();
-  d.forEach((v,i) => {
-    const X = p + i * (c.width - 2*p) / (d.length - 1);
-    const Y = c.height - p - (v - mn) / (mx - mn || 1) * (c.height - 2*p);
-    i ? x.lineTo(X,Y) : x.moveTo(X,Y);
-  });
+  const c=document.getElementById('chart'),x=c.getContext('2d');
+  const d=H.map(z=>z.tension).filter(Number.isFinite).slice(-50);
+  x.clearRect(0,0,c.width,c.height);if(d.length<2)return;
+  const mn=Math.min(...d,40),mx=Math.max(...d,80),p=12;
+  x.strokeStyle='#5b9cff';x.lineWidth=2.5;x.beginPath();
+  d.forEach((v,i)=>{const X=p+i*(c.width-2*p)/(d.length-1);const Y=c.height-p-(v-mn)/(mx-mn||1)*(c.height-2*p);i?x.lineTo(X,Y):x.moveTo(X,Y)});
   x.stroke();
 }
 
 function drawMap(){
-  if(map){ map.remove(); map = null; }
-  map = L.map('map', { worldCopyJump: true, zoomControl: true }).setView([22, 12], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 8,
-    attribution: '© OpenStreetMap © CARTO'
-  }).addTo(map);
-  layerGroup = L.layerGroup().addTo(map);
+  if(map){map.remove();map=null}
+  map=L.map('map',{worldCopyJump:true,zoomControl:true}).setView([30,30],2.4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:8,attribution:'© OpenStreetMap © CARTO'}).addTo(map);
+  layerGroup=L.layerGroup().addTo(map);
+  osintCluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45,spiderfyOnMaxZoom:true});
+
+  function makeCircle(m){
+    const color=markerColor(m),r=markerRadius(m);
+    const circle=L.circleMarker([m.lat,m.lng],{radius:r,color:color,fillColor:color,fillOpacity:.85,weight:1.5});
+    const lay=layerOf(m);
+    let html=`<span class="tag ${lay}">${esc(lay==='osint'?'OSINT / SOCIAL':lay)}</span><strong>${esc(m.title)}</strong>${esc(m.detail||'')}`;
+    if(m.url) html+=`<br><a target="_blank" rel="noopener" href="${esc(m.url)}">Open source →</a>`;
+    if(lay==='osint') html+=`<div class="small" style="margin-top:6px;opacity:.85">SOCIAL MEDIA REPORT — UNVERIFIED</div>`;
+    circle.bindPopup(html,{maxWidth:280});
+    return circle;
+  }
 
   function show(){
     layerGroup.clearLayers();
-    const list = (S.markers || []).filter(m => {
-      if(filter === 'all') return true;
-      return layerOf(m) === filter || m.type === filter;
+    osintCluster.clearLayers();
+    if(map.hasLayer(osintCluster)) map.removeLayer(osintCluster);
+    const list=(S.markers||[]).filter(m=>{
+      if(filter==='all') return true;
+      return layerOf(m)===filter||m.type===filter;
     });
-    list.forEach(m => {
-      const color = markerColor(m);
-      const r = markerRadius(m);
-      const circle = L.circleMarker([m.lat, m.lng], {
-        radius: r,
-        color: color,
-        fillColor: color,
-        fillOpacity: 0.85,
-        weight: 1.5
-      });
-      const lay = layerOf(m);
-      let html = `<span class="tag ${lay}">${esc(lay === 'osint' ? 'OSINT / SOCIAL' : lay)}</span><strong>${esc(m.title)}</strong>${esc(m.detail||'')}`;
-      if (m.url) html += `<br><a target="_blank" rel="noopener" href="${esc(m.url)}">Open source →</a>`;
-      if (lay === 'osint') html += `<div class="small" style="margin-top:6px;opacity:.85">SOCIAL MEDIA REPORT — UNVERIFIED</div>`;
-      circle.bindPopup(html, { maxWidth: 280 });
-      circle.addTo(layerGroup);
-    });
+    const osint=[],other=[];
+    list.forEach(m=>(layerOf(m)==='osint'?osint:other).push(m));
+    other.forEach(m=>makeCircle(m).addTo(layerGroup));
+    osint.forEach(m=>osintCluster.addLayer(makeCircle(m)));
+    if(osint.length && (filter==='all'||filter==='osint')) map.addLayer(osintCluster);
   }
-
   show();
-
-  document.querySelectorAll('#filters .filter').forEach(b => {
-    b.onclick = () => {
-      filter = b.dataset.f;
-      document.querySelectorAll('#filters .filter').forEach(q => q.classList.toggle('active', q === b));
-      show();
-    };
+  document.querySelectorAll('#filters .filter').forEach(b=>{
+    b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('#filters .filter').forEach(q=>q.classList.toggle('active',q===b));show()};
   });
-
-  setTimeout(() => { if(map) map.invalidateSize(); }, 120);
+  setTimeout(()=>{if(map) map.invalidateSize()},120);
 }
 
+document.querySelectorAll('.news-tabs .tab').forEach(b=>{
+  b.onclick=()=>{newsTab=b.dataset.tab;document.querySelectorAll('.news-tabs .tab').forEach(q=>q.classList.toggle('active',q===b));if(S) renderStories()};
+});
+
 load();
-setInterval(load, 15 * 60 * 1000);
-window.addEventListener('resize', () => { if(map) setTimeout(() => map.invalidateSize(), 150); });
+setInterval(load,15*60*1000);
+window.addEventListener('resize',()=>{if(map) setTimeout(()=>map.invalidateSize(),150)});
 </script>
 </body>
 </html>
