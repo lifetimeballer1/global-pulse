@@ -50,7 +50,8 @@ def parse_points(kml_bytes):
     out = []
     for pm in root.findall(".//k:Placemark", NS):
         name = (pm.findtext("k:name", default="", namespaces=NS) or "").strip()
-        description = clean_html(pm.findtext("k:description", default="", namespaces=NS) or "")
+        raw_description = pm.findtext("k:description", default="", namespaces=NS) or ""
+        description = clean_html(raw_description)
         point = pm.find(".//k:Point/k:coordinates", NS)
         if point is None or not (point.text or "").strip():
             continue
@@ -78,10 +79,14 @@ def parse_points(kml_bytes):
         if any(k in blob for k in ("nato", "nuclear", "patriot", "blockade", "hormuz", "critical", "major")):
             importance = 1
 
-        urls = re.findall(r"https?://[^\s<>\"']+", description, re.I)
-        urls = [u.rstrip(".,;:)]}")[:500] for u in urls]
-        social_url = next((u for u in urls if re.search(r"(?:x\.com|twitter\.com)/", u, re.I)), "")
-        url = social_url or (urls[0] if urls else "")
+        urls = re.findall(r"https?://[^\s<>\"']+", raw_description + " " + description, re.I)
+        cleaned_urls = []
+        for candidate in urls:
+            candidate = candidate.rstrip(".,;:)]}")[:500]
+            if candidate not in cleaned_urls:
+                cleaned_urls.append(candidate)
+        social_url = next((u for u in cleaned_urls if re.search(r"(?:x\.com|twitter\.com)/", u, re.I)), "")
+        url = social_url or (cleaned_urls[0] if cleaned_urls else "")
 
         title = name[:150] if name else "Global War News Map report"
         detail = description[:360] if description else "Imported point from Global War News Map"
