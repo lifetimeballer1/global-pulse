@@ -256,6 +256,11 @@
   "changes": [
     {
       "kind": "system",
+      "title": "Regional OSINT expansion refreshed",
+      "detail": "Added 0 GDELT regional signals and 1 current reported-area points across Africa, South America and South Asia."
+    },
+    {
+      "kind": "system",
       "title": "Global layers expanded",
       "detail": "Added 33 strategic reference nodes and refreshed USGS M4.5+ earthquake signals."
     },
@@ -288,11 +293,6 @@
       "kind": "breaking",
       "title": "ICE agent charged with lying under oath about Minnesota shooting",
       "detail": "Al Jazeera · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
-      "detail": "Guardian US · regional · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -10761,6 +10761,19 @@
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 27.7172,
+      "lng": 85.324,
+      "title": "Reported activity — Kathmandu",
+      "detail": "British aid worker mistakenly identified as a survivor of Nepal-Tibet disaster",
+      "url": "",
+      "sourceUrl": "",
+      "source": "https://www.theguardian.com/world/2026/sep/01/briton-among-119-more-people-rescued-in-nepal-after-flash-floods",
+      "eventType": "REPORTED AREA",
+      "layer": "osint-regional",
+      "confidence": "OSINT REPORT",
+      "observedAt": "2026-09-01T22:58:32+00:00"
     }
   ],
   "social": [
@@ -24817,5 +24830,37 @@
     "lastChecked": "2026-09-03T21:11:56.587358+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
-  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
+  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events.",
+  "regionalOsint": {
+    "version": 1,
+    "updatedAt": "2026-09-03T21:19:59.902719+00:00",
+    "regions": {
+      "South America": {
+        "gdeltPoints": 0,
+        "reportedAreaPoints": 0
+      },
+      "Africa": {
+        "gdeltPoints": 0,
+        "reportedAreaPoints": 0
+      },
+      "South Asia": {
+        "gdeltPoints": 0,
+        "reportedAreaPoints": 0
+      }
+    },
+    "sources": [
+      {
+        "name": "GDELT GEO",
+        "cadence": "each Global Pulse refresh",
+        "points": 0,
+        "url": "https://www.gdeltproject.org/"
+      },
+      {
+        "name": "Global Pulse reported-area extraction",
+        "cadence": "each Global Pulse refresh",
+        "points": 1,
+        "url": "https://github.com/lifetimeballer1/global-pulse"
+      }
+    ]
+  }
 }
