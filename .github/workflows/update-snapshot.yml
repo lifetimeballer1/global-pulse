@@ -37,16 +37,6 @@ jobs:
         run: |
           python patch_index_ui.py
           python apply_ui_patch.py
-      - name: Apply legacy UI cleanup layers
-        run: |
-          python update2_map.py
-          python update3_evidence.py
-          python update4_analysis.py
-          python update5_professionalize.py
-      - name: Build global relationship graph
-        run: python update6_global_graph.py
-      - name: Apply live-data layer and J.S. branding
-        run: python update7_live_branding.py
       - name: Refresh public intelligence data
         run: python update_snapshot.py
       - name: Sync intelligence maps
@@ -55,11 +45,13 @@ jobs:
         run: python update_cfr.py
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
+      - name: Apply final live-data branding and layout cleanup
+        run: python update7_live_branding.py
       - name: Validate build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update6_global_graph.py update7_live_branding.py update8_global_layers.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py
           python - <<'PY'
-          import json
+          import json,re
           d=json.load(open('data/snapshot.json'))
           html=open('index.html',encoding='utf-8').read()
           assert d.get('updatedAt'), 'missing updatedAt'
@@ -67,13 +59,14 @@ jobs:
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
           assert len(d.get('cfrConflicts',[])) >= 20, 'CFR layer did not sync enough conflicts'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
-          assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
           assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
           assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR map layer missing'
           assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
           assert 'gp-evidence-css' not in html and 'gp-evidence-js' not in html, 'duplicate evidence UI remains'
           assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
-          assert 'Made by J.S.' in html, 'branding missing'
+          assert len(re.findall(r'Made by J\\.S\\.',html)) <= 2, 'J.S. branding is duplicated'
+          assert html.count('id="gp-brand-live-css"') == 1, 'branding CSS duplicated'
+          assert html.count('class="gp-footer-credit"') <= 1, 'footer credit duplicated'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['cfrConflicts']), 'CFR conflicts,', len(d['markers']), 'markers')
           PY
       - name: Commit and push if changed
@@ -84,6 +77,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "feat: refresh conflict intelligence and CFR layer"
+            git commit -m "fix: deterministic dashboard UI and refresh pipeline"
             git push
           fi
