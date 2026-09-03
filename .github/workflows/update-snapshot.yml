@@ -1,10 +1,6 @@
 name: Global Pulse — Refresh, Validate & Deploy
 
 on:
-  # Scheduled/manual runs are intentional: GitHub Pages also has its own
-  # source-change deployment path. Keeping this workflow off push events
-  # prevents duplicate Pages deployments while still publishing refreshed
-  # data directly from this workflow.
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
@@ -31,39 +27,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-
       - name: Refresh public intelligence data
         run: python update_snapshot.py
-
       - name: Sync intelligence maps
         run: python update_osint.py
-
       - name: Sync CFR Global Conflict Tracker
         run: python update_cfr.py
-
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
-
+      - name: Build evidence-linked intelligence graph
+        run: python update_intelligence_web.py
       - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
-
       - name: Validate production build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
           python - <<'PY'
           import json,re
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
+          graph=d.get('intelligenceGraph',{})
           assert d.get('updatedAt'), 'missing updatedAt'
           assert len(d.get('stories',[])) >= 100, 'too few stories'
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
           assert len(d.get('cfrConflicts',[])) >= 20, 'CFR layer did not sync enough conflicts'
+          assert len(graph.get('nodes',[])) >= 10, 'intelligence graph has too few nodes'
+          assert len(graph.get('edges',[])) >= 10, 'intelligence graph has too few links'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
           assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d['markers']), 'strategic layer missing'
           assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d['markers']), 'CFR map layer missing'
@@ -74,9 +68,8 @@ jobs:
           assert html.count('class="gp-footer-credit"') == 0, 'footer credit must not create extra spacing'
           assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b', html, re.I), 'placeholder content remains'
           assert not re.search(r'\b(coming soon|under construction)\b', html, re.I), 'unfinished copy remains'
-          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers")
+          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(graph['nodes'])} graph nodes, {len(graph['edges'])} graph edges")
           PY
-
       - name: Commit refreshed data when changed
         run: |
           git config user.name "github-actions[bot]"
@@ -88,15 +81,12 @@ jobs:
             git commit -m "chore: refresh global pulse data"
             git push
           fi
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
