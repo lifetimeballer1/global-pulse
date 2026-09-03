@@ -37,15 +37,42 @@ def parse_feed(label, url, kind):
             if not title or not link:
                 continue
             breaking = base.is_breaking(title, summary)
-            rows.append({"id": hashlib.sha1(link.encode()).hexdigest()[:12], "sourceLabel": label, "sourceType": kind, "title": title[:240], "summary": summary[:420], "source": link, "time": pub, "tag": "Breaking" if breaking else "World", "confidence": "DEVELOPING", "breaking": breaking})
+            rows.append({"id": hashlib.sha1(link.encode()).hexdigest()[:12], "sourceLabel": label, "sourceType": kind, "title": title[:240], "summary": summary[:420], "source": link, "url": link, "time": pub, "tag": "Breaking" if breaking else "World", "confidence": "DEVELOPING", "breaking": breaking})
     except Exception as exc:
         error = f"{label}: {type(exc).__name__}"
     return rows, error
 
 
+def build_early_warning(tension, breakdown, history):
+    """Turn recent tension history into a transparent early-warning signal."""
+    points = [p for p in history if isinstance(p, dict) and isinstance(p.get("tension"), (int, float))]
+    recent = [float(p["tension"]) for p in points[-12:]]
+    prior = [float(p["tension"]) for p in points[-36:-12]]
+    recent_avg = sum(recent) / len(recent) if recent else float(tension)
+    prior_avg = sum(prior) / len(prior) if prior else recent_avg
+    momentum = round(recent_avg - prior_avg, 1)
+    strongest_name, strongest_value = max(breakdown.items(), key=lambda item: item[1]) if breakdown else ("Overall tension", tension)
+    if tension >= 75 or momentum >= 10:
+        level = "HIGH"
+    elif tension >= 55 or momentum >= 5:
+        level = "ELEVATED"
+    else:
+        level = "WATCH"
+    return {
+        "level": level,
+        "score": int(round(tension)),
+        "momentum": momentum,
+        "direction": "rising" if momentum >= 2 else "falling" if momentum <= -2 else "stable",
+        "strongestDriver": strongest_name,
+        "strongestDriverScore": int(strongest_value),
+        "method": "Recent 12 snapshots versus the preceding 24 snapshots, plus current tension level.",
+    }
+
+
 def main():
     DATA.mkdir(exist_ok=True)
     old = base.load_json(SNAP, {})
+    history = base.load_json(HIST, [])
     stories, errors = [], []
     feeds = list(dict.fromkeys(base.FEEDS))
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
@@ -80,13 +107,14 @@ def main():
         changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(feeds)} feeds checked; {len(stories)} current stories retained."}]
     conflicts = base.make_conflicts(stories, old)
     now = datetime.now(timezone.utc).isoformat()
-    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
+    # Append this point before calculating the next early-warning view so the UI always has current context.
+    history_with_current = history + [{"updatedAt": now, "tension": tension, "delta": delta}]
+    early_warning = build_early_warning(tension, breakdown, history_with_current)
+    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "earlyWarning": early_warning, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    history = base.load_json(HIST, [])
-    history.append({"updatedAt": now, "tension": tension, "delta": delta})
-    HIST.write_text(json.dumps(history[-240:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    HIST.write_text(json.dumps(history_with_current[-288:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a, b, c in feeds], "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(snapshot["sourceStatus"], "tension", tension, "conflicts", len(conflicts))
+    print(snapshot["sourceStatus"], "tension", tension, "early warning", early_warning["level"], "conflicts", len(conflicts))
     if errors:
         print("errors:", "; ".join(errors))
 
