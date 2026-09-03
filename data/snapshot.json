@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T22:45:38.505521+00:00",
+  "updatedAt": "2026-09-03T22:57:25.599231+00:00",
   "scoreVersion": 5,
   "sourceStatus": "300 stories · 379 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 202 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
@@ -9,18 +9,24 @@
     "Conflict activity": 100,
     "Diplomatic strain": 67,
     "Economic pressure": 70,
-    "Market volatility": 76,
+    "Market volatility": 72,
     "Military posture": 100,
-    "Climate & humanitarian pressure": 71
+    "Climate & humanitarian pressure": 74
   },
   "driverSignals": {
     "Conflict activity": {
       "poolSize": 184,
-      "matches": 20,
+      "matches": 21,
       "sources": 5,
-      "recentMatches": 12,
-      "signalRatio": 0.109,
+      "recentMatches": 13,
+      "signalRatio": 0.116,
       "topSignals": [
+        {
+          "title": "Missouri supreme court throws out new congressional maps backed by Trump",
+          "source": "Guardian US",
+          "url": "https://www.theguardian.com/us-news/2026/sep/03/missouri-supreme-court-trump",
+          "time": "Thu, 03 Sep 2026 22:38:41 GMT"
+        },
         {
           "title": "US Vice President JD Vance declines to offer timeline for end of Iran war",
           "source": "Al Jazeera",
@@ -44,12 +50,6 @@
           "source": "BBC Americas",
           "url": "https://www.bbc.co.uk/news/videos/cr4vn247550o?at_medium=RSS&at_campaign=rss",
           "time": "Thu, 03 Sep 2026 18:33:25 GMT"
-        },
-        {
-          "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
-          "source": "France 24",
-          "url": "https://www.france24.com/en/europe/20260903-why-ukraine-drained-kakhovka-dam-strategic-russia",
-          "time": "Thu, 03 Sep 2026 15:34:03 GMT"
         }
       ]
     },
@@ -91,7 +91,7 @@
       "matches": 30,
       "sources": 5,
       "recentMatches": 19,
-      "signalRatio": 0.172,
+      "signalRatio": 0.171,
       "topSignals": [
         {
           "title": "Why are people calling Venezuela oil deal a new form of US colonialism?",
@@ -205,10 +205,10 @@
     },
     "Climate & humanitarian pressure": {
       "poolSize": 192,
-      "matches": 22,
+      "matches": 21,
       "sources": 5,
-      "recentMatches": 15,
-      "signalRatio": 0.116,
+      "recentMatches": 14,
+      "signalRatio": 0.11,
       "topSignals": [
         {
           "title": "Nepal flood victims to be identified through DNA",
@@ -245,7 +245,7 @@
   },
   "climatePressure": {
     "Drought & water": 26,
-    "Floods & storms": 28,
+    "Floods & storms": 27,
     "Heat & fire": 28,
     "Food security": 25,
     "Health outbreaks": 26
@@ -282,6 +282,11 @@
     },
     {
       "kind": "new reporting",
+      "title": "Trump administration asks supreme court to intervene over judge’s ban on USPS mail-in voting restrictions – live",
+      "detail": "Guardian US · regional · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
       "title": "Transplanted pig kidney works in US man's body for record 271 days",
       "detail": "BBC Americas · regional · DEVELOPING"
     },
@@ -294,11 +299,6 @@
       "kind": "new reporting",
       "title": "Tunisia court upholds prison sentences of up to 45 years for opposition figures",
       "detail": "France 24 · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Why are people calling Venezuela oil deal a new form of US colonialism?",
-      "detail": "Al Jazeera · international · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -436,11 +436,11 @@
       "status": "Active signal",
       "recent": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
       "escalation": "CRITICAL",
-      "activityScore": 99,
-      "delta": -1,
-      "signalCount": 6,
-      "sourceCount": 3,
-      "confidence": "CORROBORATED",
+      "activityScore": 88,
+      "delta": -12,
+      "signalCount": 5,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
       "eventType": "KINETIC",
       "lastSignal": "2026-09-03T23:30:00+00:00",
       "signals": [
@@ -478,18 +478,17 @@
           "signal": 15.7
         },
         {
-          "title": "Iran says it launched retaliatory strikes on bases hosting US troops in Middle East",
-          "source": "Stars and Stripes",
-          "url": "https://www.stripes.com/theaters/middle_east/2026-08-31/iran-attacks-centcom-jordan-22687541.html",
-          "time": "2026-08-31T12:27:35+00:00",
+          "title": "How much oil is going through Hormuz? How data doesn’t match US claims",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/3/how-much-oil-is-going-through-hormuz-how-data-doesnt-match-us-claims?traffic_source=rss",
+          "time": "2026-09-03T15:38:19+00:00",
           "match": [
-            "strait of hormuz",
             "hormuz"
           ],
-          "signal": 9.4
+          "signal": 6.0
         }
       ],
-      "facts": "6 conflict-specific signal(s) from 3 source(s) in the current feed window.",
+      "facts": "5 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -516,7 +515,7 @@
           "match": [
             "tehran"
           ],
-          "signal": 14.5
+          "signal": 13.5
         },
         {
           "title": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
@@ -2168,6 +2167,48 @@
       "layer": "osint-regional",
       "confidence": "OSINT REPORT",
       "observedAt": "2026-09-01T22:58:32+00:00"
+    },
+    {
+      "lat": -31.8967,
+      "lng": -71.2399,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 29 km WSW of Salamanca, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te5e",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te5e",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 0.5261,
+      "lng": 122.1776,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 98 km W of Gorontalo, Indonesia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te55",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te55",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -8.3207,
+      "lng": 121.6664,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 57 km N of Ende, Indonesia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te51",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te51",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
     },
     {
       "lat": 50.55428,
@@ -6839,8 +6880,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5xOrqnc3okM90lJhPf8cDBhu6kB0cjqkmfX-QXnK4BVYttoKjKQ3CaMuiAmsU68VihmWqcAykXHwoj_ov1G7F_fcOmew0JBe-4Rxhi6yLLfrEMHCjZoYzHYD1bgGJYDe-W6u1DDGMzXy4EVWeZ-mm5Fd7s3L8BRg5O7ScPUoJ_ERUl4OXduxaJhsRvEpV56avf1Jb_GUlEOW5XRxZ-ucujIx50ByMmDn2s6dtHMTRkQNjLwBEk8wHg8to?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5xOrqnc3okM90lJhPf8cDBhu6kB0cjqkmfX-QXnK4BVYttoKjKQ3CaMuiAmsU68VihmWqcAykXHwoj_ov1G7F_fcOmew0JBe-4Rxhi6yLLfrEMHCjZoYzHYD1bgGJYDe-W6u1DDGMzXy4EVWeZ-mm5Fd7s3L8BRg5O7ScPUoJ_ERUl4OXduxaJhsRvEpV56avf1Jb_GUlEOW5XRxZ-ucujIx50ByMmDn2s6dtHMTRkQNjLwBEk8wHg8to?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5wfRAwQmVECLJXHalq9HJFl9TaNP5nxuogQ3f7V4Z2rr6BMm6Bk159dgDLgYheAdurEkoaCfkaGeImWz_a2I1RzOryt2ceFUHe1OgvmQ-Wb5uylVkQxAUXJbLkpwV9MFRWzp1ImL5Hl8z0KnkA-pxHSNOndeWDY_FUGnhkLfqye3LNZW3FR5H0lboGTdzDSQIO3b1QqYswwpOdzVG_Sf2sQNRF3f-lgRm7OgA29L6faulRT_mpBJQ_slU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5wfRAwQmVECLJXHalq9HJFl9TaNP5nxuogQ3f7V4Z2rr6BMm6Bk159dgDLgYheAdurEkoaCfkaGeImWz_a2I1RzOryt2ceFUHe1OgvmQ-Wb5uylVkQxAUXJbLkpwV9MFRWzp1ImL5Hl8z0KnkA-pxHSNOndeWDY_FUGnhkLfqye3LNZW3FR5H0lboGTdzDSQIO3b1QqYswwpOdzVG_Sf2sQNRF3f-lgRm7OgA29L6faulRT_mpBJQ_slU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -6875,8 +6916,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR588shBvTqeJJ474PMrvaGBrHs-RzjCngBRpugl00rOL7Vgtb4ghX4_R7Btm-FHocHsLVONeKmjuZJ9chBH4C69ag7LrXBGt5WlObijlENu4pPCeOJ7OLF1Ke21y9TIlNknWRuyTNjpar9tghBZdJuXfgWlVMk3gawEUVTxcIX98Uj2jKe7z5stjCRclI6FSQZPJNKqILEd3S83IEt2Vh2MBLhZsD_e6wU-O_BB3KZk6vJNt_kEU5twLJM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR588shBvTqeJJ474PMrvaGBrHs-RzjCngBRpugl00rOL7Vgtb4ghX4_R7Btm-FHocHsLVONeKmjuZJ9chBH4C69ag7LrXBGt5WlObijlENu4pPCeOJ7OLF1Ke21y9TIlNknWRuyTNjpar9tghBZdJuXfgWlVMk3gawEUVTxcIX98Uj2jKe7z5stjCRclI6FSQZPJNKqILEd3S83IEt2Vh2MBLhZsD_e6wU-O_BB3KZk6vJNt_kEU5twLJM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Z1Re7jBjgEcXMscf2puDyycluaIVoBTWrLn93l7p1EzdHW2vTUZAYQOQsqE9yDNl9RnztWRAhSwt9X-WjF0oHiwBVXo3eeA5R2inGajM-f6sqBKl7zNWDnu40jBM5Hg90qdrCtASUbpy6HmtdEeBDe_hAbYHFB-0GVghCgE9gdddSVqkhdH_LvoYpLpC2BpFvbTIw97DbuFTuG6ZJ8699cIlWSUXH7kG57uEtSYk56COKGXa8Udd0E1A?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Z1Re7jBjgEcXMscf2puDyycluaIVoBTWrLn93l7p1EzdHW2vTUZAYQOQsqE9yDNl9RnztWRAhSwt9X-WjF0oHiwBVXo3eeA5R2inGajM-f6sqBKl7zNWDnu40jBM5Hg90qdrCtASUbpy6HmtdEeBDe_hAbYHFB-0GVghCgE9gdddSVqkhdH_LvoYpLpC2BpFvbTIw97DbuFTuG6ZJ8699cIlWSUXH7kG57uEtSYk56COKGXa8Udd0E1A?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -6929,8 +6970,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5F7Q2cze2RDqGtsG3HmIDeBAzFNz1ZewGME_MnZLJbPbIhTnDaa_3EAIncYtWGO2D2PNAY6zWASpvDge0dp7KXAtcaHcdPAFEVNnHDbzsRGX-zEhWdiSGn3eqGsd8vGmVSS1SvBkMuCaN3XxmyJULv2PYDi3nFUwI1WgQ7wvIkQmQW0viF51n3BBABx3SpG0a6RNNDrVFjZNt4sVjKHln6TA6eO0HvoRD8741dthOvZ2V1Tqf_3nRBzHk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5F7Q2cze2RDqGtsG3HmIDeBAzFNz1ZewGME_MnZLJbPbIhTnDaa_3EAIncYtWGO2D2PNAY6zWASpvDge0dp7KXAtcaHcdPAFEVNnHDbzsRGX-zEhWdiSGn3eqGsd8vGmVSS1SvBkMuCaN3XxmyJULv2PYDi3nFUwI1WgQ7wvIkQmQW0viF51n3BBABx3SpG0a6RNNDrVFjZNt4sVjKHln6TA6eO0HvoRD8741dthOvZ2V1Tqf_3nRBzHk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7VnVH942Kx9luwd4NbcimmVSYXAkVBWe1jI--MN-Dr3cnwyuHtvR-dWBFlWrSsQKzffMNjCsxm9PLKJMr_-xeA8_vq6YSiI-qwQ1wZzBaXeQeg1nUzFGb2D-WSnV0L_bHMfEfkqZ3iJ9W1rk-yPZ05QbciK-iFSl34uDynL2WX1eXPrrAnGWW0yS-9P4BxsxKMwp3Q2jYRj-KhiI5RPD5sDPjxr47bu4fHCepWC-RjyEG1iFT-0DKNT8c?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7VnVH942Kx9luwd4NbcimmVSYXAkVBWe1jI--MN-Dr3cnwyuHtvR-dWBFlWrSsQKzffMNjCsxm9PLKJMr_-xeA8_vq6YSiI-qwQ1wZzBaXeQeg1nUzFGb2D-WSnV0L_bHMfEfkqZ3iJ9W1rk-yPZ05QbciK-iFSl34uDynL2WX1eXPrrAnGWW0yS-9P4BxsxKMwp3Q2jYRj-KhiI5RPD5sDPjxr47bu4fHCepWC-RjyEG1iFT-0DKNT8c?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8333,8 +8374,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR71zJxvvpFZ-jpEWiKR6gAILKBnP3hb6ohPqscvhjtM87LXfcHAhsUMFeG6J57M8Cj7OsQnHCVb_p27EN8EtLATvKxz8Deup9Jxdt54Fv5tPR6EVBsRhlfVwG96aNZZ2J6tJRTLbqPVx6Kl81lk7Jb3GIHJmPeEOulC5RYBTWbaFN9fTNJm5ucMsxSBO653W5t9tdKSfgN5Yu2lAEAcv-YHzvvDm1eanfd4928P77Yuj0awUgr4DvQSEyA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR71zJxvvpFZ-jpEWiKR6gAILKBnP3hb6ohPqscvhjtM87LXfcHAhsUMFeG6J57M8Cj7OsQnHCVb_p27EN8EtLATvKxz8Deup9Jxdt54Fv5tPR6EVBsRhlfVwG96aNZZ2J6tJRTLbqPVx6Kl81lk7Jb3GIHJmPeEOulC5RYBTWbaFN9fTNJm5ucMsxSBO653W5t9tdKSfgN5Yu2lAEAcv-YHzvvDm1eanfd4928P77Yuj0awUgr4DvQSEyA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6WgvvpuXt0YD0eOlejhbnltGOTsvQ7jBC_T3gGKEJk_5uXuys5QuSEhX4LEnlgZUz250_Bc6rGHBY9glFmGeEounq5p2hSEQB_GWpCykW4ygJXtzcMJaN69khJf67-GuCbvG8uUWY7436UF0cC5ejhh0UFhbcqsb7Qymf78Jfo4acJATslLfIyaHa1BaibmcxfZRTra_S91VEw1jtwLmAMfowe6IslkVpAEK0gIin9zFj1DbWxec1b-oQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6WgvvpuXt0YD0eOlejhbnltGOTsvQ7jBC_T3gGKEJk_5uXuys5QuSEhX4LEnlgZUz250_Bc6rGHBY9glFmGeEounq5p2hSEQB_GWpCykW4ygJXtzcMJaN69khJf67-GuCbvG8uUWY7436UF0cC5ejhh0UFhbcqsb7Qymf78Jfo4acJATslLfIyaHa1BaibmcxfZRTra_S91VEw1jtwLmAMfowe6IslkVpAEK0gIin9zFj1DbWxec1b-oQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9521,8 +9562,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4dt5C-qUs3ZL-jmFuJ0ZFQ4hd0a9KIgWMpU72O0-rg1V75Pu37P6EtpdzsnHlzKHc8r5PCjBiXkByNoPY_HaL-ahk57-U_NgFHK2x4B3uGoDkL-w9EITHpVjFh_2zHZUHryj5tXGwPUG_6xGxUyBRXOyczMjeFWcWtTUr_yz5gh6fb-P8uduifUD8gBA2MobI3se6iZNrquGE0iMpTfuTFcw7on1DXoKQK-Xqfg1xKJ2HmvyE8dAXC6VU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4dt5C-qUs3ZL-jmFuJ0ZFQ4hd0a9KIgWMpU72O0-rg1V75Pu37P6EtpdzsnHlzKHc8r5PCjBiXkByNoPY_HaL-ahk57-U_NgFHK2x4B3uGoDkL-w9EITHpVjFh_2zHZUHryj5tXGwPUG_6xGxUyBRXOyczMjeFWcWtTUr_yz5gh6fb-P8uduifUD8gBA2MobI3se6iZNrquGE0iMpTfuTFcw7on1DXoKQK-Xqfg1xKJ2HmvyE8dAXC6VU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ZGkOUNE5JjoMJd9BXaQ7IeV7MLqJ_nsfUSgfq-gU6Sp3SiM6vhBQmBkwSgbswe6QVk0IgDLTvDJRX5sextFWoSsYEX8-LEs7ZmDVO9Buhx6Ia591VncXUX-NTAJIICSsCnAvWTG2eGWkbXWl0QOQOb3aYv5_5yHmqlPjnf-YEho7f5L0G8bE6gSLq1UHxXaWbalddt4GVYxBH9m00foEHIbtK33ADNI70awYJe4MDx-kIO5FSn5Sjlic?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ZGkOUNE5JjoMJd9BXaQ7IeV7MLqJ_nsfUSgfq-gU6Sp3SiM6vhBQmBkwSgbswe6QVk0IgDLTvDJRX5sextFWoSsYEX8-LEs7ZmDVO9Buhx6Ia591VncXUX-NTAJIICSsCnAvWTG2eGWkbXWl0QOQOb3aYv5_5yHmqlPjnf-YEho7f5L0G8bE6gSLq1UHxXaWbalddt4GVYxBH9m00foEHIbtK33ADNI70awYJe4MDx-kIO5FSn5Sjlic?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9539,8 +9580,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Yuq3GojQ8HfuOIo3joPx1g2G28ankvfhZqSF70oVwhBC2M6JY-8LgxIFTWN2XXaXGoIJQlwznhyPuDm4yZ__pp5az2QYZ_PU51EVcs-YRP0KnT9uDuSC5hZVKk6NbNVfYKQh8w00S_S3veK37QSIKa5bGVGDL3qGr7UgP3nkRIkBY_yZglcxxNOhPGdJvztt6y12PY903TL0l1VzWrmgniS23cxa8siHxcNy98esiWTAu2zQRpdGtG3c?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Yuq3GojQ8HfuOIo3joPx1g2G28ankvfhZqSF70oVwhBC2M6JY-8LgxIFTWN2XXaXGoIJQlwznhyPuDm4yZ__pp5az2QYZ_PU51EVcs-YRP0KnT9uDuSC5hZVKk6NbNVfYKQh8w00S_S3veK37QSIKa5bGVGDL3qGr7UgP3nkRIkBY_yZglcxxNOhPGdJvztt6y12PY903TL0l1VzWrmgniS23cxa8siHxcNy98esiWTAu2zQRpdGtG3c?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7dGBElcIPTUa9NDQ_8t8PWx16QLxuJ_1h96Awr-ytkepWVuD_JTJVTdj2i-j8LPv3SN5WIil7_leeGDCXI2vnn7qYRrbbUC2cjL8xlJrmYJy3AlQAqMlS4wSp2N74TvoJ1Gwkn_7JU8LcRJPk75RGYjIgxrsTcF6K4-vuWgXjA0w3D9R-hWUQ0HUKi4IkQ6uiERMBbmhxTvMeboXkmMHGfNgn6ol-FNWUmz84qqRH_PVMfgzDgLHvgrEU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7dGBElcIPTUa9NDQ_8t8PWx16QLxuJ_1h96Awr-ytkepWVuD_JTJVTdj2i-j8LPv3SN5WIil7_leeGDCXI2vnn7qYRrbbUC2cjL8xlJrmYJy3AlQAqMlS4wSp2N74TvoJ1Gwkn_7JU8LcRJPk75RGYjIgxrsTcF6K4-vuWgXjA0w3D9R-hWUQ0HUKi4IkQ6uiERMBbmhxTvMeboXkmMHGfNgn6ol-FNWUmz84qqRH_PVMfgzDgLHvgrEU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9557,8 +9598,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Wy_kjVpqdwnsThCik_ZalhQDfqEJgvR8zqpOuMB4kdizxF9Pf5PAa1jsut40saoXi_R7i_d3eeiWrDFNZsmHE57JcNI429fS2DrU32WvaHnNvp88l5ITp7djnhy0k8o_ZMJuHv3QNqL0E3BovBnw7N_ebM-o479h4XKi3g1EQaupeMYACldgmfW7m5y81X5fnpoPzry5AdgAGKBhQl77_LtH9qA4jWiv_HZ9jCj2GQqaEANo0JsovH84?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Wy_kjVpqdwnsThCik_ZalhQDfqEJgvR8zqpOuMB4kdizxF9Pf5PAa1jsut40saoXi_R7i_d3eeiWrDFNZsmHE57JcNI429fS2DrU32WvaHnNvp88l5ITp7djnhy0k8o_ZMJuHv3QNqL0E3BovBnw7N_ebM-o479h4XKi3g1EQaupeMYACldgmfW7m5y81X5fnpoPzry5AdgAGKBhQl77_LtH9qA4jWiv_HZ9jCj2GQqaEANo0JsovH84?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7bl2JF1QdVz0IM80Rj58eXMiTauX47eKAJab8tmtLOwqv5pff5RqWw_W3rXhhv61JtkgvQuiNalzCHZcr1VxHre1xCqMdCM-DmyLq2mctaeoqU4P51j1RHz6KzrK_TWZAbx88Cp4AfF9wc-0JJwVhQqc7A8U8015_WiWjPDlsyVNdFsdJh7_N5fr3bq6TH4wE2d50iCSr2ivWmC9VRVF9UR7mis9afNY5tSi_iOZVQa5-Wo4YXD4pPzZc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7bl2JF1QdVz0IM80Rj58eXMiTauX47eKAJab8tmtLOwqv5pff5RqWw_W3rXhhv61JtkgvQuiNalzCHZcr1VxHre1xCqMdCM-DmyLq2mctaeoqU4P51j1RHz6KzrK_TWZAbx88Cp4AfF9wc-0JJwVhQqc7A8U8015_WiWjPDlsyVNdFsdJh7_N5fr3bq6TH4wE2d50iCSr2ivWmC9VRVF9UR7mis9afNY5tSi_iOZVQa5-Wo4YXD4pPzZc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9575,8 +9616,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5PmtzCpnn060PxGcVWMj8MB4WN-7zvTkP3TCi3UPp0sdGneH9zHOAvrKN9Cgz4bJjfOOpmwLsMZgAEtMiVAAasWXaVz-Va04rz2axnm0y2m_zcDZfmtmZ09O9j070nfq5EXETDwPh730j3E3YgaubYLxqjiWg_ZjgmtbsACxKFjhe2kOhqZDoOFB4NxRB7kGuBywq7Frq6E7YV1vsVBIT0gI3WOqH-kI4b78cRTBBaPV03XDx_XfGPAgA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5PmtzCpnn060PxGcVWMj8MB4WN-7zvTkP3TCi3UPp0sdGneH9zHOAvrKN9Cgz4bJjfOOpmwLsMZgAEtMiVAAasWXaVz-Va04rz2axnm0y2m_zcDZfmtmZ09O9j070nfq5EXETDwPh730j3E3YgaubYLxqjiWg_ZjgmtbsACxKFjhe2kOhqZDoOFB4NxRB7kGuBywq7Frq6E7YV1vsVBIT0gI3WOqH-kI4b78cRTBBaPV03XDx_XfGPAgA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6TG3k4IBchumdSy0OC8OA78yNEINCDtCc8Yo0jq6u8b62DClk8x3R0HeTffY29GkdUN63GQvndVvplLQyZW33bkp5N0h6wPku_7j074Smdw3D0xQEnU0xLpNK1mBtgEiPbAzLzVUnHSGawy9Gv864maE5t7i-Y8jntkBBVowDv2HxlIDoAZMejxoj30gd3tOkSP-8WtmzBBFNDDapKn97zUexzstBhBRo8LHP9WWZHtGp12VrJEyfp_Pg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6TG3k4IBchumdSy0OC8OA78yNEINCDtCc8Yo0jq6u8b62DClk8x3R0HeTffY29GkdUN63GQvndVvplLQyZW33bkp5N0h6wPku_7j074Smdw3D0xQEnU0xLpNK1mBtgEiPbAzLzVUnHSGawy9Gv864maE5t7i-Y8jntkBBVowDv2HxlIDoAZMejxoj30gd3tOkSP-8WtmzBBFNDDapKn97zUexzstBhBRo8LHP9WWZHtGp12VrJEyfp_Pg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9593,8 +9634,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR56UuIPB8sUdmcJfTiI53EHZ1SomqrCDhCBrThHxuvitTPcxfSbT1ib0tkS8kVu5FC-AdFncIPUOFecE0OqxInYEbW_wwEbebZ2_7JUgNiibWCgkmbykY83q8hzUM_bopgP5jkIRi29andaetrat0g7HKmq06yVG2ek8_RAaAgIj6vTg40O44NvekRVjK22ka34NPcyygnp8CJeDgSnuL4kEqjn4J53xKMyzIuoecQMplPbHoLOQGymW10?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR56UuIPB8sUdmcJfTiI53EHZ1SomqrCDhCBrThHxuvitTPcxfSbT1ib0tkS8kVu5FC-AdFncIPUOFecE0OqxInYEbW_wwEbebZ2_7JUgNiibWCgkmbykY83q8hzUM_bopgP5jkIRi29andaetrat0g7HKmq06yVG2ek8_RAaAgIj6vTg40O44NvekRVjK22ka34NPcyygnp8CJeDgSnuL4kEqjn4J53xKMyzIuoecQMplPbHoLOQGymW10?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4mTP9cd-JQrBfHerFwqSfcS87ELE5OKM84SMvPe789a5n0EZTKtukEiJ9GksD1Uo1L_DCohO38o-B_sf0Jin3GtIhuzp0le41ZF4OibrU-rMPIr6BRp87IcujGJWRpcR2IRxD3TxrzkHAc14xubDeUAA2u9WCDvpdm5-gDvtidFRMeuCiSb9lgxUTmnUfdxIBmF0PIcti_UatKWzDI0BGVl0Kf8CJiVL7GkhsnPPZ0UZRgUcHWMxfgxsA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4mTP9cd-JQrBfHerFwqSfcS87ELE5OKM84SMvPe789a5n0EZTKtukEiJ9GksD1Uo1L_DCohO38o-B_sf0Jin3GtIhuzp0le41ZF4OibrU-rMPIr6BRp87IcujGJWRpcR2IRxD3TxrzkHAc14xubDeUAA2u9WCDvpdm5-gDvtidFRMeuCiSb9lgxUTmnUfdxIBmF0PIcti_UatKWzDI0BGVl0Kf8CJiVL7GkhsnPPZ0UZRgUcHWMxfgxsA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9611,8 +9652,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xq1lkpfM9iST6ZD6sGZYGimp4hGNCDcNfBVOCpBF6gVIYmLtRtGntLdieIo5ta41aTclMyeCOu8MYgEBooZ2ZZV5A_4_aYzKWxg-q74628IfWK3k_kd8QlnVw3vmN3aIZCX-PbhtUxDw5bmQizczuNFoqIsDlNMdH0WM6DBa3oADpbJmuFQnMTgU4ysgtAmYOy8C1qR_D9nflxP4pv7aZVFseUhx3fvuUVT0ZVYKQ0bMhP_HJk3RwdfM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xq1lkpfM9iST6ZD6sGZYGimp4hGNCDcNfBVOCpBF6gVIYmLtRtGntLdieIo5ta41aTclMyeCOu8MYgEBooZ2ZZV5A_4_aYzKWxg-q74628IfWK3k_kd8QlnVw3vmN3aIZCX-PbhtUxDw5bmQizczuNFoqIsDlNMdH0WM6DBa3oADpbJmuFQnMTgU4ysgtAmYOy8C1qR_D9nflxP4pv7aZVFseUhx3fvuUVT0ZVYKQ0bMhP_HJk3RwdfM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR47jr1BjvpTByPLQIbefZxutlWV3m14O5VGMypcJvViCC5EBhpOwcQt7ZRstH6maJEQ5X0pCjMLu5TyR8venmfe78fyd5gPoOsuzbVh9eJ8SkGBlfLqtWmIJhXk6WfYHWjFklxh_jSv_fLmjjoeW77qcK8GAtstGvHDyOPLg1_f56yHmkXYoFGFLcIrMw550P69DaQCJK4YXyPn-tQ4j0HBINHwVzojNhqM0UQ4tNEcexlGVOkP9AugEco?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR47jr1BjvpTByPLQIbefZxutlWV3m14O5VGMypcJvViCC5EBhpOwcQt7ZRstH6maJEQ5X0pCjMLu5TyR8venmfe78fyd5gPoOsuzbVh9eJ8SkGBlfLqtWmIJhXk6WfYHWjFklxh_jSv_fLmjjoeW77qcK8GAtstGvHDyOPLg1_f56yHmkXYoFGFLcIrMw550P69DaQCJK4YXyPn-tQ4j0HBINHwVzojNhqM0UQ4tNEcexlGVOkP9AugEco?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9629,8 +9670,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6zTUuQ5RH-zmE8QrmKEiuwUJc3ZDfPBfdTorc8TXPbMAUXCS61fVOFLyP6KvfcAuqEglfgbp5kVzTwDqTyfZyFSpJdGlXAsQxg87dITfzAKjCBoSKQjfd1B-Oh7FHa7UvhEZdyyNz50EiyAE2Jhz1imfc2r8mlDeegf73wNfDlyZeGl5Q9uTW4DamrWw2eZ92TJyoMwobj-CXUi1pWUYdGubt7VBbYBKX-mR_lTVrUSfER4pYtmIm28MI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6zTUuQ5RH-zmE8QrmKEiuwUJc3ZDfPBfdTorc8TXPbMAUXCS61fVOFLyP6KvfcAuqEglfgbp5kVzTwDqTyfZyFSpJdGlXAsQxg87dITfzAKjCBoSKQjfd1B-Oh7FHa7UvhEZdyyNz50EiyAE2Jhz1imfc2r8mlDeegf73wNfDlyZeGl5Q9uTW4DamrWw2eZ92TJyoMwobj-CXUi1pWUYdGubt7VBbYBKX-mR_lTVrUSfER4pYtmIm28MI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ceIxBCOzAgin7_qwAmaM2Cen2wITgSwom5AD9ZRsGJPo4Lt5ltz5UEbwQyCyuqPZ71ZOB-q-Lk97tpFSeMsXZGbF9G1ZuXjU0qDDOFElZrsq0LAHzSTb8Lfur7cHxbwEC5_FtexFJyHPXC1HJ9ksBoQYa3uTx2hk-L3rgsQQt6KhLniU1PTsDd7DtF5WRJ2oTopXgIabkFhmNvOcHPDC1AcUGakeCA08Gze9dJt3cKa3P-7ewrDO8hFY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ceIxBCOzAgin7_qwAmaM2Cen2wITgSwom5AD9ZRsGJPo4Lt5ltz5UEbwQyCyuqPZ71ZOB-q-Lk97tpFSeMsXZGbF9G1ZuXjU0qDDOFElZrsq0LAHzSTb8Lfur7cHxbwEC5_FtexFJyHPXC1HJ9ksBoQYa3uTx2hk-L3rgsQQt6KhLniU1PTsDd7DtF5WRJ2oTopXgIabkFhmNvOcHPDC1AcUGakeCA08Gze9dJt3cKa3P-7ewrDO8hFY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9647,8 +9688,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7sORnKABE4U4fR9zoMr1G52c3CoancGPbBxyPXO_0wCBrrkMQ3tv2mNzhx_bOG7Fu41SsX8KD3ViIMc1_bpvnUPbN1EojAg6_MzW0XOUwNWaUYSGd-sszrYRipjUDBz9EEermEvWJcWUlfZqD-9kFLFM0VdU2pE5ZFv5wMVv2WCcC84E0fMT_GzrqjFJoif7_wQ4N0xTGJJzBYLrcFZDJyqIj-O3NWpXJLRMapaFE_joipRt8SUqaPAB8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7sORnKABE4U4fR9zoMr1G52c3CoancGPbBxyPXO_0wCBrrkMQ3tv2mNzhx_bOG7Fu41SsX8KD3ViIMc1_bpvnUPbN1EojAg6_MzW0XOUwNWaUYSGd-sszrYRipjUDBz9EEermEvWJcWUlfZqD-9kFLFM0VdU2pE5ZFv5wMVv2WCcC84E0fMT_GzrqjFJoif7_wQ4N0xTGJJzBYLrcFZDJyqIj-O3NWpXJLRMapaFE_joipRt8SUqaPAB8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6eln_nPVkNwO6yUPSXnJnS8HP0i5ezD4EGaUZVCimJSZbBBuPkfGXdSoDp_eO6siKUfpQ-yJyYENn5kY3vaaEG9n06wszFWuvc9FxeQh7495PeJdqI4SRrP0rFCM8VkZxo7TaGEg4cxTGhzNrKVDslkaLLTXF8Bt0aMPjogOJlyuR4iBrqQydafeP06-yUxRlo2RPpYys8a-wAL9MjKTCeoowM0Tx0q9--LrtDMIqjTC9XLCGSXZs-npQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6eln_nPVkNwO6yUPSXnJnS8HP0i5ezD4EGaUZVCimJSZbBBuPkfGXdSoDp_eO6siKUfpQ-yJyYENn5kY3vaaEG9n06wszFWuvc9FxeQh7495PeJdqI4SRrP0rFCM8VkZxo7TaGEg4cxTGhzNrKVDslkaLLTXF8Bt0aMPjogOJlyuR4iBrqQydafeP06-yUxRlo2RPpYys8a-wAL9MjKTCeoowM0Tx0q9--LrtDMIqjTC9XLCGSXZs-npQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9665,8 +9706,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7q99_jvxA2qFSyJdQpzKUyJqzp89YvDtMdaYTuHdwL60kXeF6jhFCHPF8ZbTilX50rAicabFLGCiHECINsmhGMDykWwJoiZoEEKVY8rnJOoseSLRUbp7HsYglx0h-F091dNz9gZlmQTRdoWTVctkc1utuvBjG4gOSFr3JiEJpqAYXONA-XiGeUqceLKP8EqJKqJGk3GY1SuLOR72YlBqHA0XCGGg5PnKeeLjtSx0LU2JgUOPh1PZhTq-E?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7q99_jvxA2qFSyJdQpzKUyJqzp89YvDtMdaYTuHdwL60kXeF6jhFCHPF8ZbTilX50rAicabFLGCiHECINsmhGMDykWwJoiZoEEKVY8rnJOoseSLRUbp7HsYglx0h-F091dNz9gZlmQTRdoWTVctkc1utuvBjG4gOSFr3JiEJpqAYXONA-XiGeUqceLKP8EqJKqJGk3GY1SuLOR72YlBqHA0XCGGg5PnKeeLjtSx0LU2JgUOPh1PZhTq-E?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5cHCeCnHQBWtz48fJWMnMS2DU3rNq-bwFwAEYvyy04_oKBQRJiQZAcYdG_VsvsbyoYknAR9PgIDJoWLg6tz3s5cI3IZx1lpENCOo860mum8T4LFKaAMT_gF8EzlrX1ifCKz6JfMwdRmOZ_R-iLZoXnd0Efx0qKje3zY6RHBZ2XYMz_gyfT1u8CsOdpSwelDrjIAKpeUttN9xo5sJKqUiBBe3x7w20Kc3qMP8sfm0OhJ1tpPHPgm5vs_Qk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5cHCeCnHQBWtz48fJWMnMS2DU3rNq-bwFwAEYvyy04_oKBQRJiQZAcYdG_VsvsbyoYknAR9PgIDJoWLg6tz3s5cI3IZx1lpENCOo860mum8T4LFKaAMT_gF8EzlrX1ifCKz6JfMwdRmOZ_R-iLZoXnd0Efx0qKje3zY6RHBZ2XYMz_gyfT1u8CsOdpSwelDrjIAKpeUttN9xo5sJKqUiBBe3x7w20Kc3qMP8sfm0OhJ1tpPHPgm5vs_Qk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9719,8 +9760,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ajWLBL7oqDzcIULcmG7s98mE2OE8Jos1s_LMWYK6TDG22bGB50u7jKl0f5IJ59m5pCQuEHxdy3noNaLb0nTiWxRkxWc3Q2k5Fh0TtaZKlvL8OrzbxJYjIZVcVWfgYJt6MzSDjkMZLMDjAADxeAwA4fZlRDS44CKWt-mjs1u_iYaBJKAVzzfwn98EPIgTh7k8Bfx9_rdY0sa3RchuTCTqT2nLKWYe1KmyMb2NeOMjF35N6h5hKnV5Q4nc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ajWLBL7oqDzcIULcmG7s98mE2OE8Jos1s_LMWYK6TDG22bGB50u7jKl0f5IJ59m5pCQuEHxdy3noNaLb0nTiWxRkxWc3Q2k5Fh0TtaZKlvL8OrzbxJYjIZVcVWfgYJt6MzSDjkMZLMDjAADxeAwA4fZlRDS44CKWt-mjs1u_iYaBJKAVzzfwn98EPIgTh7k8Bfx9_rdY0sa3RchuTCTqT2nLKWYe1KmyMb2NeOMjF35N6h5hKnV5Q4nc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR71j-ClqieKPPcMKN9TFL6D0-w2QhXyPzUL6J-pSOs6SMg13QXDDgAYTHMkhxiFrG7-U3yqzl1DwBaKPQEn_Bnow2x33u5r12ew2E0IJ_0nbN0SeUhSM1w1YAhRY9GEvQKffLPKfbjDZ20EMxhkWEXKqrxGhVgmYdO4NhrYTGANi68stmIVfadrCd1hhTtd1UAwUnNg2vP8BisQYuI83-BfWLrJQOt-9L-Ur7pFe5I6AU8n94EvZQF7EG0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR71j-ClqieKPPcMKN9TFL6D0-w2QhXyPzUL6J-pSOs6SMg13QXDDgAYTHMkhxiFrG7-U3yqzl1DwBaKPQEn_Bnow2x33u5r12ew2E0IJ_0nbN0SeUhSM1w1YAhRY9GEvQKffLPKfbjDZ20EMxhkWEXKqrxGhVgmYdO4NhrYTGANi68stmIVfadrCd1hhTtd1UAwUnNg2vP8BisQYuI83-BfWLrJQOt-9L-Ur7pFe5I6AU8n94EvZQF7EG0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9737,8 +9778,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6n50jDh7Zd0iMxTnxWRGpRKTYuYt8NPvcOOFXt5vyw0TPrQmJnezi5iE5scoe8f-u3177qH770pSJPKgx-v1hqHtMtORg2AUWbqtCobbkRzUhsDMZ12Vc3ZDhIOC7cxtgIFOo_votiJrBNq-Lw3_lRT--NjQMauueuQhO-yUlAYytean40VOZ5oUOHcm9N8ZcmNAz5mwMhVHIB6n3_Ae6WN_qm033usXGazxMF8MJGFqqwvnQVxzjH9qw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6n50jDh7Zd0iMxTnxWRGpRKTYuYt8NPvcOOFXt5vyw0TPrQmJnezi5iE5scoe8f-u3177qH770pSJPKgx-v1hqHtMtORg2AUWbqtCobbkRzUhsDMZ12Vc3ZDhIOC7cxtgIFOo_votiJrBNq-Lw3_lRT--NjQMauueuQhO-yUlAYytean40VOZ5oUOHcm9N8ZcmNAz5mwMhVHIB6n3_Ae6WN_qm033usXGazxMF8MJGFqqwvnQVxzjH9qw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5srGuAVK8MsU0VEVXgMJhRSBtTr1hOTAlBKk-_Pk1XE-FPE-ecv9lxbq1cBHLPgmfkNHD1IgmIqSFTY_mOWxrYNe2wEX1xeFXlmNcUX9jx8o1p_Wb6lyZgYzNifyVPFJbvf0NvDJc2onvVAy48iSXdeOLT82YT_MHX70VUaeDmM0Sg-5no9-upaaL7lfau7uDkUvPDIQaba-MFo7HQDa0NXz4HJyT8EdrW330OMkYswh9PMSO3WfeDJso?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5srGuAVK8MsU0VEVXgMJhRSBtTr1hOTAlBKk-_Pk1XE-FPE-ecv9lxbq1cBHLPgmfkNHD1IgmIqSFTY_mOWxrYNe2wEX1xeFXlmNcUX9jx8o1p_Wb6lyZgYzNifyVPFJbvf0NvDJc2onvVAy48iSXdeOLT82YT_MHX70VUaeDmM0Sg-5no9-upaaL7lfau7uDkUvPDIQaba-MFo7HQDa0NXz4HJyT8EdrW330OMkYswh9PMSO3WfeDJso?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9791,8 +9832,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ieq8KcXH6kCIk7tA377UckN0IJx16wWopY4-i5YbYqgwuU3DssmJOxDAnYC55jbYTmrVTw8pizu-R4J_pH3mBG4OkciUEXKfKBz4dVh9x0xAPz7jxhcNU3L5QiJ9LJ13xRzwkPgJE02aAGhiB6YunDxE2QvodstbZ5KPGg4vyBkI4P55NcIRn24w27kGmCMQNHpyps-uS0gtvWZs7hVBUxYfZduIpKWHSLvUh1GNWoGi249c0NNKRAkE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ieq8KcXH6kCIk7tA377UckN0IJx16wWopY4-i5YbYqgwuU3DssmJOxDAnYC55jbYTmrVTw8pizu-R4J_pH3mBG4OkciUEXKfKBz4dVh9x0xAPz7jxhcNU3L5QiJ9LJ13xRzwkPgJE02aAGhiB6YunDxE2QvodstbZ5KPGg4vyBkI4P55NcIRn24w27kGmCMQNHpyps-uS0gtvWZs7hVBUxYfZduIpKWHSLvUh1GNWoGi249c0NNKRAkE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4n0pEq_HhTedLQGPNzK7Sh-RBIlT5zIQ3J9D2SDPAePBWXBrM9Hgb3g9cHcwMXLPUEa8KL4TVlMABuUX_54O9mNp7FWGVVkgwFbMWcxOmqf3E4m22W8fsCwL5QP2g2rmcReRPfQXYHgt8La5iFpTx0a2QjGlDgBFU3jhJ9ePTKDkPtNIyKhx-MM1ede689U3W3nm1bAWUq-rkyBxOK-GuxZ_G0Xz7VO9YNXZ8FDIVwkSnaqZs3yYxBnjc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4n0pEq_HhTedLQGPNzK7Sh-RBIlT5zIQ3J9D2SDPAePBWXBrM9Hgb3g9cHcwMXLPUEa8KL4TVlMABuUX_54O9mNp7FWGVVkgwFbMWcxOmqf3E4m22W8fsCwL5QP2g2rmcReRPfQXYHgt8La5iFpTx0a2QjGlDgBFU3jhJ9ePTKDkPtNIyKhx-MM1ede689U3W3nm1bAWUq-rkyBxOK-GuxZ_G0Xz7VO9YNXZ8FDIVwkSnaqZs3yYxBnjc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9863,8 +9904,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR53wF8v8rK3aor4qTxhr1KKtJZWbvtRVZzzJrZG0pSPrTwx9xD0PotGJ2JYiejuCZ1FOc9l4zXWylBEei7oDa7XkLuxsL18quz6u54CAmWokejrnK-hojhRhsU_dj7uTq8lkQK8ZltUIlf_rp6gorsE2UcRP6rRzJtP-TrvZF1TL0CiLETbsJpJ7IHfUGaoQRVKpcMRUCYJFm74EhcZwxJmU77aRt1iewjcphGz9BxxNXlj9b-7OwdUjbs?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR53wF8v8rK3aor4qTxhr1KKtJZWbvtRVZzzJrZG0pSPrTwx9xD0PotGJ2JYiejuCZ1FOc9l4zXWylBEei7oDa7XkLuxsL18quz6u54CAmWokejrnK-hojhRhsU_dj7uTq8lkQK8ZltUIlf_rp6gorsE2UcRP6rRzJtP-TrvZF1TL0CiLETbsJpJ7IHfUGaoQRVKpcMRUCYJFm74EhcZwxJmU77aRt1iewjcphGz9BxxNXlj9b-7OwdUjbs?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7-zJDudS9qoBvK5gO8rNwT_cDu0v7wW1rxPv2GvfpBpMndisizgOub3O97tpMGEo2n56tnIqQl4LlO5TRjOCrjqAr2ah1RWM-Iq5MM-hpz2KF81PF6ixxWDvkEEbpV7XCN8Ps7pbyxN94I5er5UGCDbdGvqQB9y4vK1VpH08XZU0JFN2X-H7uj9IybZ-z8soS4_BkPiHPTy1VrDTOX7xA8Rm_xfeBda__BOn4JbmpdZ1GWIddYpBzKVrE?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7-zJDudS9qoBvK5gO8rNwT_cDu0v7wW1rxPv2GvfpBpMndisizgOub3O97tpMGEo2n56tnIqQl4LlO5TRjOCrjqAr2ah1RWM-Iq5MM-hpz2KF81PF6ixxWDvkEEbpV7XCN8Ps7pbyxN94I5er5UGCDbdGvqQB9y4vK1VpH08XZU0JFN2X-H7uj9IybZ-z8soS4_BkPiHPTy1VrDTOX7xA8Rm_xfeBda__BOn4JbmpdZ1GWIddYpBzKVrE?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9989,8 +10030,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uYeFCAsGKFeZIXzBvPVzOYqPB3e2REscYY5uMRqcLg6WbveE7nJ-Sh3FbIq2GSLklSVkgyVhOAw9b4BquOInp_i9_M2hFjf-RorxWvNNnIelxxs9x2cLco0Nbdux5cDrHuHQhNTbydFL1xftQ0EtYasb975z81ZbsQr5rMLShD_VXboyNp0MxMY3ce2tdw3lO12hNIVJnei905Vq24gwIaySpztBT0YGq8DV6rGPGydz5AKqSD7lEUCo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uYeFCAsGKFeZIXzBvPVzOYqPB3e2REscYY5uMRqcLg6WbveE7nJ-Sh3FbIq2GSLklSVkgyVhOAw9b4BquOInp_i9_M2hFjf-RorxWvNNnIelxxs9x2cLco0Nbdux5cDrHuHQhNTbydFL1xftQ0EtYasb975z81ZbsQr5rMLShD_VXboyNp0MxMY3ce2tdw3lO12hNIVJnei905Vq24gwIaySpztBT0YGq8DV6rGPGydz5AKqSD7lEUCo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4PZkIhsA4_h9W1PdOrxOeMXXbdMETBCoOqscQo_WobdUCw619iPhSzfhhE8JJCSZlIgST89WiztGfA0zQo85SuInpuH6lDKwzUezs961wczqGgzpHcophc6xhba-V6uAmztNSu8XNeyAMVRJrSh7E9a7KFly0t9ncqn7Dr0kSkIQvUdp36ak_u76nul8ij373oRt701Q_oMIrfgHWE4Nog-aoBp9Y_0ooINezZanBqPUnjoLcB_FZENUQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4PZkIhsA4_h9W1PdOrxOeMXXbdMETBCoOqscQo_WobdUCw619iPhSzfhhE8JJCSZlIgST89WiztGfA0zQo85SuInpuH6lDKwzUezs961wczqGgzpHcophc6xhba-V6uAmztNSu8XNeyAMVRJrSh7E9a7KFly0t9ncqn7Dr0kSkIQvUdp36ak_u76nul8ij373oRt701Q_oMIrfgHWE4Nog-aoBp9Y_0ooINezZanBqPUnjoLcB_FZENUQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11177,48 +11218,6 @@
       "region": "Haiti",
       "eventType": "ORGANIZED CRIME NODE",
       "confidence": "REFERENCE NODE / NOT AN INCIDENT"
-    },
-    {
-      "lat": -31.8967,
-      "lng": -71.2399,
-      "type": "hazard",
-      "layer": "environment",
-      "importance": 2,
-      "title": "M4.8 earthquake — 29 km WSW of Salamanca, Chile",
-      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te5e",
-      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te5e",
-      "source": "USGS Earthquakes",
-      "eventType": "Natural Hazard",
-      "confidence": "PUBLIC LIVE FEED"
-    },
-    {
-      "lat": 0.5261,
-      "lng": 122.1776,
-      "type": "hazard",
-      "layer": "environment",
-      "importance": 2,
-      "title": "M4.9 earthquake — 98 km W of Gorontalo, Indonesia",
-      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te55",
-      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te55",
-      "source": "USGS Earthquakes",
-      "eventType": "Natural Hazard",
-      "confidence": "PUBLIC LIVE FEED"
-    },
-    {
-      "lat": -8.3207,
-      "lng": 121.6664,
-      "type": "hazard",
-      "layer": "environment",
-      "importance": 2,
-      "title": "M4.8 earthquake — 57 km N of Ende, Indonesia",
-      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te51",
-      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te51",
-      "source": "USGS Earthquakes",
-      "eventType": "Natural Hazard",
-      "confidence": "PUBLIC LIVE FEED"
     }
   ],
   "social": [
@@ -11396,38 +11395,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "68c96c157303",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Missouri supreme court throws out new congressional maps backed by Trump",
-      "summary": "Setback for Republicans in redistricting battle as court orders forbids maps from being used in November elections The Missouri supreme court has unanimously blocked new congressional districts backed by Donald Trump from being used in the November election and ordered a statewide vote on whether to uphold or reject the new map. The decision Thursday marks a rare setback for Republicans in a national redistricting ba",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/missouri-supreme-court-trump",
-      "time": "2026-09-03T22:38:41+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Supreme Court",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Courts"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 48.9
-    },
-    {
       "id": "b8158f7d5321",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -11490,7 +11457,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
     },
     {
       "id": "878d5cd6863f",
@@ -11536,7 +11503,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
     },
     {
       "id": "8535608b212d",
@@ -11563,7 +11530,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
     },
     {
       "id": "9b25ff7c54dd",
@@ -11594,7 +11561,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 61.8
+      "politicalSignalScore": 61.6
     },
     {
       "id": "bbf328f619cc",
@@ -11622,6 +11589,138 @@
       "title": "Pierre Damas Bel died in an apparent suicide . His family says he felt humiliated by his ICE ankle monitor",
       "summary": "",
       "source": "https://www.cnn.com/2026/09/02/us/pierre-damas-bel-death-ankle-monitor",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "9fd745a35feb",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump asks Supreme Court to OK sweeping changes for mail ballots",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/trump-asks-supreme-court-to-ok-sweeping-changes-for-mail-ballots",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump",
+        "Supreme Court"
+      ],
+      "politicalTopics": [
+        "Courts"
+      ],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 46.6
+    },
+    {
+      "id": "171dabd88a0e",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fox News abruptly ousts Maria Bartiromo , a longtime Trump ally",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/media/maria-bartiromo-and-fox-part-ways",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.6
+    },
+    {
+      "id": "a387471e61ef",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump administration enlists new contractor to clean up Reflecting Pool",
+      "summary": "",
+      "source": "https://www.cnn.com/2026/09/03/politics/reflecting-pool-contractor-algae",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 46.6
+    },
+    {
+      "id": "3682147f02f9",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fact check : Vance repeats Trump fictional $19 trillion investment figure",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/fact-check-vance-trump-trillions-invested",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.6
+    },
+    {
+      "id": "5301a08f05b1",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "JD Vance says Iran conflict isnt a war",
+      "summary": "",
+      "source": "https://www.cnn.com/2026/09/03/politics/jd-vance-iran-war",
       "time": "2026-09-03T22:30:00+00:00",
       "tag": "World",
       "confidence": "DEVELOPING",
@@ -11681,7 +11780,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.3
+      "politicalSignalScore": 48.1
     },
     {
       "id": "8793513abf6c",
@@ -11748,7 +11847,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.6
+      "politicalSignalScore": 45.4
     },
     {
       "id": "b4253dd015fc",
@@ -11775,7 +11874,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.6
+      "politicalSignalScore": 43.4
     },
     {
       "id": "fdd1ee75e973",
@@ -11821,7 +11920,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.6
+      "politicalSignalScore": 43.4
     },
     {
       "id": "9a39adc43ca8",
@@ -11852,7 +11951,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 60.6
+      "politicalSignalScore": 60.4
     },
     {
       "id": "b042c23f5733",
@@ -11996,7 +12095,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.3
+      "politicalSignalScore": 46.1
     },
     {
       "id": "8fb7e246ee18",
@@ -12080,7 +12179,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.0
+      "politicalSignalScore": 43.8
     },
     {
       "id": "886939dea435",
@@ -12202,7 +12301,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.4
+      "politicalSignalScore": 43.3
     },
     {
       "id": "87abe9bea4a5",
@@ -12232,7 +12331,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.4
+      "politicalSignalScore": 43.2
     },
     {
       "id": "15082f627e9f",
@@ -12278,7 +12377,34 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.3
+      "politicalSignalScore": 41.1
+    },
+    {
+      "id": "f74b6cd93a9f",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "Lebanon receives first detainee of five to be freed by Israel",
+      "summary": "“It was decided to release five Lebanese civilians,” the office of Israeli Prime Minister Benjamin Netanyahu says after interrogations find no terror links.",
+      "source": "https://www.channelnewsasia.com/world/israel-release-five-lebanese-detainees-talks-6360656",
+      "time": "2026-09-03T18:48:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [
+        "Israel"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "channelnewsasia.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 41.1
     },
     {
       "id": "dc05050490d4",
@@ -12455,7 +12581,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.4
+      "politicalSignalScore": 40.2
     },
     {
       "id": "333a69b87758",
@@ -12518,7 +12644,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.2
+      "politicalSignalScore": 40.1
     },
     {
       "id": "3fa4ac96d872",
@@ -12640,7 +12766,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.8
+      "politicalSignalScore": 41.6
     },
     {
       "id": "5e6d2ae88266",
@@ -12783,7 +12909,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 56.4
+      "politicalSignalScore": 56.2
     },
     {
       "id": "f7325d2b4a6f",
@@ -12829,7 +12955,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.3
+      "politicalSignalScore": 39.2
     },
     {
       "id": "95c9e563db1f",
@@ -12894,7 +13020,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.0
+      "politicalSignalScore": 38.8
     },
     {
       "id": "e800f748c934",
@@ -13056,7 +13182,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.3
+      "politicalSignalScore": 40.1
     },
     {
       "id": "309d5505ad3c",
@@ -13159,7 +13285,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.7
     },
     {
       "id": "3b3441b53a4b",
@@ -13241,7 +13367,26 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 52.8
+      "politicalSignalScore": 52.7
+    },
+    {
+      "id": "6e0585720806",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Aid operations in aftermath of deadly Nepal floods hampered by conditions | First Thing",
+      "summary": "Guardian reporters in Nepal have witnessed first-hand the scenes of destruction and grief after the flash floods. Plus, a not-to-be-missed interview with the legendary Mr T Good morning. Thousands remain missing and the delivery of aid has been hampered by treacherous conditions in communities almost wiped out of existence by the flash flooding in Nepal and Tibet . A week after the disaster, survivors who fled up mou",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/first-thing-aid-operations-deadly-nepal-floods-hampered-conditions",
+      "time": "2026-09-03T15:03:39+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
     },
     {
       "id": "22a927b5166e",
@@ -13441,7 +13586,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.2
+      "politicalSignalScore": 39.0
     },
     {
       "id": "f6352dcaaee2",
@@ -13529,7 +13674,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.0
+      "politicalSignalScore": 38.8
     },
     {
       "id": "19030097bde2",
@@ -13649,7 +13794,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.7
+      "politicalSignalScore": 36.5
     },
     {
       "id": "ec9e47d09309",
@@ -13716,7 +13861,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.6
+      "politicalSignalScore": 38.4
     },
     {
       "id": "c05cd0cfe2cd",
@@ -13819,7 +13964,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "829daa1d395f",
@@ -13901,7 +14046,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.0
+      "politicalSignalScore": 35.8
     },
     {
       "id": "1e13f581b855",
@@ -13990,7 +14135,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.9
+      "politicalSignalScore": 41.7
     },
     {
       "id": "a5d592dedc0c",
@@ -14022,7 +14167,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.9
+      "politicalSignalScore": 41.7
     },
     {
       "id": "07062ad50053",
@@ -14069,7 +14214,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.5
     },
     {
       "id": "107a20e98b52",
@@ -14173,7 +14318,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "e7fa1a0ad5c6",
@@ -14221,7 +14366,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.1
+      "politicalSignalScore": 35.0
     },
     {
       "id": "567da72b14ce",
@@ -14288,7 +14433,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "211ce5a0e4c7",
@@ -14491,7 +14636,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.0
+      "politicalSignalScore": 39.8
     },
     {
       "id": "41d7c8ee8c42",
@@ -14518,7 +14663,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.7
+      "politicalSignalScore": 35.6
     },
     {
       "id": "8f72dc6bf787",
@@ -14546,7 +14691,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.7
+      "politicalSignalScore": 33.6
     },
     {
       "id": "f43c01e5cbeb",
@@ -14573,7 +14718,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.7
+      "politicalSignalScore": 33.6
     },
     {
       "id": "04a471261a98",
@@ -14638,7 +14783,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.7
+      "politicalSignalScore": 48.5
     },
     {
       "id": "df78e4fc9583",
@@ -14686,7 +14831,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.5
+      "politicalSignalScore": 35.3
     },
     {
       "id": "690fe1a807de",
@@ -14755,7 +14900,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.3
+      "politicalSignalScore": 35.1
     },
     {
       "id": "0f0fedcaa48f",
@@ -14820,7 +14965,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.8
     },
     {
       "id": "7e369d09a9ea",
@@ -14847,7 +14992,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.0
+      "politicalSignalScore": 32.8
     },
     {
       "id": "19e24f5bcc9d",
@@ -15008,7 +15153,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.1
+      "politicalSignalScore": 31.9
     },
     {
       "id": "121c9b78c635",
@@ -15043,7 +15188,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "7460e3950716",
@@ -15092,7 +15237,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.4
+      "politicalSignalScore": 33.2
     },
     {
       "id": "fe80d88bc908",
@@ -15193,7 +15338,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.5
+      "politicalSignalScore": 30.3
     },
     {
       "id": "56a02f09ef06",
@@ -15332,7 +15477,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.3
+      "politicalSignalScore": 29.1
     },
     {
       "id": "152a974ea76c",
@@ -15378,7 +15523,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.2
+      "politicalSignalScore": 31.0
     },
     {
       "id": "4d029b2adec7",
@@ -15424,7 +15569,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.4
+      "politicalSignalScore": 30.3
     },
     {
       "id": "57b1d5f89822",
@@ -15565,7 +15710,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "9a0aece83077",
@@ -15729,7 +15874,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.9
     },
     {
       "id": "2a21cb0360a5",
@@ -15756,7 +15901,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.1
+      "politicalSignalScore": 24.9
     },
     {
       "id": "b21d64cc6178",
@@ -15862,7 +16007,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.3
+      "politicalSignalScore": 28.1
     },
     {
       "id": "f49e34d92669",
@@ -16065,7 +16210,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.8
+      "politicalSignalScore": 29.6
     },
     {
       "id": "8b8cb38ad2a8",
@@ -16135,7 +16280,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.3
+      "politicalSignalScore": 27.1
     },
     {
       "id": "ca7fe60fdd98",
@@ -16183,7 +16328,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.8
+      "politicalSignalScore": 22.6
     },
     {
       "id": "6ad10dbff853",
@@ -16216,7 +16361,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.5
+      "politicalSignalScore": 24.3
     },
     {
       "id": "6e5d651744cd",
@@ -16246,7 +16391,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.5
+      "politicalSignalScore": 24.3
     },
     {
       "id": "39c9649abfbb",
@@ -16351,7 +16496,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.8
+      "politicalSignalScore": 20.6
     },
     {
       "id": "fd7fdb28a09f",
@@ -16454,7 +16599,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.2
+      "politicalSignalScore": 18.0
     },
     {
       "id": "40a47e9395fb",
@@ -16616,7 +16761,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.5
+      "politicalSignalScore": 13.3
     },
     {
       "id": "0859be90fbe5",
@@ -16643,7 +16788,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 12.5
+      "politicalSignalScore": 12.4
     },
     {
       "id": "a7cce114e21d",
@@ -16711,7 +16856,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.3
+      "politicalSignalScore": 13.2
     },
     {
       "id": "2c9e8b422460",
@@ -16740,7 +16885,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.3
+      "politicalSignalScore": 11.1
     },
     {
       "id": "9a8c6a72f8d5",
@@ -16770,7 +16915,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.3
+      "politicalSignalScore": 13.1
     },
     {
       "id": "55c061267665",
@@ -16838,7 +16983,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.8
+      "politicalSignalScore": 10.6
     },
     {
       "id": "969486dfe3fe",
@@ -16964,7 +17109,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 5.8
+      "politicalSignalScore": 5.6
     },
     {
       "id": "560735a9b9a9",
@@ -17627,120 +17772,6 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "17d809c34704",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "82nd Airborne troops’ Middle East deployment extended into 2027",
-      "summary": "Division commander Maj. Gen. Brandon Tegtmeier announced the extension in a letter thanking families for their “quiet strength” and expressing hope that the message would provide clarity on a deployment that has “presented many unknowns.”",
-      "source": "https://www.stripes.com/branches/army/2026-08-31/82nd-airborne-deployment-extended-22691072.html",
-      "time": "2026-08-31T15:22:28+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "4e720616b9b0",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "US troops in Germany among thousands around globe to earn Danish military medal",
-      "summary": "American service members took part in the Royal Danish Flyver March, a 12½-mile military test of endurance.",
-      "source": "https://www.stripes.com/theaters/europe/2026-08-31/us-military-finish-danish-flyver-march-22687543.html",
-      "time": "2026-08-31T12:55:19+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "fedad9b503b0",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Iran says it launched retaliatory strikes on bases hosting US troops in Middle East",
-      "summary": "Iran said Monday that it had launched ballistic missiles and drones at military bases in the Middle East in retaliation for American strikes on an Iranian island in the Strait of Hormuz.",
-      "source": "https://www.stripes.com/theaters/middle_east/2026-08-31/iran-attacks-centcom-jordan-22687541.html",
-      "time": "2026-08-31T12:27:35+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "140cbc83e4ff",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Japan’s Defense Ministry requests record $55.6 billion to fund ‘new ways of fighting’",
-      "summary": "Japan’s Defense Ministry asked for a record-high 8.9 trillion yen for the coming fiscal year, about $55.6 billion, with the cost of about 100 items left blank.",
-      "source": "https://www.stripes.com/theaters/asia_pacific/2026-08-31/japan-defense-budget-request-22687506.html",
-      "time": "2026-08-31T09:07:07+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "economics"
-    },
-    {
-      "id": "bf6f2fe79cc2",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Air Force moves to ease Okinawa housing shortage as families wait weeks for homes",
-      "summary": "Military families arriving on Okinawa are spending an average of three to five weeks searching for homes as a surge in vacation rentals and on-base construction squeeze the housing market, Air Force officials said.",
-      "source": "https://www.stripes.com/branches/air_force/2026-08-31/okinawa-military-housing-shortage-22687502.html",
-      "time": "2026-08-31T08:49:48+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "6eaabdad799c",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Japan’s first Tomahawk-capable destroyer returns home after US upgrades",
-      "summary": "Japan’s first destroyer capable of firing Tomahawk cruise missiles returned home after nearly a year in the United States, marking a major step in Tokyo’s effort to field long-range weapons capable of striking targets about 1,000 miles away.",
-      "source": "https://www.stripes.com/branches/navy/2026-08-31/japan-destroyer-tomahawk-missiles-22687498.html",
-      "time": "2026-08-31T07:54:26+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -17751,7 +17782,7 @@
       "label": "ONLINE",
       "articles": 51,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17761,7 +17792,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17771,7 +17802,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17781,7 +17812,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17791,7 +17822,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17801,7 +17832,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17811,7 +17842,7 @@
       "label": "ONLINE",
       "articles": 10,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17821,7 +17852,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17831,7 +17862,7 @@
       "label": "ONLINE",
       "articles": 12,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17841,7 +17872,7 @@
       "label": "ONLINE",
       "articles": 26,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17851,7 +17882,7 @@
       "label": "ONLINE",
       "articles": 13,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17861,7 +17892,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17871,7 +17902,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17881,7 +17912,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17891,7 +17922,7 @@
       "label": "ONLINE",
       "articles": 6,
       "domains": 1,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17901,7 +17932,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17911,7 +17942,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17921,7 +17952,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17931,7 +17962,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17941,7 +17972,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17951,7 +17982,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17961,7 +17992,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17971,7 +18002,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17981,7 +18012,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -17991,7 +18022,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18001,7 +18032,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18011,7 +18042,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18021,7 +18052,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18031,7 +18062,7 @@
       "label": "UNKNOWN",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18041,7 +18072,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     },
     {
@@ -18051,12 +18082,12 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+      "lastChecked": "2026-09-03T22:57:25.599231+00:00",
       "error": ""
     }
   ],
   "marketData": {
-    "updatedAt": "2026-09-03T22:45:23.982761+00:00",
+    "updatedAt": "2026-09-03T22:57:12.132383+00:00",
     "source": "Yahoo Finance public chart (1m)",
     "noApiKey": true,
     "quoteInterval": "1m",
@@ -18079,7 +18110,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:18.404758+00:00"
+        "checkedAt": "2026-09-03T22:57:06.967211+00:00"
       },
       {
         "price": 53686.11,
@@ -18099,7 +18130,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:18.635827+00:00"
+        "checkedAt": "2026-09-03T22:57:07.155735+00:00"
       },
       {
         "price": 26584.06,
@@ -18119,7 +18150,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:18.884836+00:00"
+        "checkedAt": "2026-09-03T22:57:07.344276+00:00"
       },
       {
         "price": 29482.32,
@@ -18139,7 +18170,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:19.060717+00:00"
+        "checkedAt": "2026-09-03T22:57:07.539012+00:00"
       },
       {
         "price": 2968.271,
@@ -18159,7 +18190,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:19.308794+00:00"
+        "checkedAt": "2026-09-03T22:57:07.722597+00:00"
       },
       {
         "price": 14.32,
@@ -18179,14 +18210,14 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:19.532294+00:00"
+        "checkedAt": "2026-09-03T22:57:07.914944+00:00"
       },
       {
         "price": 91.74,
         "previousClose": 91.3,
         "change": 0.4399999999999977,
         "changePercent": 0.48192771084337105,
-        "marketTime": "2026-09-03T22:35:09+00:00",
+        "marketTime": "2026-09-03T22:47:01+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "NY Mercantile",
@@ -18199,14 +18230,14 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:19.842821+00:00"
+        "checkedAt": "2026-09-03T22:57:08.175079+00:00"
       },
       {
-        "price": 4522.0,
+        "price": 4520.2,
         "previousClose": 4539.9,
-        "change": -17.899999999999636,
-        "changePercent": -0.39428181237471394,
-        "marketTime": "2026-09-03T22:35:02+00:00",
+        "change": -19.699999999999818,
+        "changePercent": -0.4339302627811146,
+        "marketTime": "2026-09-03T22:47:02+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "COMEX",
@@ -18219,14 +18250,14 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:20.114508+00:00"
+        "checkedAt": "2026-09-03T22:57:08.382043+00:00"
       },
       {
-        "price": 81238.42,
+        "price": 81167.71,
         "previousClose": 77310.17,
-        "change": 3928.25,
-        "changePercent": 5.081155558188528,
-        "marketTime": "2026-09-03T22:45:17+00:00",
+        "change": 3857.540000000008,
+        "changePercent": 4.989692817904822,
+        "marketTime": "2026-09-03T22:57:06+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "CCC",
@@ -18239,14 +18270,14 @@
         "decimals": 0,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:20.391772+00:00"
+        "checkedAt": "2026-09-03T22:57:08.571538+00:00"
       },
       {
-        "price": 1.1629,
+        "price": 1.1627,
         "previousClose": 1.1592,
-        "change": 0.0037000000000000366,
-        "changePercent": 0.31918564527260496,
-        "marketTime": "2026-09-03T22:44:52+00:00",
+        "change": 0.0035000000000000586,
+        "changePercent": 0.3019323671497635,
+        "marketTime": "2026-09-03T22:56:52+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "CCY",
@@ -18259,14 +18290,14 @@
         "decimals": 4,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:20.661821+00:00"
+        "checkedAt": "2026-09-03T22:57:08.795804+00:00"
       },
       {
-        "price": 155.927,
+        "price": 156.085,
         "previousClose": 158.664,
-        "change": -2.7369999999999948,
-        "changePercent": -1.7250289920838973,
-        "marketTime": "2026-09-03T22:45:18+00:00",
+        "change": -2.5789999999999793,
+        "changePercent": -1.6254474865123654,
+        "marketTime": "2026-09-03T22:57:07+00:00",
         "marketState": "",
         "currency": "JPY",
         "exchange": "CCY",
@@ -18279,7 +18310,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:20.871619+00:00"
+        "checkedAt": "2026-09-03T22:57:09.049632+00:00"
       },
       {
         "price": 4.762,
@@ -18299,7 +18330,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:21.042550+00:00"
+        "checkedAt": "2026-09-03T22:57:09.271168+00:00"
       },
       {
         "price": 10831.52,
@@ -18319,7 +18350,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:21.271316+00:00"
+        "checkedAt": "2026-09-03T22:57:09.466212+00:00"
       },
       {
         "price": 26003.32,
@@ -18339,7 +18370,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:21.447025+00:00"
+        "checkedAt": "2026-09-03T22:57:09.656821+00:00"
       },
       {
         "price": 64214.48,
@@ -18359,7 +18390,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:21.661551+00:00"
+        "checkedAt": "2026-09-03T22:57:09.891255+00:00"
       },
       {
         "price": 3942.088,
@@ -18379,7 +18410,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:21.872641+00:00"
+        "checkedAt": "2026-09-03T22:57:10.083315+00:00"
       },
       {
         "price": 25213.31,
@@ -18399,7 +18430,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:22.093120+00:00"
+        "checkedAt": "2026-09-03T22:57:10.272258+00:00"
       },
       {
         "price": 23873.45,
@@ -18419,7 +18450,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:22.266654+00:00"
+        "checkedAt": "2026-09-03T22:57:10.458853+00:00"
       },
       {
         "price": 76152.86,
@@ -18439,7 +18470,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:22.485491+00:00"
+        "checkedAt": "2026-09-03T22:57:10.650446+00:00"
       },
       {
         "price": 328.21,
@@ -18459,7 +18490,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:22.705571+00:00"
+        "checkedAt": "2026-09-03T22:57:10.836917+00:00"
       },
       {
         "price": 510.12,
@@ -18479,7 +18510,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:22.872557+00:00"
+        "checkedAt": "2026-09-03T22:57:11.027498+00:00"
       },
       {
         "price": 228.45,
@@ -18499,7 +18530,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:23.087822+00:00"
+        "checkedAt": "2026-09-03T22:57:11.214719+00:00"
       },
       {
         "price": 258.9,
@@ -18519,7 +18550,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:23.318734+00:00"
+        "checkedAt": "2026-09-03T22:57:11.408147+00:00"
       },
       {
         "price": 342.48,
@@ -18539,7 +18570,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:23.500901+00:00"
+        "checkedAt": "2026-09-03T22:57:11.613557+00:00"
       },
       {
         "price": 610.68,
@@ -18559,7 +18590,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:23.679643+00:00"
+        "checkedAt": "2026-09-03T22:57:11.816426+00:00"
       },
       {
         "price": 376.365,
@@ -18579,7 +18610,7 @@
         "decimals": 2,
         "status": "stale",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-03T22:45:23.862637+00:00"
+        "checkedAt": "2026-09-03T22:57:12.012261+00:00"
       }
     ],
     "errors": [],
@@ -18589,7 +18620,7 @@
   "liveDatabase": {
     "enabled": true,
     "articleCount": 500,
-    "lastExport": "2026-09-03T22:44:52.971092+00:00",
+    "lastExport": "2026-09-03T22:56:47.263013+00:00",
     "retentionDays": 7,
     "newMergedThisRun": 379
   },
@@ -18628,25 +18659,6 @@
       "credit": {
         "sourceId": "cnn_politics",
         "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "68c96c157303",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Missouri supreme court throws out new congressional maps backed by Trump",
-      "summary": "Setback for Republicans in redistricting battle as court orders forbids maps from being used in November elections The Missouri supreme court has unanimously blocked new congressional districts backed by Donald Trump from being used in the November election and ordered a statewide vote on whether to uphold or reject the new map. The decision Thursday marks a rare setback for Republicans in a national redistricting ba",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/missouri-supreme-court-trump",
-      "time": "2026-09-03T22:38:41+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
@@ -18715,6 +18727,82 @@
       "title": "Trump administration cut funds for landslide monitoring in Nepal",
       "summary": "",
       "source": "https://www.cnn.com/2026/09/02/climate/nepal-disaster-grant-canceled-trump",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "9fd745a35feb",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump asks Supreme Court to OK sweeping changes for mail ballots",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/trump-asks-supreme-court-to-ok-sweeping-changes-for-mail-ballots",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "171dabd88a0e",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fox News abruptly ousts Maria Bartiromo , a longtime Trump ally",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/media/maria-bartiromo-and-fox-part-ways",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "a387471e61ef",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump administration enlists new contractor to clean up Reflecting Pool",
+      "summary": "",
+      "source": "https://www.cnn.com/2026/09/03/politics/reflecting-pool-contractor-algae",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "3682147f02f9",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fact check : Vance repeats Trump fictional $19 trillion investment figure",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/fact-check-vance-trump-trillions-invested",
       "time": "2026-09-03T22:30:00+00:00",
       "tag": "World",
       "confidence": "DEVELOPING",
@@ -18906,6 +18994,25 @@
       "summary": "“It was decided to release five Lebanese civilians,” the office of Israeli Prime Minister Benjamin Netanyahu says after interrogations find no terror links.",
       "source": "https://www.channelnewsasia.com/asia/israel-release-five-lebanese-detainees-talks-6360656",
       "time": "2026-09-03T18:48:24+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "f74b6cd93a9f",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "Lebanon receives first detainee of five to be freed by Israel",
+      "summary": "“It was decided to release five Lebanese civilians,” the office of Israeli Prime Minister Benjamin Netanyahu says after interrogations find no terror links.",
+      "source": "https://www.channelnewsasia.com/world/israel-release-five-lebanese-detainees-talks-6360656",
+      "time": "2026-09-03T18:48:00+00:00",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -20138,7 +20245,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 61.8
+      "politicalSignalScore": 61.6
     },
     {
       "id": "9a39adc43ca8",
@@ -20169,39 +20276,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 60.6
-    },
-    {
-      "id": "68c96c157303",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Missouri supreme court throws out new congressional maps backed by Trump",
-      "summary": "Setback for Republicans in redistricting battle as court orders forbids maps from being used in November elections The Missouri supreme court has unanimously blocked new congressional districts backed by Donald Trump from being used in the November election and ordered a statewide vote on whether to uphold or reject the new map. The decision Thursday marks a rare setback for Republicans in a national redistricting ba",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/missouri-supreme-court-trump",
-      "time": "2026-09-03T22:38:41+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Supreme Court",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Courts"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 48.9
+      "politicalSignalScore": 60.4
     },
     {
       "id": "e10d8c6173b8",
@@ -20228,7 +20303,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.7
+      "politicalSignalScore": 48.5
     },
     {
       "id": "4069b2ef9c4d",
@@ -20258,7 +20333,66 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.3
+      "politicalSignalScore": 48.1
+    },
+    {
+      "id": "9fd745a35feb",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump asks Supreme Court to OK sweeping changes for mail ballots",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/trump-asks-supreme-court-to-ok-sweeping-changes-for-mail-ballots",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump",
+        "Supreme Court"
+      ],
+      "politicalTopics": [
+        "Courts"
+      ],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 46.6
+    },
+    {
+      "id": "a387471e61ef",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Trump administration enlists new contractor to clean up Reflecting Pool",
+      "summary": "",
+      "source": "https://www.cnn.com/2026/09/03/politics/reflecting-pool-contractor-algae",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 46.6
     },
     {
       "id": "6c8bc690c87e",
@@ -20288,7 +20422,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.3
+      "politicalSignalScore": 46.1
     },
     {
       "id": "408a5192a823",
@@ -20317,7 +20451,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.6
+      "politicalSignalScore": 45.4
     },
     {
       "id": "2e5cd7b9be37",
@@ -20371,7 +20505,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
     },
     {
       "id": "cc7fab12a4e5",
@@ -20398,7 +20532,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
     },
     {
       "id": "8535608b212d",
@@ -20425,7 +20559,61 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.8
+      "politicalSignalScore": 44.6
+    },
+    {
+      "id": "171dabd88a0e",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fox News abruptly ousts Maria Bartiromo , a longtime Trump ally",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/media/maria-bartiromo-and-fox-part-ways",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.6
+    },
+    {
+      "id": "3682147f02f9",
+      "sourceLabel": "CNN Politics",
+      "sourceType": "news-mirror",
+      "title": "Fact check : Vance repeats Trump fictional $19 trillion investment figure",
+      "summary": "",
+      "source": "https://edition.cnn.com/2026/09/03/politics/fact-check-vance-trump-trillions-invested",
+      "time": "2026-09-03T22:30:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "edition.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.6
     },
     {
       "id": "b4253dd015fc",
@@ -20452,7 +20640,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.6
+      "politicalSignalScore": 43.4
     },
     {
       "id": "da13648ad5ce",
@@ -20479,7 +20667,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.6
+      "politicalSignalScore": 43.4
     },
     {
       "id": "87abe9bea4a5",
@@ -20509,7 +20697,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.4
+      "politicalSignalScore": 43.2
     },
     {
       "id": "3ba400ddb739",
@@ -20540,7 +20728,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.9
     },
     {
       "id": "9fbade295891",
@@ -20572,7 +20760,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.9
+      "politicalSignalScore": 41.7
     },
     {
       "id": "a5d592dedc0c",
@@ -20604,7 +20792,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.9
+      "politicalSignalScore": 41.7
     },
     {
       "id": "14645c604d74",
@@ -20631,7 +20819,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.8
+      "politicalSignalScore": 41.6
     },
     {
       "id": "d0651b9f9065",
@@ -20660,7 +20848,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.3
+      "politicalSignalScore": 40.1
     },
     {
       "id": "121c9b78c635",
@@ -20695,7 +20883,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "a8f6eada3b77",
@@ -20727,7 +20915,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.0
+      "politicalSignalScore": 39.8
     },
     {
       "id": "0fc963fbe9a6",
@@ -20755,7 +20943,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.5
     },
     {
       "id": "cc40b4f6f36f",
@@ -20783,7 +20971,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "e5de1c2df6ac",
@@ -20810,7 +20998,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.3
+      "politicalSignalScore": 39.2
     },
     {
       "id": "f087904d2867",
@@ -20837,7 +21025,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.0
+      "politicalSignalScore": 38.8
     },
     {
       "id": "aa033c582456",
@@ -20868,7 +21056,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.0
+      "politicalSignalScore": 38.8
     },
     {
       "id": "c6ceb9502a6c",
@@ -20897,7 +21085,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.6
+      "politicalSignalScore": 38.4
     },
     {
       "id": "fa6dc7bcd69d",
@@ -20926,7 +21114,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.5
+      "politicalSignalScore": 35.3
     },
     {
       "id": "71c2f023cc8d",
@@ -20957,7 +21145,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.3
+      "politicalSignalScore": 35.1
     },
     {
       "id": "39715aa1890c",
@@ -20986,7 +21174,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.1
+      "politicalSignalScore": 35.0
     },
     {
       "id": "648d6749c712",
@@ -21013,7 +21201,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.8
     },
     {
       "id": "8f72dc6bf787",
@@ -21041,7 +21229,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.7
+      "politicalSignalScore": 33.6
     },
     {
       "id": "f43c01e5cbeb",
@@ -21068,7 +21256,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.7
+      "politicalSignalScore": 33.6
     },
     {
       "id": "772547ad1bd2",
@@ -21098,7 +21286,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.4
+      "politicalSignalScore": 33.2
     },
     {
       "id": "99d3f0b739c1",
@@ -21126,7 +21314,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.1
+      "politicalSignalScore": 31.9
     },
     {
       "id": "7ed6758be96b",
@@ -21158,7 +21346,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.8
+      "politicalSignalScore": 29.6
     },
     {
       "id": "3593d4dc7a14",
@@ -21188,7 +21376,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.3
+      "politicalSignalScore": 28.1
     },
     {
       "id": "eca0fc692bc0",
@@ -21220,7 +21408,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.3
+      "politicalSignalScore": 27.1
     },
     {
       "id": "2a21cb0360a5",
@@ -21247,7 +21435,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.1
+      "politicalSignalScore": 24.9
     },
     {
       "id": "6ad10dbff853",
@@ -21280,7 +21468,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.5
+      "politicalSignalScore": 24.3
     },
     {
       "id": "6e5d651744cd",
@@ -21310,7 +21498,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.5
+      "politicalSignalScore": 24.3
     },
     {
       "id": "ca396a85c9e1",
@@ -21339,7 +21527,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.8
+      "politicalSignalScore": 22.6
     },
     {
       "id": "23bd688561f4",
@@ -21368,7 +21556,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.8
+      "politicalSignalScore": 20.6
     },
     {
       "id": "312437a09978",
@@ -21395,7 +21583,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.2
+      "politicalSignalScore": 18.0
     },
     {
       "id": "939e34b778e4",
@@ -21452,7 +21640,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.5
+      "politicalSignalScore": 13.3
     },
     {
       "id": "9b0ceb9471df",
@@ -21482,7 +21670,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.3
+      "politicalSignalScore": 13.2
     },
     {
       "id": "9a8c6a72f8d5",
@@ -21512,7 +21700,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 13.3
+      "politicalSignalScore": 13.1
     },
     {
       "id": "2c9e8b422460",
@@ -21541,7 +21729,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.3
+      "politicalSignalScore": 11.1
     },
     {
       "id": "37197c7701db",
@@ -21572,7 +21760,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 5.8
+      "politicalSignalScore": 5.6
     },
     {
       "id": "81eb375d44fa",
@@ -21743,7 +21931,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 56.4
+      "politicalSignalScore": 56.2
     },
     {
       "id": "b617e4baa27e",
@@ -21768,7 +21956,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 52.8
+      "politicalSignalScore": 52.7
     },
     {
       "id": "fc12678f45a4",
@@ -21795,7 +21983,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "8bbbc8b96267",
@@ -21822,7 +22010,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.0
+      "politicalSignalScore": 43.8
     },
     {
       "id": "aa673d39c205",
@@ -21849,7 +22037,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.4
+      "politicalSignalScore": 43.3
     },
     {
       "id": "1612a02448f2",
@@ -21876,7 +22064,34 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.3
+      "politicalSignalScore": 41.1
+    },
+    {
+      "id": "f74b6cd93a9f",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "Lebanon receives first detainee of five to be freed by Israel",
+      "summary": "“It was decided to release five Lebanese civilians,” the office of Israeli Prime Minister Benjamin Netanyahu says after interrogations find no terror links.",
+      "source": "https://www.channelnewsasia.com/world/israel-release-five-lebanese-detainees-talks-6360656",
+      "time": "2026-09-03T18:48:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [
+        "Israel"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "channelnewsasia.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 41.1
     },
     {
       "id": "e4a1ce9ee168",
@@ -21901,7 +22116,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.4
+      "politicalSignalScore": 40.2
     },
     {
       "id": "c2f71f9f1279",
@@ -21926,7 +22141,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.2
+      "politicalSignalScore": 40.1
     },
     {
       "id": "a5fd09c6459f",
@@ -21953,7 +22168,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.7
     },
     {
       "id": "335a28ad89e1",
@@ -21982,7 +22197,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.2
+      "politicalSignalScore": 39.0
     },
     {
       "id": "890268c3bd5c",
@@ -22011,7 +22226,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "356ab75ed3f7",
@@ -22036,7 +22251,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.7
+      "politicalSignalScore": 36.5
     },
     {
       "id": "db855776bafb",
@@ -22061,7 +22276,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.0
+      "politicalSignalScore": 35.8
     },
     {
       "id": "41d7c8ee8c42",
@@ -22088,7 +22303,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.7
+      "politicalSignalScore": 35.6
     },
     {
       "id": "7e369d09a9ea",
@@ -22115,7 +22330,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.0
+      "politicalSignalScore": 32.8
     },
     {
       "id": "7aa4bb34682e",
@@ -22142,7 +22357,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.2
+      "politicalSignalScore": 31.0
     },
     {
       "id": "973b1ca1b2ea",
@@ -22167,7 +22382,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.5
+      "politicalSignalScore": 30.3
     },
     {
       "id": "884558a5687b",
@@ -22194,7 +22409,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.4
+      "politicalSignalScore": 30.3
     },
     {
       "id": "7b3f87bda84f",
@@ -22219,7 +22434,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.3
+      "politicalSignalScore": 29.1
     },
     {
       "id": "953f69f538b2",
@@ -22246,7 +22461,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "0859be90fbe5",
@@ -22273,7 +22488,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 12.5
+      "politicalSignalScore": 12.4
     },
     {
       "id": "750589f89281",
@@ -22303,7 +22518,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.8
+      "politicalSignalScore": 10.6
     }
   ],
   "economics": [
@@ -22572,57 +22787,38 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "economics"
-    },
-    {
-      "id": "140cbc83e4ff",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Japan’s Defense Ministry requests record $55.6 billion to fund ‘new ways of fighting’",
-      "summary": "Japan’s Defense Ministry asked for a record-high 8.9 trillion yen for the coming fiscal year, about $55.6 billion, with the cost of about 100 items left blank.",
-      "source": "https://www.stripes.com/theaters/asia_pacific/2026-08-31/japan-defense-budget-request-22687506.html",
-      "time": "2026-08-31T09:07:07+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "economics"
     }
   ],
   "layerCounts": {
-    "us-politics": 56,
-    "world-politics": 22,
-    "economics": 15,
-    "general": 207
+    "us-politics": 59,
+    "world-politics": 23,
+    "economics": 14,
+    "general": 204
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T22:45:26.497228+00:00",
+    "updatedAt": "2026-09-03T22:57:14.789870+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 78,
-    "usPoliticsSignals": 56,
-    "worldPoliticsSignals": 22,
+    "totalSignals": 82,
+    "usPoliticsSignals": 59,
+    "worldPoliticsSignals": 23,
     "corroboratedSignals": 4,
-    "singleSourceSignals": 74,
+    "singleSourceSignals": 78,
     "sourceCounts": {
       "foxnews.com": 14,
       "us.cnn.com": 9,
       "aljazeera.com": 8,
-      "theguardian.com": 8,
-      "channelnewsasia.com": 7,
-      "cnn.com": 6,
+      "channelnewsasia.com": 8,
+      "cnn.com": 7,
+      "theguardian.com": 7,
       "npr.org": 6,
       "news.google.com": 5,
       "stripes.com": 5,
       "dw.com": 4,
+      "edition.cnn.com": 4,
       "france24.com": 4,
-      "bbc.co.uk": 1,
-      "edition.cnn.com": 1
+      "bbc.co.uk": 1
     },
     "topSignals": [
       {
@@ -22685,7 +22881,7 @@
         "corroboratingSources": [
           "us.cnn.com"
         ],
-        "politicalSignalScore": 61.8
+        "politicalSignalScore": 61.6
       },
       {
         "id": "9a39adc43ca8",
@@ -22716,7 +22912,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 60.6
+        "politicalSignalScore": 60.4
       },
       {
         "id": "d92e4d396386",
@@ -22745,7 +22941,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 56.4
+        "politicalSignalScore": 56.2
       },
       {
         "id": "b617e4baa27e",
@@ -22770,7 +22966,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 52.8
+        "politicalSignalScore": 52.7
       },
       {
         "id": "fc12678f45a4",
@@ -22797,39 +22993,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 51.3
-      },
-      {
-        "id": "68c96c157303",
-        "sourceLabel": "The Guardian World",
-        "sourceType": "news",
-        "title": "Missouri supreme court throws out new congressional maps backed by Trump",
-        "summary": "Setback for Republicans in redistricting battle as court orders forbids maps from being used in November elections The Missouri supreme court has unanimously blocked new congressional districts backed by Donald Trump from being used in the November election and ordered a statewide vote on whether to uphold or reject the new map. The decision Thursday marks a rare setback for Republicans in a national redistricting ba",
-        "source": "https://www.theguardian.com/us-news/2026/sep/03/missouri-supreme-court-trump",
-        "time": "2026-09-03T22:38:41+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "guardian_world",
-          "sourceUrl": "https://www.theguardian.com/world/rss",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Supreme Court",
-          "Republicans"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Courts"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 48.9
+        "politicalSignalScore": 51.1
       },
       {
         "id": "e10d8c6173b8",
@@ -22856,7 +23020,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 48.7
+        "politicalSignalScore": 48.5
       },
       {
         "id": "4069b2ef9c4d",
@@ -22886,7 +23050,66 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 48.3
+        "politicalSignalScore": 48.1
+      },
+      {
+        "id": "9fd745a35feb",
+        "sourceLabel": "CNN Politics",
+        "sourceType": "news-mirror",
+        "title": "Trump asks Supreme Court to OK sweeping changes for mail ballots",
+        "summary": "",
+        "source": "https://edition.cnn.com/2026/09/03/politics/trump-asks-supreme-court-to-ok-sweeping-changes-for-mail-ballots",
+        "time": "2026-09-03T22:30:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cnn_politics",
+          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump",
+          "Supreme Court"
+        ],
+        "politicalTopics": [
+          "Courts"
+        ],
+        "sourceDomain": "edition.cnn.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 46.6
+      },
+      {
+        "id": "a387471e61ef",
+        "sourceLabel": "CNN Politics",
+        "sourceType": "news-mirror",
+        "title": "Trump administration enlists new contractor to clean up Reflecting Pool",
+        "summary": "",
+        "source": "https://www.cnn.com/2026/09/03/politics/reflecting-pool-contractor-algae",
+        "time": "2026-09-03T22:30:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cnn_politics",
+          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "cnn.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 46.6
       },
       {
         "id": "6c8bc690c87e",
@@ -22916,7 +23139,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.3
+        "politicalSignalScore": 46.1
       },
       {
         "id": "408a5192a823",
@@ -22945,7 +23168,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.6
+        "politicalSignalScore": 45.4
       },
       {
         "id": "2e5cd7b9be37",
@@ -22999,7 +23222,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.8
+        "politicalSignalScore": 44.6
       },
       {
         "id": "cc7fab12a4e5",
@@ -23026,7 +23249,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.8
+        "politicalSignalScore": 44.6
       },
       {
         "id": "8535608b212d",
@@ -23053,7 +23276,61 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.8
+        "politicalSignalScore": 44.6
+      },
+      {
+        "id": "171dabd88a0e",
+        "sourceLabel": "CNN Politics",
+        "sourceType": "news-mirror",
+        "title": "Fox News abruptly ousts Maria Bartiromo , a longtime Trump ally",
+        "summary": "",
+        "source": "https://edition.cnn.com/2026/09/03/media/maria-bartiromo-and-fox-part-ways",
+        "time": "2026-09-03T22:30:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cnn_politics",
+          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [],
+        "sourceDomain": "edition.cnn.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 44.6
+      },
+      {
+        "id": "3682147f02f9",
+        "sourceLabel": "CNN Politics",
+        "sourceType": "news-mirror",
+        "title": "Fact check : Vance repeats Trump fictional $19 trillion investment figure",
+        "summary": "",
+        "source": "https://edition.cnn.com/2026/09/03/politics/fact-check-vance-trump-trillions-invested",
+        "time": "2026-09-03T22:30:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cnn_politics",
+          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [],
+        "sourceDomain": "edition.cnn.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 44.6
       },
       {
         "id": "8bbbc8b96267",
@@ -23080,7 +23357,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.0
+        "politicalSignalScore": 43.8
       },
       {
         "id": "b4253dd015fc",
@@ -23107,7 +23384,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.6
+        "politicalSignalScore": 43.4
       },
       {
         "id": "da13648ad5ce",
@@ -23134,7 +23411,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.6
+        "politicalSignalScore": 43.4
       },
       {
         "id": "aa673d39c205",
@@ -23161,7 +23438,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.4
+        "politicalSignalScore": 43.3
       },
       {
         "id": "87abe9bea4a5",
@@ -23191,7 +23468,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.4
+        "politicalSignalScore": 43.2
       },
       {
         "id": "3ba400ddb739",
@@ -23222,7 +23499,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 42.1
+        "politicalSignalScore": 41.9
       },
       {
         "id": "9fbade295891",
@@ -23254,7 +23531,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.9
+        "politicalSignalScore": 41.7
       },
       {
         "id": "a5d592dedc0c",
@@ -23286,7 +23563,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.9
+        "politicalSignalScore": 41.7
       },
       {
         "id": "14645c604d74",
@@ -23313,7 +23590,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.8
+        "politicalSignalScore": 41.6
       },
       {
         "id": "1612a02448f2",
@@ -23340,7 +23617,34 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.3
+        "politicalSignalScore": 41.1
+      },
+      {
+        "id": "f74b6cd93a9f",
+        "sourceLabel": "CNA World",
+        "sourceType": "news",
+        "title": "Lebanon receives first detainee of five to be freed by Israel",
+        "summary": "“It was decided to release five Lebanese civilians,” the office of Israeli Prime Minister Benjamin Netanyahu says after interrogations find no terror links.",
+        "source": "https://www.channelnewsasia.com/world/israel-release-five-lebanese-detainees-talks-6360656",
+        "time": "2026-09-03T18:48:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cna_world",
+          "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [
+          "Israel"
+        ],
+        "politicalTopics": [],
+        "sourceDomain": "channelnewsasia.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 41.1
       },
       {
         "id": "e4a1ce9ee168",
@@ -23365,7 +23669,32 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.4
+        "politicalSignalScore": 40.2
+      },
+      {
+        "id": "c2f71f9f1279",
+        "sourceLabel": "Al Jazeera",
+        "sourceType": "news",
+        "title": "Syria begins destroying al-Assad-era chemical weapons materials",
+        "summary": "Syrian authorities undertake ⁠first such destruction in over a decade as former government officials face trial.",
+        "source": "https://www.aljazeera.com/news/2026/9/3/syria-begins-destroying-al-assad-era-chemical-weapons-materials?traffic_source=rss",
+        "time": "2026-09-03T17:40:51+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "al_jazeera",
+          "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [],
+        "sourceDomain": "aljazeera.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 40.1
       },
       {
         "id": "d0651b9f9065",
@@ -23394,32 +23723,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.3
-      },
-      {
-        "id": "c2f71f9f1279",
-        "sourceLabel": "Al Jazeera",
-        "sourceType": "news",
-        "title": "Syria begins destroying al-Assad-era chemical weapons materials",
-        "summary": "Syrian authorities undertake ⁠first such destruction in over a decade as former government officials face trial.",
-        "source": "https://www.aljazeera.com/news/2026/9/3/syria-begins-destroying-al-assad-era-chemical-weapons-materials?traffic_source=rss",
-        "time": "2026-09-03T17:40:51+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "al_jazeera",
-          "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [],
-        "politicalTopics": [],
-        "sourceDomain": "aljazeera.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 40.2
+        "politicalSignalScore": 40.1
       },
       {
         "id": "121c9b78c635",
@@ -23454,7 +23758,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.1
+        "politicalSignalScore": 39.9
       },
       {
         "id": "a8f6eada3b77",
@@ -23486,7 +23790,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.0
+        "politicalSignalScore": 39.8
       },
       {
         "id": "a5fd09c6459f",
@@ -23513,7 +23817,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.9
+        "politicalSignalScore": 39.7
       },
       {
         "id": "0fc963fbe9a6",
@@ -23541,7 +23845,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.7
+        "politicalSignalScore": 39.5
       },
       {
         "id": "cc40b4f6f36f",
@@ -23569,7 +23873,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.5
+        "politicalSignalScore": 39.3
       },
       {
         "id": "e5de1c2df6ac",
@@ -23596,7 +23900,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.3
+        "politicalSignalScore": 39.2
       },
       {
         "id": "335a28ad89e1",
@@ -23625,7 +23929,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.2
+        "politicalSignalScore": 39.0
       },
       {
         "id": "f087904d2867",
@@ -23652,7 +23956,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.0
+        "politicalSignalScore": 38.8
       },
       {
         "id": "aa033c582456",
@@ -23683,7 +23987,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.0
+        "politicalSignalScore": 38.8
       },
       {
         "id": "c6ceb9502a6c",
@@ -23712,7 +24016,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.6
+        "politicalSignalScore": 38.4
       },
       {
         "id": "890268c3bd5c",
@@ -23741,7 +24045,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.9
+        "politicalSignalScore": 36.7
       },
       {
         "id": "356ab75ed3f7",
@@ -23766,7 +24070,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.7
+        "politicalSignalScore": 36.5
       },
       {
         "id": "db855776bafb",
@@ -23791,7 +24095,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.0
+        "politicalSignalScore": 35.8
       },
       {
         "id": "41d7c8ee8c42",
@@ -23818,7 +24122,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.7
+        "politicalSignalScore": 35.6
       },
       {
         "id": "fa6dc7bcd69d",
@@ -23847,7 +24151,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.5
+        "politicalSignalScore": 35.3
       },
       {
         "id": "71c2f023cc8d",
@@ -23878,7 +24182,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.3
+        "politicalSignalScore": 35.1
       },
       {
         "id": "39715aa1890c",
@@ -23907,7 +24211,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.1
+        "politicalSignalScore": 35.0
       },
       {
         "id": "648d6749c712",
@@ -23934,7 +24238,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.0
+        "politicalSignalScore": 34.8
       },
       {
         "id": "8f72dc6bf787",
@@ -23962,7 +24266,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.7
+        "politicalSignalScore": 33.6
       },
       {
         "id": "f43c01e5cbeb",
@@ -23989,7 +24293,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.7
+        "politicalSignalScore": 33.6
       },
       {
         "id": "772547ad1bd2",
@@ -24019,7 +24323,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.4
+        "politicalSignalScore": 33.2
       },
       {
         "id": "7e369d09a9ea",
@@ -24046,7 +24350,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.0
+        "politicalSignalScore": 32.8
       },
       {
         "id": "99d3f0b739c1",
@@ -24074,7 +24378,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.1
+        "politicalSignalScore": 31.9
       },
       {
         "id": "7aa4bb34682e",
@@ -24101,7 +24405,7 @@
         "sourceDomain": "stripes.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.2
+        "politicalSignalScore": 31.0
       },
       {
         "id": "973b1ca1b2ea",
@@ -24126,7 +24430,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 30.5
+        "politicalSignalScore": 30.3
       },
       {
         "id": "884558a5687b",
@@ -24153,7 +24457,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 30.4
+        "politicalSignalScore": 30.3
       },
       {
         "id": "7ed6758be96b",
@@ -24185,7 +24489,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.8
+        "politicalSignalScore": 29.6
       },
       {
         "id": "7b3f87bda84f",
@@ -24210,123 +24514,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.3
-      },
-      {
-        "id": "3593d4dc7a14",
-        "sourceLabel": "Fox News Politics",
-        "sourceType": "news",
-        "title": "The primary is over; now come the primetime mistakes",
-        "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they're ready for the Senate.",
-        "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
-        "time": "2026-09-03T00:39:05+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "fox_politics",
-          "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "U.S. Senate"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "foxnews.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 28.3
-      },
-      {
-        "id": "953f69f538b2",
-        "sourceLabel": "CNA World",
-        "sourceType": "news",
-        "title": "US not 'stealing Venezuelan oil', energy secretary insists",
-        "summary": "US Energy Secretary Chris Wright says that while private oil companies are bringing money to produce the oil, \"the benefits, the royalties and the taxes all go to the government of Venezuela and the people of Venezuela\".",
-        "source": "https://www.channelnewsasia.com/world/us-not-stealing-venezuela-oil-energy-secretary-chris-wright-6359301",
-        "time": "2026-09-03T02:35:00+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "cna_world",
-          "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [],
-        "politicalTopics": [
-          "Economy"
-        ],
-        "sourceDomain": "channelnewsasia.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 28.1
-      },
-      {
-        "id": "eca0fc692bc0",
-        "sourceLabel": "The Guardian World",
-        "sourceType": "news",
-        "title": "Andy Burnham targets migrant crisis ahead of Macron’s visit to No 10",
-        "summary": "PM will aim to centre talks with French president on key foreign policy issues such as Iran, smuggling gangs and EU relations Andy Burnham will begin the process of courting European leaders when he welcomes Emmanuel Macron as the first foreign head of state to visit him in Downing Street. The prime minister will meet the French president at No 10 on Thursday as he looks to make inroads on a number of foreign policy ",
-        "source": "https://www.theguardian.com/politics/2026/sep/02/andy-burnham-migrant-crisis-macron-downing-street",
-        "time": "2026-09-02T21:30:35+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "guardian_world",
-          "sourceUrl": "https://www.theguardian.com/world/rss",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Iran",
-          "European Union"
-        ],
-        "politicalTopics": [
-          "Executive",
-          "Immigration",
-          "Foreign Policy"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 27.3
-      },
-      {
-        "id": "2a21cb0360a5",
-        "sourceLabel": "CNN Politics",
-        "sourceType": "news-mirror",
-        "title": "The GOP game of chicken over Ken Paxton in Texas is getting testy",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/09/02/politics/texas-senate-ken-paxton-trump",
-        "time": "2026-09-03T01:30:00+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "cnn_politics",
-          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Republicans"
-        ],
-        "politicalTopics": [],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 25.1
+        "politicalSignalScore": 29.1
       }
     ]
   },
@@ -24638,7 +24826,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T22:45:36.506601Z",
+    "updatedAt": "2026-09-03T22:57:23.798147Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -24646,7 +24834,7 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 66
+        "mentions": 68
       },
       {
         "id": "u-s-politics",
@@ -24655,14 +24843,14 @@
         "mentions": 22
       },
       {
-        "id": "iran",
-        "label": "Iran",
-        "kind": "actor",
-        "mentions": 21
-      },
-      {
         "id": "israel",
         "label": "Israel",
+        "kind": "actor",
+        "mentions": 22
+      },
+      {
+        "id": "iran",
+        "label": "Iran",
         "kind": "actor",
         "mentions": 21
       },
@@ -24685,22 +24873,16 @@
         "mentions": 11
       },
       {
-        "id": "japan",
-        "label": "Japan",
-        "kind": "actor",
-        "mentions": 10
-      },
-      {
         "id": "oil-markets",
         "label": "Oil Markets",
         "kind": "economic",
         "mentions": 9
       },
       {
-        "id": "strait-of-hormuz",
-        "label": "Strait of Hormuz",
-        "kind": "strategic",
-        "mentions": 7
+        "id": "japan",
+        "label": "Japan",
+        "kind": "actor",
+        "mentions": 8
       },
       {
         "id": "russia",
@@ -24713,6 +24895,12 @@
         "label": "Ukraine",
         "kind": "actor",
         "mentions": 7
+      },
+      {
+        "id": "strait-of-hormuz",
+        "label": "Strait of Hormuz",
+        "kind": "strategic",
+        "mentions": 6
       },
       {
         "id": "canada",
@@ -24730,7 +24918,7 @@
         "id": "lebanon",
         "label": "Lebanon",
         "kind": "actor",
-        "mentions": 3
+        "mentions": 4
       },
       {
         "id": "south-korea",
@@ -24749,10 +24937,10 @@
         ],
         "evidence": [
           {
-            "title": "Missouri supreme court throws out new congressional maps backed by Trump",
+            "title": "Trump asks Supreme Court to OK sweeping changes for mail ballots",
             "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T22:38:41+00:00"
+            "source": "CNN Politics",
+            "time": "2026-09-03T22:30:00+00:00"
           },
           {
             "title": "Swing voters say Trump hasn't delivered on his promise to lower prices",
@@ -24896,40 +25084,6 @@
         ]
       },
       {
-        "source": "United States",
-        "target": "Japan",
-        "weight": 4,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "US, Japan, Australia test AI and ‘kill web’ during Yama Sakura exercise",
-            "url": "",
-            "source": "Stars and Stripes",
-            "time": "2026-09-03T07:54:17+00:00"
-          },
-          {
-            "title": "US, Japanese medics practice overcoming language barriers in a disaster",
-            "url": "",
-            "source": "Stars and Stripes",
-            "time": "2026-09-02T09:06:11+00:00"
-          },
-          {
-            "title": "American tourist accused of setting Okinawa hotel fire where Marine helped rescue guests",
-            "url": "",
-            "source": "Stars and Stripes",
-            "time": "2026-09-02T06:48:56+00:00"
-          },
-          {
-            "title": "Japan’s first Tomahawk-capable destroyer returns home after US upgrades",
-            "url": "",
-            "source": "Stars and Stripes",
-            "time": "2026-08-31T07:54:26+00:00"
-          }
-        ]
-      },
-      {
         "source": "Strait of Hormuz",
         "target": "Oil Markets",
         "weight": 4,
@@ -24958,38 +25112,9 @@
         ]
       },
       {
-        "source": "Iran",
-        "target": "Strait of Hormuz",
-        "weight": 3,
-        "types": [
-          "conflict",
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
-            "url": "",
-            "source": "CNN Politics",
-            "time": "2026-09-03T23:30:00+00:00"
-          },
-          {
-            "title": "Iran says it launched retaliatory strikes on bases hosting US troops in Middle East",
-            "url": "",
-            "source": "Stars and Stripes",
-            "time": "2026-08-31T12:27:35+00:00"
-          },
-          {
-            "title": "Iran / Strait of Hormuz",
-            "url": "",
-            "source": "Conflict record",
-            "time": ""
-          }
-        ]
-      },
-      {
         "source": "Israel",
         "target": "Lebanon",
-        "weight": 3,
+        "weight": 4,
         "types": [
           "story"
         ],
@@ -25158,6 +25283,57 @@
       },
       {
         "source": "United States",
+        "target": "Japan",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "US, Japan, Australia test AI and ‘kill web’ during Yama Sakura exercise",
+            "url": "",
+            "source": "Stars and Stripes",
+            "time": "2026-09-03T07:54:17+00:00"
+          },
+          {
+            "title": "US, Japanese medics practice overcoming language barriers in a disaster",
+            "url": "",
+            "source": "Stars and Stripes",
+            "time": "2026-09-02T09:06:11+00:00"
+          },
+          {
+            "title": "American tourist accused of setting Okinawa hotel fire where Marine helped rescue guests",
+            "url": "",
+            "source": "Stars and Stripes",
+            "time": "2026-09-02T06:48:56+00:00"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Strait of Hormuz",
+        "weight": 2,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
+            "url": "",
+            "source": "CNN Politics",
+            "time": "2026-09-03T23:30:00+00:00"
+          },
+          {
+            "title": "Iran / Strait of Hormuz",
+            "url": "",
+            "source": "Conflict record",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "source": "United States",
         "target": "Oil Markets",
         "weight": 2,
         "types": [
@@ -25273,7 +25449,7 @@
     "online": 16,
     "degraded": 0,
     "failed": 14,
-    "lastChecked": "2026-09-03T22:45:38.505521+00:00",
+    "lastChecked": "2026-09-03T22:57:25.599231+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
   "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
