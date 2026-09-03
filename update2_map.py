@@ -8,31 +8,33 @@ s = s.replace("if(e.target===back)close());", "if(e.target===back)close()});")
 css = r'''<style id="gp-map-pro-css">
 /* Global Pulse Update 2 — clean professional intelligence map */
 .gp-map-tools{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}.gp-map-tool{border:1px solid #29445f;background:#081522;color:#b9cbe0;border-radius:8px;padding:7px 10px;font:600 10px/1 system-ui;cursor:pointer}.gp-map-tool.active{border-color:#6b9bd0;background:#10243a;color:#eef6ff}.gp-map-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;padding:9px 10px;border:1px solid #1d3349;border-radius:9px;background:#07111b;color:#8196aa;font-size:10px}.gp-map-legend span{display:inline-flex;align-items:center;gap:5px}.gp-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.gp-dot.conflict{background:#ef6262}.gp-dot.osint{background:#e0ad54}.gp-dot.diplomatic{background:#67a0df}.gp-dot.economic{background:#8d76c9}.gp-dot.humanitarian{background:#69b98b}.gp-map-status{font-size:10px;color:#70879c;margin-left:auto}.grid>.panel{align-self:start}
+#gpBrief{display:none!important}
 @media(max-width:720px){.gp-map-tools{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.gp-map-tool{white-space:nowrap}.gp-map-status{width:100%;margin-left:0}}
 </style>'''
 
-# Replace the Update 2 CSS on every run so versions cannot stack.
+# Replace the Update 2 CSS on every run.
 s=re.sub(r'<style id="gp-map-pro-css">.*?</style>',css,s,count=1,flags=re.S)
-if 'id="gp-map-pro-css"' not in s:
-    s=s.replace('</head>',css+'\n</head>',1)
+if 'id="gp-map-pro-css"' not in s:s=s.replace('</head>',css+'\n</head>',1)
 
-# Remove every older appended UI script. These were the source of duplicated
-# handlers, duplicate map filters, and conflicting map behavior.
+# Remove every legacy injected script from previous attempts. These scripts
+# caused duplicate click handlers, duplicate map controls, and modal conflicts.
 legacy_patterns=[
     r'<script>\s*/\* Global Pulse: capture-phase conflict click fix v2 \*/.*?</script>',
     r'<script>\s*/\* Global Pulse: capture-phase conflict click fix v3 \*/.*?</script>',
     r'<script>\s*/\* Global Pulse: capture-phase conflict click \+ intelligence brief/watchlist v4 \*/.*?</script>',
     r'<script>\s*/\* Global Pulse: intelligence brief \+ watchlist \+ reliable conflict focus \*/.*?</script>',
+    r'<script>\s*/\* Global Pulse:.*?intelligence brief.*?</script>',
+    r'<script>\s*/\* Global Pulse:.*?capture-phase conflict.*?</script>',
     r'<script id="gp-map-pro-js">.*?</script>'
 ]
 for pattern in legacy_patterns:
-    s=re.sub(pattern,'',s,count=1,flags=re.S)
+    s=re.sub(pattern,'',s,count=1,flags=re.S|re.I)
 
-# Remove any duplicate command-center brief left by a previous injected script.
-s=re.sub(r'<section[^>]*id="gpBrief"[^>]*>.*?</section>','',s,count=1,flags=re.S)
+# Remove any stale dynamically-generated brief markup if it was persisted.
+s=re.sub(r'<section[^>]*id="gpBrief"[^>]*>.*?</section>','',s,count=1,flags=re.S|re.I)
 
 js = r'''<script id="gp-map-pro-js">
-/* Update 2: single clean map controller */
+/* Update 2: one authoritative map filter controller */
 (function(){
   const typeOf=m=>{const t=String(m?.eventType||m?.type||'conflict').toLowerCase();if(/osint|social|source map/.test(t))return'osint';if(/diplomat|talk|ceasefire|negoti/.test(t))return'diplomatic';if(/economic|market|sanction|trade|oil/.test(t))return'economic';if(/humanitarian|aid|displacement|refugee/.test(t))return'humanitarian';return'conflict'};
   const data=()=>Array.isArray(window.DATA?.markers)?window.DATA.markers:[];
@@ -41,6 +43,7 @@ js = r'''<script id="gp-map-pro-js">
     document.querySelectorAll('.map-tools,.map-filters,#mapFilters,#mapFilterBar,[data-map-controls="legacy"]').forEach(el=>el.remove());
     [...document.querySelectorAll('#gpMapTools')].slice(1).forEach(el=>el.remove());
     [...document.querySelectorAll('#gpMapLegend')].slice(1).forEach(el=>el.remove());
+    [...document.querySelectorAll('.legend')].filter(el=>el.closest('#mapSection')&&el.id!=='gpMapLegend').forEach(el=>el.remove());
   }
 
   function ensureTools(){
@@ -75,16 +78,11 @@ js = r'''<script id="gp-map-pro-js">
     el.textContent=n+' map signal'+(n===1?'':'s');
   }
 
-  function boot(){
-    ensureTools();
-    updateStatus();
-  }
-
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,250));
-  else setTimeout(boot,250);
+  function boot(){ensureTools();updateStatus()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,250));else setTimeout(boot,250);
 })();
 </script>'''
 s=s.replace('</body>',js+'\n</body>',1)
 
 p.write_text(s,encoding='utf-8')
-print('Single clean map controller applied')
+print('Legacy UI scripts purged; single map controller installed')
