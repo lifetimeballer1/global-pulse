@@ -53,6 +53,10 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 
 
 
+
+
+
+
 <style id="gp-evidence-css">
 /* Global Pulse Update 3 — OSINT & Evidence Center */
 .evidence-panel{margin-top:14px}.evidence-grid{display:grid;grid-template-columns:1.05fr 1.4fr 1fr;gap:12px}.evidence-card{background:#08111b;border:1px solid var(--line);border-radius:11px;padding:12px;min-width:0}.evidence-card h3{margin:0 0 9px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.evidence-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.evidence-kpi{padding:9px;border:1px solid var(--line);border-radius:9px;background:#091622}.evidence-kpi b{display:block;font-size:19px}.evidence-kpi span{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.evidence-list{display:grid;gap:7px;max-height:390px;overflow:auto}.evidence-row{padding:9px;border:1px solid var(--line);border-radius:9px;background:#091521}.evidence-row strong{display:block;font-size:11px;line-height:1.35}.evidence-meta{font-size:9px;color:var(--muted);margin-top:4px}.evidence-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.evidence-link{display:inline-block;padding:5px 7px;border:1px solid rgba(98,160,255,.3);border-radius:6px;color:var(--blue);font-size:9px}.evidence-state{font-size:9px;font-weight:850;letter-spacing:.06em;padding:3px 5px;border-radius:5px;display:inline-block;margin-bottom:5px}.evidence-state.verified{color:var(--green);background:rgba(72,223,131,.1)}.evidence-state.multi{color:var(--blue);background:rgba(98,160,255,.1)}.evidence-state.unverified{color:var(--amber);background:rgba(255,200,87,.1)}.evidence-state.map{color:#e0ad54;background:rgba(224,173,84,.1)}.evidence-bar{height:7px;background:#06101a;border:1px solid #142334;border-radius:99px;overflow:hidden}.evidence-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--amber),var(--green))}.evidence-note{font-size:10px;color:var(--muted);line-height:1.5;margin:8px 0 0}.evidence-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}.evidence-filter button{min-height:30px;padding:5px 8px;font-size:9px}.evidence-timeline{position:relative;padding-left:15px}.evidence-timeline:before{content:"";position:absolute;left:4px;top:3px;bottom:3px;width:1px;background:#29445f}.evidence-event{position:relative;padding:0 0 11px 8px}.evidence-event:before{content:"";position:absolute;left:-14px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(98,160,255,.1)}.evidence-event b{font-size:10px}.evidence-event div{font-size:9px;color:var(--muted);margin-top:2px}.contradiction{border-left:2px solid var(--amber)}
@@ -70,10 +74,26 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 /* Global Pulse Update 5 — final command-center polish */
 .gp-finalbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;margin:12px 0;border:1px solid var(--line);border-radius:11px;background:#08131e}.gp-finalbar .fresh{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}.gp-finalbar .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(72,223,131,.1)}.gp-finalbar button{min-height:32px;padding:6px 10px}.gp-method{font-size:10px;color:var(--muted);line-height:1.55}.gp-method b{color:var(--text)}.leaflet-container{font:12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.leaflet-control-attribution{font-size:8px}.panel{contain:layout paint}.story,.item,.ccard,.evidence-card{content-visibility:auto;contain-intrinsic-size:120px}.open,.map-source,button,.filter{touch-action:manipulation}@media(max-width:720px){.gp-finalbar{align-items:flex-start}.gp-finalbar button{flex-shrink:0}.gp-method{font-size:9px}}
 </style>
-<style id="gp-graph-css">.gp-graph{margin:22px 0;border:1px solid rgba(148,163,184,.14);border-radius:18px;background:linear-gradient(180deg,rgba(15,23,42,.98),rgba(9,14,26,.98));overflow:hidden}.gp-graph-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px;border-bottom:1px solid rgba(148,163,184,.12)}.gp-graph-title{font-size:18px;font-weight:800}.gp-graph-sub{margin-top:5px;color:#94a3b8;font-size:12px;line-height:1.5}.gp-graph-tools{display:flex;gap:6px;flex-wrap:wrap}.gp-graph-tools button{border:1px solid rgba(148,163,184,.18);background:#111827;color:#cbd5e1;border-radius:999px;padding:7px 10px;font-size:11px;cursor:pointer}.gp-graph-tools button.active{background:#1e293b;color:#fff;border-color:rgba(96,165,250,.5)}.gp-graph-body{min-height:460px}.gp-graph svg{width:100%;height:460px;display:block}.gp-edge{stroke:rgba(148,163,184,.22)}.gp-node{cursor:pointer}.gp-node circle{fill:#152235;stroke:rgba(255,255,255,.2);stroke-width:1.2}.gp-node.conflict circle{fill:#3a2025;stroke:#ff6678}.gp-node text{fill:#cbd5e1;font-size:9px;pointer-events:none}.gp-graph-note{padding:11px 20px;color:#64748b;font-size:10px;border-top:1px solid rgba(148,163,184,.1)}@media(max-width:700px){.gp-graph-head{display:block}.gp-graph-tools{margin-top:12px}.gp-graph-body,.gp-graph svg{min-height:390px;height:390px}.gp-node text{font-size:8px}}</style><style id="gp-brand-live-css">.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}.gp-footer-credit{margin:18px 0 8px;text-align:center;color:#566b80;font-size:10px;letter-spacing:.08em}.gp-footer-credit b{color:#91a4b8}@media(max-width:520px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}}</style></head>
+<style id="gp-graph-css">.gp-graph{margin:22px 0;border:1px solid rgba(148,163,184,.14);border-radius:18px;background:linear-gradient(180deg,rgba(15,23,42,.98),rgba(9,14,26,.98));overflow:hidden}.gp-graph-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px;border-bottom:1px solid rgba(148,163,184,.12)}.gp-graph-title{font-size:18px;font-weight:800}.gp-graph-sub{margin-top:5px;color:#94a3b8;font-size:12px;line-height:1.5}.gp-graph-tools{display:flex;gap:6px;flex-wrap:wrap}.gp-graph-tools button{border:1px solid rgba(148,163,184,.18);background:#111827;color:#cbd5e1;border-radius:999px;padding:7px 10px;font-size:11px;cursor:pointer}.gp-graph-tools button.active{background:#1e293b;color:#fff;border-color:rgba(96,165,250,.5)}.gp-graph-body{min-height:460px}.gp-graph svg{width:100%;height:460px;display:block}.gp-edge{stroke:rgba(148,163,184,.22)}.gp-node{cursor:pointer}.gp-node circle{fill:#152235;stroke:rgba(255,255,255,.2);stroke-width:1.2}.gp-node.conflict circle{fill:#3a2025;stroke:#ff6678}.gp-node text{fill:#cbd5e1;font-size:9px;pointer-events:none}.gp-graph-note{padding:11px 20px;color:#64748b;font-size:10px;border-top:1px solid rgba(148,163,184,.1)}@media(max-width:700px){.gp-graph-head{display:block}.gp-graph-tools{margin-top:12px}.gp-graph-body,.gp-graph svg{min-height:390px;height:390px}.gp-node text{font-size:8px}}</style><style id="gp-brand-live-css">.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}.gp-footer-credit{margin:18px 0 8px;text-align:center;color:#566b80;font-size:10px;letter-spacing:.08em}.gp-footer-credit b{color:#91a4b8}@media(max-width:520px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}}</style>
+<style id="gp-own-map-css">
+/* Global Pulse — self-owned intelligence map */
+.gp-own-map-tools{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 10px}
+.gp-own-map-btn{border:1px solid #263c53;background:#07131f;color:#a9bfd4;border-radius:8px;padding:8px 10px;font:700 10px/1 system-ui;cursor:pointer;white-space:nowrap}
+.gp-own-map-btn:hover{border-color:#4d6f92;color:#eef6ff}.gp-own-map-btn.active{border-color:#69a5e6;background:#10263d;color:#fff}
+.gp-own-map-search{flex:1;min-width:190px}.gp-own-map-search input{width:100%;min-width:0}
+.gp-own-map-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:0 0 9px;padding:8px 10px;border:1px solid #1b2d40;border-radius:9px;background:#06101a;color:#7890a7;font-size:10px}
+.gp-own-map-meta b{color:#e9f3ff}.gp-own-map-key{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 9px;color:#71869b;font-size:10px}.gp-own-map-key span{display:inline-flex;align-items:center;gap:5px}.gp-own-map-key i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.gp-own-map-key .c{background:#ff6678}.gp-own-map-key .o{background:#ffc857}.gp-own-map-key .s{background:#62a0ff}.gp-own-map-key .h{background:#48df83}.gp-own-map-key .e{background:#aa8df7}
+#map.gp-own-map{height:570px!important;background:#07111b}.gp-own-map .leaflet-control-layers{background:#07111b;color:#dce9f7;border:1px solid #20364c}.gp-own-map .leaflet-control-layers label{font-size:11px}.gp-own-map .leaflet-bar a{background:#07111b;color:#dce9f7;border-color:#20364c}
+.gp-map-popup{min-width:230px;max-width:310px}.gp-map-popup h4{margin:0 0 7px;font-size:14px;line-height:1.25}.gp-map-popup .gp-p-tag{display:inline-block;margin:0 4px 5px 0;padding:3px 6px;border:1px solid #29445f;border-radius:5px;color:#9eb5ca;font-size:9px;font-weight:850;text-transform:uppercase}.gp-map-popup p{margin:6px 0;color:#91a4b8;font-size:11px;line-height:1.45}.gp-map-popup a{display:inline-block;margin-top:5px;color:#69a5ea;font-size:11px;font-weight:800}.gp-node-pulse{border-radius:50%;box-shadow:0 0 0 5px rgba(98,160,255,.08),0 0 22px rgba(98,160,255,.22)}
+.gp-map-error{padding:16px;border:1px solid #5b2b35;background:#1b0d12;color:#ff9aa6;border-radius:10px;font-size:12px}
+@media(max-width:720px){#map.gp-own-map{height:430px!important}.gp-own-map-tools{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.gp-own-map-btn{flex:0 0 auto}.gp-own-map-search{min-width:150px;flex:1}.gp-own-map-meta{align-items:flex-start;flex-direction:column;gap:3px}}
+</style>
+</head>
 <body>
-<header><div class="gp-brand-wrap"><div class="gp-brand-wrap"><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><span class="gp-brand-credit">Made by J.S.</span></div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
+<header><div class="gp-brand-wrap"><div class="gp-brand-wrap"><div class="gp-brand-wrap"><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><span class="gp-brand-credit">Made by J.S.</span></div><span class="gp-brand-credit">Made by J.S.</span></div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
 <div class="gp-finalbar" id="gpFinalBar"><div><div class="fresh"><span class="dot"></span><span id="gpFreshText">DATA PIPELINE ACTIVE</span></div><div class="gp-method"><b>Methodology:</b> public-source aggregation · recency-weighted theater signals · provenance shown separately from severity.</div></div><button class="filter" id="gpTopRefresh" type="button">Refresh view</button></div>
+
 
 
 
@@ -106,6 +126,15 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 <div class="evidence-card"><h3>Recent evidence</h3><div class="evidence-filter"><button class="filter active" data-evfilter="all">All</button><button class="filter" data-evfilter="osint">OSINT</button><button class="filter" data-evfilter="news">Reporting</button></div><div class="evidence-list" id="evidenceList"></div></div>
 <div class="evidence-card"><h3>Verification &amp; timeline</h3><div id="verificationBars"></div><div class="drawer-section" style="margin-top:10px"><div class="label">Latest signal timeline</div><div class="evidence-timeline" id="evidenceTimeline"></div></div></div>
 </div></section>
+<section class="panel evidence-panel" id="evidenceCenter">
+<div class="section-head"><div><h2>OSINT &amp; Evidence Center</h2><div class="muted">Provenance-first view of public reporting and source-map signals. Reported does not mean verified.</div></div><span class="tag amber">EVIDENCE LAYER</span></div>
+<div class="evidence-grid">
+<div class="evidence-card"><h3>Evidence posture</h3><div class="evidence-kpis"><div class="evidence-kpi"><b id="evTotal">—</b><span>Signals</span></div><div class="evidence-kpi"><b id="evSources">—</b><span>Sources</span></div><div class="evidence-kpi"><b id="evUnverified">—</b><span>Unverified</span></div></div><p class="evidence-note" id="evNote">Loading provenance data…</p></div>
+<div class="evidence-card"><h3>Recent evidence</h3><div class="evidence-filter"><button class="filter active" data-evfilter="all">All</button><button class="filter" data-evfilter="osint">OSINT</button><button class="filter" data-evfilter="news">Reporting</button></div><div class="evidence-list" id="evidenceList"></div></div>
+<div class="evidence-card"><h3>Verification &amp; timeline</h3><div id="verificationBars"></div><div class="drawer-section" style="margin-top:10px"><div class="label">Latest signal timeline</div><div class="evidence-timeline" id="evidenceTimeline"></div></div></div>
+</div></section>
+
+
 <section class="panel evidence-panel" id="evidenceCenter">
 <div class="section-head"><div><h2>OSINT &amp; Evidence Center</h2><div class="muted">Provenance-first view of public reporting and source-map signals. Reported does not mean verified.</div></div><span class="tag amber">EVIDENCE LAYER</span></div>
 <div class="evidence-grid">
@@ -178,6 +207,14 @@ function renderMap(){if(!map||!markerLayer)return;markerLayer.clearLayers();cons
 async function load(){try{const [a,b]=await Promise.all([fetch('data/snapshot.json?ts='+Date.now(),{cache:'no-store'}),fetch('data/history.json?ts='+Date.now(),{cache:'no-store'})]);if(!a.ok)throw new Error('snapshot unavailable');DATA=await a.json();DATA.history=b.ok?await b.json():[];renderTop();renderChanges();renderConflicts();renderStories();renderStatus();drawChart();renderMap()}catch(e){$('liveText').textContent='DATA ERROR';$('liveDot').style.background='var(--red)';$('status').innerHTML=`<span class="error">${esc(e.message)}</span><br>Open the site again after the GitHub data refresh completes.`;renderConflicts()}}
 $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConflicts()});document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeRegion=b.dataset.region;allConflicts=false;renderConflicts()}));$('toggleConflicts').addEventListener('click',()=>{allConflicts=!allConflicts;renderConflicts();if(allConflicts)$('conflictList').scrollIntoView({behavior:'smooth',block:'nearest'})});document.querySelectorAll('[data-news]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-news]').forEach(x=>x.classList.remove('active'));b.classList.add('active');newsMode=b.dataset.news;renderStories()}));document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-layer]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeLayer=b.dataset.layer;renderMap()}));$('fit').addEventListener('click',()=>{if(markerLayer&&markerLayer.getLayers().length)map.fitBounds(markerLayer.getBounds().pad(.12))});$('drawerClose').addEventListener('click',closeDrawer);$('drawerBackdrop').addEventListener('click',closeDrawer);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});window.addEventListener('popstate',closeDrawer);window.addEventListener('resize',()=>{drawChart();map?.invalidateSize()});initMap();load();setInterval(load,300000);
 </script>
+
+
+
+
+
+
+
+
 
 
 
@@ -390,5 +427,87 @@ $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConfl
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire);else wire();
 })();
 </script>
-<script id="gp-graph-js">(function(){function draw(region){const svg=document.getElementById('gpGraphSvg'),note=document.getElementById('gpGraphNote'),g=window.DATA&&DATA.globalGraph;if(!svg||!g)return;let ns=g.nodes.filter(n=>region==='ALL'||n.region===region);if(ns.length>75)ns=ns.sort((a,b)=>(b.signalCount||0)-(a.signalCount||0)).slice(0,75);const keep=new Set(ns.map(n=>n.id));const es=g.edges.filter(e=>keep.has(e.source)&&keep.has(e.target));const by=new Map(ns.map(n=>[n.id,n])),W=1100,H=460,cx=W/2,cy=H/2;ns.forEach((n,i)=>{const a=i/ns.length*Math.PI*2,r=n.type==='conflict'?135:205; n.x=cx+Math.cos(a)*r*(region==='ALL'?1.35:1.55);n.y=cy+Math.sin(a)*r*.86});svg.innerHTML=es.map(e=>{const a=by.get(e.source),b=by.get(e.target);return a&&b?`<line class="gp-edge" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}" stroke-width="${Math.max(1,(e.weight||1)/2)}"/>`:''}).join('')+ns.map(n=>{const r=n.type==='conflict'?7:Math.max(4,Math.min(10,4+(n.signalCount||0)/8));return `<g class="gp-node ${n.type}" transform="translate(${n.x.toFixed(1)},${n.y.toFixed(1)})"><circle r="${r}"/><text x="${r+5}" y="3">${String(n.label).replace(/&/g,'&amp;').replace(/</g,'&lt;').slice(0,24)}</text></g>`}).join('');note.textContent=`${ns.length} nodes · ${es.length} evidence-linked relationships · ${region==='ALL'?'world view':region+' view'}`;}document.querySelectorAll('[data-graph-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-graph-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');draw(b.dataset.graphRegion)}));draw('ALL')})();</script></body>
+<script id="gp-graph-js">(function(){function draw(region){const svg=document.getElementById('gpGraphSvg'),note=document.getElementById('gpGraphNote'),g=window.DATA&&DATA.globalGraph;if(!svg||!g)return;let ns=g.nodes.filter(n=>region==='ALL'||n.region===region);if(ns.length>75)ns=ns.sort((a,b)=>(b.signalCount||0)-(a.signalCount||0)).slice(0,75);const keep=new Set(ns.map(n=>n.id));const es=g.edges.filter(e=>keep.has(e.source)&&keep.has(e.target));const by=new Map(ns.map(n=>[n.id,n])),W=1100,H=460,cx=W/2,cy=H/2;ns.forEach((n,i)=>{const a=i/ns.length*Math.PI*2,r=n.type==='conflict'?135:205; n.x=cx+Math.cos(a)*r*(region==='ALL'?1.35:1.55);n.y=cy+Math.sin(a)*r*.86});svg.innerHTML=es.map(e=>{const a=by.get(e.source),b=by.get(e.target);return a&&b?`<line class="gp-edge" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}" stroke-width="${Math.max(1,(e.weight||1)/2)}"/>`:''}).join('')+ns.map(n=>{const r=n.type==='conflict'?7:Math.max(4,Math.min(10,4+(n.signalCount||0)/8));return `<g class="gp-node ${n.type}" transform="translate(${n.x.toFixed(1)},${n.y.toFixed(1)})"><circle r="${r}"/><text x="${r+5}" y="3">${String(n.label).replace(/&/g,'&amp;').replace(/</g,'&lt;').slice(0,24)}</text></g>`}).join('');note.textContent=`${ns.length} nodes · ${es.length} evidence-linked relationships · ${region==='ALL'?'world view':region+' view'}`;}document.querySelectorAll('[data-graph-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-graph-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');draw(b.dataset.graphRegion)}));draw('ALL')})();</script>
+<script id="gp-own-map-js">
+(function(){
+  'use strict';
+  try {
+    const DATA = window.DATA || {};
+    let host = document.getElementById('map');
+    if(!host || !window.L) return;
+
+    /* The previous dashboard initializes #map first. Replace the DOM node so
+       Leaflet receives a completely fresh container instead of throwing. */
+    const fresh = host.cloneNode(false);
+    fresh.removeAttribute('data-gp-own-map');
+    host.replaceWith(fresh);
+    host = fresh;
+    host.dataset.gpOwnMap='1';
+    host.classList.add('gp-own-map');
+
+    const all = Array.isArray(DATA.markers) ? DATA.markers : [];
+    const esc = x => String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const classify = m => {
+      const s=((m.type||'')+' '+(m.eventType||'')+' '+(m.source||'')).toLowerCase();
+      if(/hazard|earthquake|storm|flood|volcano|fire/.test(s)) return 'hazard';
+      if(/organized|cartel/.test(s)) return 'organized';
+      if(/strategic|reference|chokepoint|flashpoint|node/.test(s)) return 'strategic';
+      if(s.includes('diplomatic')) return 'diplomatic';
+      if(s.includes('economic')) return 'economic';
+      if(s.includes('humanitarian')) return 'humanitarian';
+      if(/osint|source map|war news/.test(s)) return 'osint';
+      return 'conflict';
+    };
+    const color = k => ({conflict:'#ff6678',osint:'#ffc857',organized:'#fb923c',strategic:'#62a0ff',hazard:'#aa8df7',diplomatic:'#6fa7e8',economic:'#aa8df7',humanitarian:'#48df83'}[k]||'#62a0ff');
+    const valid=all.filter(m=>Number.isFinite(+m.lat)&&Number.isFinite(+m.lng));
+
+    const map=L.map(host,{worldCopyJump:true,zoomControl:true,preferCanvas:true,minZoom:2,maxZoom:12}).setView([20,0],2);
+    const dark=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+    const satellite=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Tiles &copy; Esri'});
+
+    const parent=host.parentElement;
+    const controls=document.createElement('div');
+    controls.className='gp-own-map-tools';
+    controls.innerHTML='<button class="gp-own-map-btn active" data-layer="all">ALL</button><button class="gp-own-map-btn" data-layer="conflict">CONFLICT</button><button class="gp-own-map-btn" data-layer="osint">OSINT</button><button class="gp-own-map-btn" data-layer="organized">ORGANIZED CRIME</button><button class="gp-own-map-btn" data-layer="strategic">STRATEGIC</button><button class="gp-own-map-btn" data-layer="hazard">HAZARDS</button><label class="gp-own-map-search"><input id="gpMapSearch" autocomplete="off" placeholder="Search country, city, event or source…"></label>';
+    const meta=document.createElement('div');meta.className='gp-own-map-meta';meta.innerHTML='<span><b id="gpMapShown">0</b> mapped signals</span><span>Last data refresh: <b>'+esc(DATA.updatedAt||'unknown')+'</b></span>';
+    const key=document.createElement('div');key.className='gp-own-map-key';key.innerHTML='<span><i class="c"></i>Conflict</span><span><i class="o"></i>OSINT</span><span><i style="background:#fb923c"></i>Organized crime</span><span><i class="s"></i>Strategic</span><span><i class="h"></i>Hazard</span>';
+    parent.insertBefore(controls,host);parent.insertBefore(meta,host);parent.insertBefore(key,host);
+
+    const groups={};
+    ['conflict','osint','organized','strategic','hazard','diplomatic','economic','humanitarian'].forEach(k=>groups[k]=L.layerGroup().addTo(map));
+    const makeMarker=m=>{
+      const k=classify(m),c=color(k),size=k==='strategic'?16:10;
+      const icon=L.divIcon({className:'',html:'<div class="gp-node-pulse" style="width:'+size+'px;height:'+size+'px;background:'+c+';border:2px solid #07111b"></div>',iconSize:[size,size],iconAnchor:[size/2,size/2]});
+      const marker=L.marker([+m.lat,+m.lng],{icon});
+      const source=m.source||'Global Pulse',url=m.url||m.sourceUrl||'';
+      marker.bindPopup('<div class="gp-map-popup"><h4>'+esc(m.title||m.name||'Signal')+'</h4><span class="gp-p-tag">'+esc(k)+'</span><span class="gp-p-tag">'+esc(source)+'</span>'+(m.confidence?'<span class="gp-p-tag">'+esc(m.confidence)+'</span>':'')+'<p>'+esc(m.detail||'Mapped intelligence signal.')+'</p>'+(m.region?'<p><b>Region:</b> '+esc(m.region)+'</p>':'')+(url?'<a target="_blank" rel="noopener noreferrer" href="'+esc(url)+'">Open source ↗</a>':'')+'</div>',{maxWidth:320});
+      return marker;
+    };
+
+    const overlays={};Object.keys(groups).forEach(k=>overlays[k.charAt(0).toUpperCase()+k.slice(1)]=groups[k]);
+    L.control.layers({'Dark':dark,'Satellite':satellite},overlays,{collapsed:true,position:'topright'}).addTo(map);
+    let active='all',query='';
+    function redraw(){
+      Object.values(groups).forEach(g=>g.clearLayers());
+      let count=0;
+      for(const m of valid){
+        const k=classify(m),text=((m.title||m.name||'')+' '+(m.source||'')+' '+(m.region||'')+' '+(m.detail||'')).toLowerCase();
+        if((active==='all'||k===active)&&(!query||text.includes(query))){(groups[k]||groups.conflict).addLayer(makeMarker(m));count++;}
+      }
+      const el=document.getElementById('gpMapShown');if(el)el.textContent=count.toLocaleString();
+    }
+    controls.querySelectorAll('.gp-own-map-btn').forEach(b=>b.addEventListener('click',()=>{controls.querySelectorAll('.gp-own-map-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.layer;redraw();}));
+    const search=document.getElementById('gpMapSearch');if(search)search.addEventListener('input',()=>{query=search.value.trim().toLowerCase();redraw();});
+    redraw();
+    setTimeout(()=>map.invalidateSize(),250);
+    window.addEventListener('resize',()=>map.invalidateSize());
+    window.GP_INTELLIGENCE_MAP={map,refresh:redraw,markers:valid};
+  } catch(err) {
+    const host=document.getElementById('map');
+    if(host) host.outerHTML='<div id="map" class="gp-map-error">Intelligence map failed to initialize. The rest of Global Pulse is still available.</div>';
+    console.error('Global Pulse map initialization failed:',err);
+  }
+})();
+</script>
+</body>
 </html>
