@@ -83,13 +83,17 @@ jobs:
       - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
 
+      - name: Install resilient live FastAPI reporting integration
+        run: python update9_live_reporting.py
+
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
+          node --check global_pulse_reporting.js
           python - <<'PY'
           import json,re,sqlite3
           from pathlib import Path
@@ -122,6 +126,12 @@ jobs:
           assert 'gp-map-rescue-js' in html, 'canonical map UI missing'
           assert 'global_pulse_graph.js' in html, 'intelligence graph UI missing'
           assert 'global_pulse_layers.js' in html, 'political intelligence UI missing'
+          assert 'global_pulse_reporting.js' in html, 'live reporting UI missing'
+          assert 'pulse-reporting-feed' in html, 'live reporting container missing'
+          assert 'Pipeline Connection Terminated - Retrying...' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'reporting fallback missing'
+          assert 'target = "_blank"' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'safe external target missing'
+          assert 'noopener noreferrer' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'safe external rel missing'
+          assert 'setInterval(fetchPulseReporting, POLL_MS)' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), '60-second polling missing'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8'), 'political reporting panel missing'
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'politics feed expansion missing'
           assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Fox politics feed missing'
