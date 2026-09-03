@@ -18,54 +18,58 @@ ROOT = Path(__file__).resolve().parent
 SNAP = ROOT / "data" / "snapshot.json"
 
 ENTITY_PATTERNS = {
-    "Donald Trump": r"\btrump|donald trump|president trump\b",
+    "Donald Trump": r"\btrump\b|\bdonald trump\b|\bpresident trump\b",
     "White House": r"\bwhite house\b",
-    "Congress": r"\bcongress|house of representatives\b",
-    "U.S. Senate": r"\bsenate|senator\b",
-    "Supreme Court": r"\bsupreme court|scotus\b",
-    "Democrats": r"\bdemocrat|democratic party|democrats\b",
-    "Republicans": r"\brepublican|gop|republicans\b",
-    "Federal Reserve": r"\bfederal reserve|fed\b",
-    "Department of Justice": r"\bdepartment of justice|doj\b",
-    "China": r"\bchina|chinese|beijing\b",
-    "Russia": r"\brussia|russian|moscow|putin\b",
-    "Ukraine": r"\bukraine|ukrainian|kyiv|zelensky\b",
-    "Iran": r"\biran|iranian|tehran\b",
-    "Israel": r"\bisrael|israeli|tel aviv\b",
+    "Congress": r"\bcongress\b|\bhouse of representatives\b",
+    "U.S. Senate": r"\bsenate\b|\bsenator\b",
+    "Supreme Court": r"\bsupreme court\b|\bscotus\b",
+    "Democrats": r"\bdemocrat\w*\b|\bdemocratic party\b",
+    "Republicans": r"\brepublican\w*\b|\bgop\b",
+    "Federal Reserve": r"\bfederal reserve\b|\bfed\b",
+    "Department of Justice": r"\bdepartment of justice\b|\bdoj\b",
+    "China": r"\bchina\b|\bchinese\b|\bbeijing\b",
+    "Russia": r"\brussia\b|\brussian\b|\bmoscow\b|\bputin\b",
+    "Ukraine": r"\bukraine\b|\bukrainian\b|\bkyiv\b|\bzelensky\b",
+    "Iran": r"\biran\b|\biranian\b|\btehran\b",
+    "Israel": r"\bisrael\b|\bisraeli\b|\btel aviv\b",
     "NATO": r"\bnato\b",
-    "European Union": r"\beuropean union|eu\b",
+    "European Union": r"\beuropean union\b|\beu\b",
 }
 
 TOPICS = {
-    "Elections": r"\belection|midterm|primary|ballot|voting|voter|polling|redistrict|campaign\b",
-    "Congress": r"\bcongress|senate|house of representatives|bill|legislation|filibuster|committee\b",
-    "Executive": r"\bexecutive order|white house|president|administration|cabinet|agency\b",
-    "Courts": r"\bsupreme court|federal court|judge|lawsuit|ruling|appeal|injunction\b",
-    "Immigration": r"\bimmigration|deport|border|asylum|visa|migrant\b",
-    "Trade": r"\btariff|trade|export|import|customs\b",
-    "Foreign Policy": r"\bdiplomacy|diplomatic|summit|treaty|alliance|sanction|foreign policy|envoy\b",
-    "Defense": r"\bdefense|military|pentagon|troops|missile|drone|airstrike|navy\b",
-    "Economy": r"\binflation|jobs|employment|gdp|interest rate|central bank|economy|market|stocks|bond|oil\b",
-    "Public Opinion": r"\bpoll|approval|favorability|survey|voters|opinion\b",
+    "Elections": r"\belection\w*\b|\bmidterm\b|\bprimary\b|\bballot\b|\bvoting\b|\bvoter\w*\b|\bpolling\b|\bredistrict\w*\b|\bcampaign\b",
+    "Congress": r"\bcongress\b|\bsenate\b|\bhouse of representatives\b|\bbill\b|\blegislation\b|\bfilibuster\b|\bcommittee\b",
+    "Executive": r"\bexecutive order\b|\bwhite house\b|\bpresident\b|\badministration\b|\bcabinet\b|\bagency\b",
+    "Courts": r"\bsupreme court\b|\bfederal court\b|\bjudge\b|\blawsuit\b|\bruling\b|\bappeal\b|\binjunction\b",
+    "Immigration": r"\bimmigration\b|\bdeport\w*\b|\bborder\b|\basylum\b|\bvisa\b|\bmigrant\w*\b",
+    "Trade": r"\btariff\w*\b|\btrade\b|\bexport\w*\b|\bimport\w*\b|\bcustoms\b",
+    "Foreign Policy": r"\bdiplomacy\b|\bdiplomatic\b|\bsummit\b|\btreaty\b|\balliance\b|\bsanction\w*\b|\bforeign policy\b|\benvoy\b",
+    "Defense": r"\bdefense\b|\bmilitary\b|\bpentagon\b|\btroops\b|\bmissile\b|\bdrone\b|\bairstrike\b|\bnavy\b",
+    "Economy": r"\binflation\b|\bjobs\b|\bemployment\b|\bgdp\b|\binterest rate\b|\bcentral bank\b|\beconomy\b|\bmarket\b|\bstocks\b|\bbond\b|\boil\b",
+    "Public Opinion": r"\bpoll\w*\b|\bapproval\b|\bfavorability\b|\bsurvey\b|\bvoters\b|\bopinion\b",
 }
 
-EVENT_WORDS = set(re.findall(r"[a-z]{4,}", "".join(TOPICS.values()).lower()))
-STOP = set("the and that with from for this have has were will into about after before while says said their they them president latest report reports politics political news according amid over under into its are was been being would could should where which what when how more than also very against between through during there here").split())
+STOP = set("the and that with from for this have has were will into about after before while says said their they them president latest report reports politics political news according amid over under its are was been being would could should where which what when how more than also very against between through during there here").split()
+
 
 def clean_text(story):
     return re.sub(r"\s+", " ", f"{story.get('title','')} {story.get('summary','')}").strip().lower()
+
 
 def tokens(story):
     words = re.findall(r"[a-z0-9]{4,}", clean_text(story))
     return {w for w in words if w not in STOP}
 
+
 def entities(story):
     text = clean_text(story)
     return [name for name, pat in ENTITY_PATTERNS.items() if re.search(pat, text, re.I)]
 
+
 def topics(story):
     text = clean_text(story)
     return [name for name, pat in TOPICS.items() if re.search(pat, text, re.I)]
+
 
 def domain(story):
     url = str(story.get("source") or story.get("url") or "")
@@ -73,13 +77,13 @@ def domain(story):
     if host.startswith("www."):
         host = host[4:]
     if host.endswith("gdeltproject.org"):
-        # GDELT is an aggregator, not an independent outlet for corroboration.
         label = str(story.get("sourceLabel") or "").lower()
         for known in ("cnn", "axios", "morsereport"):
             if known in label:
                 return known
         return "gdelt-aggregate"
     return host or str(story.get("sourceLabel") or "unknown").lower()
+
 
 def parse_time(story):
     value = story.get("time") or story.get("published") or story.get("updatedAt")
@@ -90,11 +94,13 @@ def parse_time(story):
     except ValueError:
         return None
 
+
 def similarity(a, b):
     ta, tb = tokens(a), tokens(b)
     if not ta or not tb:
         return 0.0
     return len(ta & tb) / max(1, len(ta | tb))
+
 
 def event_match(a, b):
     ea, eb = set(entities(a)), set(entities(b))
@@ -108,6 +114,7 @@ def event_match(a, b):
         return True
     return False
 
+
 def main():
     data = json.loads(SNAP.read_text(encoding="utf-8"))
     stories = data.get("stories", [])
@@ -120,7 +127,6 @@ def main():
         s["evidenceLevel"] = "SINGLE-SOURCE"
         s["corroboratingSources"] = []
 
-    # Candidate reports are restricted to the same layer and a 24-hour window.
     for i, story in enumerate(political):
         t = parse_time(story)
         matches = []
@@ -139,7 +145,6 @@ def main():
             story["evidenceLevel"] = "CORROBORATED"
             story["corroboratingSources"] = domains[:8]
 
-    # Rank for the dashboard without pretending the rank is factual truth.
     now = datetime.now(timezone.utc)
     for s in political:
         age = 48.0
@@ -178,6 +183,7 @@ def main():
     data["worldPolitics"] = world
     SNAP.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("POLITICAL INTELLIGENCE:", len(political), "signals;", len(corroborated), "corroborated")
+
 
 if __name__ == "__main__":
     main()
