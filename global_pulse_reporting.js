@@ -50,6 +50,6 @@
     alertBox();f.setAttribute("aria-busy","false");return false;
   }
   window.fetchPulseReporting=fetchPulseReporting;
-  function start(){fetchPulseReporting();setInterval(fetchPulseReporting,60000);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
+  function start(){fetchPulseReporting();setInterval(fetchPulseReporting, POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
