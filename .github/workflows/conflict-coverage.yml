@@ -1,0 +1,68 @@
+name: Global Pulse — Evidence Coverage
+on:
+  workflow_run:
+    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    types: [completed]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: global-pulse-coverage
+  cancel-in-progress: false
+jobs:
+  coverage:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout refreshed main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build evidence-driven conflict coverage
+        run: python update_conflict_coverage.py
+      - name: Validate coverage output
+        run: |
+          set -euo pipefail
+          python -m py_compile update_conflict_coverage.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          c=d.get('conflictCoverage',{})
+          assert c.get('version')==1
+          assert len(c.get('watchlist',[]))==12
+          for x in c['watchlist']:
+            assert x.get('id') and x.get('title') and x.get('region')
+            assert x.get('status') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE','NO CURRENT SIGNAL')
+            assert 0 <= float(x.get('confidence',0)) <= 1
+            assert int(x.get('articleCount',0)) >= 0
+          assert all(m.get('layer')!='conflict-coverage' or m.get('confidence') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE') for m in d.get('markers',[]))
+          print('VALID conflict coverage:', [(x['title'],x['status'],x['articleCount'],len(x['sourceDomains'])) for x in c['watchlist']])
+          PY
+      - name: Commit coverage snapshot
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json
+          if git diff --staged --quiet; then echo "No coverage changes"; exit 0; fi
+          git commit -m "chore: refresh conflict coverage evidence"
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push origin HEAD:main
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy evidence coverage update
+        id: deployment
+        uses: actions/deploy-pages@v4
