@@ -28,10 +28,13 @@ jobs:
 
       # Data collection happens in the dedicated refresh/regional workflows.
       # Pages must remain deployable when an upstream OSINT provider is down.
+      - name: Install map precision and photo layer
+        run: python map_precision_photos.py
+
       - name: Validate committed map data
         run: |
           set -euo pipefail
-          python -m py_compile update_conflict_coverage.py
+          python -m py_compile update_conflict_coverage.py map_precision_photos.py
           python - <<'PY'
           import json
           from pathlib import Path
@@ -43,8 +46,6 @@ jobs:
           print(f'Total markers: {len(markers)}')
           print(f'Committed regional OSINT markers: {len(regional)}')
           print('Regional counts:', counts)
-          # Regional collection is allowed to be temporarily empty. Existing
-          # committed data remains valid and the dedicated collector retries.
           for m in regional:
               assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
               assert m.get('source') and m.get('observedAt')
@@ -54,6 +55,7 @@ jobs:
               'global_pulse_coverage_ui.js',
               'global_pulse_intelligence.js',
               'global_pulse_intelligence.css',
+              'GP-MAP-PRECISION-PHOTOS',
           )
           for asset in required_assets:
               if asset not in html:
