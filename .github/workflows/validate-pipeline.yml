@@ -1,0 +1,48 @@
+name: Validate Global Pulse Pipeline
+
+on:
+  workflow_run:
+    workflows: ["Update Global Pulse Snapshot"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate generated snapshot
+        run: python validate_pipeline.py
+
+      - name: Validate JavaScript syntax
+        shell: bash
+        run: |
+          set -e
+          shopt -s nullglob
+          files=( *.js )
+          if [ ${#files[@]} -eq 0 ]; then echo 'No root JS files found'; exit 0; fi
+          for f in "${files[@]}"; do
+            node --check "$f"
+          done
+
+      - name: Validate required frontend assets
+        shell: bash
+        run: |
+          set -e
+          test -f index.html
+          test -f snapshot.json
+          test -s snapshot.json
+          echo 'Frontend assets present.'
