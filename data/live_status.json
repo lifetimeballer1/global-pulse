@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-03T18:40:50.904355+00:00",
+  "updatedAt": "2026-09-03T18:47:04.912769+00:00",
   "feedsChecked": 14,
-  "rowsFetched": 178,
+  "rowsFetched": 139,
   "newArticles": 0,
   "purged": 0,
   "databaseArticles": 228,
-  "healthySources": 6,
+  "healthySources": 5,
   "failedSources": [
     {
       "source": "CNN",
@@ -16,15 +16,7 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @NASA",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
       "source": "X @NATO",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @POTUS",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -32,12 +24,24 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
+      "source": "X @NASA",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "X @POTUS",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
       "source": "Axios Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "source": "Morse Report",
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "CNN Politics",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     }
   ],
   "pollSeconds": 300,
