@@ -48,11 +48,13 @@ jobs:
         run: python update7_live_branding.py
       - name: Refresh public intelligence data
         run: python update_snapshot.py
-      - name: Sync Global War News Map
+      - name: Sync intelligence maps
         run: python update_osint.py
+      - name: Add strategic and hazard layers
+        run: python update8_global_layers.py
       - name: Validate build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py
+          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py update8_global_layers.py
           python - <<'PY'
           import json
           d=json.load(open('data/snapshot.json'))
@@ -62,6 +64,7 @@ jobs:
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
           assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
+          assert any(m.get('source') == 'Guerilla Map Strategic Layer' for m in d.get('markers',[])), 'strategic layer missing'
           assert 'Made by J.S.' in html, 'branding missing'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['markers']), 'markers')
           PY
