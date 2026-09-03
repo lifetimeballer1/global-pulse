@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-03T19:31:32.876292+00:00",
+  "updatedAt": "2026-09-03T19:51:47.765171+00:00",
   "feedsChecked": 14,
   "rowsFetched": 135,
-  "newArticles": 1,
+  "newArticles": 2,
   "purged": 0,
-  "databaseArticles": 238,
+  "databaseArticles": 240,
   "healthySources": 5,
   "failedSources": [
     {
@@ -12,7 +12,7 @@
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
     },
     {
-      "source": "X @NASA",
+      "source": "X @WhiteHouse",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -28,12 +28,8 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @WhiteHouse",
+      "source": "X @NASA",
       "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "Morse Report",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "source": "Axios Politics",
@@ -41,6 +37,10 @@
     },
     {
       "source": "CNN Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "Morse Report",
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     }
   ],
