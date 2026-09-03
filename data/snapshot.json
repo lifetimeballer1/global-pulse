@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-03T17:30:53.502984+00:00",
-  "sourceStatus": "300 stories · 112 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "updatedAt": "2026-09-03T17:39:08.678681+00:00",
+  "sourceStatus": "300 stories · 116 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
   "tension": 88,
   "tensionDelta": 0,
@@ -8,13 +8,13 @@
     "Conflict activity": 100,
     "Diplomatic strain": 70,
     "Economic pressure": 100,
-    "Market volatility": 84,
-    "Military posture": 85
+    "Market volatility": 81,
+    "Military posture": 88
   },
   "earlyWarning": {
     "level": "HIGH",
     "score": 88,
-    "momentum": 3.5,
+    "momentum": 3.2,
     "direction": "rising",
     "strongestDriver": "Conflict activity",
     "strongestDriverScore": 100,
@@ -38,28 +38,28 @@
     },
     {
       "kind": "new reporting",
-      "title": "‘Fight through darkness, water’: Nepal survivor recounts escape from flood-hit tunnel",
-      "detail": "France 24 · international · DEVELOPING"
-    },
-    {
-      "kind": "breaking",
-      "title": "Illegal alien's ‘inexcusable’ crime sparks interstate clash between GOP Sen, Dem Gov: ‘You should be ashamed’",
+      "title": "Blue state governor candidate claims he ‘met Satan in person’ in resurfaced podcast episode",
       "detail": "Fox News Politics · us-politics · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Who is Norway's new King Haakon VIII?",
-      "detail": "BBC Europe · regional · DEVELOPING"
+      "title": "Mamdani gives influencers special access as Signal use raises records-law questions",
+      "detail": "Fox News Politics · us-politics · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "GOP Sen Thom Tillis urges Trump to replace Pete Hegseth, blasts Pentagon leadership",
+      "detail": "Fox News Politics · us-politics · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "What’s behind the vote-by-mail controversy in the US?",
+      "detail": "Al Jazeera · international · DEVELOPING"
     },
     {
       "kind": "breaking",
-      "title": "Israel 27 August 2026 #1",
-      "detail": "Crisis Group · analysis · DEVELOPING"
-    },
-    {
-      "kind": "breaking",
-      "title": "Lebanon 27 August 2026 #1",
-      "detail": "Crisis Group · analysis · DEVELOPING"
+      "title": "BBC tracks one week of Israeli settler violence in occupied West Bank",
+      "detail": "BBC Middle East · regional · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -200,7 +200,7 @@
       "recent": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
       "escalation": "CRITICAL",
       "activityScore": 100,
-      "delta": 19,
+      "delta": 20,
       "signalCount": 9,
       "sourceCount": 4,
       "confidence": "CORROBORATED",
@@ -249,70 +249,10 @@
             "strait of hormuz",
             "hormuz"
           ],
-          "signal": 12.4
+          "signal": 11.0
         }
       ],
       "facts": "9 conflict-specific signal(s) from 4 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "israel-iran",
-      "name": "Israel–Iran Regional Front",
-      "region": "Middle East",
-      "category": "WAR",
-      "status": "Active signal",
-      "recent": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
-      "escalation": "HIGH",
-      "activityScore": 68,
-      "delta": 13,
-      "signalCount": 4,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "KINETIC",
-      "lastSignal": "2026-09-02T01:06:08+00:00",
-      "signals": [
-        {
-          "title": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
-          "source": "The Guardian World",
-          "url": "https://www.theguardian.com/world/2026/sep/01/us-iran-airstrikes-launch",
-          "time": "2026-09-02T01:06:08+00:00",
-          "match": [
-            "tehran"
-          ],
-          "signal": 11.5
-        },
-        {
-          "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
-          "source": "The Guardian World",
-          "url": "https://www.theguardian.com/world/2026/sep/03/iran-targets-us-bases-as-israel-warns-sanctions-could-drive-tehran-to-desperate-steps",
-          "time": "2026-09-03T14:16:54+00:00",
-          "match": [
-            "tehran"
-          ],
-          "signal": 10.0
-        },
-        {
-          "title": "Tehran 28 August 2026 #1",
-          "source": "Crisis Group",
-          "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-          "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-          "match": [
-            "tehran"
-          ],
-          "signal": 8.2
-        },
-        {
-          "title": "Tehran 27 August 2026 #2",
-          "source": "Crisis Group",
-          "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-          "time": "Fri, 28 Aug 2026 19:55:08 +0000",
-          "match": [
-            "tehran"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "4 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -364,7 +304,7 @@
       "recent": "Houthi fighters clash with Yemeni government forces in country’s southwest",
       "escalation": "MODERATE",
       "activityScore": 61,
-      "delta": 0,
+      "delta": -10,
       "signalCount": 2,
       "sourceCount": 2,
       "confidence": "MULTI-SOURCE",
@@ -393,6 +333,46 @@
         }
       ],
       "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "israel-iran",
+      "name": "Israel–Iran Regional Front",
+      "region": "Middle East",
+      "category": "WAR",
+      "status": "Active signal",
+      "recent": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
+      "escalation": "MODERATE",
+      "activityScore": 52,
+      "delta": -3,
+      "signalCount": 2,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "KINETIC",
+      "lastSignal": "2026-09-02T01:06:08+00:00",
+      "signals": [
+        {
+          "title": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
+          "source": "The Guardian World",
+          "url": "https://www.theguardian.com/world/2026/sep/01/us-iran-airstrikes-launch",
+          "time": "2026-09-02T01:06:08+00:00",
+          "match": [
+            "tehran"
+          ],
+          "signal": 11.5
+        },
+        {
+          "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
+          "source": "The Guardian World",
+          "url": "https://www.theguardian.com/world/2026/sep/03/iran-targets-us-bases-as-israel-warns-sanctions-could-drive-tehran-to-desperate-steps",
+          "time": "2026-09-03T14:16:54+00:00",
+          "match": [
+            "tehran"
+          ],
+          "signal": 10.0
+        }
+      ],
+      "facts": "2 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -776,7 +756,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": -6,
+      "delta": -16,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -795,7 +775,7 @@
       "recent": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
       "escalation": "LOW",
       "activityScore": 35,
-      "delta": 8,
+      "delta": 4,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -939,7 +919,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 27,
-      "delta": 0,
+      "delta": -9,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -6466,6 +6446,272 @@
       "confidence": "PUBLIC LIVE FEED"
     },
     {
+      "lat": 37.7963,
+      "lng": 95.4671,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 271 km SSE of Dunhuang, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2887,
+      "lng": -169.4187,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 81 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.4605,
+      "lng": 56.4505,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — Owen Fracture Zone region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.1366,
+      "lng": 169.3059,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 65 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1178,
+      "lng": 146.174,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 52 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
       "lat": 50.55428,
       "lng": 36.47101,
       "type": "conflict",
@@ -11135,8 +11381,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4zEPaTLP47MVIwajUOzxi95GmMg3AS2b34enK7xMfJ8mV5k7vIfmnnayPCHiQ6KLO62Fh2xAj9IewdjZP2tyuDgfvtpTbCzDrcS-t1a8gnmTIietg-QY8IehjLq_uoHsfjSYqaOj1iJPf4uKaHn2tGwC-W4ug2f9QiNymz04L11F2sjr5KvCO5MFD-4ZWIGfEoODEqrEzIt8WUm98p6BUtbi1Hd3O3lQgY6oUr1cJ6cPcVXZdOEn8fgMU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4zEPaTLP47MVIwajUOzxi95GmMg3AS2b34enK7xMfJ8mV5k7vIfmnnayPCHiQ6KLO62Fh2xAj9IewdjZP2tyuDgfvtpTbCzDrcS-t1a8gnmTIietg-QY8IehjLq_uoHsfjSYqaOj1iJPf4uKaHn2tGwC-W4ug2f9QiNymz04L11F2sjr5KvCO5MFD-4ZWIGfEoODEqrEzIt8WUm98p6BUtbi1Hd3O3lQgY6oUr1cJ6cPcVXZdOEn8fgMU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6zEbuP1l2lmoxJ-Cub-Fh_meRc2KyO34U0BQlZgnXC3AeqPmLunr94j-ZPIuA8Bhwadutg00JWHsZdG56Sb7NhI53R_VOBx7iFQhn1Lm7wTPdFFsfAduMAPp9wfX8DRbvY70sx_25l12vnT6zmERmX3X-d3tmyVO1YHg_QoWcIB_mrRBmKg8IwiHpsSb4pAdhIFIUmyLxpwfn1uj2SEqTgYsLeiZz3iJAIr_c0cOAuWS26YbEkIn-QJLU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6zEbuP1l2lmoxJ-Cub-Fh_meRc2KyO34U0BQlZgnXC3AeqPmLunr94j-ZPIuA8Bhwadutg00JWHsZdG56Sb7NhI53R_VOBx7iFQhn1Lm7wTPdFFsfAduMAPp9wfX8DRbvY70sx_25l12vnT6zmERmX3X-d3tmyVO1YHg_QoWcIB_mrRBmKg8IwiHpsSb4pAdhIFIUmyLxpwfn1uj2SEqTgYsLeiZz3iJAIr_c0cOAuWS26YbEkIn-QJLU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11171,8 +11417,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7g-KHCt2gF5JfZQua-dr6k3mOChq6jvKOmG8UgHgTIFr2XVnUin9CKkPT0y_33aRqBRGy7bltk2pwlmr3V_jbcgGTOn3djEMFc0-DrXoc3h9hUG_fmvdiYYTIjy8zrwWPYh1JCNk8kA6SSGBPTrxPNmGVFBaSX7Nek-8isB079Spp5mYNvsmV3y7QOAfT1UA_RCW8E-SsLZbXpiVixaHYa43F8oplWhClIDvLBnvFBKJrxB1Ab_WZUFWQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7g-KHCt2gF5JfZQua-dr6k3mOChq6jvKOmG8UgHgTIFr2XVnUin9CKkPT0y_33aRqBRGy7bltk2pwlmr3V_jbcgGTOn3djEMFc0-DrXoc3h9hUG_fmvdiYYTIjy8zrwWPYh1JCNk8kA6SSGBPTrxPNmGVFBaSX7Nek-8isB079Spp5mYNvsmV3y7QOAfT1UA_RCW8E-SsLZbXpiVixaHYa43F8oplWhClIDvLBnvFBKJrxB1Ab_WZUFWQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qQIipntj6ekZmpolrb3p9cqPruCEdD8SwqqlOf8J3IjKwKvgoa86h7WOU-AfNTFI6U598r49ze3Q5IVuFM593aQpj9R-86pA6Hpj2SSCI7-Sp0POHqvmdn1ZizigqQOylLGRDVzsJJ4dXOM6-szEqB4VIMLA6FUtT7qb6BCB4swPCHzv7QkBQr551aaIgH9THfUejRdXTzpbxapZYXbnpJZi97GGztvN84yXRzYzxxiWwuuq9p8uo5hA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qQIipntj6ekZmpolrb3p9cqPruCEdD8SwqqlOf8J3IjKwKvgoa86h7WOU-AfNTFI6U598r49ze3Q5IVuFM593aQpj9R-86pA6Hpj2SSCI7-Sp0POHqvmdn1ZizigqQOylLGRDVzsJJ4dXOM6-szEqB4VIMLA6FUtT7qb6BCB4swPCHzv7QkBQr551aaIgH9THfUejRdXTzpbxapZYXbnpJZi97GGztvN84yXRzYzxxiWwuuq9p8uo5hA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11225,8 +11471,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4v-wIl_Cd4E_cbJZXaqvMoUNZTohBd85ssqLehNpcxlb3WMP7bFcTQQCREN6hB4MZt8tNNRY79a5vPGvtqSL2IWzngVSZ0GSk9nBWa3DHHbsFwwCIYfJB59nMZ9nHffSI66gcgyb8zEGm9CvIFiaeSBo1LPx300GYkjjozgCLZh7Cez5deiatuV9ga80lSfIjf-ijM3Q6-FOC65lqdEJ-5BQdq6aT86LkTF4sPyoLx_37BUSPwAPsDw7M?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4v-wIl_Cd4E_cbJZXaqvMoUNZTohBd85ssqLehNpcxlb3WMP7bFcTQQCREN6hB4MZt8tNNRY79a5vPGvtqSL2IWzngVSZ0GSk9nBWa3DHHbsFwwCIYfJB59nMZ9nHffSI66gcgyb8zEGm9CvIFiaeSBo1LPx300GYkjjozgCLZh7Cez5deiatuV9ga80lSfIjf-ijM3Q6-FOC65lqdEJ-5BQdq6aT86LkTF4sPyoLx_37BUSPwAPsDw7M?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5jPkyvqVJGpv2R2NZ7EbB33jTce3l8tJ84VWWmI7a6Q_UpH13qpvHz8WTJEBy4T0G6Y2cqE06yE4HVingbQOm9rHzUMC0IwmACm2EqIBiY5j-_6-emcXKZkNp0IteUiAeGvfbAZlAsjEhUZNbJcFjEUyXm2cTVJzk3zO4ki1Io5AMVhw-xTm8x8YbhlXoEeEVuIAw_0FbRompM_DuyNghYaw0_K1WOllG1pwDWHnSz4lcdNPdX14eXhBI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5jPkyvqVJGpv2R2NZ7EbB33jTce3l8tJ84VWWmI7a6Q_UpH13qpvHz8WTJEBy4T0G6Y2cqE06yE4HVingbQOm9rHzUMC0IwmACm2EqIBiY5j-_6-emcXKZkNp0IteUiAeGvfbAZlAsjEhUZNbJcFjEUyXm2cTVJzk3zO4ki1Io5AMVhw-xTm8x8YbhlXoEeEVuIAw_0FbRompM_DuyNghYaw0_K1WOllG1pwDWHnSz4lcdNPdX14eXhBI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12233,8 +12479,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Y6_mDm5QRFjMfyGMlFLrVPW7g2XHQizTTwTojZHgYY6BEwkEEnbK8oU_dMoGW6wG7Elb646nlOd7Woe9890sFBswFXgBsf89phcBO8kzD5Tmj_J0jsisSjAmU9_ymvIR5tN6HtnzGDnfPcNvthojCrDP_QOL5K9SJpgbZL7z5KDhx-eApI1oxYLWHjI1P0pJBNnrzMCA9_ZmTb3iKOchTgkpp3eLdMYLbqsQPTNQ0p7xVZqUtGfGrAh8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Y6_mDm5QRFjMfyGMlFLrVPW7g2XHQizTTwTojZHgYY6BEwkEEnbK8oU_dMoGW6wG7Elb646nlOd7Woe9890sFBswFXgBsf89phcBO8kzD5Tmj_J0jsisSjAmU9_ymvIR5tN6HtnzGDnfPcNvthojCrDP_QOL5K9SJpgbZL7z5KDhx-eApI1oxYLWHjI1P0pJBNnrzMCA9_ZmTb3iKOchTgkpp3eLdMYLbqsQPTNQ0p7xVZqUtGfGrAh8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4477tycjXsiUpcZD0eCtdYqbzQJZoAgZS_CQoB32p_aYjfnlsD58rwdJPF5XS9wqlV-Lixbp3ywkgHRmrL-lZioQPC42LrJzh5dA9Miz8WD_AY_vP52p2OuYwShKRde_NgqWt7C-5w8pAfs-zvGcJ88jE1TNt5rLUgpDpdEZKLVQFYyPEGp1TqBv0BqGxJJR4_O9Q5aMnhbGrzNFwdfyQf8kMVzSIgf90Bo7TOb1A4akVYfWm7HOR-NIc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4477tycjXsiUpcZD0eCtdYqbzQJZoAgZS_CQoB32p_aYjfnlsD58rwdJPF5XS9wqlV-Lixbp3ywkgHRmrL-lZioQPC42LrJzh5dA9Miz8WD_AY_vP52p2OuYwShKRde_NgqWt7C-5w8pAfs-zvGcJ88jE1TNt5rLUgpDpdEZKLVQFYyPEGp1TqBv0BqGxJJR4_O9Q5aMnhbGrzNFwdfyQf8kMVzSIgf90Bo7TOb1A4akVYfWm7HOR-NIc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13421,8 +13667,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JQQMHEryMrN8vPcA7jE8hxVd4tFS_Gsk8n1WDg4zJNEOdTH4nqpCxblpU9oxigTDEEWcLCJOmZUN_sygHAh9a901zxPJUdH9N7a-GaB1-yxVp4T7b4n-mvI2Vswc13EIxwi6m-T3yJszt6uMghTk-2NJhw7rQY_iOTZnG5pgc9osct69W-CW3K64e9sUbaYFHRXBTwtjDwkL3Zq1QQRv1ezlgCPxJCvHIDklsveWLQAe5_jMyyQw7tTE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JQQMHEryMrN8vPcA7jE8hxVd4tFS_Gsk8n1WDg4zJNEOdTH4nqpCxblpU9oxigTDEEWcLCJOmZUN_sygHAh9a901zxPJUdH9N7a-GaB1-yxVp4T7b4n-mvI2Vswc13EIxwi6m-T3yJszt6uMghTk-2NJhw7rQY_iOTZnG5pgc9osct69W-CW3K64e9sUbaYFHRXBTwtjDwkL3Zq1QQRv1ezlgCPxJCvHIDklsveWLQAe5_jMyyQw7tTE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7YyYF7LA9wqELsJqWeb9rrmKUWQOfAnmzdklZ_IqHvj-sIlhYPA1vqjh1zMmONZm-H6rH3ngKY6lnxWLzXJmqhhGMCcTCpjT_1gUFF0MlaRaMGzOfgoh_G5IWjI6R7iHLctQzP8bgDGBT6assMGxUmUKA0gGG0fFyR1SOIDUPuSfsQ8jxBQ1iHjN9koEbu84gaRQvWtwPx0sHo4rr_1ENqDXqk0Jh8zBc-OP19ZN1qwAxKwzOrWFzsVR8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7YyYF7LA9wqELsJqWeb9rrmKUWQOfAnmzdklZ_IqHvj-sIlhYPA1vqjh1zMmONZm-H6rH3ngKY6lnxWLzXJmqhhGMCcTCpjT_1gUFF0MlaRaMGzOfgoh_G5IWjI6R7iHLctQzP8bgDGBT6assMGxUmUKA0gGG0fFyR1SOIDUPuSfsQ8jxBQ1iHjN9koEbu84gaRQvWtwPx0sHo4rr_1ENqDXqk0Jh8zBc-OP19ZN1qwAxKwzOrWFzsVR8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13439,8 +13685,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Zxl9M32R-6vkg3WCCaQLcEpWMSbKnpmNfsroiHQ_3o902h-ZER7PDduymoHqUwIMU0Yl4S65CefZU26ZrEhgrA8pDKhtmgxfT18g1qn0tUJz9Ynn-L2NpPhWOGhF82j7XH9RlLEBYxaLuYXQNc7JDMasiZAPGI75wWoNS23tGb-kAfI35DpL-8JXD1ZrdF3_0hWUawPWWC9zNoCaa_BsBgIWPAyB4muyo9tl-o4nOSg24LU6U_ghqHnQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Zxl9M32R-6vkg3WCCaQLcEpWMSbKnpmNfsroiHQ_3o902h-ZER7PDduymoHqUwIMU0Yl4S65CefZU26ZrEhgrA8pDKhtmgxfT18g1qn0tUJz9Ynn-L2NpPhWOGhF82j7XH9RlLEBYxaLuYXQNc7JDMasiZAPGI75wWoNS23tGb-kAfI35DpL-8JXD1ZrdF3_0hWUawPWWC9zNoCaa_BsBgIWPAyB4muyo9tl-o4nOSg24LU6U_ghqHnQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7W44VlnVOaelrvkJXQwutU1sHqDdngexf9oo7jmtlVt6nDuH1Kbn83KdldEMIDenkY1ucp57cFRubMLRy9kb-UPtFFnTjbS0FhltGvgnHnH-Uqt2w6W8B89yzfGkkUGwYXMPGlE5Bkw60eBb1_a7W8QifmPDMF0l7ZqkmBEaNlVev-JB3zZL_lPm-z_pD14_vwG46hZtmBsjkQsnxNF2E5R-hmoppjEOOe1CeW62cjnATKp_xecShLfBI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7W44VlnVOaelrvkJXQwutU1sHqDdngexf9oo7jmtlVt6nDuH1Kbn83KdldEMIDenkY1ucp57cFRubMLRy9kb-UPtFFnTjbS0FhltGvgnHnH-Uqt2w6W8B89yzfGkkUGwYXMPGlE5Bkw60eBb1_a7W8QifmPDMF0l7ZqkmBEaNlVev-JB3zZL_lPm-z_pD14_vwG46hZtmBsjkQsnxNF2E5R-hmoppjEOOe1CeW62cjnATKp_xecShLfBI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13457,8 +13703,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6HnrP2c7Id-hwSH3kApe-B_aYxG8_8Z-U3eVpgAVv-wxDHKF4MNhyL8ZqdSdP9WGgIB9B0CSUOsr3XWFIpqGkXUTPIDZ7Sz6vfneKuhnvKXGGkgnTCv0SwstkrhcZV2UpvCSdj3D182TptuoS8yIani8sGkxP6DkKC-p19-fOVCMohm_Nc-gzC5wKHZisMA7mXTWDZFNac4ZIa3_RX5yZB_OBu9jgFd9dfkkhWK2JSBTdBukoVeJLVtpA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6HnrP2c7Id-hwSH3kApe-B_aYxG8_8Z-U3eVpgAVv-wxDHKF4MNhyL8ZqdSdP9WGgIB9B0CSUOsr3XWFIpqGkXUTPIDZ7Sz6vfneKuhnvKXGGkgnTCv0SwstkrhcZV2UpvCSdj3D182TptuoS8yIani8sGkxP6DkKC-p19-fOVCMohm_Nc-gzC5wKHZisMA7mXTWDZFNac4ZIa3_RX5yZB_OBu9jgFd9dfkkhWK2JSBTdBukoVeJLVtpA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MXyEfE1bsj_5CdoADFuBGqWISEfKxebBM1y_QgiWRgKhIinb_eBi5gKLqjCHx2e4QYz5wYZg__HknTx-DxyWg-_qWmYO9c2Mz7glhp0NhwhvCHmoM9LzayFxsHLvzTQO_dd-TS6NNY-fr7lKj4zyTkqHOAyv6LATNDm6buMR7LxWcnGzrKBh2G5ucdR3VmfII8ufGF6Aw3jy_iWP0KSM1Eh6ROmwhdjE0nJ1tUiTzocHSPkmtI_yogGU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MXyEfE1bsj_5CdoADFuBGqWISEfKxebBM1y_QgiWRgKhIinb_eBi5gKLqjCHx2e4QYz5wYZg__HknTx-DxyWg-_qWmYO9c2Mz7glhp0NhwhvCHmoM9LzayFxsHLvzTQO_dd-TS6NNY-fr7lKj4zyTkqHOAyv6LATNDm6buMR7LxWcnGzrKBh2G5ucdR3VmfII8ufGF6Aw3jy_iWP0KSM1Eh6ROmwhdjE0nJ1tUiTzocHSPkmtI_yogGU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13475,8 +13721,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4l6SquWlswnVJ2Oogm7fVylioG12Xzd4Myu5aI_HjiIAN_6ehxMFY3OdSeiVqpWMdBTqh4eezxDxoC1Asc4HGLJjicAWdsV2MVP9nvKpEXbnT_IgtaqnyQAAwoWCtkyQH2QYw8Fcs8QfOIicklYExDz-3D9UkEo50iFxZxaRpJv4v_MocvruuHEUhdJoAIGSjNhHYpAjuygIOXFE2qnZ5BZPWDmBnJ-6yQTmPJ-8l8Je0yNLlhr4_qpx0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4l6SquWlswnVJ2Oogm7fVylioG12Xzd4Myu5aI_HjiIAN_6ehxMFY3OdSeiVqpWMdBTqh4eezxDxoC1Asc4HGLJjicAWdsV2MVP9nvKpEXbnT_IgtaqnyQAAwoWCtkyQH2QYw8Fcs8QfOIicklYExDz-3D9UkEo50iFxZxaRpJv4v_MocvruuHEUhdJoAIGSjNhHYpAjuygIOXFE2qnZ5BZPWDmBnJ-6yQTmPJ-8l8Je0yNLlhr4_qpx0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6wnph4QHJHB9QB2aoiZRFwEgTYcnpOwwpJ8-y6FMF9IdgH1QMNLHcS3oPqI6oN6s4zCNRX0v9drOWK7Y3OoDsWcKgh3uvbR_33Eg6qJrytLoz--5Z-w_1B6Y6Tu-2Bqno2GPZICD4ZS9PoSDuE5WxJ23eOPXtDCq_1jchaWWmWgty_2wupjA-Fu_bw07p83CK8Zn4FOY7TOjpYFRxxjW2O9KzWuewxyn8sLQwe9NDb9AIhcZoIBUQTA8M?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6wnph4QHJHB9QB2aoiZRFwEgTYcnpOwwpJ8-y6FMF9IdgH1QMNLHcS3oPqI6oN6s4zCNRX0v9drOWK7Y3OoDsWcKgh3uvbR_33Eg6qJrytLoz--5Z-w_1B6Y6Tu-2Bqno2GPZICD4ZS9PoSDuE5WxJ23eOPXtDCq_1jchaWWmWgty_2wupjA-Fu_bw07p83CK8Zn4FOY7TOjpYFRxxjW2O9KzWuewxyn8sLQwe9NDb9AIhcZoIBUQTA8M?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13493,8 +13739,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5oJI4nLB3AttItyz5FQTFrZyZR7fOSR1JcjqMp077ch3agAsqRHx51j_BsMbxcDy-2GxlM0JZzE5Bh3RqSRBYhJ5zHIf1LUaHl4wfFpf-2qfqiwaqOg0AjKFX999PKd7EzfDuojeZKc2F1ZjgQiUBkQ58lKAZDt6rUneokgYbopR-YuzUOKiGAY5QcYmNlZ_-nDbzhd6gz358OcuSQ_t3FR91b1kx5E-ItX2L4JpVSpp0c4cJyzRuCH2g?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5oJI4nLB3AttItyz5FQTFrZyZR7fOSR1JcjqMp077ch3agAsqRHx51j_BsMbxcDy-2GxlM0JZzE5Bh3RqSRBYhJ5zHIf1LUaHl4wfFpf-2qfqiwaqOg0AjKFX999PKd7EzfDuojeZKc2F1ZjgQiUBkQ58lKAZDt6rUneokgYbopR-YuzUOKiGAY5QcYmNlZ_-nDbzhd6gz358OcuSQ_t3FR91b1kx5E-ItX2L4JpVSpp0c4cJyzRuCH2g?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4u4fdCgLf8wgcwoJZfccsTL9bnPkiYMkZgtCRaQHwfMji04fo5bv5NcP813VA_LAlDZaLO4BIF8skUVPpYtaGyi0XSvYZjgpdj3cFqMoLLBHH1RWED1u9HxueiYWMJAEbluWL7DVfASZAOf3ZIImFdjVaQSYvw_u7Of7doNtk_KLe17jRmdh2wvK4GZErh5WqPi0Cq5OxLui0LWdVu67SHDm-rXB9Kl5OPeR3REIEguuCPe6i2Y-O_T1c?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4u4fdCgLf8wgcwoJZfccsTL9bnPkiYMkZgtCRaQHwfMji04fo5bv5NcP813VA_LAlDZaLO4BIF8skUVPpYtaGyi0XSvYZjgpdj3cFqMoLLBHH1RWED1u9HxueiYWMJAEbluWL7DVfASZAOf3ZIImFdjVaQSYvw_u7Of7doNtk_KLe17jRmdh2wvK4GZErh5WqPi0Cq5OxLui0LWdVu67SHDm-rXB9Kl5OPeR3REIEguuCPe6i2Y-O_T1c?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13511,8 +13757,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4RrXxyt_HW6OQqu4_mYBRUmhcYxsL8NsjK6yKaTgK1-bcXNmlYFcxMMmBHDjk8q3gF53QZGh4lKPMZHYzHCoUsTNNO1dkdxNcbz1eK7SOYtTBrVaMWgBcBMUV8VT1wp8i6WlDeP134xLK51uXFvM4zNZJatdFm-n6cXrSXOUep6VwL4xTgdMRdlRI7tk79SmBvncfy0dqDR6f-ASyjvPNaVGiQ7ZcpoaucZOp20UaRIeRNHyDyJKdos9k?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4RrXxyt_HW6OQqu4_mYBRUmhcYxsL8NsjK6yKaTgK1-bcXNmlYFcxMMmBHDjk8q3gF53QZGh4lKPMZHYzHCoUsTNNO1dkdxNcbz1eK7SOYtTBrVaMWgBcBMUV8VT1wp8i6WlDeP134xLK51uXFvM4zNZJatdFm-n6cXrSXOUep6VwL4xTgdMRdlRI7tk79SmBvncfy0dqDR6f-ASyjvPNaVGiQ7ZcpoaucZOp20UaRIeRNHyDyJKdos9k?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZN_PX3YLXh8b6_D4JFrUdF6ycjWoE9meMeZPO2AoZbzH2me7NW68S0-K9GhN07t0ovUw6noTzx58txI2ijFl9_yp4yf49U8THW2jvt89n6yf2pnIvLoIN2JmYcgNBYj78MP_SSyovqo0EJngPVZ8Srwq5XZ8gVGO02-ooZOpwN6mCoHt2_VbJ83LB8SrUUdchUhWG6QyLI_N5wr-gAwTfjnSWNS3S_n9UMI3pns4NwWKJav7Wj0-6s5w?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZN_PX3YLXh8b6_D4JFrUdF6ycjWoE9meMeZPO2AoZbzH2me7NW68S0-K9GhN07t0ovUw6noTzx58txI2ijFl9_yp4yf49U8THW2jvt89n6yf2pnIvLoIN2JmYcgNBYj78MP_SSyovqo0EJngPVZ8Srwq5XZ8gVGO02-ooZOpwN6mCoHt2_VbJ83LB8SrUUdchUhWG6QyLI_N5wr-gAwTfjnSWNS3S_n9UMI3pns4NwWKJav7Wj0-6s5w?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13529,8 +13775,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR79aGLVZSpHoY8dZMCcpO0sRGeuF_IRN0CTlqQzBDCbSr1t677t7f0bFP-A-igkcerTE7ZJ4P41DX1Jeb_BgE7NcMN8TDSkiCgkA-cGwIogk1NZPs_J8BLKsYfJmMb_U9g2-yczA9ZrmblV-4n-rwWXhaTQKWCoSd65QZ-TNfTiG4hPFou4_ZtQEEf8gNdC8gbemj0Sokj2ppswX1_znbP3m-LNphl38h90GE3YHEVdb0aWvp9b5yYhbWo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR79aGLVZSpHoY8dZMCcpO0sRGeuF_IRN0CTlqQzBDCbSr1t677t7f0bFP-A-igkcerTE7ZJ4P41DX1Jeb_BgE7NcMN8TDSkiCgkA-cGwIogk1NZPs_J8BLKsYfJmMb_U9g2-yczA9ZrmblV-4n-rwWXhaTQKWCoSd65QZ-TNfTiG4hPFou4_ZtQEEf8gNdC8gbemj0Sokj2ppswX1_znbP3m-LNphl38h90GE3YHEVdb0aWvp9b5yYhbWo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5KN1Iw9Tniw_KCjvoHBq4Hxv3nmJf2giuZujogt_Memq_yqkGHZnKQ_G3kWp4XKpbFFYtLL5p5oJaUTIJ1oSGa2uBw64fIFglbokr-nTuJUs6ohACuhiWoe8gE9fgQsctBr9Svc0Zn7rZ8Tampf_xrZHqycnfv7roEnF49DSQ53TKo9FF3zGcxX0dDwgAvCVJtDqLiNngUTDbda_N1Zkb87XnCEpAkcdYuk6j9Zbu5iLoY4RfrQSpsw90?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5KN1Iw9Tniw_KCjvoHBq4Hxv3nmJf2giuZujogt_Memq_yqkGHZnKQ_G3kWp4XKpbFFYtLL5p5oJaUTIJ1oSGa2uBw64fIFglbokr-nTuJUs6ohACuhiWoe8gE9fgQsctBr9Svc0Zn7rZ8Tampf_xrZHqycnfv7roEnF49DSQ53TKo9FF3zGcxX0dDwgAvCVJtDqLiNngUTDbda_N1Zkb87XnCEpAkcdYuk6j9Zbu5iLoY4RfrQSpsw90?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13547,8 +13793,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR62QQ7XjZKahpTis1hAIQa-WgojeV7JpWOjGBQzXnCR8diHxVuVitS4gzLK_da1MR4KBXc4ocgVYZMDMoytHRm49FxSA_ugWoZ6pvs79bjp2UnHA_6VHjC61321PJjERKVZZVMsGTkMQtsNf39R-WU7eZBhpg3HyqfUyCcTOV1dxBnJh6fCt09HSJpN_IZ7LXheNd4JOkSM7miDeXN5q3VQ-9UZpR-n5VQ0t7eRofzr5ZxoNK_hnLz3UUk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR62QQ7XjZKahpTis1hAIQa-WgojeV7JpWOjGBQzXnCR8diHxVuVitS4gzLK_da1MR4KBXc4ocgVYZMDMoytHRm49FxSA_ugWoZ6pvs79bjp2UnHA_6VHjC61321PJjERKVZZVMsGTkMQtsNf39R-WU7eZBhpg3HyqfUyCcTOV1dxBnJh6fCt09HSJpN_IZ7LXheNd4JOkSM7miDeXN5q3VQ-9UZpR-n5VQ0t7eRofzr5ZxoNK_hnLz3UUk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6yXokz_4nziLlZ88A9uiiu8tHEAlIcKwN49tt7DhZmXtuBbXNw8E7QokjByjzJp_CkzNwf2Za6YhyHuHM5lVUiYSWz5rdXClX_RWNANH9HSYPLFMPwDjqrkxgqzpd9w9dSGpXswtvANCkSBxUJpg1eB5GpGAZFbw146ufs1Sv1ACgh18Vt9dlHz0Gm6vJKncM3kmo9aiDBy0Wta-hrDphmldqYIxoSgsg5W4clGT4Dqc1J0PNK0RYdqeA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6yXokz_4nziLlZ88A9uiiu8tHEAlIcKwN49tt7DhZmXtuBbXNw8E7QokjByjzJp_CkzNwf2Za6YhyHuHM5lVUiYSWz5rdXClX_RWNANH9HSYPLFMPwDjqrkxgqzpd9w9dSGpXswtvANCkSBxUJpg1eB5GpGAZFbw146ufs1Sv1ACgh18Vt9dlHz0Gm6vJKncM3kmo9aiDBy0Wta-hrDphmldqYIxoSgsg5W4clGT4Dqc1J0PNK0RYdqeA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13565,8 +13811,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR65hW5M6pQUsi1Y85Cxk8mhAdhpjjMntmx_YMVTtvTlWwS1-gRrseHXdlm_GtFZtbSns0g62j5j43swO2H3GX2EDM8h6Iye12KsW6IgOLeVlsdNGZ4Ouy0NxMnOPHe-U4qJjns-NACKjyc6n4rQPaUQuZV3Trk36YFR-ycjRrKLF3_hBt8H3yVvenlz7az_EZT0Z0HrYIVcdtYdAl9-Te5FH4yA3NFAXu4xuofeC3y8JvM4ryZgOhy7cnM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR65hW5M6pQUsi1Y85Cxk8mhAdhpjjMntmx_YMVTtvTlWwS1-gRrseHXdlm_GtFZtbSns0g62j5j43swO2H3GX2EDM8h6Iye12KsW6IgOLeVlsdNGZ4Ouy0NxMnOPHe-U4qJjns-NACKjyc6n4rQPaUQuZV3Trk36YFR-ycjRrKLF3_hBt8H3yVvenlz7az_EZT0Z0HrYIVcdtYdAl9-Te5FH4yA3NFAXu4xuofeC3y8JvM4ryZgOhy7cnM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5RbqGOznsW99r9cKWehaIAA6YXd3k3S06--udQOPduonjyE8Ow9E43R3rQStp9lzY_LTL1KjgVLZcbEURhwAKDNM1hE9_truWxC8WvN9SSRrsJHijH4jWmGxV-tabH8pAWKb8RzXJQQaJllDEnNkKIX2ml8MMXSwIQTb9QBIShBvlXdGtjqx84j9PJdsJo1MRo2sOBkEYSD5SP4S3lk-30IiDB4cEgsExC9y8PYKMxm6eEsmctI0feT9Y?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5RbqGOznsW99r9cKWehaIAA6YXd3k3S06--udQOPduonjyE8Ow9E43R3rQStp9lzY_LTL1KjgVLZcbEURhwAKDNM1hE9_truWxC8WvN9SSRrsJHijH4jWmGxV-tabH8pAWKb8RzXJQQaJllDEnNkKIX2ml8MMXSwIQTb9QBIShBvlXdGtjqx84j9PJdsJo1MRo2sOBkEYSD5SP4S3lk-30IiDB4cEgsExC9y8PYKMxm6eEsmctI0feT9Y?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13619,8 +13865,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR67dPD9Hy34WMxLWqQ6waHG36cBi8pXeX2biKkFm13gDoM8QpeRFZtQ7_WbF128GjjpWAI9SEoWYacN8zshttWZkGI21-f_nqKCL4exq073bzlg5VkH_gMiYjjaO6DgyoOqCJCu4CvcSNj37se-lH4SZVjAbhmzsxoJICcJ-d92pbRMiCDj_VajOpk_C0bidX6nPkzL4waAl3z_5mSbqGzLqEVlOpG0eRA9TzbWtu7E8OVa77JmEY9cDaA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR67dPD9Hy34WMxLWqQ6waHG36cBi8pXeX2biKkFm13gDoM8QpeRFZtQ7_WbF128GjjpWAI9SEoWYacN8zshttWZkGI21-f_nqKCL4exq073bzlg5VkH_gMiYjjaO6DgyoOqCJCu4CvcSNj37se-lH4SZVjAbhmzsxoJICcJ-d92pbRMiCDj_VajOpk_C0bidX6nPkzL4waAl3z_5mSbqGzLqEVlOpG0eRA9TzbWtu7E8OVa77JmEY9cDaA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4KmRas3PTya9R7XyTeNE1L_udtFiYrLOIxJJ2jYvgcwIejdjfO1BVJT7kZ5dNIcamjV4SDCQ_KSua4w5IS9ePXfjzx5wSe8QC0DeXLshEAyDzoBYFAxFqHsqQ6sIOi1NOuJlvc9yVsVzLCAWFfBDyBp_ONKc_3VwLsA7dssxKpQu2cSgbL2-UVPzqeygaKIGRL8WnvRVN6JhxBSOumVEq268vTq0dOhVLj9xz9Lr2TvzNI7Yo_lAYO0ZQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4KmRas3PTya9R7XyTeNE1L_udtFiYrLOIxJJ2jYvgcwIejdjfO1BVJT7kZ5dNIcamjV4SDCQ_KSua4w5IS9ePXfjzx5wSe8QC0DeXLshEAyDzoBYFAxFqHsqQ6sIOi1NOuJlvc9yVsVzLCAWFfBDyBp_ONKc_3VwLsA7dssxKpQu2cSgbL2-UVPzqeygaKIGRL8WnvRVN6JhxBSOumVEq268vTq0dOhVLj9xz9Lr2TvzNI7Yo_lAYO0ZQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13637,8 +13883,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Rue1nysSVINvAeE6KUmM-39pKyRgJdal6AHzgm-RKklVyOG1x9bfJcp7RZ9EI6IXTNNg1-I9BLjgugFV2GSGcViSrh0s3ZbspydmmPIUuewN1mx1NJgdPjq4RPFMipF_8K98PlvqDGdPqYWU40fJ0b6nIQr1Az60oeIzzKY-k2C0LYHd5ZlJYKplwCQercZdysRWk9ETUlq36iji1QaAMO3JOhrm65GwbHQvCdBkDrmVBbSqSkImAHjI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Rue1nysSVINvAeE6KUmM-39pKyRgJdal6AHzgm-RKklVyOG1x9bfJcp7RZ9EI6IXTNNg1-I9BLjgugFV2GSGcViSrh0s3ZbspydmmPIUuewN1mx1NJgdPjq4RPFMipF_8K98PlvqDGdPqYWU40fJ0b6nIQr1Az60oeIzzKY-k2C0LYHd5ZlJYKplwCQercZdysRWk9ETUlq36iji1QaAMO3JOhrm65GwbHQvCdBkDrmVBbSqSkImAHjI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5DnPUFkATivKjMg8Tk2geWi8WkAhzcL2xXveDkUG-MgUSVCFh5YnJ57s1IYZDJ6cX2usK1jz4XxanSTyekNRdy3CzYLT0gusdOLB2PoTxW-P6tc9BxgpU4wzgfDFwuR0oSp_06dtRtBbne6W53b0S1iP53jyR5GWjBofTGcO-WwoF6mo36NrSFPuHLnZITKEyM8cdJYsvs_hBv1avKgi4_o47CQLW1J1GGvDOg4Z4oI8MA8ctlDgHXmAg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5DnPUFkATivKjMg8Tk2geWi8WkAhzcL2xXveDkUG-MgUSVCFh5YnJ57s1IYZDJ6cX2usK1jz4XxanSTyekNRdy3CzYLT0gusdOLB2PoTxW-P6tc9BxgpU4wzgfDFwuR0oSp_06dtRtBbne6W53b0S1iP53jyR5GWjBofTGcO-WwoF6mo36NrSFPuHLnZITKEyM8cdJYsvs_hBv1avKgi4_o47CQLW1J1GGvDOg4Z4oI8MA8ctlDgHXmAg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13691,8 +13937,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ujHlZ18Ez6fBsdBTJPqrzUGLwZAySCp77afc0aPjDtwGd_voEtzuJbNirmqCkOW2yoMTfnV4aPw6KpwNqte6dV1RY2rykNVA1Jug1Ow8eYV4sF__NVnR_OYhTQb4P2lmSH9X73loX5IBIoTf7Wsp2KzLaaw-f3Wb1YU7aLjcSnj4uklNGSXDShfYSBJ9ZPqRVPANKSbRCap8Af5gE4iMNhvN8VnTNTLoW7Y88HhWaOKOcejul8WwWrdw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ujHlZ18Ez6fBsdBTJPqrzUGLwZAySCp77afc0aPjDtwGd_voEtzuJbNirmqCkOW2yoMTfnV4aPw6KpwNqte6dV1RY2rykNVA1Jug1Ow8eYV4sF__NVnR_OYhTQb4P2lmSH9X73loX5IBIoTf7Wsp2KzLaaw-f3Wb1YU7aLjcSnj4uklNGSXDShfYSBJ9ZPqRVPANKSbRCap8Af5gE4iMNhvN8VnTNTLoW7Y88HhWaOKOcejul8WwWrdw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4-8PP3KFcrAv9W-2dM_NHp6Brgd1-BMh_c0unDRVpmIz2J15UmX_Ys43r704JSUMCcWBLtWpGfdeqN7Gu_gkFWLaATZ7JlDV4Livg51FuwxM_5ogvd-mnTr94bsBnitXsG8lCLBNQbTxJkt1LvXXWKVl2uCRsyowuG7gDu4H7CvB4zqn3cQys7Cw6wzXRq6d4YiFURZ3J58UoDlfO5X6XtcvB-CyPoQLA6RrC_wJMY44vmYzX7KHMH48g?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4-8PP3KFcrAv9W-2dM_NHp6Brgd1-BMh_c0unDRVpmIz2J15UmX_Ys43r704JSUMCcWBLtWpGfdeqN7Gu_gkFWLaATZ7JlDV4Livg51FuwxM_5ogvd-mnTr94bsBnitXsG8lCLBNQbTxJkt1LvXXWKVl2uCRsyowuG7gDu4H7CvB4zqn3cQys7Cw6wzXRq6d4YiFURZ3J58UoDlfO5X6XtcvB-CyPoQLA6RrC_wJMY44vmYzX7KHMH48g?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13763,8 +14009,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OwH6wlubNaSV60rGjG57XRywqWS-gqv7BjxRgFRQ27sWH81CHbwqMGuH22OZWOMNiRvJKpVoW4JrA3i-jRL_3r0YXUYFVfOPReqDX1ctlF7ghfC7zc8spVXayWfQ1RZtH3XYqIB0DZhfDCgzvbqOYrZW63HL-6Qztt4SMiFGl1ugxtAEwiYYgPfeTIbrNf6kx7eoAi7wWFvaI8IHQHO7ttONZCywYluv4p6PTSDXVRd5SZFuq5aiUiQM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OwH6wlubNaSV60rGjG57XRywqWS-gqv7BjxRgFRQ27sWH81CHbwqMGuH22OZWOMNiRvJKpVoW4JrA3i-jRL_3r0YXUYFVfOPReqDX1ctlF7ghfC7zc8spVXayWfQ1RZtH3XYqIB0DZhfDCgzvbqOYrZW63HL-6Qztt4SMiFGl1ugxtAEwiYYgPfeTIbrNf6kx7eoAi7wWFvaI8IHQHO7ttONZCywYluv4p6PTSDXVRd5SZFuq5aiUiQM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5qayTYythvwB0HO8-3BDE1tLzczLS83nTKF5fRrGsRLWQW-XYKssY-WUwtgw0YhksAZMl2NzO8sSB0C11mnFDRiUEvuC5GU-zWTHJ0PvX9Lggl-mJ0_mMFYIkgzvwtJuxVaj56jrPUXmkwCmcw6KSONjw1Jc596mg_2FvZAdogATjp7M5pgs-ROgCZ_gRkP2CB9xzbnH6sx8xsjhOBjDdzVVH9OzXXhemfN561nHnWiAmCpXtrK9aKFUI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5qayTYythvwB0HO8-3BDE1tLzczLS83nTKF5fRrGsRLWQW-XYKssY-WUwtgw0YhksAZMl2NzO8sSB0C11mnFDRiUEvuC5GU-zWTHJ0PvX9Lggl-mJ0_mMFYIkgzvwtJuxVaj56jrPUXmkwCmcw6KSONjw1Jc596mg_2FvZAdogATjp7M5pgs-ROgCZ_gRkP2CB9xzbnH6sx8xsjhOBjDdzVVH9OzXXhemfN561nHnWiAmCpXtrK9aKFUI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13889,8 +14135,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vw1j5yJhBbyhEikFg_jNB4LMZDHfNCD32TJxhB9AliLiHPlPioYl6R0e3CV7aTGzEWwYPR-KGDTOtp28C2Pgg8YW2iPyvcYBIXGypue2u_XkQaFURyZl8YrgNGiml5rV4OWfrYWnAezVpmz0APK5ys1Ee1J4PUq0cVS_9Y8afDjHtOg2cLDA1xHNRkvwp5TnMVpEArJ5asia6b8wmca34uG9te6YMa4OgNjNFRPonnlv50Gm6bEkjMug?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vw1j5yJhBbyhEikFg_jNB4LMZDHfNCD32TJxhB9AliLiHPlPioYl6R0e3CV7aTGzEWwYPR-KGDTOtp28C2Pgg8YW2iPyvcYBIXGypue2u_XkQaFURyZl8YrgNGiml5rV4OWfrYWnAezVpmz0APK5ys1Ee1J4PUq0cVS_9Y8afDjHtOg2cLDA1xHNRkvwp5TnMVpEArJ5asia6b8wmca34uG9te6YMa4OgNjNFRPonnlv50Gm6bEkjMug?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6lN7MU_gOzjHUxee8kR8CnIz822aypDdcNAUVNeQZZNSMx3KR4cuqF_-JSDvEuZF0GfcV5FwHP2HaCFZ5q0wF1f1gQEnzvKccMd7nK9X7Hj6MstRudlDxTjy3nnf3bR8IIaHHVALz7Vm6jn4XSIFo0Kq_0crMcwOUEbiTiBYpGgywnq8TLTrncepH4ujoTH2j-PwA0GwFL3yP74atGwv7y3bSm-MV0W7sZFy5BZEHXL95J-VhDMZ2qu6g?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6lN7MU_gOzjHUxee8kR8CnIz822aypDdcNAUVNeQZZNSMx3KR4cuqF_-JSDvEuZF0GfcV5FwHP2HaCFZ5q0wF1f1gQEnzvKccMd7nK9X7Hj6MstRudlDxTjy3nnf3bR8IIaHHVALz7Vm6jn4XSIFo0Kq_0crMcwOUEbiTiBYpGgywnq8TLTrncepH4ujoTH2j-PwA0GwFL3yP74atGwv7y3bSm-MV0W7sZFy5BZEHXL95J-VhDMZ2qu6g?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15107,6 +15353,20 @@
       "confidence": "PUBLIC LIVE FEED"
     },
     {
+      "lat": 52.2839,
+      "lng": -169.2869,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 78 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
       "lat": 14.4605,
       "lng": 56.4505,
       "type": "hazard",
@@ -16072,7 +16332,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.8
+      "politicalSignalScore": 57.6
     },
     {
       "id": "62141e3735d6",
@@ -16208,6 +16468,25 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "63034c255c25",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Kais Saied’s economic experiment has failed Tunisia",
+      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
+      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
+      "time": "2026-09-03T13:09:47+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "economics"
+    },
+    {
       "id": "30e1271d5bab",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -16249,7 +16528,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.9
+      "politicalSignalScore": 40.8
     },
     {
       "id": "af5bbb5af053",
@@ -16372,7 +16651,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.3
     },
     {
       "id": "e7fa1a0ad5c6",
@@ -16570,7 +16849,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.7
+      "politicalSignalScore": 40.5
     },
     {
       "id": "8f72dc6bf787",
@@ -16598,7 +16877,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.7
+      "politicalSignalScore": 38.5
     },
     {
       "id": "f43c01e5cbeb",
@@ -16625,7 +16904,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.7
+      "politicalSignalScore": 38.5
     },
     {
       "id": "04a471261a98",
@@ -16666,6 +16945,75 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "2026-09-03T10:14:55+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate",
+        "Democrats",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 40.1
+    },
+    {
+      "id": "0f0fedcaa48f",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "Her immigrant parents built a NYC grocery store from scratch. Now Mamdani's experiment could end it",
+      "summary": "Josefina Aguirre's Spanish Harlem meat market faces a taxpayer-backed competitor just two blocks away under Zohran Mamdani's municipal grocery plan.",
+      "source": "https://www.foxnews.com/politics/immigrant-parents-built-nyc-grocery-store-scratch-mamdanis-experiment-could-end",
+      "time": "2026-09-03T10:00:27+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "395d4c22b046",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "Collins lights up internet with response to Dem challenger fathering children with relative: 'Stone cold'",
+      "summary": "Susan Collins used a sly rhetorical move to highlight that opponent Troy Jackson fathered two children with his second cousin during a campaign interview.",
+      "source": "https://www.foxnews.com/politics/collins-lights-up-internet-response-dem-challenger-fathering-children-relative-stone-cold",
+      "time": "2026-09-03T10:00:23+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "648d6749c712",
       "sourceLabel": "Al Jazeera",
       "sourceType": "news",
@@ -16690,7 +17038,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.8
     },
     {
       "id": "7e369d09a9ea",
@@ -16717,7 +17065,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "19e24f5bcc9d",
@@ -16859,7 +17207,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.0
+      "politicalSignalScore": 36.9
     },
     {
       "id": "121c9b78c635",
@@ -16894,7 +17242,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.0
+      "politicalSignalScore": 44.9
     },
     {
       "id": "772547ad1bd2",
@@ -16924,7 +17272,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "4853c2337866",
@@ -16968,7 +17316,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
+      "politicalSignalScore": 35.3
     },
     {
       "id": "83dbf39de042",
@@ -17050,7 +17398,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.2
+      "politicalSignalScore": 34.1
     },
     {
       "id": "152a974ea76c",
@@ -17096,7 +17444,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
+      "politicalSignalScore": 35.2
     },
     {
       "id": "c113500cb434",
@@ -17279,7 +17627,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 47.0
+      "politicalSignalScore": 46.9
     },
     {
       "id": "2a21cb0360a5",
@@ -17306,7 +17654,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.0
+      "politicalSignalScore": 29.9
     },
     {
       "id": "b21d64cc6178",
@@ -17374,7 +17722,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.2
+      "politicalSignalScore": 33.1
     },
     {
       "id": "0e6d5e98e90c",
@@ -17482,7 +17830,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.2
+      "politicalSignalScore": 32.1
     },
     {
       "id": "ca396a85c9e1",
@@ -17511,7 +17859,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.7
+      "politicalSignalScore": 27.6
     },
     {
       "id": "6ad10dbff853",
@@ -17544,7 +17892,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.4
+      "politicalSignalScore": 29.3
     },
     {
       "id": "6e5d651744cd",
@@ -17574,7 +17922,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.4
+      "politicalSignalScore": 29.3
     },
     {
       "id": "04121260ea77",
@@ -17696,7 +18044,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.5
+      "politicalSignalScore": 17.3
     },
     {
       "id": "750589f89281",
@@ -17726,7 +18074,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.7
+      "politicalSignalScore": 15.6
     },
     {
       "id": "0db692ff9ba8",
@@ -17862,6 +18210,82 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 17:35:00 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Congress",
+        "Democrats",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "92eae3ca39d3",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Blue state governor candidate claims he ‘met Satan in person’ in resurfaced podcast episode",
+      "summary": "Colorado Republican Victor Marx claimed on his podcast he &quot;met Satan in person&quot; while praying for a girl at a high-security Texas youth prison.",
+      "source": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "url": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "time": "Thu, 03 Sep 2026 13:29:59 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Republicans"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 0.0
+    },
+    {
+      "id": "e54a9b637d5d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Mamdani gives influencers special access as Signal use raises records-law questions",
+      "summary": "Zohran Mamdani&apos;s City Hall uses a Signal group chat to feed talking points to 200-plus social media influencers, raising record-keeping concerns.",
+      "source": "https://www.foxnews.com/politics/mamdani-gives-influencers-special-access-signal-use-raises-records-law-questions",
+      "url": "https://www.foxnews.com/politics/mamdani-gives-influencers-special-access-signal-use-raises-records-law-questions",
+      "time": "Thu, 03 Sep 2026 13:27:14 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "57ef127599f2",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "GOP Sen Thom Tillis urges Trump to replace Pete Hegseth, blasts Pentagon leadership",
+      "summary": "Sen. Tillis called for President Trump to replace War Secretary Pete Hegseth, accusing the Pentagon chief of &quot;creating a leadership void at the top of our military ranks.&quot;",
+      "source": "https://www.foxnews.com/politics/gop-sen-thom-tillis-urges-trump-replace-pete-hegseth-blasts-pentagon-leadership",
+      "url": "https://www.foxnews.com/politics/gop-sen-thom-tillis-urges-trump-replace-pete-hegseth-blasts-pentagon-leadership",
+      "time": "Thu, 03 Sep 2026 13:26:30 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "51003a490742",
       "sourceLabel": "France 24",
       "sourceType": "international",
@@ -17879,7 +18303,7 @@
       "id": "3c16ca71740a",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
-      "title": "Illegal alien's ‘inexcusable’ crime sparks interstate clash between GOP Sen, Dem Gov: ‘You should be ashamed’",
+      "title": "Illegal alien's ‘inexcusable’ crime sparks interstate clash between GOP sen, Dem gov: ‘You should be ashamed’",
       "summary": "Bernie Moreno says an illegal immigrant granted a Connecticut driver&apos;s license killed a 29-year-old Ohioan in a vehicular manslaughter case.",
       "source": "https://www.foxnews.com/politics/illegal-alien-inexcusable-crime-sparks-interstate-clash-gop-sen-dem-gov-ashamed",
       "url": "https://www.foxnews.com/politics/illegal-alien-inexcusable-crime-sparks-interstate-clash-gop-sen-dem-gov-ashamed",
@@ -17890,27 +18314,23 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
-      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 17:11:53 GMT",
+      "id": "14645c604d74",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "What’s behind the vote-by-mail controversy in the US?",
+      "summary": "As midterm elections approach in November, a legal battle is ensuing over attempts to regulate mail-in voting.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 17:14:47 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Congress",
-        "Democrats",
-        "Republicans"
-      ],
+      "politicalEntities": [],
       "politicalTopics": [
-        "Congress"
+        "Elections"
       ],
-      "sourceDomain": "theguardian.com",
+      "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
@@ -18764,7 +19184,7 @@
       "id": "1c3af167c16b",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
-      "title": "Hawaii wildfire survivors fought to rebuild their homes. Now USPS won’t deliver their mail",
+      "title": "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
       "summary": "Wildfire victims rebuilt their homes in Lahaina only to find USPS had ‘eliminated’ their addresses – while houses that didn’t burn receive mail as normal  Two months after a devastating wildfire whipped through Lahaina in August 2023, Pam Reader was allowed back to see what was left of her home. With a heavy heart, she returned to the Hawaiian oceanside town now filled with endless blocks of burned houses. As she rou",
       "source": "https://www.theguardian.com/us-news/2026/sep/03/hawaii-lahaina-mail-delivery-usps",
       "url": "https://www.theguardian.com/us-news/2026/sep/03/hawaii-lahaina-mail-delivery-usps",
@@ -18885,20 +19305,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "63034c255c25",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Kais Saied’s economic experiment has failed Tunisia",
-      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
-      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
-      "url": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 13:09:47 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "economics"
     },
     {
       "id": "135ba37aedc8",
@@ -19416,32 +19822,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "71c2f023cc8d",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
-      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
-      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "url": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "U.S. Senate",
-        "Democrats",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "foxnews.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
       "id": "323f56e88cb1",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -19545,34 +19925,6 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "0f0fedcaa48f",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "Her immigrant parents built a NYC grocery store from scratch. Now Mamdani's experiment could end it",
-      "summary": "Josefina Aguirre&apos;s Spanish Harlem meat market faces a taxpayer-backed competitor just two blocks away under Zohran Mamdani&apos;s municipal grocery plan.",
-      "source": "https://www.foxnews.com/politics/immigrant-parents-built-nyc-grocery-store-scratch-mamdanis-experiment-could-end",
-      "url": "https://www.foxnews.com/politics/immigrant-parents-built-nyc-grocery-store-scratch-mamdanis-experiment-could-end",
-      "time": "Thu, 03 Sep 2026 06:00:27 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "395d4c22b046",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "Collins lights up internet with response to Dem challenger fathering children with relative: 'Stone cold'",
-      "summary": "Susan Collins used a sly rhetorical move to highlight that opponent Troy Jackson fathered two children with his second cousin during a campaign interview.",
-      "source": "https://www.foxnews.com/politics/collins-lights-up-internet-response-dem-challenger-fathering-children-relative-stone-cold",
-      "url": "https://www.foxnews.com/politics/collins-lights-up-internet-response-dem-challenger-fathering-children-relative-stone-cold",
-      "time": "Thu, 03 Sep 2026 06:00:23 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
       "intelligenceLayer": "general"
     },
     {
@@ -19704,7 +20056,7 @@
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
       "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
-      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan {guh-DAN} about the viability of the Trump administration's plan for Venezuelan oil.",
+      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan about the viability of the Trump administration's plan for Venezuelan oil.",
       "source": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "url": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "time": "Thu, 03 Sep 2026 04:08:17 -0400",
@@ -20993,106 +21345,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
-    },
-    {
-      "id": "fca74164cfe9",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 27 August 2026 #2",
-      "summary": "Washington 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026            \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding ",
-      "source": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:53 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "4b562ef5353a",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 27 August 2026 #2",
-      "summary": "Tehran 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026          \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding of one sim",
-      "source": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:08 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "3e549bfea9aa",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 28 August 2026 #1",
-      "summary": "Washington 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026 \n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department addi",
-      "source": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:59 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "8d626135f4df",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 28 August 2026 #1",
-      "summary": "Tehran 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026\n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department additionally ",
-      "source": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.0
     }
   ],
   "sourceHealth": [
@@ -21124,12 +21376,12 @@
     {
       "name": "CNN Politics — GDELT Mirror",
       "type": "us-politics",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "Axios Politics — GDELT Mirror",
       "type": "us-politics",
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "Morse Report — GDELT Mirror",
@@ -21149,12 +21401,12 @@
     {
       "name": "GDELT Live — Americas",
       "type": "americas",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "GDELT Live — Middle East",
       "type": "middle-east",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "BBC World",
@@ -21229,10 +21481,10 @@
   ],
   "liveDatabase": {
     "enabled": true,
-    "articleCount": 210,
-    "lastExport": "2026-09-03T17:30:00.626750+00:00",
+    "articleCount": 214,
+    "lastExport": "2026-09-03T17:38:17.360782+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 112
+    "newMergedThisRun": 116
   },
   "politics": [
     {
@@ -21535,6 +21787,25 @@
       "credit": {
         "sourceId": "cnn_politics",
         "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "2026-09-03T10:14:55+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
@@ -21870,7 +22141,35 @@
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
       "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 17:11:53 GMT",
+      "time": "Thu, 03 Sep 2026 17:35:00 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "92eae3ca39d3",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Blue state governor candidate claims he ‘met Satan in person’ in resurfaced podcast episode",
+      "summary": "Colorado Republican Victor Marx claimed on his podcast he &quot;met Satan in person&quot; while praying for a girl at a high-security Texas youth prison.",
+      "source": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "url": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "time": "Thu, 03 Sep 2026 13:29:59 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "14645c604d74",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "What’s behind the vote-by-mail controversy in the US?",
+      "summary": "As midterm elections approach in November, a legal battle is ensuing over attempts to regulate mail-in voting.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 17:14:47 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -22255,20 +22554,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "71c2f023cc8d",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
-      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
-      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "url": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "6f2962992030",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -22343,7 +22628,7 @@
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
       "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
-      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan {guh-DAN} about the viability of the Trump administration's plan for Venezuelan oil.",
+      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan about the viability of the Trump administration's plan for Venezuelan oil.",
       "source": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "url": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "time": "Thu, 03 Sep 2026 04:08:17 -0400",
@@ -22631,62 +22916,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "fca74164cfe9",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 27 August 2026 #2",
-      "summary": "Washington 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026            \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding ",
-      "source": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:53 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "4b562ef5353a",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 27 August 2026 #2",
-      "summary": "Tehran 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026          \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding of one sim",
-      "source": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:08 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "3e549bfea9aa",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 28 August 2026 #1",
-      "summary": "Washington 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026 \n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department addi",
-      "source": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:59 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics"
-    },
-    {
-      "id": "8d626135f4df",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 28 August 2026 #1",
-      "summary": "Tehran 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026\n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department additionally ",
-      "source": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics"
     }
   ],
   "usPolitics": [
@@ -22841,7 +23070,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 47.0
+      "politicalSignalScore": 46.9
     },
     {
       "id": "2e5cd7b9be37",
@@ -23038,7 +23267,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.0
+      "politicalSignalScore": 44.9
     },
     {
       "id": "cc40b4f6f36f",
@@ -23066,7 +23295,38 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.3
+    },
+    {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "2026-09-03T10:14:55+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate",
+        "Democrats",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 40.1
     },
     {
       "id": "648d6749c712",
@@ -23093,7 +23353,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.8
     },
     {
       "id": "8f72dc6bf787",
@@ -23121,7 +23381,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.7
+      "politicalSignalScore": 38.5
     },
     {
       "id": "f43c01e5cbeb",
@@ -23148,7 +23408,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.7
+      "politicalSignalScore": 38.5
     },
     {
       "id": "772547ad1bd2",
@@ -23178,7 +23438,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "99d3f0b739c1",
@@ -23206,7 +23466,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.0
+      "politicalSignalScore": 36.9
     },
     {
       "id": "3593d4dc7a14",
@@ -23236,7 +23496,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.2
+      "politicalSignalScore": 33.1
     },
     {
       "id": "eca0fc692bc0",
@@ -23268,7 +23528,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.2
+      "politicalSignalScore": 32.1
     },
     {
       "id": "2a21cb0360a5",
@@ -23295,7 +23555,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.0
+      "politicalSignalScore": 29.9
     },
     {
       "id": "6ad10dbff853",
@@ -23328,7 +23588,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.4
+      "politicalSignalScore": 29.3
     },
     {
       "id": "6e5d651744cd",
@@ -23358,7 +23618,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.4
+      "politicalSignalScore": 29.3
     },
     {
       "id": "ca396a85c9e1",
@@ -23387,7 +23647,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.7
+      "politicalSignalScore": 27.6
     },
     {
       "id": "24b250618b77",
@@ -23870,7 +24130,7 @@
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
       "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
-      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan {guh-DAN} about the viability of the Trump administration's plan for Venezuelan oil.",
+      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan about the viability of the Trump administration's plan for Venezuelan oil.",
       "source": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "url": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
       "time": "Thu, 03 Sep 2026 04:08:17 -0400",
@@ -23936,58 +24196,6 @@
         "Courts"
       ],
       "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "fca74164cfe9",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 27 August 2026 #2",
-      "summary": "Washington 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026            \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding ",
-      "source": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/washington-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:53 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "4b562ef5353a",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 27 August 2026 #2",
-      "summary": "Tehran 27 August 2026 #2 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:55 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  27 August 2026          \n    U.S. President Trump    stated    “  I don’t want to meet, they [Iran] do. In fact, they are begging to make a deal”. Iran’s foreign minister meanwhile    posited    that “putting diplomacy back on track isn’t impossible. It hinges on U.S. understanding of one sim",
-      "source": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-      "time": "Fri, 28 Aug 2026 19:55:08 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
@@ -24095,7 +24303,7 @@
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
       "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 17:11:53 GMT",
+      "time": "Thu, 03 Sep 2026 17:35:00 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -24109,6 +24317,28 @@
         "Congress"
       ],
       "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "14645c604d74",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "What’s behind the vote-by-mail controversy in the US?",
+      "summary": "As midterm elections approach in November, a legal battle is ensuing over attempts to regulate mail-in voting.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 17:14:47 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Elections"
+      ],
+      "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
@@ -24378,32 +24608,6 @@
       "politicalSignalScore": 2.0
     },
     {
-      "id": "71c2f023cc8d",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
-      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
-      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "url": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
-      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "U.S. Senate",
-        "Democrats",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "foxnews.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
       "id": "f1f7077ee709",
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
@@ -24517,6 +24721,28 @@
       ],
       "politicalTopics": [],
       "sourceDomain": "france24.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 0.0
+    },
+    {
+      "id": "92eae3ca39d3",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Blue state governor candidate claims he ‘met Satan in person’ in resurfaced podcast episode",
+      "summary": "Colorado Republican Victor Marx claimed on his podcast he &quot;met Satan in person&quot; while praying for a girl at a high-security Texas youth prison.",
+      "source": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "url": "https://www.foxnews.com/politics/blue-state-governor-candidate-claims-met-satan-person-resurfaced-podcast-episode",
+      "time": "Thu, 03 Sep 2026 13:29:59 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Republicans"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 0.0
@@ -24636,7 +24862,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.8
+      "politicalSignalScore": 57.6
     },
     {
       "id": "db855776bafb",
@@ -24661,7 +24887,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.9
+      "politicalSignalScore": 40.8
     },
     {
       "id": "41d7c8ee8c42",
@@ -24688,7 +24914,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.7
+      "politicalSignalScore": 40.5
     },
     {
       "id": "7e369d09a9ea",
@@ -24715,7 +24941,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "973b1ca1b2ea",
@@ -24740,7 +24966,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
+      "politicalSignalScore": 35.3
     },
     {
       "id": "884558a5687b",
@@ -24767,7 +24993,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
+      "politicalSignalScore": 35.2
     },
     {
       "id": "7b3f87bda84f",
@@ -24792,7 +25018,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.2
+      "politicalSignalScore": 34.1
     },
     {
       "id": "0859be90fbe5",
@@ -24819,7 +25045,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.5
+      "politicalSignalScore": 17.3
     },
     {
       "id": "677b245840a5",
@@ -24870,54 +25096,6 @@
       "politicalSignalScore": 17.0
     },
     {
-      "id": "3e549bfea9aa",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Washington 28 August 2026 #1",
-      "summary": "Washington 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026 \n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department addi",
-      "source": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:59 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "8d626135f4df",
-      "sourceLabel": "Crisis Group",
-      "sourceType": "analysis",
-      "title": "Tehran 28 August 2026 #1",
-      "summary": "Tehran 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026\n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department additionally ",
-      "source": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-      "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "crisisgroup.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.0
-    },
-    {
       "id": "750589f89281",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -24945,7 +25123,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.7
+      "politicalSignalScore": 15.6
     },
     {
       "id": "7af15c78cc3e",
@@ -25097,6 +25275,25 @@
       "intelligenceLayer": "economics"
     },
     {
+      "id": "63034c255c25",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Kais Saied’s economic experiment has failed Tunisia",
+      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
+      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
+      "time": "2026-09-03T13:09:47+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "economics"
+    },
+    {
       "id": "77fe8f092207",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -25152,20 +25349,6 @@
       "source": "https://www.theguardian.com/business/2026/sep/03/yen-soars-bank-of-japan-tipped-to-raise-interest-rates",
       "url": "https://www.theguardian.com/business/2026/sep/03/yen-soars-bank-of-japan-tipped-to-raise-interest-rates",
       "time": "Thu, 03 Sep 2026 14:33:58 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "economics"
-    },
-    {
-      "id": "63034c255c25",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Kais Saied’s economic experiment has failed Tunisia",
-      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
-      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
-      "url": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 13:09:47 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -25244,30 +25427,30 @@
   ],
   "layerCounts": {
     "us-politics": 74,
-    "world-politics": 18,
+    "world-politics": 16,
     "economics": 12,
-    "general": 196
+    "general": 198
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T17:30:47.400435+00:00",
+    "updatedAt": "2026-09-03T17:38:55.089335+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 92,
+    "totalSignals": 90,
     "usPoliticsSignals": 74,
-    "worldPoliticsSignals": 18,
+    "worldPoliticsSignals": 16,
     "corroboratedSignals": 4,
-    "singleSourceSignals": 88,
+    "singleSourceSignals": 86,
     "sourceCounts": {
       "theguardian.com": 22,
-      "foxnews.com": 16,
+      "foxnews.com": 17,
       "npr.org": 14,
       "bbc.co.uk": 9,
       "us.cnn.com": 9,
+      "aljazeera.com": 6,
       "cnn.com": 6,
-      "crisisgroup.org": 6,
-      "aljazeera.com": 5,
       "france24.com": 4,
+      "crisisgroup.org": 2,
       "edition.cnn.com": 1
     },
     "topSignals": [
@@ -25387,7 +25570,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 57.8
+        "politicalSignalScore": 57.6
       },
       {
         "id": "408a5192a823",
@@ -25447,7 +25630,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 47.0
+        "politicalSignalScore": 46.9
       },
       {
         "id": "2e5cd7b9be37",
@@ -25644,7 +25827,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.0
+        "politicalSignalScore": 44.9
       },
       {
         "id": "cc40b4f6f36f",
@@ -25672,7 +25855,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.4
+        "politicalSignalScore": 44.3
       },
       {
         "id": "db855776bafb",
@@ -25697,7 +25880,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.9
+        "politicalSignalScore": 40.8
       },
       {
         "id": "41d7c8ee8c42",
@@ -25724,7 +25907,38 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.7
+        "politicalSignalScore": 40.5
+      },
+      {
+        "id": "71c2f023cc8d",
+        "sourceLabel": "Fox News Politics",
+        "sourceType": "news",
+        "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+        "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+        "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+        "time": "2026-09-03T10:14:55+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "fox_politics",
+          "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "U.S. Senate",
+          "Democrats",
+          "Republicans"
+        ],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "foxnews.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 40.1
       },
       {
         "id": "648d6749c712",
@@ -25751,7 +25965,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.9
+        "politicalSignalScore": 39.8
       },
       {
         "id": "8f72dc6bf787",
@@ -25779,7 +25993,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.7
+        "politicalSignalScore": 38.5
       },
       {
         "id": "f43c01e5cbeb",
@@ -25806,7 +26020,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.7
+        "politicalSignalScore": 38.5
       },
       {
         "id": "772547ad1bd2",
@@ -25836,7 +26050,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.3
+        "politicalSignalScore": 38.2
       },
       {
         "id": "7e369d09a9ea",
@@ -25863,7 +26077,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.7
       },
       {
         "id": "99d3f0b739c1",
@@ -25891,7 +26105,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.0
+        "politicalSignalScore": 36.9
       },
       {
         "id": "973b1ca1b2ea",
@@ -25916,7 +26130,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.4
+        "politicalSignalScore": 35.3
       },
       {
         "id": "884558a5687b",
@@ -25943,7 +26157,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.4
+        "politicalSignalScore": 35.2
       },
       {
         "id": "7b3f87bda84f",
@@ -25968,7 +26182,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.2
+        "politicalSignalScore": 34.1
       },
       {
         "id": "3593d4dc7a14",
@@ -25998,7 +26212,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.2
+        "politicalSignalScore": 33.1
       },
       {
         "id": "eca0fc692bc0",
@@ -26030,7 +26244,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.2
+        "politicalSignalScore": 32.1
       },
       {
         "id": "2a21cb0360a5",
@@ -26057,7 +26271,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 30.0
+        "politicalSignalScore": 29.9
       },
       {
         "id": "6ad10dbff853",
@@ -26090,7 +26304,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.4
+        "politicalSignalScore": 29.3
       },
       {
         "id": "6e5d651744cd",
@@ -26120,7 +26334,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.4
+        "politicalSignalScore": 29.3
       },
       {
         "id": "ca396a85c9e1",
@@ -26149,7 +26363,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 27.7
+        "politicalSignalScore": 27.6
       },
       {
         "id": "24b250618b77",
@@ -26227,7 +26441,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 17.5
+        "politicalSignalScore": 17.3
       },
       {
         "id": "7435e5436b5c",
@@ -26327,54 +26541,6 @@
         "politicalSignalScore": 17.0
       },
       {
-        "id": "3e549bfea9aa",
-        "sourceLabel": "Crisis Group",
-        "sourceType": "analysis",
-        "title": "Washington 28 August 2026 #1",
-        "summary": "Washington 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Washington \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026 \n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department addi",
-        "source": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-        "url": "https://www.crisisgroup.org/content/washington-28-august-2026-1",
-        "time": "Fri, 28 Aug 2026 19:53:59 +0000",
-        "tag": "Breaking",
-        "confidence": "DEVELOPING",
-        "breaking": true,
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [
-          "Iran"
-        ],
-        "politicalTopics": [
-          "Foreign Policy"
-        ],
-        "sourceDomain": "crisisgroup.org",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "8d626135f4df",
-        "sourceLabel": "Crisis Group",
-        "sourceType": "analysis",
-        "title": "Tehran 28 August 2026 #1",
-        "summary": "Tehran 28 August 2026 #1 \n\n  lalasor  \n\n  Fri, 08/28/2026 - 21:53 \n \n   Tehran \n     \n             Fri, 08/28/2026 - 12:00 \n\n  28 August 2026\n    The U.S. announced    sanctions    against “the manager of the Dubai branch of Iran’s Bank Melli… [and] a Hong Kong-based company that has helped designated Iranian individuals and entities to access the international financial system”. The Treasury Department additionally ",
-        "source": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-        "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-        "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-        "tag": "Breaking",
-        "confidence": "DEVELOPING",
-        "breaking": true,
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [
-          "Iran"
-        ],
-        "politicalTopics": [
-          "Foreign Policy"
-        ],
-        "sourceDomain": "crisisgroup.org",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 17.0
-      },
-      {
         "id": "750589f89281",
         "sourceLabel": "The Guardian World",
         "sourceType": "news",
@@ -26402,7 +26568,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 15.7
+        "politicalSignalScore": 15.6
       },
       {
         "id": "e10d8c6173b8",
@@ -26808,7 +26974,7 @@
         "sourceLabel": "NPR Politics",
         "sourceType": "us-politics",
         "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
-        "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan {guh-DAN} about the viability of the Trump administration's plan for Venezuelan oil.",
+        "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan about the viability of the Trump administration's plan for Venezuelan oil.",
         "source": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
         "url": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
         "time": "Thu, 03 Sep 2026 04:08:17 -0400",
@@ -26877,6 +27043,30 @@
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
         "politicalSignalScore": 4.0
+      },
+      {
+        "id": "4e39b533e89b",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
+        "summary": "‘Where the wealthiest country in the world allocates money has always been a question of political will over political way’  The United States once led most other nations on resettling refugees from all over the world. But in the fiscal year 2025- 2026, except for three people from  Afghanistan ,  all  of the  10,258 people  admitted through resettlement were white South Africans.  But admitting en masse the benefici",
+        "source": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
+        "url": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
+        "time": "Wed, 02 Sep 2026 14:27:00 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Immigration"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
       }
     ]
   },
@@ -27188,7 +27378,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T17:30:53.916982Z",
+    "updatedAt": "2026-09-03T17:39:08.942658Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -27196,19 +27386,19 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 66
-      },
-      {
-        "id": "iran",
-        "label": "Iran",
-        "kind": "actor",
-        "mentions": 31
+        "mentions": 63
       },
       {
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
         "mentions": 28
+      },
+      {
+        "id": "iran",
+        "label": "Iran",
+        "kind": "actor",
+        "mentions": 27
       },
       {
         "id": "u-s-politics",
@@ -27311,6 +27501,12 @@
         ],
         "evidence": [
           {
+            "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "2026-09-03T10:14:55+00:00"
+          },
+          {
             "title": "MAGA begins to crack as 2026 GOP roster backs away from Trump's tech vision",
             "url": "",
             "source": "Fox News Politics",
@@ -27333,19 +27529,13 @@
             "url": "",
             "source": "Fox News Politics",
             "time": "2026-09-02T20:54:45+00:00"
-          },
-          {
-            "title": "Republicans fail to ease one of Trump's greatest fears as Supreme Court measure collapses",
-            "url": "",
-            "source": "Fox News Politics",
-            "time": "2026-09-02T20:39:17+00:00"
           }
         ]
       },
       {
         "source": "United States",
         "target": "Iran",
-        "weight": 15,
+        "weight": 11,
         "types": [
           "story"
         ],
