@@ -45,7 +45,7 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          c=d.get('conflictCoverage',{})
+          c=d.get('conflictCoverage') or {}
           assert c.get('version')==3
           assert len(c.get('watchlist',[]))==12
           for x in c['watchlist']:
@@ -53,21 +53,25 @@ jobs:
             assert x.get('status') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE','NO CURRENT SIGNAL')
             assert 0 <= float(x.get('confidence',0)) <= 1
             assert int(x.get('articleCount',0)) >= 0
-          os=d.get('osintMaps',{})
-          assert os.get('version')==2
-          assert isinstance(os.get('gdeltPoints',[]), list)
-          assert isinstance(os.get('liveuamapStories',[]), list)
-          assert isinstance(os.get('reportedAreaPoints',[]), list)
-          for p in os.get('gdeltPoints',[]):
+          os=d.get('osintMaps') or {}
+          # v3 is the current schema; accept legacy fields if present, but never require them.
+          assert os.get('version') in (2,3), f"unsupported OSINT schema: {os.get('version')}"
+          assert isinstance(os.get('normalizedPoints',[]), list)
+          assert isinstance(os.get('regionalPoints',[]), list)
+          for p in os.get('normalizedPoints',[]):
             assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
-            assert p.get('source')=='GDELT GEO'
-          for p in os.get('reportedAreaPoints',[]):
-            assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
-            assert p.get('layer')=='osint-reported' and p.get('sourceUrl')
+            assert p.get('source') and (p.get('sourceUrl') or p.get('url'))
+          regional=os.get('regionalPoints',[])
+          counts=os.get('regionalCounts',{}) or {}
+          if regional:
+            assert all(p.get('layer')=='osint-regional' for p in regional)
+            assert set(counts).issuperset({'Africa','South America','South Asia'})
           assert all(m.get('layer')!='conflict-coverage' or m.get('confidence') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE') for m in d.get('markers',[]))
           assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in d.get('markers',[]))
           assert all(m.get('layer')!='osint-reported' or m.get('sourceUrl') for m in d.get('markers',[]))
-          print('VALID coverage + OSINT:', len(c['watchlist']), 'theaters,', len(os.get('gdeltPoints',[])), 'GDELT points,', len(os.get('liveuamapStories',[])), 'Liveuamap stories,', len(os.get('reportedAreaPoints',[])), 'reported-area points')
+          print('VALID coverage:', len(c['watchlist']), 'theaters')
+          print('OSINT schema:', os.get('version'), 'normalized:', len(os.get('normalizedPoints',[])), 'regional:', len(regional))
+          print('Regional counts:', counts)
           PY
       - name: Commit coverage snapshot
         run: |
