@@ -1,280 +1,31 @@
-/* Global Pulse — live reporting bridge
- * Connects to a local FastAPI news API when available and falls back to the
- * repository's generated live article snapshot so GitHub Pages never looks broken.
- */
-(function () {
+/* Global Pulse — static-first live reporting bridge. */
+(function(){
   "use strict";
-
-  var POLL_MS = 60000;
-  var TIMEOUT_MS = 12000;
-  var FEED_ID = "pulse-reporting-feed";
-  var COUNT_ID = "pulse-reporting-count";
-  var FALLBACK_URLS = [
-    "data/live_articles.json",
-    "data/snapshot.json"
-  ];
-
-  function qs(id) { return document.getElementById(id); }
-
-  function safeText(value, fallback) {
-    var text = String(value == null ? "" : value).trim();
-    return text || (fallback || "");
+  var POLL_MS=60000, TIMEOUT_MS=7000, FEED_ID="pulse-reporting-feed", COUNT_ID="pulse-reporting-count";
+  var FALLBACK=["data/live_articles.json","data/snapshot.json"];
+  function $(id){return document.getElementById(id)}
+  function safe(v,d){v=String(v==null?"":v).trim();return v||d||""}
+  function url(v){try{var u=new URL(String(v||""),location.href);return /^https?:$/.test(u.protocol)?u.href:""}catch(e){return ""}}
+  function ago(v){var t=Date.parse(v||"");if(!isFinite(t))return "Time unavailable";var m=Math.max(0,Math.floor((Date.now()-t)/60000)),h=Math.floor(m/60),d=Math.floor(h/24);return m<1?"just now":m<60?m+"m ago":h<24?h+"h ago":d+"d ago"}
+  function normalize(p){
+    var a=Array.isArray(p)?p:(p&&p.articles)||(p&&p.stories)||[];
+    return a.map(function(x){
+      x=x||{};var c=x.credit||{};
+      return {title:safe(x.title||x.headline,"Untitled report"),published_date:safe(x.published_date||x.time||x.publishedAt||x.timestamp),summary_snippet:safe(x.summary_snippet||x.summary||x.description,"No summary was provided by the source."),original_link:url(x.original_link||x.url||x.link||c.source_url),source:safe(c.source||x.source_name||x.sourceLabel||x.source,"Open-data source")};
+    }).filter(function(x){return x.title})
   }
-
-  function safeUrl(value) {
-    try {
-      var u = new URL(String(value || ""), location.href);
-      if (u.protocol !== "http:" && u.protocol !== "https:") return "";
-      return u.href;
-    } catch (e) {
-      return "";
-    }
+  function render(items,mode){var f=$(FEED_ID);if(!f)return;f.replaceChildren();var c=$(COUNT_ID);if(c)c.textContent=items.length+" ACTIVE"+(mode==="snapshot"?" · SNAPSHOT":"");if(!items.length){var e=document.createElement("div");e.className="gp-reporting-empty";e.textContent="No active reporting is currently available.";f.appendChild(e);return}items.slice(0,50).forEach(function(a){var card=document.createElement("article");card.className="gp-reporting-card";var b=document.createElement("div");b.className="gp-reporting-source";b.textContent="◉ "+a.source;card.appendChild(b);var t=document.createElement(a.original_link?"a":"div");t.className="gp-reporting-title";t.textContent=a.title;if(a.original_link){t.href=a.original_link;t.target="_blank";t.rel="noopener noreferrer"}card.appendChild(t);var tm=document.createElement("time");tm.className="gp-reporting-time";tm.dateTime=a.published_date;tm.textContent=ago(a.published_date);card.appendChild(tm);var s=document.createElement("p");s.className="gp-reporting-summary";s.textContent=a.summary_snippet;card.appendChild(s);var src=document.createElement("div");src.className="gp-reporting-source-name";src.textContent="Source: "+a.source;card.appendChild(src);if(a.original_link){var r=document.createElement("a");r.className="gp-reporting-action";r.href=a.original_link;r.target="_blank";r.rel="noopener noreferrer";r.textContent="Read Full Source Report ↗";card.appendChild(r)}f.appendChild(card)})}
+  function alertBox(){var f=$(FEED_ID);if(!f)return;var a=document.createElement("div");a.className="gp-reporting-alert";a.setAttribute("role","alert");var s=document.createElement("strong");s.textContent="Pipeline Connection Terminated - Retrying...";var d=document.createElement("span");d.textContent="Live API unavailable. Showing repository data when available; retrying automatically.";a.appendChild(s);a.appendChild(d);f.replaceChildren(a);var c=$(COUNT_ID);if(c)c.textContent="RECONNECTING"}
+  async function get(u){var ac=new AbortController(),id=setTimeout(function(){ac.abort()},TIMEOUT_MS);try{var r=await fetch(u,{cache:"no-store",signal:ac.signal,headers:{Accept:"application/json"}});if(!r.ok)throw Error(r.status);return await r.json()}finally{clearTimeout(id)}}
+  async function fetchPulseReporting(){var f=$(FEED_ID);if(!f)return;f.setAttribute("aria-busy","true");
+    /* Static-first: GitHub Pages can always reach these same-origin files. */
+    for(var i=0;i<FALLBACK.length;i++){try{var p=await get(FALLBACK[i]+"?t="+Date.now()),a=normalize(p);if(a.length){render(a,"snapshot");f.classList.add("gp-reporting-fallback");f.setAttribute("aria-busy","false");return true}}catch(e){}}
+    /* Only try FastAPI when explicitly configured or when the page is local. */
+    var candidates=[];if(window.GLOBAL_PULSE_API)candidates.push(window.GLOBAL_PULSE_API);if(location.hostname==="localhost"||location.hostname==="127.0.0.1")candidates.push(location.origin+"/");
+    for(var j=0;j<candidates.length;j++){try{var q=normalize(await get(candidates[j])),b=q.length?null:null;if(q.length){render(q,"live");f.classList.remove("gp-reporting-fallback");f.setAttribute("aria-busy","false");return true}}catch(e2){}}
+    alertBox();f.setAttribute("aria-busy","false");return false;
   }
-
-  function relativeTime(value) {
-    var t = Date.parse(value || "");
-    if (!isFinite(t)) return "Time unavailable";
-    var delta = Math.max(0, Date.now() - t);
-    var minutes = Math.floor(delta / 60000);
-    var hours = Math.floor(minutes / 60);
-    var days = Math.floor(hours / 24);
-    if (minutes < 1) return "just now";
-    if (minutes < 60) return minutes + "m ago";
-    if (hours < 24) return hours + "h ago";
-    if (days < 7) return days + "d ago";
-    return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-  }
-
-  function sourceIcon(source) {
-    var s = String(source || "").toLowerCase();
-    if (/twitter|x\.com|^x$/.test(s)) return "🐦";
-    if (/youtube/.test(s)) return "▶️";
-    if (/cnn|bbc|reuters|fox|npr|axios|guardian|morse|al jazeera/.test(s)) return "📡";
-    return "📰";
-  }
-
-  function normalizeArticle(article) {
-    if (!article || typeof article !== "object") return null;
-    var credit = article.credit || {};
-    var url = safeUrl(article.original_link || article.url || article.link || credit.source_url);
-    return {
-      title: safeText(article.title, "Untitled report"),
-      published_date: safeText(article.published_date || article.time || article.publishedAt),
-      summary_snippet: safeText(article.summary_snippet || article.summary || article.description, "No summary was provided by the source."),
-      original_link: url,
-      source: safeText(credit.source || article.source_name || article.sourceLabel || article.source, "Unknown Source")
-    };
-  }
-
-  function normalizePayload(payload) {
-    if (!payload || typeof payload !== "object") return [];
-    if (Array.isArray(payload.articles)) return payload.articles.map(normalizeArticle).filter(Boolean);
-    if (Array.isArray(payload.stories)) return payload.stories.map(function (story) {
-      return normalizeArticle({
-        title: story.title,
-        published_date: story.time || story.published_date,
-        summary_snippet: story.summary,
-        original_link: story.url || story.link || story.sourceUrl,
-        credit: { source: story.sourceLabel || story.source || "Open Data", source_url: story.url || story.link }
-      });
-    }).filter(Boolean);
-    if (Array.isArray(payload.data && payload.data.articles)) return payload.data.articles.map(normalizeArticle).filter(Boolean);
-    return [];
-  }
-
-  function setStatus(count, source) {
-    var el = qs(COUNT_ID);
-    if (!el) return;
-    el.textContent = count + " ACTIVE" + (source === "fallback" ? " · SNAPSHOT" : "");
-  }
-
-  function createCard(article) {
-    var card = document.createElement("article");
-    card.className = "gp-reporting-card";
-
-    var badge = document.createElement("div");
-    badge.className = "gp-reporting-source";
-    badge.textContent = "[" + sourceIcon(article.source) + " " + article.source + "]";
-
-    var title = document.createElement("a");
-    title.className = "gp-reporting-title";
-    title.textContent = article.title;
-    if (article.original_link) {
-      title.href = article.original_link;
-      title.target = "_blank";
-      title.rel = "noopener noreferrer";
-    }
-
-    var time = document.createElement("time");
-    time.className = "gp-reporting-time";
-    time.dateTime = article.published_date || "";
-    time.textContent = relativeTime(article.published_date);
-    if (article.published_date) time.title = new Date(Date.parse(article.published_date)).toLocaleString();
-
-    var summary = document.createElement("p");
-    summary.className = "gp-reporting-summary";
-    summary.textContent = article.summary_snippet;
-
-    var source = document.createElement("div");
-    source.className = "gp-reporting-source-name";
-    source.textContent = "Source: " + article.source;
-
-    var read = document.createElement("a");
-    read.className = "gp-reporting-action";
-    read.textContent = "Read Full Source Report ↗";
-    if (article.original_link) {
-      read.href = article.original_link;
-      read.target = "_blank";
-      read.rel = "noopener noreferrer";
-    } else {
-      read.href = "#";
-      read.setAttribute("aria-disabled", "true");
-      read.addEventListener("click", function (event) { event.preventDefault(); });
-    }
-
-    card.appendChild(badge);
-    card.appendChild(title);
-    card.appendChild(time);
-    card.appendChild(summary);
-    card.appendChild(source);
-    card.appendChild(read);
-    return card;
-  }
-
-  function render(articles, source) {
-    var feed = qs(FEED_ID);
-    if (!feed) return;
-    feed.replaceChildren();
-    if (!articles.length) {
-      var empty = document.createElement("div");
-      empty.className = "gp-reporting-empty";
-      empty.textContent = "No active reporting is currently available.";
-      feed.appendChild(empty);
-      setStatus(0, source);
-      return;
-    }
-    var fragment = document.createDocumentFragment();
-    articles.forEach(function (article) { fragment.appendChild(createCard(article)); });
-    feed.appendChild(fragment);
-    setStatus(articles.length, source);
-  }
-
-  function showAlert(keepExisting) {
-    var feed = qs(FEED_ID);
-    if (!feed) return;
-    var old = feed.querySelector(".gp-reporting-alert");
-    if (old) return;
-    var alert = document.createElement("div");
-    alert.className = "gp-reporting-alert";
-    alert.setAttribute("role", "alert");
-    var strong = document.createElement("strong");
-    strong.textContent = "Pipeline Connection Terminated - Retrying...";
-    var detail = document.createElement("span");
-    detail.textContent = keepExisting ? "Last good reporting remains visible while the live connection is retried." : "The live reporting service is unavailable. Global Pulse will retry automatically.";
-    alert.appendChild(strong);
-    alert.appendChild(detail);
-    if (keepExisting) feed.prepend(alert); else { feed.replaceChildren(alert); setStatus(0, "fallback"); }
-  }
-
-  async function fetchJSON(url) {
-    var controller = new AbortController();
-    var timer = setTimeout(function () { controller.abort(); }, TIMEOUT_MS);
-    try {
-      var response = await fetch(url, {
-        cache: "no-store",
-        headers: { "Accept": "application/json" },
-        signal: controller.signal
-      });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return await response.json();
-    } finally {
-      clearTimeout(timer);
-    }
-  }
-
-  function apiCandidates() {
-    var configured = window.GLOBAL_PULSE_API;
-    var candidates = [];
-    if (configured) candidates.push(configured);
-    if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
-      candidates.push(location.origin + "/");
-    }
-    candidates.push("http://127.0.0.1:8000/");
-    candidates.push("http://127.0.0.1:8000/api/news");
-    candidates.push("http://127.0.0.1:8000/news");
-    candidates.push("http://127.0.0.1:8000/articles");
-    candidates.push("http://localhost:8000/");
-    return candidates.filter(function (url, index, arr) { return url && arr.indexOf(url) === index; });
-  }
-
-  async function fetchFastAPI() {
-    var candidates = apiCandidates();
-    for (var i = 0; i < candidates.length; i++) {
-      try {
-        var payload = await fetchJSON(candidates[i]);
-        var articles = normalizePayload(payload);
-        if (payload && payload.status === "success" && Array.isArray(payload.articles)) return articles;
-        if (articles.length) return articles;
-      } catch (error) {
-        /* Try the next endpoint without interrupting the dashboard. */
-      }
-    }
-    throw new Error("FastAPI unavailable");
-  }
-
-  async function fetchFallback() {
-    for (var i = 0; i < FALLBACK_URLS.length; i++) {
-      try {
-        var payload = await fetchJSON(FALLBACK_URLS[i] + "?gp=" + Date.now());
-        var articles = normalizePayload(payload);
-        if (articles.length) return articles;
-      } catch (error) {
-        /* Try the next repository snapshot. */
-      }
-    }
-    return [];
-  }
-
-  async function fetchPulseReporting() {
-    var feed = qs(FEED_ID);
-    if (!feed) return;
-    feed.setAttribute("aria-busy", "true");
-
-    try {
-      var articles = await fetchFastAPI();
-      render(articles, "live");
-      feed.classList.remove("gp-reporting-fallback");
-      var alert = feed.querySelector(".gp-reporting-alert");
-      if (alert) alert.remove();
-    } catch (apiError) {
-      var existing = feed.querySelectorAll(".gp-reporting-card").length > 0;
-      var fallback = await fetchFallback();
-      if (fallback.length) {
-        render(fallback, "fallback");
-        feed.classList.add("gp-reporting-fallback");
-        showAlert(true);
-      } else {
-        showAlert(existing);
-      }
-    } finally {
-      feed.setAttribute("aria-busy", "false");
-    }
-  }
-
-  function refreshRelativeTimes() {
-    document.querySelectorAll(".gp-reporting-time").forEach(function (el) {
-      if (el.dateTime) el.textContent = relativeTime(el.dateTime);
-    });
-  }
-
-  window.fetchPulseReporting = fetchPulseReporting;
-
-  function start() {
-    fetchPulseReporting();
-    setInterval(fetchPulseReporting, POLL_MS);
-    setInterval(refreshRelativeTimes, 30000);
-  }
-
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
-  else start();
+  window.fetchPulseReporting=fetchPulseReporting;
+  function start(){fetchPulseReporting();setInterval(fetchPulseReporting,POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
