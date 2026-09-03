@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+"""Add high-value global intelligence points and no-key live hazard signals.
+
+Designed around the public layers documented by Guerillamap: conflicts, military,
+infrastructure, environment and strategic chokepoints. The points are deliberately
+coarse/high-level and are paired with public source links. No API key is required.
+"""
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import quote
+from urllib.request import Request, urlopen
+
+ROOT = Path(__file__).resolve().parent
+SNAP = ROOT / "data" / "snapshot.json"
+
+# High-value strategic nodes inspired by the categories exposed by Guerillamap.
+# These are reference points, not claims that a specific incident is occurring there.
+KEY_POINTS = [
+    (30.0444, 31.2357, "Suez Canal", "Egypt", "STRATEGIC CHOKEPOINT", "Global shipping chokepoint linking the Mediterranean and Red Sea.", "https://www.suezcanal.gov.eg/"),
+    (26.5667, 56.2500, "Strait of Hormuz", "Iran / Oman", "STRATEGIC CHOKEPOINT", "Critical Gulf energy and shipping chokepoint.", "https://www.eia.gov/international/analysis/regions-of-interest/World"),
+    (12.6000, 43.3300, "Bab el-Mandeb", "Yemen / Djibouti / Eritrea", "STRATEGIC CHOKEPOINT", "Red Sea gateway connecting the Gulf of Aden with the Suez route.", "https://www.eia.gov/international/analysis/regions-of-interest/World"),
+    (9.0800, 79.6800, "Panama Canal", "Panama", "STRATEGIC CHOKEPOINT", "Interoceanic trade route connecting the Atlantic and Pacific.", "https://pancanal.com/en/"),
+    (1.2600, 103.8200, "Singapore Strait / Malacca Gateway", "Singapore / Malaysia / Indonesia", "STRATEGIC CHOKEPOINT", "Major maritime gateway for Asia-Europe and Asia-Middle East trade.", "https://www.eia.gov/international/analysis/regions-of-interest/World"),
+    (24.5000, 118.0000, "Taiwan Strait", "Taiwan / China", "FLASHPOINT", "Major Indo-Pacific strategic and military flashpoint.", "https://www.cfr.org/global-conflict-tracker/conflict/china-taiwan-tensions"),
+    (10.0000, 115.0000, "South China Sea", "Indo-Pacific", "FLASHPOINT", "Maritime claims, military activity and trade route concentration.", "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea"),
+    (35.0000, 38.0000, "Eastern Mediterranean / Levant", "Middle East", "STRATEGIC REGION", "Intersection of Levant conflicts, energy routes and maritime security.", "https://www.crisisgroup.org/middle-east-north-africa"),
+    (14.7167, -17.4677, "Dakar / Atlantic Sahel Gateway", "Senegal / West Africa", "REGIONAL NODE", "Atlantic logistics and information hub adjacent to the Sahel security belt.", "https://www.worldbank.org/en/region/afr"),
+    (6.5244, 3.3792, "Lagos", "Nigeria", "REGIONAL NODE", "Major West African population, energy and trade center.", "https://data.worldbank.org/country/nigeria"),
+    (-4.4419, 15.2663, "Kinshasa / Congo Basin", "DRC", "REGIONAL NODE", "Major Central African political and logistics node near the Great Lakes conflict system.", "https://www.crisisgroup.org/africa/great-lakes/democratic-republic-congo"),
+    (15.5000, 32.5000, "Khartoum / Nile Corridor", "Sudan", "CONFLICT NODE", "Key node in Sudan's civil-war and humanitarian system.", "https://www.crisisgroup.org/africa/horn-africa/sudan"),
+    (9.0000, 42.0000, "Horn of Africa", "Somalia / Ethiopia / Djibouti", "STRATEGIC REGION", "Red Sea, Horn security and maritime trade intersection.", "https://www.crisisgroup.org/africa/horn-africa"),
+    (33.3152, 44.3661, "Baghdad", "Iraq", "CONFLICT NODE", "Central political and security node in the Iraq-Iran-US regional system.", "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iraq"),
+    (33.8938, 35.5018, "Beirut / Levant", "Lebanon", "CONFLICT NODE", "Levant political and security node linked to regional escalation dynamics.", "https://www.crisisgroup.org/middle-east-north-africa/east-mediterranean-mena/lebanon"),
+    (31.7683, 35.2137, "Jerusalem", "Israel / Palestine", "CONFLICT NODE", "Central political and symbolic node in the Israel-Palestine conflict system.", "https://www.cfr.org/global-conflict-tracker/conflict/israeli-palestinian-conflict"),
+    (32.0853, 34.7818, "Tel Aviv / Central Israel", "Israel", "STRATEGIC NODE", "Major Israeli economic and infrastructure center exposed to regional security shocks.", "https://www.cfr.org/global-conflict-tracker/conflict/israel-palestine"),
+    (35.6892, 51.3890, "Tehran", "Iran", "STRATEGIC NODE", "Iranian political center in the wider Gulf and regional security system.", "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-israel-and-iran"),
+    (39.9334, 32.8597, "Ankara", "Turkey", "STRATEGIC NODE", "NATO member and regional actor connecting Europe, Black Sea and Middle East systems.", "https://www.nato.int/cps/en/natohq/topics_52044.htm"),
+    (41.0082, 28.9784, "Istanbul / Bosporus", "Turkey", "STRATEGIC CHOKEPOINT", "Black Sea-Mediterranean maritime gateway.", "https://www.eia.gov/international/analysis/regions-of-interest/World"),
+    (37.9838, 23.7275, "Piraeus / Eastern Mediterranean", "Greece", "LOGISTICS NODE", "Mediterranean logistics gateway with relevance to Black Sea and Middle East trade.", "https://transport.ec.europa.eu/transport-themes/infrastructure-and-investment/trans-european-transport-network-ten-t_en"),
+    (55.7558, 37.6173, "Moscow", "Russia", "STRATEGIC NODE", "Russian political and military decision center.", "https://www.cfr.org/global-conflict-tracker/conflict/war-ukraine"),
+    (50.4501, 30.5234, "Kyiv", "Ukraine", "CONFLICT NODE", "Ukrainian political center in the Russia-Ukraine war system.", "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine"),
+    (39.9042, 116.4074, "Beijing", "China", "STRATEGIC NODE", "Chinese political center with major relevance to Indo-Pacific strategic posture.", "https://www.cfr.org/global-conflict-tracker/conflict/china-taiwan-tensions"),
+    (35.6762, 139.6503, "Tokyo", "Japan", "STRATEGIC NODE", "Major Indo-Pacific economic and security center.", "https://www.mofa.go.jp/policy/security/"),
+    (37.5665, 126.9780, "Seoul", "South Korea", "FLASHPOINT", "Major political and economic center in the Korean Peninsula security system.", "https://www.cfr.org/global-conflict-tracker/conflict/north-korea"),
+    (23.6978, 120.9605, "Taiwan", "Taiwan", "FLASHPOINT", "Island-wide reference point for cross-Strait strategic monitoring.", "https://www.cfr.org/global-conflict-tracker/conflict/china-taiwan-tensions"),
+    (19.4326, -99.1332, "Mexico City", "Mexico", "ORGANIZED CRIME NODE", "National political and economic center within Mexico's organized-crime environment.", "https://www.cfr.org/global-conflict-tracker/conflict/mexicos-drug-war"),
+    (4.7110, -74.0721, "Bogota", "Colombia", "ORGANIZED CRIME NODE", "Colombian political center in a regional armed-group and trafficking system.", "https://www.cfr.org/global-conflict-tracker/conflict/colombias-armed-conflict"),
+    (-0.1807, -78.4678, "Quito", "Ecuador", "ORGANIZED CRIME NODE", "Ecuadorian political center amid organized-crime and security pressure.", "https://www.crisisgroup.org/latin-america-caribbean"),
+    (-12.0464, -77.0428, "Lima", "Peru", "REGIONAL NODE", "Peruvian political and logistics center connected to Pacific trade and Andean security.", "https://www.worldbank.org/en/region/lac"),
+    (-23.5505, -46.6333, "Sao Paulo", "Brazil", "REGIONAL NODE", "Major South American economic center and organized-crime monitoring node.", "https://www.worldbank.org/en/region/lac"),
+    (18.5944, -72.3074, "Port-au-Prince", "Haiti", "ORGANIZED CRIME NODE", "Central Haitian security and humanitarian monitoring node.", "https://www.crisisgroup.org/latin-america-caribbean/caribbean/haiti"),
+]
+
+
+def fetch_json(url):
+    req = Request(url, headers={"User-Agent": "GlobalPulse/8.0"})
+    with urlopen(req, timeout=25) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def add_key_points(markers):
+    managed = [m for m in markers if m.get("source") != "Guerilla Map Strategic Layer"]
+    for lat, lng, title, region, event_type, detail, url in KEY_POINTS:
+        managed.append({
+            "lat": lat, "lng": lng, "type": "strategic", "layer": "strategic",
+            "importance": 3, "title": title, "detail": detail,
+            "url": url, "sourceUrl": url, "source": "Guerilla Map Strategic Layer",
+            "region": region, "eventType": event_type,
+            "confidence": "REFERENCE NODE / NOT AN INCIDENT",
+        })
+    return managed
+
+
+def add_live_earthquakes(markers):
+    # USGS public GeoJSON: magnitude 4.5+ in the last 24 hours.
+    url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson"
+    try:
+        data = fetch_json(url)
+        for f in data.get("features", [])[:100]:
+            props = f.get("properties") or {}
+            coords = (f.get("geometry") or {}).get("coordinates") or []
+            if len(coords) < 2:
+                continue
+            lng, lat = coords[0], coords[1]
+            if not isinstance(lat, (int, float)) or not isinstance(lng, (int, float)):
+                continue
+            mag = props.get("mag")
+            place = props.get("place") or "Earthquake"
+            url = props.get("url") or "https://earthquake.usgs.gov/earthquakes/"
+            markers.append({
+                "lat": round(lat, 5), "lng": round(lng, 5), "type": "hazard", "layer": "environment",
+                "importance": 1 if isinstance(mag, (int, float)) and mag >= 6 else 2,
+                "title": f"M{mag} earthquake — {place}",
+                "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+                "url": url, "sourceUrl": url, "source": "USGS Earthquakes",
+                "eventType": "Natural Hazard", "confidence": "PUBLIC LIVE FEED",
+            })
+        return markers, "USGS earthquakes: live"
+    except Exception as exc:
+        return markers, f"USGS earthquakes: unavailable ({type(exc).__name__})"
+
+
+def main():
+    snap = json.loads(SNAP.read_text()) if SNAP.exists() else {}
+    markers = add_key_points(snap.get("markers", []))
+    markers, quake_status = add_live_earthquakes(markers)
+    snap["markers"] = markers
+    snap["updatedAt"] = datetime.now(timezone.utc).isoformat()
+    snap["sourceStatus"] = ((snap.get("sourceStatus", "") + "; ") if snap.get("sourceStatus") else "") + f"Guerilla Map strategic layer: {len(KEY_POINTS)} reference nodes | {quake_status}"
+    note = snap.get("dataNote") or ""
+    additions = "Strategic reference nodes are derived from public Guerilla Map layer categories and are not incident reports. USGS earthquake points are live public hazard data."
+    if additions not in note:
+        snap["dataNote"] = (note + " " + additions).strip()
+    changes = snap.get("changes") or []
+    changes.insert(0, {"kind": "system", "title": "Global layers expanded", "detail": f"Added {len(KEY_POINTS)} strategic reference nodes and refreshed USGS M4.5+ earthquake signals."})
+    snap["changes"] = changes[:8]
+    SNAP.write_text(json.dumps(snap, ensure_ascii=False, indent=2))
+    print(f"Added {len(KEY_POINTS)} strategic nodes; {quake_status}")
+
+
+if __name__ == "__main__":
+    main()
