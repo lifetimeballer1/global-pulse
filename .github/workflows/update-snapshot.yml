@@ -13,6 +13,7 @@ on:
       - 'update_market_data.py'
       - 'news_feed_db.py'
       - 'install_v27.py'
+      - 'install_map_v3.py'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
 permissions:
@@ -84,10 +85,12 @@ jobs:
         run: python finalize_intelligence_health.py
       - name: Install Global Pulse V2.7 intelligence layer
         run: python install_v27.py
+      - name: Install map v3 intensity and regional coverage controls
+        run: python install_map_v3.py
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
@@ -116,7 +119,7 @@ jobs:
           assert pi.get('totalSignals',0)>0 and isinstance(pi.get('topSignals'),list) and len(pi['topSignals'])>0
           assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
           assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])); assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[]))
-          assert 'gp-map-rescue-js' in html; assert 'pulse-reporting-feed' in html; assert 'global_pulse_v27.js?v=' in html
+          assert 'gp-map-rescue-js' in html; assert 'gp-map-v3-js' in html; assert 'pulse-reporting-feed' in html; assert 'global_pulse_v27.js?v=' in html
           for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_tension.js','global_pulse_source_health.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js','global_pulse_v26.js','global_pulse_v27.js']:
             assert asset in html, f'{asset} missing from index'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
