@@ -4,9 +4,6 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -135,6 +132,7 @@ jobs:
           print(f"LIVE SOURCES: {status['healthySources']}/{status['feedsChecked']} healthy; {status['newArticles']} new; {status['purged']} purged")
           print(f"UPDATED: {d['updatedAt']}")
           print(f"SOURCE STATUS: {d.get('sourceStatus','unknown')}")
+          print(f"SCORE VERSION: {d.get('scoreVersion','unknown')}")
           PY
       - name: Commit refreshed data and generated site changes
         run: |
