@@ -95,13 +95,13 @@ def initial_cards(limit: int = 30) -> str:
         link = link_for(article)
 
         title_html = (
-            f'<a class="gp-reporting-title" href="{link}" target = "_blank" '
+            f'<a class="gp-reporting-title" href="{link}" target="_blank" '
             f'rel="noopener noreferrer">{title}</a>'
             if link
             else f'<div class="gp-reporting-title">{title}</div>'
         )
         action = (
-            f'<a class="gp-reporting-action" href="{link}" target = "_blank" '
+            f'<a class="gp-reporting-action" href="{link}" target="_blank" '
             f'rel="noopener noreferrer">Read Full Source Report ↗</a>'
             if link
             else ""
@@ -125,6 +125,10 @@ def initial_cards(limit: int = 30) -> str:
 def patch_index():
     html_text = INDEX.read_text(encoding="utf-8")
 
+    # The previous auto-refresh implementation could enter a reload loop when
+    # GitHub Pages cached index.html and snapshot.json from different deploys.
+    # A static site must never depend on forced full-page reloads to function.
+    html_text = re.sub(r'<script id="gp-auto-refresh">.*?</script>', '', html_text, flags=re.S)
     html_text = re.sub(r'<style id="gp-live-reporting-css">.*?</style>', '', html_text, flags=re.S)
     html_text = re.sub(r'<script id="gp-live-reporting-config">.*?</script>', '', html_text, flags=re.S)
     html_text = re.sub(r'<script src="global_pulse_reporting\.js" defer></script>', '', html_text)
