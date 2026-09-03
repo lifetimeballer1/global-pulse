@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/update-snapshot.yml'
 
 permissions:
   contents: write
@@ -15,7 +18,7 @@ env:
 
 concurrency:
   group: global-pulse-production
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh-and-deploy:
@@ -130,6 +133,9 @@ jobs:
           assert html.count('class="gp-footer-credit"')==0, 'old footer credit remains'
           assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
           assert not re.search(r'\b(coming soon|under construction)\b',html,re.I), 'unfinished content remains'
+          assert d.get('scoreVersion') == 3, f"unexpected score version: {d.get('scoreVersion')}"
+          assert isinstance(d.get('tension'), (int,float)) and 0 <= d['tension'] <= 100, 'invalid tension score'
+          assert isinstance(d.get('breakdownScores'), dict) and len(d['breakdownScores']) >= 6, 'tension breakdown incomplete'
           print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges, {pi['totalSignals']} political intelligence signals, {pi['corroboratedSignals']} corroborated, {db_count} SQLite rows")
           print(f"LIVE SOURCES: {status['healthySources']}/{status['feedsChecked']} healthy; {status['newArticles']} new; {status['purged']} purged")
           print(f"UPDATED: {d['updatedAt']}")
@@ -144,12 +150,25 @@ jobs:
           git add -A
           if git diff --staged --quiet; then
             echo "No generated changes to commit"
-          else
-            git commit -m "chore: refresh global pulse data"
-            git fetch origin main
-            git rebase origin/main
-            git push origin HEAD:main
+            exit 0
           fi
+          git commit -m "chore: refresh global pulse data"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                echo "Published refreshed data on attempt $attempt"
+                exit 0
+              fi
+              git rebase --abort || true
+            else
+              git rebase --abort || true
+            fi
+            echo "Publish race on attempt $attempt; retrying..."
+            sleep $((attempt * 3))
+          done
+          echo "Unable to publish refreshed data after 5 attempts"
+          exit 1
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
