@@ -51,6 +51,9 @@ jobs:
       - name: Promote politics and economics to first-class layers
         run: python update_political_layer.py
 
+      - name: Build automatic political intelligence and corroboration layer
+        run: python update_political_intelligence.py
+
       - name: Sync intelligence maps
         run: python update_osint.py
 
@@ -69,7 +72,7 @@ jobs:
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_feed_expansion.py update_political_layer.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
@@ -79,26 +82,34 @@ jobs:
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
           g=d.get('intelligenceGraph',{})
+          pi=d.get('politicalIntelligence',{})
           assert d.get('updatedAt'), 'snapshot has no updatedAt'
           assert len(d.get('stories',[]))>=100, f"too few stories: {len(d.get('stories',[]))}"
           assert len(d.get('conflicts',[]))>=25, f"too few conflicts: {len(d.get('conflicts',[]))}"
           assert len(d.get('cfrConflicts',[]))>=20, f"too few CFR conflicts: {len(d.get('cfrConflicts',[]))}"
           assert len(d.get('usPolitics',[])) + len(d.get('worldPolitics',[])) > 0, 'politics layer contains no stories'
           assert len(d.get('economics',[])) > 0, 'economics layer contains no stories'
+          assert pi.get('totalSignals',0) > 0, 'political intelligence engine produced no signals'
+          assert isinstance(pi.get('topSignals'),list) and len(pi['topSignals']) > 0, 'political intelligence topSignals missing'
           assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10, 'intelligence graph is incomplete'
           assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
           assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR layer missing'
           assert 'gp-map-rescue-js' in html, 'canonical map UI missing'
           assert 'global_pulse_graph.js' in html, 'intelligence graph UI missing'
-          assert 'global_pulse_layers.js' in html, 'reporting layer UI missing'
+          assert 'global_pulse_layers.js' in html, 'political intelligence UI missing'
+          assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8'), 'political reporting panel missing'
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'politics feed expansion missing'
+          assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Fox politics feed missing'
+          assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'CNN politics feed missing'
+          assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Axios politics feed missing'
+          assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Morse Report feed missing'
           assert html.count('Made by J.S.')==1, 'branding duplicated'
           assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
           assert html.count('class="gp-footer-credit"')==0, 'old footer credit remains'
           assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
           assert not re.search(r'\b(coming soon|under construction)\b',html,re.I), 'unfinished content remains'
-          print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges")
+          print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges, {pi['totalSignals']} political intelligence signals, {pi['corroboratedSignals']} corroborated")
           print(f"UPDATED: {d['updatedAt']}")
           print(f"SOURCE STATUS: {d.get('sourceStatus','unknown')}")
           PY
