@@ -20,6 +20,8 @@ HIST = DATA / "history.json"
 SOURCES = DATA / "sources.json"
 MAX_WORKERS = 10
 
+CLIMATE_RE = re.compile(r"drought|flood|flooding|wildfire|forest fire|cyclone|hurricane|typhoon|heatwave|heat wave|extreme heat|extreme cold|storm|landslide|glacier|sea level|water shortage|water stress|food insecurity|food crisis|famine|hunger|crop failure|harvest failure|epidemic|outbreak|disease|cholera|malaria|avian flu|pandemic", re.I)
+
 
 def parse_feed(label, url, kind):
     rows, error = [], None
@@ -43,6 +45,21 @@ def parse_feed(label, url, kind):
     return rows, error
 
 
+def climate_metrics(stories):
+    """Transparent climate/humanitarian signal components from current public reporting."""
+    groups = {
+        "Drought & water": re.compile(r"drought|water shortage|water stress|reservoir|water supply", re.I),
+        "Floods & storms": re.compile(r"flood|flooding|cyclone|hurricane|typhoon|storm|landslide|glacier", re.I),
+        "Heat & fire": re.compile(r"heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold", re.I),
+        "Food security": re.compile(r"famine|food insecurity|food crisis|hunger|crop failure|harvest failure", re.I),
+        "Health outbreaks": re.compile(r"epidemic|outbreak|disease|cholera|malaria|avian flu|pandemic", re.I),
+    }
+    out = {}
+    for name, rx in groups.items():
+        out[name] = min(100, base.score_dimension(stories, rx, 34))
+    return out
+
+
 def build_early_warning(tension, breakdown, history):
     """Turn recent tension history into a transparent early-warning signal."""
     points = [p for p in history if isinstance(p, dict) and isinstance(p.get("tension"), (int, float))]
@@ -58,15 +75,7 @@ def build_early_warning(tension, breakdown, history):
         level = "ELEVATED"
     else:
         level = "WATCH"
-    return {
-        "level": level,
-        "score": int(round(tension)),
-        "momentum": momentum,
-        "direction": "rising" if momentum >= 2 else "falling" if momentum <= -2 else "stable",
-        "strongestDriver": strongest_name,
-        "strongestDriverScore": int(strongest_value),
-        "method": "Recent 12 snapshots versus the preceding 24 snapshots, plus current tension level.",
-    }
+    return {"level": level, "score": int(round(tension)), "momentum": momentum, "direction": "rising" if momentum >= 2 else "falling" if momentum <= -2 else "stable", "strongestDriver": strongest_name, "strongestDriverScore": int(strongest_value), "method": "Recent 12 snapshots versus the preceding 24 snapshots, plus current tension level."}
 
 
 def main():
@@ -98,7 +107,9 @@ def main():
         "Economic pressure": base.score_dimension(stories, base.ECON_RE, 32),
         "Market volatility": base.score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30),
         "Military posture": base.score_dimension(stories, base.MIL_RE, 34),
+        "Climate & humanitarian pressure": base.score_dimension(stories, CLIMATE_RE, 34),
     }
+    climate = climate_metrics(stories)
     tension = round(sum(breakdown.values()) / len(breakdown))
     old_tension = old.get("tension")
     delta = tension - old_tension if isinstance(old_tension, (int, float)) else 0
@@ -107,14 +118,13 @@ def main():
         changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(feeds)} feeds checked; {len(stories)} current stories retained."}]
     conflicts = base.make_conflicts(stories, old)
     now = datetime.now(timezone.utc).isoformat()
-    # Append this point before calculating the next early-warning view so the UI always has current context.
     history_with_current = history + [{"updatedAt": now, "tension": tension, "delta": delta}]
     early_warning = build_early_warning(tension, breakdown, history_with_current)
-    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "earlyWarning": early_warning, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
+    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Climate & humanitarian pressure is a monitoring signal derived from current reporting and disaster alerts; it is not a climate model or official hazard index.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "climatePressure": climate, "earlyWarning": early_warning, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     HIST.write_text(json.dumps(history_with_current[-288:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a, b, c in feeds], "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(snapshot["sourceStatus"], "tension", tension, "early warning", early_warning["level"], "conflicts", len(conflicts))
+    print(snapshot["sourceStatus"], "tension", tension, "early warning", early_warning["level"], "climate", breakdown["Climate & humanitarian pressure"], "conflicts", len(conflicts))
     if errors:
         print("errors:", "; ".join(errors))
 
