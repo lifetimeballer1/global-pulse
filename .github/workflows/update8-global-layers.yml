@@ -1,0 +1,59 @@
+name: Global Pulse Update 8 — Strategic & Hazard Layers
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+  push:
+    paths:
+      - 'update8_global_layers.py'
+      - '.github/workflows/update8-global-layers.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: global-pulse-update8
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Refresh global layers
+        run: python update8_global_layers.py
+
+      - name: Validate snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/snapshot.json')
+          d = json.loads(p.read_text())
+          assert d.get('updatedAt'), 'missing updatedAt'
+          markers = d.get('markers')
+          assert isinstance(markers, list), 'markers missing'
+          assert any(m.get('source') == 'Guerilla Map Strategic Layer' for m in markers), 'strategic layer missing'
+          print('markers:', len(markers))
+          print('updatedAt:', d['updatedAt'])
+          PY
+
+      - name: Commit data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/snapshot.json
+          if git diff --cached --quiet; then
+            echo 'No data changes.'
+          else
+            git commit -m 'data: refresh strategic and hazard intelligence'
+            git push
+          fi
