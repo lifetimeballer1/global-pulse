@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-03T11:25:18.675652+00:00",
-  "sourceStatus": "214 stories · 115 new · 15/18 feeds healthy; Global War News Map: 250 points | Cartel Intelligence Map: 172 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "updatedAt": "2026-09-03T12:22:02.993791+00:00",
+  "sourceStatus": "209 stories · 25 new · 15/22 feeds healthy; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
-  "tension": 85,
-  "tensionDelta": -2,
+  "tension": 89,
+  "tensionDelta": 4,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 75,
+    "Diplomatic strain": 84,
     "Economic pressure": 100,
-    "Market volatility": 66,
+    "Market volatility": 77,
     "Military posture": 83
   },
   "changes": [
@@ -25,32 +25,32 @@
     {
       "kind": "osint",
       "title": "Intelligence map sync",
-      "detail": "Global War News Map: 250 points | Cartel Intelligence Map: 172 points"
+      "detail": "Global War News Map: 250 points | Cartel Intelligence Map: 180 points"
     },
     {
-      "kind": "new reporting",
-      "title": "Dems demand DHS fund election security. And, journalist Gloria Steinem has died",
-      "detail": "NPR World · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
+      "kind": "breaking",
+      "title": "Judge rules 2,000 Catalina Island deer can be killed to save native plant species",
       "detail": "Guardian US · regional · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Ceuta crisis: ‘No evidence Morocco behind border surge’",
+      "title": "In 2016, Trump pledged to erase the federal debt. It just hit $40tn | Steven Greenhouse",
+      "detail": "Guardian US · regional · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Apocalypse prep or pure pragmatism: what is behind Peter Thiel’s move to Argentina?",
+      "detail": "Guardian World · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Spain's Sanchez says no 'solid proof' that Morocco planned Ceuta crisis",
       "detail": "France 24 · international · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Working-class ER nurse seeks to flip battleground Wisconsin House seat",
-      "detail": "Guardian US · regional · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Colorado’s Republican governor nominee linked to controversial anti-sex-trafficking ministry",
-      "detail": "Guardian US · regional · DEVELOPING"
+      "title": "Families perform symbolic funerals for missing Nepal flood victims",
+      "detail": "Al Jazeera · international · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -60,18 +60,18 @@
       "region": "Europe",
       "category": "WAR",
       "status": "Active signal",
-      "recent": "Putin's 'global battle' against US & NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+      "recent": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 11,
+      "signalCount": 10,
       "sourceCount": 5,
       "confidence": "CORROBORATED",
       "eventType": "KINETIC",
       "lastSignal": "Thu, 03 Sep 2026 10:26:42 GMT",
       "signals": [
         {
-          "title": "Putin's 'global battle' against US & NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+          "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
           "source": "France 24",
           "url": "https://www.france24.com/en/tv-shows/spotlight/20260903-putin-s-global-battle-against-us-nato-russia-testing-nato-since-2022-ukraine-invasion-began",
           "time": "Thu, 03 Sep 2026 10:26:42 GMT",
@@ -114,10 +114,10 @@
             "russia",
             "putin"
           ],
-          "signal": 15.7
+          "signal": 15.0
         }
       ],
-      "facts": "11 conflict-specific signal(s) from 5 source(s) in the current feed window.",
+      "facts": "10 conflict-specific signal(s) from 5 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -130,9 +130,9 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 9,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
+      "signalCount": 10,
+      "sourceCount": 3,
+      "confidence": "CORROBORATED",
       "eventType": "MILITARY POSTURE",
       "lastSignal": "Thu, 03 Sep 2026 09:53:58 GMT",
       "signals": [
@@ -156,7 +156,7 @@
             "gaza",
             "hamas"
           ],
-          "signal": 19.4
+          "signal": 18.0
         },
         {
           "title": "Israel says Hamas security chief captured as strikes kill four during Gaza raid",
@@ -180,7 +180,7 @@
           "signal": 10.4
         }
       ],
-      "facts": "9 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "facts": "10 conflict-specific signal(s) from 3 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -191,17 +191,17 @@
       "status": "Active signal",
       "recent": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
       "escalation": "HIGH",
-      "activityScore": 74,
-      "delta": -26,
+      "activityScore": 69,
+      "delta": -5,
       "signalCount": 4,
-      "sourceCount": 3,
-      "confidence": "CORROBORATED",
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
       "eventType": "MONITORING",
       "lastSignal": "Wed, 02 Sep 2026 17:33:45 GMT",
       "signals": [
         {
           "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
-          "source": "BBC World",
+          "source": "BBC Middle East",
           "url": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
           "time": "Wed, 02 Sep 2026 17:33:45 GMT",
           "match": [
@@ -244,67 +244,7 @@
           "signal": 5.0
         }
       ],
-      "facts": "4 conflict-specific signal(s) from 3 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "israel-iran",
-      "name": "Israel–Iran Regional Front",
-      "region": "Middle East",
-      "category": "WAR",
-      "status": "Active signal",
-      "recent": "Tehran 28 August 2026 #1",
-      "escalation": "MODERATE",
-      "activityScore": 64,
-      "delta": -31,
-      "signalCount": 4,
-      "sourceCount": 3,
-      "confidence": "CORROBORATED",
-      "eventType": "ECONOMIC",
-      "lastSignal": "Fri, 28 Aug 2026 19:53:08 +0000",
-      "signals": [
-        {
-          "title": "Tehran 28 August 2026 #1",
-          "source": "Crisis Group",
-          "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
-          "time": "Fri, 28 Aug 2026 19:53:08 +0000",
-          "match": [
-            "tehran"
-          ],
-          "signal": 8.2
-        },
-        {
-          "title": "China’s support for Iran shows its limits as US ramps up pressure on Tehran",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/economy/2026/9/3/chinas-support-for-iran-shows-its-limits-as-us-ramps-up-pressure-on-tehran?traffic_source=rss",
-          "time": "Thu, 03 Sep 2026 06:48:46 +0000",
-          "match": [
-            "tehran"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "Tehran 27 August 2026 #2",
-          "source": "Crisis Group",
-          "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
-          "time": "Fri, 28 Aug 2026 19:55:08 +0000",
-          "match": [
-            "tehran"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "Trump hopes sanctions will topple Iran's regime - its leaders are betting otherwise",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/cr50n9gnljgo?at_medium=RSS&at_campaign=rss",
-          "time": "Tue, 25 Aug 2026 12:37:53 GMT",
-          "match": [
-            "tehran"
-          ],
-          "signal": 3.9
-        }
-      ],
-      "facts": "4 conflict-specific signal(s) from 3 source(s) in the current feed window.",
+      "facts": "4 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -316,7 +256,7 @@
       "recent": "Were Christians the target of the Palm Sunday attack in Nigeria?",
       "escalation": "MODERATE",
       "activityScore": 64,
-      "delta": 1,
+      "delta": 0,
       "signalCount": 5,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -368,6 +308,56 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
+      "id": "israel-iran",
+      "name": "Israel–Iran Regional Front",
+      "region": "Middle East",
+      "category": "WAR",
+      "status": "Active signal",
+      "recent": "Tehran 28 August 2026 #1",
+      "escalation": "MODERATE",
+      "activityScore": 55,
+      "delta": -9,
+      "signalCount": 3,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
+      "eventType": "ECONOMIC",
+      "lastSignal": "Fri, 28 Aug 2026 19:53:08 +0000",
+      "signals": [
+        {
+          "title": "Tehran 28 August 2026 #1",
+          "source": "Crisis Group",
+          "url": "https://www.crisisgroup.org/content/tehran-28-august-2026-1",
+          "time": "Fri, 28 Aug 2026 19:53:08 +0000",
+          "match": [
+            "tehran"
+          ],
+          "signal": 8.2
+        },
+        {
+          "title": "Tehran 27 August 2026 #2",
+          "source": "Crisis Group",
+          "url": "https://www.crisisgroup.org/content/tehran-27-august-2026-2",
+          "time": "Fri, 28 Aug 2026 19:55:08 +0000",
+          "match": [
+            "tehran"
+          ],
+          "signal": 6.0
+        },
+        {
+          "title": "Trump hopes sanctions will topple Iran's regime - its leaders are betting otherwise",
+          "source": "BBC Middle East",
+          "url": "https://www.bbc.co.uk/news/articles/cr50n9gnljgo?at_medium=RSS&at_campaign=rss",
+          "time": "Tue, 25 Aug 2026 12:37:53 GMT",
+          "match": [
+            "tehran"
+          ],
+          "signal": 3.9
+        }
+      ],
+      "facts": "3 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
       "id": "sudan",
       "name": "Sudan Civil War",
       "region": "Africa",
@@ -398,116 +388,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "ecuador",
-      "name": "Ecuador Organized Crime Conflict",
-      "region": "Latin America",
-      "category": "CRIMINAL CONFLICT",
-      "status": "Active signal",
-      "recent": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
-      "escalation": "MODERATE",
-      "activityScore": 53,
-      "delta": 16,
-      "signalCount": 2,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Thu, 20 Aug 2026 10:41:25 GMT",
-      "signals": [
-        {
-          "title": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
-          "source": "BBC Africa",
-          "url": "https://www.bbc.co.uk/news/articles/clylkv4z59vo?at_medium=RSS&at_campaign=rss",
-          "time": "Thu, 20 Aug 2026 10:41:25 GMT",
-          "match": [
-            "ecuador"
-          ],
-          "signal": 8.8
-        },
-        {
-          "title": "A qué hora juega Ecuador vs Curazao , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
-          "source": "GDELT Live — Americas",
-          "url": "https://libero.pe:443/futbol-internacional/2026/06/19/hora-juega-ecuador-vs-curazao-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1443829",
-          "time": "3 Jun 2026 14:15:00 +0000",
-          "match": [
-            "ecuador"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "pakistan",
-      "name": "Pakistan Militancy / Border Risk",
-      "region": "Asia",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "Pakistan’s Punjab allows ‘secret’ terrorism trials: Why it’s controversial",
-      "escalation": "LOW",
-      "activityScore": 48,
-      "delta": 9,
-      "signalCount": 2,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Thu, 03 Sep 2026 07:25:51 +0000",
-      "signals": [
-        {
-          "title": "Pakistan’s Punjab allows ‘secret’ terrorism trials: Why it’s controversial",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/news/2026/9/3/pakistans-punjab-allows-secret-terrorism-trials-why-its-controversial?traffic_source=rss",
-          "time": "Thu, 03 Sep 2026 07:25:51 +0000",
-          "match": [
-            "pakistan"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
-          "time": "Tue, 01 Sep 2026 05:00:34 GMT",
-          "match": [
-            "pakistan"
-          ],
-          "signal": 2.5
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "yemen",
-      "name": "Yemen / Red Sea",
-      "region": "Middle East",
-      "category": "CONFLICT",
-      "status": "Active signal",
-      "recent": "Bus crash on Egypt's Red Sea coast kills 22",
-      "escalation": "LOW",
-      "activityScore": 47,
-      "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Wed, 02 Sep 2026 12:07:32 GMT",
-      "signals": [
-        {
-          "title": "Bus crash on Egypt's Red Sea coast kills 22",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/cn8mr1myy2ko?at_medium=RSS&at_campaign=rss",
-          "time": "Wed, 02 Sep 2026 12:07:32 GMT",
-          "match": [
-            "red sea"
-          ],
-          "signal": 13.4
-        }
-      ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "drc",
       "name": "Eastern DRC Conflict",
       "region": "Africa",
@@ -516,7 +396,7 @@
       "recent": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
       "escalation": "LOW",
       "activityScore": 47,
-      "delta": 10,
+      "delta": 0,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -532,6 +412,36 @@
             "drc"
           ],
           "signal": 14.0
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "yemen",
+      "name": "Yemen / Red Sea",
+      "region": "Middle East",
+      "category": "CONFLICT",
+      "status": "Active signal",
+      "recent": "Bus crash on Egypt's Red Sea coast kills 22",
+      "escalation": "LOW",
+      "activityScore": 46,
+      "delta": -1,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Wed, 02 Sep 2026 12:07:32 GMT",
+      "signals": [
+        {
+          "title": "Bus crash on Egypt's Red Sea coast kills 22",
+          "source": "BBC Middle East",
+          "url": "https://www.bbc.co.uk/news/articles/cn8mr1myy2ko?at_medium=RSS&at_campaign=rss",
+          "time": "Wed, 02 Sep 2026 12:07:32 GMT",
+          "match": [
+            "red sea"
+          ],
+          "signal": 12.0
         }
       ],
       "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
@@ -584,6 +494,36 @@
       "lastSignal": null,
       "signals": [],
       "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador Organized Crime Conflict",
+      "region": "Latin America",
+      "category": "CRIMINAL CONFLICT",
+      "status": "Active signal",
+      "recent": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
+      "escalation": "LOW",
+      "activityScore": 43,
+      "delta": -10,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Thu, 20 Aug 2026 10:41:25 GMT",
+      "signals": [
+        {
+          "title": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
+          "source": "BBC Africa",
+          "url": "https://www.bbc.co.uk/news/articles/clylkv4z59vo?at_medium=RSS&at_campaign=rss",
+          "time": "Thu, 20 Aug 2026 10:41:25 GMT",
+          "match": [
+            "ecuador"
+          ],
+          "signal": 8.8
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -658,28 +598,28 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "taiwan",
-      "name": "Taiwan Strait Pressure",
-      "region": "Indo-Pacific",
-      "category": "FLASHPOINT",
+      "id": "pakistan",
+      "name": "Pakistan Militancy / Border Risk",
+      "region": "Asia",
+      "category": "INSURGENCY",
       "status": "Active signal",
-      "recent": "China’s support for Iran shows its limits as US ramps up pressure on Tehran",
+      "recent": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
       "escalation": "LOW",
       "activityScore": 39,
-      "delta": 2,
+      "delta": -9,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
       "eventType": "MONITORING",
-      "lastSignal": "Thu, 03 Sep 2026 06:48:46 +0000",
+      "lastSignal": "Tue, 01 Sep 2026 05:00:34 GMT",
       "signals": [
         {
-          "title": "China’s support for Iran shows its limits as US ramps up pressure on Tehran",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/economy/2026/9/3/chinas-support-for-iran-shows-its-limits-as-us-ramps-up-pressure-on-tehran?traffic_source=rss",
-          "time": "Thu, 03 Sep 2026 06:48:46 +0000",
+          "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
+          "source": "BBC Middle East",
+          "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
+          "time": "Tue, 01 Sep 2026 05:00:34 GMT",
           "match": [
-            "beijing"
+            "pakistan"
           ],
           "signal": 2.5
         }
@@ -753,7 +693,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": -7,
+      "delta": 0,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -783,6 +723,25 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
+      "id": "taiwan",
+      "name": "Taiwan Strait Pressure",
+      "region": "Indo-Pacific",
+      "category": "FLASHPOINT",
+      "status": "Monitoring",
+      "recent": "No specific current signal in the public feed window.",
+      "escalation": "LOW",
+      "activityScore": 37,
+      "delta": -2,
+      "signalCount": 0,
+      "sourceCount": 0,
+      "confidence": "MONITORING",
+      "eventType": "MONITORING",
+      "lastSignal": null,
+      "signals": [],
+      "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
       "id": "mexico",
       "name": "Mexico Cartel Conflict",
       "region": "Latin America",
@@ -799,46 +758,6 @@
       "lastSignal": null,
       "signals": [],
       "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "colombia",
-      "name": "Colombia Armed Groups",
-      "region": "Latin America",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
-      "escalation": "LOW",
-      "activityScore": 36,
-      "delta": 9,
-      "signalCount": 2,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "3 Jul 2026 23:30:00 +0000",
-      "signals": [
-        {
-          "title": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
-          "source": "GDELT Live — Americas",
-          "url": "https://www.elcolombiano.com/inicio/25-anos-titulo-seleccion-colombia-copa-america-2001-DP39369486",
-          "time": "3 Jul 2026 23:30:00 +0000",
-          "match": [
-            "colombia"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "A qué hora juega Colombia hoy contra Uzbekistán : horarios del partido y canales para ver EN VIVO el Mundial",
-          "source": "GDELT Live — Americas",
-          "url": "https://www.eluniverso.com/deportes/futbol/a-que-hora-juega-colombia-hoy-contra-uzbekistan-horarios-del-partido-y-canales-para-ver-en-vivo-el-mundial-nota/",
-          "time": "3 Jun 2026 13:00:00 +0000",
-          "match": [
-            "colombia"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -880,7 +799,7 @@
       "recent": "The phone book that led us to Assad's spy chief in hiding",
       "escalation": "LOW",
       "activityScore": 29,
-      "delta": 2,
+      "delta": 0,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -910,7 +829,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 27,
-      "delta": -18,
+      "delta": 0,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -1006,6 +925,25 @@
       "escalation": "LOW",
       "activityScore": 27,
       "delta": 0,
+      "signalCount": 0,
+      "sourceCount": 0,
+      "confidence": "MONITORING",
+      "eventType": "MONITORING",
+      "lastSignal": null,
+      "signals": [],
+      "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia Armed Groups",
+      "region": "Latin America",
+      "category": "INSURGENCY",
+      "status": "Monitoring",
+      "recent": "No specific current signal in the public feed window.",
+      "escalation": "LOW",
+      "activityScore": 27,
+      "delta": -9,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -2621,6 +2559,188 @@
       "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdkr",
       "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdkr",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.015,
+      "lng": -169.221,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — 105 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/attkscoz",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/attkscoz",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1815,
+      "lng": 146.1539,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 53 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 22.8619,
+      "lng": 144.06,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — Volcano Islands, Japan region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -34.9815,
+      "lng": -109.0259,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.9 earthquake — southern East Pacific Rise",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdms",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdms",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3538,
+      "lng": -169.4988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 78 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmm",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmm",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.3909,
+      "lng": -92.9873,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.6 earthquake — 71 km WSW of Puerto Madero, Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmp",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmp",
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
@@ -7295,8 +7415,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4wOuXS4tTmAzK1PuWZpSnv3J1d3mU0EvsQPe0L8GQ6v5flK5rqL-T83da2kUwCcU4zGLE3UnJ47nJYDAIbsQ6Voq3JBEMgL68ThNP6UOTCMdAW24zrULMIQGieioZovDnp_WyYJpRcnpqoCBnFsmjs8IEEIYofCXLicZcF8oUZdxeYqaqlUAVW3GHOOX9cbMZCna0r8vyBmrsFA6FitRi6HZv_CfBUWLnqJFltJEW7K5p6ncy5Uidjnlw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4wOuXS4tTmAzK1PuWZpSnv3J1d3mU0EvsQPe0L8GQ6v5flK5rqL-T83da2kUwCcU4zGLE3UnJ47nJYDAIbsQ6Voq3JBEMgL68ThNP6UOTCMdAW24zrULMIQGieioZovDnp_WyYJpRcnpqoCBnFsmjs8IEEIYofCXLicZcF8oUZdxeYqaqlUAVW3GHOOX9cbMZCna0r8vyBmrsFA6FitRi6HZv_CfBUWLnqJFltJEW7K5p6ncy5Uidjnlw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6qA2sr1AZsvIf4L0e2-A3_9NJrwvTmowqPwSqVKWS5o86CJtIX-KILwUBBUE3KzaISDvaXfW-L21gHTb-q8h8YJlLggxs0mqVlQFiIA1P6cBHJOk9EF1Qy61Q6pTaCPttYQl7b4Xgj5LamGmN8kcESgFulGafe5Emdgwxy0qsidh5OyLPoH2QqA9uTEf8aAsGXkOHrm93o0_LlX7XUDYKmqi-qaa-W4n7_TyMnw9QV7-vHPXa8k4Jm7qM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6qA2sr1AZsvIf4L0e2-A3_9NJrwvTmowqPwSqVKWS5o86CJtIX-KILwUBBUE3KzaISDvaXfW-L21gHTb-q8h8YJlLggxs0mqVlQFiIA1P6cBHJOk9EF1Qy61Q6pTaCPttYQl7b4Xgj5LamGmN8kcESgFulGafe5Emdgwxy0qsidh5OyLPoH2QqA9uTEf8aAsGXkOHrm93o0_LlX7XUDYKmqi-qaa-W4n7_TyMnw9QV7-vHPXa8k4Jm7qM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -7331,8 +7451,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR47w-2WDYrEjNRtA9socIKeIvw5ZyMZnOXC3ScICAjl0-QD-6Dhgbj9WDflgm7se6-YaoPyt5wyLMeymqCOCyRl_XtXiapTfnCugLh_vyNb-7wiRqtfKYWf44glHQqtFZSZv3ztBfssFBO-aURuKHZmtREpCY9tMzFgKTVaSTccOGG0pgSgQ8FpewY180PDkYCP-PStpeftn846Mup997ofikHtveIreoej4rsU3D0fowHo7s8ZB-WGmpk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR47w-2WDYrEjNRtA9socIKeIvw5ZyMZnOXC3ScICAjl0-QD-6Dhgbj9WDflgm7se6-YaoPyt5wyLMeymqCOCyRl_XtXiapTfnCugLh_vyNb-7wiRqtfKYWf44glHQqtFZSZv3ztBfssFBO-aURuKHZmtREpCY9tMzFgKTVaSTccOGG0pgSgQ8FpewY180PDkYCP-PStpeftn846Mup997ofikHtveIreoej4rsU3D0fowHo7s8ZB-WGmpk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TSNIS60BJklti2E4EQ7Xp82RPOKmri8vKSM04V8xMHs4CBZaW0SVHMQ9AtNje0W0WCtttDAAorv2FbofdIBLsbKFk1aoCE69hnTlHmaYL8cgKtJjk9SLaAj2xSQxkfhK46KPcz4JL2mnheBJs9kUKeLaRz2Da2TC5zD3yI98u85CYQw4BdEYoDKKqRT4bg2co_NpgLXaaxlguvA2GaBRLuNQ284tbyD7g_3UC_NtJY4AAPff7SvgqAzE?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TSNIS60BJklti2E4EQ7Xp82RPOKmri8vKSM04V8xMHs4CBZaW0SVHMQ9AtNje0W0WCtttDAAorv2FbofdIBLsbKFk1aoCE69hnTlHmaYL8cgKtJjk9SLaAj2xSQxkfhK46KPcz4JL2mnheBJs9kUKeLaRz2Da2TC5zD3yI98u85CYQw4BdEYoDKKqRT4bg2co_NpgLXaaxlguvA2GaBRLuNQ284tbyD7g_3UC_NtJY4AAPff7SvgqAzE?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -7385,8 +7505,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bMwDDDxJHQUlUSCTtHETrHg8Q3BEoWyh32o5u23tUW8yn8vff8JonfZ0dR8PKmtGlWM5kyscIa__mICnpGYD-CJES9y-QgGtd06CjQyVHJf2fl1oJtLBiQdga9zIBrrNxmzb8TRAa_keYF4CgsHxyCBFGEdplcgTjk41L7IEvpCtBp8WDjmIWJHH1inxxzf6VQXTZEg4zhNoTiRUylF9PwdMNjXUdOCytB1ci5ulkRktb2_HdUfmsNn0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bMwDDDxJHQUlUSCTtHETrHg8Q3BEoWyh32o5u23tUW8yn8vff8JonfZ0dR8PKmtGlWM5kyscIa__mICnpGYD-CJES9y-QgGtd06CjQyVHJf2fl1oJtLBiQdga9zIBrrNxmzb8TRAa_keYF4CgsHxyCBFGEdplcgTjk41L7IEvpCtBp8WDjmIWJHH1inxxzf6VQXTZEg4zhNoTiRUylF9PwdMNjXUdOCytB1ci5ulkRktb2_HdUfmsNn0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7eaFcTijL93GyKy1VEeAlYL4lRUp4gqyzPb6qXAumP_0rctMdWso9X7iBFls7SOdwANFgbJPp5b4u3CvjUC_qWN7tXIlQmWrCOkCPrdSw_fPYRRjJtzAhYuaQZITnPjcHKhes40DJlBB_po2hZqfFpZp15dd1xMjD5kp_6wQubyP3LqNnekRKtep87iUpvT_PALmELrWbJSL4GHgvtnGosdQJgBu98L54Ess-ysomNrhEX2bPgeviYftQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7eaFcTijL93GyKy1VEeAlYL4lRUp4gqyzPb6qXAumP_0rctMdWso9X7iBFls7SOdwANFgbJPp5b4u3CvjUC_qWN7tXIlQmWrCOkCPrdSw_fPYRRjJtzAhYuaQZITnPjcHKhes40DJlBB_po2hZqfFpZp15dd1xMjD5kp_6wQubyP3LqNnekRKtep87iUpvT_PALmELrWbJSL4GHgvtnGosdQJgBu98L54Ess-ysomNrhEX2bPgeviYftQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8242,6 +8362,150 @@
       "eventType": "Organized Crime"
     },
     {
+      "lat": 23.25603,
+      "lng": -106.41053,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 1,
+      "title": "09/02/2026 | Mazatlán, Sinaloa, Mexico\n\nExplosive Device Thrown at Home in Infonavit Jabalíes\n\nAn explosive device was thrown at a residence in the In",
+      "detail": "https://x.com/noroestemx/status/2095280952545018324",
+      "url": "https://x.com/noroestemx/status/2095280952545018324",
+      "sourceUrl": "https://x.com/noroestemx/status/2095280952545018324",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 31.90117,
+      "lng": -116.54867,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 3,
+      "title": "09/02/2026 | Ensenada, Baja California, Mexico\n\nFour Men Found Dead and Bound in Rosas Magallón\n\nFour people were found dead and bound at the hands an",
+      "detail": "https://x.com/ZETATijuana/status/2095379330905890986",
+      "url": "https://x.com/ZETATijuana/status/2095379330905890986",
+      "sourceUrl": "https://x.com/ZETATijuana/status/2095379330905890986",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 19.71401,
+      "lng": -101.18548,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 2,
+      "title": "09/02/2026 | Morelia, Michoacán, Mexico\n\nDecomposed Body Found Near Obrera Neighborhood\n\nThe body of an unidentified man in an advanced state of decom",
+      "detail": "https://x.com/RED_Michoacan/status/2095354073830527305",
+      "url": "https://x.com/RED_Michoacan/status/2095354073830527305",
+      "sourceUrl": "https://x.com/RED_Michoacan/status/2095354073830527305",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 15.85834,
+      "lng": -91.87629,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 1,
+      "title": "09/02/2026 | La Trinitaria, Chiapas, Mexico\n\nArmy Seizes Rifles, 938 Rounds, and Tactical Gear in Chiapas\n\nMexican Army personnel seized two rifles, 3",
+      "detail": "https://x.com/EJTO_FAM_GN/status/2095378757292843069",
+      "url": "https://x.com/EJTO_FAM_GN/status/2095378757292843069",
+      "sourceUrl": "https://x.com/EJTO_FAM_GN/status/2095378757292843069",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 24.8208,
+      "lng": -107.40007,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 2,
+      "title": "09/02/2026 | Culiacán, Sinaloa, Mexico\n\nThree Men Wounded in Shooting While Riding Razer\n\nThree men were wounded by gunfire while traveling in a Razer",
+      "detail": "https://x.com/adiscusion/status/2095352998398763141",
+      "url": "https://x.com/adiscusion/status/2095352998398763141",
+      "sourceUrl": "https://x.com/adiscusion/status/2095352998398763141",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 24.76643,
+      "lng": -107.3989,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 1,
+      "title": "09/02/2026 | Culiacán, Sinaloa, Mexico\n\nGunfight Pursuit in López Mateos Leaves Rifle and Two BMW SUVs Seized\n\nA preliminary report following a shooto",
+      "detail": "https://x.com/noticieristas/status/2095384187230462374",
+      "url": "https://x.com/noticieristas/status/2095384187230462374",
+      "sourceUrl": "https://x.com/noticieristas/status/2095384187230462374",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 24.82363,
+      "lng": -107.38011,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 2,
+      "title": "09/02/2026 | Culiacán, Sinaloa, Mexico\n\n17-Year-Old UAS Student Shot Dead Outside Ciudad Universitaria\n\nA 17-year-old student of the Autonomous Univer",
+      "detail": "https://x.com/ZETATijuana/status/2095261717680808374",
+      "url": "https://x.com/ZETATijuana/status/2095261717680808374",
+      "sourceUrl": "https://x.com/ZETATijuana/status/2095261717680808374",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
+      "lat": 29.54681,
+      "lng": -104.51069,
+      "type": "organized-crime",
+      "layer": "osint",
+      "importance": 3,
+      "title": "09/02/2026 | Ojinaga, Chihuahua, Mexico\n\nMF Members Allegedly Searching for Remaining “Linieros” in Ojinaga",
+      "detail": "https://x.com/ELNAYARITA8248/status/2095311029852917884",
+      "url": "https://x.com/ELNAYARITA8248/status/2095311029852917884",
+      "sourceUrl": "https://x.com/ELNAYARITA8248/status/2095311029852917884",
+      "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
+      "confidence": "SOURCE MAP REPORT / UNVERIFIED",
+      "source": "Cartel Intelligence Map",
+      "conflictId": "mexico",
+      "conflictName": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "eventType": "Organized Crime"
+    },
+    {
       "lat": 38.89768,
       "lng": -77.03654,
       "type": "organized-crime",
@@ -8249,8 +8513,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ohbeCE_vWmtwehJ5b2IO_Qwf4dJJiebf9Xcn0MoRVTAQEBo2Jc5QqtHt3BDExYrqnP4MlB753Y-mKwBda5mYdHXkxY54RQhQrUMtVoLqoV8bIKLnW1N6lo77CTup5m7-Yfc2F-3k40_BocAUCzrunBgKArT80vy7BCiJNSa4TxC7D1-rVAe7MMXNsXDnYqvy7Ya3I9DuCqK7s-esJHZLnFujbN-Vu6th9nejZQM9pJvvEBmfzbpADyHQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ohbeCE_vWmtwehJ5b2IO_Qwf4dJJiebf9Xcn0MoRVTAQEBo2Jc5QqtHt3BDExYrqnP4MlB753Y-mKwBda5mYdHXkxY54RQhQrUMtVoLqoV8bIKLnW1N6lo77CTup5m7-Yfc2F-3k40_BocAUCzrunBgKArT80vy7BCiJNSa4TxC7D1-rVAe7MMXNsXDnYqvy7Ya3I9DuCqK7s-esJHZLnFujbN-Vu6th9nejZQM9pJvvEBmfzbpADyHQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR512CppVsFZ0M1EceMWslKdjYHGRQDTsyUKORBzVvptxW0zqQQp8Uqqvi2Df2KiCcBVaLjICFgahoUYQ6SsNIqjOuEezDTiD8FUGhyVukSObEVS-c6p2gKebq3ihFGTyAjo0plnnEqWVrM67pet19dvp5eE8LcvDRCUsIXqnRU42g-G34f7sRkZGSn2pXnsxwn8Ncxu6t6yvu4xZJvyVlzmqQrqS8XZLHi1Jqb-nwAthc63HwG3S5yJW_0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR512CppVsFZ0M1EceMWslKdjYHGRQDTsyUKORBzVvptxW0zqQQp8Uqqvi2Df2KiCcBVaLjICFgahoUYQ6SsNIqjOuEezDTiD8FUGhyVukSObEVS-c6p2gKebq3ihFGTyAjo0plnnEqWVrM67pet19dvp5eE8LcvDRCUsIXqnRU42g-G34f7sRkZGSn2pXnsxwn8Ncxu6t6yvu4xZJvyVlzmqQrqS8XZLHi1Jqb-nwAthc63HwG3S5yJW_0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9437,8 +9701,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6gd8n5IrpP0c6mSz41Q40tfO7MnyGmSNmv2_C6Lg1ovTurqmEtRCzBESEItlpHOi0-NzOvk_pq6dYl_Y6eug0Zkk4pnQ7586dZ2pZcKZmqdDfMurLb69a9xAqGgTnn6F-Il5pUbYp0j2IAAm374dRUzERQfMg1wS_N1ThMuDuoIJb1SWed5yfh5sqmuiIuTazdVF3mzmfijGwcz-IDX7bZ06H1Fyo0Br_p4UQxOOGkuN1KOrJ9lef5bzY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6gd8n5IrpP0c6mSz41Q40tfO7MnyGmSNmv2_C6Lg1ovTurqmEtRCzBESEItlpHOi0-NzOvk_pq6dYl_Y6eug0Zkk4pnQ7586dZ2pZcKZmqdDfMurLb69a9xAqGgTnn6F-Il5pUbYp0j2IAAm374dRUzERQfMg1wS_N1ThMuDuoIJb1SWed5yfh5sqmuiIuTazdVF3mzmfijGwcz-IDX7bZ06H1Fyo0Br_p4UQxOOGkuN1KOrJ9lef5bzY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SJEgWXs_hmFYBuXhgokDrdNto3apafltXzA-s6h7cWTf47_DGV1gWjuxlg09xVrNwHGnqc2Eo4OY6pTEWlAiGty8PdKC7hMgAFIrvYlM_AU76VKNq3yV18hlbSWKydnDQW5F-2r-Sqlj4NjxQpfC21XG8b0jeps2BOI1zviSfAZ8PKOQ9nVDBjZS83HM5p4qnN4pIpqLxNqqGkqcg6MB51yXLCATEfHcJmLPVCMTQDaznhut74miLgnk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SJEgWXs_hmFYBuXhgokDrdNto3apafltXzA-s6h7cWTf47_DGV1gWjuxlg09xVrNwHGnqc2Eo4OY6pTEWlAiGty8PdKC7hMgAFIrvYlM_AU76VKNq3yV18hlbSWKydnDQW5F-2r-Sqlj4NjxQpfC21XG8b0jeps2BOI1zviSfAZ8PKOQ9nVDBjZS83HM5p4qnN4pIpqLxNqqGkqcg6MB51yXLCATEfHcJmLPVCMTQDaznhut74miLgnk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9455,8 +9719,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7rjbcw8UaHJ6silcrTXWJ12OALOmPFCV9ybuMrQyofxlXLIXAlOuadsfDFG9DfaZvutuuM46t7-R0LAzMVGlM0qeJSA-Aw-Z0wxyBt87FISCsZdjFs-z3ZYulrFYX3aEka-4MA1bmZc9RMek9gS_XRHGRqz6byRjTCW-zSxX022vLws8dyS7L-EIShlrEa0ChH4hFBGo2Foz7DwHmjfg_-ZRIXFmWsWY3plEvAs0UBkfK59Y_1xsVa_Lo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7rjbcw8UaHJ6silcrTXWJ12OALOmPFCV9ybuMrQyofxlXLIXAlOuadsfDFG9DfaZvutuuM46t7-R0LAzMVGlM0qeJSA-Aw-Z0wxyBt87FISCsZdjFs-z3ZYulrFYX3aEka-4MA1bmZc9RMek9gS_XRHGRqz6byRjTCW-zSxX022vLws8dyS7L-EIShlrEa0ChH4hFBGo2Foz7DwHmjfg_-ZRIXFmWsWY3plEvAs0UBkfK59Y_1xsVa_Lo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ktWQzXJVp66gjuo0o-Um8Vc0jH18_k9GK7IAWAXZX7FBYMfbbOOp8OHlt7lop7NWnElr7EmJL0NjZIS3tRFtoyDbd_KVC4_bcdz9CRdfX3iZzTKSPFhx5gxdDDVVxvJTP3NEu9sv1t96LGTE04IdY2MwQyCC63by8aKp1jT2ul7JUQ0lXPItl7lPVx-kGhwDfAqN206kFbX5xmLjFozyqF0Fmq--tCZkSRXJ60uHhJHDZLH28jAs8b8o?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ktWQzXJVp66gjuo0o-Um8Vc0jH18_k9GK7IAWAXZX7FBYMfbbOOp8OHlt7lop7NWnElr7EmJL0NjZIS3tRFtoyDbd_KVC4_bcdz9CRdfX3iZzTKSPFhx5gxdDDVVxvJTP3NEu9sv1t96LGTE04IdY2MwQyCC63by8aKp1jT2ul7JUQ0lXPItl7lPVx-kGhwDfAqN206kFbX5xmLjFozyqF0Fmq--tCZkSRXJ60uHhJHDZLH28jAs8b8o?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9473,8 +9737,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Rb-HO0Kkzmc_Q60ibPeaDS63J2V71fvv2NALGrn-zx7bVqc-K7CPJPWvO2buZtVvNLikoGe6cdUce5d_2MUrlK9tyayXG0Xtd5WZTqUciDeiRzrIErg5kU91SzBlPLX56hCISPq3YqIFdawdqZm48Tdc5jpAqjLb5mY9Bj_ohcK-izSTjEWGN2vVg9cLLexs5CsCDQI2_E6IZziAAkpFThTAvTk9tHqNCXV1GTCHsbYIJB3656we48qI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Rb-HO0Kkzmc_Q60ibPeaDS63J2V71fvv2NALGrn-zx7bVqc-K7CPJPWvO2buZtVvNLikoGe6cdUce5d_2MUrlK9tyayXG0Xtd5WZTqUciDeiRzrIErg5kU91SzBlPLX56hCISPq3YqIFdawdqZm48Tdc5jpAqjLb5mY9Bj_ohcK-izSTjEWGN2vVg9cLLexs5CsCDQI2_E6IZziAAkpFThTAvTk9tHqNCXV1GTCHsbYIJB3656we48qI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7vrn9uiA5XfYAmziaB8F63uMsJMZZ5lvzLZrfb_Wy_6OZ9i_K-F6rTUeCD3POoIvIFw1pa05WqB74jHy4TeQQ9DVwPXP_ZpOmEceP_Q8Y7sktYqxK-W8w7_OxgjX2y_LB-ONDkQETqPnTFm9_DBXwihNeR1mUwd2eG-J4qpMmTMT59TX8vNIfRGOKfCtmTQCqGfZnibeZzOsRJ2VMsCeF1galUmR_FS0DERWky2L50G2Q2iX6CQQc59hc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7vrn9uiA5XfYAmziaB8F63uMsJMZZ5lvzLZrfb_Wy_6OZ9i_K-F6rTUeCD3POoIvIFw1pa05WqB74jHy4TeQQ9DVwPXP_ZpOmEceP_Q8Y7sktYqxK-W8w7_OxgjX2y_LB-ONDkQETqPnTFm9_DBXwihNeR1mUwd2eG-J4qpMmTMT59TX8vNIfRGOKfCtmTQCqGfZnibeZzOsRJ2VMsCeF1galUmR_FS0DERWky2L50G2Q2iX6CQQc59hc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9491,8 +9755,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MVvLal8VdqmP89Hh_kEPm60M7QTyvh33HFQ_D5TRflSuUH6giH8spjxm7g2dnbYu_L817HRuKhZvo2mcXZEgLql_TLa1QpY_o5Ged2rRehm_-E2C0QHWc48f0oB_r8OyuzFExrvkINjXkQd8YfFjt20GYyYRGqP4xFA8AYqaT6Gx-dGVE33sHnCZylvdbCbTBu1EFWftou6xdeoJM-_JY3W3yY3zO8ea-nIohxjT7xqqFYUdett6ebLw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MVvLal8VdqmP89Hh_kEPm60M7QTyvh33HFQ_D5TRflSuUH6giH8spjxm7g2dnbYu_L817HRuKhZvo2mcXZEgLql_TLa1QpY_o5Ged2rRehm_-E2C0QHWc48f0oB_r8OyuzFExrvkINjXkQd8YfFjt20GYyYRGqP4xFA8AYqaT6Gx-dGVE33sHnCZylvdbCbTBu1EFWftou6xdeoJM-_JY3W3yY3zO8ea-nIohxjT7xqqFYUdett6ebLw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4dhrbLPPRU2qQx6o_gakdOv13USoslS969Xo22wu9Z9O_yNKLpo9JmQYilJHvS9B31_Avvdx6rafGske-tgAZs-0OqgCDf7uxB1AquDnKmf4t7iugXjAoCMf3uH2Aj0vNO0k38MTggy1trsA-vOUopR9QvrxbPE62WQ7NZEAwiaO49i3-KP_jmVSNa9a1XmumVnpnqbK8zK7ATgBbsmfau4jD53Qew4G3P7nTFLsfoDFb80J8Ylsh3jNY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4dhrbLPPRU2qQx6o_gakdOv13USoslS969Xo22wu9Z9O_yNKLpo9JmQYilJHvS9B31_Avvdx6rafGske-tgAZs-0OqgCDf7uxB1AquDnKmf4t7iugXjAoCMf3uH2Aj0vNO0k38MTggy1trsA-vOUopR9QvrxbPE62WQ7NZEAwiaO49i3-KP_jmVSNa9a1XmumVnpnqbK8zK7ATgBbsmfau4jD53Qew4G3P7nTFLsfoDFb80J8Ylsh3jNY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9509,8 +9773,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7jhv_wsGgCItOl5HzBr5-mSa4rmh4XoLyldAozUam7VZJTz30Zauh3eGkZSt6juStTcMASKVmhW5dTqxVZ4pb6erj7EAXbISwWDzIbgL73ue85KwFtRvOdV1LjL0g7wRIRUTf-mtJ76cRb77a3QjqwqYD4fRs5WrPWvNk4JlAtdmfPsroRSKYzGhxawUTI3LzzMUTFzMV8QjYE-1RUELXqSYDYqyT8RkPbf0n4WUj803w9YcHOo2RG26Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7jhv_wsGgCItOl5HzBr5-mSa4rmh4XoLyldAozUam7VZJTz30Zauh3eGkZSt6juStTcMASKVmhW5dTqxVZ4pb6erj7EAXbISwWDzIbgL73ue85KwFtRvOdV1LjL0g7wRIRUTf-mtJ76cRb77a3QjqwqYD4fRs5WrPWvNk4JlAtdmfPsroRSKYzGhxawUTI3LzzMUTFzMV8QjYE-1RUELXqSYDYqyT8RkPbf0n4WUj803w9YcHOo2RG26Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WR-AKak9PeD6z8iUVWSD841Lu2rf23Zmh08AloxdEXtfUieb1_kBsjqx6s5guiAW6HdP8r2OZte9OCQ7a6GoGhCQUtTqywP16K0euZ71X85XxSlp5sb8RIUtVmVkg_KOCCtUw0tH_F70J5ZEMMRqnZnI6FAM2yC0pn7VRNScvqFKPVG31vqMFkmaR3WVyhKECWcmXzZyDlzNACA8h4iPOv_7BFvxn_5yp0a0ov-R54br0m2FE1Mbtin4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WR-AKak9PeD6z8iUVWSD841Lu2rf23Zmh08AloxdEXtfUieb1_kBsjqx6s5guiAW6HdP8r2OZte9OCQ7a6GoGhCQUtTqywP16K0euZ71X85XxSlp5sb8RIUtVmVkg_KOCCtUw0tH_F70J5ZEMMRqnZnI6FAM2yC0pn7VRNScvqFKPVG31vqMFkmaR3WVyhKECWcmXzZyDlzNACA8h4iPOv_7BFvxn_5yp0a0ov-R54br0m2FE1Mbtin4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9527,8 +9791,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7IMN3LUG-PDNK_GW_o1Ujldw36z3NDc8QUDQZHRVC87DS0WVUMT-urrwL3IvTrjBNtYjlCKz9rJl5Cvvwnz8m13Mx_o8hT1cSnaIngrFODFbZ4a-g4K0U9Z383GxwwABaGVowmzOHD-l4fTjvKcwUi2TQL2BaMiQhsVyG9vbXB-13ZtANzotwKVG81-vyTxFCr1ex5T6K3ectShj_tooAVo7TKl9ahzvXx_6LBZhTFiVgstfCH173BP-k?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7IMN3LUG-PDNK_GW_o1Ujldw36z3NDc8QUDQZHRVC87DS0WVUMT-urrwL3IvTrjBNtYjlCKz9rJl5Cvvwnz8m13Mx_o8hT1cSnaIngrFODFbZ4a-g4K0U9Z383GxwwABaGVowmzOHD-l4fTjvKcwUi2TQL2BaMiQhsVyG9vbXB-13ZtANzotwKVG81-vyTxFCr1ex5T6K3ectShj_tooAVo7TKl9ahzvXx_6LBZhTFiVgstfCH173BP-k?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR599AfOsw7RMp_0Ts4ZMX8sQKOmMfkyN6ox9aBaeMjNAQ-gSJANLbJbktsnX1TPxECKemq7Co0chGrUopVYo4ne6mni2Q9ES15AZC__AX_xWFeF0gM1tu33N16b4fjm9dJZo8sdUFFBRV-eDhCQjtkVfL5c-_dNds-f2idi14iw28lc3fY2H9ZsaGAsHirMMtSbRfXIMV6g5arSIKDqM2fzi5-wl9HUBr-R0TYCH3bjFWL1b0S_VfJymzU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR599AfOsw7RMp_0Ts4ZMX8sQKOmMfkyN6ox9aBaeMjNAQ-gSJANLbJbktsnX1TPxECKemq7Co0chGrUopVYo4ne6mni2Q9ES15AZC__AX_xWFeF0gM1tu33N16b4fjm9dJZo8sdUFFBRV-eDhCQjtkVfL5c-_dNds-f2idi14iw28lc3fY2H9ZsaGAsHirMMtSbRfXIMV6g5arSIKDqM2fzi5-wl9HUBr-R0TYCH3bjFWL1b0S_VfJymzU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9545,8 +9809,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ThX8_5wA2xdHUAst_MtWLKXaN2kx6JioHbZPdZv-RSZtOfrkw8zdGk1t_muQQl27oiHoQlIPO0JRQ2wo1ekLCpoJb91hM5sxrkPzGif74cxzUNrpXgTGCrHDedAiFe9ACubVlKf7KLYJtlBYynNAaQUHaU_SRlnPqY8ewPfKE8hlfsm5fCxFlyQ4994k8eUmWXx6rwUmxyNpo2uJ7AHro4yZRSrtpdweukc_W5_3iRhwln5vTqsMOYFo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ThX8_5wA2xdHUAst_MtWLKXaN2kx6JioHbZPdZv-RSZtOfrkw8zdGk1t_muQQl27oiHoQlIPO0JRQ2wo1ekLCpoJb91hM5sxrkPzGif74cxzUNrpXgTGCrHDedAiFe9ACubVlKf7KLYJtlBYynNAaQUHaU_SRlnPqY8ewPfKE8hlfsm5fCxFlyQ4994k8eUmWXx6rwUmxyNpo2uJ7AHro4yZRSrtpdweukc_W5_3iRhwln5vTqsMOYFo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Fw7EijYrqomnBaRSzmPZpnjBlINiQ9R2jZ7xxZu7X4EwVSp1_gVU0xqiJr1-HAnj0iMGZ9xrh-twZ3hqvSIXKGjW4SsNPwQsc9JpxDUM2K4yr2jlBCaC9yv5KieKsGEku7SFUt7WqEDUbyE_618nAWL1zLNPhXBgfBkjuTWQpLiuJS-f5F6ocTcNxItigq1OdPT5iIAztg_gXIsofBozlOahO30ziU08oKVrjV7IoDrfbqjofJ_W_VbM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Fw7EijYrqomnBaRSzmPZpnjBlINiQ9R2jZ7xxZu7X4EwVSp1_gVU0xqiJr1-HAnj0iMGZ9xrh-twZ3hqvSIXKGjW4SsNPwQsc9JpxDUM2K4yr2jlBCaC9yv5KieKsGEku7SFUt7WqEDUbyE_618nAWL1zLNPhXBgfBkjuTWQpLiuJS-f5F6ocTcNxItigq1OdPT5iIAztg_gXIsofBozlOahO30ziU08oKVrjV7IoDrfbqjofJ_W_VbM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9563,8 +9827,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6x_-rYrEGOp0msTraERCVRbF_PF_o4uMwvdt0QwZE25gLPVVRSo-59az4Vrhz0Jcx9PvCkXYtQNCV4kbH8cgdb2gkzIEAdHJs5RdNPKVMbdwTU7p06Fvm7gz0oeyfx6mIErr-luG8cIBnyHtht6Mz5qaMVWC1Fiv21G9fbck_5rIKINlzxl8jJpZPoI4xBWuUS6P3UjTwlE6SMkTxExyTPIz1LOEuJhBZ3EL7-2LMlDgyEiVjrZgpAESA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6x_-rYrEGOp0msTraERCVRbF_PF_o4uMwvdt0QwZE25gLPVVRSo-59az4Vrhz0Jcx9PvCkXYtQNCV4kbH8cgdb2gkzIEAdHJs5RdNPKVMbdwTU7p06Fvm7gz0oeyfx6mIErr-luG8cIBnyHtht6Mz5qaMVWC1Fiv21G9fbck_5rIKINlzxl8jJpZPoI4xBWuUS6P3UjTwlE6SMkTxExyTPIz1LOEuJhBZ3EL7-2LMlDgyEiVjrZgpAESA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lUfgoTNIi3iJMBYiSN-iQS7Ms48phQNew3c7vBfnKaSrwiVDwQWign-RUkV10EriFMXdh6UkT4oNX3YYlMSM3HXxV-RbdGauNIKtF2R7j2f_kPbsCc_nZKX62UJWkAHdD3ISZ35lPdrpbOwoqAupxhOSuh6ziUN14tNol6qiuayIRQB3-VjaJ5PsRa5L8mpRaff50yB1B3I9crX5C7vL6TPj0nhSz-sDpvpaEyBW5OG-H9tQ0HRbcvC8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lUfgoTNIi3iJMBYiSN-iQS7Ms48phQNew3c7vBfnKaSrwiVDwQWign-RUkV10EriFMXdh6UkT4oNX3YYlMSM3HXxV-RbdGauNIKtF2R7j2f_kPbsCc_nZKX62UJWkAHdD3ISZ35lPdrpbOwoqAupxhOSuh6ziUN14tNol6qiuayIRQB3-VjaJ5PsRa5L8mpRaff50yB1B3I9crX5C7vL6TPj0nhSz-sDpvpaEyBW5OG-H9tQ0HRbcvC8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9581,8 +9845,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bEldRuSyDOOa1PjZeg2jZV7R5-UvOyZydw7Dx_YQyIkuTLcF6WUXGSEbF4tZboUtyO87aNyvoXIcJm9OeV9RFb3AsAS44bJPXjLBjGwYyL4X_99exZ78W8n5wYQfVVF-YHC5n7Jt00Vw991kPtk86XgMSPjZfagKQdY7rOVFMDT_4cUgQVuidipN6BCBL6kw7DBfxXP7ajIwPS-xGXfvMVrNcETGhXXkKFxnyvAruT5GeqPrwUG4CD2w?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bEldRuSyDOOa1PjZeg2jZV7R5-UvOyZydw7Dx_YQyIkuTLcF6WUXGSEbF4tZboUtyO87aNyvoXIcJm9OeV9RFb3AsAS44bJPXjLBjGwYyL4X_99exZ78W8n5wYQfVVF-YHC5n7Jt00Vw991kPtk86XgMSPjZfagKQdY7rOVFMDT_4cUgQVuidipN6BCBL6kw7DBfxXP7ajIwPS-xGXfvMVrNcETGhXXkKFxnyvAruT5GeqPrwUG4CD2w?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4omO0hVdrfgBb5rvkGtvw5yh5Nz0Z9CiEg2yDvChG1zOQW7TShrPPW0bzeboHmhq8Inqp8TPwJuKccLDu4c_KtHfXl1mbQD5R0HGlAIIMPlKJWuAyGKwmqnyLNIqrtBNMv3pvYs0cpHj0OxHog20ds6_bUFHaOSTUrg3h9zHXUEp4SCLpqbla6Uf73SgMTXGkfAZTke2_xf7em_G0vdGGgfJ0lUkBY2gYPmb8CWT66PVsX3fxoZ7cqZ5Q?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4omO0hVdrfgBb5rvkGtvw5yh5Nz0Z9CiEg2yDvChG1zOQW7TShrPPW0bzeboHmhq8Inqp8TPwJuKccLDu4c_KtHfXl1mbQD5R0HGlAIIMPlKJWuAyGKwmqnyLNIqrtBNMv3pvYs0cpHj0OxHog20ds6_bUFHaOSTUrg3h9zHXUEp4SCLpqbla6Uf73SgMTXGkfAZTke2_xf7em_G0vdGGgfJ0lUkBY2gYPmb8CWT66PVsX3fxoZ7cqZ5Q?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9635,8 +9899,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR41-8z1TE4iudg7iYAlDjoNVsXLReb5w_nM1pJhVjV2gaHrLJNAfu67bDMH4bg5HCYlS6sMq-3FXpqYhiV3-dxaaf7wlYKghPlQz9dK0YdFqrzy3IYVhaEP4RVWCmjFic0Xnr_baOgqqtm0dicHAjDG_-43a2-SqXNGWya_ISCcuOQ_oGE0kemAxNbIKLTULUlqSZzR9ZX48VMnA1wGM05B6IkoNLuvV5MRwozSIZlnQ6nQA3numNnPekc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR41-8z1TE4iudg7iYAlDjoNVsXLReb5w_nM1pJhVjV2gaHrLJNAfu67bDMH4bg5HCYlS6sMq-3FXpqYhiV3-dxaaf7wlYKghPlQz9dK0YdFqrzy3IYVhaEP4RVWCmjFic0Xnr_baOgqqtm0dicHAjDG_-43a2-SqXNGWya_ISCcuOQ_oGE0kemAxNbIKLTULUlqSZzR9ZX48VMnA1wGM05B6IkoNLuvV5MRwozSIZlnQ6nQA3numNnPekc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tTzLfUT2pyflGnDkw1ktMTPi7ErxdQcj4Yw29EEa2XvDxlxwm9JfA-lnHVi-5LYIvZjozRXlUJ4HiBGzoqQxt5jvGMDckNiQz2MmHSgrDhQs14Uv2i-Id159VMqs00fLiqiXKRYC4_lAfTuTIZczjgWlS42lGdpqG9ANOH4Bj8ly1AwDl1QTpYYTWrPT6kC6HM9TAYzOOpaZEP76uDcjblHRpHKFwUNu5sgmiYWHmHVzceSqSRo7P8p4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tTzLfUT2pyflGnDkw1ktMTPi7ErxdQcj4Yw29EEa2XvDxlxwm9JfA-lnHVi-5LYIvZjozRXlUJ4HiBGzoqQxt5jvGMDckNiQz2MmHSgrDhQs14Uv2i-Id159VMqs00fLiqiXKRYC4_lAfTuTIZczjgWlS42lGdpqG9ANOH4Bj8ly1AwDl1QTpYYTWrPT6kC6HM9TAYzOOpaZEP76uDcjblHRpHKFwUNu5sgmiYWHmHVzceSqSRo7P8p4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9653,8 +9917,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5uDIme8HjvdYwIf1tCdq9c5dVdzfN3qCG6zlw2ecmbySeH8trBIQIRfpAGRZMyyXKLRr6df8pdMRE726expawDan-SHOcwdt_pP0ZZDUVc28UcpRgAImn_gKejQyi0Z4FLV_czRK01ub8CpNpbgZOfPzYDkRoUgZO-jaAYKtoX0o6sNO2L4KMOIjn70CY0JU2npMIGtv0UV2HOveUEpRT6UabAdVfbPd810sMwQ3dthXPqgLbNs1r1pP0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5uDIme8HjvdYwIf1tCdq9c5dVdzfN3qCG6zlw2ecmbySeH8trBIQIRfpAGRZMyyXKLRr6df8pdMRE726expawDan-SHOcwdt_pP0ZZDUVc28UcpRgAImn_gKejQyi0Z4FLV_czRK01ub8CpNpbgZOfPzYDkRoUgZO-jaAYKtoX0o6sNO2L4KMOIjn70CY0JU2npMIGtv0UV2HOveUEpRT6UabAdVfbPd810sMwQ3dthXPqgLbNs1r1pP0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7tIVsPXkfEyYyQ6KIVr4ejhCEiSkhruLzS5KI6Lv-AJxeaVGWImjKa8NXtYNAO5WsVrzCfUR4Dtp-VgBd-fS7R0iqAAPn9A-DTuOaHKX-Hs6OGJL1D27AZz6L5F0flZ0RoDIQv-cO0JTRjPna4SEWebuaJcB7dFXGTMifcRh-3WmrgkZORXULNbNaoqx7pEFZcQpEQMDaJK9khEpuMZh0f3nZFm-pMNxnKuYCLtxsyg01-H1J9Yg5BOVU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7tIVsPXkfEyYyQ6KIVr4ejhCEiSkhruLzS5KI6Lv-AJxeaVGWImjKa8NXtYNAO5WsVrzCfUR4Dtp-VgBd-fS7R0iqAAPn9A-DTuOaHKX-Hs6OGJL1D27AZz6L5F0flZ0RoDIQv-cO0JTRjPna4SEWebuaJcB7dFXGTMifcRh-3WmrgkZORXULNbNaoqx7pEFZcQpEQMDaJK9khEpuMZh0f3nZFm-pMNxnKuYCLtxsyg01-H1J9Yg5BOVU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9707,8 +9971,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR59QEuev8_ZsGW86sX643wB9M2uKxQdT8Nk-Tns3IH413rLIaoBqcJ_uGIbhcKs5sgHkCrpi-4btVyDOt2gBCfr4X3jQmbt9J7mNM-LXH2C98vXDwf55gwyVRUuYwKrrxucX4sRioqLvD7suyfzTeAnzaNiJKvHwfZ9EWa062DPl9gSLmCG9pz2pg4bKXlXysCDdNDaQe1_yA3BczIqNCBisdaZ3ywolwJ22Mm139xgzHcpsTfaamOYols?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR59QEuev8_ZsGW86sX643wB9M2uKxQdT8Nk-Tns3IH413rLIaoBqcJ_uGIbhcKs5sgHkCrpi-4btVyDOt2gBCfr4X3jQmbt9J7mNM-LXH2C98vXDwf55gwyVRUuYwKrrxucX4sRioqLvD7suyfzTeAnzaNiJKvHwfZ9EWa062DPl9gSLmCG9pz2pg4bKXlXysCDdNDaQe1_yA3BczIqNCBisdaZ3ywolwJ22Mm139xgzHcpsTfaamOYols?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6UuSTGjgaMeHV2JG6H1R305dhKXAFYGwjqTCcIijitykaE3DWclHMG2sT_IAmLbXltYqPUdnOSsiMupUO17CsnTDMEg1AK7hbxGY7Wqo7Ot_4rUt3sz-FMW1TH8DbY30Tv83DOXOHejsyR3BunD53gh2c6r3cAmx-605qa-rLciCwZS1waY0Xn42vKiE0eOv60lBih_FkGIypBXjC4AFj6A5NrswmdgZ9qQVN2s4RDRtpipShbUyz5wDI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6UuSTGjgaMeHV2JG6H1R305dhKXAFYGwjqTCcIijitykaE3DWclHMG2sT_IAmLbXltYqPUdnOSsiMupUO17CsnTDMEg1AK7hbxGY7Wqo7Ot_4rUt3sz-FMW1TH8DbY30Tv83DOXOHejsyR3BunD53gh2c6r3cAmx-605qa-rLciCwZS1waY0Xn42vKiE0eOv60lBih_FkGIypBXjC4AFj6A5NrswmdgZ9qQVN2s4RDRtpipShbUyz5wDI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9779,8 +10043,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4sdkHqp9X031ZOkvct-C4WEKZ2y1GS7a2Vafu9YYyT6aeSB0mQpFyYYFjr9e68yzDCZPSCO2FeN1PaE-JtnwovgzlamR9xyM8apUMIyZqNJRcnxANh9cFFiszmFvqUwMghzhj5aUTCQyzt9b2PWpXibIG0-LmHxFl2U15HqgDU4Cl4ylXa7eJNgk4nZW_s9C2tunYxaWt1JC4_vpreiQ0EuT7gY3dBEITXqsaLooE-ODOgI4dNEMSWFvA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4sdkHqp9X031ZOkvct-C4WEKZ2y1GS7a2Vafu9YYyT6aeSB0mQpFyYYFjr9e68yzDCZPSCO2FeN1PaE-JtnwovgzlamR9xyM8apUMIyZqNJRcnxANh9cFFiszmFvqUwMghzhj5aUTCQyzt9b2PWpXibIG0-LmHxFl2U15HqgDU4Cl4ylXa7eJNgk4nZW_s9C2tunYxaWt1JC4_vpreiQ0EuT7gY3dBEITXqsaLooE-ODOgI4dNEMSWFvA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6FI3hakJh1cD3pT4neDf786dV3SYIl1dIJLAN3vQL0JuWCzPeOBE28v5_FW0LQ2JHWLQegg4yHKdOlMmzhODwTozkIi56850vse-dYMOUQsjFa0goHVkTcKKeaRMr64neKBj_y_G8b3A5Bu8V8c4FAOQzSo1Dxa8BE3hrwiIb_CQYphNwFolAZNNoTdKyNaHaA5wKIxEzebnUxeshezOFgvepk_ruy3F75OwOAQKrzdYzUUl5Zxa-prs8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6FI3hakJh1cD3pT4neDf786dV3SYIl1dIJLAN3vQL0JuWCzPeOBE28v5_FW0LQ2JHWLQegg4yHKdOlMmzhODwTozkIi56850vse-dYMOUQsjFa0goHVkTcKKeaRMr64neKBj_y_G8b3A5Bu8V8c4FAOQzSo1Dxa8BE3hrwiIb_CQYphNwFolAZNNoTdKyNaHaA5wKIxEzebnUxeshezOFgvepk_ruy3F75OwOAQKrzdYzUUl5Zxa-prs8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9905,8 +10169,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Hp0BpOTkMfu1UaPqANZoZ2OWhoAx9kPFcTseOnSIxRFFZnWlYG1JpFWUL6N2Gy37Q57iXkDWwXsF6DMv7iufypwGAlksPn2ywxFIpl7whfck5QsCrUDwtlfgOBUKAQNYazBjTswrNBQNXpd9RiCJoyOnIeeyD5dpjBzqKYfchLLjK4DhGny1xEE3UryCb-MfwCPxDk_6Qh5kR8dsVZAHuCtrsOiKr_skrzh3q-7QE0ayn-Pt-P1xJW04?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Hp0BpOTkMfu1UaPqANZoZ2OWhoAx9kPFcTseOnSIxRFFZnWlYG1JpFWUL6N2Gy37Q57iXkDWwXsF6DMv7iufypwGAlksPn2ywxFIpl7whfck5QsCrUDwtlfgOBUKAQNYazBjTswrNBQNXpd9RiCJoyOnIeeyD5dpjBzqKYfchLLjK4DhGny1xEE3UryCb-MfwCPxDk_6Qh5kR8dsVZAHuCtrsOiKr_skrzh3q-7QE0ayn-Pt-P1xJW04?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4YrdotZLKbbf_MDDl2ix_DsYnBGvYO4IK2-ttfuS-Im5FGR0gK5F1jNNMWtzMaJ52qWChc6E-T9hi6Aqy-NRFddkvoRRI5jLP4bX5gYCYFjRrg6_8hKmhAzVjPbj1dsrQxQl6RIFrpGTYkCIZj3Jye65ujyvL-NRUs-hNfQJFm1HF5q6NK9nDQ9jHU--CA5yph38q84FOYDn3ivgXgE_GyzxOXqEPQVJ5ujXFrRkLH6xZrR4hmXelGaW4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4YrdotZLKbbf_MDDl2ix_DsYnBGvYO4IK2-ttfuS-Im5FGR0gK5F1jNNMWtzMaJ52qWChc6E-T9hi6Aqy-NRFddkvoRRI5jLP4bX5gYCYFjRrg6_8hKmhAzVjPbj1dsrQxQl6RIFrpGTYkCIZj3Jye65ujyvL-NRUs-hNfQJFm1HF5q6NK9nDQ9jHU--CA5yph38q84FOYDn3ivgXgE_GyzxOXqEPQVJ5ujXFrRkLH6xZrR4hmXelGaW4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11095,15 +11359,71 @@
       "confidence": "REFERENCE NODE / NOT AN INCIDENT"
     },
     {
-      "lat": 52.015,
-      "lng": -169.221,
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.158,
+      "lng": -169.309,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 92 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026rlkfau",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026rlkfau",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
       "type": "hazard",
       "layer": "environment",
       "importance": 1,
-      "title": "M6.2 earthquake — 105 km SSW of Nikolski, Alaska",
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
       "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/attkscoz",
-      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/attkscoz",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
@@ -11356,6 +11676,258 @@
   ],
   "stories": [
     {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
+      "summary": "Maryland judge issues preliminary injunction blocking Trump’s executive order targeting what he termed ‘birth tourism’     Sign up for US Breaking News emails      Kamala Harris  doesn’t much care that some Red state Dems want the former Democratic presidential candidate to keep away from their campaigns.  “It’s all good,” Eduardo Negrón, Harris’ spokesperson,  told Politico , in response to this apparent disinterest",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 12:18:48 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "292e784a2d86",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Embattled Spanish PM insists there were no prior warnings before Ceuta crisis",
+      "summary": "Pedro Sánchez tells parliament it is absurd to think the government knew and did nothing, after thousands join protests in Spanish cities.",
+      "source": "https://www.bbc.co.uk/news/articles/c07lz7rn2mjo?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 12:18:07 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "9b89e61ed41d",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Judge rules 2,000 Catalina Island deer can be killed to save native plant species",
+      "summary": "Cull of animals that eat native shrubs, causing spread of fast-igniting grasses, to go ahead despite fierce opposition  Locals and tourists have long fawned over Catalina Island’s mule deer population. For nearly a century, the ungulates have roamed the land’s waterfronts and woodlands, so comfortable around humans that it is not uncommon to spot deer roaming downtown Avalon.  But that sight will soon disappear, afte",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/catalina-island-deer-california",
+      "time": "Thu, 03 Sep 2026 12:00:30 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true
+    },
+    {
+      "id": "c0f72c2b32ee",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "In 2016, Trump pledged to erase the federal debt. It just hit $40tn | Steven Greenhouse",
+      "summary": "The trillions in tax cuts going to the rich and corporations could have instead been used to address the affordability crisis  Dear reader, I recognize that your eyes might glaze over at any mention of the nation’s   $40tn    federal debt . But your reaction to this mind-boggling number shouldn’t be ennui; it should be outrage and dismay.  Outrage is in order because the nation’s debt has climbed to more than $40tn u",
+      "source": "https://www.theguardian.com/commentisfree/2026/sep/03/trump-federal-debt-40-trillion",
+      "time": "Thu, 03 Sep 2026 12:00:30 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "d4d08a32a68d",
+      "sourceLabel": "Guardian World",
+      "sourceType": "international",
+      "title": "Apocalypse prep or pure pragmatism: what is behind Peter Thiel’s move to Argentina?",
+      "summary": "Relocation coincides with proposed laws that opponents say would entrench power of US tech billionaires in country  Dozens of protesters converged on Peter Thiel’s mansion in Buenos Aires this week after a congressional session raised questions about the billionaire’s presence in the country.  In white masks, they held signs saying “Peter Thief” and “No to the Peter Thiel law” in front of the wrought-iron gates of th",
+      "source": "https://www.theguardian.com/technology/2026/sep/03/peter-thiel-argentina-javier-milei",
+      "time": "Thu, 03 Sep 2026 12:00:29 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "493f99a956ef",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Spain's Sanchez says no 'solid proof' that Morocco planned Ceuta crisis",
+      "summary": "Spanish Prime Minister Pedro Sanchez has told lawmakers that there is no evidence the Ceuta migrant crisis was orchestrated by Morocco's government. His remarks come a day after tens of thousands of people took part in protests across the country to criticize his handling of the migrant influx. He acknowledged that Ceuta was both a humanitarian crisis and an administrative challenge. But he rejected the findings of a",
+      "source": "https://www.france24.com/en/video/20260903-spain-s-sanchez-says-no-solid-proof-that-morocco-planned-ceuta-crisis",
+      "time": "Thu, 03 Sep 2026 11:58:47 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "211ce5a0e4c7",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Families perform symbolic funerals for missing Nepal flood victims",
+      "summary": "Families in Nepal are performing symbolic funerals for loved ones still missing a week after the devastating floods.",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/families-perform-symbolic-funerals-for-missing-nepal-flood-victims?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:58:26 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "ccf6feed254d",
+      "sourceLabel": "BBC Asia",
+      "sourceType": "regional",
+      "title": "Eleven people sentenced to death in Vietnam drug trafficking case",
+      "summary": "More than 200 people are convicted over a network smuggling drugs into Vietnam in toothpaste tubes and other consumer items.",
+      "source": "https://www.bbc.co.uk/news/articles/cqjk4lwddz0o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:58:00 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "a71acb780885",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Kenya’s aviation strike is over, but the dispute is far from settled",
+      "summary": "Years of wrangling over pay, union recognition and collective bargaining are now back on the negotiating table.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/kenyas-aviation-strike-is-over-but-the-dispute-is-far-from-settled?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:55:28 +0000",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true
+    },
+    {
+      "id": "8b8f15a5d138",
+      "sourceLabel": "BBC Africa",
+      "sourceType": "regional",
+      "title": "Sharpeville massacre survivors start legal fight for justice in South Africa",
+      "summary": "At least 69 people were shot dead in 1960 but no-one has been prosecuted and victims want restitution.",
+      "source": "https://www.bbc.co.uk/news/articles/c1mvll11ll5o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:49:50 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "13f600f6f063",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "UN warns El Nino could be ‘off the charts’, strongest in decades",
+      "summary": "The World Meteorological Organization says forecasts show 100% likelihood that El Nino will continue through February.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/un-warns-el-nino-could-be-off-the-charts-strongest-in-decades?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:49:13 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "f345a70122b9",
+      "sourceLabel": "BBC Africa",
+      "sourceType": "regional",
+      "title": "Queiroz returns as Ghana head coach",
+      "summary": "Carlos Queiroz is reappointed as head coach of Ghana's men's national team, two months after he appeared to step down following their exit from the World Cup.",
+      "source": "https://www.bbc.co.uk/sport/football/articles/clyeqly7r0po?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:48:00 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "ca58672fbc86",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Feminist activist and journalist Gloria Steinem dies, aged 92",
+      "summary": "Her foundation said she \"passed away peacefully\" at her home in New York City, \"surrounded by many who loved her\".",
+      "source": "https://www.bbc.co.uk/news/articles/clyeq3ngwe4o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:45:22 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "055e5c2e898a",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
+      "summary": "Millions of people have been exposed to the smog, with more than 12,000 children suffering respiratory issues.",
+      "source": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:35:52 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "154bcf844187",
+      "sourceLabel": "BBC Asia",
+      "sourceType": "regional",
+      "title": "US sailors go shopping before hitting the bars in Thailand after 250-day voyage",
+      "summary": "With military haircuts and moustaches, the US sailors stood out against the flip-flops of the usual Pattaya crowd, writes the BBC's Jonathan Head.",
+      "source": "https://www.bbc.co.uk/news/articles/cj9x2k8n3y1o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:33:09 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "28173bbc1c0d",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Liechtenstein MPs vote to legalise abortion despite threat of veto",
+      "summary": "Organisers of the citizens' initiative say they have popular support, even though the all-powerful monarch has said he will veto the legislation.",
+      "source": "https://www.bbc.co.uk/news/articles/c9dwedep38po?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:30:38 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "44799d45cf44",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Faith leaders say they were ‘duped’ into attending RSS-linked event",
+      "summary": "Faith leaders say they were ‘duped’ into attending RSS-linked event",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/faith-leaders-say-they-were-duped-into-attending-rss-linked-event?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:30:10 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "5aab72b00104",
+      "sourceLabel": "Guardian World",
+      "sourceType": "international",
+      "title": "Yen soars as Bank of Japan tipped to raise interest rates",
+      "summary": "Jump lifts currency to highest level against dollar in a month, while global markets remain jittery     Business live – latest updates     The Japanese yen has soared by more than 1.7% against the dollar amid speculation the Bank of Japan is set to raise interest rates.  The latest jump on Thursday lifted the yen to its highest level against the dollar in a month, at 155.85, and followed a 0.9% move the previous day.",
+      "source": "https://www.theguardian.com/business/2026/sep/03/yen-soars-bank-of-japan-tipped-to-raise-interest-rates",
+      "time": "Thu, 03 Sep 2026 11:28:45 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "5f88ba91dfc0",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "How Gloria Steinem changed the lives of generations of women",
+      "summary": "The trailblazing feminist spoke out for the legalisation of abortion, same-sex marriage and equal pay for women - but her activism was not without backlash.",
+      "source": "https://www.bbc.co.uk/news/articles/cqv5wxyp5xwo?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:26:07 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "dd7d2fbde9cf",
+      "sourceLabel": "BBC Americas",
+      "sourceType": "regional",
+      "title": "Gloria Steinem talks about her legacy in 2023 BBC interview",
+      "summary": "The writer and activist who was an icon of the US's feminist movement has died aged 92, her foundation says.",
+      "source": "https://www.bbc.co.uk/news/videos/cnvl5dl6n5eo?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 11:24:11 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "b4d2cee3f953",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
+      "summary": "Abu Safia, who has been under custody for nearly two years, continues to face abuse inside prison, his lawyer says.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/no-end-to-torture-of-gaza-doctor-abu-safiya-in-israeli-prison-what-to-know?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:21:59 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
       "id": "7b828d93a26e",
       "sourceLabel": "NPR World",
       "sourceType": "international",
@@ -11368,16 +11940,16 @@
       "breaking": false
     },
     {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
-      "summary": "Maryland judge issues preliminary injunction blocking Trump’s executive order targeting what he termed ‘birth tourism’   Democrats are targeting vulnerable seats this midterm election with working-class candidates they hope will resonate with voters exhausted by the economy.   Some candidates are new to politics, and many have backgrounds as union members and leaders, which the party hopes will give them an edge over",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 11:11:01 GMT",
-      "tag": "World",
+      "id": "11b9ecf0bf66",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Legendary Bosnian striker Edin Dzeko to retire from international football",
+      "summary": "The 40-year-old scored 73 goals in 151 appearances, making him Bosnia&#039;s most-capped ‌player and all-time leading scorer.",
+      "source": "https://www.aljazeera.com/sports/2026/9/3/legendary-bosnian-striker-edin-dzeko-to-retire-from-international-football?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 11:10:41 +0000",
+      "tag": "Breaking",
       "confidence": "DEVELOPING",
-      "breaking": false
+      "breaking": true
     },
     {
       "id": "3bbae60503ce",
@@ -11423,18 +11995,6 @@
       "summary": "It comes amid concerns over the growing number of traders from neighbouring countries.",
       "source": "https://www.bbc.co.uk/news/articles/c9861x5pzgxo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 10:59:14 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "ca58672fbc86",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Feminist activist and journalist Gloria Steinem dies at 92",
-      "summary": "Her foundation said she \"passed away peacefully\" at her home in New York City, \"surrounded by many who loved her\".",
-      "source": "https://www.bbc.co.uk/news/articles/clyeq3ngwe4o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 10:58:23 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -11575,7 +12135,7 @@
       "id": "28d4d89456ff",
       "sourceLabel": "France 24",
       "sourceType": "international",
-      "title": "Putin's 'global battle' against US & NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+      "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
       "summary": "François Picard is pleased to welcome Anna Borshchevskaya, Senior Fellow at The Washington Institute. She interprets Russia’s reported missile support for Iran not as an isolated arms transaction, but as part of a broader geopolitical strategy in which Moscow treats Ukraine, Iran, NATO, and the United States as interconnected fronts. In her analysis, Vladimir Putin’s objective is less about pursuing direct military c",
       "source": "https://www.france24.com/en/tv-shows/spotlight/20260903-putin-s-global-battle-against-us-nato-russia-testing-nato-since-2022-ukraine-invasion-began",
       "time": "Thu, 03 Sep 2026 10:26:42 GMT",
@@ -11603,18 +12163,6 @@
       "summary": "",
       "source": "https://www.france24.com/en/culture/20260903-gloria-steinem-feminist-trailblazer-and-award-winning-journalist-dies-at-92",
       "time": "Thu, 03 Sep 2026 10:24:31 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "5f88ba91dfc0",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "How Gloria Steinem changed the lives of generations of women",
-      "summary": "The trailblazing feminist spoke out for the legalisation of abortion, same-sex marriage and equal pay for women - but her activism was not without backlash.",
-      "source": "https://www.bbc.co.uk/news/articles/cqv5wxyp5xwo?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 10:22:18 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -11683,7 +12231,7 @@
       "id": "3d3071e11746",
       "sourceLabel": "BBC World",
       "sourceType": "international",
-      "title": "Watch: US man struck by lightning describes 'horrific' experience",
+      "title": "US man struck by lightning describes 'horrific' experience",
       "summary": "Thomas Fahmy says he saw \"a bright white flash\" and instantly fell to the ground.",
       "source": "https://www.bbc.co.uk/news/videos/cz7z93zde3po?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 10:01:33 GMT",
@@ -11762,18 +12310,6 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true
-    },
-    {
-      "id": "f345a70122b9",
-      "sourceLabel": "BBC Africa",
-      "sourceType": "regional",
-      "title": "Queiroz returns as Ghana head coach",
-      "summary": "Carlos Queiroz is reappointed as head coach of Ghana's men's national team, two months after he appeared to step down following their exit from the World Cup.",
-      "source": "https://www.bbc.co.uk/sport/football/articles/clyeqly7r0po?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 09:59:29 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
     },
     {
       "id": "648d6749c712",
@@ -11872,18 +12408,6 @@
       "breaking": true
     },
     {
-      "id": "292e784a2d86",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Embattled Spanish PM insists there were no prior warnings before Ceuta crisis",
-      "summary": "Pedro Sánchez tells parliament it is absurd to think the government knew and did nothing, after thousands join protests in Spanish cities.",
-      "source": "https://www.bbc.co.uk/news/articles/c07lz7rn2mjo?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 09:30:26 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "7e410dacaeed",
       "sourceLabel": "Al Jazeera",
       "sourceType": "international",
@@ -11891,18 +12415,6 @@
       "summary": "Moscow challenges Norway&#039;s seizure of vessel, the Professor Molchanov, calling it an act of piracy.",
       "source": "https://www.aljazeera.com/news/2026/9/3/norway-seizes-russian-ship-in-arctic-over-crimea-compensation-claim?traffic_source=rss",
       "time": "Thu, 03 Sep 2026 09:22:18 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "8eddd3d1768b",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "China lambasts France’s ‘discriminatory’ fast-fashion law",
-      "summary": "China on Thursday called on France to abandon a new law on ultra-fast fashion that would impose fees of up to almost €20 per garment, calling it \"clearly discriminatory\". The law, which targets major Asian e-commerce platforms including Shein and Temu, aims to curb the industry's environmental and local economic impacts.",
-      "source": "https://www.france24.com/en/france/20260903-china-lambasts-france-s-discriminatory-fast-fashion-law",
-      "time": "Thu, 03 Sep 2026 09:21:51 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -11944,6 +12456,30 @@
       "breaking": false
     },
     {
+      "id": "9de50da05175",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "He tried to eliminate FEMA. Now he says the Trump administration has changed course",
+      "summary": "David Richardson worked to eliminate the country's top disaster agency when he led FEMA last year. Now, he says the administration has abandoned that goal.",
+      "source": "https://www.npr.org/2026/09/03/nx-s1-5943052/fema-trump-flood-wildfire-hurricane-disaster",
+      "time": "Thu, 03 Sep 2026 05:00:00 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "f1f7077ee709",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Democrats demand Homeland Security officials fund election security ahead of midterms",
+      "summary": "The lawmakers wrote that they share \"grave concern that time is running out … to assist state and local election officials in protecting our elections from cyber and mis-and disinformation threats.\"",
+      "source": "https://www.npr.org/2026/09/03/nx-s1-5954541/election-security-midterms-dhs-democrats",
+      "time": "Thu, 03 Sep 2026 05:00:00 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
       "id": "07b16d628db9",
       "sourceLabel": "Al Jazeera",
       "sourceType": "international",
@@ -11980,18 +12516,6 @@
       "breaking": false
     },
     {
-      "id": "40db11e315ee",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Russia to close Goethe-Institut centres as Germany tensions escalate",
-      "summary": "Moscow to shut Goethe-Institut centres after Germany announces the closure of two Russian institutions.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/russia-to-close-goethe-institut-centres-as-germany-tensions-escalate?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 08:12:46 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true
-    },
-    {
       "id": "d0dc547a22cd",
       "sourceLabel": "NPR World",
       "sourceType": "international",
@@ -12004,6 +12528,18 @@
       "breaking": false
     },
     {
+      "id": "51fc948d866d",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Veteran political journalist on division among Democrats over Democratic Socialism",
+      "summary": "NPR's Michel Martin speaks with CNN senior political analyst Ron Brownstein about the Democratic Party's division over embracing Democratic Socialism.",
+      "source": "https://www.npr.org/2026/09/03/nx-s1-5910644/veteran-political-journalist-on-division-among-democrats-over-democratic-socialism",
+      "time": "Thu, 03 Sep 2026 04:08:56 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
       "id": "7f8698e30964",
       "sourceLabel": "NPR World",
       "sourceType": "international",
@@ -12011,6 +12547,18 @@
       "summary": "Xi Jinping's visit to Egypt for the first time in a decade, and during the Iran war, comes as U.S. allies broaden their security ties.",
       "source": "https://www.npr.org/2026/09/03/nx-s1-5954184/chinas-xi-visits-egypt-for-the-first-time-in-a-decade",
       "time": "Thu, 03 Sep 2026 04:08:39 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "69b648f72015",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
+      "summary": "NPR's Michel Martin asks former Obama administration official Benjamin Gedan {guh-DAN} about the viability of the Trump administration's plan for Venezuelan oil.",
+      "source": "https://www.npr.org/2026/09/03/nx-s1-5954063/ex-national-security-council-director-on-administrations-plan-for-venezuela-oil",
+      "time": "Thu, 03 Sep 2026 04:08:17 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -12040,22 +12588,10 @@
       "breaking": false
     },
     {
-      "id": "c0f5ddf619b7",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "OpenAI’s Sam Altman tells G20 AI will be as essential as electricity",
-      "summary": "‘A kid growing up today will never be smarter than AI.’",
-      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/openais-sam-altman-tells-g20-ai-will-be-as-essential-as-electricity?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 08:04:36 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "4906225191d1",
       "sourceLabel": "BBC Americas",
       "sourceType": "regional",
-      "title": "Why did this Canadian 'island' seemingly vanish and reappear miles away?",
+      "title": "Satellite images show how Canadian 'island' vanished before turning up 20 miles away",
       "summary": "BBC Verify has used satellite imagery to track the mysterious phenomenon, which has surprised people around the world.",
       "source": "https://www.bbc.co.uk/news/videos/cly4zxd7e7wo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 07:57:23 GMT",
@@ -12076,18 +12612,6 @@
       "breaking": false
     },
     {
-      "id": "826b2d806cf3",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Alcaraz, Sabalenka ease into US Open third round; American players shine",
-      "summary": "Americans Ben Shelton, Jessica Pegula, Emma Navarro and Frances Tiafoe progress to the third round.",
-      "source": "https://www.aljazeera.com/sports/2026/9/3/alcaraz-sabalenka-ease-into-us-open-third-round-american-players-shine?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 07:46:21 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "4853c2337866",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -12095,30 +12619,6 @@
       "summary": "This blog is now closed    Get our  breaking news email ,  free app  or  daily news podcast      Shadow treasurer says tobacco plans would bring in extra billions and stop people buying from the ‘black market’    Tim Wilson,  the shadow treasurer, said the tobacco proposal would bring in an extra $2bn a year as it would stop people “buying products from the black market”.   We’ve been looking at this policy for a lon",
       "source": "https://www.theguardian.com/australia-news/live/2026/sep/03/anthony-albanese-one-nation-jim-chalmers-labor-liberal-angus-taylor-tobacco-plan-ntwnfb",
       "time": "Thu, 03 Sep 2026 07:42:00 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "e6c43e2836c7",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Iran Red Crescent urges ICC probe into deadly US strike on wedding party",
-      "summary": "Outrage grows over US strike that killed four people and wounded 67 at a wedding party in Kuhestak.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/iran-red-crescent-urges-icc-probe-into-deadly-us-strike-on-wedding-party?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 07:41:45 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true
-    },
-    {
-      "id": "1d4f0eabfe29",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Pakistan’s Punjab allows ‘secret’ terrorism trials: Why it’s controversial",
-      "summary": "A single unnamed official can order anonymous judges, prosecutors and witnesses in terrorism cases, with no time limit.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/pakistans-punjab-allows-secret-terrorism-trials-why-its-controversial?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 07:25:51 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -12155,18 +12655,6 @@
       "summary": "China's President Xi Jinping visits Egypt this week for the first time in a decade. The trip illustrates China's growing ambitions at a time when U.S. influence has been weakened by its war in Iran.",
       "source": "https://www.npr.org/2026/09/03/nx-s1-5955295/xi-china-visit-egypt",
       "time": "Thu, 03 Sep 2026 03:04:25 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "9820ac719aa9",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "China’s support for Iran shows its limits as US ramps up pressure on Tehran",
-      "summary": "Beijing&#039;s support for Tehran is balanced against other relationships in the region, analysts say.",
-      "source": "https://www.aljazeera.com/economy/2026/9/3/chinas-support-for-iran-shows-its-limits-as-us-ramps-up-pressure-on-tehran?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 06:48:46 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -12215,18 +12703,6 @@
       "summary": "The WMO has warned that the natural weather phenomenon could bring disruption to global economies.",
       "source": "https://www.bbc.co.uk/news/articles/c17jqp0xzpzo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 06:01:54 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "154bcf844187",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
-      "title": "US sailors go shopping before hitting the bars in Thailand after 250-day voyage",
-      "summary": "With military haircuts and moustaches, the US sailors stood out against the flip-flops of the usual Pattaya crowd, writes the BBC's Jonathan Head.",
-      "source": "https://www.bbc.co.uk/news/articles/cj9x2k8n3y1o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 05:17:04 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -12352,21 +12828,9 @@
       "breaking": true
     },
     {
-      "id": "8b8f15a5d138",
-      "sourceLabel": "BBC Africa",
-      "sourceType": "regional",
-      "title": "Sharpeville massacre survivors start legal fight for justice in South Africa",
-      "summary": "At least 69 people were shot dead in 1960 but no-one has been prosecuted and victims want restitution.",
-      "source": "https://www.bbc.co.uk/news/articles/c1mvll11ll5o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 00:14:20 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "608a9487eb92",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
+      "sourceLabel": "BBC Americas",
+      "sourceType": "regional",
       "title": "Could Lindsay Clancy trial end in a mistrial? Here are the jury's options",
       "summary": "Jurors have five options before them as they decide the fate of the former nurse charged with murdering her three children.",
       "source": "https://www.bbc.co.uk/news/articles/c93vgv4kr49o?at_medium=RSS&at_campaign=rss",
@@ -12496,18 +12960,6 @@
       "breaking": false
     },
     {
-      "id": "d0a147818f26",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Lindsay Clancy jurors sent home for the day after twice failing to reach verdict",
-      "summary": "Jury to return for more deliberations on Thursday in case of mother accused of murdering her three children     Sign up for the Breaking News US newsletter email     The jury in the Lindsay Clancy trial was dismissed for the evening on Wednesday without reaching a verdict, after nearly 30 hours of deliberations over five days.  Addressing the 12-member jury – made up of nine women and three men – Judge William Sulliv",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/lindsay-clancy-filming-jurors",
-      "time": "Wed, 02 Sep 2026 20:49:02 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "ccedae1703cd",
       "sourceLabel": "BBC Africa",
       "sourceType": "regional",
@@ -12581,8 +13033,8 @@
     },
     {
       "id": "5ff02e054c7c",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
+      "sourceLabel": "BBC Middle East",
+      "sourceType": "regional",
       "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
       "summary": "The kingdom condemns the targeting of Sidr, which was reportedly hit by unknown projectiles in the Strait of Hormuz on Monday.",
       "source": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
@@ -12748,18 +13200,6 @@
       "breaking": false
     },
     {
-      "id": "bfbbc854d01e",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "Tumbler Ridge mass shooting victims file 30 new lawsuits against OpenAI",
-      "summary": "The company says it prioritizes safety, but suits allege its ChatGPT bot induced  shooter to carry out attack in Canada   OpenAI  faces 30 new lawsuits filed on behalf of victims of the Tumbler Ridge mass shooting.  The suits, filed on Wednesday, allege the company’s  ChatGPT  chatbot induced the shooter to carry out the attack in rural Canada in February, in which eight people were killed and dozens more wounded – m",
-      "source": "https://www.theguardian.com/world/2026/sep/02/openai-lawsuits-tumbler-ridge-mass-shooting",
-      "time": "Wed, 02 Sep 2026 13:22:57 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true
-    },
-    {
       "id": "5d749daf8a75",
       "sourceLabel": "BBC Europe",
       "sourceType": "regional",
@@ -12832,18 +13272,6 @@
       "breaking": false
     },
     {
-      "id": "753514c7c1f9",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Trump’s threat against an NBC journalist is an attack on reality | Margaret Sullivan",
-      "summary": "The president’s call for the FCC to scrutinize Kristen Welker’s innocuous remarks is a sign of desperation  With his approval ratings tanking, the crucial midterm elections looming, and his war with Iran turning into a quagmire, Donald Trump has entered full freak-out mode.  It’s not hard to tell. Just look at what happened this week when he lashed out at Kristen Welker, the well-respected host of NBC’s Meet the Pres",
-      "source": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-nbc-fcc-kristin-welker",
-      "time": "Wed, 02 Sep 2026 11:00:22 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true
-    },
-    {
       "id": "7af15c78cc3e",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -12851,6 +13279,54 @@
       "summary": "Referendum result means fewer seats in parliament and new rules on candidates, ahead of December elections  Guinea-Bissau voters have approved a new constitution, which critics say will undermine democracy, that significantly expands presidential powers ahead of elections due in December.  According to provisional results, 70% of voters approved sweeping changes in the tiny west African state’s first constitutional a",
       "source": "https://www.theguardian.com/world/2026/sep/02/guinea-bissau-voters-approve-constitution-elections",
       "time": "Wed, 02 Sep 2026 09:20:55 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "3e32018cb4af",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+      "summary": "The recent trade war between the U.S. and Canada has both economic and political implications for Michigan, given it's the state's top trade partner.",
+      "source": "https://www.npr.org/2026/09/02/nx-s1-5947963/tariffs-tariffs-voters-michigan-upper-peninsula-trump",
+      "time": "Wed, 02 Sep 2026 05:00:00 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "9b0ceb9471df",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Whistleblower's lawyer warns USPS plan for Trump's order could keep ballots from voters",
+      "summary": "A lawyer for an anonymous whistleblower says Postal Service plans for an unusual verification rule, combined with a hastily built online system, could delay mail ballots from reaching eligible voters.",
+      "source": "https://www.npr.org/2026/09/02/nx-s1-5952211/usps-whistleblower-lawyer-reaction-mail-ballots",
+      "time": "Wed, 02 Sep 2026 04:43:19 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "2c9e8b422460",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
+      "summary": "President Trump seems to be pulling out all the stops to mitigate high gas prices ahead of the midterms.",
+      "source": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
+      "time": "Wed, 02 Sep 2026 04:42:26 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "9a8c6a72f8d5",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
+      "summary": "NPR's Steve Inskeep speaks with political consultant Sarah Longwell about Trump's low approval rating and high gas prices, as affordability shadows the approaching midterm election.",
+      "source": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
+      "time": "Wed, 02 Sep 2026 04:41:54 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -12952,6 +13428,30 @@
       "breaking": false
     },
     {
+      "id": "37197c7701db",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "Incumbent Sen. Ed Markey wins Massachusetts' Democratic primary for U.S. Senate",
+      "summary": "Bucking a push for younger leadership this election season, Sen. Ed Markey, 80, won the Democratic nomination against Rep. Seth Moulton, 47, who said that his party needed new leaders.",
+      "source": "https://www.npr.org/2026/09/01/nx-s1-5953111/ed-markey-wins-massachusetts-democratic-primary-us-senate-seth-moulton",
+      "time": "Tue, 01 Sep 2026 20:38:46 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
+      "id": "81eb375d44fa",
+      "sourceLabel": "NPR Politics",
+      "sourceType": "us-politics",
+      "title": "North Carolina Rep. Chuck Edwards is formally censured over harassment allegations",
+      "summary": "The censure vote drew bipartisan support, and followed an investigation by the House Ethics Committee into allegations of sexual harassment against two young female staff members.",
+      "source": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
+      "time": "Tue, 01 Sep 2026 18:18:20 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false
+    },
+    {
       "id": "9464e825adca",
       "sourceLabel": "BBC Americas",
       "sourceType": "regional",
@@ -13019,18 +13519,6 @@
       "summary": "BBC correspondents in Delhi and Moscow look at why the Indian PM made a very public peace plea to his Russian ally.",
       "source": "https://www.bbc.co.uk/news/articles/cx2zy3wdqqeo?at_medium=RSS&at_campaign=rss",
       "time": "Tue, 01 Sep 2026 11:55:51 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "9d1ad01f9ce8",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "Thai resort prepares to host USS Abraham Lincoln sailors after more than 270 days at sea",
-      "summary": "Security stepped up in Pattaya before arrival of thousands of sailors and marines whose deployment was extended due to US war in Iran  Authorities in the Thai resort city of Pattaya have stepped up security as they prepare to welcome thousands of sailors and marines from the USS Abraham Lincoln who have spent  more than 270 consecutive days at sea .  “About 600 officials will provide security and other necessary assi",
-      "source": "https://www.theguardian.com/world/2026/sep/01/thailand-pattaya-uss-abraham-lincoln-sailors-marines",
-      "time": "Tue, 01 Sep 2026 08:30:51 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -13250,18 +13738,6 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true
-    },
-    {
-      "id": "5654be3a506b",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
-      "title": "Satellite images reveal scale of flood devastation in Nepal villages",
-      "summary": "Before-and-after images show villages, bridges and a key Nepal-Tibet border crossing washed away by devastating floodwaters.",
-      "source": "https://www.bbc.co.uk/news/articles/cd68vpjv21do?at_medium=RSS&at_campaign=rss",
-      "time": "Fri, 28 Aug 2026 17:36:54 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
     },
     {
       "id": "a7f4b944d680",
@@ -13588,18 +14064,6 @@
       "breaking": false
     },
     {
-      "id": "f792acf6d959",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "75 años de Ferias del Libro de Santo Domingo ( 1951 - 2026 ) Ensegundos República Dominicana",
-      "summary": "",
-      "source": "https://ensegundos.do/2026/08/31/75-anos-de-ferias-del-libro-de-santo-domingo-1951-2026/",
-      "time": "3 Aug 2026 12:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "43b14654edbc",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -13696,42 +14160,6 @@
       "breaking": false
     },
     {
-      "id": "825018692867",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
-      "summary": "",
-      "source": "https://www.elcolombiano.com/inicio/25-anos-titulo-seleccion-colombia-copa-america-2001-DP39369486",
-      "time": "3 Jul 2026 23:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "a30981fc4cd6",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Gremio vs Bolívar , dónde ver EN VIVO y en qué canal pasan el partido de Copa Sudamericana",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/copa-sudamericana/2026/07/29/hora-juega-gremio-vs-bolivar-donde-ver-en-vivo-en-canal-pasan-partido-de-copa-sudamericana-2004190",
-      "time": "3 Jul 2026 17:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "3e953a44057b",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "Horarios del show de medio tiempo del Mundial 2026 en Latinoamérica y dónde verlo",
-      "summary": "",
-      "source": "https://www.eluniverso.com/entretenimiento/television/horarios-del-show-de-medio-tiempo-del-mundial-2026-en-latinoamerica-y-donde-verlo-nota/",
-      "time": "3 Jul 2026 17:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
       "id": "96f4decef313",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -13739,102 +14167,6 @@
       "summary": "",
       "source": "https://military.china.com/news/13004177/20260710/49601866.html",
       "time": "3 Jul 2026 07:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "020ebdf9ce5a",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Marruecos vs Haití , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/2026/06/23/hora-juega-marruecos-vs-haiti-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1905872",
-      "time": "3 Jun 2026 21:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "7b0bf75d1fd4",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Chile vs Portugal , qué canal transmite EN VIVO y dónde ver partido amistoso",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/2026/06/05/hora-juega-chile-vs-portugal-canal-transmite-en-vivo-donde-ver-partido-amistoso-214280",
-      "time": "3 Jun 2026 20:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "27c1aa3a24ff",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega México vs Corea del Sur , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/2026/06/17/hora-juega-mexico-vs-corea-del-sur-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-883541",
-      "time": "3 Jun 2026 19:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "cea7dbbf1713",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "Senegal vs . Irak , EN VIVO : siga el partido clave del Grupo I en el Mundial 2026",
-      "summary": "",
-      "source": "https://www.infobae.com/colombia/2026/06/26/senegal-vs-irak-en-vivo-siga-el-partido-clave-del-grupo-i-en-el-mundial-2026/",
-      "time": "3 Jun 2026 19:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "d43ae403a4bc",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Perú vs España , canal de transmisión EN VIVO y dónde ver partido amistoso",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-peruano/seleccion-peruana/2026/06/07/hora-juega-peru-vs-espana-canal-de-transmision-en-vivo-donde-ver-partido-amistoso-489391",
-      "time": "3 Jun 2026 19:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "44aca770704d",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Perú vs España , canal de transmisión EN VIVO y dónde ver partido amistoso",
-      "summary": "",
-      "source": "https://libero.pe/futbol-peruano/seleccion-peruana/2026/06/07/hora-juega-peru-vs-espana-canal-de-transmision-en-vivo-donde-ver-partido-amistoso-489391",
-      "time": "3 Jun 2026 19:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "16d51d6100d1",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "Mundial 2026 : qué partidos se juegan hoy domingo 21 de junio",
-      "summary": "",
-      "source": "https://www.agenciafe.com/nota/399127-Mundial-2026-qu-partidos-se-juegan-hoy-domingo-21-de-junio",
-      "time": "3 Jun 2026 18:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "a10d15324fd6",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Ecuador vs Curazao , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/2026/06/19/hora-juega-ecuador-vs-curazao-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1443829",
-      "time": "3 Jun 2026 14:15:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
@@ -13850,81 +14182,29 @@
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false
-    },
-    {
-      "id": "cffd02a2b2db",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Colombia hoy contra Uzbekistán : horarios del partido y canales para ver EN VIVO el Mundial",
-      "summary": "",
-      "source": "https://www.eluniverso.com/deportes/futbol/a-que-hora-juega-colombia-hoy-contra-uzbekistan-horarios-del-partido-y-canales-para-ver-en-vivo-el-mundial-nota/",
-      "time": "3 Jun 2026 13:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "1479999bf86c",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "Partidos del Mundial 2026 , hoy domingo 21 de junio : hora , estadios y cómo ver en vivo",
-      "summary": "",
-      "source": "https://www.infobae.com/deportes/2026/06/21/partidos-del-mundial-2026-hoy-domingo-21-de-junio-hora-estadios-y-como-ver-en-vivo/",
-      "time": "3 Jun 2026 11:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "91676849c82a",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Haití vs Escocia , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe/futbol-internacional/2026/06/12/hora-juega-haiti-vs-escocia-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-226452",
-      "time": "3 Jun 2026 07:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "feb9f82b5d59",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Marruecos vs Haití , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe/futbol-internacional/2026/06/23/hora-juega-marruecos-vs-haiti-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1905872",
-      "time": "3 Jun 2026 06:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "6a2f2b9a5f3b",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Canadá vs Qatar , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe/futbol-internacional/2026/06/17/hora-juega-canada-vs-qatar-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-524484",
-      "time": "3 Jun 2026 05:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
-    },
-    {
-      "id": "0705c6d2d9e1",
-      "sourceLabel": "GDELT Live — Americas",
-      "sourceType": "americas",
-      "title": "A qué hora juega Canadá vs Qatar , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
-      "summary": "",
-      "source": "https://libero.pe:443/futbol-internacional/2026/06/17/hora-juega-canada-vs-qatar-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-524484",
-      "time": "3 Jun 2026 00:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false
     }
   ],
   "sourceHealth": [
+    {
+      "name": "GDELT Live — U.S. Politics",
+      "type": "us-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — World Politics",
+      "type": "world-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — Global Economics",
+      "type": "economics",
+      "status": "error"
+    },
+    {
+      "name": "NPR Politics",
+      "type": "us-politics",
+      "status": "ok"
+    },
     {
       "name": "GDELT Live — Global",
       "type": "live",
@@ -13938,7 +14218,7 @@
     {
       "name": "GDELT Live — Americas",
       "type": "americas",
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "GDELT Live — Middle East",
@@ -14322,5 +14602,1084 @@
       "status": "reference-only",
       "note": "Global Pulse does not claim to ingest Guerilla Map incident records without a documented public machine-readable export. Strategic nodes use the same broad categories and are linked to independent public sources."
     }
+  },
+  "intelligenceGraph": {
+    "updatedAt": "2026-09-03T12:22:03.309674Z",
+    "method": "co-occurrence graph from public stories and conflict records",
+    "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
+    "nodes": [
+      {
+        "id": "united-states",
+        "label": "United States",
+        "kind": "actor",
+        "mentions": 39
+      },
+      {
+        "id": "iran",
+        "label": "Iran",
+        "kind": "actor",
+        "mentions": 30
+      },
+      {
+        "id": "israel",
+        "label": "Israel",
+        "kind": "actor",
+        "mentions": 20
+      },
+      {
+        "id": "u-s-politics",
+        "label": "U.S. Politics",
+        "kind": "political",
+        "mentions": 13
+      },
+      {
+        "id": "palestinians",
+        "label": "Palestinians",
+        "kind": "actor",
+        "mentions": 11
+      },
+      {
+        "id": "united-kingdom",
+        "label": "United Kingdom",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
+        "id": "russia",
+        "label": "Russia",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
+        "id": "china",
+        "label": "China",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
+        "id": "canada",
+        "label": "Canada",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
+        "id": "ukraine",
+        "label": "Ukraine",
+        "kind": "actor",
+        "mentions": 8
+      },
+      {
+        "id": "oil-markets",
+        "label": "Oil Markets",
+        "kind": "economic",
+        "mentions": 8
+      },
+      {
+        "id": "global-trade",
+        "label": "Global Trade",
+        "kind": "economic",
+        "mentions": 7
+      },
+      {
+        "id": "venezuela",
+        "label": "Venezuela",
+        "kind": "actor",
+        "mentions": 6
+      },
+      {
+        "id": "global-economy",
+        "label": "Global Economy",
+        "kind": "economic",
+        "mentions": 5
+      },
+      {
+        "id": "strait-of-hormuz",
+        "label": "Strait of Hormuz",
+        "kind": "strategic",
+        "mentions": 5
+      },
+      {
+        "id": "egypt",
+        "label": "Egypt",
+        "kind": "actor",
+        "mentions": 4
+      },
+      {
+        "id": "lebanon",
+        "label": "Lebanon",
+        "kind": "actor",
+        "mentions": 3
+      },
+      {
+        "id": "brazil",
+        "label": "Brazil",
+        "kind": "actor",
+        "mentions": 2
+      },
+      {
+        "id": "nato",
+        "label": "NATO",
+        "kind": "political",
+        "mentions": 2
+      }
+    ],
+    "edges": [
+      {
+        "source": "United States",
+        "target": "Iran",
+        "weight": 18,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          },
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "Palestinians",
+        "weight": 9,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Israel says Hamas security chief captured as strikes kill four during Gaza raid",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Tue, 01 Sep 2026 20:24:28 GMT"
+          },
+          {
+            "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 11:21:59 +0000"
+          },
+          {
+            "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Thu, 03 Sep 2026 09:53:58 GMT"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 31 Aug 2026 10:00:23 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Russia",
+        "target": "Ukraine",
+        "weight": 6,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations",
+            "url": "",
+            "source": "BBC Europe",
+            "time": "Wed, 02 Sep 2026 16:12:43 GMT"
+          },
+          {
+            "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
+            "url": "",
+            "source": "BBC Europe",
+            "time": "Tue, 01 Sep 2026 11:55:51 GMT"
+          },
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "Norway seizes Russian ship to enforce $4.22 billion Ukrainian compensation claim",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:07:06 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "U.S. Politics",
+        "weight": 6,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
+          },
+          {
+            "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 04:42:26 -0400"
+          },
+          {
+            "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 04:41:54 -0400"
+          },
+          {
+            "title": "Incumbent Sen. Ed Markey wins Massachusetts' Democratic primary for U.S. Senate",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Tue, 01 Sep 2026 20:38:46 -0400"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Oil Markets",
+        "weight": 5,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 14:44:39 GMT"
+          },
+          {
+            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
+            "url": "",
+            "source": "NPR World",
+            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
+          },
+          {
+            "title": "The US and Venezuela: a century-old relationship drenched in oil",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          },
+          {
+            "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Thu, 03 Sep 2026 04:08:17 -0400"
+          },
+          {
+            "title": "Critics question legality of Venezuela oil deals",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:07:44 -0400"
+          }
+        ]
+      },
+      {
+        "source": "Venezuela",
+        "target": "Oil Markets",
+        "weight": 5,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Who is Alejandro Betancourt, colourful oil baron behind US-Venezuela oil deal?",
+            "url": "",
+            "source": "BBC World",
+            "time": "Wed, 02 Sep 2026 23:53:28 GMT"
+          },
+          {
+            "title": "Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 14:44:39 GMT"
+          },
+          {
+            "title": "The US and Venezuela: a century-old relationship drenched in oil",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          },
+          {
+            "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Thu, 03 Sep 2026 04:08:17 -0400"
+          },
+          {
+            "title": "Critics question legality of Venezuela oil deals",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:07:44 -0400"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Israel",
+        "weight": 5,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
+          },
+          {
+            "title": "Gulf insecurity fuels US energy dominance",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 09:16:20 +0000"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Konflik AS - Israel melawan Iran diprediksi berlangsung hingga Oktober",
+            "url": "",
+            "source": "GDELT Live — Global",
+            "time": "3 Jun 2026 13:15:00 +0000"
+          },
+          {
+            "title": "Israel–Iran Regional Front",
+            "url": "",
+            "source": "Conflict record",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Strait of Hormuz",
+        "weight": 5,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Wed, 02 Sep 2026 17:33:45 GMT"
+          },
+          {
+            "title": "US and Iran trade strikes for first time in weeks",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 31 Aug 2026 13:47:30 GMT"
+          },
+          {
+            "title": "Washington 27 August 2026 #3",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 19:58:50 +0000"
+          },
+          {
+            "title": "Hormuz 27 August 2026 #2",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 19:57:55 +0000"
+          },
+          {
+            "title": "Iran / Strait of Hormuz",
+            "url": "",
+            "source": "Conflict record",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Venezuela",
+        "weight": 4,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 14:44:39 GMT"
+          },
+          {
+            "title": "The US and Venezuela: a century-old relationship drenched in oil",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          },
+          {
+            "title": "Ex-National Security Council director on administration's plan for Venezuela oil",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Thu, 03 Sep 2026 04:08:17 -0400"
+          },
+          {
+            "title": "Critics question legality of Venezuela oil deals",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:07:44 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Canada",
+        "weight": 4,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 21:15:12 GMT"
+          },
+          {
+            "title": "Trump’s ridiculous bullying of Canada is backfiring | Robert Reich",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Wed, 02 Sep 2026 12:00:24 GMT"
+          },
+          {
+            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
+          },
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Canada",
+        "target": "Global Trade",
+        "weight": 4,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 21:15:12 GMT"
+          },
+          {
+            "title": "Pete Hegseth criticized for body-shaming Canadian cadets: ‘Literally they’re kids’",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 14:44:31 GMT"
+          },
+          {
+            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
+          },
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          }
+        ]
+      },
+      {
+        "source": "China",
+        "target": "Egypt",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Egypt’s Sisi welcomes China’s President Xi in Grand Egyptian Museum tour",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 09:07:28 +0000"
+          },
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "China",
+        "target": "Iran",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
+          },
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Global Trade",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 21:15:12 GMT"
+          },
+          {
+            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
+          },
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "Lebanon",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "BBC travels inside occupied Lebanon as officials say Israel expanding positions",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Wed, 02 Sep 2026 05:03:09 GMT"
+          },
+          {
+            "title": "Israel 27 August 2026 #1",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 00:06:19 +0000"
+          },
+          {
+            "title": "Lebanon 27 August 2026 #1",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 00:05:29 +0000"
+          }
+        ]
+      },
+      {
+        "source": "U.S. Politics",
+        "target": "Brazil",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Supreme Court corruption scandal rocks Brazil",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:42:58 GMT"
+          },
+          {
+            "title": "Brazilian justice faces pressure for alleged links to disgraced banker",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 09:59:54 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Russia",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Ukraine",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Russia",
+        "target": "Iran",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Russia",
+        "target": "NATO",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany",
+            "url": "",
+            "source": "BBC World",
+            "time": "Thu, 03 Sep 2026 03:21:24 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Ukraine",
+        "target": "Iran",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "United Kingdom",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Yair Netanyahu, Israeli PM’s son, angers UK right over Falklands comment",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 09:54:15 +0000"
+          },
+          {
+            "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 31 Aug 2026 10:00:23 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "China",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Egypt",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Egypt",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Xi visits Egypt as China seeks deeper influence across the Mideast",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Israel",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Palestinians",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
+          }
+        ]
+      },
+      {
+        "source": "U.S. Politics",
+        "target": "Israel",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
+          }
+        ]
+      },
+      {
+        "source": "U.S. Politics",
+        "target": "Palestinians",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Oil Markets",
+        "target": "Global Economy",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
+            "url": "",
+            "source": "NPR World",
+            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
+          },
+          {
+            "title": "India's GDP growth defies oil shock but stirs up controversy",
+            "url": "",
+            "source": "BBC Asia",
+            "time": "Thu, 03 Sep 2026 07:11:46 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Canada",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Trump’s ridiculous bullying of Canada is backfiring | Robert Reich",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Wed, 02 Sep 2026 12:00:24 GMT"
+          },
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Global Trade",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          },
+          {
+            "title": "US and Iran trade strikes for first time in weeks",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 31 Aug 2026 13:47:30 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Oil Markets",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
+          },
+          {
+            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
+            "url": "",
+            "source": "NPR World",
+            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Strait of Hormuz",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Washington 27 August 2026 #3",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 19:58:50 +0000"
+          },
+          {
+            "title": "Hormuz 27 August 2026 #2",
+            "url": "",
+            "source": "Crisis Group",
+            "time": "Fri, 28 Aug 2026 19:57:55 +0000"
+          }
+        ]
+      }
+    ]
   }
 }

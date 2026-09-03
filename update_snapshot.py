@@ -17,6 +17,11 @@ HIST = DATA / "history.json"
 SOURCES = DATA / "sources.json"
 
 FEEDS = [
+    ("GDELT Live — U.S. Politics", "https://api.gdeltproject.org/api/v2/doc/doc?query=(Trump%20OR%20Congress%20OR%20Senate%20OR%20House%20OR%20Supreme%20Court%20OR%20election%20OR%20midterms%20OR%20White%20House)&mode=ArtList&format=rss&maxrecords=200&timespan=15m", "us-politics"),
+    ("GDELT Live — World Politics", "https://api.gdeltproject.org/api/v2/doc/doc?query=(election%20OR%20president%20OR%20parliament%20OR%20prime%20minister%20OR%20diplomacy%20OR%20summit%20OR%20sanctions%20OR%20alliance)&mode=ArtList&format=rss&maxrecords=200&timespan=15m", "world-politics"),
+    ("GDELT Live — Global Economics", "https://api.gdeltproject.org/api/v2/doc/doc?query=(oil%20OR%20inflation%20OR%20tariff%20OR%20trade%20OR%20interest%20rate%20OR%20central%20bank%20OR%20stocks%20OR%20bonds%20OR%20currency)&mode=ArtList&format=rss&maxrecords=200&timespan=15m", "economics"),
+    ("NPR Politics", "https://feeds.npr.org/1014/rss.xml", "us-politics"),
+
     ("GDELT Live — Global", "https://api.gdeltproject.org/api/v2/doc/doc?query=(war%20OR%20conflict%20OR%20military%20OR%20sanctions%20OR%20election%20OR%20crisis)&mode=ArtList&format=rss&maxrecords=250&timespan=15m", "live"),
     ("GDELT Live — Africa", "https://api.gdeltproject.org/api/v2/doc/doc?query=(africa%20OR%20sudan%20OR%20congo%20OR%20sahel%20OR%20nigeria%20OR%20somalia)&mode=ArtList&format=rss&maxrecords=150&timespan=15m", "africa"),
     ("GDELT Live — Americas", "https://api.gdeltproject.org/api/v2/doc/doc?query=(mexico%20OR%20colombia%20OR%20venezuela%20OR%20brazil%20OR%20haiti%20OR%20ecuador%20OR%20peru)&mode=ArtList&format=rss&maxrecords=150&timespan=15m", "americas"),
