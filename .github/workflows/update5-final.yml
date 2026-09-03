@@ -1,0 +1,60 @@
+name: Global Pulse Update 5 — Final Professionalization
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'update5_professionalize.py'
+      - '.github/workflows/update5-final.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: global-pulse-update5
+  cancel-in-progress: true
+
+jobs:
+  final:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply final professionalization
+        run: python update5_professionalize.py
+      - name: Refresh intelligence data
+        run: |
+          python update_snapshot.py
+          python update_osint.py
+      - name: Validate dashboard and data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          html=Path('index.html').read_text(encoding='utf-8')
+          assert html.count('id="gp-final-css"') == 1
+          assert html.count('id="gp-final-js"') == 1
+          assert 'DATA PIPELINE ACTIVE' in html
+          data=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          assert data.get('updatedAt')
+          assert isinstance(data.get('conflicts'),list) and len(data['conflicts']) >= 25
+          assert isinstance(data.get('stories'),list)
+          assert isinstance(data.get('markers'),list)
+          print('Final validation passed:', len(data['conflicts']), 'conflicts,', len(data['stories']), 'stories,', len(data['markers']), 'markers')
+          PY
+      - name: Commit generated dashboard and data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html data/snapshot.json data/history.json data/sources.json
+          if git diff --staged --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'chore: refresh final Global Pulse dashboard and data'
+            git push
+          fi
