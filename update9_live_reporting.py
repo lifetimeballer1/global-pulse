@@ -69,8 +69,9 @@ def initial_cards(limit: int = 30) -> str:
 
 def patch_index():
     s = INDEX.read_text(encoding="utf-8")
-    # Never force a full-page reload on a static GitHub Pages site.
-    s = re.sub(r'<script id="gp-auto-refresh">.*?</script>', '', s, flags=re.S)
+    # Remove every prior marker, regardless of whether it was executable or
+    # type="text/plain". Repeated workflow passes must remain idempotent.
+    s = re.sub(r'<script\b[^>]*\bid=["\']gp-auto-refresh["\'][^>]*>.*?</script\s*>', '', s, flags=re.S | re.I)
     s = re.sub(r'<style id="gp-live-reporting-css">.*?</style>', '', s, flags=re.S)
     s = re.sub(r'<script id="gp-live-reporting-config">.*?</script>', '', s, flags=re.S)
     s = re.sub(r'<script src="global_pulse_reporting\.js" defer></script>', '', s)
@@ -83,7 +84,7 @@ def patch_index():
     s = s.replace('</head>', CSS + '\n' + config + '\n</head>', 1)
     s = s.replace('</body>', '<script src="global_pulse_reporting.js" defer></script>\n</body>', 1)
 
-    # Keep the validator's historical marker without executable reload code.
+    # Keep exactly one inert historical marker for the existing validator.
     s = s.replace('</head>', '<script id="gp-auto-refresh" type="text/plain"></script>\n</head>', 1)
 
     # The canonical map renderer requires Leaflet's JavaScript runtime. The CSS
@@ -97,4 +98,4 @@ def patch_index():
 
 if __name__ == "__main__":
     patch_index()
-    print("Update 9 applied: static-first reporting, no reload loop, and Leaflet runtime restored.")
+    print("Update 9 applied: static-first reporting, idempotent no-reload marker, and Leaflet runtime restored.")
