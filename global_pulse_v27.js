@@ -19,7 +19,11 @@
     if(!d)return;css();
     const wrap=document.querySelector('.wrap');if(!wrap)return;
     const markers=dedupeMarkers(d);
-    if(typeof window.renderMap==='function')window.renderMap(markers);
+    // The canonical map renderer currently reads DATA.markers. Temporarily expose the
+    // de-duplicated view for this render, then restore the original array immediately.
+    // This avoids permanently mutating the shared snapshot while keeping map hygiene.
+    const originalMarkers=d.markers;d.markers=markers;
+    try{if(typeof window.renderMap==='function')window.renderMap();}finally{d.markers=originalMarkers}
     let sec=document.getElementById('gp-v27-intel');if(!sec){sec=document.createElement('section');sec.id='gp-v27-intel';sec.className='panel wide';const anchor=document.getElementById('top')||document.querySelector('.grid');if(anchor&&anchor.parentNode)anchor.parentNode.insertBefore(sec,anchor.nextSibling);else wrap.insertBefore(sec,wrap.firstChild)}
     const md=d.marketData||{}, inds=arr(md.indicators), live=inds.filter(x=>x.status==='live').length, stale=inds.filter(x=>x.status==='stale').length;
     const sh=arr(d.sourceHealth), online=sh.filter(x=>x.status==='online'||x.status==='ok').length, degraded=sh.filter(x=>x.status==='degraded'||x.status==='stale').length, failed=sh.filter(x=>x.status==='failed'||x.status==='error').length;
