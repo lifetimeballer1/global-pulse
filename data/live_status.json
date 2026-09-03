@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-09-03T18:55:36.175694+00:00",
+  "updatedAt": "2026-09-03T18:58:55.254557+00:00",
   "feedsChecked": 14,
-  "rowsFetched": 178,
-  "newArticles": 3,
+  "rowsFetched": 139,
+  "newArticles": 0,
   "purged": 0,
   "databaseArticles": 231,
-  "healthySources": 7,
+  "healthySources": 6,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
     },
     {
-      "source": "X @POTUS",
+      "source": "X @UN",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @NATO",
+      "source": "X @POTUS",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -24,7 +24,7 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @UN",
+      "source": "X @NATO",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -32,8 +32,12 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
+      "source": "CNN Politics",
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
       "source": "Axios Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "URLError: <urlopen error timed out>"
     }
   ],
   "pollSeconds": 300,
