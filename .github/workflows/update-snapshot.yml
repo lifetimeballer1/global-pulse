@@ -1,14 +1,10 @@
 name: Global Pulse — Refresh, Validate & Deploy
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'index.html'
-      - 'update*.py'
-      - 'global_map_ui.py'
-      - 'data/**'
-      - '.github/workflows/update-snapshot.yml'
+  # Scheduled/manual runs are intentional: GitHub Pages also has its own
+  # source-change deployment path. Keeping this workflow off push events
+  # prevents duplicate Pages deployments while still publishing refreshed
+  # data directly from this workflow.
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
