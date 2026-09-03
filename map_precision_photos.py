@@ -56,9 +56,9 @@ JS = r'''<script id="gp-map-precision-js">
     else html+='<div class="gp-photo-caption">No source image is attached to this signal.</div>';
     html+='<div class="gp-precision"><div class="gp-precision-actions"><button type="button" class="gp-precision-btn" data-gp-locate>LOCATE PRECISELY</button><a class="gp-precision-btn" href="'+esc(googleMaps(m,lat,lng))+'" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS ↗</a>';
     if(source&&urlOk(source))html+='<a class="gp-precision-btn" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">OPEN SOURCE ↗</a>';
-    html+='</div><div class="gp-precision-status" data-gp-status>Current map position: '+esc(m?.locationPrecision||m?.type==="reported-area"?"approximate / reported area":"mapped signal")+'.</div></div>';
+    html+='</div><div class="gp-precision-status" data-gp-status>Current map position: '+esc(m?.locationPrecision || (m?.type==="reported-area" ? "approximate / reported area" : "mapped signal"))+'.</div></div>';
     content.insertAdjacentHTML("beforeend",html);
-    const btn=content.querySelector("[data-gp-locate]"),status=content.querySelector("[data-gp-status");
+    const btn=content.querySelector("[data-gp-locate]"),status=content.querySelector("[data-gp-status]");
     if(!btn||!status)return;
     btn.addEventListener("click",()=>locate(m,lat,lng,btn,status));
   }
