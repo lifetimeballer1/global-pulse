@@ -7,7 +7,7 @@ s=p.read_text(encoding='utf-8')
 # Remove previous Update 5 injection so reruns stay idempotent.
 s=re.sub(r'\n<style id="gp-final-css">.*?</style>\n', '\n', s, flags=re.S)
 s=re.sub(r'\n<script id="gp-final-js">.*?</script>\n', '\n', s, flags=re.S)
-s=re.sub(r'\n<div class="gp-finalbar" id="gpFinalBar">.*?</div>\n', '\n', s, flags=re.S)
+s=re.sub(r'\n<div class="gp-finalbar" id="gpFinalBar">[^\n]*\n', '\n', s)
 
 css='''\n<style id="gp-final-css">\n/* Global Pulse Update 5 — final command-center polish */\n.gp-finalbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;margin:0 0 12px;border:1px solid var(--line);border-radius:11px;background:#08131e}.gp-finalbar .fresh{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}.gp-finalbar .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(72,223,131,.1)}.gp-finalbar button{min-height:32px;padding:6px 10px}.gp-method{font-size:10px;color:var(--muted);line-height:1.55}.gp-method b{color:var(--text)}.gp-error{display:none;margin:10px 0;padding:10px;border:1px solid rgba(255,102,120,.35);border-radius:9px;background:rgba(255,102,120,.08);color:#ff9aa7;font-size:11px}.gp-skeleton{opacity:.65}.leaflet-container{font:12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.leaflet-control-attribution{font-size:8px}.panel{contain:layout paint}.story,.item,.ccard,.evidence-card{content-visibility:auto;contain-intrinsic-size:120px}.open,.map-source,button,.filter{touch-action:manipulation}@media(max-width:720px){.gp-finalbar{align-items:flex-start}.gp-finalbar button{flex-shrink:0}.gp-method{font-size:9px}}\n</style>\n'''
 s=s.replace('</head>',css+'</head>',1)
