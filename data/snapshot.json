@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-03T12:58:12.923137+00:00",
-  "sourceStatus": "191 stories · 2 new · 14/22 feeds healthy; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "updatedAt": "2026-09-03T13:53:06.801798+00:00",
+  "sourceStatus": "243 stories · 66 new · 19/30 feeds healthy; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
-  "tension": 88,
-  "tensionDelta": 0,
+  "tension": 89,
+  "tensionDelta": 1,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 84,
+    "Diplomatic strain": 77,
     "Economic pressure": 100,
-    "Market volatility": 74,
-    "Military posture": 83
+    "Market volatility": 80,
+    "Military posture": 89
   },
   "changes": [
     {
@@ -29,13 +29,28 @@
     },
     {
       "kind": "new reporting",
-      "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
-      "detail": "Guardian World · international · DEVELOPING"
+      "title": "I own six guns. Here’s how to talk to conservatives about firearms",
+      "detail": "Guardian US · regional · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "China lambasts France’s ‘discriminatory’ fast-fashion law",
+      "title": "Ukraine takes the war to Russia’s space programme in tactical shift",
+      "detail": "Al Jazeera · international · DEVELOPING"
+    },
+    {
+      "kind": "breaking",
+      "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
       "detail": "France 24 · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Kais Saied’s economic experiment has failed Tunisia",
+      "detail": "Al Jazeera · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Victims sue South African government over 1960 Sharpeville massacre",
+      "detail": "Al Jazeera · international · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -49,7 +64,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 10,
+      "signalCount": 9,
       "sourceCount": 5,
       "confidence": "CORROBORATED",
       "eventType": "KINETIC",
@@ -102,7 +117,7 @@
           "signal": 15.0
         }
       ],
-      "facts": "10 conflict-specific signal(s) from 5 source(s) in the current feed window.",
+      "facts": "9 conflict-specific signal(s) from 5 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -115,15 +130,15 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 10,
-      "sourceCount": 3,
+      "signalCount": 12,
+      "sourceCount": 6,
       "confidence": "CORROBORATED",
       "eventType": "MILITARY POSTURE",
       "lastSignal": "Thu, 03 Sep 2026 09:53:58 GMT",
       "signals": [
         {
           "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
-          "source": "BBC Middle East",
+          "source": "BBC World",
           "url": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
           "time": "Thu, 03 Sep 2026 09:53:58 GMT",
           "match": [
@@ -155,17 +170,18 @@
           "signal": 18.0
         },
         {
-          "title": "BBC tracks one week of Israeli settler violence in occupied West Bank",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/videos/c3wjq1188g9o?at_medium=RSS&at_campaign=rss",
-          "time": "Fri, 28 Aug 2026 14:06:13 GMT",
+          "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/tv-shows/t%C3%AAte-%C3%A0-t%C3%AAte/20260903-israeli-attacks-in-west-bank-at-unprecedented-level-pni-leader-barghouti-says",
+          "time": "Thu, 03 Sep 2026 13:26:12 GMT",
           "match": [
-            "west bank"
+            "west bank",
+            "palestinian"
           ],
-          "signal": 10.4
+          "signal": 16.5
         }
       ],
-      "facts": "10 conflict-specific signal(s) from 3 source(s) in the current feed window.",
+      "facts": "12 conflict-specific signal(s) from 6 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -175,9 +191,9 @@
       "category": "FLASHPOINT",
       "status": "Active signal",
       "recent": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
-      "escalation": "HIGH",
-      "activityScore": 69,
-      "delta": 0,
+      "escalation": "MODERATE",
+      "activityScore": 67,
+      "delta": -2,
       "signalCount": 4,
       "sourceCount": 2,
       "confidence": "MULTI-SOURCE",
@@ -204,7 +220,7 @@
             "strait of hormuz",
             "hormuz"
           ],
-          "signal": 11.0
+          "signal": 9.4
         },
         {
           "title": "Hormuz 27 August 2026 #2",
@@ -256,7 +272,7 @@
           "match": [
             "nigeria"
           ],
-          "signal": 14.0
+          "signal": 13.4
         },
         {
           "title": "Uber shuts operations in Nigeria and Uganda with immediate effect",
@@ -290,6 +306,46 @@
         }
       ],
       "facts": "5 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "yemen",
+      "name": "Yemen / Red Sea",
+      "region": "Middle East",
+      "category": "CONFLICT",
+      "status": "Active signal",
+      "recent": "Bus crash on Egypt's Red Sea coast kills 22",
+      "escalation": "MODERATE",
+      "activityScore": 56,
+      "delta": 10,
+      "signalCount": 2,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Wed, 02 Sep 2026 12:07:32 GMT",
+      "signals": [
+        {
+          "title": "Bus crash on Egypt's Red Sea coast kills 22",
+          "source": "BBC Middle East",
+          "url": "https://www.bbc.co.uk/news/articles/cn8mr1myy2ko?at_medium=RSS&at_campaign=rss",
+          "time": "Wed, 02 Sep 2026 12:07:32 GMT",
+          "match": [
+            "red sea"
+          ],
+          "signal": 12.0
+        },
+        {
+          "title": "Katz threatens to assassinate Houthi leader if opportunity arises",
+          "source": "GDELT Live — Middle East",
+          "url": "https://www.albawaba.com/news/katz-threatens-assassinate-houthi-leader-1631206",
+          "time": "3 Jun 2026 18:30:00 +0000",
+          "match": [
+            "houthi"
+          ],
+          "signal": 7.4
+        }
+      ],
+      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -403,66 +459,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "yemen",
-      "name": "Yemen / Red Sea",
-      "region": "Middle East",
-      "category": "CONFLICT",
-      "status": "Active signal",
-      "recent": "Bus crash on Egypt's Red Sea coast kills 22",
-      "escalation": "LOW",
-      "activityScore": 46,
-      "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Wed, 02 Sep 2026 12:07:32 GMT",
-      "signals": [
-        {
-          "title": "Bus crash on Egypt's Red Sea coast kills 22",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/cn8mr1myy2ko?at_medium=RSS&at_campaign=rss",
-          "time": "Wed, 02 Sep 2026 12:07:32 GMT",
-          "match": [
-            "red sea"
-          ],
-          "signal": 12.0
-        }
-      ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "somalia",
-      "name": "Somalia / al-Shabaab",
-      "region": "Africa",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
-      "escalation": "LOW",
-      "activityScore": 46,
-      "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Mon, 31 Aug 2026 13:34:09 GMT",
-      "signals": [
-        {
-          "title": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
-          "source": "BBC Africa",
-          "url": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss",
-          "time": "Mon, 31 Aug 2026 13:34:09 GMT",
-          "match": [
-            "somali"
-          ],
-          "signal": 12.0
-        }
-      ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "haiti",
       "name": "Haiti Gang Conflict",
       "region": "Caribbean",
@@ -479,6 +475,36 @@
       "lastSignal": null,
       "signals": [],
       "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "somalia",
+      "name": "Somalia / al-Shabaab",
+      "region": "Africa",
+      "category": "INSURGENCY",
+      "status": "Active signal",
+      "recent": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
+      "escalation": "LOW",
+      "activityScore": 44,
+      "delta": -2,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Mon, 31 Aug 2026 13:34:09 GMT",
+      "signals": [
+        {
+          "title": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
+          "source": "BBC Africa",
+          "url": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss",
+          "time": "Mon, 31 Aug 2026 13:34:09 GMT",
+          "match": [
+            "somali"
+          ],
+          "signal": 10.4
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -580,6 +606,47 @@
         }
       ],
       "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "syria",
+      "name": "Syria Conflict / Residual Fronts",
+      "region": "Middle East",
+      "category": "CONFLICT",
+      "status": "Active signal",
+      "recent": "‘Can I take the door?’ woman pleads at Syrian prison exhibit",
+      "escalation": "LOW",
+      "activityScore": 40,
+      "delta": 11,
+      "signalCount": 2,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Thu, 03 Sep 2026 13:02:59 +0000",
+      "signals": [
+        {
+          "title": "‘Can I take the door?’ woman pleads at Syrian prison exhibit",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/can-i-take-the-door-woman-pleads-at-syrian-prison-exhibit?traffic_source=rss",
+          "time": "Thu, 03 Sep 2026 13:02:59 +0000",
+          "match": [
+            "syrian",
+            "damascus"
+          ],
+          "signal": 8.5
+        },
+        {
+          "title": "The phone book that led us to Assad's spy chief in hiding",
+          "source": "BBC Middle East",
+          "url": "https://www.bbc.co.uk/news/articles/c4gyrzn8p94o?at_medium=RSS&at_campaign=rss",
+          "time": "Fri, 07 Aug 2026 23:23:12 GMT",
+          "match": [
+            "syria"
+          ],
+          "signal": 2.5
+        }
+      ],
+      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -776,52 +843,33 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "syria",
-      "name": "Syria Conflict / Residual Fronts",
-      "region": "Middle East",
-      "category": "CONFLICT",
-      "status": "Active signal",
-      "recent": "The phone book that led us to Assad's spy chief in hiding",
-      "escalation": "LOW",
-      "activityScore": 29,
-      "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Fri, 07 Aug 2026 23:23:12 GMT",
-      "signals": [
-        {
-          "title": "The phone book that led us to Assad's spy chief in hiding",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/c4gyrzn8p94o?at_medium=RSS&at_campaign=rss",
-          "time": "Fri, 07 Aug 2026 23:23:12 GMT",
-          "match": [
-            "syria"
-          ],
-          "signal": 2.5
-        }
-      ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "iraq",
       "name": "Iraq Militia / Security Risk",
       "region": "Middle East",
       "category": "CONFLICT",
-      "status": "Monitoring",
-      "recent": "No specific current signal in the public feed window.",
+      "status": "Active signal",
+      "recent": "Iran hidden war room in Iraq : how Houthis and militias are building a new launchpad",
       "escalation": "LOW",
-      "activityScore": 27,
-      "delta": 0,
-      "signalCount": 0,
-      "sourceCount": 0,
-      "confidence": "MONITORING",
+      "activityScore": 31,
+      "delta": 4,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
       "eventType": "MONITORING",
-      "lastSignal": null,
-      "signals": [],
-      "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "lastSignal": "3 Aug 2026 07:00:00 +0000",
+      "signals": [
+        {
+          "title": "Iran hidden war room in Iraq : how Houthis and militias are building a new launchpad",
+          "source": "GDELT Live — Middle East",
+          "url": "https://www.ynetnews.com/article/b1fckr0rfg",
+          "time": "3 Aug 2026 07:00:00 +0000",
+          "match": [
+            "iraq"
+          ],
+          "signal": 6.0
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -3188,6 +3236,216 @@
       "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmm",
       "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdmm",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1815,
+      "lng": 146.1539,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 53 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 22.8619,
+      "lng": 144.06,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — Volcano Islands, Japan region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
@@ -8058,8 +8316,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7cniKpzS35Xg-uZNLIIoMaV_qpDfBfStl9wmkIgTXAsDxVUdTrFsqCgyAl_WDHyOolyxXZSeBNJok1GtazXPQMGFBWP2BPn9YaLilv7NhOd-gbpsQb5qe89Z6W2WTavsP7NCPEgFHixr048bsj8oLf90CTC5NOSoBGK9sDJwkKIC76T0DY6fbLiH-Qx9hunMTct7ebhIe10huG9XGfV6I0vrTQrGZIEB7W_rBC9J0Z_LDP76YwiqSwDmE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7cniKpzS35Xg-uZNLIIoMaV_qpDfBfStl9wmkIgTXAsDxVUdTrFsqCgyAl_WDHyOolyxXZSeBNJok1GtazXPQMGFBWP2BPn9YaLilv7NhOd-gbpsQb5qe89Z6W2WTavsP7NCPEgFHixr048bsj8oLf90CTC5NOSoBGK9sDJwkKIC76T0DY6fbLiH-Qx9hunMTct7ebhIe10huG9XGfV6I0vrTQrGZIEB7W_rBC9J0Z_LDP76YwiqSwDmE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Reawf1QN550U2nFwSxfS-5qZJVOXDuPaMilj_O0sGpE9rgo619G9no1RSUdO39pgcQrnbhp6ChV8zotx31fszpszta-25S0WXr_Y03WdS1jZGUw31IHtnIO2NNMZO8hy0QoYC7xo1v0f8IRgbmrM_xxS-lY1vFfhGrg6R-EMTRT0HAR5ZfmeXckzcA2DmfuzGgNMCTlnXZes_CkKNi6ADLkGIgigFk8T0t-zfAE6sj8cP2K1phjDSQac?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Reawf1QN550U2nFwSxfS-5qZJVOXDuPaMilj_O0sGpE9rgo619G9no1RSUdO39pgcQrnbhp6ChV8zotx31fszpszta-25S0WXr_Y03WdS1jZGUw31IHtnIO2NNMZO8hy0QoYC7xo1v0f8IRgbmrM_xxS-lY1vFfhGrg6R-EMTRT0HAR5ZfmeXckzcA2DmfuzGgNMCTlnXZes_CkKNi6ADLkGIgigFk8T0t-zfAE6sj8cP2K1phjDSQac?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8094,8 +8352,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7i8954pWnrNDkfa4j_o7h1yRviMxgkahhoB6QxTo0nGQxBIqQtfAEQ4LXV6bDcMzhKwLHBr_rQ0P3XFuwcw42v7gZtlA-rt3Y6L5oU0xLleLpBtATo5qz5kCBkwsRy-rxb_nPyFcv0JIAMaZyjjdCZhsTXQP7118_CTrCxnbAzNc92WQFPPm_wd83XL88eXOSTGeqzM_I3bsxyGzmM8zfX4pnNfh0U1yQa3spoMUHX5gWCuxxmGGd6VOE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7i8954pWnrNDkfa4j_o7h1yRviMxgkahhoB6QxTo0nGQxBIqQtfAEQ4LXV6bDcMzhKwLHBr_rQ0P3XFuwcw42v7gZtlA-rt3Y6L5oU0xLleLpBtATo5qz5kCBkwsRy-rxb_nPyFcv0JIAMaZyjjdCZhsTXQP7118_CTrCxnbAzNc92WQFPPm_wd83XL88eXOSTGeqzM_I3bsxyGzmM8zfX4pnNfh0U1yQa3spoMUHX5gWCuxxmGGd6VOE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OWz8AtCBbEIFL64r8z-s77cPAEMgkw5ACK9CiJEwi3u_upw4OOFnd3xNaLtSD4xIZnhd_YBS3X63dJgc81rJUMN7dPczeSCiXIFARicJgMJDpUDyX-FYY4pRWZUQ2bGnndNVCVSYws7TDTT8QnU5VDeRspDbPqXPd3pEKN97NzGTAOPdW9KpEkoMOCAo3HxqwNFlZTdz9zhvdzilsaXLF4mWlzfWvfPcYsqUFwjcmYlOnyO0e_ITFcUM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OWz8AtCBbEIFL64r8z-s77cPAEMgkw5ACK9CiJEwi3u_upw4OOFnd3xNaLtSD4xIZnhd_YBS3X63dJgc81rJUMN7dPczeSCiXIFARicJgMJDpUDyX-FYY4pRWZUQ2bGnndNVCVSYws7TDTT8QnU5VDeRspDbPqXPd3pEKN97NzGTAOPdW9KpEkoMOCAo3HxqwNFlZTdz9zhvdzilsaXLF4mWlzfWvfPcYsqUFwjcmYlOnyO0e_ITFcUM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8148,8 +8406,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aGbRv_8RL4fqbNUBgV54J3KHoGqNhE-OqYy0y4oUMT0ZCFvWenSL8jYUu4sOk-y_wrvBpNl0U3QrBUUzOv3k7urIdPem2kg1Jf_zqW3lG5vukUDTH5qIGbhqn9uEuvm1L8g05M_JStKa0WbcdE9tQVwZdaUIqc0zpYVj1jApW0rjImYEIXUvLTcpSGD_jBI3fLr_wkKcw1lA-nAE5vf6_jxbPSp9HvWJjFWuQDwEPBYFu6C3uXznfxDc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aGbRv_8RL4fqbNUBgV54J3KHoGqNhE-OqYy0y4oUMT0ZCFvWenSL8jYUu4sOk-y_wrvBpNl0U3QrBUUzOv3k7urIdPem2kg1Jf_zqW3lG5vukUDTH5qIGbhqn9uEuvm1L8g05M_JStKa0WbcdE9tQVwZdaUIqc0zpYVj1jApW0rjImYEIXUvLTcpSGD_jBI3fLr_wkKcw1lA-nAE5vf6_jxbPSp9HvWJjFWuQDwEPBYFu6C3uXznfxDc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4noMNuZB9cVoH-OC2CCwvwb8PUF77Zgvo5Mb-JN2CoAW8ani0slUcrxx3TF3Do9MdKXH-He_Iz5fiFMo-Uxi-FwFDD5bmk-UXq17MoONi7UFqLvYqrpbbunarbpeho408BNcpcONFLUVKhKHc4pENwcjI7leztErfw6owgtT_CaMvUyx8R6xyEP-5H9QuBmsP3_wagwgTId7ZIvjOEFbIM7S-4Pu3YkR_r0q8VavKmG3ZcET8TVAOpTiw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4noMNuZB9cVoH-OC2CCwvwb8PUF77Zgvo5Mb-JN2CoAW8ani0slUcrxx3TF3Do9MdKXH-He_Iz5fiFMo-Uxi-FwFDD5bmk-UXq17MoONi7UFqLvYqrpbbunarbpeho408BNcpcONFLUVKhKHc4pENwcjI7leztErfw6owgtT_CaMvUyx8R6xyEP-5H9QuBmsP3_wagwgTId7ZIvjOEFbIM7S-4Pu3YkR_r0q8VavKmG3ZcET8TVAOpTiw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9156,8 +9414,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6BVYFlxba0NMU4S0TNI2Spey7KVPFlFU1UAbMpc8Kt_KcAAXbPHcMwBCDk37_Vvg3sdvdcASTA8NcpOIcBcbYYKGG4jY471HyT45QGKSfrLXvntU_RolXXEDIybzenl6lV7tZINPFiQKUJQFipgOSiGGf1xCiVMir45KVa9rEEvB35yrFMpEWgQPnkXi_hHfIKN5N__mhpHX9f6I0ifbL7w3zFX6ViSz5nmkOMSVDU360Bmj9yoULPUWk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6BVYFlxba0NMU4S0TNI2Spey7KVPFlFU1UAbMpc8Kt_KcAAXbPHcMwBCDk37_Vvg3sdvdcASTA8NcpOIcBcbYYKGG4jY471HyT45QGKSfrLXvntU_RolXXEDIybzenl6lV7tZINPFiQKUJQFipgOSiGGf1xCiVMir45KVa9rEEvB35yrFMpEWgQPnkXi_hHfIKN5N__mhpHX9f6I0ifbL7w3zFX6ViSz5nmkOMSVDU360Bmj9yoULPUWk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR454BUrSv-KyZMJLjuW_YPM0tcClr9Bg1aprNoqRc3Ec-6hYQhutpKSomF5mGhinL-kSO_2yJLzxA8DN3xagqQpMjrl3DogyTByWf6_nRZCoLjXj9HkgkhpBqlb8Pbh6I34YKB_wyMpAklb08UFQlWe30Mk0y0oKYhS1Lz0PbJXb0HDicR8WJv8-xNQjZZjGACyqgQ6ur3QSxokkRNBaPfPv213bcsGVc5JBqlcGAt2jejOEZe6fsmN4aI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR454BUrSv-KyZMJLjuW_YPM0tcClr9Bg1aprNoqRc3Ec-6hYQhutpKSomF5mGhinL-kSO_2yJLzxA8DN3xagqQpMjrl3DogyTByWf6_nRZCoLjXj9HkgkhpBqlb8Pbh6I34YKB_wyMpAklb08UFQlWe30Mk0y0oKYhS1Lz0PbJXb0HDicR8WJv8-xNQjZZjGACyqgQ6ur3QSxokkRNBaPfPv213bcsGVc5JBqlcGAt2jejOEZe6fsmN4aI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10344,8 +10602,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7kIZZuUrXdnGIBXUeCLWzv6cAfdGhXfFfT6SnQ53UZUKq8067ZPeHz2gmzfSwZOc-6uqKaj0HVUxCLXATDmjs6qeoD19PMwwvUBqhO7yvvTBWfljkcxY8GW1x7UayrPc-Hczytm_Dc7hwQiS-yFtUYcb3ZgOnq-CkI-HvlB1SotLFo5pCNBBk4qkM_FC_UZ-gGX7_5Db7XAI9v6vJnFgPtXKntEaMg8yblJlfml3sUQxD8bw9pH1lfyVA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7kIZZuUrXdnGIBXUeCLWzv6cAfdGhXfFfT6SnQ53UZUKq8067ZPeHz2gmzfSwZOc-6uqKaj0HVUxCLXATDmjs6qeoD19PMwwvUBqhO7yvvTBWfljkcxY8GW1x7UayrPc-Hczytm_Dc7hwQiS-yFtUYcb3ZgOnq-CkI-HvlB1SotLFo5pCNBBk4qkM_FC_UZ-gGX7_5Db7XAI9v6vJnFgPtXKntEaMg8yblJlfml3sUQxD8bw9pH1lfyVA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Tlg85nP9yBBUcwmc8ymOhnGb4t-JrIGNkcDnAdEv79b77ADbIKRdDRUF8IxjQGDYT4uCC6FS_diDLUS_fIOIeDhu9EAffXVlxsYM8YMjUSNv8uUGQtfAae8vgJLtN-wdGOxyTYi2ehTKZeLu9-0-mPBL-I8L3Yr8dfCphUfzJDMcEIJf4QruB_Em5_CEJWLP6rUI6w0vOoRE5Y0Vq-FqaUZaj1VRS5QXYbljGMMSOKyxq07s_yepWhAA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Tlg85nP9yBBUcwmc8ymOhnGb4t-JrIGNkcDnAdEv79b77ADbIKRdDRUF8IxjQGDYT4uCC6FS_diDLUS_fIOIeDhu9EAffXVlxsYM8YMjUSNv8uUGQtfAae8vgJLtN-wdGOxyTYi2ehTKZeLu9-0-mPBL-I8L3Yr8dfCphUfzJDMcEIJf4QruB_Em5_CEJWLP6rUI6w0vOoRE5Y0Vq-FqaUZaj1VRS5QXYbljGMMSOKyxq07s_yepWhAA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10362,8 +10620,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7LReALlDcsKKFVIFgiIRx22IsOuj72bUK-XumttK00Hy9gLToLDw7Qz2-VecMJ40pCOevSwo0Hts8IU2qnxZsGWxuvv1JGBlERbxLG0H_TdlBY3YT6mot7DvWsN9ZDigyTmAwNmrQemmmwDaw3keH6dEpiSpRw2-Sf7Dfdk52GukzS29sWHtccH_wQjZB77YkH-bQtrGStFMDvzH_fXOU43nlmJxlt7CNL6y6epu4zxyu0SDNY-vdNBq4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7LReALlDcsKKFVIFgiIRx22IsOuj72bUK-XumttK00Hy9gLToLDw7Qz2-VecMJ40pCOevSwo0Hts8IU2qnxZsGWxuvv1JGBlERbxLG0H_TdlBY3YT6mot7DvWsN9ZDigyTmAwNmrQemmmwDaw3keH6dEpiSpRw2-Sf7Dfdk52GukzS29sWHtccH_wQjZB77YkH-bQtrGStFMDvzH_fXOU43nlmJxlt7CNL6y6epu4zxyu0SDNY-vdNBq4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4aZJJyi9iw25YMb4noaT7syOLwNdt9apdm5vNEg5PIfwPuJ_YBxQd25CvxG0c6p6gX-Tf_EQHgcN7KMOSPoEp1zqbXdflpreCC98bDFeknVJCiBa7npuEcX-6YMjrSU0TeHiV26Ecpye109pFh9Cv699LISXjnvPQJdlXIxNDgmpFZY9XDG9LmGTEqlYcqmE6SZG30jvvNQlNwpc3Ux41U9FC8pzCpDPFVzXdUgbQNTTUUI-_VHcsMWp8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4aZJJyi9iw25YMb4noaT7syOLwNdt9apdm5vNEg5PIfwPuJ_YBxQd25CvxG0c6p6gX-Tf_EQHgcN7KMOSPoEp1zqbXdflpreCC98bDFeknVJCiBa7npuEcX-6YMjrSU0TeHiV26Ecpye109pFh9Cv699LISXjnvPQJdlXIxNDgmpFZY9XDG9LmGTEqlYcqmE6SZG30jvvNQlNwpc3Ux41U9FC8pzCpDPFVzXdUgbQNTTUUI-_VHcsMWp8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10380,8 +10638,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7UDFMHFVLAHgJhZnZvq1Lukx1ccR1qV9Y7unoWq74Mma6pw7ehy4ZL1KZzHsPf6A-YUSJl1L9obcxdYbD3q9bikKbXFoOZPmZdz-Hnx6lo1l1ZLwaeTwYiMIvD7YERQkhfOw2SeN_JXZBIzDrT_GsgXKm8FwC5eE1xpKFNsToYuD1MlnKCYLTVcJLvNAtOmWevJjo8RFZcb2QR2rMA9MWE3hFDQ5lFxLguC4ldAb1DgBxo4U-3gdNxhL4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7UDFMHFVLAHgJhZnZvq1Lukx1ccR1qV9Y7unoWq74Mma6pw7ehy4ZL1KZzHsPf6A-YUSJl1L9obcxdYbD3q9bikKbXFoOZPmZdz-Hnx6lo1l1ZLwaeTwYiMIvD7YERQkhfOw2SeN_JXZBIzDrT_GsgXKm8FwC5eE1xpKFNsToYuD1MlnKCYLTVcJLvNAtOmWevJjo8RFZcb2QR2rMA9MWE3hFDQ5lFxLguC4ldAb1DgBxo4U-3gdNxhL4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5NEVgTiyGuItySL8EgyFT2yhK8Upt2gcRFQlRCi5vo_kNrRh0yo-1jMXncsCJOkpyupBmk-Kkx-pUPoXgwe8QxrC3o9-xeqI22SAmCAWdwYW8zNwshwBHte7t4Eran7VC6kYvxgMHrqgjqCDr_ZnPIxcPYeUpwZnDwYrOygaqKphmq2xpCsl7JzUNk7LHKqGW7iZ6DvCpqzdjDo4uZ4xgsU5Px8-qRTXbLNQxMsBXH9NVYWeEevA45hcQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5NEVgTiyGuItySL8EgyFT2yhK8Upt2gcRFQlRCi5vo_kNrRh0yo-1jMXncsCJOkpyupBmk-Kkx-pUPoXgwe8QxrC3o9-xeqI22SAmCAWdwYW8zNwshwBHte7t4Eran7VC6kYvxgMHrqgjqCDr_ZnPIxcPYeUpwZnDwYrOygaqKphmq2xpCsl7JzUNk7LHKqGW7iZ6DvCpqzdjDo4uZ4xgsU5Px8-qRTXbLNQxMsBXH9NVYWeEevA45hcQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10398,8 +10656,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5R55Q4MQl4mNbgQMUC-vxplGzYBg7Cy5hNlt9m4fVv-8vFlNB4J07db_Zq358_nArj8tX-iwb2ZIVTLRPl1OSKiqlx0b4-qPF5BqgDkOR-5EY22VzJFtqVGhJb7a9DKc8Yne5Gy6RBeol1tf9O1D9A9cs5aTVElF6kPWGuVEb-qAO-fZgoY5MgmZUk5F-OtSUPaVqiYgVNsr9LQOxOPfYaSUSH5Bea3OZDD6pQu6FFRSzJgIMZAsXMl-Y?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5R55Q4MQl4mNbgQMUC-vxplGzYBg7Cy5hNlt9m4fVv-8vFlNB4J07db_Zq358_nArj8tX-iwb2ZIVTLRPl1OSKiqlx0b4-qPF5BqgDkOR-5EY22VzJFtqVGhJb7a9DKc8Yne5Gy6RBeol1tf9O1D9A9cs5aTVElF6kPWGuVEb-qAO-fZgoY5MgmZUk5F-OtSUPaVqiYgVNsr9LQOxOPfYaSUSH5Bea3OZDD6pQu6FFRSzJgIMZAsXMl-Y?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JdyodKuGGLfqKYIJuftNQmPE8H4bhUNhv4C_W-z7bJgbrRHofw9sjE1vnQ_uYwjg640WnCsqmIUufg25L9thOpac3_Af57bjB13IcTES6UN2ywxBk6K_FLFH_WimW9Wf-0EkY3UYeOxNB2c8v_JzsdbgpXg2jtTvu-10jYNIO4VZlSn5mmcjj50uOJYCWroduFONSvdtHrT95gE8CjyK1IRNFsS2Y-zA-tXJbp3uFYnvd2DUetHkrrJg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JdyodKuGGLfqKYIJuftNQmPE8H4bhUNhv4C_W-z7bJgbrRHofw9sjE1vnQ_uYwjg640WnCsqmIUufg25L9thOpac3_Af57bjB13IcTES6UN2ywxBk6K_FLFH_WimW9Wf-0EkY3UYeOxNB2c8v_JzsdbgpXg2jtTvu-10jYNIO4VZlSn5mmcjj50uOJYCWroduFONSvdtHrT95gE8CjyK1IRNFsS2Y-zA-tXJbp3uFYnvd2DUetHkrrJg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10416,8 +10674,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4xZhu_Cg2nFrzxNTNh2fnCh7kztvTiCumkyfSuW2kl4xjAdShfKWxB-7y_XqHtLeo9SCfno6G82o1YlpLMtmJVvZhUi9nu9aJIIgWEX5y-9o5PvxNRDBNxPd_-qbzWO66MYjlZxLZZp86BL8gufzIOIpaIXhf6ZuulOrbAFTm6qixZE0Y7aMeWVYPPBc70xG7E_SDRedXIMhrzM7JeAk4aeVBdCpAKlYbi7eVPII3cfN8RXT0LuatfZOY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4xZhu_Cg2nFrzxNTNh2fnCh7kztvTiCumkyfSuW2kl4xjAdShfKWxB-7y_XqHtLeo9SCfno6G82o1YlpLMtmJVvZhUi9nu9aJIIgWEX5y-9o5PvxNRDBNxPd_-qbzWO66MYjlZxLZZp86BL8gufzIOIpaIXhf6ZuulOrbAFTm6qixZE0Y7aMeWVYPPBc70xG7E_SDRedXIMhrzM7JeAk4aeVBdCpAKlYbi7eVPII3cfN8RXT0LuatfZOY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR73LHD5b3jiS55C6e9zdCjpaGzu7ho1cmiyVPEvUDOuKqD6O3jHkbqTl_KOcIku9gMXZAGWm6wHJFAf4WFAJNUsUHr0IIcpBtNZIMAGafsT90WXtHeTNN1Rrg8EmLGPXmZolo0-ZBl8Ix9qC7mLnPYwQiKwaR9Rjb6nVG-kJyDfiV-nlaCixL2bd6weF08fdVNZgOJr-jiQ3RCtYfH1cPS3BEKNQMLFVIbYn23VCtKrUx5vqG2gxoqif1I?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR73LHD5b3jiS55C6e9zdCjpaGzu7ho1cmiyVPEvUDOuKqD6O3jHkbqTl_KOcIku9gMXZAGWm6wHJFAf4WFAJNUsUHr0IIcpBtNZIMAGafsT90WXtHeTNN1Rrg8EmLGPXmZolo0-ZBl8Ix9qC7mLnPYwQiKwaR9Rjb6nVG-kJyDfiV-nlaCixL2bd6weF08fdVNZgOJr-jiQ3RCtYfH1cPS3BEKNQMLFVIbYn23VCtKrUx5vqG2gxoqif1I?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10434,8 +10692,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5j3ATEe4p7LYeYX32hAVLTLcAQbGpNypTswoVNdEcEHxm1N8naPtDluLVxMx3xiwwyZI8_fDTv_3BXbaRDbChgsM8woWpuA_PcF3vm6cZqH38LKtslVdCLI2DETJPdoP7Ofxx8q6QwIEEAzqkvBljWUJSuxnWZTkwZnFktkUZzGEXqKucgGcSET8fG2oJM0PmCxIXwmHKmH22JmEeUuZky9C9wIr78U8pLX_Py22bZ8AYJHG5us_We9Go?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5j3ATEe4p7LYeYX32hAVLTLcAQbGpNypTswoVNdEcEHxm1N8naPtDluLVxMx3xiwwyZI8_fDTv_3BXbaRDbChgsM8woWpuA_PcF3vm6cZqH38LKtslVdCLI2DETJPdoP7Ofxx8q6QwIEEAzqkvBljWUJSuxnWZTkwZnFktkUZzGEXqKucgGcSET8fG2oJM0PmCxIXwmHKmH22JmEeUuZky9C9wIr78U8pLX_Py22bZ8AYJHG5us_We9Go?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6ji1CanwEEKeD_2CtYyTG_-yNet5irPUfhIq66F--Q8wS3EilEMYxGhzWiLVXZvavFVVZcJch0mKcbk_J3gJynOtJOE48kvdG89wGV13e023V8A2y-c5gzqagT_IMFyb6GxbBUUtBf7ku_cn9FscBm4dlV6tSHP0eyc8pwpFkx85g3scJdAS6DNwDd3XFf39l3I3cbjOxnceT0R38P9xxuGyxhdrW9vFUNgFIddKwR1znOoC0N4NJ5xj0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6ji1CanwEEKeD_2CtYyTG_-yNet5irPUfhIq66F--Q8wS3EilEMYxGhzWiLVXZvavFVVZcJch0mKcbk_J3gJynOtJOE48kvdG89wGV13e023V8A2y-c5gzqagT_IMFyb6GxbBUUtBf7ku_cn9FscBm4dlV6tSHP0eyc8pwpFkx85g3scJdAS6DNwDd3XFf39l3I3cbjOxnceT0R38P9xxuGyxhdrW9vFUNgFIddKwR1znOoC0N4NJ5xj0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10452,8 +10710,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UAlK8lU7QbHtC8DnVo79q0jt_KxcTGZY5BENG4U5DTTtAYIxbK33nQF5cv7rxEGw1SQm0hkiMHoT4uYQslXrBA8tmiKdmtokRDHRUpDPEgDD3k6z3rNubDthV4ZKJPYTKDABV1b1yt-yjUU-mflYdbdHCG1FRemgYk798FUvqgnFvZEvsQlpJgNAlMAAjDhYwDhuydmWcUGAYKFkGki4xNoEjuKzdh8TsaW7PxPsAW1zzR_UVIDDr8xw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UAlK8lU7QbHtC8DnVo79q0jt_KxcTGZY5BENG4U5DTTtAYIxbK33nQF5cv7rxEGw1SQm0hkiMHoT4uYQslXrBA8tmiKdmtokRDHRUpDPEgDD3k6z3rNubDthV4ZKJPYTKDABV1b1yt-yjUU-mflYdbdHCG1FRemgYk798FUvqgnFvZEvsQlpJgNAlMAAjDhYwDhuydmWcUGAYKFkGki4xNoEjuKzdh8TsaW7PxPsAW1zzR_UVIDDr8xw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4bbyAaAFSSt6C4ccQ-ZJxA0HmidbJdUSE5Be8Ir03nQFORMalyDYogCOz_7-VFcfS_DZbaEjBxudqjMHH0rWKILMBArCKKt0pjlHLGtUx4060BJ4WjVGC1SjbeG9DXom6dtC3dscOoTRudS2w52SO_nSztQ2jQY1GbPreX8YfytX09kzjJQMKzN8BVOgUTVSfTMdiVsirnJEhM6wV4X8ZPszrQ7nZPaqnd0Ono6OpH78JwOEZVDjHtkso?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4bbyAaAFSSt6C4ccQ-ZJxA0HmidbJdUSE5Be8Ir03nQFORMalyDYogCOz_7-VFcfS_DZbaEjBxudqjMHH0rWKILMBArCKKt0pjlHLGtUx4060BJ4WjVGC1SjbeG9DXom6dtC3dscOoTRudS2w52SO_nSztQ2jQY1GbPreX8YfytX09kzjJQMKzN8BVOgUTVSfTMdiVsirnJEhM6wV4X8ZPszrQ7nZPaqnd0Ono6OpH78JwOEZVDjHtkso?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10470,8 +10728,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TfU3SFsNr7JV6TadpkqqJa-2rBQBjv-YzbTrw5-pzvNYEQkE21_OXuryruo4HdiJxujZkaUAKJ7FhWgpGVxl-K5SYoR8Tv06LRyHNoPgrGqvnIOioIObTgx_EcJwyosaTbmcKd6mNZ02FtQofOtzC6r1GcYDoG2D_dxue6qWNmlFCP4c98usimksqTe1fcU-qkTded0UcxsynpBelxjGcrmqkzGbKO9cwrEmyj6QN76IQhc1wtwII9lE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TfU3SFsNr7JV6TadpkqqJa-2rBQBjv-YzbTrw5-pzvNYEQkE21_OXuryruo4HdiJxujZkaUAKJ7FhWgpGVxl-K5SYoR8Tv06LRyHNoPgrGqvnIOioIObTgx_EcJwyosaTbmcKd6mNZ02FtQofOtzC6r1GcYDoG2D_dxue6qWNmlFCP4c98usimksqTe1fcU-qkTded0UcxsynpBelxjGcrmqkzGbKO9cwrEmyj6QN76IQhc1wtwII9lE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SFTyrZGk9Xs5C2NQXSDLL6w3xclHC60lXR6fWH8FyTECQLLgluL25JERRZ0oFZsUGT7NDQslZuJHUVUJma4hSohgARgM3McLX7SMhDifVEF6-IR_Zx1Ovjny41__GITE26TOi7X4_bOXdL71Qd571JTENS4kATq8C8B0xcccD1QucJL1BFxPBUXEH-E-g4yPYNbkX1v1O-EEj9pEsoXoIZ0AsxWJs-ozBHmLCIr64j8HATqy9bfu5-Lw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SFTyrZGk9Xs5C2NQXSDLL6w3xclHC60lXR6fWH8FyTECQLLgluL25JERRZ0oFZsUGT7NDQslZuJHUVUJma4hSohgARgM3McLX7SMhDifVEF6-IR_Zx1Ovjny41__GITE26TOi7X4_bOXdL71Qd571JTENS4kATq8C8B0xcccD1QucJL1BFxPBUXEH-E-g4yPYNbkX1v1O-EEj9pEsoXoIZ0AsxWJs-ozBHmLCIr64j8HATqy9bfu5-Lw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10488,8 +10746,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7yQKIP-Fg1RQs2NFu36MpxEyoBAgk11M38SxO1VmHFOV5njUAIRRO5oQHuiAH2FTba7EkxrI2peP6IPX4DVbtQEhdffzB5NL-8qyinzR3t4JaCbAAdLcT1HWX9iWJutWdgsoN80RYsjaKeDGEeAeMJEFem0JeSEq4G0BohntdX0V4wSsJJ0QuYAB--RqZcFwLFUCfwQYkyz4DV92C2keMIszVS1v--mMnqkFHsULAJ-96IMRiFqLflbUI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7yQKIP-Fg1RQs2NFu36MpxEyoBAgk11M38SxO1VmHFOV5njUAIRRO5oQHuiAH2FTba7EkxrI2peP6IPX4DVbtQEhdffzB5NL-8qyinzR3t4JaCbAAdLcT1HWX9iWJutWdgsoN80RYsjaKeDGEeAeMJEFem0JeSEq4G0BohntdX0V4wSsJJ0QuYAB--RqZcFwLFUCfwQYkyz4DV92C2keMIszVS1v--mMnqkFHsULAJ-96IMRiFqLflbUI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5CgnuNivCmJRJ3DAFOOeA6hEHR_de-kbuHUVC_-TW4W6eSjt9bI4xpZcYXDMpKW-yOrBIO4Tgj76BQd2T3vB72_MiLX-9jcC5B3MAcDxKZH37gYT7PaBFerJ9DvkoqrRY_qmt-h3P38qC_ApmosO5zHKpnF8ULglg2yJk-Nr3Sg-F1F4FczxINLLTchwOFTgmQx_41Pp0GA_jAwMrieE340j6OwaRs3rtNPuMiuZMULQarF1ik-pihumY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5CgnuNivCmJRJ3DAFOOeA6hEHR_de-kbuHUVC_-TW4W6eSjt9bI4xpZcYXDMpKW-yOrBIO4Tgj76BQd2T3vB72_MiLX-9jcC5B3MAcDxKZH37gYT7PaBFerJ9DvkoqrRY_qmt-h3P38qC_ApmosO5zHKpnF8ULglg2yJk-Nr3Sg-F1F4FczxINLLTchwOFTgmQx_41Pp0GA_jAwMrieE340j6OwaRs3rtNPuMiuZMULQarF1ik-pihumY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10542,8 +10800,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7u4ESVipakAe1qMzXNh-Tk1XVXQNMWqxcehcq0tGfEk7LYZuuGR5mdORXA7Ih3lI8TDSBs1TAG5QDSOU4sPBk7sVRLbh-75fBsQhphM79Mj2eCi7yX1hdsB_8GrsERFo7IAmMPkb7kbV3RpQnKvwHhcIwlE_VcnoRBMuT2m365o7nVtlh1KZE2rHtJD7dxD0MFCwkKy9fXdvuVKjRsbYwcVSd2OtRTJO3zJofBpxc6M635JUyqi_bw790?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7u4ESVipakAe1qMzXNh-Tk1XVXQNMWqxcehcq0tGfEk7LYZuuGR5mdORXA7Ih3lI8TDSBs1TAG5QDSOU4sPBk7sVRLbh-75fBsQhphM79Mj2eCi7yX1hdsB_8GrsERFo7IAmMPkb7kbV3RpQnKvwHhcIwlE_VcnoRBMuT2m365o7nVtlh1KZE2rHtJD7dxD0MFCwkKy9fXdvuVKjRsbYwcVSd2OtRTJO3zJofBpxc6M635JUyqi_bw790?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR74C3VCsaeFijn3mP0PPB9TUhi98BXg-rzq6eb8JbTd7MuFcOd-yGtRWgxYaiWUA3VGLc_HycQVl6ROz-KY7E-KLUw8S6hAgi_OBrLVFMvtAKW2kONEZqcZAZsAp0K4yTd0_ZOztF1K7xVBbE-dolbiQgviBQEhnTUuR0QaeW-Iz9khBv40tZu3yWIO2CP7_AsP3TG7hIorighLEC4ULV8wAZjxpQZlumI6E_HgUWgBZrEZE8-ssylPzMI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR74C3VCsaeFijn3mP0PPB9TUhi98BXg-rzq6eb8JbTd7MuFcOd-yGtRWgxYaiWUA3VGLc_HycQVl6ROz-KY7E-KLUw8S6hAgi_OBrLVFMvtAKW2kONEZqcZAZsAp0K4yTd0_ZOztF1K7xVBbE-dolbiQgviBQEhnTUuR0QaeW-Iz9khBv40tZu3yWIO2CP7_AsP3TG7hIorighLEC4ULV8wAZjxpQZlumI6E_HgUWgBZrEZE8-ssylPzMI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10560,8 +10818,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6GiERnQkfGDOS428Oh5Jp0QUxYkv1Nag9CAtI0bmQVBAEG5Z08hujlUYH4w7Klg2kWaSE8C5JJ2Wmd7bFv-UkoEtXDq382bIfzUExzE_EL8P6ROIMYyi1k43uhpHVaiGOgiHQEBDwYzOUPyyiDfcojhzShyYiUr12vLDn2xUZyKkZSakpH1TYRFtQ0rRzcf0wz_psNRXGEGHIyIsRC6gLtPXYtcohwGp-E_edw5J4WdL5Y2FeQ16cePt4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6GiERnQkfGDOS428Oh5Jp0QUxYkv1Nag9CAtI0bmQVBAEG5Z08hujlUYH4w7Klg2kWaSE8C5JJ2Wmd7bFv-UkoEtXDq382bIfzUExzE_EL8P6ROIMYyi1k43uhpHVaiGOgiHQEBDwYzOUPyyiDfcojhzShyYiUr12vLDn2xUZyKkZSakpH1TYRFtQ0rRzcf0wz_psNRXGEGHIyIsRC6gLtPXYtcohwGp-E_edw5J4WdL5Y2FeQ16cePt4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5tfbbwve-deN80KJJnC__DzHVj3P4r9jVBzm5X4VvFykw7__YO3TMjT6sKFrPyJXCMiWeJsPyx3UWYSj57cLTsHwnDubvsbaadMkmZIw0-QtHQNplTxEFEsHr0w4kKgcRTAETKAUMloSOYbmAemXRVK37pURYMqK8xsXVkxy2aRWpwEt33h9gDk4ljmLxKUORyXi2uubMWejusOMaqI3U7rsf48Lo7t7p4DOyMXo9udO9QZ90kOUrk9MA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5tfbbwve-deN80KJJnC__DzHVj3P4r9jVBzm5X4VvFykw7__YO3TMjT6sKFrPyJXCMiWeJsPyx3UWYSj57cLTsHwnDubvsbaadMkmZIw0-QtHQNplTxEFEsHr0w4kKgcRTAETKAUMloSOYbmAemXRVK37pURYMqK8xsXVkxy2aRWpwEt33h9gDk4ljmLxKUORyXi2uubMWejusOMaqI3U7rsf48Lo7t7p4DOyMXo9udO9QZ90kOUrk9MA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10614,8 +10872,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vMjeBzHYYf6ZAvsJSjLYwQgDcm-BDViw9khFzzZ55bFV0buEsjLDdWPoVdLqNYuAlZ-TuPU6Eia0bWngNiblEt08660M3ddElzwh2RY8tmvTIsTozcd0H-1Any-ZW8Jfeiyoqk_5nIBXN-RV3prLuKooED2m8wTyuSI6A4WSPBrwTN1ez4X1MOvGoPO26Vsl-440OUYT79gKEUKwK71VDnPsQtxrzedAZJRyTDeEP0Iw_NEvz4xFOh6w?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vMjeBzHYYf6ZAvsJSjLYwQgDcm-BDViw9khFzzZ55bFV0buEsjLDdWPoVdLqNYuAlZ-TuPU6Eia0bWngNiblEt08660M3ddElzwh2RY8tmvTIsTozcd0H-1Any-ZW8Jfeiyoqk_5nIBXN-RV3prLuKooED2m8wTyuSI6A4WSPBrwTN1ez4X1MOvGoPO26Vsl-440OUYT79gKEUKwK71VDnPsQtxrzedAZJRyTDeEP0Iw_NEvz4xFOh6w?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR62QiAJixa83gfP2FIGin99AjsuOGa6Hi8eUWnfNM09iC_tsgMwF0PXo_uGwurr4mRbY2-Dy7HDfvUeG_7d4jpLf3_sK-5zaViu4lBnyo6c7hslbU9s1LtV2eU3MNXfi6EcKw28SHhlPgPxzjcrl5eCwBVbAdw-eEaAbVK0LKFnQqrctjCBwlkGB37BKVhUeYV65aMHEGW0i-hbLRhBqLaljgxAQAk6XRGatCWfZnGkx6lDzFUMsdsbAQM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR62QiAJixa83gfP2FIGin99AjsuOGa6Hi8eUWnfNM09iC_tsgMwF0PXo_uGwurr4mRbY2-Dy7HDfvUeG_7d4jpLf3_sK-5zaViu4lBnyo6c7hslbU9s1LtV2eU3MNXfi6EcKw28SHhlPgPxzjcrl5eCwBVbAdw-eEaAbVK0LKFnQqrctjCBwlkGB37BKVhUeYV65aMHEGW0i-hbLRhBqLaljgxAQAk6XRGatCWfZnGkx6lDzFUMsdsbAQM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10686,8 +10944,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6sGldRnIpI96PrMJnXE7Un_igjkXipX2arwoa7a8NVq2Uq5hPe0lKW9mcef2Xqb8wc1a9vHxFRcCQLZG20MCzbZMnsFcSGza0L7Lsbr8kg-MUD8wYESF-9UfJhY1Ubm3oCw18E51irMmj-2n7y256xE3SLhhyNBE3IGgqEDhFVr_nTXTMuO30o5a7c7yFSJu8DWH-gIlBKRiFIHmJ3I8w0mQjI1UEqVDLz7LCYUAQenayRsmzppHKqMAY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6sGldRnIpI96PrMJnXE7Un_igjkXipX2arwoa7a8NVq2Uq5hPe0lKW9mcef2Xqb8wc1a9vHxFRcCQLZG20MCzbZMnsFcSGza0L7Lsbr8kg-MUD8wYESF-9UfJhY1Ubm3oCw18E51irMmj-2n7y256xE3SLhhyNBE3IGgqEDhFVr_nTXTMuO30o5a7c7yFSJu8DWH-gIlBKRiFIHmJ3I8w0mQjI1UEqVDLz7LCYUAQenayRsmzppHKqMAY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR55oIh73aSVARMYDdZfOgDQS5STkEeQTls4Uc5ZW4S4tf9JdMTvJZ0yd6A6P1XzsTL8P8r-PqfrTfYT-KG9R4bMO_JpT9ssMT38dG5TTW7SdhMZxDF68jXn3UYCTpHjWbeJKzhwd_XzrMVw8jg9axr6argFTAgsYmVouht_ftrZB1AhWPAdns3Mt-vTkBbBMU3ZpKtI_PP0_bWoy7ZeRIZOH2zU5s8WuFYxKQ4sVL36keRXUvDu6mXX4Kw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR55oIh73aSVARMYDdZfOgDQS5STkEeQTls4Uc5ZW4S4tf9JdMTvJZ0yd6A6P1XzsTL8P8r-PqfrTfYT-KG9R4bMO_JpT9ssMT38dG5TTW7SdhMZxDF68jXn3UYCTpHjWbeJKzhwd_XzrMVw8jg9axr6argFTAgsYmVouht_ftrZB1AhWPAdns3Mt-vTkBbBMU3ZpKtI_PP0_bWoy7ZeRIZOH2zU5s8WuFYxKQ4sVL36keRXUvDu6mXX4Kw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10812,8 +11070,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4N7uNEXyatNkvHfsV-YVCNsTr7Gz5y0opLYjdb7Umih0hhaa0YNyfwBwtxuYU3UdxACPkeEMaXuD910uorLxEr2JW_qcKmSV-2vkWiPJS8nrP7jpEbpMD3ZgKrJB0Z3Ne8xJAIW3VgQb8frQE3EP1W62uJES1k91x7Bont6yL45EZz2VaqpH3uZlLnf90aBpsrifW2Nin0LE1znXcmp-7pJCxfkEiTfDx59M2N4Ifr1ru21uVZgSS_cTI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4N7uNEXyatNkvHfsV-YVCNsTr7Gz5y0opLYjdb7Umih0hhaa0YNyfwBwtxuYU3UdxACPkeEMaXuD910uorLxEr2JW_qcKmSV-2vkWiPJS8nrP7jpEbpMD3ZgKrJB0Z3Ne8xJAIW3VgQb8frQE3EP1W62uJES1k91x7Bont6yL45EZz2VaqpH3uZlLnf90aBpsrifW2Nin0LE1znXcmp-7pJCxfkEiTfDx59M2N4Ifr1ru21uVZgSS_cTI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WvTWNDvSZfudmbu49eRD_38xR9se6XCcrnHnTsYi_U25Eqswu9mcNRLvaSKouPSCIfknPEPBAMquTjZ1zsdw85t89Q61AXak-mFjnor7pzfefQR25k3Pp--cxOGYFD5CczI7cSBLgjBJyaJ9qMfzQj6O1jEeQFzhAaRTdHKAoVbAXehnN1DMmWA7_eSSssS8b7HI-qSASpRnrnlW1r0_REGGKW0uShFPfn2jjAjJKZmI24BGKwFFqzi4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WvTWNDvSZfudmbu49eRD_38xR9se6XCcrnHnTsYi_U25Eqswu9mcNRLvaSKouPSCIfknPEPBAMquTjZ1zsdw85t89Q61AXak-mFjnor7pzfefQR25k3Pp--cxOGYFD5CczI7cSBLgjBJyaJ9qMfzQj6O1jEeQFzhAaRTdHKAoVbAXehnN1DMmWA7_eSSssS8b7HI-qSASpRnrnlW1r0_REGGKW0uShFPfn2jjAjJKZmI24BGKwFFqzi4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12002,6 +12260,20 @@
       "confidence": "REFERENCE NODE / NOT AN INCIDENT"
     },
     {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
       "lat": 52.253,
       "lng": -169.579,
       "type": "hazard",
@@ -12291,11 +12563,180 @@
   ],
   "stories": [
     {
+      "id": "ca58672fbc86",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Feminist activist and journalist Gloria Steinem dies, aged 92",
+      "summary": "Her foundation said she \"passed away peacefully\" at her home in New York City, \"surrounded by many who loved her\".",
+      "source": "https://www.bbc.co.uk/news/articles/clyeq3ngwe4o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 13:52:18 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 13:32:13 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "f6322184e8be",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "I own six guns. Here’s how to talk to conservatives about firearms",
+      "summary": "In rural America, guns are a fact of life. But even conservatives agree that properly locking them up is crucial in preventing deaths  I have six guns in my house.  The first was a vintage Winchester 12-gauge. It was the winter of 1990, and my husband and I had just moved from an urban block in north-west Philadelphia to 100-year-old farmhouse in Appalachian Virginia, where my family goes back seven generations.   Co",
+      "source": "https://www.theguardian.com/us-news/ng-interactive/2026/sep/03/gun-safety-rural-america",
+      "time": "Thu, 03 Sep 2026 13:30:39 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "1d10309f0631",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Ukraine takes the war to Russia’s space programme in tactical shift",
+      "summary": "From Moscow to Plesetsk, Ukraine appears to be trying to hit infrastructure that powers Russia’s war from space.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/ukraine-targets-russias-space-programme-as-war-intensifies?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:30:28 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "fc12678f45a4",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
+      "summary": "In an interview with FRANCE 24, the secretary general of the Palestinian National Initiative (PNI) party Mustafa Barghouti said the level of Israeli attacks on Palestinians in the West Bank had become \"totally unprecedented\". With tensions escalating, activists accuse settlers of operating with total impunity. \"Their goal is clear: it is ethnic cleansing,\" Barghouti stated, calling Israeli Prime Minister Benjamin Net",
+      "source": "https://www.france24.com/en/tv-shows/t%C3%AAte-%C3%A0-t%C3%AAte/20260903-israeli-attacks-in-west-bank-at-unprecedented-level-pni-leader-barghouti-says",
+      "time": "Thu, 03 Sep 2026 13:26:12 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "63034c255c25",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Kais Saied’s economic experiment has failed Tunisia",
+      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
+      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:09:47 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "economics"
+    },
+    {
+      "id": "db855776bafb",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Victims sue South African government over 1960 Sharpeville massacre",
+      "summary": "Victims sue South African governed over 1960 Sharpeville massacre",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/victims-sue-south-african-governed-over-1960-sharpeville-massacre?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:07:13 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "135ba37aedc8",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Vance's Antichrist comments are a 'common belief', his friend tells BBC",
+      "summary": "The US vice-president recently mused with a Christian podcast host on whether the end of the world was nigh.",
+      "source": "https://www.bbc.co.uk/news/articles/cn4kwzr8gd9o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 13:07:02 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "1e13f581b855",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Ceuta crisis: ‘No evidence Morocco behind border surge’",
+      "summary": "There is no evidence Morocco was behind the mass influx of migrants that overwhelmed the Spanish enclave of Ceuta in July, Spanish PM Pedro Sanchez told lawmakers Thursday. Sanchez's comments followed a police report that emerged this week saying that the mass entry into Ceuta was not a spontaneous migration event but a planned and phased operation designed to overwhelm border controls.",
+      "source": "https://www.france24.com/en/video/20260903-ceuta-crisis-no-evidence-morocco-behind-border-surge-1",
+      "time": "Thu, 03 Sep 2026 13:05:29 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "af5bbb5af053",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "‘Can I take the door?’ woman pleads at Syrian prison exhibit",
+      "summary": "A Syrian woman spotted her missing brother’s name on a prison cell door at an exhibition in Damascus.",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/can-i-take-the-door-woman-pleads-at-syrian-prison-exhibit?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:02:59 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "9fbade295891",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
+      "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
+      "time": "Thu, 03 Sep 2026 09:00:50 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "50f6caaabe8f",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Alarm as US domestic violence killings remain high despite drop in homicides",
+      "summary": "Non-profits say requests for legal help and housing on rise amid Trump funding cuts for prevention and response  As cities and states across the US report historic drops in homicides, domestic violence killings remain alarmingly high.  In Chicago, where homicides fell from 805 in 2021 to 425 in 2025, killings tied to domestic violence increased by 15% between 2024 and 2025. In Kansas City, Missouri, homicides in gene",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/us-domestic-violence-killings-homicide",
+      "time": "Thu, 03 Sep 2026 13:00:38 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "07062ad50053",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Benzema, Pogba, Sancho and Sterling: What now for football’s free agents?",
+      "summary": "Ex-Real Madrid and Manchester United stars, Karim Benzema, Paul Pogba and Jadon Sancho among post-deadline free agents.",
+      "source": "https://www.aljazeera.com/sports/2026/9/3/benzema-pogba-sancho-and-sterling-what-now-for-footballs-free-agents?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 12:52:54 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "11ae75dd6032",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
       "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
-      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African enclave of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, com",
+      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African territory of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, c",
       "source": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
       "time": "Thu, 03 Sep 2026 12:52:08 GMT",
       "tag": "World",
@@ -12304,17 +12745,30 @@
       "intelligenceLayer": "world-politics"
     },
     {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
-      "summary": "Maryland judge issues preliminary injunction blocking Trump’s executive order targeting what he termed ‘birth tourism’     Sign up for US Breaking News emails     The White House has rejected New York governor Kathy Hochul’s claim that federal emergency authorities denied assistance due to “political games.”  “There is no politicization to the President’s decisions on disaster relief, unlike under the Biden Administr",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 12:39:40 GMT",
+      "id": "c4aa60e6dcce",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "France recorded 'hottest summer ever' in 2026, environment minister says",
+      "summary": "The summer of 2026 was the hottest summer ever recorded since measurements began in 1990, French Environment Minister Monique Barbut said Thursday.",
+      "source": "https://www.france24.com/en/france/20260903-france-recorded-hottest-summer-ever-in-2026-environment-minister-says",
+      "time": "Thu, 03 Sep 2026 12:47:11 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
-      "intelligenceLayer": "us-politics"
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "e13776e06f1f",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "UEFA opens disciplinary case against Fenerbahce’s Guendouzi and Greenwood",
+      "summary": "Guendouzi and Greenwood made provocative gestures towards the Lyon ‌supporters after their Champions League playoff.",
+      "source": "https://www.aljazeera.com/sports/2026/9/3/uefa-opens-disciplinary-case-against-fenerbahces-guendouzi-and-greenwood?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 12:38:40 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
     },
     {
       "id": "4133a0b6acd5",
@@ -12354,6 +12808,19 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "39715aa1890c",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
+      "summary": "Fox News Digital traces how pro-China socialist groups moved from anti-Trump, anti-Israel protests into technology messages that spread to conservatives and libertarians.",
+      "source": "https://www.foxnews.com/politics/no-kings-protest-network-fight-against-ai-data-centers-flock-cameras",
+      "time": "Thu, 03 Sep 2026 08:14:29 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
     },
     {
       "id": "567da72b14ce",
@@ -12499,19 +12966,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "ca58672fbc86",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Feminist activist and journalist Gloria Steinem dies, aged 92",
-      "summary": "Her foundation said she \"passed away peacefully\" at her home in New York City, \"surrounded by many who loved her\".",
-      "source": "https://www.bbc.co.uk/news/articles/clyeq3ngwe4o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 11:45:22 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "055e5c2e898a",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -12568,7 +13022,7 @@
       "sourceLabel": "Guardian World",
       "sourceType": "international",
       "title": "Yen soars as Bank of Japan tipped to raise interest rates",
-      "summary": "Jump lifts currency to highest level against dollar in a month, while global markets remain jittery     Business live – latest updates     The Japanese yen has soared by more than 1.7% against the dollar amid speculation the Bank of Japan is set to raise interest rates.  The latest jump on Thursday lifted the yen to its highest level against the dollar in a month, at 155.85, and followed a 0.9% move the previous day.",
+      "summary": "Jump lifts currency to highest level against dollar in a month, while global markets remain jittery     Business live – latest updates     The Japanese yen has soared by nearly 2% against the dollar amid speculation the Bank of Japan is set to raise interest rates.  The latest jump on Thursday lifted the yen to its highest level against the dollar in a month, at 155.57, and followed a 0.9% move the previous day.   Co",
       "source": "https://www.theguardian.com/business/2026/sep/03/yen-soars-bank-of-japan-tipped-to-raise-interest-rates",
       "time": "Thu, 03 Sep 2026 11:28:45 GMT",
       "tag": "World",
@@ -12578,8 +13032,8 @@
     },
     {
       "id": "5f88ba91dfc0",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
+      "sourceLabel": "BBC Americas",
+      "sourceType": "regional",
       "title": "How Gloria Steinem changed the lives of generations of women",
       "summary": "The trailblazing feminist spoke out for the legalisation of abortion, same-sex marriage and equal pay for women - but her activism was not without backlash.",
       "source": "https://www.bbc.co.uk/news/articles/cqv5wxyp5xwo?at_medium=RSS&at_campaign=rss",
@@ -12607,7 +13061,7 @@
       "sourceLabel": "Al Jazeera",
       "sourceType": "international",
       "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
-      "summary": "Abu Safia, who has been under custody for nearly two years, continues to face abuse inside prison, his lawyer says.",
+      "summary": "Abu Safia, in custody for nearly two years, continues to face abuse inside prison, his lawyer says.",
       "source": "https://www.aljazeera.com/news/2026/9/3/no-end-to-torture-of-gaza-doctor-abu-safiya-in-israeli-prison-what-to-know?traffic_source=rss",
       "time": "Thu, 03 Sep 2026 11:21:59 +0000",
       "tag": "World",
@@ -12662,6 +13116,32 @@
       "summary": "Marx’s All Things Possible Florida model uses private funds for cop pay and surveillance tools without public oversight  The All Things Possible ministry (ATP) is an unusual, and critics say potentially dangerous, operation. It has in the last year funded surveillance equipment and salaries for out-of-state law enforcement agencies, hired a range of private security and intelligence contractors, and is connected to a",
       "source": "https://www.theguardian.com/us-news/2026/sep/03/colorado-republican-governor-ministry-victor-marx",
       "time": "Thu, 03 Sep 2026 11:00:51 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "951fda04fc27",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "2028 Dem hopeful's longtime ally exposed for deep ties to CCP officials: 'Good friends'",
+      "summary": "Rep. Ro Khanna&apos;s, D-Calif. former senior advisor on foreign trade and economic development could be liability to a potential 2028 campaign due to his ties to CCP officials.",
+      "source": "https://www.foxnews.com/politics/2028-dem-hopefuls-longtime-advisor-exposed-deep-ties-ccp-officials-good-friends",
+      "time": "Thu, 03 Sep 2026 07:00:50 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "economics"
+    },
+    {
+      "id": "a8f6eada3b77",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "GOP mail-in voting proposal could impact millions of Americans ahead of midterms",
+      "summary": "President Donald Trump&apos;s allies unveil a bill requiring mail-in ballots be received by Election Day, citing Florida&apos;s system as proof it works.",
+      "source": "https://www.foxnews.com/politics/gop-mail-in-voting-proposal-could-impact-millions-americans-ahead-midterms",
+      "time": "Thu, 03 Sep 2026 07:00:45 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -12759,6 +13239,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "e10d8c6173b8",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Trump’s Army secretary hunt takes shape as insiders float potential picks",
+      "summary": "Sean Parnell and Brian Mast are among names floated to replace Dan Driscoll as secretary of the Army after his reported clashes with Pete Hegseth.",
+      "source": "https://www.foxnews.com/politics/trumps-army-secretary-hunt-takes-shape-insiders-float-potential-picks",
+      "time": "Thu, 03 Sep 2026 06:40:53 -0400",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "519e2c3ef68c",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -12798,6 +13291,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "df78e4fc9583",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Gloria Steinem, feminist writer and activist, dead at 92",
+      "summary": "Feminist writer and activist Gloria Steinem has died at the age of 92, according to a statement posted on her Instagram page Thursday.",
+      "source": "https://www.foxnews.com/politics/gloria-steinem-feminist-writer-activist-dead-92",
+      "time": "Thu, 03 Sep 2026 06:31:52 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "54b8340c4a16",
       "sourceLabel": "France 24",
       "sourceType": "international",
@@ -12809,6 +13315,19 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
+    },
+    {
+      "id": "fa6dc7bcd69d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Convicted predators face lifetime barrier under GOP lawmaker’s sweeping victim protection bill",
+      "summary": "Rep. Abe Hamadeh&apos;s, R-Ariz., Kayleigh&apos;s Law passed the House unanimously, requiring lifetime no-contact orders for convicted sex crime and violent felony offenders.",
+      "source": "https://www.foxnews.com/politics/convicted-predators-face-lifetime-barrier-gop-lawmakers-sweeping-victim-protection-bill",
+      "time": "Thu, 03 Sep 2026 06:30:02 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
     },
     {
       "id": "2e2328604214",
@@ -12876,6 +13395,19 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "323f56e88cb1",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -12909,19 +13441,6 @@
       "summary": "Norway said Wednesday it had seized a Russian ship as part of a Ukrainian effort to recover $4.22 billion awarded to state energy firm Naftogaz over Russia’s seizure of its assets in Crimea in 2014. The Professor Molchanov vessel was detained off the Arctic Svalbard archipelago after a Norwegian court ordered its arrest.",
       "source": "https://www.france24.com/en/europe/20260903-norway-seizes-russian-ship-to-enforce-4-22-billion-ukrainian-arbitration-claim",
       "time": "Thu, 03 Sep 2026 10:07:06 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "c3f1161fb2e5",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "After Nepal’s devastating floods, DNA tests help identify victims",
-      "summary": "The recent flash floods in Nepal have left authorities facing a major challenge: identifying the remains that have been recovered, some of which are in an advanced state of decomposition. For health reasons, unidentified bodies have begun to be buried. Before each burial, DNA samples are taken, while relatives of people reported missing can visit DNA collection centres to provide samples of their own. Their genetic p",
-      "source": "https://www.france24.com/en/video/20260903-nepal-struggles-to-identify-the-remains-found-in-floods",
-      "time": "Thu, 03 Sep 2026 10:06:19 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -13006,16 +13525,29 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "cb7a2c74fbd9",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Brazilian justice faces pressure for alleged links to disgraced banker",
-      "summary": "The Brazilian Supreme Court justice who sentenced former far-right president Jair Bolsonaro to 27 years in prison for attempting a coup is facing pressure to resign for alleged links to a disgraced banker and potential conflict of interest. This comes weeks ahead of the presidential election in which Bolsonaro's son, Flavio Bolsonaro, is a candidate.",
-      "source": "https://www.france24.com/en/video/20260903-brazilian-justice-faces-pressure-for-alleged-links-to-disgraced-banker",
-      "time": "Thu, 03 Sep 2026 09:59:54 GMT",
-      "tag": "Breaking",
+      "id": "0f0fedcaa48f",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Her immigrant parents built a NYC grocery store from scratch. Now Mamdani's experiment could end it",
+      "summary": "Josefina Aguirre&apos;s Spanish Harlem meat market faces a taxpayer-backed competitor just two blocks away under Zohran Mamdani&apos;s municipal grocery plan.",
+      "source": "https://www.foxnews.com/politics/immigrant-parents-built-nyc-grocery-store-scratch-mamdanis-experiment-could-end",
+      "time": "Thu, 03 Sep 2026 06:00:27 -0400",
+      "tag": "World",
       "confidence": "DEVELOPING",
-      "breaking": true,
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "395d4c22b046",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Collins lights up internet with response to Dem challenger fathering children with relative: 'Stone cold'",
+      "summary": "Susan Collins used a sly rhetorical move to highlight that opponent Troy Jackson fathered two children with his second cousin during a campaign interview.",
+      "source": "https://www.foxnews.com/politics/collins-lights-up-internet-response-dem-challenger-fathering-children-relative-stone-cold",
+      "time": "Thu, 03 Sep 2026 06:00:23 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
       "intelligenceLayer": "general"
     },
     {
@@ -13046,8 +13578,8 @@
     },
     {
       "id": "4e4cfa70881f",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
       "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
       "summary": "Al-Mughayyir's council says they were trying to stop settlers stealing sheep, but the Israeli military says they threw stones at its troops.",
       "source": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
@@ -13084,19 +13616,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "e412ad7854e4",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Rescue efforts continue as Nepal-China flood death toll surpasses 1,270",
-      "summary": "Authorities in Nepal use helicopters and zip lines to reach remote flood-stricken villages amid widespread destruction.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/rescue-efforts-continue-as-nepal-china-flood-death-toll-surpasses-1270?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:38:14 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "c130653105da",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -13104,58 +13623,6 @@
       "summary": "Jeffery was known for playing cheerleader Bree in 2018 Disney Channel movie Zombies and two sequels.",
       "source": "https://www.bbc.co.uk/news/articles/ceq8r5gjygno?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 09:37:34 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "afe1412edeec",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "EU foreign ministers fail to break deadlock over Israel and Ukraine",
-      "summary": "EU officials met in Ireland but failed to agree on imposing trade sanctions on Israel or military support for Ukraine.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/eu-foreign-ministers-fail-to-break-deadlock-over-israel-and-ukraine?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:34:09 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "7e410dacaeed",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Norway seizes Russian ship in Arctic over Crimea compensation claim",
-      "summary": "Moscow challenges Norway&#039;s seizure of vessel, the Professor Molchanov, calling it an act of piracy.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/norway-seizes-russian-ship-in-arctic-over-crimea-compensation-claim?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:22:18 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "8eddd3d1768b",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "China lambasts France’s ‘discriminatory’ fast-fashion law",
-      "summary": "China on Thursday called on France to abandon a new law on ultra-fast fashion that would impose fees of up to almost €20 per garment, calling it \"clearly discriminatory\". The law, which targets major Asian e-commerce platforms including Shein and Temu, aims to curb the industry's environmental and local economic impacts.",
-      "source": "https://www.france24.com/en/france/20260903-china-lambasts-france-s-discriminatory-fast-fashion-law",
-      "time": "Thu, 03 Sep 2026 09:21:51 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "economics"
-    },
-    {
-      "id": "ca598f051fb7",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Gulf insecurity fuels US energy dominance",
-      "summary": "The no-war, no-peace status quo with Iran increasingly benefits the US, its energy sector and its ally Israel.",
-      "source": "https://www.aljazeera.com/opinions/2026/9/3/how-gulf-insecurity-fuels-us-energy-dominance?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:16:20 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -13175,13 +13642,26 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "f624451979c1",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Egypt’s Sisi welcomes China’s President Xi in Grand Egyptian Museum tour",
-      "summary": "President Abdel Fattah el-Sisi has given President Xi Jinping a tour of the Grand Egyptian Museum in Giza.",
-      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/egypts-sisi-welcomes-chinas-president-xi-in-grand-egyptian-museum-tour?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:07:28 +0000",
+      "id": "99d3f0b739c1",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "MAGA begins to crack as 2026 GOP roster backs away from Trump's tech vision",
+      "summary": "Donald Trump urges communities to &quot;let Data Reign,&quot; but GOP candidates across battleground states propose data center moratoriums ahead of midterms.",
+      "source": "https://www.foxnews.com/politics/maga-begins-crack-2026-gop-roster-backs-away-from-trumps-tech-vision",
+      "time": "Thu, 03 Sep 2026 05:00:55 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "121c9b78c635",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+      "summary": "With Election Day two months away, Democrats eye Senate and House majorities as inflation, gas prices and Trump&apos;s approval ratings batter the GOP.",
+      "source": "https://www.foxnews.com/politics/johnson-downplays-gops-midterm-woes-democrats-eye-house-takeover",
+      "time": "Thu, 03 Sep 2026 05:00:45 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -13212,19 +13692,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "07b16d628db9",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Photos: Symbolic funerals held in Nepal for missing flood victims",
-      "summary": "Symbolic funerals held in Nepal for those still missing after deadly floods in the Himalayan nation.",
-      "source": "https://www.aljazeera.com/gallery/2026/9/3/photos-symbolic-funerals-held-in-nepal-for-missing-flood-victims?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 08:32:34 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
     },
     {
       "id": "d0dc547a22cd",
@@ -13383,13 +13850,26 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "fe9aee14a3b2",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "LA Clippers fined $30m over Leonard pay scandal",
-      "summary": "The LA Clippers are fined $30m by the NBA for violating salary rules in order to funnel millions of dollars to star player Kawhi Leonard.",
-      "source": "https://www.bbc.co.uk/sport/basketball/articles/czjze2jj8dro?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 06:17:37 GMT",
+      "id": "83dbf39de042",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "DOJ threatens to cut billions in welfare funding from states for failing to report illegal migrants",
+      "summary": "The Justice Department warns states they could lose billions in welfare funding if they fail to report illegal immigrants to DHS under new rules.",
+      "source": "https://www.foxnews.com/politics/doj-threatens-cut-billions-welfare-funding-states-failing-report-illegal-migrants",
+      "time": "Thu, 03 Sep 2026 02:33:49 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "28db2d9c5ac3",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Rat do izbora na tiho ? Trumpovi ljudi žele smiriti Iran do studenog",
+      "summary": "",
+      "source": "https://www.advance.hr/telegrafska-zica/sjeverna-amerika/sad/2026/09/03/rat-do-izbora-na-tiho-trumpovi-ljudi-zele-smiriti-iran-do-studenog",
+      "time": "3 Sep 2026 06:30:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -13435,6 +13915,32 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "c113500cb434",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Pentagon orders mandatory testosterone tests for male troops 30 and older",
+      "summary": "The Pentagon&apos;s new mandatory testosterone deficiency screening for troops ages 30 and up includes mandatory blood tests and voluntary hormone replacement therapy for men.",
+      "source": "https://www.foxnews.com/politics/pentagon-orders-mandatory-testosterone-tests-male-troops-30-older",
+      "time": "Thu, 03 Sep 2026 00:29:33 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "e10fe522ecdb",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "北美观察丨一边重新开火 一边急于刹车 白宫在担心什么 ？",
+      "summary": "",
+      "source": "https://baijiahao.baidu.com/s?id=1875279354879891417",
+      "time": "3 Sep 2026 04:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "15381f586f47",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -13458,6 +13964,19 @@
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "183dd5857edb",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "FAA seeks permanent airspace restrictions near Trump’s Mar-a-Lago as expert warns rules are ‘not good enough’",
+      "summary": "The FAA proposed permanent flight rules near Donald J. Trump International Airport at Secret Service request, but drone expert warns it&apos;s may not be enough.",
+      "source": "https://www.foxnews.com/politics/faa-seeks-permanent-airspace-restrictions-trump-mar-a-lago-expert-warns-rules-not-good-enough",
+      "time": "Wed, 02 Sep 2026 22:03:35 -0400",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
       "intelligenceLayer": "general"
     },
     {
@@ -13520,6 +14039,45 @@
       "summary": "Wednesday's fatal shooting of a man in his 40s comes after a university student was gunned down on Tuesday.",
       "source": "https://www.bbc.co.uk/news/articles/c23x4yd9zz2o?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 00:40:29 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "0e6d5e98e90c",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Blue state creates six-figure role for trans inmate services amid budget shortfalls",
+      "summary": "The Oregon Department of Corrections hired a gender-affirming care coordinator earning up to $115,000 to oversee transgender and nonbinary inmates.",
+      "source": "https://www.foxnews.com/politics/blue-state-creates-six-figure-role-trans-inmate-services-amid-budget-shortfalls",
+      "time": "Wed, 02 Sep 2026 20:00:18 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "4f8390b8d466",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Vance’s mom fires back at El-Sayed over second family jabs: ‘Probably punch him’",
+      "summary": "Beverly Vance Aikins told Tomi Lahren she&apos;d like to punch Abdul El-Sayed over his repeated attacks on JD Vance&apos;s wife, Usha Vance, and their children.",
+      "source": "https://www.foxnews.com/politics/vance-mom-fighting-words-dem-senate-candidate-comments-vp-family-punch-him",
+      "time": "Wed, 02 Sep 2026 19:59:06 -0400",
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
@@ -13617,19 +14175,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "937dafed8b63",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Epstein survivors urge billionaire Leon Black to cooperate with House panel",
-      "summary": "Black called on to comply with subpoenas and appear as required to clarify connections to convicted sex offender  More than a dozen survivors of  Jeffrey Epstein’s  abuse have called on the billionaire Leon Black to appear before the House oversight committee in order to clarify his connections to the late disgraced financier and convicted sex offender.  In a letter released on Wednesday, the survivors urged Black to",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/jeffrey-epstein-leon-black-congress",
-      "time": "Wed, 02 Sep 2026 22:03:25 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "c280f70cbb01",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -13654,19 +14199,6 @@
       "confidence": "DEVELOPING",
       "breaking": true,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "0b4da19a01a4",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Patagonia sues Trump over slashing of protected areas in Utah",
-      "summary": "President’s order strips nearly 3m acres of Bears Ears and Grand Staircase-Escalante, sacred tribal sites, of safeguards  Patagonia, the outdoor clothing and gear company, has joined a lawsuit challenging Donald Trump’s decision to significantly reduce the Bears Ears and Grand Staircase-Escalante national monuments in Utah, removing protections from nearly 3m acres.  In July, the president  approved  the reduction of",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/trump-patagonia-lawsuit-utah-national-monuments",
-      "time": "Wed, 02 Sep 2026 20:51:54 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
     },
     {
       "id": "ccedae1703cd",
@@ -14254,19 +14786,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "3085ae0d22c0",
-      "sourceLabel": "BBC Europe",
-      "sourceType": "regional",
-      "title": "France targets Shein and Temu with fast fashion fees",
-      "summary": "The levy on \"ultra-fast fashion\" items could reach almost €20 per garment by 2030.",
-      "source": "https://www.bbc.co.uk/news/articles/cm2792pendro?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 15:15:57 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "9ebe994b3f5e",
       "sourceLabel": "BBC Europe",
       "sourceType": "regional",
@@ -14274,19 +14793,6 @@
       "summary": "BBC correspondents in Delhi and Moscow look at why the Indian PM made a very public peace plea to his Russian ally.",
       "source": "https://www.bbc.co.uk/news/articles/cx2zy3wdqqeo?at_medium=RSS&at_campaign=rss",
       "time": "Tue, 01 Sep 2026 11:55:51 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "3e1736cc7f5a",
-      "sourceLabel": "BBC Americas",
-      "sourceType": "regional",
-      "title": "Flock's rapidly expanding AI surveillance network facing growing backlash in US",
-      "summary": "BBC Verify examines the expanding network of Flock cameras in the US and the backlash against it.",
-      "source": "https://www.bbc.co.uk/news/videos/cvgy4ddx1q8o?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 05:11:23 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -14772,6 +15278,448 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
+    },
+    {
+      "id": "d7171ad806aa",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "نعيم قاسم يدعو السلطة اللبنانية لمحاورة  المقاومة  ولا يمانع لقاء القيادة السورية – عكس السير",
+      "summary": "",
+      "source": "https://www.aksalser.com/news/2026/08/04/%D9%86%D8%B9%D9%8A%D9%85-%D9%82%D8%A7%D8%B3%D9%85-%D9%8A%D8%AF%D8%B9%D9%88-%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A9-%D8%A7%D9%84%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D8%A9-%D9%84%D9%85%D8%AD%D8%A7%D9%88/",
+      "time": "3 Aug 2026 22:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "f32e3360a606",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "美伊战事延宕半年 改变了什么 ？",
+      "summary": "",
+      "source": "https://baijiahao.baidu.com/s?id=1874812068745603717",
+      "time": "3 Aug 2026 21:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "5b759f5c0443",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "제재로 이란 굴복 어려워 … 선거 앞둔 트럼프 , 일종의 가짜전쟁",
+      "summary": "",
+      "source": "http://www.koreatimes.com/article/20260828/1627547",
+      "time": "3 Aug 2026 18:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "b4afb1587d11",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "通缉内塔尼亚胡后 ， 土耳其真正的棋局显现 _ 腾讯新闻",
+      "summary": "",
+      "source": "https://news.qq.com/rain/a/20260823A091EP00",
+      "time": "3 Aug 2026 17:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "d572bba06e7a",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "胡锡进 ： 美国压中国一起制裁伊朗 ？ 它没那牌",
+      "summary": "",
+      "source": "https://news.ifeng.com/c/8vmQmMnCdNK",
+      "time": "3 Aug 2026 15:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "7ab222cb046e",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Tramp ignorisao upozorenja na najvišem nivou prije pokretanja rata protiv Irana",
+      "summary": "",
+      "source": "https://avaz.ba/vijesti/globus/1067745/tramp-ignorisao-upozorenja-na-najvisem-nivou-prije-pokretanja-rata-protiv-irana",
+      "time": "3 Aug 2026 15:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "628d38660251",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "深度 乌克兰迎来第五个战时独立日 ： 普京放硬话 、 欧洲难救急 、 美国分身乏术",
+      "summary": "",
+      "source": "https://www.163.com/dy/article/L54J5H7N055040N3.html",
+      "time": "3 Aug 2026 14:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6e6b20188dae",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "自由開講 》 選舉時鐘 ： 德黑蘭的槓桿 台北的警訊",
+      "summary": "",
+      "source": "https://talk.ltn.com.tw/article/breakingnews/5548110",
+      "time": "3 Aug 2026 12:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "7ccefc7a843e",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "How Hamas disarmament deal may test Iran regional strategy",
+      "summary": "",
+      "source": "https://www.al-monitor.com/originals/2026/07/how-hamas-disarmament-deal-may-test-irans-regional-strategy",
+      "time": "3 Aug 2026 10:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "43b14654edbc",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "动武  不管用 ， 美国重提制裁伊朗",
+      "summary": "",
+      "source": "https://baijiahao.baidu.com/s?id=1873396830748066878",
+      "time": "3 Aug 2026 09:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "b6579b0e1329",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "对伊动武  不管用  美国重提制裁 - 新华网",
+      "summary": "",
+      "source": "https://www.news.cn/world/20260813/52a5212ee0e64ecfaa6b9cf80baaeb27/c.html",
+      "time": "3 Aug 2026 09:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "92fb85399731",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Iran hidden war room in Iraq : how Houthis and militias are building a new launchpad",
+      "summary": "",
+      "source": "https://www.ynetnews.com/article/b1fckr0rfg",
+      "time": "3 Aug 2026 07:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "5333fa263805",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "普京表示在最困难的情况下俄罗斯仍会举行选举 坚定回应外部挑战 _ 军事频道 _ 中华网",
+      "summary": "",
+      "source": "https://military.china.com/news/13004177/20260824/49694024.html",
+      "time": "3 Aug 2026 05:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "a1bcd319457f",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "( 影 ) 掃雷完成 美軍宣告開放荷姆茲 ！ 伊開和平條件 :「 這國 」 從黎 、 敘撤軍 | 國際",
+      "summary": "",
+      "source": "https://newtalk.tw/news/view/2026-08-28/1056262",
+      "time": "3 Aug 2026 05:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6954fcd4f063",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "srail nasýl dizginlenir ? - Yazarlar - M . Yaln YILMAZ",
+      "summary": "",
+      "source": "https://www.star.com.tr/yazar/israil-nasil-dizginlenir-yazi-2034871/",
+      "time": "3 Aug 2026 05:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "68f33615f51b",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Trump Sebut Iran  Runtuh Total , Teheran Ejek AS Mengaku Kalah",
+      "summary": "",
+      "source": "https://jambi.tribunnews.com/news/1203618/trump-sebut-iran-runtuh-total-teheran-ejek-as-mengaku-kalah",
+      "time": "3 Aug 2026 04:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "a753600fc898",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "热战无果 ， 美国对伊朗  经济战  就能赢吗 ？_ 观点评论 _ 财经 _ 中金在线",
+      "summary": "",
+      "source": "http://news.cnfol.com/guandianpinglun/20260826/32347506.shtml",
+      "time": "3 Aug 2026 04:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "340278c8077a",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "普京 ： 困难情况下俄仍会举行选举 展现坚定决心 _ 军事频道 _ 中华网",
+      "summary": "",
+      "source": "https://military.china.com/news/13004177/20260824/49694166.html",
+      "time": "3 Aug 2026 02:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "b25be85b5224",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "热战无果 ， 美国对伊朗  经济战  就能赢吗 ？_ 中国网",
+      "summary": "",
+      "source": "http://www.china.com.cn/opinion2020/2026-08/25/content_118661852.shtml",
+      "time": "3 Aug 2026 01:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "63593c4e07c4",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "一手打造无人机大军 ， 费多罗夫为何从泽连斯基心腹转向挑战者",
+      "summary": "",
+      "source": "https://mil.ifeng.com/c/8vkBEh4YXxn",
+      "time": "3 Aug 2026 01:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "bb0c5425a416",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "تحذير أمريكي عاجل من السفر إلى 15 دولة في الشرق الأوسط",
+      "summary": "",
+      "source": "https://www.akhbarona.com/world/429426.html",
+      "time": "3 Jul 2026 14:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "fc611c10b955",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "تحذيرات أميركية لرعاياها في الشرق الأوسط : تجنب اليمن و لبنان والعراق وإعادة النظر في زيارة السعودية والبحرين",
+      "summary": "",
+      "source": "https://www.almontasaf.net/news145297.html",
+      "time": "3 Jul 2026 12:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "f4a45c0e25f5",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "موقع بكرا - بينها السعودية والبحرين .. تحذير أمريكي عاجل من السفر إلى 15 دولة في الشرق الأوسط",
+      "summary": "",
+      "source": "https://bokra.net/Article-1599269",
+      "time": "3 Jul 2026 10:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "76d50122c9cc",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "لا تسافروا .. واشنطن تحذر رعاياها من العراق ولبنان",
+      "summary": "",
+      "source": "https://almadapaper.net/444051/",
+      "time": "3 Jul 2026 09:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "2659a5ced34b",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "بينها العراق والسعودية .. واشنطن تحذر مواطنيها بـ 15 دولة في الشرق الأوسط – كتابات",
+      "summary": "",
+      "source": "https://kitabat.com/news/%D8%A8%D9%8A%D9%86%D9%87%D8%A7-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82-%D9%88%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%AD%D8%B0%D8%B1-%D9%85%D9%88/",
+      "time": "3 Jul 2026 09:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "c164da985dcf",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "سبتمبر نت - تحذير أمريكي عاجل من السفر إلى 15 دولة في الشرق الأوسط",
+      "summary": "",
+      "source": "https://26sep.net/index.php/global/131396-15-115",
+      "time": "3 Jul 2026 08:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "96f4decef313",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "俄为啥改口称俄乌冲突是真正战争 西方介入加剧危机 _ 军事频道 _ 中华网",
+      "summary": "",
+      "source": "https://military.china.com/news/13004177/20260710/49601866.html",
+      "time": "3 Jul 2026 07:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "28f32d00f835",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "( 影 ) 以軍轟葬禮殺恐怖份子 ！ 哈瑪斯高層遭連環斬首 以趁集會哀悼再 「 收割 」 | 國際",
+      "summary": "",
+      "source": "https://newtalk.tw/news/view/2026-07-18/1047917",
+      "time": "3 Jul 2026 07:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6205081f60e6",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Hizbullah artık Tahran için bir varlıktan çok bir yük mü ?",
+      "summary": "",
+      "source": "https://www.haksozhaber.net/hizbullah-artik-tahran-icin-bir-varliktan-cok-bir-yuk-mu-256316h.htm",
+      "time": "3 Jun 2026 19:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "76647a022ff3",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Katz threatens to assassinate Houthi leader if opportunity arises",
+      "summary": "",
+      "source": "https://www.albawaba.com/news/katz-threatens-assassinate-houthi-leader-1631206",
+      "time": "3 Jun 2026 18:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "f07e189f1ddd",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Why the Arab League could not stop Israel genocide | Arab League",
+      "summary": "",
+      "source": "https://www.aljazeera.com/opinions/2026/6/29/why-the-arab-league-could-not-stop-israels-genocide",
+      "time": "3 Jun 2026 15:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "2c4ab6616101",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Where could the next major conflict erupt in the Middle East ?",
+      "summary": "",
+      "source": "https://news.az/news/where-could-the-next-major-conflict-erupt-in-the-middle-east",
+      "time": "3 Jun 2026 14:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "8cf4e2512b23",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Konflik AS - Israel melawan Iran diprediksi berlangsung hingga Oktober",
+      "summary": "",
+      "source": "https://www.antaranews.com/berita/5602783/konflik-as-israel-melawan-iran-diprediksi-berlangsung-hingga-oktober",
+      "time": "3 Jun 2026 13:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "892eaa0183ba",
+      "sourceLabel": "GDELT Live — Middle East",
+      "sourceType": "middle-east",
+      "title": "Gulf shares concerns with US as Iran influence and power continue by proxy | US - Israel war on Iran",
+      "summary": "",
+      "source": "https://www.theguardian.com/world/2026/jun/28/gulf-us-iran-war-proxies-middle-east",
+      "time": "3 Jun 2026 08:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -14796,9 +15744,49 @@
       "status": "ok"
     },
     {
+      "name": "Fox News Politics",
+      "type": "us-politics",
+      "status": "ok"
+    },
+    {
+      "name": "CNN Politics — GDELT Mirror",
+      "type": "us-politics",
+      "status": "error"
+    },
+    {
+      "name": "Axios Politics — GDELT Mirror",
+      "type": "us-politics",
+      "status": "ok"
+    },
+    {
+      "name": "Morse Report — GDELT Mirror",
+      "type": "us-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — U.S. Politics",
+      "type": "us-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — World Politics",
+      "type": "world-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — Global Economics",
+      "type": "economics",
+      "status": "error"
+    },
+    {
+      "name": "NPR Politics",
+      "type": "us-politics",
+      "status": "ok"
+    },
+    {
       "name": "GDELT Live — Global",
       "type": "live",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "GDELT Live — Africa",
@@ -14813,7 +15801,7 @@
     {
       "name": "GDELT Live — Middle East",
       "type": "middle-east",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "BBC World",
@@ -14888,30 +15876,95 @@
   ],
   "politics": [
     {
-      "id": "11ae75dd6032",
-      "sourceLabel": "Guardian World",
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 13:32:13 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "fc12678f45a4",
+      "sourceLabel": "France 24",
       "sourceType": "international",
-      "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
-      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African enclave of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, com",
-      "source": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
-      "time": "Thu, 03 Sep 2026 12:52:08 GMT",
+      "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
+      "summary": "In an interview with FRANCE 24, the secretary general of the Palestinian National Initiative (PNI) party Mustafa Barghouti said the level of Israeli attacks on Palestinians in the West Bank had become \"totally unprecedented\". With tensions escalating, activists accuse settlers of operating with total impunity. \"Their goal is clear: it is ethnic cleansing,\" Barghouti stated, calling Israeli Prime Minister Benjamin Net",
+      "source": "https://www.france24.com/en/tv-shows/t%C3%AAte-%C3%A0-t%C3%AAte/20260903-israeli-attacks-in-west-bank-at-unprecedented-level-pni-leader-barghouti-says",
+      "time": "Thu, 03 Sep 2026 13:26:12 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "db855776bafb",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Victims sue South African government over 1960 Sharpeville massacre",
+      "summary": "Victims sue South African governed over 1960 Sharpeville massacre",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/victims-sue-south-african-governed-over-1960-sharpeville-massacre?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:07:13 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "world-politics"
     },
     {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
-      "summary": "Maryland judge issues preliminary injunction blocking Trump’s executive order targeting what he termed ‘birth tourism’     Sign up for US Breaking News emails     The White House has rejected New York governor Kathy Hochul’s claim that federal emergency authorities denied assistance due to “political games.”  “There is no politicization to the President’s decisions on disaster relief, unlike under the Biden Administr",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 12:39:40 GMT",
+      "id": "135ba37aedc8",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Vance's Antichrist comments are a 'common belief', his friend tells BBC",
+      "summary": "The US vice-president recently mused with a Christian podcast host on whether the end of the world was nigh.",
+      "source": "https://www.bbc.co.uk/news/articles/cn4kwzr8gd9o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 13:07:02 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "9fbade295891",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
+      "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
+      "time": "Thu, 03 Sep 2026 09:00:50 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "50f6caaabe8f",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Alarm as US domestic violence killings remain high despite drop in homicides",
+      "summary": "Non-profits say requests for legal help and housing on rise amid Trump funding cuts for prevention and response  As cities and states across the US report historic drops in homicides, domestic violence killings remain alarmingly high.  In Chicago, where homicides fell from 805 in 2021 to 425 in 2025, killings tied to domestic violence increased by 15% between 2024 and 2025. In Kansas City, Missouri, homicides in gene",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/us-domestic-violence-killings-homicide",
+      "time": "Thu, 03 Sep 2026 13:00:38 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "11ae75dd6032",
+      "sourceLabel": "Guardian World",
+      "sourceType": "international",
+      "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
+      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African territory of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, c",
+      "source": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
+      "time": "Thu, 03 Sep 2026 12:52:08 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics"
     },
     {
       "id": "292e784a2d86",
@@ -14925,6 +15978,19 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "39715aa1890c",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
+      "summary": "Fox News Digital traces how pro-China socialist groups moved from anti-Trump, anti-Israel protests into technology messages that spread to conservatives and libertarians.",
+      "source": "https://www.foxnews.com/politics/no-kings-protest-network-fight-against-ai-data-centers-flock-cameras",
+      "time": "Thu, 03 Sep 2026 08:14:29 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
     },
     {
       "id": "c0f72c2b32ee",
@@ -14992,6 +16058,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "a8f6eada3b77",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "GOP mail-in voting proposal could impact millions of Americans ahead of midterms",
+      "summary": "President Donald Trump&apos;s allies unveil a bill requiring mail-in ballots be received by Election Day, citing Florida&apos;s system as proof it works.",
+      "source": "https://www.foxnews.com/politics/gop-mail-in-voting-proposal-could-impact-millions-americans-ahead-midterms",
+      "time": "Thu, 03 Sep 2026 07:00:45 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "fe6f41c71588",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -15044,6 +16123,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "e10d8c6173b8",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Trump’s Army secretary hunt takes shape as insiders float potential picks",
+      "summary": "Sean Parnell and Brian Mast are among names floated to replace Dan Driscoll as secretary of the Army after his reported clashes with Pete Hegseth.",
+      "source": "https://www.foxnews.com/politics/trumps-army-secretary-hunt-takes-shape-insiders-float-potential-picks",
+      "time": "Thu, 03 Sep 2026 06:40:53 -0400",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "208f9e312099",
       "sourceLabel": "France 24",
       "sourceType": "international",
@@ -15070,6 +16162,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "fa6dc7bcd69d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Convicted predators face lifetime barrier under GOP lawmaker’s sweeping victim protection bill",
+      "summary": "Rep. Abe Hamadeh&apos;s, R-Ariz., Kayleigh&apos;s Law passed the House unanimously, requiring lifetime no-contact orders for convicted sex crime and violent felony offenders.",
+      "source": "https://www.foxnews.com/politics/convicted-predators-face-lifetime-barrier-gop-lawmakers-sweeping-victim-protection-bill",
+      "time": "Thu, 03 Sep 2026 06:30:02 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "9b2e6ca20dde",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -15077,6 +16182,19 @@
       "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
       "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 10:25:43 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15161,13 +16279,26 @@
       "intelligenceLayer": "world-politics"
     },
     {
-      "id": "f624451979c1",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Egypt’s Sisi welcomes China’s President Xi in Grand Egyptian Museum tour",
-      "summary": "President Abdel Fattah el-Sisi has given President Xi Jinping a tour of the Grand Egyptian Museum in Giza.",
-      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/egypts-sisi-welcomes-chinas-president-xi-in-grand-egyptian-museum-tour?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:07:28 +0000",
+      "id": "99d3f0b739c1",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "MAGA begins to crack as 2026 GOP roster backs away from Trump's tech vision",
+      "summary": "Donald Trump urges communities to &quot;let Data Reign,&quot; but GOP candidates across battleground states propose data center moratoriums ahead of midterms.",
+      "source": "https://www.foxnews.com/politics/maga-begins-crack-2026-gop-roster-backs-away-from-trumps-tech-vision",
+      "time": "Thu, 03 Sep 2026 05:00:55 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "121c9b78c635",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+      "summary": "With Election Day two months away, Democrats eye Senate and House majorities as inflation, gas prices and Trump&apos;s approval ratings batter the GOP.",
+      "source": "https://www.foxnews.com/politics/johnson-downplays-gops-midterm-woes-democrats-eye-house-takeover",
+      "time": "Thu, 03 Sep 2026 05:00:45 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15265,6 +16396,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "c280f70cbb01",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -15272,19 +16416,6 @@
       "summary": "Tech company submits to controversial Trump order to rename body of water amid US trade spat with Canada  Apple has renamed Lake Ontario as “Lake America” for US users of its Maps app, after an  executive order  from Donald Trump to change the name of the Great Lake amid his trade spat with Canada.  The Apple Maps app now displays the controversial new name for the lake, which sits between New York state and the Cana",
       "source": "https://www.theguardian.com/technology/2026/sep/02/apple-maps-renames-lake-ontario-lake-america",
       "time": "Wed, 02 Sep 2026 21:15:12 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "0b4da19a01a4",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Patagonia sues Trump over slashing of protected areas in Utah",
-      "summary": "President’s order strips nearly 3m acres of Bears Ears and Grand Staircase-Escalante, sacred tribal sites, of safeguards  Patagonia, the outdoor clothing and gear company, has joined a lawsuit challenging Donald Trump’s decision to significantly reduce the Bears Ears and Grand Staircase-Escalante national monuments in Utah, removing protections from nearly 3m acres.  In July, the president  approved  the reduction of",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/trump-patagonia-lawsuit-utah-national-monuments",
-      "time": "Wed, 02 Sep 2026 20:51:54 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15614,6 +16745,19 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "68f33615f51b",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Trump Sebut Iran  Runtuh Total , Teheran Ejek AS Mengaku Kalah",
+      "summary": "",
+      "source": "https://jambi.tribunnews.com/news/1203618/trump-sebut-iran-runtuh-total-teheran-ejek-as-mengaku-kalah",
+      "time": "3 Aug 2026 04:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
     }
   ],
   "usPolitics": [
@@ -15621,10 +16765,62 @@
       "id": "6481d41eccb3",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
-      "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
-      "summary": "Maryland judge issues preliminary injunction blocking Trump’s executive order targeting what he termed ‘birth tourism’     Sign up for US Breaking News emails     The White House has rejected New York governor Kathy Hochul’s claim that federal emergency authorities denied assistance due to “political games.”  “There is no politicization to the President’s decisions on disaster relief, unlike under the Biden Administr",
+      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 12:39:40 GMT",
+      "time": "Thu, 03 Sep 2026 13:32:13 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "135ba37aedc8",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Vance's Antichrist comments are a 'common belief', his friend tells BBC",
+      "summary": "The US vice-president recently mused with a Christian podcast host on whether the end of the world was nigh.",
+      "source": "https://www.bbc.co.uk/news/articles/cn4kwzr8gd9o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 13:07:02 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "9fbade295891",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
+      "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
+      "time": "Thu, 03 Sep 2026 09:00:50 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "50f6caaabe8f",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Alarm as US domestic violence killings remain high despite drop in homicides",
+      "summary": "Non-profits say requests for legal help and housing on rise amid Trump funding cuts for prevention and response  As cities and states across the US report historic drops in homicides, domestic violence killings remain alarmingly high.  In Chicago, where homicides fell from 805 in 2021 to 425 in 2025, killings tied to domestic violence increased by 15% between 2024 and 2025. In Kansas City, Missouri, homicides in gene",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/us-domestic-violence-killings-homicide",
+      "time": "Thu, 03 Sep 2026 13:00:38 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "39715aa1890c",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
+      "summary": "Fox News Digital traces how pro-China socialist groups moved from anti-Trump, anti-Israel protests into technology messages that spread to conservatives and libertarians.",
+      "source": "https://www.foxnews.com/politics/no-kings-protest-network-fight-against-ai-data-centers-flock-cameras",
+      "time": "Thu, 03 Sep 2026 08:14:29 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15683,6 +16879,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "a8f6eada3b77",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "GOP mail-in voting proposal could impact millions of Americans ahead of midterms",
+      "summary": "President Donald Trump&apos;s allies unveil a bill requiring mail-in ballots be received by Election Day, citing Florida&apos;s system as proof it works.",
+      "source": "https://www.foxnews.com/politics/gop-mail-in-voting-proposal-could-impact-millions-americans-ahead-midterms",
+      "time": "Thu, 03 Sep 2026 07:00:45 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "fe6f41c71588",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -15706,6 +16915,19 @@
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "e10d8c6173b8",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Trump’s Army secretary hunt takes shape as insiders float potential picks",
+      "summary": "Sean Parnell and Brian Mast are among names floated to replace Dan Driscoll as secretary of the Army after his reported clashes with Pete Hegseth.",
+      "source": "https://www.foxnews.com/politics/trumps-army-secretary-hunt-takes-shape-insiders-float-potential-picks",
+      "time": "Thu, 03 Sep 2026 06:40:53 -0400",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
       "intelligenceLayer": "us-politics"
     },
     {
@@ -15735,6 +16957,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "fa6dc7bcd69d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Convicted predators face lifetime barrier under GOP lawmaker’s sweeping victim protection bill",
+      "summary": "Rep. Abe Hamadeh&apos;s, R-Ariz., Kayleigh&apos;s Law passed the House unanimously, requiring lifetime no-contact orders for convicted sex crime and violent felony offenders.",
+      "source": "https://www.foxnews.com/politics/convicted-predators-face-lifetime-barrier-gop-lawmakers-sweeping-victim-protection-bill",
+      "time": "Thu, 03 Sep 2026 06:30:02 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "9b2e6ca20dde",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -15742,6 +16977,19 @@
       "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
       "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 10:25:43 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "71c2f023cc8d",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+      "summary": "Rep. Alexandria Ocasio-Cortez endorses Democratic Sunshine State U.S. Senate candidate Florida state Rep. Angie Dixon, who is running against GOP Sen. Ashley Moody.",
+      "source": "https://www.foxnews.com/politics/aoc-angie-nixon-florida-senate",
+      "time": "Thu, 03 Sep 2026 06:14:55 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15800,13 +17048,26 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "f624451979c1",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Egypt’s Sisi welcomes China’s President Xi in Grand Egyptian Museum tour",
-      "summary": "President Abdel Fattah el-Sisi has given President Xi Jinping a tour of the Grand Egyptian Museum in Giza.",
-      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/egypts-sisi-welcomes-chinas-president-xi-in-grand-egyptian-museum-tour?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 09:07:28 +0000",
+      "id": "99d3f0b739c1",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "MAGA begins to crack as 2026 GOP roster backs away from Trump's tech vision",
+      "summary": "Donald Trump urges communities to &quot;let Data Reign,&quot; but GOP candidates across battleground states propose data center moratoriums ahead of midterms.",
+      "source": "https://www.foxnews.com/politics/maga-begins-crack-2026-gop-roster-backs-away-from-trumps-tech-vision",
+      "time": "Thu, 03 Sep 2026 05:00:55 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "121c9b78c635",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+      "summary": "With Election Day two months away, Democrats eye Senate and House majorities as inflation, gas prices and Trump&apos;s approval ratings batter the GOP.",
+      "source": "https://www.foxnews.com/politics/johnson-downplays-gops-midterm-woes-democrats-eye-house-takeover",
+      "time": "Thu, 03 Sep 2026 05:00:45 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15891,6 +17152,19 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "c280f70cbb01",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -15898,19 +17172,6 @@
       "summary": "Tech company submits to controversial Trump order to rename body of water amid US trade spat with Canada  Apple has renamed Lake Ontario as “Lake America” for US users of its Maps app, after an  executive order  from Donald Trump to change the name of the Great Lake amid his trade spat with Canada.  The Apple Maps app now displays the controversial new name for the lake, which sits between New York state and the Cana",
       "source": "https://www.theguardian.com/technology/2026/sep/02/apple-maps-renames-lake-ontario-lake-america",
       "time": "Wed, 02 Sep 2026 21:15:12 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "0b4da19a01a4",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Patagonia sues Trump over slashing of protected areas in Utah",
-      "summary": "President’s order strips nearly 3m acres of Bears Ears and Grand Staircase-Escalante, sacred tribal sites, of safeguards  Patagonia, the outdoor clothing and gear company, has joined a lawsuit challenging Donald Trump’s decision to significantly reduce the Bears Ears and Grand Staircase-Escalante national monuments in Utah, removing protections from nearly 3m acres.  In July, the president  approved  the reduction of",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/trump-patagonia-lawsuit-utah-national-monuments",
-      "time": "Wed, 02 Sep 2026 20:51:54 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -16149,15 +17410,54 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "68f33615f51b",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Trump Sebut Iran  Runtuh Total , Teheran Ejek AS Mengaku Kalah",
+      "summary": "",
+      "source": "https://jambi.tribunnews.com/news/1203618/trump-sebut-iran-runtuh-total-teheran-ejek-as-mengaku-kalah",
+      "time": "3 Aug 2026 04:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
     }
   ],
   "worldPolitics": [
+    {
+      "id": "fc12678f45a4",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
+      "summary": "In an interview with FRANCE 24, the secretary general of the Palestinian National Initiative (PNI) party Mustafa Barghouti said the level of Israeli attacks on Palestinians in the West Bank had become \"totally unprecedented\". With tensions escalating, activists accuse settlers of operating with total impunity. \"Their goal is clear: it is ethnic cleansing,\" Barghouti stated, calling Israeli Prime Minister Benjamin Net",
+      "source": "https://www.france24.com/en/tv-shows/t%C3%AAte-%C3%A0-t%C3%AAte/20260903-israeli-attacks-in-west-bank-at-unprecedented-level-pni-leader-barghouti-says",
+      "time": "Thu, 03 Sep 2026 13:26:12 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "db855776bafb",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Victims sue South African government over 1960 Sharpeville massacre",
+      "summary": "Victims sue South African governed over 1960 Sharpeville massacre",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/victims-sue-south-african-governed-over-1960-sharpeville-massacre?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:07:13 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics"
+    },
     {
       "id": "11ae75dd6032",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
       "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
-      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African enclave of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, com",
+      "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African territory of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, c",
       "source": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
       "time": "Thu, 03 Sep 2026 12:52:08 GMT",
       "tag": "World",
@@ -16350,11 +17650,24 @@
   ],
   "economics": [
     {
+      "id": "63034c255c25",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Kais Saied’s economic experiment has failed Tunisia",
+      "summary": "Saied’s promised path to self-reliance has deepened Tunisia’s economic crisis rather than resolving it.",
+      "source": "https://www.aljazeera.com/opinions/2026/9/3/kais-saieds-economic-experiment-has-failed-tunisia?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 13:09:47 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "economics"
+    },
+    {
       "id": "5aab72b00104",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
       "title": "Yen soars as Bank of Japan tipped to raise interest rates",
-      "summary": "Jump lifts currency to highest level against dollar in a month, while global markets remain jittery     Business live – latest updates     The Japanese yen has soared by more than 1.7% against the dollar amid speculation the Bank of Japan is set to raise interest rates.  The latest jump on Thursday lifted the yen to its highest level against the dollar in a month, at 155.85, and followed a 0.9% move the previous day.",
+      "summary": "Jump lifts currency to highest level against dollar in a month, while global markets remain jittery     Business live – latest updates     The Japanese yen has soared by nearly 2% against the dollar amid speculation the Bank of Japan is set to raise interest rates.  The latest jump on Thursday lifted the yen to its highest level against the dollar in a month, at 155.57, and followed a 0.9% move the previous day.   Co",
       "source": "https://www.theguardian.com/business/2026/sep/03/yen-soars-bank-of-japan-tipped-to-raise-interest-rates",
       "time": "Thu, 03 Sep 2026 11:28:45 GMT",
       "tag": "World",
@@ -16363,13 +17676,13 @@
       "intelligenceLayer": "economics"
     },
     {
-      "id": "8eddd3d1768b",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "China lambasts France’s ‘discriminatory’ fast-fashion law",
-      "summary": "China on Thursday called on France to abandon a new law on ultra-fast fashion that would impose fees of up to almost €20 per garment, calling it \"clearly discriminatory\". The law, which targets major Asian e-commerce platforms including Shein and Temu, aims to curb the industry's environmental and local economic impacts.",
-      "source": "https://www.france24.com/en/france/20260903-china-lambasts-france-s-discriminatory-fast-fashion-law",
-      "time": "Thu, 03 Sep 2026 09:21:51 GMT",
+      "id": "951fda04fc27",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "2028 Dem hopeful's longtime ally exposed for deep ties to CCP officials: 'Good friends'",
+      "summary": "Rep. Ro Khanna&apos;s, D-Calif. former senior advisor on foreign trade and economic development could be liability to a potential 2028 campaign due to his ties to CCP officials.",
+      "source": "https://www.foxnews.com/politics/2028-dem-hopefuls-longtime-advisor-exposed-deep-ties-ccp-officials-good-friends",
+      "time": "Thu, 03 Sep 2026 07:00:50 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -16429,10 +17742,10 @@
     }
   ],
   "layerCounts": {
-    "us-politics": 41,
-    "world-politics": 15,
-    "economics": 6,
-    "general": 129
+    "us-politics": 51,
+    "world-politics": 17,
+    "economics": 7,
+    "general": 168
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "cfrConflicts": [
@@ -16743,7 +18056,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T12:58:13.182443Z",
+    "updatedAt": "2026-09-03T13:53:07.138793Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -16751,47 +18064,41 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 37
+        "mentions": 46
       },
       {
         "id": "iran",
         "label": "Iran",
         "kind": "actor",
-        "mentions": 27
+        "mentions": 32
       },
       {
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 19
+        "mentions": 22
       },
       {
         "id": "u-s-politics",
         "label": "U.S. Politics",
         "kind": "political",
-        "mentions": 14
+        "mentions": 18
       },
       {
         "id": "palestinians",
         "label": "Palestinians",
         "kind": "actor",
-        "mentions": 11
-      },
-      {
-        "id": "china",
-        "label": "China",
-        "kind": "actor",
-        "mentions": 10
-      },
-      {
-        "id": "united-kingdom",
-        "label": "United Kingdom",
-        "kind": "actor",
-        "mentions": 9
+        "mentions": 13
       },
       {
         "id": "russia",
         "label": "Russia",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
+        "id": "united-kingdom",
+        "label": "United Kingdom",
         "kind": "actor",
         "mentions": 9
       },
@@ -16808,28 +18115,34 @@
         "mentions": 8
       },
       {
+        "id": "china",
+        "label": "China",
+        "kind": "actor",
+        "mentions": 8
+      },
+      {
         "id": "oil-markets",
         "label": "Oil Markets",
         "kind": "economic",
         "mentions": 8
       },
       {
-        "id": "venezuela",
-        "label": "Venezuela",
-        "kind": "actor",
-        "mentions": 6
-      },
-      {
         "id": "global-trade",
         "label": "Global Trade",
         "kind": "economic",
-        "mentions": 6
+        "mentions": 7
       },
       {
         "id": "global-economy",
         "label": "Global Economy",
         "kind": "economic",
-        "mentions": 5
+        "mentions": 6
+      },
+      {
+        "id": "venezuela",
+        "label": "Venezuela",
+        "kind": "actor",
+        "mentions": 6
       },
       {
         "id": "strait-of-hormuz",
@@ -16841,19 +18154,13 @@
         "id": "egypt",
         "label": "Egypt",
         "kind": "actor",
-        "mentions": 4
+        "mentions": 3
       },
       {
         "id": "lebanon",
         "label": "Lebanon",
         "kind": "actor",
         "mentions": 3
-      },
-      {
-        "id": "brazil",
-        "label": "Brazil",
-        "kind": "actor",
-        "mentions": 2
       },
       {
         "id": "nato",
@@ -16866,7 +18173,7 @@
       {
         "source": "United States",
         "target": "Iran",
-        "weight": 17,
+        "weight": 18,
         "types": [
           "story"
         ],
@@ -16904,9 +18211,49 @@
         ]
       },
       {
+        "source": "United States",
+        "target": "U.S. Politics",
+        "weight": 11,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 13:32:13 GMT"
+          },
+          {
+            "title": "GOP mail-in voting proposal could impact millions of Americans ahead of midterms",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 07:00:45 -0400"
+          },
+          {
+            "title": "AOC backs Florida Dem Angie Nixon for US Senate: 'I’m proud to endorse her'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 06:14:55 -0400"
+          },
+          {
+            "title": "MAGA begins to crack as 2026 GOP roster backs away from Trump's tech vision",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:55 -0400"
+          },
+          {
+            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
+          }
+        ]
+      },
+      {
         "source": "Israel",
         "target": "Palestinians",
-        "weight": 9,
+        "weight": 10,
         "types": [
           "conflict",
           "story"
@@ -16919,6 +18266,12 @@
             "time": "Tue, 01 Sep 2026 20:24:28 GMT"
           },
           {
+            "title": "Israeli attacks in West Bank at 'unprecedented' level, PNI leader Barghouti says",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 13:26:12 GMT"
+          },
+          {
             "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
             "url": "",
             "source": "Al Jazeera",
@@ -16927,54 +18280,8 @@
           {
             "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
             "url": "",
-            "source": "BBC Middle East",
+            "source": "BBC World",
             "time": "Thu, 03 Sep 2026 09:53:58 GMT"
-          },
-          {
-            "title": "U.S.-Israel relations are on the rocks ahead of elections",
-            "url": "",
-            "source": "NPR World",
-            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
-            "url": "",
-            "source": "BBC Middle East",
-            "time": "Mon, 31 Aug 2026 10:00:23 GMT"
-          }
-        ]
-      },
-      {
-        "source": "United States",
-        "target": "U.S. Politics",
-        "weight": 7,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
-            "url": "",
-            "source": "NPR Politics",
-            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
-          },
-          {
-            "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
-            "url": "",
-            "source": "NPR Politics",
-            "time": "Wed, 02 Sep 2026 04:42:26 -0400"
-          },
-          {
-            "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
-            "url": "",
-            "source": "NPR Politics",
-            "time": "Wed, 02 Sep 2026 04:41:54 -0400"
-          },
-          {
-            "title": "Judge blocks new Trump bid against birthright citizenship – US politics live",
-            "url": "",
-            "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 12:39:40 GMT"
           },
           {
             "title": "U.S.-Israel relations are on the rocks ahead of elections",
@@ -16987,7 +18294,7 @@
       {
         "source": "Russia",
         "target": "Ukraine",
-        "weight": 6,
+        "weight": 7,
         "types": [
           "conflict",
           "story"
@@ -17000,10 +18307,10 @@
             "time": "Wed, 02 Sep 2026 16:12:43 GMT"
           },
           {
-            "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
+            "title": "Ukraine takes the war to Russia’s space programme in tactical shift",
             "url": "",
-            "source": "BBC Europe",
-            "time": "Tue, 01 Sep 2026 11:55:51 GMT"
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 13:30:28 +0000"
           },
           {
             "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
@@ -17107,6 +18414,47 @@
       },
       {
         "source": "Iran",
+        "target": "Israel",
+        "weight": 5,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Konflik AS - Israel melawan Iran diprediksi berlangsung hingga Oktober",
+            "url": "",
+            "source": "GDELT Live — Global",
+            "time": "3 Jun 2026 13:15:00 +0000"
+          },
+          {
+            "title": "Gulf shares concerns with US as Iran influence and power continue by proxy | US - Israel war on Iran",
+            "url": "",
+            "source": "GDELT Live — Middle East",
+            "time": "3 Jun 2026 08:15:00 +0000"
+          },
+          {
+            "title": "Israel–Iran Regional Front",
+            "url": "",
+            "source": "Conflict record",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "source": "Iran",
         "target": "Strait of Hormuz",
         "weight": 5,
         "types": [
@@ -17148,6 +18496,40 @@
       },
       {
         "source": "United States",
+        "target": "Global Trade",
+        "weight": 4,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
+            "url": "",
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 21:15:12 GMT"
+          },
+          {
+            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
+            "url": "",
+            "source": "NPR Politics",
+            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
+          },
+          {
+            "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 09:00:50 -0400"
+          },
+          {
+            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
         "target": "Venezuela",
         "weight": 4,
         "types": [
@@ -17177,41 +18559,6 @@
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 04:07:44 -0400"
-          }
-        ]
-      },
-      {
-        "source": "Iran",
-        "target": "Israel",
-        "weight": 4,
-        "types": [
-          "conflict",
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
-            "url": "",
-            "source": "Guardian World",
-            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
-          },
-          {
-            "title": "Gulf insecurity fuels US energy dominance",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 09:16:20 +0000"
-          },
-          {
-            "title": "U.S.-Israel relations are on the rocks ahead of elections",
-            "url": "",
-            "source": "NPR World",
-            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "Israel–Iran Regional Front",
-            "url": "",
-            "source": "Conflict record",
-            "time": ""
           }
         ]
       },
@@ -17284,18 +18631,18 @@
         ]
       },
       {
-        "source": "China",
-        "target": "Egypt",
+        "source": "United States",
+        "target": "China",
         "weight": 3,
         "types": [
           "story"
         ],
         "evidence": [
           {
-            "title": "Egypt’s Sisi welcomes China’s President Xi in Grand Egyptian Museum tour",
+            "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
             "url": "",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 09:07:28 +0000"
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 08:14:29 -0400"
           },
           {
             "title": "China's Xi visits Egypt for the first time in a decade",
@@ -17308,6 +18655,34 @@
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 03:04:25 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Israel",
+        "weight": 3,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 08:14:29 -0400"
+          },
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+            "url": "",
+            "source": "BBC Middle East",
+            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
           }
         ]
       },
@@ -17340,34 +18715,6 @@
         ]
       },
       {
-        "source": "United States",
-        "target": "Global Trade",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Apple Maps renames Lake Ontario as ‘Lake America’ for US users after Trump order",
-            "url": "",
-            "source": "Guardian World",
-            "time": "Wed, 02 Sep 2026 21:15:12 GMT"
-          },
-          {
-            "title": "How will tariffs affect the midterms? In this Michigan border town, it's complicated",
-            "url": "",
-            "source": "NPR Politics",
-            "time": "Wed, 02 Sep 2026 05:00:00 -0400"
-          },
-          {
-            "title": "Trump doubles down on Canada trade war as talks remain stalled – as it happened",
-            "url": "",
-            "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 01:58:14 GMT"
-          }
-        ]
-      },
-      {
         "source": "Israel",
         "target": "Lebanon",
         "weight": 3,
@@ -17396,24 +18743,46 @@
         ]
       },
       {
-        "source": "U.S. Politics",
-        "target": "Brazil",
+        "source": "China",
+        "target": "Israel",
         "weight": 2,
         "types": [
           "story"
         ],
         "evidence": [
           {
-            "title": "Supreme Court corruption scandal rocks Brazil",
+            "title": "China’s falling emissions amid Iran war spark hope of decarbonisation watershed",
             "url": "",
-            "source": "France 24",
-            "time": "Thu, 03 Sep 2026 10:42:58 GMT"
+            "source": "Guardian World",
+            "time": "Wed, 02 Sep 2026 23:01:37 GMT"
           },
           {
-            "title": "Brazilian justice faces pressure for alleged links to disgraced banker",
+            "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
             "url": "",
-            "source": "France 24",
-            "time": "Thu, 03 Sep 2026 09:59:54 GMT"
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 08:14:29 -0400"
+          }
+        ]
+      },
+      {
+        "source": "U.S. Politics",
+        "target": "Global Economy",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Working-class ER nurse seeks to flip battleground Wisconsin House seat",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 11:00:51 GMT"
+          },
+          {
+            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
           }
         ]
       },
@@ -17551,7 +18920,29 @@
       },
       {
         "source": "United States",
-        "target": "China",
+        "target": "Global Economy",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
+            "url": "",
+            "source": "NPR World",
+            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
+          },
+          {
+            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Egypt",
         "weight": 2,
         "types": [
           "story"
@@ -17572,7 +18963,7 @@
         ]
       },
       {
-        "source": "United States",
+        "source": "China",
         "target": "Egypt",
         "weight": 2,
         "types": [
@@ -17617,28 +19008,6 @@
       },
       {
         "source": "United States",
-        "target": "Israel",
-        "weight": 2,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "U.S.-Israel relations are on the rocks ahead of elections",
-            "url": "",
-            "source": "NPR World",
-            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
-            "url": "",
-            "source": "BBC Middle East",
-            "time": "Mon, 10 Aug 2026 14:43:08 GMT"
-          }
-        ]
-      },
-      {
-        "source": "United States",
         "target": "Palestinians",
         "weight": 2,
         "types": [
@@ -17700,6 +19069,28 @@
             "url": "",
             "source": "BBC Middle East",
             "time": "Mon, 10 Aug 2026 14:43:08 GMT"
+          }
+        ]
+      },
+      {
+        "source": "Iran",
+        "target": "Palestinians",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "U.S.-Israel relations are on the rocks ahead of elections",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
+          },
+          {
+            "title": "How Hamas disarmament deal may test Iran regional strategy",
+            "url": "",
+            "source": "GDELT Live — Middle East",
+            "time": "3 Aug 2026 10:15:00 +0000"
           }
         ]
       },
