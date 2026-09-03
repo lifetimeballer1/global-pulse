@@ -26,7 +26,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Enrich snapshot with OSINT coverage
+      - name: Collect fresh regional OSINT events
+        run: python regional_osint_v2.py
+
+      - name: Normalize legacy OSINT coverage
         run: python update_conflict_coverage.py
 
       - name: Inject coverage UI
@@ -53,13 +56,21 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           markers=d.get('markers', [])
-          osint=[m for m in markers if m.get('layer') in ('osint-gdelt','conflict-coverage')]
+          osint=[m for m in markers if m.get('layer') in ('osint-gdelt','osint-regional','conflict-coverage')]
+          regional=[m for m in markers if m.get('layer')=='osint-regional']
           print(f'Total markers: {len(markers)}')
           print(f'OSINT/coverage markers: {len(osint)}')
-          if not osint:
-              raise SystemExit('No OSINT/coverage markers reached the Pages artifact')
-          if '</body>' in Path('index.html').read_text(encoding='utf-8') and 'global_pulse_coverage_ui.js' not in Path('index.html').read_text(encoding='utf-8'):
+          print(f'Regional OSINT markers: {len(regional)}')
+          if not regional:
+              raise SystemExit('No fresh regional OSINT markers reached the Pages artifact')
+          for m in regional:
+              assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
+              assert m.get('source') and m.get('observedAt')
+              assert m.get('url') or m.get('sourceUrl')
+          html=Path('index.html').read_text(encoding='utf-8')
+          if 'global_pulse_coverage_ui.js' not in html:
               raise SystemExit('Coverage UI script was not integrated')
+          print('Regional counts:', d.get('regionalOsint',{}).get('regions',{}))
           PY
 
       - name: Setup Pages
