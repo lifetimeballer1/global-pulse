@@ -1,30 +1,30 @@
-name: Global Pulse Data Refresh
+name: Global Pulse — Master Refresh
 
 on:
   push:
     branches: [main]
     paths:
-      - 'update_snapshot.py'
-      - 'update_osint.py'
+      - 'update*.py'
       - 'patch_index_ui.py'
       - 'apply_ui_patch.py'
-      - 'data/**'
       - 'index.html'
+      - 'data/**'
       - '.github/workflows/update-snapshot.yml'
   schedule:
-    - cron: '17 4 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: global-pulse-refresh
+  group: global-pulse-master-refresh
   cancel-in-progress: true
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,22 +32,47 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply dashboard UI fixes
-        run: python patch_index_ui.py
-      - name: Apply reliable theater modal and map focus
-        run: python apply_ui_patch.py
-      - name: Refresh public news and conflict data
+      - name: Apply stable UI foundation
+        run: |
+          python patch_index_ui.py
+          python apply_ui_patch.py
+      - name: Apply map, evidence, analysis and professional UI layers
+        run: |
+          python update2_map.py
+          python update3_evidence.py
+          python update4_analysis.py
+          python update5_professionalize.py
+      - name: Build global relationship graph
+        run: python update6_global_graph.py
+      - name: Apply live-data layer and J.S. branding
+        run: python update7_live_branding.py
+      - name: Refresh public intelligence data
         run: python update_snapshot.py
       - name: Sync Global War News Map
         run: python update_osint.py
+      - name: Validate build
+        run: |
+          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py
+          python - <<'PY'
+          import json
+          d=json.load(open('data/snapshot.json'))
+          html=open('index.html',encoding='utf-8').read()
+          assert d.get('updatedAt'), 'missing updatedAt'
+          assert len(d.get('stories',[])) >= 100, 'too few stories'
+          assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
+          assert isinstance(d.get('markers',[]), list), 'markers missing'
+          assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
+          assert 'Made by J.S.' in html, 'branding missing'
+          print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['markers']), 'markers')
+          PY
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/snapshot.json data/history.json data/sources.json patch_index_ui.py apply_ui_patch.py .github/workflows/update-snapshot.yml
+          git add .
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "fix: harden conflict modal and theater map focus"
+            git commit -m "feat: global intelligence refresh and live data pipeline"
             git push
           fi
