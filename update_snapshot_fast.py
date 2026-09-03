@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from xml.etree import ElementTree as ET
 import update_snapshot as base
-ROOT=Path(__file__).resolve().parent; DATA=ROOT/'data'; SNAP=DATA/'snapshot.json'; HIST=DATA/'history.json'; SOURCES=DATA/'sources.json'; MAX_WORKERS=10; SCORE_VERSION=4
+ROOT=Path(__file__).resolve().parent; DATA=ROOT/'data'; SNAP=DATA/'snapshot.json'; HIST=DATA/'history.json'; SOURCES=DATA/'sources.json'; MAX_WORKERS=10; SCORE_VERSION=5
 CLIMATE_RE=re.compile(r"\b(drought|water shortage|water stress|water scarcity|reservoir|water supply|flood|flooding|cyclone|hurricane|typhoon|storm surge|landslide|heatwave|heat wave|extreme heat|wildfire|forest fire|bushfire|extreme cold|food insecurity|food crisis|famine|acute hunger|hunger|crop failure|harvest failure|epidemic|outbreak|cholera|malaria|avian flu|pandemic|disease outbreak)\b",re.I)
 MARKET_RE=re.compile(r"\b(stock market|stocks|shares|bond yields?|treasury yields?|currency|forex|exchange rate|dollar|euro|yen|yuan|oil prices?|crude prices?|natural gas prices?|market volatility|market selloff|market rally|volatility index)\b",re.I)
 DRIVER_DEFS={
@@ -39,8 +39,7 @@ def normalized_score(stories,regex,base_score=40,eligible=None,boost_terms=()):
  if not pool:return int(base_score)
  total=sum(recency(s) for s in pool); matched=0
  for s in pool:
-  text=f"{s.get('title','')} {s.get('summary','')}"
-  w=recency(s)
+  text=f"{s.get('title','')} {s.get('summary','')}"; w=recency(s)
   if regex.search(text):
    matched+=w
    if boost_terms and any(re.search(term,text,re.I) for term in boost_terms): matched+=w*.35
@@ -64,7 +63,46 @@ def climate_metrics(stories):
  return {name:normalized_score(stories,rx,25,pool) for name,rx in groups.items()}
 
 def build_early_warning(tension,breakdown,history):
- points=[p for p in history if isinstance(p,dict) and p.get('scoreVersion')==SCORE_VERSION and isinstance(p.get('tension'),(int,float))]; recent=[float(p['tension']) for p in points[-12:]]; prior=[float(p['tension']) for p in points[-36:-12]]; ra=sum(recent)/len(recent) if recent else tension; pa=sum(prior)/len(prior) if prior else ra; momentum=round(ra-pa,1); name,val=max(breakdown.items(),key=lambda x:x[1]) if breakdown else ('Overall tension',tension); level='HIGH' if tension>=75 or momentum>=10 else 'ELEVATED' if tension>=55 or momentum>=5 else 'WATCH'; return {'level':level,'score':int(tension),'momentum':momentum,'direction':'rising' if momentum>=2 else 'falling' if momentum<=-2 else 'stable','strongestDriver':name,'strongestDriverScore':int(val),'method':'Current score model v4; recent 12 snapshots versus preceding 24 matching snapshots.'}
+ points=[p for p in history if isinstance(p,dict) and p.get('scoreVersion')==SCORE_VERSION and isinstance(p.get('tension'),(int,float))]; recent=[float(p['tension']) for p in points[-12:]]; prior=[float(p['tension']) for p in points[-36:-12]]; ra=sum(recent)/len(recent) if recent else tension; pa=sum(prior)/len(prior) if prior else ra; momentum=round(ra-pa,1); name,val=max(breakdown.items(),key=lambda x:x[1]) if breakdown else ('Overall tension',tension); level='HIGH' if tension>=75 or momentum>=10 else 'ELEVATED' if tension>=55 or momentum>=5 else 'WATCH'; return {'level':level,'score':int(tension),'momentum':momentum,'direction':'rising' if momentum>=2 else 'falling' if momentum<=-2 else 'stable','strongestDriver':name,'strongestDriverScore':int(val),'method':'Current score model v5; recent 12 snapshots versus preceding 24 matching snapshots.'}
+
+def refine_conflict_evidence(conflicts):
+    """Remove cross-theater false positives and count corroboration by source domain."""
+    definitions={c[0]:set(c[5]) for c in base.CONFLICTS}
+    alias_users={}
+    for cid, aliases in definitions.items():
+        for alias in aliases: alias_users.setdefault(alias, set()).add(cid)
+    ambiguous={a for a, users in alias_users.items() if len(users)>1}
+    for c in conflicts:
+        cid=c.get('id'); aliases=definitions.get(cid,set()); unique_aliases=aliases-ambiguous
+        kept=[]
+        for sig in c.get('signals',[]):
+            blob=f"{sig.get('title','')} {' '.join(sig.get('match',[]))}"
+            matched=set(sig.get('match',[]))
+            if unique_aliases and matched & unique_aliases:
+                kept.append(sig); continue
+            # A signal matching only a shared alias (for example JNIM) must also
+            # contain a theater-specific country/location alias in the headline.
+            if unique_aliases:
+                if any(base.alias_present(a, blob) for a in unique_aliases): kept.append(sig)
+            else: kept.append(sig)
+        c['signals']=kept
+        c['signalCount']=len(kept)
+        domains={urlparse(str(s.get('url',''))).netloc.lower() for s in kept if urlparse(str(s.get('url',''))).netloc}
+        c['sourceCount']=len(domains)
+        if len(domains)>=3: c['confidence']='CORROBORATED'
+        elif len(domains)==2: c['confidence']='MULTI-SOURCE'
+        elif len(domains)==1: c['confidence']='SINGLE-SOURCE'
+        else: c['confidence']='MONITORING'
+        if kept:
+            c['lastSignal']=kept[0].get('time')
+            c['recent']=kept[0].get('title','')[:180]
+        else:
+            c['lastSignal']=None
+            c['recent']='No specific current signal passed the theater-specific evidence filter.'
+            c['status']='Monitoring'
+        c['facts']=f"{len(kept)} conflict-specific signal(s) from {len(domains)} independent source domain(s) after theater and corroboration filtering."
+        c['analysis']='Score is a monitoring signal based on theater-specific identifiers, event severity, source-domain breadth, and recency. Shared militant/group names alone cannot corroborate a theater. It is not a battlefield truth, casualty count, or war probability.'
+    return conflicts
 
 def main():
  DATA.mkdir(exist_ok=True); old=base.load_json(SNAP,{}); history=base.load_json(HIST,[]); stories=[]; errors=[]; feeds=list(dict.fromkeys(base.FEEDS))
@@ -82,7 +120,7 @@ def main():
  evidence={name:driver_evidence(stories,rx,pool) for name,(rx,pool) in DRIVER_DEFS.items()}; climate=climate_metrics(stories)
  weights={'Conflict activity':.22,'Diplomatic strain':.15,'Economic pressure':.16,'Market volatility':.10,'Military posture':.25,'Climate & humanitarian pressure':.12}; tension=round(sum(breakdown[k]*weights[k] for k in weights)); old_tension=old.get('tension'); delta=tension-old_tension if isinstance(old_tension,(int,float)) and old.get('scoreVersion')==SCORE_VERSION else 0
  changes=[{'kind':'breaking' if s['breaking'] else 'new reporting','title':s['title'][:150],'detail':f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]] or [{'kind':'refresh','title':'Public sources checked — no new unique headlines','detail':f'{len(feeds)} feeds checked; {len(stories)} current stories retained.'}]
- conflicts=base.make_conflicts(stories,old); now=datetime.now(timezone.utc).isoformat(); hp=[p for p in history if isinstance(p,dict) and p.get('scoreVersion')==SCORE_VERSION]; hw=hp+[{'updatedAt':now,'tension':tension,'delta':delta,'scoreVersion':SCORE_VERSION}]; early=build_early_warning(tension,breakdown,hw)
+ conflicts=refine_conflict_evidence(base.make_conflicts(stories,old)); now=datetime.now(timezone.utc).isoformat(); hp=[p for p in history if isinstance(p,dict) and p.get('scoreVersion')==SCORE_VERSION]; hw=hp+[{'updatedAt':now,'tension':tension,'delta':delta,'scoreVersion':SCORE_VERSION}]; early=build_early_warning(tension,breakdown,hw)
  snapshot={'updatedAt':now,'scoreVersion':SCORE_VERSION,'sourceStatus':f'{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy','dataNote':'Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score.','tension':tension,'tensionDelta':delta,'breakdownScores':breakdown,'driverSignals':evidence,'climatePressure':climate,'earlyWarning':early,'changes':changes,'conflicts':conflicts,'markers':old.get('markers',[]),'social':old.get('social',[]),'stories':stories,'sourceHealth':[{'name':label,'type':kind,'status':'failed' if any(e.startswith(label+':') for e in errors) else 'online'} for label,_,kind in feeds]}
  SNAP.write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); HIST.write_text(json.dumps(hw[-288:],ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); SOURCES.write_text(json.dumps({'updatedAt':now,'feeds':[{'name':a,'url':b,'type':c,'domain':urlparse(b).netloc} for a,b,c in feeds],'errors':errors},ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); print(snapshot['sourceStatus'],'tension',tension,'early warning',early['level'],'conflicts',len(conflicts))
  if errors: print('errors:','; '.join(errors))
