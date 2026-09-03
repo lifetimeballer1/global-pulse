@@ -45,27 +45,28 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          r=d.get('regionalOsint',{})
-          assert r.get('version') == 2
-          regions=r.get('regions',{})
-          assert set(regions) == {'Africa','South America','South Asia'}
+          o=d.get('osintMaps',{})
+          assert o.get('version') == 3
+          counts=o.get('regionalCounts',{})
+          assert set(counts) == {'Africa','South America','South Asia'}
           markers=[m for m in d.get('markers',[]) if m.get('layer')=='osint-regional']
           assert markers, 'No regional OSINT markers reached snapshot'
           assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers)
           assert all(m.get('source') and m.get('observedAt') for m in markers)
-          print('Regional points:', {k:v.get('points',0) for k,v in regions.items()})
+          assert all(m.get('sourceUrl') or m.get('url') for m in markers)
+          print('Regional points:', counts)
           print('Total OSINT markers:', len(markers))
-          print('GDELT failures:', len(r.get('failures',[])))
+          print('Remaining source failures:', len(o.get('regionalFailures',[])))
           PY
 
       - name: Commit regional OSINT and map updates
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+users.noreply.github.com'
           git add data/snapshot.json index.html
           if git diff --cached --quiet; then
             echo 'No regional OSINT/map changes to commit.'
           else
-            git commit -m 'Restore live regional OSINT collection'
+            git commit -m 'Refresh regional OSINT map data'
             git push origin main
           fi
