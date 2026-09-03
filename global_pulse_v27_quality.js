@@ -14,6 +14,15 @@
     const drivers=Object.values(d.driverSignals||{});const evidence=drivers.reduce((n,x)=>n+Math.min(5,Number(x&&x.sources)||0),0);const evidenceMax=Math.max(1,drivers.length*5);
     return Math.max(0,Math.min(100,Math.round(online/total*55+(usable/total)*15+Math.min(1,fresh/20)*20+Math.min(1,evidence/evidenceMax)*10)));
   }
+  function dedupeEarthquakes(markers){
+    const seen=new Set();
+    return A(markers).filter(m=>{
+      const isQ=/usgs|earthquake/i.test(String(m&&m.source||'')+' '+String(m&&m.eventType||m&&m.type||''));
+      if(!isQ)return true;
+      const k=String(m.url||m.id||m.eventId||[m.title,m.lat??m.latitude,m.lng??m.lon].join('|'));
+      if(seen.has(k))return false;seen.add(k);return true;
+    });
+  }
   function render(d){
     if(!d)return;css();
     const live=window.LIVE_ARTICLES||null;const articles=A(live&&live.articles);
@@ -23,9 +32,11 @@
     const q=quality(d,live);const qc=q>=75?'gp-v27q-ok':q>=50?'gp-v27q-warn':'';
     let sec=document.getElementById('gp-v27q');if(!sec){sec=document.createElement('section');sec.id='gp-v27q';sec.className='panel wide';const anchor=document.getElementById('gp-v27-intel');if(anchor&&anchor.parentNode)anchor.parentNode.insertBefore(sec,anchor.nextSibling);else{const wrap=document.querySelector('.wrap');if(wrap)wrap.appendChild(sec)}}
     sec.innerHTML=`<div class="section-head"><div><h2>V2.7 · INTELLIGENCE QUALITY</h2><div class="muted">Separates current evidence from stale or unavailable feeds. No API keys are used by this layer.</div></div><span class="gp-v27q-tag">CHECKED ${esc(age(d.updatedAt))} AGO</span></div><div class="gp-v27q"><div class="gp-v27q-card"><div class="gp-v27q-title">Evidence confidence</div><div class="gp-v27q-meter"><div class="gp-v27q-num ${qc}">${q}</div><div><div class="gp-v27q-track"><div class="gp-v27q-fill" style="width:${q}%"></div></div><div class="gp-v27q-small" style="margin-top:6px">Confidence is a quality indicator, not a claim that every report is independently verified.</div></div></div><div style="margin-top:8px"><div class="gp-v27q-row"><b>Online sources</b><span>${online}</span></div><div class="gp-v27q-row"><b>Degraded sources</b><span>${degraded}</span></div><div class="gp-v27q-row"><b>Failed sources</b><span>${failed}</span></div><div class="gp-v27q-row"><b>Current articles</b><span>${articles.length||A(d.stories).length}</span></div><div class="gp-v27q-row"><b>OSINT/social items</b><span>${x.length}</span></div></div></div><div class="gp-v27q-card"><div class="gp-v27q-title">Morse Report</div><div class="gp-v27q-morse">${morse.map(a=>`<div><a href="${esc(safeUrl(a.url))}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a><span>${esc(a.source||'Morse Report')} · ${age(a.published_date)} ago</span></div>`).join('')||'<div class="gp-v27q-small">No Morse article was returned by the latest public feed cycle. Global Pulse will not invent a headline; use the publisher/RSS links below.</div>'}</div><div class="gp-v27q-actions"><a href="https://morsereport.com/" target="_blank" rel="noopener noreferrer">Open Morse Report ↗</a><a href="https://rss.buzzsprout.com/2637181.rss" target="_blank" rel="noopener noreferrer">Open public RSS ↗</a></div></div></div><div class="gp-v27q-small" style="margin-top:8px">Map hygiene: V2.7 collapses duplicate USGS earthquake records by event URL/ID before rendering. Source failures remain visible in Source Health instead of being converted into fake live data.</div>`;
-    if(Array.isArray(d.markers)){
-      const seen=new Set();d.markers=d.markers.filter(m=>{const isQ=/usgs|earthquake/i.test(String(m&&m.source||'')+' '+String(m&&m.eventType||m&&m.type||''));if(!isQ)return true;const k=String(m.url||m.id||m.eventId||[m.title,m.lat??m.latitude,m.lng??m.lon].join('|'));if(seen.has(k))return false;seen.add(k);return true});
-      if(typeof window.renderMap==='function')window.renderMap();
+    // Do not mutate DATA.markers. The canonical map renderer consumes DATA directly;
+    // provide a temporary de-duplicated view only while it renders.
+    if(Array.isArray(d.markers)&&typeof window.renderMap==='function'){
+      const originalMarkers=d.markers;d.markers=dedupeEarthquakes(originalMarkers);
+      try{window.renderMap()}finally{d.markers=originalMarkers}
     }
   }
   async function boot(){
