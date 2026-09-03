@@ -22,9 +22,6 @@ CSS = '''<style id="gp-brand-live-css">
 AUTO_REFRESH = '''<script id="gp-auto-refresh">
 (function(){
   "use strict";
-  // GitHub Pages is a static site, so the server-side refresh pipeline updates
-  // snapshot.json/index.html. This client watchdog makes an already-open page
-  // pick up those changes automatically instead of waiting for a manual reload.
   var PERIOD = 60000;
   var lastPage = location.href;
   function bustReload(){
@@ -52,6 +49,8 @@ AUTO_REFRESH = '''<script id="gp-auto-refresh">
 })();
 </script>'''
 
+ENHANCEMENTS = '<script src="global_pulse_enhancements.js" defer></script>'
+
 
 def patch_snapshot():
     s = SNAP.read_text()
@@ -67,9 +66,9 @@ def patch_snapshot():
 def patch_index():
     s = INDEX.read_text(encoding="utf-8")
 
-    # Remove all generated branding/refresh markup from earlier runs.
     s = re.sub(r'<style id="gp-brand-live-css">.*?</style>', '', s, flags=re.S)
     s = re.sub(r'<script id="gp-auto-refresh">.*?</script>', '', s, flags=re.S)
+    s = re.sub(r'<script src="global_pulse_enhancements\.js" defer></script>', '', s, flags=re.S)
     s = re.sub(r'<div class="gp-footer-credit">.*?</div>', '', s, flags=re.S)
     s = re.sub(r'<div class="gp-live-chip">.*?</div>', '', s, flags=re.S)
     s = re.sub(r'<span class="gp-brand-credit">.*?</span>', '', s, flags=re.S)
@@ -91,7 +90,7 @@ def patch_index():
     s = re.sub(r'<style id="gp-brand-live-css">.*?</style>', '', s, flags=re.S)
     s = re.sub(r'<script id="gp-auto-refresh">.*?</script>', '', s, flags=re.S)
     s = s.replace('</head>', CSS + '</head>', 1)
-    s = s.replace('</body>', AUTO_REFRESH + '</body>', 1)
+    s = s.replace('</body>', AUTO_REFRESH + ENHANCEMENTS + '</body>', 1)
 
     INDEX.write_text(s, encoding="utf-8")
 
@@ -99,4 +98,4 @@ def patch_index():
 if __name__ == '__main__':
     patch_snapshot()
     patch_index()
-    print('Update 7 applied: live feeds, single J.S. brand credit, compact top layout, and automatic client refresh.')
+    print('Update 7 applied: live feeds, single J.S. brand credit, compact top layout, automatic client refresh, and production UI enhancements.')
