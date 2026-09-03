@@ -1,22 +1,18 @@
 {
-  "updatedAt": "2026-09-03T19:55:13.466802+00:00",
+  "updatedAt": "2026-09-03T20:01:33.863442+00:00",
   "feedsChecked": 20,
-  "rowsFetched": 413,
-  "newArticles": 241,
-  "purged": 0,
-  "databaseArticles": 481,
-  "healthySources": 14,
+  "rowsFetched": 374,
+  "newArticles": 92,
+  "purged": 86,
+  "databaseArticles": 487,
+  "healthySources": 11,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
     },
     {
-      "source": "X @NASA",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @POTUS",
+      "source": "X @WhiteHouse",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -24,12 +20,28 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @WhiteHouse",
+      "source": "X @POTUS",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "X @NASA",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @UN",
       "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "CNN Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "Axios Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "Morse Report — GDELT Mirror",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     }
   ],
   "pollSeconds": 300,
