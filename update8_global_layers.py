@@ -51,79 +51,44 @@ KEY_POINTS = [
     (18.5944, -72.3074, "Port-au-Prince", "Haiti", "ORGANIZED CRIME NODE", "Central Haitian security and humanitarian monitoring node.", "https://www.crisisgroup.org/latin-america-caribbean/caribbean/haiti"),
 ]
 
-
 def fetch_json(url):
     req = Request(url, headers={"User-Agent": "GlobalPulse/8.1"})
     with urlopen(req, timeout=25) as r:
         return json.loads(r.read().decode("utf-8"))
 
-
 def add_key_points(markers):
-    managed = [m for m in markers if m.get("source") != "Guerilla Map Strategic Layer"]
+    managed = [m for m in markers if m.get("source") != "Guerilla Map Strategic Layer" and m.get("source") != "Guerilla Map Strategic Reference"]
     for lat, lng, title, region, event_type, detail, url in KEY_POINTS:
-        managed.append({
-            "lat": lat, "lng": lng, "type": "strategic", "layer": "strategic",
-            "importance": 3, "title": title, "detail": detail,
-            "url": url, "sourceUrl": url, "source": "Guerilla Map Strategic Reference",
-            "region": region, "eventType": event_type,
-            "confidence": "REFERENCE NODE / NOT AN INCIDENT",
-        })
+        managed.append({"lat": lat, "lng": lng, "type": "strategic", "layer": "strategic", "importance": 3, "title": title, "detail": detail, "url": url, "sourceUrl": url, "source": "Guerilla Map Strategic Reference", "region": region, "eventType": event_type, "confidence": "REFERENCE NODE / NOT AN INCIDENT"})
     return managed
-
 
 def add_live_earthquakes(markers):
     url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson"
     try:
         data = fetch_json(url)
         for f in data.get("features", [])[:100]:
-            props = f.get("properties") or {}
-            coords = (f.get("geometry") or {}).get("coordinates") or []
-            if len(coords) < 2:
-                continue
+            props = f.get("properties") or {}; coords = (f.get("geometry") or {}).get("coordinates") or []
+            if len(coords) < 2: continue
             lng, lat = coords[0], coords[1]
-            if not isinstance(lat, (int, float)) or not isinstance(lng, (int, float)):
-                continue
-            mag = props.get("mag")
-            place = props.get("place") or "Earthquake"
-            url = props.get("url") or "https://earthquake.usgs.gov/earthquakes/"
-            markers.append({
-                "lat": round(lat, 5), "lng": round(lng, 5), "type": "hazard", "layer": "environment",
-                "importance": 1 if isinstance(mag, (int, float)) and mag >= 6 else 2,
-                "title": f"M{mag} earthquake — {place}",
-                "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
-                "url": url, "sourceUrl": url, "source": "USGS Earthquakes",
-                "eventType": "Natural Hazard", "confidence": "PUBLIC LIVE FEED",
-            })
+            if not isinstance(lat, (int,float)) or not isinstance(lng, (int,float)): continue
+            mag = props.get("mag"); place = props.get("place") or "Earthquake"; quake_url = props.get("url") or "https://earthquake.usgs.gov/earthquakes/"
+            markers.append({"lat": round(lat,5), "lng": round(lng,5), "type":"hazard", "layer":"environment", "importance":1 if isinstance(mag,(int,float)) and mag>=6 else 2, "title":f"M{mag} earthquake — {place}", "detail":"Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.", "url":quake_url, "sourceUrl":quake_url, "source":"USGS Earthquakes", "eventType":"Natural Hazard", "confidence":"PUBLIC LIVE FEED"})
         return markers, "USGS earthquakes: live"
     except Exception as exc:
         return markers, f"USGS earthquakes: unavailable ({type(exc).__name__})"
 
-
 def main():
     snap = json.loads(SNAP.read_text()) if SNAP.exists() else {}
-    markers = add_key_points(snap.get("markers", []))
-    markers, quake_status = add_live_earthquakes(markers)
-    snap["markers"] = markers
-    snap["updatedAt"] = datetime.now(timezone.utc).isoformat()
-    snap["externalLayers"] = {
-        "guerillaMap": {
-            "name": "Guerilla Map",
-            "url": GUERILLA_URL,
-            "status": "reference-only",
-            "note": "Global Pulse does not claim to ingest Guerilla Map incident records without a documented public machine-readable export. Strategic nodes use the same broad categories and are linked to independent public sources."
-        }
-    }
+    markers = add_key_points(snap.get("markers", [])); markers, quake_status = add_live_earthquakes(markers)
+    snap["markers"] = markers; snap["updatedAt"] = datetime.now(timezone.utc).isoformat()
+    snap["externalLayers"] = {"guerillaMap":{"name":"Guerilla Map","url":GUERILLA_URL,"status":"reference-only","note":"Global Pulse does not claim to ingest Guerilla Map incident records without a documented public machine-readable export. Strategic nodes use the same broad categories and are linked to independent public sources."}}
     snap["sourceStatus"] = ((snap.get("sourceStatus", "") + "; ") if snap.get("sourceStatus") else "") + f"Strategic reference layer: {len(KEY_POINTS)} nodes | {quake_status}"
-    note = snap.get("dataNote") or ""
-    additions = "Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data."
-    if additions not in note:
-        snap["dataNote"] = (note + " " + additions).strip()
-    changes = snap.get("changes") or []
-    changes.insert(0, {"kind": "system", "title": "Global layers expanded", "detail": f"Added {len(KEY_POINTS)} strategic reference nodes and refreshed USGS M4.5+ earthquake signals."})
-    snap["changes"] = changes[:8]
+    note = snap.get("dataNote") or ""; additions = "Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data."
+    if additions not in note: snap["dataNote"] = (note + " " + additions).strip()
+    changes = snap.get("changes") or []; changes.insert(0,{"kind":"system","title":"Global layers expanded","detail":f"Added {len(KEY_POINTS)} strategic reference nodes and refreshed USGS M4.5+ earthquake signals."}); snap["changes"] = changes[:8]
     SNAP.write_text(json.dumps(snap, ensure_ascii=False, indent=2))
-    print(f"Added {len(KEY_POINTS)} strategic nodes; {quake_status}")
+    from global_map_ui import install as install_map_ui
+    install_map_ui()
+    print(f"Added {len(KEY_POINTS)} strategic nodes; {quake_status}; installed self-owned map UI")
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
