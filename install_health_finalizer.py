@@ -31,7 +31,6 @@ def rss_rows(payload):
   return rows
  except Exception:return []
 def direct_morse_rows():
- # The public Buzzsprout RSS feed is a no-key, continuously updated Morse Report feed.
  candidates=('https://rss.buzzsprout.com/2637181.rss','https://news.google.com/rss/search?q=site%3Amorsereport.com&hl=en-US&gl=US&ceid=US:en','https://morsereport.com/blogs/news/rss','https://morsereport.com/blogs/news.atom','https://morsereport.com/rss','https://morsereport.com/feed')
  for i,u in enumerate(candidates):
   try:
@@ -81,10 +80,10 @@ def merge_morse_into_snapshot():
   title=str(item.get('title') or 'Morse Report update');summary=str(item.get('summary_snippet') or '');blob=(title+' '+summary).lower();breaking=any(x in blob for x in ('strike','attack','killed','drone','missile','blockade','escalat','invasion','ceasefire','bomb','shell','offensive','coup','clash','shooting','airstrike'))
   stories.append({'id':hashlib.sha1(url.encode()).hexdigest()[:12],'sourceLabel':'Morse Report','sourceType':'news-mirror','title':title[:240],'summary':summary[:420],'source':url,'time':item.get('published_date'),'tag':'Breaking' if breaking else 'U.S. Politics','confidence':'DEVELOPING','breaking':breaking,'liveDatabase':True,'credit':item.get('credit',{})});existing.add(url);added+=1
  d['stories']=sorted(stories,key=lambda s:str(s.get('time') or ''),reverse=True)[:300]
- health=d.get('sourceHealth',[]) if isinstance(d.get('sourceHealth'),list) else [];count=sum(1 for s in d['stories'] if s.get('sourceLabel')=='Morse Report');found=False
+ health=d.get('sourceHealth',[]) if isinstance(d.get('sourceHealth'),list) else [];count=sum(1 for s in d['stories'] if s.get('sourceLabel')=='Morse Report');found=False;status='online' if count else 'degraded';label='ONLINE' if count else 'DEGRADED'
  for row in health:
-  if row.get('name')=='Morse Report':row.update({'status':'online','label':'ONLINE','error':'','articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat()});found=True
- if not found:health.append({'name':'Morse Report','type':'news-mirror','status':'online','label':'ONLINE','articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat(),'error':''})
+  if row.get('name')=='Morse Report':row.update({'status':status,'label':label,'error':'','articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat()});found=True
+ if not found:health.append({'name':'Morse Report','type':'news-mirror','status':status,'label':label,'articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat(),'error':''})
  d['sourceHealth']=health;d['updatedAt']=datetime.now(timezone.utc).isoformat();SNAP.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return added
 def dedupe_earthquakes():
  if not SNAP.exists():return 0
@@ -102,7 +101,12 @@ def install_ui():
   ap=Path(asset);digest=hashlib.sha256(ap.read_bytes()).hexdigest()[:12];s=re.sub(rf'<script src="{re.escape(asset)}(?:\?[^" ]*)?" defer></script>',f'<script src="{asset}?v={digest}" defer></script>',s)
  s=re.sub(r'<script src="global_pulse_source_health\.js(?:\?[^" ]*)?" defer></script>','',s);s=re.sub(r'<script src="global_pulse_v26\.js(?:\?[^" ]*)?" defer></script>','',s)
  if '</body>' not in s:raise SystemExit('index.html has no </body>')
- d=hashlib.sha256(Path('global_pulse_source_health.js').read_bytes()).hexdigest()[:12];v=hashlib.sha256(Path('global_pulse_v26.js').read_bytes()).hexdigest()[:12];s=s.replace('</body>',f'<script src="global_pulse_source_health.js?v={d}" defer></script><script src="global_pulse_v26.js?v={v}" defer></script></body>',1);INDEX.write_text(s,encoding='utf-8')
+ d=hashlib.sha256(Path('global_pulse_source_health.js').read_bytes()).hexdigest()[:12];v=hashlib.sha256(Path('global_pulse_v26.js').read_bytes()).hexdigest()[:12];s=s.replace('</body>',f'<script src="global_pulse_source_health.js?v={d}" defer></script><script src="global_pulse_v26.js?v={v}" defer></script></body>',1)
+ # Always expose the publisher even when its upstream collector is rate-limited.
+ card='<div id="gp-morse-source-card" class="panel" style="margin-top:14px"><div class="section-head"><div><h2>Morse Report</h2><div class="muted">Publisher feed · current reports open directly from Morse Report.</div></div><span class="tag amber">PUBLIC SOURCE</span></div><a class="open" href="https://morsereport.com/" target="_blank" rel="noopener noreferrer">Open Latest Morse Reports ↗</a><div class="gp-v26-note">The collector uses no API key. If the publisher blocks automated requests, the source remains available here rather than being represented as fabricated data.</div></div>'
+ s=re.sub(r'<div id="gp-morse-source-card".*?</div>\s*(?=<nav class="bottom")','',s,flags=re.S)
+ s=s.replace('<nav class="bottom">',card+'<nav class="bottom">',1)
+ INDEX.write_text(s,encoding='utf-8')
 def main():
  morse=add_morse_to_db();merged=merge_morse_into_snapshot();quake=dedupe_earthquakes();install_ui();print(f'V2.6 repairs: Morse rows added={morse}; Morse stories merged={merged}; duplicate USGS earthquake markers removed={quake}; single conflict dialog and visible V5 trend installed.')
 if __name__=='__main__':main()
