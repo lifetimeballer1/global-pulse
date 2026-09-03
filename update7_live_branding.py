@@ -14,8 +14,8 @@ GDELT_FEEDS = '''    ("GDELT Live — Global", "https://api.gdeltproject.org/api
 '''
 
 CSS = '''<style id="gp-brand-live-css">
-.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}.gp-footer-credit{margin:10px 0 8px;text-align:center;color:#566b80;font-size:10px;letter-spacing:.08em}.gp-footer-credit b{color:#91a4b8}
-/* Prevent the dashboard from reserving artificial vertical space below Signal Breakdown. */
+.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}
+/* Keep the first dashboard row tight; no artificial reserved height under Signal Breakdown. */
 #top{grid-auto-rows:max-content!important;align-items:start!important;min-height:0!important;height:auto!important}#top>.panel{height:auto!important;min-height:0!important;margin:0!important}.wrap{grid-auto-rows:max-content!important}.wrap>section{height:auto!important;min-height:0!important}
 @media(max-width:720px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}}
 </style>'''
@@ -35,25 +35,26 @@ def patch_snapshot():
 def patch_index():
     s = INDEX.read_text()
 
-    # Remove every previously generated branding/style/footer instance first.
+    # Remove all generated branding blocks before rebuilding exactly one.
     s = re.sub(r'<style id="gp-brand-live-css">.*?</style>', '', s, flags=re.S)
     s = re.sub(r'<div class="gp-footer-credit">.*?</div>', '', s, flags=re.S)
-    s = re.sub(r'<span class="gp-brand-credit">.*?</span>', '', s, flags=re.S)
     s = re.sub(r'<div class="gp-live-chip">.*?</div>', '', s, flags=re.S)
+    s = re.sub(r'<div class="gp-brand-wrap"><div class="brand">.*?</div><span class="gp-brand-credit">.*?</span></div>', '', s, flags=re.S)
+    s = re.sub(r'<span class="gp-brand-credit">.*?</span>', '', s, flags=re.S)
 
-    # Normalize the title so the credit is not repeated in the browser title.
+    # The document title should never be used as a visible branding credit.
     s = re.sub(r'<title>.*?</title>', '<title>Global Pulse — Global Conflict & Intelligence Monitor</title>', s, count=1, flags=re.S)
 
-    # Normalize the first visible brand only; remove accidental credit text from brand markup.
-    s = re.sub(r'<div class="brand">.*?</div>', '<div class="brand"><b>GLOBAL</b> PULSE</div>', s, count=1, flags=re.S)
-    brand = '<div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div>'
-    if 'class="gp-brand-wrap"' in s:
-        s = re.sub(r'<div class="gp-brand-wrap">.*?</div>\s*', brand, s, count=1, flags=re.S)
-    else:
-        s = s.replace('<div class="brand"><b>GLOBAL</b> PULSE</div>', brand, 1)
+    # Remove any accidental visible credit text left by older layers.
+    s = re.sub(r'\s*·?\s*Made by J\.S\.\s*', ' ', s)
+    s = re.sub(r'\s{2,}', ' ', s)
 
+    # Rebuild one and only one visible J.S. credit beside the main brand.
+    brand = '<div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div>'
+    s = re.sub(r'<div class="brand"><b>GLOBAL</b> PULSE</div>', brand, s, count=1)
+
+    # One live chip; no footer credit is added, eliminating the bottom spacer.
     s = s.replace('</header>', '<div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>', 1)
-    s = s.replace('</main>', '<div class="gp-footer-credit">GLOBAL PULSE <b>· Made by J.S.</b> · Public-source intelligence monitor</div></main>', 1)
     s = s.replace('</head>', CSS + '</head>', 1)
     INDEX.write_text(s)
 
@@ -61,4 +62,4 @@ def patch_index():
 if __name__ == '__main__':
     patch_snapshot()
     patch_index()
-    print('Update 7 applied: live feeds, deterministic single branding credit, and top-layout gap fix.')
+    print('Update 7 applied: live feeds, single J.S. brand credit, and compact top layout.')
