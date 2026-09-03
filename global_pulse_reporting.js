@@ -7,6 +7,16 @@
   function safe(v,d){v=String(v==null?"":v).trim();return v||d||""}
   function url(v){try{var u=new URL(String(v||""),location.href);return /^https?:$/.test(u.protocol)?u.href:""}catch(e){return ""}}
   function ago(v){var t=Date.parse(v||"");if(!isFinite(t))return "Time unavailable";var m=Math.max(0,Math.floor((Date.now()-t)/60000)),h=Math.floor(m/60),d=Math.floor(h/24);return m<1?"just now":m<60?m+"m ago":h<24?h+"h ago":d+"d ago"}
+  function removeDuplicateReporting(){
+    var sections=Array.from(document.querySelectorAll("section")),found=false;
+    sections.forEach(function(sec){
+      var heading=sec.querySelector("h2");
+      var isReporting=heading&&/^latest reporting$/i.test((heading.textContent||"").trim());
+      if(!isReporting)return;
+      if(!found){found=true;return}
+      sec.remove();
+    });
+  }
   function normalize(p){
     var a=Array.isArray(p)?p:(p&&p.articles)||(p&&p.stories)||[];
     return a.map(function(x){x=x||{};var c=x.credit||{};return {title:safe(x.title||x.headline,"Untitled report"),published_date:safe(x.published_date||x.time||x.publishedAt||x.timestamp),summary_snippet:safe(x.summary_snippet||x.summary||x.description,"No summary was provided by the source."),original_link:url(x.original_link||x.url||x.link||c.source_url),source:safe(c.source||x.source_name||x.sourceLabel||x.source,"Open-data source")}}).filter(function(x){return x.title})
@@ -34,6 +44,7 @@
   function alertBox(){var f=$(FEED_ID);if(!f)return;var a=document.createElement("div");a.className="gp-reporting-alert";a.setAttribute("role","alert");var s=document.createElement("strong");s.textContent="Pipeline Connection Terminated - Retrying...";var d=document.createElement("span");d.textContent="Live API unavailable. Showing repository data when available; retrying automatically.";a.appendChild(s);a.appendChild(d);f.replaceChildren(a);var c=$(COUNT_ID);if(c)c.textContent="RECONNECTING"}
   async function get(u){var ac=new AbortController(),id=setTimeout(function(){ac.abort()},TIMEOUT_MS);try{var r=await fetch(u,{cache:"no-store",signal:ac.signal,headers:{Accept:"application/json"}});if(!r.ok)throw Error(r.status);return await r.json()}finally{clearTimeout(id)}}
   async function fetchPulseReporting(){
+    removeDuplicateReporting();
     var f=$(FEED_ID);if(!f)return;f.setAttribute("aria-busy","true");
     for(var i=0;i<FALLBACK.length;i++){try{var p=await get(FALLBACK[i]+"?t="+Date.now()),a=normalize(p);if(a.length){render(a,"snapshot");f.classList.add("gp-reporting-fallback");f.setAttribute("aria-busy","false");return true}}catch(e){}}
     var candidates=[];if(window.GLOBAL_PULSE_API)candidates.push(window.GLOBAL_PULSE_API);if(location.hostname==="localhost"||location.hostname==="127.0.0.1")candidates.push(location.origin+"/");
@@ -41,6 +52,6 @@
     alertBox();f.setAttribute("aria-busy","false");return false;
   }
   window.fetchPulseReporting=fetchPulseReporting;
-  function start(){fetchPulseReporting();setInterval(fetchPulseReporting, POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
+  function start(){removeDuplicateReporting();fetchPulseReporting();setInterval(fetchPulseReporting, POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
