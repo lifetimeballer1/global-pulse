@@ -54,6 +54,7 @@ jobs:
           assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers)
           assert all(m.get('source') and m.get('observedAt') for m in markers)
           assert all(m.get('sourceUrl') or m.get('url') for m in markers)
+          assert any(v > 0 for v in counts.values())
           print('Regional points:', counts)
           print('Total OSINT markers:', len(markers))
           print('Remaining source failures:', len(o.get('regionalFailures',[])))
@@ -62,7 +63,7 @@ jobs:
       - name: Commit regional OSINT and map updates
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+users.noreply.github.com'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/snapshot.json index.html
           if git diff --cached --quiet; then
             echo 'No regional OSINT/map changes to commit.'
