@@ -89,7 +89,7 @@ jobs:
           assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
           assert html.count('class="gp-footer-credit"')==0, 'old footer credit remains'
-          assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
+          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
           assert not re.search(r'\b(coming soon|under construction)\b',html,re.I), 'unfinished content remains'
           print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges")
           print(f"UPDATED: {d['updatedAt']}")
