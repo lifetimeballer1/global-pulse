@@ -37,7 +37,7 @@ jobs:
         run: |
           python patch_index_ui.py
           python apply_ui_patch.py
-      - name: Apply map, evidence, analysis and professional UI layers
+      - name: Apply legacy UI cleanup layers
         run: |
           python update2_map.py
           python update3_evidence.py
@@ -51,7 +51,7 @@ jobs:
         run: python update_snapshot.py
       - name: Sync intelligence maps
         run: python update_osint.py
-      - name: Add strategic and hazard layers
+      - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
       - name: Validate build
         run: |
@@ -66,7 +66,9 @@ jobs:
           assert isinstance(d.get('markers',[]), list), 'markers missing'
           assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
           assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
-          assert 'USGS Earthquakes' in html or 'gp-own-map-js' in html, 'map layer missing'
+          assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
+          assert 'gp-evidence-css' not in html and 'gp-evidence-js' not in html, 'duplicate evidence UI remains'
+          assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
           assert 'Made by J.S.' in html, 'branding missing'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['markers']), 'markers')
           PY
@@ -78,6 +80,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "fix: harden global intelligence map pipeline"
+            git commit -m "fix: make global pulse map pipeline deterministic"
             git push
           fi
