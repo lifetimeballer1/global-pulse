@@ -2,7 +2,7 @@ name: Global Pulse — Refresh, Validate & Deploy
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
   push:
     branches:
@@ -36,6 +36,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Restore persistent live-news SQLite database
+        uses: actions/cache@v4
+        with:
+          path: news_feed.db
+          key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-global-pulse-news-db-
+
       - name: Verify runtime
         run: |
           python --version
@@ -45,8 +53,14 @@ jobs:
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
 
+      - name: Poll persistent news and public X RSS sources
+        run: python news_feed_db.py --once
+
       - name: Refresh public intelligence data
         run: python update_snapshot.py
+
+      - name: Merge persistent live-news database into public snapshot
+        run: python merge_live_news.py
 
       - name: Promote politics and economics to first-class layers
         run: python update_political_layer.py
@@ -72,17 +86,28 @@ jobs:
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          python -m py_compile update_snapshot.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
           python - <<'PY'
-          import json,re
+          import json,re,sqlite3
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
+          status=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
           g=d.get('intelligenceGraph',{})
           pi=d.get('politicalIntelligence',{})
+          con=sqlite3.connect('news_feed.db')
+          cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}
+          db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]
+          con.close()
+          required={'url','title','published_date','summary_snippet','credit_metadata'}
+          assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
+          assert db_count >= 1, 'SQLite database contains no articles'
+          assert live.get('count',0) >= 1, 'live JSON export contains no articles'
+          assert status.get('feedsChecked',0) >= 10, 'live collector did not check expected sources'
           assert d.get('updatedAt'), 'snapshot has no updatedAt'
           assert len(d.get('stories',[]))>=100, f"too few stories: {len(d.get('stories',[]))}"
           assert len(d.get('conflicts',[]))>=25, f"too few conflicts: {len(d.get('conflicts',[]))}"
@@ -103,13 +128,16 @@ jobs:
           assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'CNN politics feed missing'
           assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Axios politics feed missing'
           assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Morse Report feed missing'
+          assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'X account source missing'
+          assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'SQLite integration missing'
           assert html.count('Made by J.S.')==1, 'branding duplicated'
           assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
           assert html.count('class="gp-footer-credit"')==0, 'old footer credit remains'
           assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
           assert not re.search(r'\b(coming soon|under construction)\b',html,re.I), 'unfinished content remains'
-          print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges, {pi['totalSignals']} political intelligence signals, {pi['corroboratedSignals']} corroborated")
+          print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges, {pi['totalSignals']} political intelligence signals, {pi['corroboratedSignals']} corroborated, {db_count} SQLite rows")
+          print(f"LIVE SOURCES: {status['healthySources']}/{status['feedsChecked']} healthy; {status['newArticles']} new; {status['purged']} purged")
           print(f"UPDATED: {d['updatedAt']}")
           print(f"SOURCE STATUS: {d.get('sourceStatus','unknown')}")
           PY
