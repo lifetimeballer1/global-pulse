@@ -80,6 +80,7 @@ jobs:
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
           node --check global_pulse_reporting.js
+          node --check global_pulse_tension.js
           node --check global_pulse_v22.js
           node --check global_pulse_v23.js
           node --check global_pulse_v24.js
@@ -91,56 +92,32 @@ jobs:
           live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
           status=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
-          g=d.get('intelligenceGraph',{})
-          pi=d.get('politicalIntelligence',{})
-          con=sqlite3.connect('news_feed.db')
-          cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}
-          db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]
-          con.close()
-          required={'url','title','published_date','summary_snippet','credit_metadata'}
-          assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
-          assert db_count >= 1, 'SQLite database contains no articles'
-          assert live.get('count',0) >= 1, 'live JSON export contains no articles'
-          assert status.get('feedsChecked',0) >= 10, 'live collector did not check expected sources'
-          assert d.get('updatedAt'), 'snapshot has no updatedAt'
-          assert len(d.get('stories',[]))>=100, f"too few stories: {len(d.get('stories',[]))}"
-          assert len(d.get('conflicts',[]))>=25, f"too few conflicts: {len(d.get('conflicts',[]))}"
-          assert len(d.get('cfrConflicts',[]))>=20, f"too few CFR conflicts: {len(d.get('cfrConflicts',[]))}"
-          assert len(d.get('usPolitics',[])) + len(d.get('worldPolitics',[])) > 0, 'politics layer contains no stories'
-          assert len(d.get('economics',[])) > 0, 'economics layer contains no stories'
-          assert pi.get('totalSignals',0) > 0, 'political intelligence engine produced no signals'
-          assert isinstance(pi.get('topSignals'),list) and len(pi['topSignals']) > 0, 'political intelligence topSignals missing'
-          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10, 'intelligence graph is incomplete'
-          assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
-          assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR layer missing'
-          assert 'gp-map-rescue-js' in html, 'canonical map UI missing'
-          for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js']:
+          g=d.get('intelligenceGraph',{}); pi=d.get('politicalIntelligence',{})
+          con=sqlite3.connect('news_feed.db'); cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}; db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]; con.close()
+          required={'url','title','published_date','summary_snippet','credit_metadata'}; assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
+          assert db_count>=1; assert live.get('count',0)>=1; assert status.get('feedsChecked',0)>=10; assert d.get('updatedAt')
+          assert len(d.get('stories',[]))>=100; assert len(d.get('conflicts',[]))>=25; assert len(d.get('cfrConflicts',[]))>=20
+          assert len(d.get('usPolitics',[]))+len(d.get('worldPolitics',[]))>0; assert len(d.get('economics',[]))>0
+          assert pi.get('totalSignals',0)>0 and isinstance(pi.get('topSignals'),list) and len(pi['topSignals'])>0
+          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
+          assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])); assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[]))
+          assert 'gp-map-rescue-js' in html; assert 'pulse-reporting-feed' in html
+          for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_tension.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js']:
             assert asset in html, f'{asset} missing from index'
-          assert 'pulse-reporting-feed' in html, 'live reporting container missing'
-          assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8'), 'political reporting panel missing'
-          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'politics feed expansion missing'
-          assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Fox politics feed missing'
-          assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'CNN politics feed missing'
-          assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Axios politics feed missing'
-          assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Morse Report feed missing'
-          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'), 'V2.4 climate driver missing'
-          assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'), 'V2.5 pathway layer missing'
-          assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'X account source missing'
-          assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'SQLite integration missing'
-          assert html.count('Made by J.S.')==1, 'branding duplicated'
-          assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
-          assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
-          assert html.count('class="gp-footer-credit"')==0, 'old footer credit remains'
-          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I), 'placeholder content remains'
-          assert not re.search(r'\b(coming soon|under construction)\b',html,re.I), 'unfinished content remains'
-          assert d.get('scoreVersion') == 3, f"unexpected score version: {d.get('scoreVersion')}"
-          assert isinstance(d.get('tension'), (int,float)) and 0 <= d['tension'] <= 100, 'invalid tension score'
-          assert isinstance(d.get('breakdownScores'), dict) and len(d['breakdownScores']) >= 6, 'tension breakdown incomplete'
-          print(f"VALID: {len(d['stories'])} stories, {len(d['usPolitics'])} U.S. politics, {len(d['worldPolitics'])} world politics, {len(d['economics'])} economics, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges, {pi['totalSignals']} political intelligence signals, {pi['corroboratedSignals']} corroborated, {db_count} SQLite rows")
+          assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
+          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
+          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
+          assert html.count('Made by J.S.')==1; assert html.count('id="gp-brand-live-css"')==1; assert html.count('id="gp-auto-refresh"')==1; assert html.count('class="gp-footer-credit"')==0
+          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I); assert not re.search(r'\b(coming soon|under construction)\b',html,re.I)
+          assert d.get('scoreVersion')==4, f"unexpected score version: {d.get('scoreVersion')}"
+          assert isinstance(d.get('tension'),(int,float)) and 0<=d['tension']<=100
+          assert isinstance(d.get('breakdownScores'),dict) and len(d['breakdownScores'])>=6
+          assert isinstance(d.get('driverSignals'),dict) and len(d['driverSignals'])>=6
+          for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal, f'invalid driver evidence: {name}'
+          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {pi['totalSignals']} political intelligence signals, {db_count} SQLite rows")
+          print(f"TENSION: {d['tension']} · {d['breakdownScores']}")
+          print(f"DRIVER EVIDENCE: { {k:(v['matches'],v['sources']) for k,v in d['driverSignals'].items()} }")
           print(f"LIVE SOURCES: {status['healthySources']}/{status['feedsChecked']} healthy; {status['newArticles']} new; {status['purged']} purged")
-          print(f"UPDATED: {d['updatedAt']}")
-          print(f"SOURCE STATUS: {d.get('sourceStatus','unknown')}")
-          print(f"SCORE VERSION: {d.get('scoreVersion','unknown')}")
           PY
       - name: Commit refreshed data and generated site changes
         run: |
@@ -148,27 +125,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          if git diff --staged --quiet; then
-            echo "No generated changes to commit"
-            exit 0
-          fi
+          if git diff --staged --quiet; then echo "No generated changes to commit"; exit 0; fi
           git commit -m "chore: refresh global pulse data"
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             if git rebase origin/main; then
-              if git push origin HEAD:main; then
-                echo "Published refreshed data on attempt $attempt"
-                exit 0
-              fi
+              if git push origin HEAD:main; then echo "Published refreshed data on attempt $attempt"; exit 0; fi
               git rebase --abort || true
-            else
-              git rebase --abort || true
-            fi
-            echo "Publish race on attempt $attempt; retrying..."
-            sleep $((attempt * 3))
+            else git rebase --abort || true; fi
+            echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
           done
-          echo "Unable to publish refreshed data after 5 attempts"
-          exit 1
+          echo "Unable to publish refreshed data after 5 attempts"; exit 1
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
