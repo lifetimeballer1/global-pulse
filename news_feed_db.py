@@ -27,7 +27,7 @@ JSON_PATH = DATA / "live_articles.json"
 STATUS_PATH = DATA / "live_status.json"
 POLL_SECONDS = 300
 RETENTION_DAYS = 7
-MAX_WORKERS = 8
+MAX_WORKERS = 10
 USER_AGENT = "GlobalPulse/8.0 (+https://github.com/lifetimeballer1/global-pulse)"
 
 SOURCES = {
@@ -37,9 +37,15 @@ SOURCES = {
     "bbc_world": {"name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml", "type": "news", "category": "international"},
     "guardian_world": {"name": "The Guardian World", "url": "https://www.theguardian.com/world/rss", "type": "news", "category": "international"},
     "al_jazeera": {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "type": "news", "category": "international"},
+    "dw_world": {"name": "DW World", "url": "https://rss.dw.com/xml/rss-en-world", "type": "news", "category": "international"},
+    "france24": {"name": "France 24", "url": "https://www.france24.com/en/rss", "type": "news", "category": "international"},
+    "cna_world": {"name": "CNA World", "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311", "type": "news", "category": "international"},
+    "stars_stripes": {"name": "Stars and Stripes", "url": "https://subscribe.stripes.com/rss/top-news.xml", "type": "news", "category": "security"},
+    "morse_audio": {"name": "Morse Report", "url": "https://rss.buzzsprout.com/2637181.rss", "type": "podcast", "category": "us-politics"},
+    "morse_site": {"name": "Morse Report — Google News", "url": "https://news.google.com/rss/search?q=site%3Amorsereport.com&hl=en-US&gl=US&ceid=US%3Aen", "type": "news-mirror", "category": "us-politics"},
     "axios_politics": {"name": "Axios Politics", "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Aaxios.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h", "type": "news-mirror", "category": "us-politics"},
     "cnn_politics": {"name": "CNN Politics", "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h", "type": "news-mirror", "category": "us-politics"},
-    "morse_report": {"name": "Morse Report", "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Amorsereport.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h", "type": "news-mirror", "category": "us-politics"},
+    "morse_report": {"name": "Morse Report — GDELT Mirror", "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Amorsereport.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h", "type": "news-mirror", "category": "us-politics"},
 }
 
 X_ACCOUNTS = {
@@ -275,7 +281,6 @@ def run_cycle(conn: sqlite3.Connection) -> dict:
             except Exception as exc:
                 errors.append({"source": "collector-worker", "error": f"{type(exc).__name__}: {exc}"[:240]})
 
-    # Purge immediately after fetching, before writing the newly fetched batch.
     purged = purge_old(conn)
     added = upsert_articles(conn, fetched_rows)
     write_export(conn)
