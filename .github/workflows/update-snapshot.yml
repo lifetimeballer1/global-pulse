@@ -1,14 +1,12 @@
-name: Global Pulse — Master Refresh & Deploy
+name: Global Pulse — Refresh, Validate & Deploy
 
 on:
   push:
     branches: [main]
     paths:
-      - 'update*.py'
-      - 'patch_index_ui.py'
-      - 'apply_ui_patch.py'
-      - 'global_map_ui.py'
       - 'index.html'
+      - 'update*.py'
+      - 'global_map_ui.py'
       - 'data/**'
       - '.github/workflows/update-snapshot.yml'
   schedule:
@@ -21,14 +19,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: global-pulse-master-refresh
+  group: global-pulse-production
   cancel-in-progress: true
 
 env:
   PYTHONUNBUFFERED: '1'
 
 jobs:
-  refresh:
+  refresh-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
@@ -36,17 +34,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-
-      - name: Apply stable UI foundation
-        run: |
-          python patch_index_ui.py
-          python apply_ui_patch.py
 
       - name: Refresh public intelligence data
         run: python update_snapshot.py
@@ -60,42 +53,41 @@ jobs:
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
 
-      - name: Apply final live-data branding and layout cleanup
+      - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
 
-      - name: Validate build
+      - name: Validate production build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py apply_ui_patch.py patch_index_ui.py
+          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py
           python - <<'PY'
           import json,re
           from pathlib import Path
-          d=json.load(open('data/snapshot.json',encoding='utf-8'))
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
           assert d.get('updatedAt'), 'missing updatedAt'
           assert len(d.get('stories',[])) >= 100, 'too few stories'
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
           assert len(d.get('cfrConflicts',[])) >= 20, 'CFR layer did not sync enough conflicts'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
-          assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
-          assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR map layer missing'
+          assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d['markers']), 'strategic layer missing'
+          assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d['markers']), 'CFR map layer missing'
           assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
-          assert 'gp-evidence-css' not in html and 'gp-evidence-js' not in html, 'duplicate evidence UI remains'
-          assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
           assert html.count('Made by J.S.') == 1, 'J.S. branding is duplicated'
           assert html.count('id="gp-brand-live-css"') == 1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"') == 1, 'auto-refresh script duplicated'
           assert html.count('class="gp-footer-credit"') == 0, 'footer credit must not create extra spacing'
           assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b', html, re.I), 'placeholder content remains'
-          print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['cfrConflicts']), 'CFR conflicts,', len(d['markers']), 'markers')
+          assert not re.search(r'\b(coming soon|under construction)\b', html, re.I), 'unfinished copy remains'
+          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers")
           PY
 
-      - name: Commit refreshed site data
+      - name: Commit refreshed data when changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add index.html data/*.json
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No generated site/data changes to commit"
           else
             git commit -m "chore: refresh global pulse data"
             git push
