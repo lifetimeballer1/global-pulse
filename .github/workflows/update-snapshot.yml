@@ -10,6 +10,7 @@ on:
       - 'global_pulse_source_health.js'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
+      - 'global_pulse_v26.js'
 permissions:
   contents: write
   pages: write
@@ -89,6 +90,7 @@ jobs:
           node --check global_pulse_v23.js
           node --check global_pulse_v24.js
           node --check global_pulse_v25.js
+          node --check global_pulse_v26.js
           python - <<'PY'
           import json,re,sqlite3
           from pathlib import Path
@@ -106,7 +108,7 @@ jobs:
           assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
           assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])); assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[]))
           assert 'gp-map-rescue-js' in html; assert 'pulse-reporting-feed' in html
-          for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_tension.js','global_pulse_source_health.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js']:
+          for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_tension.js','global_pulse_source_health.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js','global_pulse_v26.js']:
             assert asset in html, f'{asset} missing from index'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
@@ -134,7 +136,7 @@ jobs:
           git commit -m "chore: refresh global pulse data"
           for attempt in 1 2 3 4 5; do
             git fetch origin main
-            if git rebase origin/main; then
+            if git rebase -X theirs origin/main; then
               if git push origin HEAD:main; then echo "Published refreshed data on attempt $attempt"; exit 0; fi
               git rebase --abort || true
             else git rebase --abort || true; fi
