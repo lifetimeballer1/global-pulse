@@ -28,7 +28,6 @@ POLL_SECONDS = 300
 RETENTION_DAYS = 7
 USER_AGENT = "GlobalPulse/8.0 (+https://github.com/lifetimeballer1/global-pulse)"
 
-# Easy to extend: add a normal RSS/Atom feed or an X public-account RSS proxy.
 SOURCES = {
     "cnn": {"name": "CNN", "url": "https://rss.cnn.com/rss/edition.rss", "type": "news", "category": "international"},
     "fox_politics": {"name": "Fox News Politics", "url": "https://moxie.foxnews.com/google-publisher/politics.xml", "type": "news", "category": "us-politics"},
@@ -83,7 +82,10 @@ def parse_date(value: str | None) -> str:
 
 def node_text(node: ET.Element, *tags: str) -> str:
     for tag in tags:
-        found = node.find(tag)
+        try:
+            found = node.find(tag)
+        except SyntaxError:
+            continue
         if found is not None:
             if found.text:
                 return found.text.strip()
@@ -115,7 +117,7 @@ def parse_feed(payload: bytes, source_id: str, meta: dict) -> list[dict]:
         link = node_link(item)
         summary = clean(node_text(item, "description", "summary", "content", "{http://www.w3.org/2005/Atom}summary", "{http://www.w3.org/2005/Atom}content"), 900)
         pub = node_text(item, "pubDate", "published", "updated", "{http://www.w3.org/2005/Atom}published", "{http://www.w3.org/2005/Atom}updated")
-        author = clean(node_text(item, "author", "dc:creator", "{http://purl.org/dc/elements/1.1/}creator", "{http://www.w3.org/2005/Atom}author"), 160)
+        author = clean(node_text(item, "author", "{http://purl.org/dc/elements/1.1/}creator", "{http://www.w3.org/2005/Atom}author"), 160)
         if not link:
             continue
         if not title:
@@ -151,7 +153,6 @@ def parse_x_account(handle: str, display_name: str) -> list[dict]:
         try:
             payload = fetch(url)
             text_payload = payload.decode("utf-8", errors="ignore")
-            # XCancel can return a challenge/whitelist page with HTTP 200.
             if "RSS reader not yet whitelisted" in text_payload or "checking your browser" in text_payload.lower():
                 raise RuntimeError("proxy challenge/whitelist response")
             rows = parse_feed(payload, f"x:{handle}", {"name": f"X @{handle}", "type": "social", "category": "osint", "url": url})
@@ -254,7 +255,6 @@ def run_cycle(conn: sqlite3.Connection) -> dict:
         except Exception as exc:
             errors.append({"source": f"X @{handle}", "error": f"{type(exc).__name__}: {exc}"[:240]})
 
-    # Purge immediately after fetching, before writing the newly fetched batch.
     purged = purge_old(conn)
     added = upsert_articles(conn, fetched_rows)
     write_export(conn)
