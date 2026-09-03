@@ -44,6 +44,8 @@ jobs:
       - name: Validate production build
         run: |
           python -m py_compile update_snapshot.py update_feed_expansion.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          node --check global_pulse_graph.js
+          node --check global_pulse_enhancements.js
           python - <<'PY'
           import json,re
           from pathlib import Path
@@ -56,6 +58,8 @@ jobs:
           assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[]))
           assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[]))
           assert 'gp-map-rescue-js' in html
+          assert 'global_pulse_graph.js' in html
+          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8')
           assert html.count('Made by J.S.')==1
           assert html.count('id="gp-brand-live-css"')==1
           assert html.count('id="gp-auto-refresh"')==1
