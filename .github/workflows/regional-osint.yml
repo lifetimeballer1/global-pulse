@@ -5,6 +5,12 @@ on:
     workflows: ["Global Pulse — Refresh, Validate & Deploy"]
     types: [completed]
   workflow_dispatch:
+  # A collector-code change gets one immediate validation run. This avoids
+  # waiting for the overnight schedule to repopulate regional coverage.
+  push:
+    branches: [main]
+    paths:
+      - 'regional_osint_v2.py'
   schedule:
     - cron: '17 3 * * *'
 
