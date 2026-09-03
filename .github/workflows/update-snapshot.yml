@@ -7,6 +7,7 @@ on:
       - 'update*.py'
       - 'patch_index_ui.py'
       - 'apply_ui_patch.py'
+      - 'global_map_ui.py'
       - 'index.html'
       - 'data/**'
       - '.github/workflows/update-snapshot.yml'
@@ -54,7 +55,7 @@ jobs:
         run: python update8_global_layers.py
       - name: Validate build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py update8_global_layers.py
+          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py update8_global_layers.py global_map_ui.py
           python - <<'PY'
           import json
           d=json.load(open('data/snapshot.json'))
@@ -64,7 +65,8 @@ jobs:
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
           assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
-          assert any(m.get('source') == 'Guerilla Map Strategic Layer' for m in d.get('markers',[])), 'strategic layer missing'
+          assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
+          assert 'USGS Earthquakes' in html or 'gp-own-map-js' in html, 'map layer missing'
           assert 'Made by J.S.' in html, 'branding missing'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['markers']), 'markers')
           PY
@@ -76,6 +78,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "feat: global intelligence refresh and live data pipeline"
+            git commit -m "fix: harden global intelligence map pipeline"
             git push
           fi
