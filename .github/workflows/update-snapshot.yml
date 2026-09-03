@@ -12,7 +12,7 @@ on:
       - 'data/**'
       - '.github/workflows/update-snapshot.yml'
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,11 +51,13 @@ jobs:
         run: python update_snapshot.py
       - name: Sync intelligence maps
         run: python update_osint.py
+      - name: Sync CFR Global Conflict Tracker
+        run: python update_cfr.py
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
       - name: Validate build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update6_global_graph.py update7_live_branding.py update8_global_layers.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update6_global_graph.py update7_live_branding.py update8_global_layers.py global_map_ui.py
           python - <<'PY'
           import json
           d=json.load(open('data/snapshot.json'))
@@ -63,14 +65,16 @@ jobs:
           assert d.get('updatedAt'), 'missing updatedAt'
           assert len(d.get('stories',[])) >= 100, 'too few stories'
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
+          assert len(d.get('cfrConflicts',[])) >= 20, 'CFR layer did not sync enough conflicts'
           assert isinstance(d.get('markers',[]), list), 'markers missing'
           assert isinstance(d.get('globalGraph',{}), dict), 'globalGraph missing'
           assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
+          assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR map layer missing'
           assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
           assert 'gp-evidence-css' not in html and 'gp-evidence-js' not in html, 'duplicate evidence UI remains'
           assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
           assert 'Made by J.S.' in html, 'branding missing'
-          print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['markers']), 'markers')
+          print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['cfrConflicts']), 'CFR conflicts,', len(d['markers']), 'markers')
           PY
       - name: Commit and push if changed
         run: |
@@ -80,6 +84,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "fix: make global pulse map pipeline deterministic"
+            git commit -m "feat: refresh conflict intelligence and CFR layer"
             git push
           fi
