@@ -26,11 +26,42 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Collect fresh regional OSINT events
-        run: python regional_osint_v2.py
-
-      - name: Normalize legacy OSINT coverage
-        run: python update_conflict_coverage.py
+      # Pages is a deployment job, not a data collector. Fresh OSINT is
+      # collected by regional-osint.yml and committed to main. Keeping the
+      # network-dependent collector out of Pages prevents a temporary upstream
+      # outage from taking the entire website offline.
+      - name: Validate committed map data
+        run: |
+          set -euo pipefail
+          python -m py_compile update_conflict_coverage.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          markers=d.get('markers', [])
+          regional=[m for m in markers if m.get('layer')=='osint-regional']
+          o=d.get('osintMaps') or {}
+          counts=o.get('regionalCounts') or {}
+          print(f'Total markers: {len(markers)}')
+          print(f'Committed regional OSINT markers: {len(regional)}')
+          print('Regional counts:', counts)
+          if not regional:
+              raise SystemExit('No committed regional OSINT markers are available for Pages')
+          for m in regional:
+              assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
+              assert m.get('source') and m.get('observedAt')
+              assert m.get('url') or m.get('sourceUrl')
+          html=Path('index.html').read_text(encoding='utf-8')
+          required_assets=(
+              'global_pulse_coverage_ui.js',
+              'global_pulse_intelligence.js',
+              'global_pulse_intelligence.css',
+          )
+          for asset in required_assets:
+              if asset not in html:
+                  raise SystemExit(f'{asset} was not integrated')
+          print('Committed map data and dashboard assets validated.')
+          PY
 
       - name: Inject dashboard enhancements
         run: |
@@ -55,28 +86,15 @@ jobs:
               print(tag, 'present' if tag in text else 'missing')
           PY
 
-      - name: Validate enriched snapshot and dashboard
+      - name: Validate Pages artifact inputs
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          markers=d.get('markers', [])
-          regional=[m for m in markers if m.get('layer')=='osint-regional']
-          print(f'Total markers: {len(markers)}')
-          print(f'Regional OSINT markers: {len(regional)}')
-          if not regional:
-              raise SystemExit('No fresh regional OSINT markers reached the Pages artifact')
-          for m in regional:
-              assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
-              assert m.get('source') and m.get('observedAt')
-              assert m.get('url') or m.get('sourceUrl')
-          html=Path('index.html').read_text(encoding='utf-8')
-          for asset in ('global_pulse_coverage_ui.js','global_pulse_intelligence.js','global_pulse_intelligence.css'):
-              if asset not in html:
-                  raise SystemExit(f'{asset} was not integrated')
-          print('Regional counts:', d.get('osintMaps',{}).get('regionalCounts',{}))
-          PY
+          set -euo pipefail
+          test -s index.html
+          test -s global_pulse_coverage_ui.js
+          test -s global_pulse_intelligence.js
+          test -s global_pulse_intelligence.css
+          test -s data/snapshot.json
+          echo 'Pages artifact inputs are present.'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
