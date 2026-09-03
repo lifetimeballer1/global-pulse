@@ -33,7 +33,7 @@ A no-API-key global intelligence dashboard built for GitHub Pages. It combines p
 
 The GitHub Actions workflow runs every 30 minutes and can also be started manually from the **Actions** tab. It validates the generated data and UI before deployment.
 
-The refresh workflow deploys the refreshed artifact directly. It intentionally does not run on ordinary pushes because GitHub Pages already handles source-change deployments; this avoids duplicate deployments while preserving scheduled data publishing. GitHub notes that commits made with `GITHUB_TOKEN` do not themselves trigger another workflow or Pages build. citeturn0search1turn0search4
+The refresh workflow deploys the refreshed artifact directly. It intentionally does not run on ordinary pushes because GitHub Pages already handles source-change deployments; this avoids duplicate deployments while preserving scheduled data publishing. GitHub's `GITHUB_TOKEN` behavior prevents workflow-created commits from starting another workflow or Pages build.
 
 ## Local development
 
