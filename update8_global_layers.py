@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
-"""Add high-value global intelligence points and no-key live hazard signals.
+"""Add high-value global reference points and no-key live hazard signals.
 
-Designed around the public layers documented by Guerillamap: conflicts, military,
-infrastructure, environment and strategic chokepoints. The points are deliberately
-coarse/high-level and are paired with public source links. No API key is required.
+The reference points mirror strategic categories exposed by Guerilla Map, but they
+are NOT copied Guerilla Map incident records. Live incident data is only imported
+when a public machine-readable source is available (currently USGS earthquakes).
+No API key is required.
 """
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent
 SNAP = ROOT / "data" / "snapshot.json"
+GUERILLA_URL = "https://guerillamap.com/"
 
-# High-value strategic nodes inspired by the categories exposed by Guerillamap.
-# These are reference points, not claims that a specific incident is occurring there.
 KEY_POINTS = [
     (30.0444, 31.2357, "Suez Canal", "Egypt", "STRATEGIC CHOKEPOINT", "Global shipping chokepoint linking the Mediterranean and Red Sea.", "https://www.suezcanal.gov.eg/"),
     (26.5667, 56.2500, "Strait of Hormuz", "Iran / Oman", "STRATEGIC CHOKEPOINT", "Critical Gulf energy and shipping chokepoint.", "https://www.eia.gov/international/analysis/regions-of-interest/World"),
@@ -54,7 +53,7 @@ KEY_POINTS = [
 
 
 def fetch_json(url):
-    req = Request(url, headers={"User-Agent": "GlobalPulse/8.0"})
+    req = Request(url, headers={"User-Agent": "GlobalPulse/8.1"})
     with urlopen(req, timeout=25) as r:
         return json.loads(r.read().decode("utf-8"))
 
@@ -65,7 +64,7 @@ def add_key_points(markers):
         managed.append({
             "lat": lat, "lng": lng, "type": "strategic", "layer": "strategic",
             "importance": 3, "title": title, "detail": detail,
-            "url": url, "sourceUrl": url, "source": "Guerilla Map Strategic Layer",
+            "url": url, "sourceUrl": url, "source": "Guerilla Map Strategic Reference",
             "region": region, "eventType": event_type,
             "confidence": "REFERENCE NODE / NOT AN INCIDENT",
         })
@@ -73,7 +72,6 @@ def add_key_points(markers):
 
 
 def add_live_earthquakes(markers):
-    # USGS public GeoJSON: magnitude 4.5+ in the last 24 hours.
     url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson"
     try:
         data = fetch_json(url)
@@ -107,9 +105,17 @@ def main():
     markers, quake_status = add_live_earthquakes(markers)
     snap["markers"] = markers
     snap["updatedAt"] = datetime.now(timezone.utc).isoformat()
-    snap["sourceStatus"] = ((snap.get("sourceStatus", "") + "; ") if snap.get("sourceStatus") else "") + f"Guerilla Map strategic layer: {len(KEY_POINTS)} reference nodes | {quake_status}"
+    snap["externalLayers"] = {
+        "guerillaMap": {
+            "name": "Guerilla Map",
+            "url": GUERILLA_URL,
+            "status": "reference-only",
+            "note": "Global Pulse does not claim to ingest Guerilla Map incident records without a documented public machine-readable export. Strategic nodes use the same broad categories and are linked to independent public sources."
+        }
+    }
+    snap["sourceStatus"] = ((snap.get("sourceStatus", "") + "; ") if snap.get("sourceStatus") else "") + f"Strategic reference layer: {len(KEY_POINTS)} nodes | {quake_status}"
     note = snap.get("dataNote") or ""
-    additions = "Strategic reference nodes are derived from public Guerilla Map layer categories and are not incident reports. USGS earthquake points are live public hazard data."
+    additions = "Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data."
     if additions not in note:
         snap["dataNote"] = (note + " " + additions).strip()
     changes = snap.get("changes") or []
