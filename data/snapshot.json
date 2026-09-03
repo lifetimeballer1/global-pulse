@@ -1,20 +1,28 @@
 {
-  "updatedAt": "2026-09-03T17:54:53.359395+00:00",
-  "sourceStatus": "300 stories · 121 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
-  "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
-  "tension": 88,
-  "tensionDelta": 0,
+  "updatedAt": "2026-09-03T18:00:05.802945+00:00",
+  "sourceStatus": "300 stories · 123 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Climate & humanitarian pressure is a monitoring signal derived from current reporting and disaster alerts; it is not a climate model or official hazard index. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
+  "tension": 90,
+  "tensionDelta": 2,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 70,
+    "Diplomatic strain": 71,
     "Economic pressure": 100,
     "Market volatility": 81,
-    "Military posture": 88
+    "Military posture": 88,
+    "Climate & humanitarian pressure": 100
+  },
+  "climatePressure": {
+    "Drought & water": 40,
+    "Floods & storms": 72,
+    "Heat & fire": 63,
+    "Food security": 34,
+    "Health outbreaks": 41
   },
   "earlyWarning": {
     "level": "HIGH",
-    "score": 88,
-    "momentum": 2.4,
+    "score": 90,
+    "momentum": 2.3,
     "direction": "rising",
     "strongestDriver": "Conflict activity",
     "strongestDriverScore": 100,
@@ -38,28 +46,28 @@
     },
     {
       "kind": "new reporting",
-      "title": "Kurdish women who fought ISIL seek place in Syria’s new security forces",
+      "title": "Gaza farmers restore seed bank to preserve local crops",
       "detail": "Al Jazeera · international · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Syria begins destroying al-Assad-era chemical weapons materials",
-      "detail": "Al Jazeera · international · DEVELOPING"
+      "title": "Green forest fire notification in Zambia",
+      "detail": "GDACS Global Disaster Alerts · climate-hazard · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "What will Sonia Gandhi's memoir reveal about India's most powerful dynasty?",
-      "detail": "BBC Asia · regional · DEVELOPING"
+      "title": "Green earthquake (Magnitude 6.3M, Depth:35km) in United States 03/09/2026 11:17 UTC, 4 thousand in MMI>=III.",
+      "detail": "GDACS Global Disaster Alerts · climate-hazard · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Washington 27 August 2026 #3",
-      "detail": "Crisis Group · analysis · DEVELOPING"
+      "title": "Green forest fire notification in Brazil",
+      "detail": "GDACS Global Disaster Alerts · climate-hazard · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Hormuz 27 August 2026 #2",
-      "detail": "Crisis Group · analysis · DEVELOPING"
+      "title": "Green forest fire notification in Australia",
+      "detail": "GDACS Global Disaster Alerts · climate-hazard · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -73,7 +81,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 12,
+      "signalCount": 11,
       "sourceCount": 6,
       "confidence": "CORROBORATED",
       "eventType": "MILITARY POSTURE",
@@ -124,7 +132,7 @@
           "signal": 15.0
         }
       ],
-      "facts": "12 conflict-specific signal(s) from 6 source(s) in the current feed window.",
+      "facts": "11 conflict-specific signal(s) from 6 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -137,7 +145,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 11,
+      "signalCount": 10,
       "sourceCount": 6,
       "confidence": "CORROBORATED",
       "eventType": "MILITARY POSTURE",
@@ -177,18 +185,18 @@
           "signal": 18.0
         },
         {
-          "title": "Israel says Hamas security chief captured as strikes kill four during Gaza raid",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/c1wxex4vg35o?at_medium=RSS&at_campaign=rss",
-          "time": "Tue, 01 Sep 2026 20:24:28 GMT",
+          "title": "Jerusalem Daily: Students sing ‘Erase Palestine’",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/jerusalem-daily-students-sing-erase?traffic_source=rss",
+          "time": "Thu, 03 Sep 2026 15:32:33 +0000",
           "match": [
-            "gaza",
-            "hamas"
+            "west bank",
+            "palestinian"
           ],
-          "signal": 18.0
+          "signal": 13.0
         }
       ],
-      "facts": "11 conflict-specific signal(s) from 6 source(s) in the current feed window.",
+      "facts": "10 conflict-specific signal(s) from 6 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -201,7 +209,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 20,
-      "signalCount": 7,
+      "signalCount": 6,
       "sourceCount": 3,
       "confidence": "CORROBORATED",
       "eventType": "KINETIC",
@@ -252,47 +260,7 @@
           "signal": 11.0
         }
       ],
-      "facts": "7 conflict-specific signal(s) from 3 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "somalia",
-      "name": "Somalia / al-Shabaab",
-      "region": "Africa",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "Somalia repels armed assault on Baidoa amid regional political tensions",
-      "escalation": "MODERATE",
-      "activityScore": 62,
-      "delta": 18,
-      "signalCount": 2,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "KINETIC",
-      "lastSignal": "2026-09-03T13:40:42+00:00",
-      "signals": [
-        {
-          "title": "Somalia repels armed assault on Baidoa amid regional political tensions",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/news/2026/9/3/somalia-repels-armed-assault-on-baidoa-amid-regional-political-tensions?traffic_source=rss",
-          "time": "2026-09-03T13:40:42+00:00",
-          "match": [
-            "somalia"
-          ],
-          "signal": 18.0
-        },
-        {
-          "title": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
-          "source": "BBC Africa",
-          "url": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss",
-          "time": "Mon, 31 Aug 2026 13:34:09 GMT",
-          "match": [
-            "somali"
-          ],
-          "signal": 10.4
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "facts": "6 conflict-specific signal(s) from 3 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -438,6 +406,36 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
+      "id": "somalia",
+      "name": "Somalia / al-Shabaab",
+      "region": "Africa",
+      "category": "INSURGENCY",
+      "status": "Active signal",
+      "recent": "Somalia repels armed assault on Baidoa amid regional political tensions",
+      "escalation": "MODERATE",
+      "activityScore": 50,
+      "delta": 6,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "KINETIC",
+      "lastSignal": "2026-09-03T13:40:42+00:00",
+      "signals": [
+        {
+          "title": "Somalia repels armed assault on Baidoa amid regional political tensions",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/3/somalia-repels-armed-assault-on-baidoa-amid-regional-political-tensions?traffic_source=rss",
+          "time": "2026-09-03T13:40:42+00:00",
+          "match": [
+            "somalia"
+          ],
+          "signal": 18.0
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
       "id": "nigeria",
       "name": "Nigeria Insurgency / Banditry",
       "region": "Africa",
@@ -516,47 +514,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "afghanistan",
-      "name": "Afghanistan Security Risk",
-      "region": "Asia",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-      "escalation": "LOW",
-      "activityScore": 42,
-      "delta": 0,
-      "signalCount": 2,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Tue, 01 Sep 2026 05:00:34 GMT",
-      "signals": [
-        {
-          "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
-          "time": "Tue, 01 Sep 2026 05:00:34 GMT",
-          "match": [
-            "afghanistan",
-            "taliban"
-          ],
-          "signal": 12.0
-        },
-        {
-          "title": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
-          "source": "Guardian US",
-          "url": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
-          "time": "Wed, 02 Sep 2026 14:27:00 GMT",
-          "match": [
-            "afghanistan"
-          ],
-          "signal": 2.5
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "korea",
       "name": "Korean Peninsula",
       "region": "Indo-Pacific",
@@ -587,30 +544,30 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "pakistan",
-      "name": "Pakistan Militancy / Border Risk",
-      "region": "Asia",
-      "category": "INSURGENCY",
+      "id": "mexico",
+      "name": "Mexico Cartel Conflict",
+      "region": "Latin America",
+      "category": "CRIMINAL CONFLICT",
       "status": "Active signal",
-      "recent": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
+      "recent": "Green earthquake (Magnitude 5.6M, Depth:10km) in Mexico 02/09/2026 12:28 UTC, 560 thousand in MMI IV.",
       "escalation": "LOW",
-      "activityScore": 39,
-      "delta": 0,
+      "activityScore": 41,
+      "delta": -2,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
       "eventType": "MONITORING",
-      "lastSignal": "Tue, 01 Sep 2026 05:00:34 GMT",
+      "lastSignal": "Wed, 02 Sep 2026 12:49:34 GMT",
       "signals": [
         {
-          "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-          "source": "BBC Middle East",
-          "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
-          "time": "Tue, 01 Sep 2026 05:00:34 GMT",
+          "title": "Green earthquake (Magnitude 5.6M, Depth:10km) in Mexico 02/09/2026 12:28 UTC, 560 thousand in MMI IV.",
+          "source": "GDACS Global Disaster Alerts",
+          "url": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563163",
+          "time": "Wed, 02 Sep 2026 12:49:34 GMT",
           "match": [
-            "pakistan"
+            "mexico"
           ],
-          "signal": 2.5
+          "signal": 6.0
         }
       ],
       "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
@@ -731,15 +688,15 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "taiwan",
-      "name": "Taiwan Strait Pressure",
-      "region": "Indo-Pacific",
-      "category": "FLASHPOINT",
+      "id": "pakistan",
+      "name": "Pakistan Militancy / Border Risk",
+      "region": "Asia",
+      "category": "INSURGENCY",
       "status": "Monitoring",
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": 0,
+      "delta": -2,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -750,10 +707,10 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "mexico",
-      "name": "Mexico Cartel Conflict",
-      "region": "Latin America",
-      "category": "CRIMINAL CONFLICT",
+      "id": "taiwan",
+      "name": "Taiwan Strait Pressure",
+      "region": "Indo-Pacific",
+      "category": "FLASHPOINT",
       "status": "Monitoring",
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
@@ -812,6 +769,36 @@
             "iraq"
           ],
           "signal": 11.5
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "afghanistan",
+      "name": "Afghanistan Security Risk",
+      "region": "Asia",
+      "category": "INSURGENCY",
+      "status": "Active signal",
+      "recent": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
+      "escalation": "LOW",
+      "activityScore": 29,
+      "delta": -13,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "Wed, 02 Sep 2026 14:27:00 GMT",
+      "signals": [
+        {
+          "title": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
+          "source": "Guardian US",
+          "url": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
+          "time": "Wed, 02 Sep 2026 14:27:00 GMT",
+          "match": [
+            "afghanistan"
+          ],
+          "signal": 2.5
         }
       ],
       "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
@@ -7293,6 +7280,286 @@
       "confidence": "PUBLIC LIVE FEED"
     },
     {
+      "lat": 37.7963,
+      "lng": 95.4671,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 271 km SSE of Dunhuang, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2887,
+      "lng": -169.4187,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 81 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2839,
+      "lng": -169.2869,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 78 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.4605,
+      "lng": 56.4505,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — Owen Fracture Zone region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.1366,
+      "lng": 169.3059,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 65 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1178,
+      "lng": 146.174,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 52 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
       "lat": 50.55428,
       "lng": 36.47101,
       "type": "conflict",
@@ -11962,8 +12229,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5J08UEWW35946Mjm6f8Bn3_rW6Qz41fs_52J4pa4N_OE3y2uk0PDs9QLbIBmCnZuevffXZhvpQwU6jGbEwOs1ou38RcvH-_CCyGa_wZRfrs-6abJAWgK2HZpVl3-0N1mKbxUy89TCYO25kqUxiT1TAgfhVL1g1oK-ulv9Z_R5vSfJ9u3HezHbcAbS_L8wxLhQhSbEnbApcnIMYzUlLfCsV2-5mHrd_gmNCZR_JOHNBftcVDtG4van7V68?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5J08UEWW35946Mjm6f8Bn3_rW6Qz41fs_52J4pa4N_OE3y2uk0PDs9QLbIBmCnZuevffXZhvpQwU6jGbEwOs1ou38RcvH-_CCyGa_wZRfrs-6abJAWgK2HZpVl3-0N1mKbxUy89TCYO25kqUxiT1TAgfhVL1g1oK-ulv9Z_R5vSfJ9u3HezHbcAbS_L8wxLhQhSbEnbApcnIMYzUlLfCsV2-5mHrd_gmNCZR_JOHNBftcVDtG4van7V68?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4vxknXAoWFXDf5QYvoBIIOqs8VC1o_x_bWTDKsM86TOfFVvSiSW7sHC3TugmaYz2kPORtTxpLEKaaz8Llg_7dR7hXBm24ZUR6j2ITxvZEG-L9TjrZQcsKiHe1nD41DTgpn39z02I3VZ8dmOa-2_nqxEyvCTFf-KhDdD-18pBBWVH6fWARDOdGyVNMuzvKo2s16VmPVYXaQj_1aajLjcodMQMUYkdbtG4c5mAY8DV43ES_ERTTH_xNPhLw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4vxknXAoWFXDf5QYvoBIIOqs8VC1o_x_bWTDKsM86TOfFVvSiSW7sHC3TugmaYz2kPORtTxpLEKaaz8Llg_7dR7hXBm24ZUR6j2ITxvZEG-L9TjrZQcsKiHe1nD41DTgpn39z02I3VZ8dmOa-2_nqxEyvCTFf-KhDdD-18pBBWVH6fWARDOdGyVNMuzvKo2s16VmPVYXaQj_1aajLjcodMQMUYkdbtG4c5mAY8DV43ES_ERTTH_xNPhLw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11998,8 +12265,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ZyC2uIX74e8VwiJ8gYesKZ5Aj6EMtVD4vjr9Aa-F4gWWNwIx88_8xXYmh6X4jN4lUCFlgkd9BDzpft_VWWiGP22m1PZsHTcfPcPoHXMCWnRvwUuR6ZpR-LZXCfLMA-exRYngHrIJ3ln-zzbzxRbs4-xaA4XP7OxNwZBIE7NRn2s16kpppYn3qYMJqMMjNksBqytj-mkyOiergUFHhYabUIVYQCYfjlx0vNqCxIWcwezIAARpSgQqcZYg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ZyC2uIX74e8VwiJ8gYesKZ5Aj6EMtVD4vjr9Aa-F4gWWNwIx88_8xXYmh6X4jN4lUCFlgkd9BDzpft_VWWiGP22m1PZsHTcfPcPoHXMCWnRvwUuR6ZpR-LZXCfLMA-exRYngHrIJ3ln-zzbzxRbs4-xaA4XP7OxNwZBIE7NRn2s16kpppYn3qYMJqMMjNksBqytj-mkyOiergUFHhYabUIVYQCYfjlx0vNqCxIWcwezIAARpSgQqcZYg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Gfq-cY2pIDz0IIoJUXmK2yAHZ36LmFDPUcQTsDBqFHXrlsykMs2fmz6YFDij7731UMDDhsOvvUpu8eSBpMxwrzOgZc8VPXHCrpRK9CE22Db8HcIAEvf5-mqILOoGnkcdlFJGbajvpe7tRCYpMDNwAY8aRplFB6HtHte5EeEhrzYUaAJBlG2SNJfVRLxwtemEvaktDVbr64B6PROJJAW6EKH_n9uQmZnGderRVAV55GhF-x7X6B3bnMTE?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Gfq-cY2pIDz0IIoJUXmK2yAHZ36LmFDPUcQTsDBqFHXrlsykMs2fmz6YFDij7731UMDDhsOvvUpu8eSBpMxwrzOgZc8VPXHCrpRK9CE22Db8HcIAEvf5-mqILOoGnkcdlFJGbajvpe7tRCYpMDNwAY8aRplFB6HtHte5EeEhrzYUaAJBlG2SNJfVRLxwtemEvaktDVbr64B6PROJJAW6EKH_n9uQmZnGderRVAV55GhF-x7X6B3bnMTE?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12052,8 +12319,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR70OrCEu_22z2uLenHm8lO_RVq6VxfpDMGuK-b7ywDx4ZVgswKnvaiecR5cZ18R5f1ViVit0xz9MBSOridQeHGMi84vl5PQsgRlnXvwq13iP2Gh-8ea2elzIS7hHKKGY5bJ5zawjAlbFKVZcbEK4Sikyuc7v6Ct-qPZSfKPaxfyIdd_cVxQJT04WQ5pYgDCFHiJyaa-dMFXZh1RJh4r2toETD78BD5Pg5-exhfy442TctABh3oaFVRK4HM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR70OrCEu_22z2uLenHm8lO_RVq6VxfpDMGuK-b7ywDx4ZVgswKnvaiecR5cZ18R5f1ViVit0xz9MBSOridQeHGMi84vl5PQsgRlnXvwq13iP2Gh-8ea2elzIS7hHKKGY5bJ5zawjAlbFKVZcbEK4Sikyuc7v6Ct-qPZSfKPaxfyIdd_cVxQJT04WQ5pYgDCFHiJyaa-dMFXZh1RJh4r2toETD78BD5Pg5-exhfy442TctABh3oaFVRK4HM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5zYn1E6ynm9c27F1xadsRoyfjgdtFuk79gO4NvXgYWwVjMgb2xGTYTnrYjCxrQ5zMTCtHWbQTfbxSMoc0ZcEdZVYSUqZE6UJ-g_ehkwhpcqVdwwRISZd6qUiHdvzpbj27QxcpvARL1c4xB5me3VELX9t07xWy1d7WuYM5NegFd3d5RDEWFYlFp9YeHjDsvk1KjEjVibakB-rh48XW5e8Yv9PZ4QFNSCZNjSyKHTq5A1is5Vu2x_5AV37s?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5zYn1E6ynm9c27F1xadsRoyfjgdtFuk79gO4NvXgYWwVjMgb2xGTYTnrYjCxrQ5zMTCtHWbQTfbxSMoc0ZcEdZVYSUqZE6UJ-g_ehkwhpcqVdwwRISZd6qUiHdvzpbj27QxcpvARL1c4xB5me3VELX9t07xWy1d7WuYM5NegFd3d5RDEWFYlFp9YeHjDsvk1KjEjVibakB-rh48XW5e8Yv9PZ4QFNSCZNjSyKHTq5A1is5Vu2x_5AV37s?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13060,8 +13327,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR58PqSCp4uDgO7ToO6ir7HK8wTtgBH4j4VMgawlyoSMW8Sambk6dZ-CiG2OrpD_igbV2_EDdH5zhhApXGmUOyfGY5IuF6CfU2YxWRjq0H0Z6g2Ml-NNeD6CuLomwrCDcaFPvyu5mWrIC4988LaBLEtPPgotrnGjMs2k9lco_QsvvqniJ87LBpCYJYNblUB7eQCb6mN2KYwgYYSfvax7RZLZMuY1E-_DXlc1MDaDaF0QVFbAXKY6wPaappE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR58PqSCp4uDgO7ToO6ir7HK8wTtgBH4j4VMgawlyoSMW8Sambk6dZ-CiG2OrpD_igbV2_EDdH5zhhApXGmUOyfGY5IuF6CfU2YxWRjq0H0Z6g2Ml-NNeD6CuLomwrCDcaFPvyu5mWrIC4988LaBLEtPPgotrnGjMs2k9lco_QsvvqniJ87LBpCYJYNblUB7eQCb6mN2KYwgYYSfvax7RZLZMuY1E-_DXlc1MDaDaF0QVFbAXKY6wPaappE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_mq-ZiKPSgeQo8757PXt-w6NSD9d8kk1hEOOm02uEBgr15QuuaQf0gD4zGDxH17QvEi8bUbZc3ifui6ItqYr0BAGWwMvJN754rga1usd98TbFNYiArgv4ed7CHxcpAe7NP6jWMp2ZuQYNVWwTdoUybHqeDFwW2DiAHlZUxBvgFENGj-IdSsKeD1yfuKjmQG8_vXfJo0Wul6o3mwhPvN6AGhF5Mdqi_H9GdegbxUntcmGC-WPKbzj_cXs?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_mq-ZiKPSgeQo8757PXt-w6NSD9d8kk1hEOOm02uEBgr15QuuaQf0gD4zGDxH17QvEi8bUbZc3ifui6ItqYr0BAGWwMvJN754rga1usd98TbFNYiArgv4ed7CHxcpAe7NP6jWMp2ZuQYNVWwTdoUybHqeDFwW2DiAHlZUxBvgFENGj-IdSsKeD1yfuKjmQG8_vXfJo0Wul6o3mwhPvN6AGhF5Mdqi_H9GdegbxUntcmGC-WPKbzj_cXs?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14248,8 +14515,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AaQABgA9BslSooMKWmoieJ2TKZoocJGc7dStqih9bL-ZAThotnYGJ9N1YXpsIU1KnY1emOM4i2VVArbs1JphmB5yxSOUm74F7rDrbfpjPL8STuIvPS4HBq3oGE_VJjkW0gLx-PIVUjKDAMrKWglrbHpbIxU4tMrK2MAjI3zgMocNooaQV5jtzNYqG62ZP9503qaJnaiLz7EfXREGU5axRIGFc7gSC1QvINhbJ2Z0Z9n7TBtL-7q-1ehM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AaQABgA9BslSooMKWmoieJ2TKZoocJGc7dStqih9bL-ZAThotnYGJ9N1YXpsIU1KnY1emOM4i2VVArbs1JphmB5yxSOUm74F7rDrbfpjPL8STuIvPS4HBq3oGE_VJjkW0gLx-PIVUjKDAMrKWglrbHpbIxU4tMrK2MAjI3zgMocNooaQV5jtzNYqG62ZP9503qaJnaiLz7EfXREGU5axRIGFc7gSC1QvINhbJ2Z0Z9n7TBtL-7q-1ehM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZLlwCXcVn-6eABlonDr0snNEmpcSjT4_dvJ8jDShcVLozCGxBZ7pc9UNKTvfiLN3bb_MBoL5uqivteFA0uxci7t8Jou698_5zEcvAOyHO5606vud7tork6gdsdPEhGJsmrqZHuz-c9apQ_dI2fw6RJJlEu0wR7zxwOgOZaSV9F4roEeMWKg70a455X1VlS714OtyHPmeYH_mT2y9SZq2SErJKVlNE0JlJdm0SRp-tYQKrDrPTTBAsl8I?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZLlwCXcVn-6eABlonDr0snNEmpcSjT4_dvJ8jDShcVLozCGxBZ7pc9UNKTvfiLN3bb_MBoL5uqivteFA0uxci7t8Jou698_5zEcvAOyHO5606vud7tork6gdsdPEhGJsmrqZHuz-c9apQ_dI2fw6RJJlEu0wR7zxwOgOZaSV9F4roEeMWKg70a455X1VlS714OtyHPmeYH_mT2y9SZq2SErJKVlNE0JlJdm0SRp-tYQKrDrPTTBAsl8I?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14266,8 +14533,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7NSZ0NxFlyby70xtZ6nOQvN23iywm_UYu_tQ-PkpbVBe9o7xxRCAtJd8vVSdB9RMZJpWLBipeqgJRHM3qfYGHhBh6KSt6HN3s9Qktq35V_0WUP1jb44y9ZSwiyeS_peJI6ORkUonirzB5_rIzLSG30B1BRVnG2fIj1f1bHgTR6MGNa0HuABm6uQsaxscZc1nCyfnZIypgmdqlYIeCH_OcavN-_8awc-bwOMJRni9q6h-5hCvsAW__3axM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7NSZ0NxFlyby70xtZ6nOQvN23iywm_UYu_tQ-PkpbVBe9o7xxRCAtJd8vVSdB9RMZJpWLBipeqgJRHM3qfYGHhBh6KSt6HN3s9Qktq35V_0WUP1jb44y9ZSwiyeS_peJI6ORkUonirzB5_rIzLSG30B1BRVnG2fIj1f1bHgTR6MGNa0HuABm6uQsaxscZc1nCyfnZIypgmdqlYIeCH_OcavN-_8awc-bwOMJRni9q6h-5hCvsAW__3axM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5MXzqYYfvoDLpOe3OSKdT7iGPWEn12d0_qT3M3oOQ5RJ-VL84HxckalNMLvTsdEGyhEnLKquPCjCPXpDvYZxNXmvF6bd0gwgQQ3iUgCJTLGYv0tTrMbaSedvtSFEBIINOR1SY23Ch10pDuRtlvqzPV6m8Yqxya74oJODwuVL7vLJIv4E8-F48ZQ8cfUzIdMDNrfLlZVIXnMi9KnWcb2kiN7yzKLfZkfmQQ9H2gBC-eq4UItWV4iQjx42M?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5MXzqYYfvoDLpOe3OSKdT7iGPWEn12d0_qT3M3oOQ5RJ-VL84HxckalNMLvTsdEGyhEnLKquPCjCPXpDvYZxNXmvF6bd0gwgQQ3iUgCJTLGYv0tTrMbaSedvtSFEBIINOR1SY23Ch10pDuRtlvqzPV6m8Yqxya74oJODwuVL7vLJIv4E8-F48ZQ8cfUzIdMDNrfLlZVIXnMi9KnWcb2kiN7yzKLfZkfmQQ9H2gBC-eq4UItWV4iQjx42M?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14284,8 +14551,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WVj5QVbh90rVgbDlKJ5yeASZsF-74gfDoGmI6xvY2T7mnJQDyMCWapAB22-OnkF67FT0L9loKYJE9rf3UzXmVgfM3pBw3BuXjGMgkbsuv9042jQCLTSSmQ6bwrNLADLXlypUpSAt-JQiQRwZR2iUZ9U5gjqljbJnoner-n2ce8cJ4DZlYnRWLE3lEVi-r2LWhIwuDAxAgSNEOBLmLyZaPZsg3cIKzAn028cqb3uKuNvcuUJVGkXBMrGE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WVj5QVbh90rVgbDlKJ5yeASZsF-74gfDoGmI6xvY2T7mnJQDyMCWapAB22-OnkF67FT0L9loKYJE9rf3UzXmVgfM3pBw3BuXjGMgkbsuv9042jQCLTSSmQ6bwrNLADLXlypUpSAt-JQiQRwZR2iUZ9U5gjqljbJnoner-n2ce8cJ4DZlYnRWLE3lEVi-r2LWhIwuDAxAgSNEOBLmLyZaPZsg3cIKzAn028cqb3uKuNvcuUJVGkXBMrGE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5kcgUNG6rCAZR2SsnAmcWn885XxFiwBUTExH4AugkY67UnN_b-CDzm4v2aWjqVDU0y_uVmHMJ6KsboB9E61l3kFwBuB3xJ-qg_ORoNor7NQGUzRs5YWbRJfcS66ilGeZMUnbuZxZgYt8niK4uD727tvWhOTdRr3-jbAB6VX8m0lTWMtoTJGrpKjGjeCWfxwiyOKxCimf10hp1rFHeaDzvxvvhoapAkv_3RP6AaytnwZfMH_CUurUFXAy4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5kcgUNG6rCAZR2SsnAmcWn885XxFiwBUTExH4AugkY67UnN_b-CDzm4v2aWjqVDU0y_uVmHMJ6KsboB9E61l3kFwBuB3xJ-qg_ORoNor7NQGUzRs5YWbRJfcS66ilGeZMUnbuZxZgYt8niK4uD727tvWhOTdRr3-jbAB6VX8m0lTWMtoTJGrpKjGjeCWfxwiyOKxCimf10hp1rFHeaDzvxvvhoapAkv_3RP6AaytnwZfMH_CUurUFXAy4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14302,8 +14569,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vLzK0r6K2brLhDwqkZIcKGgyieas6kidGNOh8A9ynt_ZO2liyYlh-lczrtM-48NnHMyiUwH0LljjBxgb9FjJcGCkab-BOUkfLj_N0FfmWXv9mLa_-XTlwrxuVl5WRcGl32QHhBiou2U_F1sUtRm0WKT8iz2tiBkRtNJN4o__4QosK_CnFJJ07323vU934num6W1uj5oOgfSoXyOwCGKENyZxC_30nw3gzjeeAWRPyCLBuTks_MJLPe-w?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5vLzK0r6K2brLhDwqkZIcKGgyieas6kidGNOh8A9ynt_ZO2liyYlh-lczrtM-48NnHMyiUwH0LljjBxgb9FjJcGCkab-BOUkfLj_N0FfmWXv9mLa_-XTlwrxuVl5WRcGl32QHhBiou2U_F1sUtRm0WKT8iz2tiBkRtNJN4o__4QosK_CnFJJ07323vU934num6W1uj5oOgfSoXyOwCGKENyZxC_30nw3gzjeeAWRPyCLBuTks_MJLPe-w?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6qyahBw8r8OpzVLMrRJpWgxGClovPLCcjdUROrvud72PEmtMeNY3xP88F8syufIRboI6QB9LaKO_NzTW_JrplIf2Fxg0soFmv9URA4YXV4aP8-rhAnH4Yz5tztDTssRkOYtIr5dB7o-1NTVx_BJ3tJkaRg6nnryDwi1Tfhu4JO-aOwNHFTlcJFg5zn5Y6duZUPKc0czC2lO1PPu7vbW74MBoKT2NLv-T1M5sCtOVB7FFs0oxKL29YY4tA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6qyahBw8r8OpzVLMrRJpWgxGClovPLCcjdUROrvud72PEmtMeNY3xP88F8syufIRboI6QB9LaKO_NzTW_JrplIf2Fxg0soFmv9URA4YXV4aP8-rhAnH4Yz5tztDTssRkOYtIr5dB7o-1NTVx_BJ3tJkaRg6nnryDwi1Tfhu4JO-aOwNHFTlcJFg5zn5Y6duZUPKc0czC2lO1PPu7vbW74MBoKT2NLv-T1M5sCtOVB7FFs0oxKL29YY4tA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14320,8 +14587,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4QiynVWYAfE7gFHjN9rhW7liCjqmgEQvvinC5patnxVA764VPTItUU1xF2R6D6p_qAifB9ODYEOsPqEiR2hWQafSjR5ioVS0NkK1ZdKxkiBgTJIR3DTwMo104c0MbwlSvmX7OQSLhjVpIddeaqr7GxMWdfhXB6GLrMEn7srCtCQWEjdYYXy454kiGx-weQLtqYO980ghlzKKOS60sgDhBgORsEdfNraIo-DTpsFMwD5zniU_PQBZaHQRg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4QiynVWYAfE7gFHjN9rhW7liCjqmgEQvvinC5patnxVA764VPTItUU1xF2R6D6p_qAifB9ODYEOsPqEiR2hWQafSjR5ioVS0NkK1ZdKxkiBgTJIR3DTwMo104c0MbwlSvmX7OQSLhjVpIddeaqr7GxMWdfhXB6GLrMEn7srCtCQWEjdYYXy454kiGx-weQLtqYO980ghlzKKOS60sgDhBgORsEdfNraIo-DTpsFMwD5zniU_PQBZaHQRg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aAYB5Qrq6ANTw1G0PlakYfxXl1yOtw0oy-my2oNO08ooopBn1DrpqFMp-DH4oxhj4naypfi8mJpyONmDjAB04ganmpW8zSjxwBa_kFDyqP3bMWzSdmSYpOtdY8X1rDxCpI3QlyStzROSCgag7vJCcJYLbywNpI4U7wNyY4vgZRqFEko8qVsjyG0EQeq6KOffQivHBeMeLZzomIC_-dLb7H19jdcjCeAqi9HcDSKRYQNUwFnbUpFl8m-g?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aAYB5Qrq6ANTw1G0PlakYfxXl1yOtw0oy-my2oNO08ooopBn1DrpqFMp-DH4oxhj4naypfi8mJpyONmDjAB04ganmpW8zSjxwBa_kFDyqP3bMWzSdmSYpOtdY8X1rDxCpI3QlyStzROSCgag7vJCcJYLbywNpI4U7wNyY4vgZRqFEko8qVsjyG0EQeq6KOffQivHBeMeLZzomIC_-dLb7H19jdcjCeAqi9HcDSKRYQNUwFnbUpFl8m-g?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14338,8 +14605,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7efelA_O8rfGiMX3n8y0sNPGO_zAbTaSPIFCasPPjlTrcQKcyelfDwgWJCZhFNNzAzeujuF0sY7vK1kZCpoVc5mq9CbnBOO0dZRhOX16J2O9Z15BjO5t3_rmexksDxckm-_nPGLhMQgIogrZeQZ4t1QpgxuNBRtknb6U0juuOW0iTDh9r2Ye7qLH1LSiGhE4Oenz9i-wwK5f35FBvTUgYe9DhIROSyM70ANHX1fh2ZlvHLkqLNzWg5I14?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7efelA_O8rfGiMX3n8y0sNPGO_zAbTaSPIFCasPPjlTrcQKcyelfDwgWJCZhFNNzAzeujuF0sY7vK1kZCpoVc5mq9CbnBOO0dZRhOX16J2O9Z15BjO5t3_rmexksDxckm-_nPGLhMQgIogrZeQZ4t1QpgxuNBRtknb6U0juuOW0iTDh9r2Ye7qLH1LSiGhE4Oenz9i-wwK5f35FBvTUgYe9DhIROSyM70ANHX1fh2ZlvHLkqLNzWg5I14?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR515g6bHw-If7GdrexJftegE4b-bAzIyHxYeW39FA_N50rZDqovdy4hRS9MXNNkNvLM8pnY1_lZPhibt531ytZmghFfpGC0K6keRvqdHn9Q5t224dawgqyUnEhN9cWUQMLIgxdDbuXkvYkSEcQCQF_t8hH5zPAX6prjs4m8GBEvYleLPTVGk6lt8Nji4KBd1ie4lxRwXrK_3EaiFgNoq55zhRtmzDII8bxk3_cVpm40HK6L6cwX07IwT3U?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR515g6bHw-If7GdrexJftegE4b-bAzIyHxYeW39FA_N50rZDqovdy4hRS9MXNNkNvLM8pnY1_lZPhibt531ytZmghFfpGC0K6keRvqdHn9Q5t224dawgqyUnEhN9cWUQMLIgxdDbuXkvYkSEcQCQF_t8hH5zPAX6prjs4m8GBEvYleLPTVGk6lt8Nji4KBd1ie4lxRwXrK_3EaiFgNoq55zhRtmzDII8bxk3_cVpm40HK6L6cwX07IwT3U?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14356,8 +14623,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6MVRC1dFYzUdXz-_-ZOvCoK88S4WM8l-8XAHgyVvwfpaQekCCtCpPqVGX-4Enqw09__HrTEPF_SNd8qPZ3E47rLfwyu7sM-keLqd9y7y2Yk0iLDAsFonAjORUnoMN7cRV6zXJtXYqa-d_gcix9D8MkW0vT2uqKxrHvi2Q1bVu_XYv34qYInbfSFG5qL3Irnbapj-4dC23hFXG3agt46PaBoiBU8YqYSRsUlMBH2sNj2TzGRjOF2ZvHCx4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6MVRC1dFYzUdXz-_-ZOvCoK88S4WM8l-8XAHgyVvwfpaQekCCtCpPqVGX-4Enqw09__HrTEPF_SNd8qPZ3E47rLfwyu7sM-keLqd9y7y2Yk0iLDAsFonAjORUnoMN7cRV6zXJtXYqa-d_gcix9D8MkW0vT2uqKxrHvi2Q1bVu_XYv34qYInbfSFG5qL3Irnbapj-4dC23hFXG3agt46PaBoiBU8YqYSRsUlMBH2sNj2TzGRjOF2ZvHCx4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4K-1FvJFJpiHjAF5XXslnBqT5uZCUZyPSQqWiKnpVgxE6IvcEHBmynR_vj_xWTK3PXIuG9hSmGSNhDoj3X1pNY4IkQn8cRc-F8NVPYIwRMcdB8hNkF2LMcu-3Xvlh4aBy5F0mjeSJMfx7rmyGswKeFwWsLocCA5LVnY1dDW8w_iIJFOYfDwQoZ4-BmYoZMtJI-vfUg7-zqhwb9i2ShpXvLW3nvhCswpeJXfJEFFZLZVOIJddibEWo2lR8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4K-1FvJFJpiHjAF5XXslnBqT5uZCUZyPSQqWiKnpVgxE6IvcEHBmynR_vj_xWTK3PXIuG9hSmGSNhDoj3X1pNY4IkQn8cRc-F8NVPYIwRMcdB8hNkF2LMcu-3Xvlh4aBy5F0mjeSJMfx7rmyGswKeFwWsLocCA5LVnY1dDW8w_iIJFOYfDwQoZ4-BmYoZMtJI-vfUg7-zqhwb9i2ShpXvLW3nvhCswpeJXfJEFFZLZVOIJddibEWo2lR8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14374,8 +14641,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uORS_YIq37nJa-XvsfseHDvomQ7mhxhcTwau4ItM-uIygG36Ud6nxVNAr4nHmFxcurBlkwkc4tnHZsQOlTpHamx4WrTafF1r1tLCD9bRKJTNLvz0Z4-iB8eC9Yokj0dPWN7HU6pIfOvr_18Dq5onD6dFK7hVHS8-9icdlfzNC5ahoSdUfLOGTAtQ_e6PELSNK8IKKyhrlll7UeADWauKP8VD7YEgZR1oMj0Rxe3zsoyM30WHXXO-80jU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uORS_YIq37nJa-XvsfseHDvomQ7mhxhcTwau4ItM-uIygG36Ud6nxVNAr4nHmFxcurBlkwkc4tnHZsQOlTpHamx4WrTafF1r1tLCD9bRKJTNLvz0Z4-iB8eC9Yokj0dPWN7HU6pIfOvr_18Dq5onD6dFK7hVHS8-9icdlfzNC5ahoSdUfLOGTAtQ_e6PELSNK8IKKyhrlll7UeADWauKP8VD7YEgZR1oMj0Rxe3zsoyM30WHXXO-80jU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SLQ0NYvh3EfVdFuIBZub0yqFs0JVTrrcu596wjoZGBO1db4WkgeUxj73Q-Qp9pkXiUkvTIVZvLlTS7ESHrtbJ13znUrMbeArI6_OAnWRMBbrYi0hueyCf4ynm3hnjfiwtQ2Nmi9PzP9qm0YB8xW2oAhpcTEiwySUiIUbtVyrfve_43XTV8puf9RYFhIVM9ofa_b1jaBH58lkJCZGvTHpmXAPgQG3ir9V3CSu-8vyoFmTj2IJZICqdf7I?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SLQ0NYvh3EfVdFuIBZub0yqFs0JVTrrcu596wjoZGBO1db4WkgeUxj73Q-Qp9pkXiUkvTIVZvLlTS7ESHrtbJ13znUrMbeArI6_OAnWRMBbrYi0hueyCf4ynm3hnjfiwtQ2Nmi9PzP9qm0YB8xW2oAhpcTEiwySUiIUbtVyrfve_43XTV8puf9RYFhIVM9ofa_b1jaBH58lkJCZGvTHpmXAPgQG3ir9V3CSu-8vyoFmTj2IJZICqdf7I?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14392,8 +14659,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR54byHQ266NTX-ANJxNuzgzHSoCWXFzbv5wgaLeJhkbDzo1OmRm9fAwzxy8tNDhOwHQvF-mBXzwBpZDAuDQaaa9JnlYkMj-S8tdOEv0rIulwjpQf48JuCiQ_zKlJD0epw0dA0I_VoIiV1UdSFx2qP9Hv272XVsQrsTy51TcXM8XMvAey2gKAGc0vDRDgPDIpFDVeXaYTozVu6roME6K-FQD2DVgxBMZAzoABHK00JJKCHt35q2BY4w4adQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR54byHQ266NTX-ANJxNuzgzHSoCWXFzbv5wgaLeJhkbDzo1OmRm9fAwzxy8tNDhOwHQvF-mBXzwBpZDAuDQaaa9JnlYkMj-S8tdOEv0rIulwjpQf48JuCiQ_zKlJD0epw0dA0I_VoIiV1UdSFx2qP9Hv272XVsQrsTy51TcXM8XMvAey2gKAGc0vDRDgPDIpFDVeXaYTozVu6roME6K-FQD2DVgxBMZAzoABHK00JJKCHt35q2BY4w4adQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4GqabZc9qzYjRM4JThytx_r-w1aGAvdPktjRsi2t2XBOJqFdynata8w7kJ6lwKAPj7KaraodwJBJlUPFCet6Vlrhwl8qwGXE3KoZ1MlSJOiR-s0vpiocQc0GIH1Y_dEf7GhA5rwtrmwVCD_Ubs6EvZwQo_RW9sMajZ2bqu3SKZGB_2zfMcC03cECeRNnWFa2dNPQdsmAeILnzUNGLFyBZxpq6Q6BqhmyFvooYQuTYHrr5grdNZHV4ibK8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4GqabZc9qzYjRM4JThytx_r-w1aGAvdPktjRsi2t2XBOJqFdynata8w7kJ6lwKAPj7KaraodwJBJlUPFCet6Vlrhwl8qwGXE3KoZ1MlSJOiR-s0vpiocQc0GIH1Y_dEf7GhA5rwtrmwVCD_Ubs6EvZwQo_RW9sMajZ2bqu3SKZGB_2zfMcC03cECeRNnWFa2dNPQdsmAeILnzUNGLFyBZxpq6Q6BqhmyFvooYQuTYHrr5grdNZHV4ibK8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14446,8 +14713,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4u-IiusYV0ABikfHMOVq1fHey9St85E0GByVxF4emDTDz8J5cGw2od6oUMEiW6eKhZGoFqoA238vMik_Zp1MFmxGwXJYYw6pUdLV1uE9dXqZ3pLQ6SnbYMnQ5MB9JHZwb6h_XB0DotZH-uIfEHsUOBQH_37s4CtIkgngDjde4Drtaiby_fBMJAuShxscJ8gtA5xweMQsMOR0udQYceHAyVusI_JOcd8L_-ybmK6Rm37nanUKFiuJz16Hk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4u-IiusYV0ABikfHMOVq1fHey9St85E0GByVxF4emDTDz8J5cGw2od6oUMEiW6eKhZGoFqoA238vMik_Zp1MFmxGwXJYYw6pUdLV1uE9dXqZ3pLQ6SnbYMnQ5MB9JHZwb6h_XB0DotZH-uIfEHsUOBQH_37s4CtIkgngDjde4Drtaiby_fBMJAuShxscJ8gtA5xweMQsMOR0udQYceHAyVusI_JOcd8L_-ybmK6Rm37nanUKFiuJz16Hk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6BDF2AsgPnyHHYII5k8uF9plYZpq--LOu2Noc4aOxD9DeQFp9qiMMUgLcbbGd9qf_wmS2NVH64ha8zL-Rvo8xQnPL19MX94PkirF-IZX1KQUIj6DLCz-tAwB2MawOLQiL55vHUlaDsQ-xgX0XDBb8eAMwvGll2zJw929v8ZGnWxheak-c9kNnn8rYUYou_mFSebjrhHkMyMSHfFPOAyCLuzpULN_RUFY4IQXrMlkA1WbCMvaOzicah5aU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6BDF2AsgPnyHHYII5k8uF9plYZpq--LOu2Noc4aOxD9DeQFp9qiMMUgLcbbGd9qf_wmS2NVH64ha8zL-Rvo8xQnPL19MX94PkirF-IZX1KQUIj6DLCz-tAwB2MawOLQiL55vHUlaDsQ-xgX0XDBb8eAMwvGll2zJw929v8ZGnWxheak-c9kNnn8rYUYou_mFSebjrhHkMyMSHfFPOAyCLuzpULN_RUFY4IQXrMlkA1WbCMvaOzicah5aU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14464,8 +14731,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5nouk7JcSfjsRsNhdGe4tc-pBtGjH8BJGQrHSjM0GbqJOjMUc1vIMVEO0yW3HECBQBMkwKkFWCKyCMnlMp6IIvkHP69htjB8JSeyIcKJh5QVqgPCWyVi5Y8fVkTSGzMOVe6NmCgJSYqmsAVb-HUPSj5qz7v0wxTFXuBOuToXPIuuuzKtWhdb_hxJHHyQads6r41KGQtktsrwXGE3nj2Agdv71-yES85IRa16S1MVUW2YZrPpp-Yl79nqY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5nouk7JcSfjsRsNhdGe4tc-pBtGjH8BJGQrHSjM0GbqJOjMUc1vIMVEO0yW3HECBQBMkwKkFWCKyCMnlMp6IIvkHP69htjB8JSeyIcKJh5QVqgPCWyVi5Y8fVkTSGzMOVe6NmCgJSYqmsAVb-HUPSj5qz7v0wxTFXuBOuToXPIuuuzKtWhdb_hxJHHyQads6r41KGQtktsrwXGE3nj2Agdv71-yES85IRa16S1MVUW2YZrPpp-Yl79nqY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Ts2AA2EhEOPYuVzg43rOLclF_QJkDSLTGa_mWeHHXt5bO-uOuaO8cAWWrKJKj0Jza19fxOM1pyFVArt8Um7lNjd6LHNCnSgjrwtyRyo0MFOr7jWlh3HsUQeqzClHBfDbH32AxyMCnBHC7WKSglREIBsniM7fU0BEasDG_jUaTilSLmzGtd0mHMjNCP59Z2Ag-A83pSMQfesBQwXShMQYf6vJuhnMG23ovbXBOgYkVcInOiQRJya8Yt1c?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Ts2AA2EhEOPYuVzg43rOLclF_QJkDSLTGa_mWeHHXt5bO-uOuaO8cAWWrKJKj0Jza19fxOM1pyFVArt8Um7lNjd6LHNCnSgjrwtyRyo0MFOr7jWlh3HsUQeqzClHBfDbH32AxyMCnBHC7WKSglREIBsniM7fU0BEasDG_jUaTilSLmzGtd0mHMjNCP59Z2Ag-A83pSMQfesBQwXShMQYf6vJuhnMG23ovbXBOgYkVcInOiQRJya8Yt1c?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14518,8 +14785,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR645DVsFQ-U5GgJ-XeqEyS5p17ByV-kkEY6jZxmCt1qhswNCfAj6NWhV8co1p5WrBWTfeAEcPsKaJqLiVu9XSTDf_ec-CHBtJLBEfhz8GdNVSvMAlNJZv6ryvqW5TLp7gZ-TVHsYo1yXD9UbUxWXdi25R_znDT2w5K0Ov4GVt4sbqwVZF7TM-xbRdzjNtjXyoslyRoyH5POaDzWewOqqZAbpAEF10F3Yv4KgAhfvFOqZnAz_UkZq2AZAhA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR645DVsFQ-U5GgJ-XeqEyS5p17ByV-kkEY6jZxmCt1qhswNCfAj6NWhV8co1p5WrBWTfeAEcPsKaJqLiVu9XSTDf_ec-CHBtJLBEfhz8GdNVSvMAlNJZv6ryvqW5TLp7gZ-TVHsYo1yXD9UbUxWXdi25R_znDT2w5K0Ov4GVt4sbqwVZF7TM-xbRdzjNtjXyoslyRoyH5POaDzWewOqqZAbpAEF10F3Yv4KgAhfvFOqZnAz_UkZq2AZAhA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6iJb9UoWUHAIpAkFQAZDsSskWQ3BHuCQZuzB9mtg5NQhksAdsZiagx1Ms7X-joShMCzC830u8Clvd8ajBGswlqMsmaxClXhLNMMI4fKxOxhfTNdDzmORHajFyGjQFvNdDk5PDpXg6OE7bgNQ-clT_8uKBmM-sKsgRg7t_zvvGvkh-PhlQxhgYiHcO8fyWMFaYRIm4URypY3v_kUG9t6Z--wsvMDwpF0THi-b_v_M6aOSPVTKZ4Cwcd4NM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6iJb9UoWUHAIpAkFQAZDsSskWQ3BHuCQZuzB9mtg5NQhksAdsZiagx1Ms7X-joShMCzC830u8Clvd8ajBGswlqMsmaxClXhLNMMI4fKxOxhfTNdDzmORHajFyGjQFvNdDk5PDpXg6OE7bgNQ-clT_8uKBmM-sKsgRg7t_zvvGvkh-PhlQxhgYiHcO8fyWMFaYRIm4URypY3v_kUG9t6Z--wsvMDwpF0THi-b_v_M6aOSPVTKZ4Cwcd4NM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14590,8 +14857,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7yIsjXsjyY7rN4mwOgMQAftcBoJSyxo1RG2ZN3uUM19v4QAo1ggzk-Hlp7xpRiaBj27vYxdr2dWu-1W3VZ-2UYpX1LIsupx5L_eLlFpozpBqyCi-FkG3ucMps_IoaLnCL0Rs_7LYlAfpEJNWrXsaaBAcEpBcAmvAUClL8kpJVG0KM4v9hMJfqbWRnFAN02OfoBnXBldWfhBhdlTc9B1iqTt4X6sNjgRBut1n2btpbB1E02J76JwZNQHs8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7yIsjXsjyY7rN4mwOgMQAftcBoJSyxo1RG2ZN3uUM19v4QAo1ggzk-Hlp7xpRiaBj27vYxdr2dWu-1W3VZ-2UYpX1LIsupx5L_eLlFpozpBqyCi-FkG3ucMps_IoaLnCL0Rs_7LYlAfpEJNWrXsaaBAcEpBcAmvAUClL8kpJVG0KM4v9hMJfqbWRnFAN02OfoBnXBldWfhBhdlTc9B1iqTt4X6sNjgRBut1n2btpbB1E02J76JwZNQHs8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lNMpUd8sZiDs1IqKPXpGF5xh6UhRDZB9JPSrZJ4ebCKoKv2HNKmMD_DAVSsQskXDphEcQVkQAAw_TfqVYqy5PW4LSMx9JQXWo93l0mHi9nc9_W2OjmX6S-EBigQ59BAQLv_FAREOdl7VNIMh-kGJw3dr8Zj4HKTUiewFGDI7QYXRSOUjFFKuI58xGQm_fHLv3zy2_HiilR3lupv7tTFPeM_G-itrwRlTpOQl5JK6JA_xu3pc6Ab8ge2w?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lNMpUd8sZiDs1IqKPXpGF5xh6UhRDZB9JPSrZJ4ebCKoKv2HNKmMD_DAVSsQskXDphEcQVkQAAw_TfqVYqy5PW4LSMx9JQXWo93l0mHi9nc9_W2OjmX6S-EBigQ59BAQLv_FAREOdl7VNIMh-kGJw3dr8Zj4HKTUiewFGDI7QYXRSOUjFFKuI58xGQm_fHLv3zy2_HiilR3lupv7tTFPeM_G-itrwRlTpOQl5JK6JA_xu3pc6Ab8ge2w?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -14716,8 +14983,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5FxyIEhgLRrSLekGkSu349C3tzug30VHk10v0BLwAuWgjTdPgCbAfo2x2veKO2YAV0tGJXZwNJqn8Y1bkRJKoFaSVUueZBdO0oDBkzk3HnTaJsaGqcHcSc40tHQNRSW2gtNGJQqNDpyVOfHnEBHXDNbRunA4EfbEOfQ1z2wKUQ54VtciBm1cSs7gWj9Y4zExApbBNvaDERuzhc9QTRqMVWbTsDZ-KvDGve034GsvmLrW7h54MI7LyrqTs?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5FxyIEhgLRrSLekGkSu349C3tzug30VHk10v0BLwAuWgjTdPgCbAfo2x2veKO2YAV0tGJXZwNJqn8Y1bkRJKoFaSVUueZBdO0oDBkzk3HnTaJsaGqcHcSc40tHQNRSW2gtNGJQqNDpyVOfHnEBHXDNbRunA4EfbEOfQ1z2wKUQ54VtciBm1cSs7gWj9Y4zExApbBNvaDERuzhc9QTRqMVWbTsDZ-KvDGve034GsvmLrW7h54MI7LyrqTs?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7_OQQj90bq6ubUC7_KaOLTHo0Wf-sTwBROW9qxbeYQ0ip2HAmxBZSmAIY3q6IXexDtkpJWI0VbQ39D_YfM-O_gn3X7-Ihj-bgoW0CZ6SmMeT4-RGhREV0JlNyN-OHadbAcKnStzdaaqf2ZLeOz3fkGgp9oUdatukeu32-CvpxRirt6D5bCaq0FOX4aZkQgUq1nHsH04sf1sh6oyk1YLBEEaUt50xstyTb5A9Uzgm1wTddZ9j8V-OX-HDQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7_OQQj90bq6ubUC7_KaOLTHo0Wf-sTwBROW9qxbeYQ0ip2HAmxBZSmAIY3q6IXexDtkpJWI0VbQ39D_YfM-O_gn3X7-Ihj-bgoW0CZ6SmMeT4-RGhREV0JlNyN-OHadbAcKnStzdaaqf2ZLeOz3fkGgp9oUdatukeu32-CvpxRirt6D5bCaq0FOX4aZkQgUq1nHsH04sf1sh6oyk1YLBEEaUt50xstyTb5A9Uzgm1wTddZ9j8V-OX-HDQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -16720,6 +16987,31 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "e4a1ce9ee168",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "At least 14 Serbians targeted with advanced spyware",
+      "summary": "Student protesters among those hacked, Share Foundation says, but government denies spying At least 14 people from across Serbian civil society were targeted with advanced spyware earlier this year, the digital rights group Share Foundation has said. The wave of spyware infections was discovered in August after Apple notified people in 110 ⁠countries that they had probably been victims ⁠of mercenary spyware. Share sa",
+      "source": "https://www.theguardian.com/world/2026/sep/03/serbians-targeted-with-advanced-spyware",
+      "time": "2026-09-03T17:48:36+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.8
+    },
+    {
       "id": "9814589d83ea",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -16913,7 +17205,26 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.4
+      "politicalSignalScore": 57.3
+    },
+    {
+      "id": "22a927b5166e",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Five killed, dozens more feared dead in boat adrift off Canary Islands",
+      "summary": "Spanish migrant NGO says more than 80 people likely perished on the boat that left The Gambia 27 days ago.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/five-killed-dozens-more-feared-dead-in-boat-adrift-off-canary-islands?traffic_source=rss",
+      "time": "2026-09-03T15:00:24+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
     },
     {
       "id": "ef6f0f9c1668",
@@ -17204,7 +17515,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.5
+      "politicalSignalScore": 40.4
     },
     {
       "id": "af5bbb5af053",
@@ -17327,7 +17638,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.1
+      "politicalSignalScore": 44.0
     },
     {
       "id": "e7fa1a0ad5c6",
@@ -17525,7 +17836,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.3
+      "politicalSignalScore": 40.2
     },
     {
       "id": "8f72dc6bf787",
@@ -17553,7 +17864,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "f43c01e5cbeb",
@@ -17580,7 +17891,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "04a471261a98",
@@ -17649,7 +17960,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.8
+      "politicalSignalScore": 39.7
     },
     {
       "id": "0f0fedcaa48f",
@@ -17741,7 +18052,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.5
+      "politicalSignalScore": 37.4
     },
     {
       "id": "19e24f5bcc9d",
@@ -17883,7 +18194,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.7
+      "politicalSignalScore": 36.6
     },
     {
       "id": "121c9b78c635",
@@ -17918,7 +18229,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.7
+      "politicalSignalScore": 44.6
     },
     {
       "id": "772547ad1bd2",
@@ -17992,7 +18303,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.9
     },
     {
       "id": "83dbf39de042",
@@ -18120,7 +18431,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.9
     },
     {
       "id": "c113500cb434",
@@ -18303,7 +18614,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 46.6
+      "politicalSignalScore": 46.5
     },
     {
       "id": "2a21cb0360a5",
@@ -18330,7 +18641,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.6
+      "politicalSignalScore": 29.5
     },
     {
       "id": "b21d64cc6178",
@@ -18398,7 +18709,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.8
+      "politicalSignalScore": 32.7
     },
     {
       "id": "0e6d5e98e90c",
@@ -18506,7 +18817,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.9
+      "politicalSignalScore": 31.8
     },
     {
       "id": "ca396a85c9e1",
@@ -18535,7 +18846,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.3
+      "politicalSignalScore": 27.2
     },
     {
       "id": "6ad10dbff853",
@@ -18568,7 +18879,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.1
+      "politicalSignalScore": 29.0
     },
     {
       "id": "6e5d651744cd",
@@ -18598,7 +18909,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.0
+      "politicalSignalScore": 28.9
     },
     {
       "id": "04121260ea77",
@@ -18720,7 +19031,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.1
+      "politicalSignalScore": 17.0
     },
     {
       "id": "750589f89281",
@@ -18883,6 +19194,20 @@
         "sourceUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
         "feedFormat": "rss"
       },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "37d0f0b6de60",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Gaza farmers restore seed bank to preserve local crops",
+      "summary": "Farmers are rebuilding a seed bank destroyed during Israel’s war on Gaza to preserve local crop varieties",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/gaza-farmers-restore-seed-bank-to-preserve-local-crops?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/gaza-farmers-restore-seed-bank-to-preserve-local-crops?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 17:50:48 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
       "intelligenceLayer": "general"
     },
     {
@@ -19716,6 +20041,20 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "67ea494d8be1",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green forest fire notification in Zambia",
+      "summary": "On 01/09/2026, a forest fire started in Zambia,  until 02/09/2026.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031499",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031499",
+      "time": "Thu, 03 Sep 2026 15:02:39 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "b3ef90e38088",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -19727,20 +20066,6 @@
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "22a927b5166e",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Five killed, dozens more feared dead in boat adrift off Canary Islands",
-      "summary": "Spanish migrant NGO says more than 80 people likely perished on the boat that left The Gambia 27 days ago.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/five-killed-dozens-more-feared-dead-in-boat-adrift-off-canary-islands?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/9/3/five-killed-dozens-more-feared-dead-in-boat-adrift-off-canary-islands?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 15:00:24 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
       "intelligenceLayer": "general"
     },
     {
@@ -20302,6 +20627,20 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "a8046b076ec3",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green earthquake (Magnitude 6.3M, Depth:35km) in United States 03/09/2026 11:17 UTC, 4 thousand in MMI>=III.",
+      "summary": "On 9/3/2026 11:17:24 AM, an earthquake occurred in United States potentially affecting 4 thousand in MMI>=III. The earthquake had Magnitude 6.3M, Depth:35km.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563341",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563341",
+      "time": "Thu, 03 Sep 2026 11:23:39 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "7b828d93a26e",
       "sourceLabel": "NPR World",
       "sourceType": "international",
@@ -20324,6 +20663,34 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
+    },
+    {
+      "id": "0f1d8571b9a5",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green forest fire notification in Brazil",
+      "summary": "On 01/09/2026, a forest fire started in Brazil,  until 03/09/2026.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031550",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031550",
+      "time": "Thu, 03 Sep 2026 11:05:00 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "75875497114a",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green forest fire notification in Australia",
+      "summary": "On 01/09/2026, a forest fire started in Australia,  until 03/09/2026.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031549",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031549",
+      "time": "Thu, 03 Sep 2026 11:04:53 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
     },
     {
       "id": "0c46f73cc410",
@@ -20638,6 +21005,20 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "3cc79b317e10",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green flood alert in Lithuania",
+      "summary": "On 01/09/2026, a flood started in Lithuania, lasting until 02/09/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104138",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104138",
+      "time": "Thu, 03 Sep 2026 09:07:43 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "f1f7077ee709",
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
@@ -20822,6 +21203,20 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "94bc80d52bfc",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Volcanic eruption is on going for Sinabung in Indonesia",
+      "summary": "Volcano Sinabung is emitting ash clouds according to the regional VAAC. The aviation alert level is Green.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=VO&eventid=1000147",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=VO&eventid=1000147",
+      "time": "Thu, 03 Sep 2026 07:56:56 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "dfb441c09d89",
       "sourceLabel": "BBC Europe",
       "sourceType": "regional",
@@ -20858,6 +21253,20 @@
       "source": "https://www.npr.org/2026/09/03/nx-s1-5955295/xi-china-visit-egypt",
       "url": "https://www.npr.org/2026/09/03/nx-s1-5955295/xi-china-visit-egypt",
       "time": "Thu, 03 Sep 2026 03:04:25 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "27573d091d27",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green forest fire notification in Russian Federation",
+      "summary": "On 02/09/2026, a forest fire started in Russian Federation,  until 02/09/2026.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031547",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031547",
+      "time": "Thu, 03 Sep 2026 07:02:12 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -21010,6 +21419,20 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6ee0dc4fb1eb",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green earthquake (Magnitude 6.2M, Depth:125.905km) in South Sandwich Islands Region 02/09/2026 23:46 UTC, [unknown].",
+      "summary": "On 9/2/2026 11:46:57 PM, an earthquake occurred in South Sandwich Islands Region potentially affecting [unknown]. The earthquake had Magnitude 6.2M, Depth:125.905km.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563254",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563254",
+      "time": "Thu, 03 Sep 2026 00:02:32 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
       "intelligenceLayer": "general"
     },
     {
@@ -21377,6 +21800,34 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "4f334cdea2a9",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green earthquake (Magnitude 5.9M, Depth:10km) in Southern East Pacific Rise 02/09/2026 12:35 UTC, [unknown].",
+      "summary": "On 9/2/2026 12:35:56 PM, an earthquake occurred in Southern East Pacific Rise potentially affecting [unknown]. The earthquake had Magnitude 5.9M, Depth:10km.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563166",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563166",
+      "time": "Wed, 02 Sep 2026 12:55:32 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "50fb13ab7adc",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green earthquake (Magnitude 5.6M, Depth:10km) in Mexico 02/09/2026 12:28 UTC, 560 thousand in MMI IV.",
+      "summary": "On 9/2/2026 12:28:31 PM, an earthquake occurred in Mexico potentially affecting 560 thousand in MMI IV. The earthquake had Magnitude 5.6M, Depth:10km.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563163",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1563163",
+      "time": "Wed, 02 Sep 2026 12:49:34 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "29af255d47e4",
       "sourceLabel": "BBC Asia",
       "sourceType": "regional",
@@ -21467,6 +21918,20 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
+    },
+    {
+      "id": "f16c43c68fbc",
+      "sourceLabel": "GDACS Global Disaster Alerts",
+      "sourceType": "climate-hazard",
+      "title": "Green forest fire notification in Brazil",
+      "summary": "On 01/09/2026, a forest fire started in Brazil,  until 02/09/2026.",
+      "source": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031480",
+      "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031480",
+      "time": "Wed, 02 Sep 2026 11:01:46 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
     },
     {
       "id": "7af15c78cc3e",
@@ -21735,222 +22200,27 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
-    },
-    {
-      "id": "81eb375d44fa",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "North Carolina Rep. Chuck Edwards is formally censured over harassment allegations",
-      "summary": "The censure vote drew bipartisan support, and followed an investigation by the House Ethics Committee into allegations of sexual harassment against two young female staff members.",
-      "source": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "url": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "time": "Tue, 01 Sep 2026 18:18:20 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "9464e825adca",
-      "sourceLabel": "BBC Americas",
-      "sourceType": "regional",
-      "title": "Watch: Astronauts set out on rare all-female spacewalk",
-      "summary": "For the sixth time in history, a team of two women completed a spacewalk outside the International Space Station.",
-      "source": "https://www.bbc.co.uk/news/videos/c89jyxqvjq0o?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/videos/c89jyxqvjq0o?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 21:08:48 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "1452b76e2d1a",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "Israel says Hamas security chief captured as strikes kill four during Gaza raid",
-      "summary": "The Israeli military says it carried out strikes in Gaza City during a raid by special forces to capture the head of Hamas's internal security service.",
-      "source": "https://www.bbc.co.uk/news/articles/c1wxex4vg35o?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/c1wxex4vg35o?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 20:24:28 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "bb340cc28c49",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "Israel warns it will retaliate if UK imposes sanctions",
-      "summary": "The UK's Foreign Secretary Ed Miliband pledged on Tuesday to introduce a \"comprehensive reset\" of policy on Israel.",
-      "source": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 19:27:38 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Israel"
-      ],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "bbc.co.uk",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "b4c36ef0729c",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
-      "title": "River water smashed into tunnel and chased me for 20 minutes, Nepal worker tells BBC",
-      "summary": "Major efforts to rescue hydropower workers continue as Nepal's death toll exceeds 1,000.",
-      "source": "https://www.bbc.co.uk/news/articles/cg49590v6k1o?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cg49590v6k1o?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 16:11:18 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "9ebe994b3f5e",
-      "sourceLabel": "BBC Europe",
-      "sourceType": "regional",
-      "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
-      "summary": "BBC correspondents in Delhi and Moscow look at why the Indian PM made a very public peace plea to his Russian ally.",
-      "source": "https://www.bbc.co.uk/news/articles/cx2zy3wdqqeo?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cx2zy3wdqqeo?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 11:55:51 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "24aade08508e",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-      "summary": "As of August, the number forced to return this year from Pakistan and Iran had reached another million.",
-      "source": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 05:00:34 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "8b8dbefcc48a",
-      "sourceLabel": "BBC Europe",
-      "sourceType": "regional",
-      "title": "'She slipped out of my hand' - children missing after ferry sinks off northern Cyprus",
-      "summary": "Ayten and Hayri Bicer's two young children are among 20 missing in an incident that killed eight people.",
-      "source": "https://www.bbc.co.uk/news/articles/c1mv5ggg1l8o?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/c1mv5ggg1l8o?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 14:50:36 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "77c755dad93a",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "US and Iran trade strikes for first time in weeks",
-      "summary": "The attack on Larak Island in the Strait of Hormuz - the first known US strike since late July - has killed two people and injured two others.",
-      "source": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 13:47:30 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "economics"
-    },
-    {
-      "id": "4338c779fcc3",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "South African airline defends dramatic low-level flyby before rugby union clash",
-      "summary": "Cape Town stunt sparks major debate over safety risks    Airlink insists flyby conducted according to regulations    A pre-game stunt involving two passenger jets flying dramatically low over a stadium in South Africa drew huge cheers from the estimated crowd of 56,000 people, but also sparked a major debate over safety risks. The flyby by two Embraer jets, operated by the local airline Airlink, happened on Saturday ",
-      "source": "https://www.theguardian.com/sport/2026/aug/31/south-african-airline-defends-dramatic-low-level-flyby-before-rugby-union-springboks-new-zealand",
-      "url": "https://www.theguardian.com/sport/2026/aug/31/south-african-airline-defends-dramatic-low-level-flyby-before-rugby-union-springboks-new-zealand",
-      "time": "Mon, 31 Aug 2026 13:44:39 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "ac57fa72d762",
-      "sourceLabel": "BBC Africa",
-      "sourceType": "regional",
-      "title": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
-      "summary": "Two ships were seized within four days last week raising to at least 13 the number attacked since January.",
-      "source": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 13:34:09 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "3a58e840ce33",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
-      "title": "Once a village, now barren land - BBC in valley devastated by floods",
-      "summary": "The BBC reports from Sano Barkhu, a village overlooking the town of Syfrubesi, which was destroyed by the Nepal flooding.",
-      "source": "https://www.bbc.co.uk/news/videos/c0m3197yxzmo?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/videos/c0m3197yxzmo?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 10:20:08 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "91edb64b56b8",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
-      "summary": "Finn Joughin, a 22-year-old student activist, was arrested in the Palestinian village of Umm Al-Kheir.",
-      "source": "https://www.bbc.co.uk/news/articles/c3d7xgge7vgo?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/c3d7xgge7vgo?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 10:00:23 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
     {
-      "name": "GDELT Live — U.S. Politics",
-      "type": "us-politics",
+      "name": "GDACS Global Disaster Alerts",
+      "type": "climate-hazard",
+      "status": "ok"
+    },
+    {
+      "name": "GDELT Climate & Disaster Watch",
+      "type": "climate-hazard",
       "status": "error"
     },
     {
-      "name": "GDELT Live — World Politics",
-      "type": "world-politics",
+      "name": "GDELT Climate Security Watch",
+      "type": "climate-hazard",
       "status": "error"
     },
     {
-      "name": "GDELT Live — Global Economics",
-      "type": "economics",
+      "name": "FAO GIEWS",
+      "type": "food-security",
       "status": "error"
     },
     {
@@ -21971,12 +22241,27 @@
     {
       "name": "Axios Politics — GDELT Mirror",
       "type": "us-politics",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "Morse Report — GDELT Mirror",
       "type": "us-politics",
       "status": "ok"
+    },
+    {
+      "name": "GDELT Live — U.S. Politics",
+      "type": "us-politics",
+      "status": "error"
+    },
+    {
+      "name": "GDELT Live — World Politics",
+      "type": "world-politics",
+      "status": "ok"
+    },
+    {
+      "name": "GDELT Live — Global Economics",
+      "type": "economics",
+      "status": "error"
     },
     {
       "name": "GDELT Live — Global",
@@ -22071,10 +22356,10 @@
   ],
   "liveDatabase": {
     "enabled": true,
-    "articleCount": 217,
-    "lastExport": "2026-09-03T17:54:03.505189+00:00",
+    "articleCount": 218,
+    "lastExport": "2026-09-03T17:59:02.124793+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 121
+    "newMergedThisRun": 123
   },
   "politics": [
     {
@@ -22266,6 +22551,25 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "e4a1ce9ee168",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "At least 14 Serbians targeted with advanced spyware",
+      "summary": "Student protesters among those hacked, Share Foundation says, but government denies spying At least 14 people from across Serbian civil society were targeted with advanced spyware earlier this year, the digital rights group Share Foundation has said. The wave of spyware infections was discovered in August after Apple notified people in 110 ⁠countries that they had probably been victims ⁠of mercenary spyware. Share sa",
+      "source": "https://www.theguardian.com/world/2026/sep/03/serbians-targeted-with-advanced-spyware",
+      "time": "2026-09-03T17:48:36+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics"
     },
     {
       "id": "b617e4baa27e",
@@ -23464,34 +23768,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "81eb375d44fa",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "North Carolina Rep. Chuck Edwards is formally censured over harassment allegations",
-      "summary": "The censure vote drew bipartisan support, and followed an investigation by the House Ethics Committee into allegations of sexual harassment against two young female staff members.",
-      "source": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "url": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "time": "Tue, 01 Sep 2026 18:18:20 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "bb340cc28c49",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "Israel warns it will retaliate if UK imposes sanctions",
-      "summary": "The UK's Foreign Secretary Ed Miliband pledged on Tuesday to introduce a \"comprehensive reset\" of policy on Israel.",
-      "source": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 19:27:38 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics"
     }
   ],
   "usPolitics": [
@@ -23646,7 +23922,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 46.6
+      "politicalSignalScore": 46.5
     },
     {
       "id": "2e5cd7b9be37",
@@ -23843,7 +24119,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.7
+      "politicalSignalScore": 44.6
     },
     {
       "id": "cc40b4f6f36f",
@@ -23871,7 +24147,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.1
+      "politicalSignalScore": 44.0
     },
     {
       "id": "71c2f023cc8d",
@@ -23902,7 +24178,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.8
+      "politicalSignalScore": 39.7
     },
     {
       "id": "648d6749c712",
@@ -23957,7 +24233,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "f43c01e5cbeb",
@@ -23984,7 +24260,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.3
+      "politicalSignalScore": 38.2
     },
     {
       "id": "772547ad1bd2",
@@ -24042,7 +24318,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.7
+      "politicalSignalScore": 36.6
     },
     {
       "id": "3593d4dc7a14",
@@ -24072,7 +24348,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.8
+      "politicalSignalScore": 32.7
     },
     {
       "id": "eca0fc692bc0",
@@ -24104,7 +24380,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.9
+      "politicalSignalScore": 31.8
     },
     {
       "id": "2a21cb0360a5",
@@ -24131,7 +24407,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.6
+      "politicalSignalScore": 29.5
     },
     {
       "id": "6ad10dbff853",
@@ -24164,7 +24440,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.1
+      "politicalSignalScore": 29.0
     },
     {
       "id": "6e5d651744cd",
@@ -24194,7 +24470,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.0
+      "politicalSignalScore": 28.9
     },
     {
       "id": "ca396a85c9e1",
@@ -24223,7 +24499,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.3
+      "politicalSignalScore": 27.2
     },
     {
       "id": "24b250618b77",
@@ -24850,28 +25126,6 @@
       "politicalSignalScore": 2.0
     },
     {
-      "id": "81eb375d44fa",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "North Carolina Rep. Chuck Edwards is formally censured over harassment allegations",
-      "summary": "The censure vote drew bipartisan support, and followed an investigation by the House Ethics Committee into allegations of sexual harassment against two young female staff members.",
-      "source": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "url": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
-      "time": "Tue, 01 Sep 2026 18:18:20 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
       "id": "6481d41eccb3",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
@@ -25388,7 +25642,32 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.4
+      "politicalSignalScore": 57.3
+    },
+    {
+      "id": "e4a1ce9ee168",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "At least 14 Serbians targeted with advanced spyware",
+      "summary": "Student protesters among those hacked, Share Foundation says, but government denies spying At least 14 people from across Serbian civil society were targeted with advanced spyware earlier this year, the digital rights group Share Foundation has said. The wave of spyware infections was discovered in August after Apple notified people in 110 ⁠countries that they had probably been victims ⁠of mercenary spyware. Share sa",
+      "source": "https://www.theguardian.com/world/2026/sep/03/serbians-targeted-with-advanced-spyware",
+      "time": "2026-09-03T17:48:36+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 44.8
     },
     {
       "id": "db855776bafb",
@@ -25413,7 +25692,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.5
+      "politicalSignalScore": 40.4
     },
     {
       "id": "41d7c8ee8c42",
@@ -25440,7 +25719,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.3
+      "politicalSignalScore": 40.2
     },
     {
       "id": "7e369d09a9ea",
@@ -25467,7 +25746,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.5
+      "politicalSignalScore": 37.4
     },
     {
       "id": "973b1ca1b2ea",
@@ -25492,7 +25771,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.9
     },
     {
       "id": "884558a5687b",
@@ -25519,7 +25798,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.0
+      "politicalSignalScore": 34.9
     },
     {
       "id": "7b3f87bda84f",
@@ -25547,33 +25826,6 @@
       "politicalSignalScore": 33.8
     },
     {
-      "id": "0859be90fbe5",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Barclays faces complaint over backing for power plant near world’s largest mangrove forest",
-      "summary": "Bangladeshi complainants allege Rampal power station’s pollution and climate risks threaten the Sunderbans, a world heritage site Barclays Bank is facing a formal complaint over its financial links to a coal-fired power station near the Sundarbans, the world’s largest mangrove forest and home to millions of people in Bangladesh and India. Three complainants from the region have submitted a case to the UK government’s",
-      "source": "https://www.theguardian.com/global-development/2026/sep/02/bangladesh-india-barclays-bank-legal-complaint-backing-polluting-rampal-power-plant-sundarbans",
-      "time": "2026-09-02T10:00:21+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Public Opinion"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 17.1
-    },
-    {
       "id": "677b245840a5",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -25598,25 +25850,28 @@
       "politicalSignalScore": 17.0
     },
     {
-      "id": "bb340cc28c49",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "Israel warns it will retaliate if UK imposes sanctions",
-      "summary": "The UK's Foreign Secretary Ed Miliband pledged on Tuesday to introduce a \"comprehensive reset\" of policy on Israel.",
-      "source": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-      "time": "Tue, 01 Sep 2026 19:27:38 GMT",
-      "tag": "Breaking",
+      "id": "0859be90fbe5",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Barclays faces complaint over backing for power plant near world’s largest mangrove forest",
+      "summary": "Bangladeshi complainants allege Rampal power station’s pollution and climate risks threaten the Sunderbans, a world heritage site Barclays Bank is facing a formal complaint over its financial links to a coal-fired power station near the Sundarbans, the world’s largest mangrove forest and home to millions of people in Bangladesh and India. Three complainants from the region have submitted a case to the UK government’s",
+      "source": "https://www.theguardian.com/global-development/2026/sep/02/bangladesh-india-barclays-bank-legal-complaint-backing-polluting-rampal-power-plant-sundarbans",
+      "time": "2026-09-02T10:00:21+00:00",
+      "tag": "World",
       "confidence": "DEVELOPING",
-      "breaking": true,
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
       "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Israel"
-      ],
+      "politicalEntities": [],
       "politicalTopics": [
-        "Foreign Policy"
+        "Public Opinion"
       ],
-      "sourceDomain": "bbc.co.uk",
+      "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 17.0
@@ -25969,44 +26224,30 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "economics"
-    },
-    {
-      "id": "77c755dad93a",
-      "sourceLabel": "BBC Middle East",
-      "sourceType": "regional",
-      "title": "US and Iran trade strikes for first time in weeks",
-      "summary": "The attack on Larak Island in the Strait of Hormuz - the first known US strike since late July - has killed two people and injured two others.",
-      "source": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-      "time": "Mon, 31 Aug 2026 13:47:30 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "economics"
     }
   ],
   "layerCounts": {
-    "us-politics": 72,
+    "us-politics": 71,
     "world-politics": 17,
-    "economics": 13,
-    "general": 198
+    "economics": 12,
+    "general": 200
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T17:54:44.763050+00:00",
+    "updatedAt": "2026-09-03T17:59:51.785999+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 89,
-    "usPoliticsSignals": 72,
+    "totalSignals": 88,
+    "usPoliticsSignals": 71,
     "worldPoliticsSignals": 17,
     "corroboratedSignals": 4,
-    "singleSourceSignals": 85,
+    "singleSourceSignals": 84,
     "sourceCounts": {
-      "theguardian.com": 22,
+      "theguardian.com": 23,
       "foxnews.com": 17,
-      "npr.org": 14,
-      "bbc.co.uk": 9,
+      "npr.org": 13,
       "us.cnn.com": 9,
+      "bbc.co.uk": 8,
       "aljazeera.com": 7,
       "cnn.com": 6,
       "france24.com": 4,
@@ -26129,7 +26370,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 57.4
+        "politicalSignalScore": 57.3
       },
       {
         "id": "408a5192a823",
@@ -26189,7 +26430,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 46.6
+        "politicalSignalScore": 46.5
       },
       {
         "id": "2e5cd7b9be37",
@@ -26354,6 +26595,31 @@
         "politicalSignalScore": 45.0
       },
       {
+        "id": "e4a1ce9ee168",
+        "sourceLabel": "The Guardian World",
+        "sourceType": "news",
+        "title": "At least 14 Serbians targeted with advanced spyware",
+        "summary": "Student protesters among those hacked, Share Foundation says, but government denies spying At least 14 people from across Serbian civil society were targeted with advanced spyware earlier this year, the digital rights group Share Foundation has said. The wave of spyware infections was discovered in August after Apple notified people in 110 ⁠countries that they had probably been victims ⁠of mercenary spyware. Share sa",
+        "source": "https://www.theguardian.com/world/2026/sep/03/serbians-targeted-with-advanced-spyware",
+        "time": "2026-09-03T17:48:36+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "guardian_world",
+          "sourceUrl": "https://www.theguardian.com/world/rss",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 44.8
+      },
+      {
         "id": "121c9b78c635",
         "sourceLabel": "Fox News Politics",
         "sourceType": "news",
@@ -26386,7 +26652,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.7
+        "politicalSignalScore": 44.6
       },
       {
         "id": "cc40b4f6f36f",
@@ -26414,7 +26680,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.1
+        "politicalSignalScore": 44.0
       },
       {
         "id": "db855776bafb",
@@ -26439,7 +26705,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.5
+        "politicalSignalScore": 40.4
       },
       {
         "id": "41d7c8ee8c42",
@@ -26466,7 +26732,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.3
+        "politicalSignalScore": 40.2
       },
       {
         "id": "71c2f023cc8d",
@@ -26497,7 +26763,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.8
+        "politicalSignalScore": 39.7
       },
       {
         "id": "648d6749c712",
@@ -26552,7 +26818,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.3
+        "politicalSignalScore": 38.2
       },
       {
         "id": "f43c01e5cbeb",
@@ -26579,7 +26845,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.3
+        "politicalSignalScore": 38.2
       },
       {
         "id": "772547ad1bd2",
@@ -26636,7 +26902,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.5
+        "politicalSignalScore": 37.4
       },
       {
         "id": "99d3f0b739c1",
@@ -26664,7 +26930,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.7
+        "politicalSignalScore": 36.6
       },
       {
         "id": "973b1ca1b2ea",
@@ -26689,7 +26955,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.0
+        "politicalSignalScore": 34.9
       },
       {
         "id": "884558a5687b",
@@ -26716,7 +26982,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.0
+        "politicalSignalScore": 34.9
       },
       {
         "id": "7b3f87bda84f",
@@ -26771,7 +27037,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.8
+        "politicalSignalScore": 32.7
       },
       {
         "id": "eca0fc692bc0",
@@ -26803,7 +27069,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.9
+        "politicalSignalScore": 31.8
       },
       {
         "id": "2a21cb0360a5",
@@ -26830,7 +27096,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.6
+        "politicalSignalScore": 29.5
       },
       {
         "id": "6ad10dbff853",
@@ -26863,7 +27129,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.1
+        "politicalSignalScore": 29.0
       },
       {
         "id": "6e5d651744cd",
@@ -26893,7 +27159,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.0
+        "politicalSignalScore": 28.9
       },
       {
         "id": "ca396a85c9e1",
@@ -26922,7 +27188,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 27.3
+        "politicalSignalScore": 27.2
       },
       {
         "id": "24b250618b77",
@@ -26976,33 +27242,6 @@
         "politicalSignalScore": 19.0
       },
       {
-        "id": "0859be90fbe5",
-        "sourceLabel": "The Guardian World",
-        "sourceType": "news",
-        "title": "Barclays faces complaint over backing for power plant near world’s largest mangrove forest",
-        "summary": "Bangladeshi complainants allege Rampal power station’s pollution and climate risks threaten the Sunderbans, a world heritage site Barclays Bank is facing a formal complaint over its financial links to a coal-fired power station near the Sundarbans, the world’s largest mangrove forest and home to millions of people in Bangladesh and India. Three complainants from the region have submitted a case to the UK government’s",
-        "source": "https://www.theguardian.com/global-development/2026/sep/02/bangladesh-india-barclays-bank-legal-complaint-backing-polluting-rampal-power-plant-sundarbans",
-        "time": "2026-09-02T10:00:21+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "guardian_world",
-          "sourceUrl": "https://www.theguardian.com/world/rss",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [],
-        "politicalTopics": [
-          "Public Opinion"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 17.1
-      },
-      {
         "id": "7435e5436b5c",
         "sourceLabel": "BBC Americas",
         "sourceType": "regional",
@@ -27051,30 +27290,6 @@
         "politicalSignalScore": 17.0
       },
       {
-        "id": "bb340cc28c49",
-        "sourceLabel": "BBC Middle East",
-        "sourceType": "regional",
-        "title": "Israel warns it will retaliate if UK imposes sanctions",
-        "summary": "The UK's Foreign Secretary Ed Miliband pledged on Tuesday to introduce a \"comprehensive reset\" of policy on Israel.",
-        "source": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-        "url": "https://www.bbc.co.uk/news/articles/cr7degkkv5go?at_medium=RSS&at_campaign=rss",
-        "time": "Tue, 01 Sep 2026 19:27:38 GMT",
-        "tag": "Breaking",
-        "confidence": "DEVELOPING",
-        "breaking": true,
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [
-          "Israel"
-        ],
-        "politicalTopics": [
-          "Foreign Policy"
-        ],
-        "sourceDomain": "bbc.co.uk",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 17.0
-      },
-      {
         "id": "f6f8e16c5c1a",
         "sourceLabel": "Guardian World",
         "sourceType": "international",
@@ -27093,6 +27308,33 @@
         ],
         "politicalTopics": [
           "Economy"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 17.0
+      },
+      {
+        "id": "0859be90fbe5",
+        "sourceLabel": "The Guardian World",
+        "sourceType": "news",
+        "title": "Barclays faces complaint over backing for power plant near world’s largest mangrove forest",
+        "summary": "Bangladeshi complainants allege Rampal power station’s pollution and climate risks threaten the Sunderbans, a world heritage site Barclays Bank is facing a formal complaint over its financial links to a coal-fired power station near the Sundarbans, the world’s largest mangrove forest and home to millions of people in Bangladesh and India. Three complainants from the region have submitted a case to the UK government’s",
+        "source": "https://www.theguardian.com/global-development/2026/sep/02/bangladesh-india-barclays-bank-legal-complaint-backing-polluting-rampal-power-plant-sundarbans",
+        "time": "2026-09-02T10:00:21+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "guardian_world",
+          "sourceUrl": "https://www.theguardian.com/world/rss",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Public Opinion"
         ],
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
@@ -27937,7 +28179,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T17:54:53.787594Z",
+    "updatedAt": "2026-09-03T18:00:06.130560Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -27945,13 +28187,7 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 62
-      },
-      {
-        "id": "israel",
-        "label": "Israel",
-        "kind": "actor",
-        "mentions": 28
+        "mentions": 63
       },
       {
         "id": "u-s-politics",
@@ -27960,16 +28196,16 @@
         "mentions": 27
       },
       {
-        "id": "iran",
-        "label": "Iran",
+        "id": "israel",
+        "label": "Israel",
         "kind": "actor",
         "mentions": 26
       },
       {
-        "id": "united-kingdom",
-        "label": "United Kingdom",
+        "id": "iran",
+        "label": "Iran",
         "kind": "actor",
-        "mentions": 16
+        "mentions": 23
       },
       {
         "id": "oil-markets",
@@ -27978,15 +28214,15 @@
         "mentions": 15
       },
       {
+        "id": "united-kingdom",
+        "label": "United Kingdom",
+        "kind": "actor",
+        "mentions": 15
+      },
+      {
         "id": "palestinians",
         "label": "Palestinians",
         "kind": "actor",
-        "mentions": 12
-      },
-      {
-        "id": "global-trade",
-        "label": "Global Trade",
-        "kind": "economic",
         "mentions": 11
       },
       {
@@ -27996,16 +28232,22 @@
         "mentions": 10
       },
       {
-        "id": "ukraine",
-        "label": "Ukraine",
-        "kind": "actor",
-        "mentions": 10
-      },
-      {
         "id": "china",
         "label": "China",
         "kind": "actor",
         "mentions": 10
+      },
+      {
+        "id": "global-trade",
+        "label": "Global Trade",
+        "kind": "economic",
+        "mentions": 10
+      },
+      {
+        "id": "ukraine",
+        "label": "Ukraine",
+        "kind": "actor",
+        "mentions": 9
       },
       {
         "id": "canada",
@@ -28020,16 +28262,16 @@
         "mentions": 9
       },
       {
-        "id": "strait-of-hormuz",
-        "label": "Strait of Hormuz",
-        "kind": "strategic",
-        "mentions": 8
-      },
-      {
         "id": "russia",
         "label": "Russia",
         "kind": "actor",
         "mentions": 8
+      },
+      {
+        "id": "strait-of-hormuz",
+        "label": "Strait of Hormuz",
+        "kind": "strategic",
+        "mentions": 7
       },
       {
         "id": "european-union",
@@ -28092,47 +28334,6 @@
         ]
       },
       {
-        "source": "Israel",
-        "target": "Palestinians",
-        "weight": 11,
-        "types": [
-          "conflict",
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Israel’s siege on Gaza is forcing dentists to operate in the streets",
-            "url": "https://www.aljazeera.com/features/2026/9/3/gaza-housing-dentists?traffic_source=rss",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 16:45:21 +0000"
-          },
-          {
-            "title": "Two Palestinian teens killed in West Bank raid by Israeli settlers and army",
-            "url": "https://www.france24.com/en/video/20260903-two-palestinian-teens-killed-in-west-bank-raid-by-israeli-settlers-and-army",
-            "source": "France 24",
-            "time": "Thu, 03 Sep 2026 16:09:45 GMT"
-          },
-          {
-            "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "2026-09-03T11:21:59+00:00"
-          },
-          {
-            "title": "Israel ‘seeking Trump’s support for plan to expel Palestinians from Gaza’",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-02T18:20:36+00:00"
-          },
-          {
-            "title": "UK must end all trade with Israel, says co-founder of BDS movement",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-02T06:00:24+00:00"
-          }
-        ]
-      },
-      {
         "source": "United States",
         "target": "Iran",
         "weight": 10,
@@ -28169,6 +28370,47 @@
             "url": "",
             "source": "The Guardian World",
             "time": "2026-09-03T14:16:54+00:00"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "Palestinians",
+        "weight": 10,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Gaza farmers restore seed bank to preserve local crops",
+            "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/gaza-farmers-restore-seed-bank-to-preserve-local-crops?traffic_source=rss",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 17:50:48 +0000"
+          },
+          {
+            "title": "Israel’s siege on Gaza is forcing dentists to operate in the streets",
+            "url": "https://www.aljazeera.com/features/2026/9/3/gaza-housing-dentists?traffic_source=rss",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 16:45:21 +0000"
+          },
+          {
+            "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "2026-09-03T11:21:59+00:00"
+          },
+          {
+            "title": "Israel ‘seeking Trump’s support for plan to expel Palestinians from Gaza’",
+            "url": "",
+            "source": "The Guardian World",
+            "time": "2026-09-02T18:20:36+00:00"
+          },
+          {
+            "title": "UK must end all trade with Israel, says co-founder of BDS movement",
+            "url": "",
+            "source": "The Guardian World",
+            "time": "2026-09-02T06:00:24+00:00"
           }
         ]
       },
@@ -28376,18 +28618,12 @@
       {
         "source": "Russia",
         "target": "Ukraine",
-        "weight": 5,
+        "weight": 4,
         "types": [
           "conflict",
           "story"
         ],
         "evidence": [
-          {
-            "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
-            "url": "https://www.bbc.co.uk/news/articles/cx2zy3wdqqeo?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Europe",
-            "time": "Tue, 01 Sep 2026 11:55:51 GMT"
-          },
           {
             "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
             "url": "https://www.france24.com/en/europe/20260903-why-ukraine-drained-kakhovka-dam-strategic-russia",
@@ -28408,41 +28644,6 @@
           },
           {
             "title": "Ukraine–Russia War",
-            "url": "",
-            "source": "Conflict record",
-            "time": ""
-          }
-        ]
-      },
-      {
-        "source": "Iran",
-        "target": "Strait of Hormuz",
-        "weight": 4,
-        "types": [
-          "conflict",
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
-            "url": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Middle East",
-            "time": "Wed, 02 Sep 2026 17:33:45 GMT"
-          },
-          {
-            "title": "US and Iran trade strikes for first time in weeks",
-            "url": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Middle East",
-            "time": "Mon, 31 Aug 2026 13:47:30 GMT"
-          },
-          {
-            "title": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
-            "url": "",
-            "source": "CNN Politics",
-            "time": "2026-09-03T23:30:00+00:00"
-          },
-          {
-            "title": "Iran / Strait of Hormuz",
             "url": "",
             "source": "Conflict record",
             "time": ""
@@ -28513,6 +28714,35 @@
       },
       {
         "source": "Iran",
+        "target": "Strait of Hormuz",
+        "weight": 3,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
+            "url": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss",
+            "source": "BBC Middle East",
+            "time": "Wed, 02 Sep 2026 17:33:45 GMT"
+          },
+          {
+            "title": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
+            "url": "",
+            "source": "CNN Politics",
+            "time": "2026-09-03T23:30:00+00:00"
+          },
+          {
+            "title": "Iran / Strait of Hormuz",
+            "url": "",
+            "source": "Conflict record",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "source": "Iran",
         "target": "Oil Markets",
         "weight": 3,
         "types": [
@@ -28564,34 +28794,6 @@
             "url": "",
             "source": "The Guardian World",
             "time": "2026-09-03T13:35:39+00:00"
-          }
-        ]
-      },
-      {
-        "source": "Israel",
-        "target": "United Kingdom",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
-            "url": "https://www.bbc.co.uk/news/articles/c3d7xgge7vgo?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Middle East",
-            "time": "Mon, 31 Aug 2026 10:00:23 GMT"
-          },
-          {
-            "title": "Yair Netanyahu, Israeli PM’s son, angers UK right over Falklands comment",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "2026-09-03T09:54:15+00:00"
-          },
-          {
-            "title": "UK must end all trade with Israel, says co-founder of BDS movement",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-02T06:00:24+00:00"
           }
         ]
       },
@@ -28726,6 +28928,28 @@
             "url": "",
             "source": "Al Jazeera",
             "time": "2026-09-03T09:57:25+00:00"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "United Kingdom",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Yair Netanyahu, Israeli PM’s son, angers UK right over Falklands comment",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "2026-09-03T09:54:15+00:00"
+          },
+          {
+            "title": "UK must end all trade with Israel, says co-founder of BDS movement",
+            "url": "",
+            "source": "The Guardian World",
+            "time": "2026-09-02T06:00:24+00:00"
           }
         ]
       },
@@ -28906,28 +29130,6 @@
         ]
       },
       {
-        "source": "Palestinians",
-        "target": "United Kingdom",
-        "weight": 2,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "UK raises case of British activist detained by settlers in West Bank with Israel",
-            "url": "https://www.bbc.co.uk/news/articles/c3d7xgge7vgo?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Middle East",
-            "time": "Mon, 31 Aug 2026 10:00:23 GMT"
-          },
-          {
-            "title": "UK must end all trade with Israel, says co-founder of BDS movement",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-02T06:00:24+00:00"
-          }
-        ]
-      },
-      {
         "source": "Israel",
         "target": "Lebanon",
         "weight": 2,
@@ -28946,28 +29148,6 @@
             "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/israeli-bombing-seen-behind-journalist-reporting-from-lebanese-village?traffic_source=rss",
             "source": "Al Jazeera",
             "time": "Thu, 03 Sep 2026 16:56:55 +0000"
-          }
-        ]
-      },
-      {
-        "source": "Strait of Hormuz",
-        "target": "Global Trade",
-        "weight": 2,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Panama Canal restricts traffic amid Hormuz crisis: Why this matters",
-            "url": "https://www.aljazeera.com/news/2026/9/3/panama-canal-restricts-traffic-amid-hormuz-crisis-why-this-matters?traffic_source=rss",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 15:35:57 +0000"
-          },
-          {
-            "title": "US and Iran trade strikes for first time in weeks",
-            "url": "https://www.bbc.co.uk/news/articles/cx2z72x5z1po?at_medium=RSS&at_campaign=rss",
-            "source": "BBC Middle East",
-            "time": "Mon, 31 Aug 2026 13:47:30 GMT"
           }
         ]
       },
