@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-03T15:09:29.726095+00:00",
-  "sourceStatus": "276 stories · 50 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "updatedAt": "2026-09-03T15:44:01.784110+00:00",
+  "sourceStatus": "298 stories · 54 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
   "tension": 88,
-  "tensionDelta": -1,
+  "tensionDelta": 0,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 74,
+    "Diplomatic strain": 71,
     "Economic pressure": 100,
-    "Market volatility": 82,
-    "Military posture": 85
+    "Market volatility": 81,
+    "Military posture": 88
   },
   "changes": [
     {
@@ -28,29 +28,29 @@
       "detail": "Global War News Map: 250 points | Cartel Intelligence Map: 180 points"
     },
     {
-      "kind": "new reporting",
-      "title": "Aid operations in aftermath of deadly Nepal floods hampered by conditions | First Thing",
-      "detail": "Guardian US · regional · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "BoM forecasts strongest El Niño on record as research points to ‘alarming’ climate change influence",
-      "detail": "Guardian World · international · DEVELOPING"
-    },
-    {
       "kind": "breaking",
-      "title": "Five killed, dozens more feared dead in boat adrift off Canary Islands",
-      "detail": "Al Jazeera · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Beastie Boy Mike D releases his first solo LP 'Thank You'",
+      "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
       "detail": "France 24 · international · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Federal judge considers whether to extend ban on USPS mail ballot changes",
-      "detail": "Guardian US · regional · DEVELOPING"
+      "title": "Giorgia Meloni government becomes Italy's longest-lasting since World War II",
+      "detail": "France 24 · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "France-UK ties and humour celebrated as London receives Bayeux Tapestry",
+      "detail": "France 24 · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Musk picks his first GOP warriors as a 2026 money surge takes shape",
+      "detail": "Fox News Politics · us-politics · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Driverless robotaxis hit the streets of London",
+      "detail": "France 24 · international · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -64,7 +64,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 11,
+      "signalCount": 12,
       "sourceCount": 6,
       "confidence": "CORROBORATED",
       "eventType": "KINETIC",
@@ -105,18 +105,18 @@
           "signal": 16.5
         },
         {
-          "title": "Rosenberg: Putin's veiled threat to UK part of Russia's campaign against West",
-          "source": "BBC Europe",
-          "url": "https://www.bbc.co.uk/news/articles/c62j50n131mo?at_medium=RSS&at_campaign=rss",
-          "time": "Wed, 02 Sep 2026 11:47:11 GMT",
+          "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
+          "source": "France 24",
+          "url": "https://www.france24.com/en/europe/20260903-why-ukraine-drained-kakhovka-dam-strategic-russia",
+          "time": "Thu, 03 Sep 2026 15:34:03 GMT",
           "match": [
-            "russia",
-            "putin"
+            "ukraine",
+            "russia"
           ],
-          "signal": 15.0
+          "signal": 16.0
         }
       ],
-      "facts": "11 conflict-specific signal(s) from 6 source(s) in the current feed window.",
+      "facts": "12 conflict-specific signal(s) from 6 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -438,33 +438,43 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "drc",
-      "name": "Eastern DRC Conflict",
-      "region": "Africa",
-      "category": "CONFLICT",
+      "id": "ecuador",
+      "name": "Ecuador Organized Crime Conflict",
+      "region": "Latin America",
+      "category": "CRIMINAL CONFLICT",
       "status": "Active signal",
-      "recent": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-      "escalation": "LOW",
-      "activityScore": 47,
+      "recent": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
+      "escalation": "MODERATE",
+      "activityScore": 53,
       "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
+      "signalCount": 2,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
       "eventType": "MONITORING",
-      "lastSignal": "Thu, 03 Sep 2026 10:45:36 GMT",
+      "lastSignal": "Thu, 20 Aug 2026 10:41:25 GMT",
       "signals": [
         {
-          "title": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-          "source": "France 24",
-          "url": "https://www.france24.com/en/video/20260903-drc-ebola-outbreak-shows-no-signs-of-slowing-as-deaths-top-3-000",
-          "time": "Thu, 03 Sep 2026 10:45:36 GMT",
+          "title": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
+          "source": "BBC Africa",
+          "url": "https://www.bbc.co.uk/news/articles/clylkv4z59vo?at_medium=RSS&at_campaign=rss",
+          "time": "Thu, 20 Aug 2026 10:41:25 GMT",
           "match": [
-            "drc"
+            "ecuador"
           ],
-          "signal": 14.0
+          "signal": 8.8
+        },
+        {
+          "title": "A qué hora juega Ecuador vs Curazao , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
+          "source": "GDELT Live — Americas",
+          "url": "https://libero.pe:443/futbol-internacional/2026/06/19/hora-juega-ecuador-vs-curazao-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1443829",
+          "time": "3 Jun 2026 14:15:00 +0000",
+          "match": [
+            "ecuador"
+          ],
+          "signal": 6.0
         }
       ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -517,36 +527,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "ecuador",
-      "name": "Ecuador Organized Crime Conflict",
-      "region": "Latin America",
-      "category": "CRIMINAL CONFLICT",
-      "status": "Active signal",
-      "recent": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
-      "escalation": "LOW",
-      "activityScore": 43,
-      "delta": 0,
-      "signalCount": 1,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "Thu, 20 Aug 2026 10:41:25 GMT",
-      "signals": [
-        {
-          "title": "Ecuador intelligence chief and five Americans killed in Kenya helicopter crash",
-          "source": "BBC Africa",
-          "url": "https://www.bbc.co.uk/news/articles/clylkv4z59vo?at_medium=RSS&at_campaign=rss",
-          "time": "Thu, 20 Aug 2026 10:41:25 GMT",
-          "match": [
-            "ecuador"
-          ],
-          "signal": 8.8
-        }
-      ],
-      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "afghanistan",
       "name": "Afghanistan Security Risk",
       "region": "Asia",
@@ -564,7 +544,7 @@
       "signals": [
         {
           "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-          "source": "BBC Middle East",
+          "source": "BBC Asia",
           "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
           "time": "Tue, 01 Sep 2026 05:00:34 GMT",
           "match": [
@@ -676,7 +656,7 @@
       "signals": [
         {
           "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
-          "source": "BBC Middle East",
+          "source": "BBC Asia",
           "url": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss",
           "time": "Tue, 01 Sep 2026 05:00:34 GMT",
           "match": [
@@ -691,6 +671,25 @@
     {
       "id": "south-sudan",
       "name": "South Sudan Instability",
+      "region": "Africa",
+      "category": "CONFLICT",
+      "status": "Monitoring",
+      "recent": "No specific current signal in the public feed window.",
+      "escalation": "LOW",
+      "activityScore": 37,
+      "delta": 0,
+      "signalCount": 0,
+      "sourceCount": 0,
+      "confidence": "MONITORING",
+      "eventType": "MONITORING",
+      "lastSignal": null,
+      "signals": [],
+      "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "drc",
+      "name": "Eastern DRC Conflict",
       "region": "Africa",
       "category": "CONFLICT",
       "status": "Monitoring",
@@ -819,6 +818,46 @@
       "lastSignal": null,
       "signals": [],
       "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia Armed Groups",
+      "region": "Latin America",
+      "category": "INSURGENCY",
+      "status": "Active signal",
+      "recent": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
+      "escalation": "LOW",
+      "activityScore": 36,
+      "delta": 0,
+      "signalCount": 2,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "3 Jul 2026 23:30:00 +0000",
+      "signals": [
+        {
+          "title": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
+          "source": "GDELT Live — Americas",
+          "url": "https://www.elcolombiano.com/inicio/25-anos-titulo-seleccion-colombia-copa-america-2001-DP39369486",
+          "time": "3 Jul 2026 23:30:00 +0000",
+          "match": [
+            "colombia"
+          ],
+          "signal": 6.0
+        },
+        {
+          "title": "A qué hora juega Colombia hoy contra Uzbekistán : horarios del partido y canales para ver EN VIVO el Mundial",
+          "source": "GDELT Live — Americas",
+          "url": "https://www.eluniverso.com/deportes/futbol/a-que-hora-juega-colombia-hoy-contra-uzbekistan-horarios-del-partido-y-canales-para-ver-en-vivo-el-mundial-nota/",
+          "time": "3 Jun 2026 13:00:00 +0000",
+          "match": [
+            "colombia"
+          ],
+          "signal": 6.0
+        }
+      ],
+      "facts": "2 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -962,25 +1001,6 @@
       "name": "South China Sea Flashpoint",
       "region": "Indo-Pacific",
       "category": "FLASHPOINT",
-      "status": "Monitoring",
-      "recent": "No specific current signal in the public feed window.",
-      "escalation": "LOW",
-      "activityScore": 27,
-      "delta": 0,
-      "signalCount": 0,
-      "sourceCount": 0,
-      "confidence": "MONITORING",
-      "eventType": "MONITORING",
-      "lastSignal": null,
-      "signals": [],
-      "facts": "0 conflict-specific signal(s) from 0 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "colombia",
-      "name": "Colombia Armed Groups",
-      "region": "Latin America",
-      "category": "INSURGENCY",
       "status": "Monitoring",
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
@@ -3875,6 +3895,244 @@
       "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
       "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.1366,
+      "lng": 169.3059,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 65 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1815,
+      "lng": 146.1539,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 53 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.4605,
+      "lng": 56.4505,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — Owen Fracture Zone region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
@@ -9249,8 +9507,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5RY4D6qmUveFvX-L3mVSyhWSWWrizsQKfwwaoHQR7SyLhIpTPUwO_X-pGY_cUSgyt46hisDwk-JAOhsgUfaRP99ldu1RuVADWmc2Wr7rw6q9hOnvQ7TdNaP_rlIthp7WGxQqNd18umk6iBn4fE4ExOT74dg6q-r5NKBOI4Pqp-VO79aRGu6Z_NbehCozl_eRZYO6TGsvD5xrvh06krBcJi7IuijuQI8mFznrWPhLy1wNDt3nXYwdzcKGU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5RY4D6qmUveFvX-L3mVSyhWSWWrizsQKfwwaoHQR7SyLhIpTPUwO_X-pGY_cUSgyt46hisDwk-JAOhsgUfaRP99ldu1RuVADWmc2Wr7rw6q9hOnvQ7TdNaP_rlIthp7WGxQqNd18umk6iBn4fE4ExOT74dg6q-r5NKBOI4Pqp-VO79aRGu6Z_NbehCozl_eRZYO6TGsvD5xrvh06krBcJi7IuijuQI8mFznrWPhLy1wNDt3nXYwdzcKGU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7DV1enoqp9TiA4-2fouZdR7mXSYmgflmfC1Zoh6ucvldfi6XY_MK6m94JmRU-prLpR7rbnZI7aDSRo2ehs96SRfjaqR_UR7KcSj41Ti3vwklAF3BjKREAVa5VxdrjXTO3zldR4m01zetYl0ymA_eC4xuVZYDQUO-Y3ZjN-UmXaR85ca92MXnHkMTSC91VhXwf9udO9gSDHSX5se30PyHYUHuJp0kDpqVAYc1Gnl1QoGoPaqKhVBBeyNLY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7DV1enoqp9TiA4-2fouZdR7mXSYmgflmfC1Zoh6ucvldfi6XY_MK6m94JmRU-prLpR7rbnZI7aDSRo2ehs96SRfjaqR_UR7KcSj41Ti3vwklAF3BjKREAVa5VxdrjXTO3zldR4m01zetYl0ymA_eC4xuVZYDQUO-Y3ZjN-UmXaR85ca92MXnHkMTSC91VhXwf9udO9gSDHSX5se30PyHYUHuJp0kDpqVAYc1Gnl1QoGoPaqKhVBBeyNLY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9285,8 +9543,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tPxQ6VlYHwkEMKggxh2fCQUXHTEU8bkm4HWVebWv-tykcIvZ0I_-ehc8nMD5RQfzZ_3wqPD87PIYQ1DCJGxDALhtEfLhlWoB2f3P7SNycF6EbdYbqi2fPohVNuWIjCg1yADVI5nbPdLylIPHP14zl9qfQttIkG5ygHCllk6lKIBprGsltxowkbGKROMZ_C8pzDBcSLGkMF-ck-XIt1D6tMY-DS4DjPxji_DI5uPVbOeFoAH1oUXZK6F0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tPxQ6VlYHwkEMKggxh2fCQUXHTEU8bkm4HWVebWv-tykcIvZ0I_-ehc8nMD5RQfzZ_3wqPD87PIYQ1DCJGxDALhtEfLhlWoB2f3P7SNycF6EbdYbqi2fPohVNuWIjCg1yADVI5nbPdLylIPHP14zl9qfQttIkG5ygHCllk6lKIBprGsltxowkbGKROMZ_C8pzDBcSLGkMF-ck-XIt1D6tMY-DS4DjPxji_DI5uPVbOeFoAH1oUXZK6F0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64wkTm1B-CcqZdOtUsEoNOE5PJ80ePQqyhgcc1YKWK7ou2oHlGGbhDcxQpj_2fXsQhvWMBAD0L7M76pNov8KERrJfpE2pjtr1oS8tYB1Cxke7aTZQdzZuTCMRnpquStP1PDqTb1mX_DiC1xcVNQe_bWABXMwG7cqIe3-RDA39Uce5LoIcoBfqkd3k81Cfz2o6uJo1RxZkjMRBopALhGMHhTWNSsnLGfvA7tGe8TxC9rQbknPyQYzSQFt8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64wkTm1B-CcqZdOtUsEoNOE5PJ80ePQqyhgcc1YKWK7ou2oHlGGbhDcxQpj_2fXsQhvWMBAD0L7M76pNov8KERrJfpE2pjtr1oS8tYB1Cxke7aTZQdzZuTCMRnpquStP1PDqTb1mX_DiC1xcVNQe_bWABXMwG7cqIe3-RDA39Uce5LoIcoBfqkd3k81Cfz2o6uJo1RxZkjMRBopALhGMHhTWNSsnLGfvA7tGe8TxC9rQbknPyQYzSQFt8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9339,8 +9597,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7zzchJoPNZ5x1OA5bNnYo0ppFINzLmrpp-XOtcE_z-OvEzx7phUk5TF8HrbS5pP_4cSJCbyMBB5G8IOBuDdXoFKrXz5-ANzJ6rY2jOeShP7T9L0SN6wYP_Xvnnd-WHpimHvjSsx9WbWqS6E3RAibSGxDRbnqcUcob59S96NAKW_WlTDw-D2wjCWe5UG4MKz2iwi_VPdiva_5gKCxcfSTIWJRtp9x8hh4cJf3sAAE9mqKPW0UHBNK9EMb4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7zzchJoPNZ5x1OA5bNnYo0ppFINzLmrpp-XOtcE_z-OvEzx7phUk5TF8HrbS5pP_4cSJCbyMBB5G8IOBuDdXoFKrXz5-ANzJ6rY2jOeShP7T9L0SN6wYP_Xvnnd-WHpimHvjSsx9WbWqS6E3RAibSGxDRbnqcUcob59S96NAKW_WlTDw-D2wjCWe5UG4MKz2iwi_VPdiva_5gKCxcfSTIWJRtp9x8hh4cJf3sAAE9mqKPW0UHBNK9EMb4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4chpG3EuuTKho88ECWdx62dIDZBpjUwDYg99DZw3hrqKEdsSBeIdvznUseWfsMUIID8I4vlnj8lXAPoJJQIIwag4wMlQJ3m5GxKfpxOeDVOJPR9OpVEjbOV447dSsmVuABKfXbg4iE50ppb0XMyDfg0XLOOQDRgp48jcRlMOTMeT6zQ4bCXJMec2xCnK-Anu56JM7Hu7Itq4lAKeUVpceAumsTUVVndRzj_tT_5lEntQHHMe6Pr6pF2Tg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4chpG3EuuTKho88ECWdx62dIDZBpjUwDYg99DZw3hrqKEdsSBeIdvznUseWfsMUIID8I4vlnj8lXAPoJJQIIwag4wMlQJ3m5GxKfpxOeDVOJPR9OpVEjbOV447dSsmVuABKfXbg4iE50ppb0XMyDfg0XLOOQDRgp48jcRlMOTMeT6zQ4bCXJMec2xCnK-Anu56JM7Hu7Itq4lAKeUVpceAumsTUVVndRzj_tT_5lEntQHHMe6Pr6pF2Tg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -10347,8 +10605,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AyQzClfFRYmXiiTah_xC7GvDEuCqOGcx1lEnrtxzLQUTrdMOPQMsRZ4ls3NmGKZbkWIJPmzcLSbfnd6IONQjqA-kQwkfS3VE_9Fp0QT1uJ3929CG7YIECfaxG88vWEwePBjda7a-iIdA1wW3pqWc3BOqqwnsR9wcdNTvMoG6903fH4OGCq4VxMZ52sjfrIexd-ncy1pudxNEys_syEKjkt5fUV1sZ-M4uUdrqOsxDmZGqMjoIj7rbF0s?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AyQzClfFRYmXiiTah_xC7GvDEuCqOGcx1lEnrtxzLQUTrdMOPQMsRZ4ls3NmGKZbkWIJPmzcLSbfnd6IONQjqA-kQwkfS3VE_9Fp0QT1uJ3929CG7YIECfaxG88vWEwePBjda7a-iIdA1wW3pqWc3BOqqwnsR9wcdNTvMoG6903fH4OGCq4VxMZ52sjfrIexd-ncy1pudxNEys_syEKjkt5fUV1sZ-M4uUdrqOsxDmZGqMjoIj7rbF0s?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7FfCJ4XS0uRkeQ4K8rJ8UXffuzPGdwxam0iJRDpocvdaI2UW7XDGNWBzaoEyWqKoztI37UPafGzk44dz6Xes5DcK4ch2qMYyMQ4Ayqtl_iHWmLbXf-pPfOeu_97UsMj7wvYWqqBrOP1JE3BZ4JJcDBYsSdOU8mRfddnGlnLexC3vfJj8s8dt3vR6ZkPZmEm2IYwIstlCu8IU1N-_I4vt5arwlh81GhlC8oUP0utkLNmL_1rMCBcC1QoE0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7FfCJ4XS0uRkeQ4K8rJ8UXffuzPGdwxam0iJRDpocvdaI2UW7XDGNWBzaoEyWqKoztI37UPafGzk44dz6Xes5DcK4ch2qMYyMQ4Ayqtl_iHWmLbXf-pPfOeu_97UsMj7wvYWqqBrOP1JE3BZ4JJcDBYsSdOU8mRfddnGlnLexC3vfJj8s8dt3vR6ZkPZmEm2IYwIstlCu8IU1N-_I4vt5arwlh81GhlC8oUP0utkLNmL_1rMCBcC1QoE0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11535,8 +11793,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7tr1sMF5yu0ohamiHB1GzeLxmp0XxMSOIZW6zu1l3BfLQQSgTMWInRRbw_IuDEgYa3-32oBSh2AnilhFN8SDGQB3JrRtrgVfvGKMDRn5d-vqDXx9906hT_RhN9ZLV9JE8jeQBTsCy7yJRXHLwC80HVn5kPWwlzW2wO4gsY1Z5vteRLv_gxzmm7LGR0ygrMquQh6FjzBArBV9hraiN8fYS4pS6IpiRSOObd89qbR3cFBLLGzx5qt0759zo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7tr1sMF5yu0ohamiHB1GzeLxmp0XxMSOIZW6zu1l3BfLQQSgTMWInRRbw_IuDEgYa3-32oBSh2AnilhFN8SDGQB3JrRtrgVfvGKMDRn5d-vqDXx9906hT_RhN9ZLV9JE8jeQBTsCy7yJRXHLwC80HVn5kPWwlzW2wO4gsY1Z5vteRLv_gxzmm7LGR0ygrMquQh6FjzBArBV9hraiN8fYS4pS6IpiRSOObd89qbR3cFBLLGzx5qt0759zo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76PGolyklj4A_jF2OpItRREjslyLQBp4oe_cm4c4gHRaKvjz2JZB3tIFnOsYRNEGln4423dOEIjrMTIwXzPrlMaXIQrZ0VMscmPXjrrKWDIrp9N6AjjzG71HSS_M6PGCykkHnFi_49f0zNzKJEbNtLYWifu61xf0tMO56l8kycuqwSiVP12fzGEHDDDlBL5umatjMNpFvNyFZxkDhhC4tcuskZRfKgMZdCBTTwcNSAVc562z3e4HoiLr4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76PGolyklj4A_jF2OpItRREjslyLQBp4oe_cm4c4gHRaKvjz2JZB3tIFnOsYRNEGln4423dOEIjrMTIwXzPrlMaXIQrZ0VMscmPXjrrKWDIrp9N6AjjzG71HSS_M6PGCykkHnFi_49f0zNzKJEbNtLYWifu61xf0tMO56l8kycuqwSiVP12fzGEHDDDlBL5umatjMNpFvNyFZxkDhhC4tcuskZRfKgMZdCBTTwcNSAVc562z3e4HoiLr4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11553,8 +11811,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AcYijWzrZMEf4pOqLejfdL-QTjHaQctjJ5RusRVwDd-NuJcuqhNZn4e2MaODjbIj1OIUOLVAmbV2aS4le3gzeGt8UxlXauKgT3vmcSGpuSzjgwKvcDSvJKyR21ZMsmK1Sx8NNXCdeNjSslEmC1TgJzaXLPw436kYo9pswNzpHnKe1sxxsBRPbFnYHHZpU12xRr_mfCEN8rf2_rYop44j9FEPyOjVKhXtFn8ivZcX0Oak9IGw7wfXlgvY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AcYijWzrZMEf4pOqLejfdL-QTjHaQctjJ5RusRVwDd-NuJcuqhNZn4e2MaODjbIj1OIUOLVAmbV2aS4le3gzeGt8UxlXauKgT3vmcSGpuSzjgwKvcDSvJKyR21ZMsmK1Sx8NNXCdeNjSslEmC1TgJzaXLPw436kYo9pswNzpHnKe1sxxsBRPbFnYHHZpU12xRr_mfCEN8rf2_rYop44j9FEPyOjVKhXtFn8ivZcX0Oak9IGw7wfXlgvY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mkeZO0uPQRg7qntkZvdbg7Fv7cCKjJIp5-iIPqa4MYZWcqxEXLjQJdoOowH4Qd2oUys7wQjSTMfrDHweG8yBeVQVWjavfYkvcZG0uUIjHv2WlzbkDX_q7vg7v6RBiO99iQyITwep6Z8tv2P9z6JxxGNR6BU0dVFvK7e7R8OHPUdKxr62cktk74Fqb5WRPPaGSu11oChH7efAft22rPgdg8a3rkzxwF-0b2WdQV0D0JH9ti04ILLJyA6E?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mkeZO0uPQRg7qntkZvdbg7Fv7cCKjJIp5-iIPqa4MYZWcqxEXLjQJdoOowH4Qd2oUys7wQjSTMfrDHweG8yBeVQVWjavfYkvcZG0uUIjHv2WlzbkDX_q7vg7v6RBiO99iQyITwep6Z8tv2P9z6JxxGNR6BU0dVFvK7e7R8OHPUdKxr62cktk74Fqb5WRPPaGSu11oChH7efAft22rPgdg8a3rkzxwF-0b2WdQV0D0JH9ti04ILLJyA6E?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11571,8 +11829,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5UdFtNmlBi3NKSWsiEtRdByq6oYyIjfAxUIoMDw0mDb0ncUQLzHBO7Y-qe4BxvW8ZAzn-SDFOFvKKibtvGZ2zwFBAjXWWHy8gpXLAb3G5kLTul85ufphCOHeudqTtuDrpp_pZGkKupKnkjfIQbWGO3VGUQL9BPk7UWGB-l1K8OKHrH40DY_UomzCulCmptYHG7QuydV__NzgWFwPUjYQlR2nV3drQZ7JJEUB_Hp-hRTjjhNb8k4AQDtPs?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5UdFtNmlBi3NKSWsiEtRdByq6oYyIjfAxUIoMDw0mDb0ncUQLzHBO7Y-qe4BxvW8ZAzn-SDFOFvKKibtvGZ2zwFBAjXWWHy8gpXLAb3G5kLTul85ufphCOHeudqTtuDrpp_pZGkKupKnkjfIQbWGO3VGUQL9BPk7UWGB-l1K8OKHrH40DY_UomzCulCmptYHG7QuydV__NzgWFwPUjYQlR2nV3drQZ7JJEUB_Hp-hRTjjhNb8k4AQDtPs?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5t8YY2JYb6P8V5YL5dYCbP6jN88ZBfwYddyDiuWKhmW1AYnNcpkq7AGNiN2vfp3VwQ9SzaLafzXxj_Yjt6MZe3JIlzQV6BRTKDHy5h2bCx3PFXO5hUNL4fXHPzageuhUhkS7YLe9NCmeDLombdrUQgimZft4pYd0AjmHLmcKOXIpTjd3ptwuu58LXg1xD9m1Bu7X5QhvBba9aI8jFE7gHY-pXMAACV9eruH5B7di2RDZt6mbO8MPDHio0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5t8YY2JYb6P8V5YL5dYCbP6jN88ZBfwYddyDiuWKhmW1AYnNcpkq7AGNiN2vfp3VwQ9SzaLafzXxj_Yjt6MZe3JIlzQV6BRTKDHy5h2bCx3PFXO5hUNL4fXHPzageuhUhkS7YLe9NCmeDLombdrUQgimZft4pYd0AjmHLmcKOXIpTjd3ptwuu58LXg1xD9m1Bu7X5QhvBba9aI8jFE7gHY-pXMAACV9eruH5B7di2RDZt6mbO8MPDHio0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11589,8 +11847,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5PmKYmqjVpiocsAjHeN6t5xnNQ3IIP-SeKi8AMxaEEF3J20NfJqtj30ksfXc72qTHQyHMbADd7y6bxYQOIJOH-G3aVU7uVRgcW-rhlnIK7kHusGxeyCnecToJEPhT4alnsFjK3220e6tPKSHhRExXCEteAo8efETpKc1N3qqWEVrW9eJSNRD_mUfMdiAqae78IHW039WDwtqbUxxHddtye-xSz-BKqqoF00Uaym-rm6w_t2rBHIBuE4Vc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5PmKYmqjVpiocsAjHeN6t5xnNQ3IIP-SeKi8AMxaEEF3J20NfJqtj30ksfXc72qTHQyHMbADd7y6bxYQOIJOH-G3aVU7uVRgcW-rhlnIK7kHusGxeyCnecToJEPhT4alnsFjK3220e6tPKSHhRExXCEteAo8efETpKc1N3qqWEVrW9eJSNRD_mUfMdiAqae78IHW039WDwtqbUxxHddtye-xSz-BKqqoF00Uaym-rm6w_t2rBHIBuE4Vc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4rxCCLcYdnCY6anQIC7IFCBe6XITccIOyRJiCv9LFUnaVHo48_H4CTwvhygBetmCvwzmhQxK6u38hUMjLtm4Cj01UqTB6IyWumLTLs-_pz7VOo0WOvOmcqSqx35zLlAj2YvLiz2_VssTTudv-p_PX0LjH5KsvdJbC1osRpLPMHKO0qdaUL7fbx3ZVuWHg3ldR5WzIesi67bJ2ANQhPYv_6f6eWDj3f3N4ot_rjZub9wngV7S0FWMg2-xc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4rxCCLcYdnCY6anQIC7IFCBe6XITccIOyRJiCv9LFUnaVHo48_H4CTwvhygBetmCvwzmhQxK6u38hUMjLtm4Cj01UqTB6IyWumLTLs-_pz7VOo0WOvOmcqSqx35zLlAj2YvLiz2_VssTTudv-p_PX0LjH5KsvdJbC1osRpLPMHKO0qdaUL7fbx3ZVuWHg3ldR5WzIesi67bJ2ANQhPYv_6f6eWDj3f3N4ot_rjZub9wngV7S0FWMg2-xc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11607,8 +11865,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6nhcalJgOepCLALrCrsubcxkwtqbK-Tss060ZyQQYpa-OA9cEPzQwQejmaTtW5hRMvpDC_glApPMkH1-T3pI7ZiuRztNRX-Fo4E2rZEhsOm5I5bbWsyeXtYxBRveHpzBA28XHRxMt-_wadqrKJGu2RXBst74II5LvcGyyOO1Mu799iuE01rPO_pLzqdRE8EHzbsGsss1wfAQ-4SPHKVNebHzXgNdhCQ7dGl8pg-eG4Pgrh7zQ6DNyaYZg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6nhcalJgOepCLALrCrsubcxkwtqbK-Tss060ZyQQYpa-OA9cEPzQwQejmaTtW5hRMvpDC_glApPMkH1-T3pI7ZiuRztNRX-Fo4E2rZEhsOm5I5bbWsyeXtYxBRveHpzBA28XHRxMt-_wadqrKJGu2RXBst74II5LvcGyyOO1Mu799iuE01rPO_pLzqdRE8EHzbsGsss1wfAQ-4SPHKVNebHzXgNdhCQ7dGl8pg-eG4Pgrh7zQ6DNyaYZg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR74JfFXUmegcjcvGsu1CKiDoxfum-RfYRwMmjthp24LLoaELFbfPljpw1bxjvgbXVmuCDns570-wbJIp__NkbSk-q_EQAAGe3SxLZmnrSYZilVZMjnq3VbP5PzukkRifUdeSVniwqt22pwJfebNqKS_MFL38S8dEUk3Yf59JQ2lVzV_4lLeAMrvN1TeeB6RCYE6itnMIN6g5rumNmK7GK3OnmZuVBM64iWFEHzxy9T3B0VPcU_c2vqoD-0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR74JfFXUmegcjcvGsu1CKiDoxfum-RfYRwMmjthp24LLoaELFbfPljpw1bxjvgbXVmuCDns570-wbJIp__NkbSk-q_EQAAGe3SxLZmnrSYZilVZMjnq3VbP5PzukkRifUdeSVniwqt22pwJfebNqKS_MFL38S8dEUk3Yf59JQ2lVzV_4lLeAMrvN1TeeB6RCYE6itnMIN6g5rumNmK7GK3OnmZuVBM64iWFEHzxy9T3B0VPcU_c2vqoD-0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11625,8 +11883,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4ZsvVtXXVV5auZ5NC6TB0vooe_v1agUR7bqDETjNpgNK7N23n0mHCY92Vu2clTL1f9An6KQI_NBSlVDRXmmF2Dyx6wA9QLnr8MVh0ru__LMU7a0-wAA-AAQgRuLBAS7M8nrjkWawm69q3A2nbR-6PigrFcR6ksDQ351FRss18Ej2aCF3lJMCtNk5z14WIyNcjFBpPIWBIi5ujFEauoE_8RIQElZp9sGThOYXxLU-pleuqQAnONUek0uk0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4ZsvVtXXVV5auZ5NC6TB0vooe_v1agUR7bqDETjNpgNK7N23n0mHCY92Vu2clTL1f9An6KQI_NBSlVDRXmmF2Dyx6wA9QLnr8MVh0ru__LMU7a0-wAA-AAQgRuLBAS7M8nrjkWawm69q3A2nbR-6PigrFcR6ksDQ351FRss18Ej2aCF3lJMCtNk5z14WIyNcjFBpPIWBIi5ujFEauoE_8RIQElZp9sGThOYXxLU-pleuqQAnONUek0uk0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6oT8IvOtgVMLis31modzcUsiv8tIeJXgvazmeIDnvY5bzER-Em78biZEzWshnv_J5izmtEHNdCmQqJb2B2lgyBpeaVV91nVDHk65GY0Q8-VVPMtZQ_YyVUSFqWH34bSDktHb42E9UnnTV2rdVMg_-g8P3A5eAi92ByR4c6waB-LEnWb9WerTFfAOZ-2VERXMBkUMgqTn_GwpEhO5vsLU3QW0FhgFvdg0w04ClHFvy_tcxYfFevAmGAaxI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6oT8IvOtgVMLis31modzcUsiv8tIeJXgvazmeIDnvY5bzER-Em78biZEzWshnv_J5izmtEHNdCmQqJb2B2lgyBpeaVV91nVDHk65GY0Q8-VVPMtZQ_YyVUSFqWH34bSDktHb42E9UnnTV2rdVMg_-g8P3A5eAi92ByR4c6waB-LEnWb9WerTFfAOZ-2VERXMBkUMgqTn_GwpEhO5vsLU3QW0FhgFvdg0w04ClHFvy_tcxYfFevAmGAaxI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11643,8 +11901,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AeyrE-vNIFh0nQxFy3L4uZWuxRBElQBJyn_tpUEVM-2ekut_4mUzh5ac0L9mPqghD1XFJt9mFdip_yXFG0QgrTd7kOGX2xVxq30JpysJON9MNeW2ZWuPTP7TfxHszW5uX3FTXgLDRQBLd4eu5VfwPjP4dyXGRhTzStWsnZVRuvNBMV8iQj-6zILP0Fbb5j3w1z8ahtdgtcC0pA8BXfEN8FoswUMwWAFpO3NPPk7CK7yefXcqwUCpASWs?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6AeyrE-vNIFh0nQxFy3L4uZWuxRBElQBJyn_tpUEVM-2ekut_4mUzh5ac0L9mPqghD1XFJt9mFdip_yXFG0QgrTd7kOGX2xVxq30JpysJON9MNeW2ZWuPTP7TfxHszW5uX3FTXgLDRQBLd4eu5VfwPjP4dyXGRhTzStWsnZVRuvNBMV8iQj-6zILP0Fbb5j3w1z8ahtdgtcC0pA8BXfEN8FoswUMwWAFpO3NPPk7CK7yefXcqwUCpASWs?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6SZ_An8_WGWA7U_PKLy-9fESx7hK6iFCJ5yUWShRsa-sq63aJ5M83PEFmQX7-v6nxvTTxT92PlVIv8SAIyY5cSn4e_e04yA7BdNbDoveOJY04CfIIjvxkPEIyBFboNqcWIJ8g76mhYlGzTk1cwDkYmKsQDwpVQRbSOiW64kzEasYe_Tm0hiUqaxoHIG7UBj9OXQEgxQvCaR_ayPeCWeRMhoTnbkxgsZUQLAVhxbIFrwY_ue8mxr5-NEz0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6SZ_An8_WGWA7U_PKLy-9fESx7hK6iFCJ5yUWShRsa-sq63aJ5M83PEFmQX7-v6nxvTTxT92PlVIv8SAIyY5cSn4e_e04yA7BdNbDoveOJY04CfIIjvxkPEIyBFboNqcWIJ8g76mhYlGzTk1cwDkYmKsQDwpVQRbSOiW64kzEasYe_Tm0hiUqaxoHIG7UBj9OXQEgxQvCaR_ayPeCWeRMhoTnbkxgsZUQLAVhxbIFrwY_ue8mxr5-NEz0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11661,8 +11919,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7W35BL5NHmtigNfbSgDVvKqLNvyKQB7bFaOCyNWreRKwpQgto7Emwl_lYSBCH34IA29l5bWGz7UQGkEj_ZZdlCE7VNVfHVRQWOTVFugS7nLJMOzh_MB0x_P8gEkgV5ibtLuGpqKmJ_tc9oP-ImuLpWfvs66cor-or687bnNU2AzBsW102mXyaRjopxlzYPIpW3XQb1Gw_8UIFvq1m3OloD-Tk-zis4BBSEes08OpnsMUIF4yPjdwZvD60?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7W35BL5NHmtigNfbSgDVvKqLNvyKQB7bFaOCyNWreRKwpQgto7Emwl_lYSBCH34IA29l5bWGz7UQGkEj_ZZdlCE7VNVfHVRQWOTVFugS7nLJMOzh_MB0x_P8gEkgV5ibtLuGpqKmJ_tc9oP-ImuLpWfvs66cor-or687bnNU2AzBsW102mXyaRjopxlzYPIpW3XQb1Gw_8UIFvq1m3OloD-Tk-zis4BBSEes08OpnsMUIF4yPjdwZvD60?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lTQvHxwggfrd1Q5jZRtFL54Md1BFVYg-BTqheqtTeJWfcQcq0PLiKmI6LjPvl8RMxfGYgbkk0hkUGcEL4ojY3AyGRlG9BMJWCzsgUiaW1mmXQTGxp0qbS-m9bCX3EsxpV9nCWb5EEcAPEMw-zwImuBojyEUycltk-v9O8AJIeOqM7JOpii6JJPUcoUI71KOyk5xbVN61Y92_2yOkLT-7-zPDTKxhJbI-7Sp9e39tNk6rreVExFWIE088?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4lTQvHxwggfrd1Q5jZRtFL54Md1BFVYg-BTqheqtTeJWfcQcq0PLiKmI6LjPvl8RMxfGYgbkk0hkUGcEL4ojY3AyGRlG9BMJWCzsgUiaW1mmXQTGxp0qbS-m9bCX3EsxpV9nCWb5EEcAPEMw-zwImuBojyEUycltk-v9O8AJIeOqM7JOpii6JJPUcoUI71KOyk5xbVN61Y92_2yOkLT-7-zPDTKxhJbI-7Sp9e39tNk6rreVExFWIE088?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11679,8 +11937,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR53cXC2jQVSd7pccjfvOiSdAY_HgiZF8iFxh1DoeABmFcUsN9LG0QyKVWSbgyK3IdTlo4GFYwxIT4DZNVV9hGlc-883qolp6imSAupfIdlOq5y5vl4Xoeh12a27mClWUiyHiHROmZRczn48Fp9_no39d-xUI4QqotvZWWQnhyolXFwyuuiRF4Htj-j85qH8ebvHx_SbSh0H96hDZmg4F3oWhCpVKjP4ErBVaLwwqBnpjXmVueyD1nfU7g4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR53cXC2jQVSd7pccjfvOiSdAY_HgiZF8iFxh1DoeABmFcUsN9LG0QyKVWSbgyK3IdTlo4GFYwxIT4DZNVV9hGlc-883qolp6imSAupfIdlOq5y5vl4Xoeh12a27mClWUiyHiHROmZRczn48Fp9_no39d-xUI4QqotvZWWQnhyolXFwyuuiRF4Htj-j85qH8ebvHx_SbSh0H96hDZmg4F3oWhCpVKjP4ErBVaLwwqBnpjXmVueyD1nfU7g4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7o6Kdzw2suVPOJ6Hx4c4oDrVOoQFVtgnx9rwfDMvPWKL62vKFE8SOryAFfuwLGoxjkmtHRm6JWWKQ8eoNc26_4UWb4KWrMQDjmCGZshq1uWuhj-Ej_Tk9c_hfvBD5utEAJN14xe8Tnh7pIs1tOfppVxQLqkAf8aMrHKU8dajy1f8meJrAUDKzik8OfDc7k-Lsjz61s6LpPQrrfKmWUBsTUW8z2WKNRTHjtRvu0vmWjaVZSSh0kbbXdOis?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7o6Kdzw2suVPOJ6Hx4c4oDrVOoQFVtgnx9rwfDMvPWKL62vKFE8SOryAFfuwLGoxjkmtHRm6JWWKQ8eoNc26_4UWb4KWrMQDjmCGZshq1uWuhj-Ej_Tk9c_hfvBD5utEAJN14xe8Tnh7pIs1tOfppVxQLqkAf8aMrHKU8dajy1f8meJrAUDKzik8OfDc7k-Lsjz61s6LpPQrrfKmWUBsTUW8z2WKNRTHjtRvu0vmWjaVZSSh0kbbXdOis?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11733,8 +11991,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7vFa7GBrb_GIzXLP5HA2PtqoDm87-0mTb7LJ7Tu4BF4yzuN8qcC4YrtCHYlOwbHw7pczte8r_l7-CBVo8IkTNKbXZRfglucuK2Q0ld3YKJS-fTHoaa3ocqXbGb-pzYIrkhZhrCaRk_xPaUvP__FQQ2LzsqDD_ZbW8WrZehUdogUHUpWs3qblJKBqExHjlZ8E26dyrv-BfeaOewBNwhHoO7C_WcPhJdlf3RiVmOtLKpQzHJUW0Mf-tSbvU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7vFa7GBrb_GIzXLP5HA2PtqoDm87-0mTb7LJ7Tu4BF4yzuN8qcC4YrtCHYlOwbHw7pczte8r_l7-CBVo8IkTNKbXZRfglucuK2Q0ld3YKJS-fTHoaa3ocqXbGb-pzYIrkhZhrCaRk_xPaUvP__FQQ2LzsqDD_ZbW8WrZehUdogUHUpWs3qblJKBqExHjlZ8E26dyrv-BfeaOewBNwhHoO7C_WcPhJdlf3RiVmOtLKpQzHJUW0Mf-tSbvU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nUYDvhlgd_-bRtGUBK3PzOn67xPAMwHvS4VGC53dPTv5ubG_lliB8yThCYMh0qyqEbxqG5hsLs9jqxGNX_Cq8odYFVRJeOAF_U31jfNoyJwYjVujy578Qi8XCan8UxXFrSBss3E-iJFySZKyprhfdQQ_k2otWz3Ob57zwZ2fBl5j7c3xSIjWdx_UCYaYITGCLeJlZVlanWLIxJFvQ3SGBFCuAFnYTgVOEgI2AaMLKOfojdDQsCBX4lUk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nUYDvhlgd_-bRtGUBK3PzOn67xPAMwHvS4VGC53dPTv5ubG_lliB8yThCYMh0qyqEbxqG5hsLs9jqxGNX_Cq8odYFVRJeOAF_U31jfNoyJwYjVujy578Qi8XCan8UxXFrSBss3E-iJFySZKyprhfdQQ_k2otWz3Ob57zwZ2fBl5j7c3xSIjWdx_UCYaYITGCLeJlZVlanWLIxJFvQ3SGBFCuAFnYTgVOEgI2AaMLKOfojdDQsCBX4lUk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11751,8 +12009,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5m-EJEkGqsU_nxqONU7av2vSbxbyTfSXILttjVs2HR0XIkYdMcK2JZPts4kW5zreN2GzT9-eKG6abRoF46IQy3ZQjYFcnM4VM55_8k1jW_RrjbdEZNRraPILw5UsiKcTC64TOXX8u0ZRBi4YvM87vBjah_6uAdLOVBdm93LoCoKnpN9Kz2HOYOyPYEhRORW6EefPT_i4yM5XdJFbdM2f-mRQUh-CUw1hfoDQBotmZ4ND7O-2jTKVATIkY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5m-EJEkGqsU_nxqONU7av2vSbxbyTfSXILttjVs2HR0XIkYdMcK2JZPts4kW5zreN2GzT9-eKG6abRoF46IQy3ZQjYFcnM4VM55_8k1jW_RrjbdEZNRraPILw5UsiKcTC64TOXX8u0ZRBi4YvM87vBjah_6uAdLOVBdm93LoCoKnpN9Kz2HOYOyPYEhRORW6EefPT_i4yM5XdJFbdM2f-mRQUh-CUw1hfoDQBotmZ4ND7O-2jTKVATIkY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4NdF0YfwennyhXm9hY0TboXsPLjG4SU2IivMH11mCSa73zAGtMNO5T3QfJH3f_QVvrsb7vsc9x8SJHXTilk2ifUjM_EytCe7Tvno_SbxxwYNr7t28l1Hi6Ic0xCjyDPeUZaB72PUFxCHZKWdfzPUXlUE7-DqGyxQOZbE5koGfhIVMCovt9QTDZIRsg6DcIl4_EhbZYQNkam9Y7uBaCbUZG9wCDAQ6tJTqTmz_FxdB8Gj_bAgYBi16-6FQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4NdF0YfwennyhXm9hY0TboXsPLjG4SU2IivMH11mCSa73zAGtMNO5T3QfJH3f_QVvrsb7vsc9x8SJHXTilk2ifUjM_EytCe7Tvno_SbxxwYNr7t28l1Hi6Ic0xCjyDPeUZaB72PUFxCHZKWdfzPUXlUE7-DqGyxQOZbE5koGfhIVMCovt9QTDZIRsg6DcIl4_EhbZYQNkam9Y7uBaCbUZG9wCDAQ6tJTqTmz_FxdB8Gj_bAgYBi16-6FQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11805,8 +12063,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5jVb1mMMRH-HssIK5ewmQInJKKbaujPgiNTtZB34eINS01Oz_55lG2eNpueCrAdNH3F0tV7LSQ2DC0NLfDxuYL5MwiUIRQoPeoUjPSDHguwz91lyialRaoVggHlwTnc-M1fB3o3l4XKhv2cl6MccypT1D7PFhw6liqBLyoV69xM3fBm_9SbY4KntTDtCC73aMGyXjum5XvX6k5WzKua-xXPypnCk9wblnjohtZBHqVRO0G9_xlm_5-btI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5jVb1mMMRH-HssIK5ewmQInJKKbaujPgiNTtZB34eINS01Oz_55lG2eNpueCrAdNH3F0tV7LSQ2DC0NLfDxuYL5MwiUIRQoPeoUjPSDHguwz91lyialRaoVggHlwTnc-M1fB3o3l4XKhv2cl6MccypT1D7PFhw6liqBLyoV69xM3fBm_9SbY4KntTDtCC73aMGyXjum5XvX6k5WzKua-xXPypnCk9wblnjohtZBHqVRO0G9_xlm_5-btI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR45I_-9qP4PYv05BPa0Ei54IMKLjDeaIazPreIUIuj7rmTD8f6IBp8hM0ZjdjMc9zx1bMDtasmLW_L3ESLYxkUZxO6gkd7HBVa3y8GH7pgQPBIXChrSppVbRCtur9CWR-uR2EPbOOoaLgew8yPZnXLFWJM9z_vv3A49BWk0o0tDJUlKj4D1KfJU45IkpfVGoldKOtU4rXdUvCPsHrafrMWb860gkke6NVCKmKyUhWTtzJ25uuOBmlaFqHs?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR45I_-9qP4PYv05BPa0Ei54IMKLjDeaIazPreIUIuj7rmTD8f6IBp8hM0ZjdjMc9zx1bMDtasmLW_L3ESLYxkUZxO6gkd7HBVa3y8GH7pgQPBIXChrSppVbRCtur9CWR-uR2EPbOOoaLgew8yPZnXLFWJM9z_vv3A49BWk0o0tDJUlKj4D1KfJU45IkpfVGoldKOtU4rXdUvCPsHrafrMWb860gkke6NVCKmKyUhWTtzJ25uuOBmlaFqHs?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11877,8 +12135,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JbZuRa9nIFtizmOdzhA39eGPPbYhVoI1dDqBvV2uNmTCZTRzBBoJTvZFg8qGVR6sCiKgZqJL2gfBW5gVHxqWig5mXLVpF1P1u4ab_zvbQf1NY1k6dW1gwmm0GKw_5GJ9WjH3eEgM3Ox0l-K_pF8_Ag6qLpNH96cwsU-dMAE6sezAIi4a0I3QkAozqU5UY21biZWnxFWzkBvtSV9bLl6SR1KQD3HQ6HOCUZ91c5LCX1rWGLdGOWP9AR1Y?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JbZuRa9nIFtizmOdzhA39eGPPbYhVoI1dDqBvV2uNmTCZTRzBBoJTvZFg8qGVR6sCiKgZqJL2gfBW5gVHxqWig5mXLVpF1P1u4ab_zvbQf1NY1k6dW1gwmm0GKw_5GJ9WjH3eEgM3Ox0l-K_pF8_Ag6qLpNH96cwsU-dMAE6sezAIi4a0I3QkAozqU5UY21biZWnxFWzkBvtSV9bLl6SR1KQD3HQ6HOCUZ91c5LCX1rWGLdGOWP9AR1Y?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4ksUqCXU0-O4xSQOrXpDVG-To7u0gvxar-hJmKNym3NoOpfB19Xi2ldn8x8s2NOYqlTVUYB63N4RNi3j39fwWh-W_DnvhUEkQghiugSzhVP4-hO5cOb8Zwr1GJfEHGYj2me0r_OdOaxbjNVd0LeH3Bz6aV9H5WYNU1ORX44fwT9k9ZA2eArhlEulaZCYbTs_s-OJcTqiojfvNs8_BiNbcg333Yv2_dZnFVHQnfPUyB_Sr9B5OOcBloyqM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4ksUqCXU0-O4xSQOrXpDVG-To7u0gvxar-hJmKNym3NoOpfB19Xi2ldn8x8s2NOYqlTVUYB63N4RNi3j39fwWh-W_DnvhUEkQghiugSzhVP4-hO5cOb8Zwr1GJfEHGYj2me0r_OdOaxbjNVd0LeH3Bz6aV9H5WYNU1ORX44fwT9k9ZA2eArhlEulaZCYbTs_s-OJcTqiojfvNs8_BiNbcg333Yv2_dZnFVHQnfPUyB_Sr9B5OOcBloyqM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12003,8 +12261,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7T0_vW7QKWxHv701BiMyBCA3vj-1NudTmqAfmDEcAV-zHPd8oj0Klba6dsNTqqqwukk7-BC7WqlUykXBBc-6LE6i_y1QeohtBVXyxX9ndimlz5qKTomJoQg-f97QeOQtOrOcqYACySYsP1kUMKAWZJegOA1iIZiTVA16J9yrGoY7hfuHVvY1JfEiAveJnj0TOrgf4ZwBwp_TkQ8mk3MwSJdK5WNScTEym__Mo6SrhbUFRs5a8dBNW9nXk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7T0_vW7QKWxHv701BiMyBCA3vj-1NudTmqAfmDEcAV-zHPd8oj0Klba6dsNTqqqwukk7-BC7WqlUykXBBc-6LE6i_y1QeohtBVXyxX9ndimlz5qKTomJoQg-f97QeOQtOrOcqYACySYsP1kUMKAWZJegOA1iIZiTVA16J9yrGoY7hfuHVvY1JfEiAveJnj0TOrgf4ZwBwp_TkQ8mk3MwSJdK5WNScTEym__Mo6SrhbUFRs5a8dBNW9nXk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5YrJTPAn3mdGJvDkgtgpnVdRC6YoGUQEl96WDj8DY5jMtNC34XcgVVnAI4wKv6sV4f8gbKMBLFgceeaIAfSK5sVacGbg8ceeXFIR3rNsKEEqXmjz6YSnbi6NQ8klTwk9k2qyVbeEIuZ9Snp8F3MEZwabq1ovahkR9gKwbyeGNWX3_7ulCYAsjRelYN1wd0YnRyKMteKOjpU1f42iabzcEWG1HBstnjAG0lLte-3yuw-A2urK1aQ7IuJgI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5YrJTPAn3mdGJvDkgtgpnVdRC6YoGUQEl96WDj8DY5jMtNC34XcgVVnAI4wKv6sV4f8gbKMBLFgceeaIAfSK5sVacGbg8ceeXFIR3rNsKEEqXmjz6YSnbi6NQ8klTwk9k2qyVbeEIuZ9Snp8F3MEZwabq1ovahkR9gKwbyeGNWX3_7ulCYAsjRelYN1wd0YnRyKMteKOjpU1f42iabzcEWG1HBstnjAG0lLte-3yuw-A2urK1aQ7IuJgI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13510,6 +13768,50 @@
   ],
   "stories": [
     {
+      "id": "00fee9d810eb",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "EU’s ability to defend against invasion remains in doubt, finds official report",
+      "summary": "Fragmented infrastructure and reliance on US continue to hinder ‘defence readiness’, says European court of auditors Europe live – latest updates The EU’s ability to respond to a foreign invasion by 2030 remains in doubt due to a continuing reliance on the US and fragmented national defence systems, according to a report from its official auditor. The European court of auditors (ECA) said the EU was much better prepa",
+      "source": "https://www.theguardian.com/world/2026/sep/03/eu-defence-readiness-eca-auditors-us-reliance",
+      "time": "2026-09-03T15:09:25+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "b617e4baa27e",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Manchester synagogue attack: ministers seek to block MI5 files from inquest",
+      "summary": "Government lawyers tell coroner disclosing intelligence would pose serious risk to national security Ministers are seeking to block intelligence material from being heard at an inquest into the death of two men killed in the 2025 Manchester synagogue attack. Lawyers for Shabana Mahmood, the home secretary, told a coroner on Thursday that disclosing the MI5 files would pose a serious risk to national security. Continu",
+      "source": "https://www.theguardian.com/uk-news/2026/sep/03/manchester-synagogue-attack-ministers-seek-block-m15-files-inquest",
+      "time": "2026-09-03T15:07:16+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 59.4
+    },
+    {
       "id": "62141e3735d6",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -13725,7 +14027,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.6
+      "politicalSignalScore": 46.1
     },
     {
       "id": "e97822a7cbe0",
@@ -13742,6 +14044,25 @@
       "credit": {
         "sourceId": "guardian_world",
         "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "b4d2cee3f953",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
+      "summary": "Abu Safia, in custody for nearly two years, continues to face abuse inside prison, his lawyer says.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/no-end-to-torture-of-gaza-doctor-abu-safiya-in-israeli-prison-what-to-know?traffic_source=rss",
+      "time": "2026-09-03T11:21:59+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
@@ -13790,7 +14111,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.9
+      "politicalSignalScore": 42.3
     },
     {
       "id": "3d3071e11746",
@@ -13836,7 +14157,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.6
     },
     {
       "id": "7e369d09a9ea",
@@ -13863,7 +14184,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.5
     },
     {
       "id": "19e24f5bcc9d",
@@ -14007,7 +14328,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.5
+      "politicalSignalScore": 40.0
     },
     {
       "id": "4853c2337866",
@@ -14091,7 +14412,26 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.0
+    },
+    {
+      "id": "183dd5857edb",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "FAA seeks permanent airspace restrictions near Trump’s Mar-a-Lago as expert warns rules are ‘not good enough’",
+      "summary": "The FAA proposed permanent flight rules near Donald J. Trump International Airport at Secret Service request, but drone expert warns it's may not be enough.",
+      "source": "https://www.foxnews.com/politics/faa-seeks-permanent-airspace-restrictions-trump-mar-a-lago-expert-warns-rules-not-good-enough",
+      "time": "2026-09-03T02:03:35+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
     },
     {
       "id": "3593d4dc7a14",
@@ -14121,7 +14461,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
+      "politicalSignalScore": 34.9
     },
     {
       "id": "0e6d5e98e90c",
@@ -14229,7 +14569,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.5
+      "politicalSignalScore": 33.9
     },
     {
       "id": "ca396a85c9e1",
@@ -14258,7 +14598,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.9
+      "politicalSignalScore": 29.4
     },
     {
       "id": "6ad10dbff853",
@@ -14291,7 +14631,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.7
+      "politicalSignalScore": 31.1
     },
     {
       "id": "6e5d651744cd",
@@ -14321,7 +14661,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.6
+      "politicalSignalScore": 31.1
     },
     {
       "id": "04121260ea77",
@@ -14424,7 +14764,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 19.7
+      "politicalSignalScore": 19.1
     },
     {
       "id": "750589f89281",
@@ -14454,7 +14794,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.9
+      "politicalSignalScore": 17.4
     },
     {
       "id": "0db692ff9ba8",
@@ -14590,13 +14930,36 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "4e4cfa70881f",
+      "id": "9b2e6ca20dde",
       "sourceLabel": "BBC World",
       "sourceType": "international",
-      "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
-      "summary": "Al-Mughayyir's council says they were trying to stop settlers stealing sheep, but the Israeli military says they threw stones at its troops.",
-      "source": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 15:05:57 GMT",
+      "title": "Trump $1 coin makes him first living president on US currency in a century",
+      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 15:35:47 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "bbc.co.uk",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "3c4f92910242",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
+      "summary": "Small groups of Russian soldiers have been inching forward through the vast, drained Kakhovka reservoir since they blew up the dam in June 2023. Russian forces are infiltrating this “no man’s land” for reconnaissance purposes rather than for a future military offensive, said a military expert.",
+      "source": "https://www.france24.com/en/europe/20260903-why-ukraine-drained-kakhovka-dam-strategic-russia",
+      "time": "Thu, 03 Sep 2026 15:34:03 GMT",
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
@@ -14609,7 +14972,7 @@
       "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 15:03:53 GMT",
+      "time": "Thu, 03 Sep 2026 15:30:47 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -14626,6 +14989,150 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
+    },
+    {
+      "id": "43e95c5c4f75",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Giorgia Meloni government becomes Italy's longest-lasting since World War II",
+      "summary": "Italy's first female Prime Minister, Giorgia Meloni, has surpassed a longevity record set by the late Silvio Berlusconi. When she took office in 2022, many European allies viewed her with unease, given her party's neo-fascist roots. Yet she has governed pragmatically, working within EU institutions and even supporting Ukraine. Domestically, however, she has targeted same-sex parents and clamped down on press freedom.",
+      "source": "https://www.france24.com/en/video/20260903-giorgia-meloni-government-becomes-italy-s-longest-lasting-since-world-war-ii",
+      "time": "Thu, 03 Sep 2026 15:29:48 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "9cb6fe7a7436",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "France-UK ties and humour celebrated as London receives Bayeux Tapestry",
+      "summary": "French President Emmanuel #Macron is in #London on the occasion of the #Bayeux Tapestry's exhibition at the #BritishMuseum. The 1,000-year-old work of woven art recounts the Battle of #Hastings, in which William the Conqueror – #KingCharles's ancestor – led the Norman Conquest of #England. An opportunity for the French president, the British PM Andy #Burnham and British monarch to celebrate the strong ties between th",
+      "source": "https://www.france24.com/en/video/20260903-france-uk-ties-and-humour-celebrated-as-london-receives-bayeux-tapestry-1",
+      "time": "Thu, 03 Sep 2026 15:27:27 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "france24.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "55595fbf78b7",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Musk picks his first GOP warriors as a 2026 money surge takes shape",
+      "summary": "America PAC spent over $800,000 in 12 days backing Republicans, with Ken Paxton&apos;s Texas Senate race receiving the largest share of Elon Musk&apos;s cash.",
+      "source": "https://www.foxnews.com/politics/musk-picks-first-gop-warriors-2026-money-surge-takes-shape",
+      "time": "Thu, 03 Sep 2026 11:22:09 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "4799f8223439",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Driverless robotaxis hit the streets of London",
+      "summary": "London is entering the era of autonomous vehicles: driverless cabs are now available through Uber and British tech firm Wayve in the capital. It marks a setback for Google's Waymo and Chinese giant Baidu, which have been eyeing Europe as a largely untapped market for autonomous vehicles. But for Wayve, it is its first mass-market rollout, and the company now plans to expand to Tokyo and 10 other cities with Uber.",
+      "source": "https://www.france24.com/en/video/20260903-driverless-robotaxis-hit-the-streets-of-london",
+      "time": "Thu, 03 Sep 2026 15:16:08 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "54042b10eb8b",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "\"I’m devastated by the verdict\", says Tom Gibson, Deputy Dir. for Committee to Protect Journalists",
+      "summary": "A campaigner who has worked on the case of murdered Maltese journalist Daphne Caruana Galizia since she was killed by a car bomb in 2017 has spoken of his devastation at the not guilty verdict.",
+      "source": "https://www.france24.com/en/i-m-devastated-by-the-verdict-says-tom-gibson-deputy-dir-for-committee-to-protect-journalists",
+      "time": "Thu, 03 Sep 2026 15:15:00 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "a5fd09c6459f",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Spanish PM Sanchez says no evidence Morocco orchestrated Ceuta border surge",
+      "summary": "Spain has found no evidence to conclude that July's deadly border rush from Morocco into its enclave of Ceuta was orchestrated by Moroccan authorities, ​Prime Minister Pedro Sanchez ‌said on Thursday, countering allegations in a Spanish police report. Speaking in parliament, Sanchez responded to claims in ⁠the report that emerged this week suggesting the entry of over 70,000 people into Ceuta was not a spontaneous mi",
+      "source": "https://www.france24.com/en/video/20260903-spanish-pm-sanchez-says-no-evidence-morocco-orchestrated-ceuta-border-surge",
+      "time": "Thu, 03 Sep 2026 15:10:26 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Immigration"
+      ],
+      "sourceDomain": "france24.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "3b3441b53a4b",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Four imprisoned Palestine Action activists appeal ‘terrorism’ sentences",
+      "summary": "Supporters of those who participated in a raid on an Israeli weapons maker say the sentences set a dangerous precedent.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/four-imprisoned-palestine-action-activists-appeal-terrorism-sentences?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 15:09:38 +0000",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "d2e6443239cf",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Outrage mounts in Malta after acquittal over journalist's murder",
+      "summary": "Hundreds of people demonstrated in the Maltese capital Valletta after a wealthy businessman was found not guilty of masterminding the murder of an investigative journalist. The verdict on Daphne Caruana Galizia's car-bomb killing in 2017 sparked outrage from Maltese civil society groups and international media freedom organisations. The opposition Nationalist Party, which organised the demonstration late on Wednesday",
+      "source": "https://www.france24.com/en/video/20260903-outrage-mounts-in-malta-after-acquittal-over-journalist-s-murder",
+      "time": "Thu, 03 Sep 2026 15:07:33 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "4e4cfa70881f",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
+      "summary": "Al-Mughayyir's council says they were trying to stop settlers stealing sheep, but the Israeli military says they threw stones at its troops.",
+      "source": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 15:05:57 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
     },
     {
       "id": "6e0585720806",
@@ -14822,7 +15329,7 @@
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
       "title": "Leon Black fails to appear for US House deposition about Epstein ties",
-      "summary": "Billionaire financier, who previously walked out of a deposition, instead launches lawsuit against the committee  Billionaire financier Leon Black did not appear Thursday in front of the House oversight committee for a scheduled deposition about his ties to  Jeffrey Epstein , and has instead launched a lawsuit against the committee arguing that it does not have the authority to compel him to turn over non-disclosure ",
+      "summary": "Billionaire financier, who previously walked out of a deposition, instead launches lawsuit against the committee  The billionaire financier Leon Black did not appear on Thursday in front of the House oversight committee for a scheduled deposition about his ties to  Jeffrey Epstein , and has instead launched a lawsuit against the committee arguing that it does not have the authority to compel him to turn over non-disc",
       "source": "https://www.theguardian.com/us-news/2026/sep/03/jeffrey-epstein-leon-black-congress-deposition",
       "time": "Thu, 03 Sep 2026 14:08:26 GMT",
       "tag": "World",
@@ -15451,7 +15958,7 @@
     },
     {
       "id": "154bcf844187",
-      "sourceLabel": "BBC Asia",
+      "sourceLabel": "BBC Americas",
       "sourceType": "regional",
       "title": "US sailors go shopping before hitting the bars in Thailand after 250-day voyage",
       "summary": "With military haircuts and moustaches, the US sailors stand out against the flip-flops of the usual Pattaya crowd.",
@@ -15509,19 +16016,6 @@
       "summary": "The writer and activist who was an icon of the US's feminist movement has died aged 92, her foundation says.",
       "source": "https://www.bbc.co.uk/news/videos/cnvl5dl6n5eo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 11:24:11 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "b4d2cee3f953",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
-      "summary": "Abu Safia, in custody for nearly two years, continues to face abuse inside prison, his lawyer says.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/no-end-to-torture-of-gaza-doctor-abu-safiya-in-israeli-prison-what-to-know?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 11:21:59 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -15658,88 +16152,6 @@
       "politicalSignalScore": 2.0
     },
     {
-      "id": "70a97d5887d1",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Senegalese consumers rally online against rising cost of living",
-      "summary": "In Senegal, the price of a kilogram of meat has risen from 3,800 to 5,500 CFA francs in just a few months, while the price of onions has doubled. Fuel, transportation, rent… No sector has been spared by the surge in prices. Senegalese consumers who are frustrated by the rising cost of living in Dakar have launched a new hashtag: #30DaysForTheRightPrice. The organisers of this widely shared digital campaign want to al",
-      "source": "https://www.france24.com/en/video/20260903-senegalese-consumers-rally-online-against-rising-cost-of-living",
-      "time": "Thu, 03 Sep 2026 10:53:15 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "563d6d68e092",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Nepal: How are the hundreds of victims from the floods being identified?",
-      "summary": "#Nepal faces a major challenge: identifying the remains that have been found after the #flood that tore through part of the country on August 26, some of which are in an advanced state of decomposition. For #health reasons, the unidentified bodies have begun to be buried. Before each #burial, #DNA samples are taken and an identification number is assigned to each set of remains. Relatives of those reported missing ca",
-      "source": "https://www.france24.com/en/video/20260903-nepal-how-are-the-hundreds-of-victims-from-the-floods-being-identified",
-      "time": "Thu, 03 Sep 2026 10:52:41 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "9f765fa69ff2",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Premier League sets new transfer market record",
-      "summary": "There’s the Premier League and then there’s everyone else. The 20 Premier League sides spent more than €4 billion this summer in the transfer market, setting a new record. Manchester City broke the record for the most spent by a single club in one summer, with more than €500 million spent on new signings. That's almost as much as the 18 French Ligue 1 clubs combined (€605 million).",
-      "source": "https://www.france24.com/en/tv-shows/sports/20260903-premier-league-sets-new-transfer-market-record",
-      "time": "Thu, 03 Sep 2026 10:51:37 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "8de310fb3604",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-      "summary": "Congo’s Ebola outbreak has killed more than 3,000 people out of more than 6,100 confirmed cases, according to the latest government data from Wednesday, as the disease is spreading at an unprecedented speed, faster than efforts to track and slow it. Data from Congo’s Ministry of Health showed the outbreak has recorded 6,186 confirmed cases, including 3,007 deaths since it was declared a global health emergency in mid",
-      "source": "https://www.france24.com/en/video/20260903-drc-ebola-outbreak-shows-no-signs-of-slowing-as-deaths-top-3-000",
-      "time": "Thu, 03 Sep 2026 10:45:36 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 15.0
-    },
-    {
-      "id": "95646c1e74ae",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Supreme Court corruption scandal rocks Brazil",
-      "summary": "PRESS REVIEW – Thursday, September 3: There's outrage in Malta after a tycoon was found not guilty of masterminding the murder of high-profile investigative journalist Daphne Caruana Galizia. In Brazil, a Supreme Court justice who was pivotal in sentencing former President Jair Bolsonaro to prison is implicated in a corruption scandal of his own. Plus conservationists marvel after a mating frenzy of the endangered ka",
-      "source": "https://www.france24.com/en/tv-shows/press-review/20260903-supreme-court-corruption-scandal-rocks-brazil",
-      "time": "Thu, 03 Sep 2026 10:42:58 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Supreme Court"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Courts"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
       "id": "e10d8c6173b8",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
@@ -15774,53 +16186,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "208f9e312099",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tunisia's top court set to rule in ‘conspiracy against the state’ case",
-      "summary": "In Tunisia, the Court of Cassation is set to issue its final ruling in the “conspiracy against the state” case. In April 2025, 37 people – most of them prominent political figures opposed to President Kais Saied – were sentenced to prison in connection with the case. Several human rights organisations have condemned the trial as unjust and called for the release of all political detainees. The appeal represents the d",
-      "source": "https://www.france24.com/en/video/20260903-tunisia-s-top-court-set-to-rule-in-conspiracy-against-the-state-case",
-      "time": "Thu, 03 Sep 2026 10:36:37 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Executive",
-        "Courts"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "3fd5e22580ca",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tapestry diplomacy: UK-France ties in focus as Macron and Burnham hold first talks",
-      "summary": "The Bayeux Tapestry may have brought them together — but migrant crossings and Ukraine are likely to dominate the agenda as UK Prime Minister Andy Burnham and French President Emmanuel Macron hold their first formal talks on Thursday. The two leaders met for the first time on Wednesday evening at a preview of the tapestry’s exhibition at the British Museum, alongside King Charles III. The occasion was hailed by both ",
-      "source": "https://www.france24.com/en/video/20260903-tapestry-diplomacy-uk-france-ties-in-focus-as-macron-and-burnham-hold-first-talks",
-      "time": "Thu, 03 Sep 2026 10:32:24 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Ukraine"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Immigration",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 6.0
-    },
-    {
       "id": "df78e4fc9583",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
@@ -15852,29 +16217,6 @@
         "Congress"
       ],
       "sourceDomain": "foxnews.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "9b2e6ca20dde",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Trump $1 coin makes him first living president on US currency in a century",
-      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
-      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 10:25:43 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
@@ -15944,30 +16286,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "6f2962992030",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "The US and Venezuela: a century-old relationship drenched in oil",
-      "summary": "A visual look at how Washington’s relationship with Caracas has gone from cordial to ‘predatory’     Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism     Written in the middle of the last century, the US Department of State memo conveys its message in a curt and undiplomatically honest tone: the glue that binds Washington to Caracas is, and is always likely to be, oil.  “All US policies towar",
-      "source": "https://www.theguardian.com/world/2026/sep/03/us-venezuela-visual-look-century-old-relationship-drenched-in-oil",
-      "time": "Thu, 03 Sep 2026 10:00:50 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Foreign Policy",
-        "Economy"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
       "id": "10bfce7085f4",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
@@ -16003,6 +16321,30 @@
       "confidence": "DEVELOPING",
       "breaking": true,
       "intelligenceLayer": "general"
+    },
+    {
+      "id": "6f2962992030",
+      "sourceLabel": "Guardian World",
+      "sourceType": "international",
+      "title": "The US and Venezuela: a century-old relationship drenched in oil",
+      "summary": "A visual look at how Washington’s relationship with Caracas has gone from cordial to ‘predatory’     Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism     Written in the middle of the last century, the US Department of State memo conveys its message in a curt and undiplomatically honest tone: the glue that binds Washington to Caracas is, and is always likely to be, oil.  “All US policies towar",
+      "source": "https://www.theguardian.com/world/2026/sep/03/us-venezuela-visual-look-century-old-relationship-drenched-in-oil",
+      "time": "Thu, 03 Sep 2026 10:00:50 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [
+        "Foreign Policy",
+        "Economy"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 4.0
     },
     {
       "id": "0f0fedcaa48f",
@@ -16434,19 +16776,6 @@
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "183dd5857edb",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "FAA seeks permanent airspace restrictions near Trump’s Mar-a-Lago as expert warns rules are ‘not good enough’",
-      "summary": "The FAA proposed permanent flight rules near Donald J. Trump International Airport at Secret Service request, but drone expert warns it&apos;s may not be enough.",
-      "source": "https://www.foxnews.com/politics/faa-seeks-permanent-airspace-restrictions-trump-mar-a-lago-expert-warns-rules-not-good-enough",
-      "time": "Wed, 02 Sep 2026 22:03:35 -0400",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
       "intelligenceLayer": "general"
     },
     {
@@ -17346,7 +17675,7 @@
     },
     {
       "id": "24aade08508e",
-      "sourceLabel": "BBC Middle East",
+      "sourceLabel": "BBC Asia",
       "sourceType": "regional",
       "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
       "summary": "As of August, the number forced to return this year from Pakistan and Iran had reached another million.",
@@ -18071,6 +18400,19 @@
       "politicalSignalScore": 34.0
     },
     {
+      "id": "f792acf6d959",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "75 años de Ferias del Libro de Santo Domingo ( 1951 - 2026 ) Ensegundos República Dominicana",
+      "summary": "",
+      "source": "https://ensegundos.do/2026/08/31/75-anos-de-ferias-del-libro-de-santo-domingo-1951-2026/",
+      "time": "3 Aug 2026 12:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "59bfa788d542",
       "sourceLabel": "CNN Politics — GDELT Mirror",
       "sourceType": "us-politics",
@@ -18240,6 +18582,45 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "825018692867",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "Selección Colombia mayores celebra el aniversario 25 de su mayor logro deportivo : Título de la Copa América",
+      "summary": "",
+      "source": "https://www.elcolombiano.com/inicio/25-anos-titulo-seleccion-colombia-copa-america-2001-DP39369486",
+      "time": "3 Jul 2026 23:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "a30981fc4cd6",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Gremio vs Bolívar , dónde ver EN VIVO y en qué canal pasan el partido de Copa Sudamericana",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/copa-sudamericana/2026/07/29/hora-juega-gremio-vs-bolivar-donde-ver-en-vivo-en-canal-pasan-partido-de-copa-sudamericana-2004190",
+      "time": "3 Jul 2026 17:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "3e953a44057b",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "Horarios del show de medio tiempo del Mundial 2026 en Latinoamérica y dónde verlo",
+      "summary": "",
+      "source": "https://www.eluniverso.com/entretenimiento/television/horarios-del-show-de-medio-tiempo-del-mundial-2026-en-latinoamerica-y-donde-verlo-nota/",
+      "time": "3 Jul 2026 17:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "8840be077fcb",
       "sourceLabel": "CNN Politics — GDELT Mirror",
       "sourceType": "us-politics",
@@ -18263,6 +18644,32 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "020ebdf9ce5a",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Marruecos vs Haití , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/2026/06/23/hora-juega-marruecos-vs-haiti-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1905872",
+      "time": "3 Jun 2026 21:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "7b0bf75d1fd4",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Chile vs Portugal , qué canal transmite EN VIVO y dónde ver partido amistoso",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/2026/06/05/hora-juega-chile-vs-portugal-canal-transmite-en-vivo-donde-ver-partido-amistoso-214280",
+      "time": "3 Jun 2026 20:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
       "intelligenceLayer": "general"
     },
     {
@@ -18293,6 +18700,149 @@
       "politicalSignalScore": 19.0
     },
     {
+      "id": "27c1aa3a24ff",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega México vs Corea del Sur , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/2026/06/17/hora-juega-mexico-vs-corea-del-sur-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-883541",
+      "time": "3 Jun 2026 19:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "cea7dbbf1713",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "Senegal vs . Irak , EN VIVO : siga el partido clave del Grupo I en el Mundial 2026",
+      "summary": "",
+      "source": "https://www.infobae.com/colombia/2026/06/26/senegal-vs-irak-en-vivo-siga-el-partido-clave-del-grupo-i-en-el-mundial-2026/",
+      "time": "3 Jun 2026 19:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "d43ae403a4bc",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Perú vs España , canal de transmisión EN VIVO y dónde ver partido amistoso",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-peruano/seleccion-peruana/2026/06/07/hora-juega-peru-vs-espana-canal-de-transmision-en-vivo-donde-ver-partido-amistoso-489391",
+      "time": "3 Jun 2026 19:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "44aca770704d",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Perú vs España , canal de transmisión EN VIVO y dónde ver partido amistoso",
+      "summary": "",
+      "source": "https://libero.pe/futbol-peruano/seleccion-peruana/2026/06/07/hora-juega-peru-vs-espana-canal-de-transmision-en-vivo-donde-ver-partido-amistoso-489391",
+      "time": "3 Jun 2026 19:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "16d51d6100d1",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "Mundial 2026 : qué partidos se juegan hoy domingo 21 de junio",
+      "summary": "",
+      "source": "https://www.agenciafe.com/nota/399127-Mundial-2026-qu-partidos-se-juegan-hoy-domingo-21-de-junio",
+      "time": "3 Jun 2026 18:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "a10d15324fd6",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Ecuador vs Curazao , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/2026/06/19/hora-juega-ecuador-vs-curazao-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1443829",
+      "time": "3 Jun 2026 14:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "cffd02a2b2db",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Colombia hoy contra Uzbekistán : horarios del partido y canales para ver EN VIVO el Mundial",
+      "summary": "",
+      "source": "https://www.eluniverso.com/deportes/futbol/a-que-hora-juega-colombia-hoy-contra-uzbekistan-horarios-del-partido-y-canales-para-ver-en-vivo-el-mundial-nota/",
+      "time": "3 Jun 2026 13:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "1479999bf86c",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "Partidos del Mundial 2026 , hoy domingo 21 de junio : hora , estadios y cómo ver en vivo",
+      "summary": "",
+      "source": "https://www.infobae.com/deportes/2026/06/21/partidos-del-mundial-2026-hoy-domingo-21-de-junio-hora-estadios-y-como-ver-en-vivo/",
+      "time": "3 Jun 2026 11:45:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "91676849c82a",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Haití vs Escocia , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe/futbol-internacional/2026/06/12/hora-juega-haiti-vs-escocia-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-226452",
+      "time": "3 Jun 2026 07:00:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "feb9f82b5d59",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Marruecos vs Haití , canal de transmisión EN VIVO y dónde ver partido del Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe/futbol-internacional/2026/06/23/hora-juega-marruecos-vs-haiti-canal-de-transmision-en-vivo-donde-ver-partido-del-mundial-2026-1905872",
+      "time": "3 Jun 2026 06:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6a2f2b9a5f3b",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Canadá vs Qatar , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe/futbol-internacional/2026/06/17/hora-juega-canada-vs-qatar-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-524484",
+      "time": "3 Jun 2026 05:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "66cfcb0fc883",
       "sourceLabel": "CNN Politics — GDELT Mirror",
       "sourceType": "us-politics",
@@ -18316,6 +18866,19 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
+    },
+    {
+      "id": "0705c6d2d9e1",
+      "sourceLabel": "GDELT Live — Americas",
+      "sourceType": "americas",
+      "title": "A qué hora juega Canadá vs Qatar , canal de transmisión EN VIVO y dónde ver partido de Mundial 2026",
+      "summary": "",
+      "source": "https://libero.pe:443/futbol-internacional/2026/06/17/hora-juega-canada-vs-qatar-canal-de-transmision-en-vivo-donde-ver-partido-de-mundial-2026-524484",
+      "time": "3 Jun 2026 00:15:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -18372,7 +18935,7 @@
     {
       "name": "GDELT Live — Americas",
       "type": "americas",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "GDELT Live — Middle East",
@@ -18452,12 +19015,31 @@
   ],
   "liveDatabase": {
     "enabled": true,
-    "articleCount": 144,
-    "lastExport": "2026-09-03T15:08:16.845713+00:00",
+    "articleCount": 150,
+    "lastExport": "2026-09-03T15:43:08.047402+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 50
+    "newMergedThisRun": 54
   },
   "politics": [
+    {
+      "id": "b617e4baa27e",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Manchester synagogue attack: ministers seek to block MI5 files from inquest",
+      "summary": "Government lawyers tell coroner disclosing intelligence would pose serious risk to national security Ministers are seeking to block intelligence material from being heard at an inquest into the death of two men killed in the 2025 Manchester synagogue attack. Lawyers for Shabana Mahmood, the home secretary, told a coroner on Thursday that disclosing the MI5 files would pose a serious risk to national security. Continu",
+      "source": "https://www.theguardian.com/uk-news/2026/sep/03/manchester-synagogue-attack-ministers-seek-block-m15-files-inquest",
+      "time": "2026-09-03T15:07:16+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics"
+    },
     {
       "id": "cc40b4f6f36f",
       "sourceLabel": "The Guardian World",
@@ -18706,17 +19288,69 @@
       "intelligenceLayer": "world-politics"
     },
     {
+      "id": "9b2e6ca20dde",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Trump $1 coin makes him first living president on US currency in a century",
+      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 15:35:47 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "6481d41eccb3",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
       "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 15:03:53 GMT",
+      "time": "Thu, 03 Sep 2026 15:30:47 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "9cb6fe7a7436",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "France-UK ties and humour celebrated as London receives Bayeux Tapestry",
+      "summary": "French President Emmanuel #Macron is in #London on the occasion of the #Bayeux Tapestry's exhibition at the #BritishMuseum. The 1,000-year-old work of woven art recounts the Battle of #Hastings, in which William the Conqueror – #KingCharles's ancestor – led the Norman Conquest of #England. An opportunity for the French president, the British PM Andy #Burnham and British monarch to celebrate the strong ties between th",
+      "source": "https://www.france24.com/en/video/20260903-france-uk-ties-and-humour-celebrated-as-london-receives-bayeux-tapestry-1",
+      "time": "Thu, 03 Sep 2026 15:27:27 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "55595fbf78b7",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Musk picks his first GOP warriors as a 2026 money surge takes shape",
+      "summary": "America PAC spent over $800,000 in 12 days backing Republicans, with Ken Paxton&apos;s Texas Senate race receiving the largest share of Elon Musk&apos;s cash.",
+      "source": "https://www.foxnews.com/politics/musk-picks-first-gop-warriors-2026-money-surge-takes-shape",
+      "time": "Thu, 03 Sep 2026 11:22:09 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "a5fd09c6459f",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Spanish PM Sanchez says no evidence Morocco orchestrated Ceuta border surge",
+      "summary": "Spain has found no evidence to conclude that July's deadly border rush from Morocco into its enclave of Ceuta was orchestrated by Moroccan authorities, ​Prime Minister Pedro Sanchez ‌said on Thursday, countering allegations in a Spanish police report. Speaking in parliament, Sanchez responded to claims in ⁠the report that emerged this week suggesting the entry of over 70,000 people into Ceuta was not a spontaneous mi",
+      "source": "https://www.france24.com/en/video/20260903-spanish-pm-sanchez-says-no-evidence-morocco-orchestrated-ceuta-border-surge",
+      "time": "Thu, 03 Sep 2026 15:10:26 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics"
     },
     {
       "id": "a0ba6041082f",
@@ -18966,32 +19600,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "8de310fb3604",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-      "summary": "Congo’s Ebola outbreak has killed more than 3,000 people out of more than 6,100 confirmed cases, according to the latest government data from Wednesday, as the disease is spreading at an unprecedented speed, faster than efforts to track and slow it. Data from Congo’s Ministry of Health showed the outbreak has recorded 6,186 confirmed cases, including 3,007 deaths since it was declared a global health emergency in mid",
-      "source": "https://www.france24.com/en/video/20260903-drc-ebola-outbreak-shows-no-signs-of-slowing-as-deaths-top-3-000",
-      "time": "Thu, 03 Sep 2026 10:45:36 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics"
-    },
-    {
-      "id": "95646c1e74ae",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Supreme Court corruption scandal rocks Brazil",
-      "summary": "PRESS REVIEW – Thursday, September 3: There's outrage in Malta after a tycoon was found not guilty of masterminding the murder of high-profile investigative journalist Daphne Caruana Galizia. In Brazil, a Supreme Court justice who was pivotal in sentencing former President Jair Bolsonaro to prison is implicated in a corruption scandal of his own. Plus conservationists marvel after a mating frenzy of the endangered ka",
-      "source": "https://www.france24.com/en/tv-shows/press-review/20260903-supreme-court-corruption-scandal-rocks-brazil",
-      "time": "Thu, 03 Sep 2026 10:42:58 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "e10d8c6173b8",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
@@ -19005,32 +19613,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "208f9e312099",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tunisia's top court set to rule in ‘conspiracy against the state’ case",
-      "summary": "In Tunisia, the Court of Cassation is set to issue its final ruling in the “conspiracy against the state” case. In April 2025, 37 people – most of them prominent political figures opposed to President Kais Saied – were sentenced to prison in connection with the case. Several human rights organisations have condemned the trial as unjust and called for the release of all political detainees. The appeal represents the d",
-      "source": "https://www.france24.com/en/video/20260903-tunisia-s-top-court-set-to-rule-in-conspiracy-against-the-state-case",
-      "time": "Thu, 03 Sep 2026 10:36:37 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "3fd5e22580ca",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tapestry diplomacy: UK-France ties in focus as Macron and Burnham hold first talks",
-      "summary": "The Bayeux Tapestry may have brought them together — but migrant crossings and Ukraine are likely to dominate the agenda as UK Prime Minister Andy Burnham and French President Emmanuel Macron hold their first formal talks on Thursday. The two leaders met for the first time on Wednesday evening at a preview of the tapestry’s exhibition at the British Museum, alongside King Charles III. The occasion was hailed by both ",
-      "source": "https://www.france24.com/en/video/20260903-tapestry-diplomacy-uk-france-ties-in-focus-as-macron-and-burnham-hold-first-talks",
-      "time": "Thu, 03 Sep 2026 10:32:24 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "fa6dc7bcd69d",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
@@ -19038,19 +19620,6 @@
       "summary": "Rep. Abe Hamadeh&apos;s, R-Ariz., Kayleigh&apos;s Law passed the House unanimously, requiring lifetime no-contact orders for convicted sex crime and violent felony offenders.",
       "source": "https://www.foxnews.com/politics/convicted-predators-face-lifetime-barrier-gop-lawmakers-sweeping-victim-protection-bill",
       "time": "Thu, 03 Sep 2026 06:30:02 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "9b2e6ca20dde",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Trump $1 coin makes him first living president on US currency in a century",
-      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
-      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 10:25:43 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -19070,19 +19639,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "6f2962992030",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "The US and Venezuela: a century-old relationship drenched in oil",
-      "summary": "A visual look at how Washington’s relationship with Caracas has gone from cordial to ‘predatory’     Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism     Written in the middle of the last century, the US Department of State memo conveys its message in a curt and undiplomatically honest tone: the glue that binds Washington to Caracas is, and is always likely to be, oil.  “All US policies towar",
-      "source": "https://www.theguardian.com/world/2026/sep/03/us-venezuela-visual-look-century-old-relationship-drenched-in-oil",
-      "time": "Thu, 03 Sep 2026 10:00:50 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "10bfce7085f4",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
@@ -19093,6 +19649,19 @@
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "6f2962992030",
+      "sourceLabel": "Guardian World",
+      "sourceType": "international",
+      "title": "The US and Venezuela: a century-old relationship drenched in oil",
+      "summary": "A visual look at how Washington’s relationship with Caracas has gone from cordial to ‘predatory’     Trump ally defends Venezuela oil deal amid ‘gunpoint diplomacy’ criticism     Written in the middle of the last century, the US Department of State memo conveys its message in a curt and undiplomatically honest tone: the glue that binds Washington to Caracas is, and is always likely to be, oil.  “All US policies towar",
+      "source": "https://www.theguardian.com/world/2026/sep/03/us-venezuela-visual-look-century-old-relationship-drenched-in-oil",
+      "time": "Thu, 03 Sep 2026 10:00:50 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
       "intelligenceLayer": "us-politics"
     },
     {
@@ -19721,7 +20290,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.6
+      "politicalSignalScore": 46.1
     },
     {
       "id": "648d6749c712",
@@ -19748,7 +20317,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.6
     },
     {
       "id": "772547ad1bd2",
@@ -19778,7 +20347,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.5
+      "politicalSignalScore": 40.0
     },
     {
       "id": "3593d4dc7a14",
@@ -19808,39 +20377,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.4
-    },
-    {
-      "id": "eca0fc692bc0",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Andy Burnham targets migrant crisis ahead of Macron’s visit to No 10",
-      "summary": "PM will aim to centre talks with French president on key foreign policy issues such as Iran, smuggling gangs and EU relations Andy Burnham will begin the process of courting European leaders when he welcomes Emmanuel Macron as the first foreign head of state to visit him in Downing Street. The prime minister will meet the French president at No 10 on Thursday as he looks to make inroads on a number of foreign policy ",
-      "source": "https://www.theguardian.com/politics/2026/sep/02/andy-burnham-migrant-crisis-macron-downing-street",
-      "time": "2026-09-02T21:30:35+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Iran",
-        "European Union"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Immigration",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 34.5
+      "politicalSignalScore": 34.9
     },
     {
       "id": "fda22457d246",
@@ -19927,6 +20464,38 @@
       "politicalSignalScore": 34.0
     },
     {
+      "id": "eca0fc692bc0",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Andy Burnham targets migrant crisis ahead of Macron’s visit to No 10",
+      "summary": "PM will aim to centre talks with French president on key foreign policy issues such as Iran, smuggling gangs and EU relations Andy Burnham will begin the process of courting European leaders when he welcomes Emmanuel Macron as the first foreign head of state to visit him in Downing Street. The prime minister will meet the French president at No 10 on Thursday as he looks to make inroads on a number of foreign policy ",
+      "source": "https://www.theguardian.com/politics/2026/sep/02/andy-burnham-migrant-crisis-macron-downing-street",
+      "time": "2026-09-02T21:30:35+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Iran",
+        "European Union"
+      ],
+      "politicalTopics": [
+        "Executive",
+        "Immigration",
+        "Foreign Policy"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 33.9
+    },
+    {
       "id": "6ad10dbff853",
       "sourceLabel": "Fox News Politics",
       "sourceType": "news",
@@ -19957,7 +20526,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.7
+      "politicalSignalScore": 31.1
     },
     {
       "id": "6e5d651744cd",
@@ -19987,7 +20556,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.6
+      "politicalSignalScore": 31.1
     },
     {
       "id": "ca396a85c9e1",
@@ -20016,7 +20585,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.9
+      "politicalSignalScore": 29.4
     },
     {
       "id": "10bfce7085f4",
@@ -20376,31 +20945,6 @@
       "politicalSignalScore": 6.0
     },
     {
-      "id": "3fd5e22580ca",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tapestry diplomacy: UK-France ties in focus as Macron and Burnham hold first talks",
-      "summary": "The Bayeux Tapestry may have brought them together — but migrant crossings and Ukraine are likely to dominate the agenda as UK Prime Minister Andy Burnham and French President Emmanuel Macron hold their first formal talks on Thursday. The two leaders met for the first time on Wednesday evening at a preview of the tapestry’s exhibition at the British Museum, alongside King Charles III. The occasion was hailed by both ",
-      "source": "https://www.france24.com/en/video/20260903-tapestry-diplomacy-uk-france-ties-in-focus-as-macron-and-burnham-hold-first-talks",
-      "time": "Thu, 03 Sep 2026 10:32:24 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Ukraine"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Immigration",
-        "Foreign Policy"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 6.0
-    },
-    {
       "id": "9fbade295891",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
@@ -20642,52 +21186,6 @@
       "politicalSignalScore": 4.0
     },
     {
-      "id": "95646c1e74ae",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Supreme Court corruption scandal rocks Brazil",
-      "summary": "PRESS REVIEW – Thursday, September 3: There's outrage in Malta after a tycoon was found not guilty of masterminding the murder of high-profile investigative journalist Daphne Caruana Galizia. In Brazil, a Supreme Court justice who was pivotal in sentencing former President Jair Bolsonaro to prison is implicated in a corruption scandal of his own. Plus conservationists marvel after a mating frenzy of the endangered ka",
-      "source": "https://www.france24.com/en/tv-shows/press-review/20260903-supreme-court-corruption-scandal-rocks-brazil",
-      "time": "Thu, 03 Sep 2026 10:42:58 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Supreme Court"
-      ],
-      "politicalTopics": [
-        "Executive",
-        "Courts"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "208f9e312099",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "Tunisia's top court set to rule in ‘conspiracy against the state’ case",
-      "summary": "In Tunisia, the Court of Cassation is set to issue its final ruling in the “conspiracy against the state” case. In April 2025, 37 people – most of them prominent political figures opposed to President Kais Saied – were sentenced to prison in connection with the case. Several human rights organisations have condemned the trial as unjust and called for the release of all political detainees. The appeal represents the d",
-      "source": "https://www.france24.com/en/video/20260903-tunisia-s-top-court-set-to-rule-in-conspiracy-against-the-state-case",
-      "time": "Thu, 03 Sep 2026 10:36:37 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Executive",
-        "Courts"
-      ],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
       "id": "6f2962992030",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -20924,13 +21422,36 @@
       "politicalSignalScore": 2.0
     },
     {
+      "id": "9b2e6ca20dde",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
+      "title": "Trump $1 coin makes him first living president on US currency in a century",
+      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
+      "time": "Thu, 03 Sep 2026 15:35:47 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "bbc.co.uk",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
       "id": "6481d41eccb3",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
       "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 15:03:53 GMT",
+      "time": "Thu, 03 Sep 2026 15:30:47 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -20944,6 +21465,27 @@
         "Congress"
       ],
       "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "9cb6fe7a7436",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "France-UK ties and humour celebrated as London receives Bayeux Tapestry",
+      "summary": "French President Emmanuel #Macron is in #London on the occasion of the #Bayeux Tapestry's exhibition at the #BritishMuseum. The 1,000-year-old work of woven art recounts the Battle of #Hastings, in which William the Conqueror – #KingCharles's ancestor – led the Norman Conquest of #England. An opportunity for the French president, the British PM Andy #Burnham and British monarch to celebrate the strong ties between th",
+      "source": "https://www.france24.com/en/video/20260903-france-uk-ties-and-humour-celebrated-as-london-receives-bayeux-tapestry-1",
+      "time": "Thu, 03 Sep 2026 15:27:27 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
@@ -20993,6 +21535,30 @@
       "politicalSignalScore": 2.0
     },
     {
+      "id": "55595fbf78b7",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "Musk picks his first GOP warriors as a 2026 money surge takes shape",
+      "summary": "America PAC spent over $800,000 in 12 days backing Republicans, with Ken Paxton&apos;s Texas Senate race receiving the largest share of Elon Musk&apos;s cash.",
+      "source": "https://www.foxnews.com/politics/musk-picks-first-gop-warriors-2026-money-surge-takes-shape",
+      "time": "Thu, 03 Sep 2026 11:22:09 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
       "id": "fe6f41c71588",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -21005,29 +21571,6 @@
       "breaking": false,
       "intelligenceLayer": "us-politics",
       "politicalEntities": [],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "bbc.co.uk",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "9b2e6ca20dde",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
-      "title": "Trump $1 coin makes him first living president on US currency in a century",
-      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
-      "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
-      "time": "Thu, 03 Sep 2026 10:25:43 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
       "politicalTopics": [
         "Executive"
       ],
@@ -21420,6 +21963,31 @@
   ],
   "worldPolitics": [
     {
+      "id": "b617e4baa27e",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Manchester synagogue attack: ministers seek to block MI5 files from inquest",
+      "summary": "Government lawyers tell coroner disclosing intelligence would pose serious risk to national security Ministers are seeking to block intelligence material from being heard at an inquest into the death of two men killed in the 2025 Manchester synagogue attack. Lawyers for Shabana Mahmood, the home secretary, told a coroner on Thursday that disclosing the MI5 files would pose a serious risk to national security. Continu",
+      "source": "https://www.theguardian.com/uk-news/2026/sep/03/manchester-synagogue-attack-ministers-seek-block-m15-files-inquest",
+      "time": "2026-09-03T15:07:16+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 59.4
+    },
+    {
       "id": "41d7c8ee8c42",
       "sourceLabel": "Al Jazeera",
       "sourceType": "news",
@@ -21444,7 +22012,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.9
+      "politicalSignalScore": 42.3
     },
     {
       "id": "7e369d09a9ea",
@@ -21471,7 +22039,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.5
     },
     {
       "id": "884558a5687b",
@@ -21498,7 +22066,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.0
     },
     {
       "id": "0859be90fbe5",
@@ -21525,7 +22093,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 19.7
+      "politicalSignalScore": 19.1
     },
     {
       "id": "750589f89281",
@@ -21555,7 +22123,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.9
+      "politicalSignalScore": 17.4
     },
     {
       "id": "677b245840a5",
@@ -21671,25 +22239,6 @@
       "politicalSignalScore": 15.0
     },
     {
-      "id": "8de310fb3604",
-      "sourceLabel": "France 24",
-      "sourceType": "international",
-      "title": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-      "summary": "Congo’s Ebola outbreak has killed more than 3,000 people out of more than 6,100 confirmed cases, according to the latest government data from Wednesday, as the disease is spreading at an unprecedented speed, faster than efforts to track and slow it. Data from Congo’s Ministry of Health showed the outbreak has recorded 6,186 confirmed cases, including 3,007 deaths since it was declared a global health emergency in mid",
-      "source": "https://www.france24.com/en/video/20260903-drc-ebola-outbreak-shows-no-signs-of-slowing-as-deaths-top-3-000",
-      "time": "Thu, 03 Sep 2026 10:45:36 GMT",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [],
-      "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 15.0
-    },
-    {
       "id": "0e29ede1a764",
       "sourceLabel": "Crisis Group",
       "sourceType": "analysis",
@@ -21731,6 +22280,27 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
+    },
+    {
+      "id": "a5fd09c6459f",
+      "sourceLabel": "France 24",
+      "sourceType": "international",
+      "title": "Spanish PM Sanchez says no evidence Morocco orchestrated Ceuta border surge",
+      "summary": "Spain has found no evidence to conclude that July's deadly border rush from Morocco into its enclave of Ceuta was orchestrated by Moroccan authorities, ​Prime Minister Pedro Sanchez ‌said on Thursday, countering allegations in a Spanish police report. Speaking in parliament, Sanchez responded to claims in ⁠the report that emerged this week suggesting the entry of over 70,000 people into Ceuta was not a spontaneous mi",
+      "source": "https://www.france24.com/en/video/20260903-spanish-pm-sanchez-says-no-evidence-morocco-orchestrated-ceuta-border-surge",
+      "time": "Thu, 03 Sep 2026 15:10:26 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Immigration"
+      ],
+      "sourceDomain": "france24.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
     },
     {
       "id": "11ae75dd6032",
@@ -21985,34 +22555,59 @@
     }
   ],
   "layerCounts": {
-    "us-politics": 70,
-    "world-politics": 19,
+    "us-politics": 69,
+    "world-politics": 20,
     "economics": 9,
-    "general": 178
+    "general": 200
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T15:08:49.215338+00:00",
+    "updatedAt": "2026-09-03T15:43:50.058772+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
     "totalSignals": 89,
-    "usPoliticsSignals": 70,
-    "worldPoliticsSignals": 19,
+    "usPoliticsSignals": 69,
+    "worldPoliticsSignals": 20,
     "corroboratedSignals": 11,
     "singleSourceSignals": 78,
     "sourceCounts": {
-      "theguardian.com": 20,
+      "theguardian.com": 21,
+      "foxnews.com": 14,
       "npr.org": 14,
-      "foxnews.com": 13,
       "bbc.co.uk": 10,
-      "france24.com": 8,
       "crisisgroup.org": 7,
+      "france24.com": 6,
       "us.cnn.com": 6,
       "cnn.com": 5,
       "aljazeera.com": 4,
       "edition.cnn.com": 2
     },
     "topSignals": [
+      {
+        "id": "b617e4baa27e",
+        "sourceLabel": "The Guardian World",
+        "sourceType": "news",
+        "title": "Manchester synagogue attack: ministers seek to block MI5 files from inquest",
+        "summary": "Government lawyers tell coroner disclosing intelligence would pose serious risk to national security Ministers are seeking to block intelligence material from being heard at an inquest into the death of two men killed in the 2025 Manchester synagogue attack. Lawyers for Shabana Mahmood, the home secretary, told a coroner on Thursday that disclosing the MI5 files would pose a serious risk to national security. Continu",
+        "source": "https://www.theguardian.com/uk-news/2026/sep/03/manchester-synagogue-attack-ministers-seek-block-m15-files-inquest",
+        "time": "2026-09-03T15:07:16+00:00",
+        "tag": "Breaking",
+        "confidence": "DEVELOPING",
+        "breaking": true,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "guardian_world",
+          "sourceUrl": "https://www.theguardian.com/world/rss",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 59.4
+      },
       {
         "id": "cc40b4f6f36f",
         "sourceLabel": "The Guardian World",
@@ -22039,7 +22634,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.6
+        "politicalSignalScore": 46.1
       },
       {
         "id": "41d7c8ee8c42",
@@ -22066,7 +22661,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.9
+        "politicalSignalScore": 42.3
       },
       {
         "id": "648d6749c712",
@@ -22093,7 +22688,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.1
+        "politicalSignalScore": 41.6
       },
       {
         "id": "772547ad1bd2",
@@ -22123,7 +22718,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.5
+        "politicalSignalScore": 40.0
       },
       {
         "id": "7e369d09a9ea",
@@ -22150,7 +22745,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.1
+        "politicalSignalScore": 39.5
       },
       {
         "id": "884558a5687b",
@@ -22177,7 +22772,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.0
       },
       {
         "id": "3593d4dc7a14",
@@ -22207,39 +22802,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.4
-      },
-      {
-        "id": "eca0fc692bc0",
-        "sourceLabel": "The Guardian World",
-        "sourceType": "news",
-        "title": "Andy Burnham targets migrant crisis ahead of Macron’s visit to No 10",
-        "summary": "PM will aim to centre talks with French president on key foreign policy issues such as Iran, smuggling gangs and EU relations Andy Burnham will begin the process of courting European leaders when he welcomes Emmanuel Macron as the first foreign head of state to visit him in Downing Street. The prime minister will meet the French president at No 10 on Thursday as he looks to make inroads on a number of foreign policy ",
-        "source": "https://www.theguardian.com/politics/2026/sep/02/andy-burnham-migrant-crisis-macron-downing-street",
-        "time": "2026-09-02T21:30:35+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "guardian_world",
-          "sourceUrl": "https://www.theguardian.com/world/rss",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Iran",
-          "European Union"
-        ],
-        "politicalTopics": [
-          "Executive",
-          "Immigration",
-          "Foreign Policy"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 34.5
+        "politicalSignalScore": 34.9
       },
       {
         "id": "fda22457d246",
@@ -22326,6 +22889,38 @@
         "politicalSignalScore": 34.0
       },
       {
+        "id": "eca0fc692bc0",
+        "sourceLabel": "The Guardian World",
+        "sourceType": "news",
+        "title": "Andy Burnham targets migrant crisis ahead of Macron’s visit to No 10",
+        "summary": "PM will aim to centre talks with French president on key foreign policy issues such as Iran, smuggling gangs and EU relations Andy Burnham will begin the process of courting European leaders when he welcomes Emmanuel Macron as the first foreign head of state to visit him in Downing Street. The prime minister will meet the French president at No 10 on Thursday as he looks to make inroads on a number of foreign policy ",
+        "source": "https://www.theguardian.com/politics/2026/sep/02/andy-burnham-migrant-crisis-macron-downing-street",
+        "time": "2026-09-02T21:30:35+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "guardian_world",
+          "sourceUrl": "https://www.theguardian.com/world/rss",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Iran",
+          "European Union"
+        ],
+        "politicalTopics": [
+          "Executive",
+          "Immigration",
+          "Foreign Policy"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 33.9
+      },
+      {
         "id": "6ad10dbff853",
         "sourceLabel": "Fox News Politics",
         "sourceType": "news",
@@ -22356,7 +22951,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.7
+        "politicalSignalScore": 31.1
       },
       {
         "id": "6e5d651744cd",
@@ -22386,7 +22981,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.6
+        "politicalSignalScore": 31.1
       },
       {
         "id": "ca396a85c9e1",
@@ -22415,7 +23010,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.9
+        "politicalSignalScore": 29.4
       },
       {
         "id": "0859be90fbe5",
@@ -22442,7 +23037,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 19.7
+        "politicalSignalScore": 19.1
       },
       {
         "id": "10bfce7085f4",
@@ -22578,7 +23173,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 17.9
+        "politicalSignalScore": 17.4
       },
       {
         "id": "7435e5436b5c",
@@ -22869,25 +23464,6 @@
         "politicalSignalScore": 15.0
       },
       {
-        "id": "8de310fb3604",
-        "sourceLabel": "France 24",
-        "sourceType": "international",
-        "title": "DRC Ebola outbreak shows no signs of slowing as deaths top 3,000",
-        "summary": "Congo’s Ebola outbreak has killed more than 3,000 people out of more than 6,100 confirmed cases, according to the latest government data from Wednesday, as the disease is spreading at an unprecedented speed, faster than efforts to track and slow it. Data from Congo’s Ministry of Health showed the outbreak has recorded 6,186 confirmed cases, including 3,007 deaths since it was declared a global health emergency in mid",
-        "source": "https://www.france24.com/en/video/20260903-drc-ebola-outbreak-shows-no-signs-of-slowing-as-deaths-top-3-000",
-        "time": "Thu, 03 Sep 2026 10:45:36 GMT",
-        "tag": "Breaking",
-        "confidence": "DEVELOPING",
-        "breaking": true,
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [],
-        "politicalTopics": [],
-        "sourceDomain": "france24.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 15.0
-      },
-      {
         "id": "e10d8c6173b8",
         "sourceLabel": "Fox News Politics",
         "sourceType": "us-politics",
@@ -22980,31 +23556,6 @@
           "Public Opinion"
         ],
         "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 6.0
-      },
-      {
-        "id": "3fd5e22580ca",
-        "sourceLabel": "France 24",
-        "sourceType": "international",
-        "title": "Tapestry diplomacy: UK-France ties in focus as Macron and Burnham hold first talks",
-        "summary": "The Bayeux Tapestry may have brought them together — but migrant crossings and Ukraine are likely to dominate the agenda as UK Prime Minister Andy Burnham and French President Emmanuel Macron hold their first formal talks on Thursday. The two leaders met for the first time on Wednesday evening at a preview of the tapestry’s exhibition at the British Museum, alongside King Charles III. The occasion was hailed by both ",
-        "source": "https://www.france24.com/en/video/20260903-tapestry-diplomacy-uk-france-ties-in-focus-as-macron-and-burnham-hold-first-talks",
-        "time": "Thu, 03 Sep 2026 10:32:24 GMT",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Ukraine"
-        ],
-        "politicalTopics": [
-          "Executive",
-          "Immigration",
-          "Foreign Policy"
-        ],
-        "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
         "politicalSignalScore": 6.0
@@ -23273,52 +23824,6 @@
         "politicalSignalScore": 4.0
       },
       {
-        "id": "95646c1e74ae",
-        "sourceLabel": "France 24",
-        "sourceType": "international",
-        "title": "Supreme Court corruption scandal rocks Brazil",
-        "summary": "PRESS REVIEW – Thursday, September 3: There's outrage in Malta after a tycoon was found not guilty of masterminding the murder of high-profile investigative journalist Daphne Caruana Galizia. In Brazil, a Supreme Court justice who was pivotal in sentencing former President Jair Bolsonaro to prison is implicated in a corruption scandal of his own. Plus conservationists marvel after a mating frenzy of the endangered ka",
-        "source": "https://www.france24.com/en/tv-shows/press-review/20260903-supreme-court-corruption-scandal-rocks-brazil",
-        "time": "Thu, 03 Sep 2026 10:42:58 GMT",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Supreme Court"
-        ],
-        "politicalTopics": [
-          "Executive",
-          "Courts"
-        ],
-        "sourceDomain": "france24.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 4.0
-      },
-      {
-        "id": "208f9e312099",
-        "sourceLabel": "France 24",
-        "sourceType": "international",
-        "title": "Tunisia's top court set to rule in ‘conspiracy against the state’ case",
-        "summary": "In Tunisia, the Court of Cassation is set to issue its final ruling in the “conspiracy against the state” case. In April 2025, 37 people – most of them prominent political figures opposed to President Kais Saied – were sentenced to prison in connection with the case. Several human rights organisations have condemned the trial as unjust and called for the release of all political detainees. The appeal represents the d",
-        "source": "https://www.france24.com/en/video/20260903-tunisia-s-top-court-set-to-rule-in-conspiracy-against-the-state-case",
-        "time": "Thu, 03 Sep 2026 10:36:37 GMT",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [],
-        "politicalTopics": [
-          "Executive",
-          "Courts"
-        ],
-        "sourceDomain": "france24.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 4.0
-      },
-      {
         "id": "6f2962992030",
         "sourceLabel": "Guardian World",
         "sourceType": "international",
@@ -23529,6 +24034,75 @@
           "Executive"
         ],
         "sourceDomain": "npr.org",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "81eb375d44fa",
+        "sourceLabel": "NPR Politics",
+        "sourceType": "us-politics",
+        "title": "North Carolina Rep. Chuck Edwards is formally censured over harassment allegations",
+        "summary": "The censure vote drew bipartisan support, and followed an investigation by the House Ethics Committee into allegations of sexual harassment against two young female staff members.",
+        "source": "https://www.npr.org/2026/09/01/nx-s1-5951561/chuck-edwards-house-censure-vote",
+        "time": "Tue, 01 Sep 2026 18:18:20 -0400",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "npr.org",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "9b2e6ca20dde",
+        "sourceLabel": "BBC World",
+        "sourceType": "international",
+        "title": "Trump $1 coin makes him first living president on US currency in a century",
+        "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+        "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
+        "time": "Thu, 03 Sep 2026 15:35:47 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "bbc.co.uk",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "6481d41eccb3",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+        "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+        "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+        "time": "Thu, 03 Sep 2026 15:30:47 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Congress",
+          "Democrats",
+          "Republicans"
+        ],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
         "politicalSignalScore": 2.0
@@ -23843,7 +24417,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T15:09:29.986600Z",
+    "updatedAt": "2026-09-03T15:44:02.198155Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -23869,13 +24443,13 @@
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 27
+        "mentions": 28
       },
       {
         "id": "united-kingdom",
         "label": "United Kingdom",
         "kind": "actor",
-        "mentions": 16
+        "mentions": 17
       },
       {
         "id": "palestinians",
@@ -23884,27 +24458,27 @@
         "mentions": 14
       },
       {
+        "id": "ukraine",
+        "label": "Ukraine",
+        "kind": "actor",
+        "mentions": 10
+      },
+      {
         "id": "global-economy",
         "label": "Global Economy",
         "kind": "economic",
         "mentions": 10
       },
       {
-        "id": "ukraine",
-        "label": "Ukraine",
+        "id": "china",
+        "label": "China",
         "kind": "actor",
-        "mentions": 9
+        "mentions": 10
       },
       {
         "id": "oil-markets",
         "label": "Oil Markets",
         "kind": "economic",
-        "mentions": 9
-      },
-      {
-        "id": "china",
-        "label": "China",
-        "kind": "actor",
         "mentions": 9
       },
       {
@@ -23914,22 +24488,28 @@
         "mentions": 9
       },
       {
+        "id": "russia",
+        "label": "Russia",
+        "kind": "actor",
+        "mentions": 9
+      },
+      {
         "id": "canada",
         "label": "Canada",
         "kind": "actor",
         "mentions": 9
       },
       {
-        "id": "russia",
-        "label": "Russia",
-        "kind": "actor",
-        "mentions": 8
-      },
-      {
         "id": "venezuela",
         "label": "Venezuela",
         "kind": "actor",
         "mentions": 7
+      },
+      {
+        "id": "european-union",
+        "label": "European Union",
+        "kind": "political",
+        "mentions": 6
       },
       {
         "id": "strait-of-hormuz",
@@ -23963,7 +24543,7 @@
             "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
             "url": "",
             "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 15:03:53 GMT"
+            "time": "Thu, 03 Sep 2026 15:30:47 GMT"
           },
           {
             "title": "Another White House renovation? A look at Trump's new helipad",
@@ -24056,7 +24636,7 @@
             "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
             "url": "",
             "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 11:21:59 +0000"
+            "time": "2026-09-03T11:21:59+00:00"
           },
           {
             "title": "Israel ‘seeking Trump’s support for plan to expel Palestinians from Gaza’",
@@ -24154,6 +24734,47 @@
         ]
       },
       {
+        "source": "Russia",
+        "target": "Ukraine",
+        "weight": 6,
+        "types": [
+          "conflict",
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations",
+            "url": "",
+            "source": "BBC Europe",
+            "time": "Wed, 02 Sep 2026 16:12:43 GMT"
+          },
+          {
+            "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
+            "url": "",
+            "source": "BBC Europe",
+            "time": "Tue, 01 Sep 2026 11:55:51 GMT"
+          },
+          {
+            "title": "Why Ukraine’s drained Kakhovka Dam is strategic for Russia",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 15:34:03 GMT"
+          },
+          {
+            "title": "Ukraine takes the war to Russia’s space programme in tactical shift",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 13:30:28 +0000"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
         "source": "United States",
         "target": "Venezuela",
         "weight": 5,
@@ -24190,47 +24811,6 @@
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 04:07:44 -0400"
-          }
-        ]
-      },
-      {
-        "source": "Russia",
-        "target": "Ukraine",
-        "weight": 5,
-        "types": [
-          "conflict",
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Zelensky says airlines should avoid Russian airspace as Ukraine escalates drone operations",
-            "url": "",
-            "source": "BBC Europe",
-            "time": "Wed, 02 Sep 2026 16:12:43 GMT"
-          },
-          {
-            "title": "Why did Modi urge Putin to end Ukraine war - and will he listen?",
-            "url": "",
-            "source": "BBC Europe",
-            "time": "Tue, 01 Sep 2026 11:55:51 GMT"
-          },
-          {
-            "title": "Ukraine takes the war to Russia’s space programme in tactical shift",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 13:30:28 +0000"
-          },
-          {
-            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
-            "url": "",
-            "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
-          },
-          {
-            "title": "Ukraine–Russia War",
-            "url": "",
-            "source": "Conflict record",
-            "time": ""
           }
         ]
       },
@@ -24726,6 +25306,28 @@
             "url": "",
             "source": "Al Jazeera",
             "time": "2026-09-03T09:57:25+00:00"
+          }
+        ]
+      },
+      {
+        "source": "Ukraine",
+        "target": "European Union",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Giorgia Meloni government becomes Italy's longest-lasting since World War II",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 15:29:48 GMT"
+          },
+          {
+            "title": "EU foreign ministers fail to break deadlock over Israel and Ukraine",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "2026-09-03T09:34:09+00:00"
           }
         ]
       },
