@@ -17,6 +17,11 @@ HIST = DATA / "history.json"
 SOURCES = DATA / "sources.json"
 
 FEEDS = [
+    ("GDELT Live — Global", "https://api.gdeltproject.org/api/v2/doc/doc?query=(war%20OR%20conflict%20OR%20military%20OR%20sanctions%20OR%20election%20OR%20crisis)&mode=ArtList&format=rss&maxrecords=250&timespan=15m", "live"),
+    ("GDELT Live — Africa", "https://api.gdeltproject.org/api/v2/doc/doc?query=(africa%20OR%20sudan%20OR%20congo%20OR%20sahel%20OR%20nigeria%20OR%20somalia)&mode=ArtList&format=rss&maxrecords=150&timespan=15m", "africa"),
+    ("GDELT Live — Americas", "https://api.gdeltproject.org/api/v2/doc/doc?query=(mexico%20OR%20colombia%20OR%20venezuela%20OR%20brazil%20OR%20haiti%20OR%20ecuador%20OR%20peru)&mode=ArtList&format=rss&maxrecords=150&timespan=15m", "americas"),
+    ("GDELT Live — Middle East", "https://api.gdeltproject.org/api/v2/doc/doc?query=(gaza%20OR%20iran%20OR%20israel%20OR%20yemen%20OR%20syria%20OR%20iraq)&mode=ArtList&format=rss&maxrecords=150&timespan=15m", "middle-east"),
+
     ("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml", "international"),
     ("BBC Middle East", "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "regional"),
     ("BBC Africa", "https://feeds.bbci.co.uk/news/world/africa/rss.xml", "regional"),
@@ -75,7 +80,7 @@ SEVERITY = [("critical", re.compile(r"invasion|mass casualty|massacre|major offe
 
 
 def fetch(url):
-    req = Request(url, headers={"User-Agent": "GlobalPulse/4.1 (+https://github.com/lifetimeballer1/global-pulse)"})
+    req = Request(url, headers={"User-Agent": "GlobalPulse/7.0 (+https://github.com/lifetimeballer1/global-pulse)"})
     with urlopen(req, timeout=25) as response:
         return response.read()
 
@@ -210,7 +215,7 @@ def main():
         if story["id"] not in seen:
             seen.add(story["id"]); unique.append(story)
     unique.sort(key=lambda s: parse_time(s["time"]) or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
-    stories = unique[:120]
+    stories = unique[:300]
     old_ids = {s.get("id") for s in old.get("stories", [])}
     new_items = [s for s in stories if s["id"] not in old_ids]
     breakdown = {"Conflict activity": score_dimension(stories, CONFLICT_RE, 35), "Diplomatic strain": score_dimension(stories, DIPLO_RE, 32), "Economic pressure": score_dimension(stories, ECON_RE, 32), "Market volatility": score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30), "Military posture": score_dimension(stories, MIL_RE, 34)}

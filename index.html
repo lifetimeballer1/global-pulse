@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#060d14">
-<title>Global Pulse — Global Conflict & Intelligence Monitor</title>
+<title>Global Pulse — Global Conflict & Intelligence Monitor · Made by J.S.</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
@@ -43,20 +43,30 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 @media(max-width:720px){.gp-map-tools{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.gp-map-tool{white-space:nowrap}.gp-map-status{width:100%;margin-left:0}}
 </style>
 
+
+
 <style id="gp-evidence-css">
 /* Global Pulse Update 3 — OSINT & Evidence Center */
 .evidence-panel{margin-top:14px}.evidence-grid{display:grid;grid-template-columns:1.05fr 1.4fr 1fr;gap:12px}.evidence-card{background:#08111b;border:1px solid var(--line);border-radius:11px;padding:12px;min-width:0}.evidence-card h3{margin:0 0 9px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.evidence-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.evidence-kpi{padding:9px;border:1px solid var(--line);border-radius:9px;background:#091622}.evidence-kpi b{display:block;font-size:19px}.evidence-kpi span{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.evidence-list{display:grid;gap:7px;max-height:390px;overflow:auto}.evidence-row{padding:9px;border:1px solid var(--line);border-radius:9px;background:#091521}.evidence-row strong{display:block;font-size:11px;line-height:1.35}.evidence-meta{font-size:9px;color:var(--muted);margin-top:4px}.evidence-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.evidence-link{display:inline-block;padding:5px 7px;border:1px solid rgba(98,160,255,.3);border-radius:6px;color:var(--blue);font-size:9px}.evidence-state{font-size:9px;font-weight:850;letter-spacing:.06em;padding:3px 5px;border-radius:5px;display:inline-block;margin-bottom:5px}.evidence-state.verified{color:var(--green);background:rgba(72,223,131,.1)}.evidence-state.multi{color:var(--blue);background:rgba(98,160,255,.1)}.evidence-state.unverified{color:var(--amber);background:rgba(255,200,87,.1)}.evidence-state.map{color:#e0ad54;background:rgba(224,173,84,.1)}.evidence-bar{height:7px;background:#06101a;border:1px solid #142334;border-radius:99px;overflow:hidden}.evidence-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--amber),var(--green))}.evidence-note{font-size:10px;color:var(--muted);line-height:1.5;margin:8px 0 0}.evidence-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}.evidence-filter button{min-height:30px;padding:5px 8px;font-size:9px}.evidence-timeline{position:relative;padding-left:15px}.evidence-timeline:before{content:"";position:absolute;left:4px;top:3px;bottom:3px;width:1px;background:#29445f}.evidence-event{position:relative;padding:0 0 11px 8px}.evidence-event:before{content:"";position:absolute;left:-14px;top:4px;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(98,160,255,.1)}.evidence-event b{font-size:10px}.evidence-event div{font-size:9px;color:var(--muted);margin-top:2px}.contradiction{border-left:2px solid var(--amber)}
 @media(max-width:1050px){.evidence-grid{grid-template-columns:1fr 1fr}.evidence-card:last-child{grid-column:span 2}}@media(max-width:720px){.evidence-grid{grid-template-columns:1fr}.evidence-card:last-child{grid-column:auto}.evidence-kpis{grid-template-columns:repeat(3,1fr)}.evidence-list{max-height:330px}}
 </style>
 
+<style id="gp-analysis-css">
+/* Global Pulse Update 4 — Intelligence Analysis Layer */
+.analysis-panel{margin-top:14px}.analysis-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px}.analysis-card{background:#08111b;border:1px solid var(--line);border-radius:11px;padding:12px;min-width:0}.analysis-card h3{margin:0 0 9px;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.analysis-lead{font-size:18px;font-weight:850;line-height:1.25;margin-bottom:7px}.analysis-copy{font-size:12px;color:#b9c9d8}.analysis-list{display:grid;gap:7px}.analysis-row{display:flex;justify-content:space-between;gap:10px;padding:8px 9px;background:#07101a;border:1px solid #172a3d;border-radius:8px}.analysis-row strong{font-size:11px}.analysis-row span{font-size:10px;color:var(--muted);text-align:right}.risk-meter{height:7px;background:#06101a;border:1px solid #172a3d;border-radius:99px;overflow:hidden;margin:6px 0}.risk-meter i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:99px}.analysis-tags{display:flex;gap:5px;flex-wrap:wrap}.analysis-tag{font-size:9px;text-transform:uppercase;letter-spacing:.07em;padding:4px 6px;border:1px solid #29445f;border-radius:6px;color:#b9cbe0;background:#081522}.analysis-tag.warn{border-color:rgba(255,102,120,.35);color:var(--red)}.analysis-tag.watch{border-color:rgba(255,200,87,.35);color:var(--amber)}.analysis-small{font-size:10px;color:var(--muted);margin-top:8px}.analysis-timeline{display:grid;gap:6px;max-height:290px;overflow:auto}.analysis-event{padding:8px;border-left:2px solid #315274;background:#07101a;border-radius:0 8px 8px 0}.analysis-event b{display:block;font-size:11px}.analysis-event span{display:block;font-size:9px;color:var(--muted);margin-top:2px}.analysis-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.analysis-actions button{font-size:10px;min-height:32px}.analysis-empty{font-size:11px;color:var(--muted);padding:12px;text-align:center;border:1px dashed #20364b;border-radius:8px}
+@media(max-width:900px){.analysis-grid{grid-template-columns:1fr 1fr}.analysis-card:first-child{grid-column:span 2}}@media(max-width:720px){.analysis-grid{grid-template-columns:1fr}.analysis-card:first-child{grid-column:auto}.analysis-panel{margin-top:10px}}
+</style>
+
+
 <style id="gp-final-css">
 /* Global Pulse Update 5 — final command-center polish */
 .gp-finalbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;margin:12px 0;border:1px solid var(--line);border-radius:11px;background:#08131e}.gp-finalbar .fresh{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}.gp-finalbar .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(72,223,131,.1)}.gp-finalbar button{min-height:32px;padding:6px 10px}.gp-method{font-size:10px;color:var(--muted);line-height:1.55}.gp-method b{color:var(--text)}.leaflet-container{font:12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.leaflet-control-attribution{font-size:8px}.panel{contain:layout paint}.story,.item,.ccard,.evidence-card{content-visibility:auto;contain-intrinsic-size:120px}.open,.map-source,button,.filter{touch-action:manipulation}@media(max-width:720px){.gp-finalbar{align-items:flex-start}.gp-finalbar button{flex-shrink:0}.gp-method{font-size:9px}}
 </style>
-</head>
+<style id="gp-graph-css">.gp-graph{margin:22px 0;border:1px solid rgba(148,163,184,.14);border-radius:18px;background:linear-gradient(180deg,rgba(15,23,42,.98),rgba(9,14,26,.98));overflow:hidden}.gp-graph-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px;border-bottom:1px solid rgba(148,163,184,.12)}.gp-graph-title{font-size:18px;font-weight:800}.gp-graph-sub{margin-top:5px;color:#94a3b8;font-size:12px;line-height:1.5}.gp-graph-tools{display:flex;gap:6px;flex-wrap:wrap}.gp-graph-tools button{border:1px solid rgba(148,163,184,.18);background:#111827;color:#cbd5e1;border-radius:999px;padding:7px 10px;font-size:11px;cursor:pointer}.gp-graph-tools button.active{background:#1e293b;color:#fff;border-color:rgba(96,165,250,.5)}.gp-graph-body{min-height:460px}.gp-graph svg{width:100%;height:460px;display:block}.gp-edge{stroke:rgba(148,163,184,.22)}.gp-node{cursor:pointer}.gp-node circle{fill:#152235;stroke:rgba(255,255,255,.2);stroke-width:1.2}.gp-node.conflict circle{fill:#3a2025;stroke:#ff6678}.gp-node text{fill:#cbd5e1;font-size:9px;pointer-events:none}.gp-graph-note{padding:11px 20px;color:#64748b;font-size:10px;border-top:1px solid rgba(148,163,184,.1)}@media(max-width:700px){.gp-graph-head{display:block}.gp-graph-tools{margin-top:12px}.gp-graph-body,.gp-graph svg{min-height:390px;height:390px}.gp-node text{font-size:8px}}</style><style id="gp-brand-live-css">.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}.gp-footer-credit{margin:18px 0 8px;text-align:center;color:#566b80;font-size:10px;letter-spacing:.08em}.gp-footer-credit b{color:#91a4b8}@media(max-width:520px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}}</style></head>
 <body>
-<header><div class="brand">GLOBAL <b>PULSE</b></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div></header>
+<header><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
 <div class="gp-finalbar" id="gpFinalBar"><div><div class="fresh"><span class="dot"></span><span id="gpFreshText">DATA PIPELINE ACTIVE</span></div><div class="gp-method"><b>Methodology:</b> public-source aggregation · recency-weighted theater signals · provenance shown separately from severity.</div></div><button class="filter" id="gpTopRefresh" type="button">Refresh view</button></div>
+
 
 <main class="wrap">
 <section class="grid" id="top">
@@ -86,7 +96,30 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 <div class="evidence-card"><h3>Recent evidence</h3><div class="evidence-filter"><button class="filter active" data-evfilter="all">All</button><button class="filter" data-evfilter="osint">OSINT</button><button class="filter" data-evfilter="news">Reporting</button></div><div class="evidence-list" id="evidenceList"></div></div>
 <div class="evidence-card"><h3>Verification &amp; timeline</h3><div id="verificationBars"></div><div class="drawer-section" style="margin-top:10px"><div class="label">Latest signal timeline</div><div class="evidence-timeline" id="evidenceTimeline"></div></div></div>
 </div></section>
-</main>
+<section class="panel evidence-panel" id="evidenceCenter">
+<div class="section-head"><div><h2>OSINT &amp; Evidence Center</h2><div class="muted">Provenance-first view of public reporting and source-map signals. Reported does not mean verified.</div></div><span class="tag amber">EVIDENCE LAYER</span></div>
+<div class="evidence-grid">
+<div class="evidence-card"><h3>Evidence posture</h3><div class="evidence-kpis"><div class="evidence-kpi"><b id="evTotal">—</b><span>Signals</span></div><div class="evidence-kpi"><b id="evSources">—</b><span>Sources</span></div><div class="evidence-kpi"><b id="evUnverified">—</b><span>Unverified</span></div></div><p class="evidence-note" id="evNote">Loading provenance data…</p></div>
+<div class="evidence-card"><h3>Recent evidence</h3><div class="evidence-filter"><button class="filter active" data-evfilter="all">All</button><button class="filter" data-evfilter="osint">OSINT</button><button class="filter" data-evfilter="news">Reporting</button></div><div class="evidence-list" id="evidenceList"></div></div>
+<div class="evidence-card"><h3>Verification &amp; timeline</h3><div id="verificationBars"></div><div class="drawer-section" style="margin-top:10px"><div class="label">Latest signal timeline</div><div class="evidence-timeline" id="evidenceTimeline"></div></div></div>
+</div></section>
+
+<section id="analysisCenter" class="panel analysis-panel">
+  <div class="section-head">
+    <div><h2>Intelligence Analysis</h2><div class="muted">Escalation trends, flashpoints, actors and early-warning signals derived from the current reporting set.</div></div>
+    <span class="tag blue">ANALYTICAL LAYER</span>
+  </div>
+  <div class="analysis-grid">
+    <div class="analysis-card" id="analysisLead"></div>
+    <div class="analysis-card" id="analysisFlashpoints"></div>
+    <div class="analysis-card" id="analysisPosture"></div>
+    <div class="analysis-card" id="analysisChanges"></div>
+    <div class="analysis-card" id="analysisActors"></div>
+    <div class="analysis-card" id="analysisTimeline"></div>
+  </div>
+</section>
+
+<section class="gp-graph" id="globalGraph"><div class="gp-graph-head"><div><div class="gp-graph-title">Global System Graph</div><div class="gp-graph-sub">Countries, conflict theaters and cross-border reporting relationships. Built from the current evidence set.</div></div><div class="gp-graph-tools"><button class="active" data-graph-region="ALL">World</button><button data-graph-region="Africa">Africa</button><button data-graph-region="Americas">Americas</button></div></div><div class="gp-graph-body"><svg id="gpGraphSvg" viewBox="0 0 1100 460" preserveAspectRatio="xMidYMid meet"></svg></div><div class="gp-graph-note" id="gpGraphNote"></div></section><div class="gp-footer-credit">GLOBAL PULSE <b>· Made by J.S.</b> · Public-source intelligence monitor</div></main>
 <nav class="bottom"><a href="#top">Pulse</a><a href="#conflictSection">Conflicts</a><a href="#reporting">Reports</a><a href="#mapSection">Map</a></nav>
 <div class="drawer-backdrop" id="drawerBackdrop"></div><aside class="drawer" id="drawer"><button class="filter drawer-close" id="drawerClose">Close</button><div id="drawerBody"></div></aside>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
@@ -117,6 +150,12 @@ function renderMap(){if(!map||!markerLayer)return;markerLayer.clearLayers();cons
 async function load(){try{const [a,b]=await Promise.all([fetch('data/snapshot.json?ts='+Date.now(),{cache:'no-store'}),fetch('data/history.json?ts='+Date.now(),{cache:'no-store'})]);if(!a.ok)throw new Error('snapshot unavailable');DATA=await a.json();DATA.history=b.ok?await b.json():[];renderTop();renderChanges();renderConflicts();renderStories();renderStatus();drawChart();renderMap()}catch(e){$('liveText').textContent='DATA ERROR';$('liveDot').style.background='var(--red)';$('status').innerHTML=`<span class="error">${esc(e.message)}</span><br>Open the site again after the GitHub data refresh completes.`;renderConflicts()}}
 $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConflicts()});document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeRegion=b.dataset.region;allConflicts=false;renderConflicts()}));$('toggleConflicts').addEventListener('click',()=>{allConflicts=!allConflicts;renderConflicts();if(allConflicts)$('conflictList').scrollIntoView({behavior:'smooth',block:'nearest'})});document.querySelectorAll('[data-news]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-news]').forEach(x=>x.classList.remove('active'));b.classList.add('active');newsMode=b.dataset.news;renderStories()}));document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-layer]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeLayer=b.dataset.layer;renderMap()}));$('fit').addEventListener('click',()=>{if(markerLayer&&markerLayer.getLayers().length)map.fitBounds(markerLayer.getBounds().pad(.12))});$('drawerClose').addEventListener('click',closeDrawer);$('drawerBackdrop').addEventListener('click',closeDrawer);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});window.addEventListener('popstate',closeDrawer);window.addEventListener('resize',()=>{drawChart();map?.invalidateSize()});initMap();load();setInterval(load,300000);
 </script>
+
+
+
+
+
+
 
 
 
@@ -211,6 +250,83 @@ $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConfl
 })();
 </script>
 
+<script id="gp-analysis-js">
+/* Global Pulse Update 4 — analytical layer; no invented facts */
+(function(){
+  const esc = v => String(v ?? '').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const data = window.DATA || {};
+  const conflicts = Array.isArray(data.conflicts) ? data.conflicts : [];
+  const stories = Array.isArray(data.stories) ? data.stories : [];
+  const history = Array.isArray(data.history) ? data.history : [];
+  const byScore = conflicts.slice().sort((a,b)=>(Number(b.activityScore)||0)-(Number(a.activityScore)||0));
+  const active = conflicts.filter(c=>Number(c.activityScore||0)>=60);
+  const critical = conflicts.filter(c=>String(c.escalation||'').toUpperCase()==='CRITICAL');
+  const regions = {};
+  conflicts.forEach(c=>{const r=c.region||'Other';(regions[r]??=[]).push(c)});
+  const recentStories = stories.slice().sort((a,b)=>new Date(b.time||0)-new Date(a.time||0)).slice(0,8);
+
+  function el(id){return document.getElementById(id)}
+  function level(n){return n>=80?'HIGH':n>=60?'ELEVATED':n>=40?'WATCH':'LOW'}
+  function score(c){return Math.round(Number(c.activityScore)||0)}
+  function delta(c){return Number(c.delta)||0}
+  function sourceCount(c){return Number(c.sourceCount)||0}
+
+  // Lead assessment: descriptive, not predictive.
+  const lead = el('analysisLead');
+  if(lead){
+    const top = byScore[0];
+    const avg = conflicts.length ? Math.round(conflicts.reduce((s,c)=>s+score(c),0)/conflicts.length) : 0;
+    const rising = conflicts.filter(c=>delta(c)>0).sort((a,b)=>delta(b)-delta(a)).slice(0,3);
+    lead.innerHTML = `<h3>Current Assessment</h3><div class="analysis-lead">${esc(top?top.name:'No active theater data')}</div><div class="analysis-copy">Highest current reporting activity. Global tension signal is <b>${Math.round(Number(data.tension)||0)}</b>; theater average is <b>${avg}</b>.</div><div class="analysis-tags" style="margin-top:9px"><span class="analysis-tag ${critical.length?'warn':'watch'}">${critical.length} critical</span><span class="analysis-tag">${active.length} elevated+ theaters</span><span class="analysis-tag">${conflicts.length} monitored</span></div><div class="analysis-small">This is an activity assessment based on reporting signals, not a prediction of battlefield outcomes.</div>${rising.length?`<div class="analysis-small"><b>Rising signals:</b> ${rising.map(c=>esc(c.name)+' +'+Math.round(delta(c))).join(' · ')}</div>`:''}`;
+  }
+
+  const fp = el('analysisFlashpoints');
+  if(fp){
+    fp.innerHTML = `<h3>Flashpoints</h3><div class="analysis-list">${byScore.slice(0,5).map(c=>`<div class="analysis-row"><div><strong>${esc(c.name)}</strong><div class="risk-meter"><i style="width:${Math.max(0,Math.min(100,score(c)))}%"></i></div></div><span>${score(c)}<br>${esc(level(score(c)))}</span></div>`).join('') || '<div class="analysis-empty">No conflict signals available.</div>'}</div>`;
+  }
+
+  const posture = el('analysisPosture');
+  if(posture){
+    const bd = data.breakdownScores || {};
+    const keys = ['Military posture','Diplomatic strain','Economic pressure','Market volatility'];
+    posture.innerHTML = `<h3>Strategic Posture</h3><div class="analysis-list">${keys.map(k=>`<div class="analysis-row"><strong>${esc(k)}</strong><span>${Math.round(Number(bd[k])||0)}</span></div>`).join('')}</div><div class="analysis-small">Posture dimensions are analytical composites from the current source set.</div>`;
+  }
+
+  const changes = el('analysisChanges');
+  if(changes){
+    const rising = conflicts.filter(c=>delta(c)!==0).sort((a,b)=>Math.abs(delta(b))-Math.abs(delta(a))).slice(0,6);
+    changes.innerHTML = `<h3>What Changed</h3><div class="analysis-list">${rising.map(c=>`<div class="analysis-row"><strong>${esc(c.name)}</strong><span>${delta(c)>0?'+':''}${Math.round(delta(c))}</span></div>`).join('') || '<div class="analysis-empty">No theater score changes in the latest refresh.</div>'}</div><div class="analysis-small">Change values compare the latest theater activity signal with the prior stored score when available.</div>`;
+  }
+
+  const actors = el('analysisActors');
+  if(actors){
+    const counts = {};
+    conflicts.forEach(c=>(Array.isArray(c.signals)?c.signals:[]).forEach(s=>(Array.isArray(s.match)?s.match:[]).forEach(x=>{const k=String(x).trim();if(k.length>=4)counts[k]=(counts[k]||0)+1})));
+    const topActors = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    actors.innerHTML = `<h3>Actor / Keyword Signals</h3><div class="analysis-list">${topActors.map(([k,n])=>`<div class="analysis-row"><strong>${esc(k)}</strong><span>${n} linked signals</span></div>`).join('') || '<div class="analysis-empty">No actor signals available.</div>'}</div><div class="analysis-small">These are extracted signal keywords from source matching, not confirmed actor attribution.</div>`;
+  }
+
+  const tl = el('analysisTimeline');
+  if(tl){
+    const ev = recentStories;
+    tl.innerHTML = `<h3>Recent Signal Timeline</h3><div class="analysis-timeline">${ev.map(s=>`<div class="analysis-event"><b>${esc(s.title||'Untitled report')}</b><span>${esc(s.source||'Source')} · ${esc(s.time||'Time unavailable')}</span></div>`).join('') || '<div class="analysis-empty">No recent reporting available.</div>'}</div>`;
+  }
+
+  // Region watch chips: lightweight cross-navigation into the existing conflict filter.
+  const head = document.querySelector('#analysisCenter .section-head');
+  if(head && !document.getElementById('analysisRegionTools')){
+    const box=document.createElement('div'); box.id='analysisRegionTools'; box.className='analysis-actions';
+    Object.entries(regions).sort((a,b)=>b[1].length-a[1].length).slice(0,6).forEach(([region,items])=>{
+      const b=document.createElement('button'); b.className='filter'; b.textContent=region+' · '+items.length;
+      b.onclick=()=>{const target=document.querySelector('.ccard[data-region="'+CSS.escape(region)+'"]'); if(target){target.scrollIntoView({behavior:'smooth',block:'center'});target.click();}else document.getElementById('conflicts')?.scrollIntoView({behavior:'smooth'});};
+      box.appendChild(b);
+    });
+    head.appendChild(box);
+  }
+})();
+</script>
+
+
 <script id="gp-final-js">
 (function(){
   const byId=id=>document.getElementById(id);
@@ -230,5 +346,5 @@ $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConfl
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire);else wire();
 })();
 </script>
-</body>
+<script id="gp-graph-js">(function(){function draw(region){const svg=document.getElementById('gpGraphSvg'),note=document.getElementById('gpGraphNote'),g=window.DATA&&DATA.globalGraph;if(!svg||!g)return;let ns=g.nodes.filter(n=>region==='ALL'||n.region===region);if(ns.length>75)ns=ns.sort((a,b)=>(b.signalCount||0)-(a.signalCount||0)).slice(0,75);const keep=new Set(ns.map(n=>n.id));const es=g.edges.filter(e=>keep.has(e.source)&&keep.has(e.target));const by=new Map(ns.map(n=>[n.id,n])),W=1100,H=460,cx=W/2,cy=H/2;ns.forEach((n,i)=>{const a=i/ns.length*Math.PI*2,r=n.type==='conflict'?135:205; n.x=cx+Math.cos(a)*r*(region==='ALL'?1.35:1.55);n.y=cy+Math.sin(a)*r*.86});svg.innerHTML=es.map(e=>{const a=by.get(e.source),b=by.get(e.target);return a&&b?`<line class="gp-edge" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}" stroke-width="${Math.max(1,(e.weight||1)/2)}"/>`:''}).join('')+ns.map(n=>{const r=n.type==='conflict'?7:Math.max(4,Math.min(10,4+(n.signalCount||0)/8));return `<g class="gp-node ${n.type}" transform="translate(${n.x.toFixed(1)},${n.y.toFixed(1)})"><circle r="${r}"/><text x="${r+5}" y="3">${String(n.label).replace(/&/g,'&amp;').replace(/</g,'&lt;').slice(0,24)}</text></g>`}).join('');note.textContent=`${ns.length} nodes · ${es.length} evidence-linked relationships · ${region==='ALL'?'world view':region+' view'}`;}document.querySelectorAll('[data-graph-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-graph-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');draw(b.dataset.graphRegion)}));draw('ALL')})();</script></body>
 </html>

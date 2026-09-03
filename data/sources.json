@@ -1,6 +1,30 @@
 {
-  "updatedAt": "2026-09-03T00:16:31.852283+00:00",
+  "updatedAt": "2026-09-03T00:32:11.046183+00:00",
   "feeds": [
+    {
+      "name": "GDELT Live — Global",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=(war%20OR%20conflict%20OR%20military%20OR%20sanctions%20OR%20election%20OR%20crisis)&mode=ArtList&format=rss&maxrecords=250&timespan=15m",
+      "type": "live",
+      "domain": "api.gdeltproject.org"
+    },
+    {
+      "name": "GDELT Live — Africa",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=(africa%20OR%20sudan%20OR%20congo%20OR%20sahel%20OR%20nigeria%20OR%20somalia)&mode=ArtList&format=rss&maxrecords=150&timespan=15m",
+      "type": "africa",
+      "domain": "api.gdeltproject.org"
+    },
+    {
+      "name": "GDELT Live — Americas",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=(mexico%20OR%20colombia%20OR%20venezuela%20OR%20brazil%20OR%20haiti%20OR%20ecuador%20OR%20peru)&mode=ArtList&format=rss&maxrecords=150&timespan=15m",
+      "type": "americas",
+      "domain": "api.gdeltproject.org"
+    },
+    {
+      "name": "GDELT Live — Middle East",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=(gaza%20OR%20iran%20OR%20israel%20OR%20yemen%20OR%20syria%20OR%20iraq)&mode=ArtList&format=rss&maxrecords=150&timespan=15m",
+      "type": "middle-east",
+      "domain": "api.gdeltproject.org"
+    },
     {
       "name": "BBC World",
       "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
@@ -87,6 +111,8 @@
     }
   ],
   "errors": [
+    "GDELT Live — Africa: URLError",
+    "GDELT Live — Americas: URLError",
     "ReliefWeb: ParseError"
   ]
 }
