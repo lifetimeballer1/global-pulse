@@ -4,6 +4,8 @@ on:
   workflow_run:
     workflows: ["Global Pulse — Refresh, Validate & Deploy"]
     types: [completed]
+  schedule:
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,9 +19,9 @@ concurrency:
 
 jobs:
   coverage:
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout refreshed main
         uses: actions/checkout@v4
@@ -30,7 +32,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build evidence-driven conflict coverage
+      - name: Build evidence-driven conflict and OSINT coverage
         run: python update_conflict_coverage.py
       - name: Validate coverage output
         run: |
@@ -41,15 +43,23 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           c=d.get('conflictCoverage',{})
-          assert c.get('version')==1
+          assert c.get('version')==2
           assert len(c.get('watchlist',[]))==12
           for x in c['watchlist']:
             assert x.get('id') and x.get('title') and x.get('region')
             assert x.get('status') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE','NO CURRENT SIGNAL')
             assert 0 <= float(x.get('confidence',0)) <= 1
             assert int(x.get('articleCount',0)) >= 0
+          os=d.get('osintMaps',{})
+          assert os.get('version')==1
+          assert isinstance(os.get('gdeltPoints',[]), list)
+          assert isinstance(os.get('liveuamapStories',[]), list)
+          for p in os.get('gdeltPoints',[]):
+            assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
+            assert p.get('source')=='GDELT GEO'
           assert all(m.get('layer')!='conflict-coverage' or m.get('confidence') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE') for m in d.get('markers',[]))
-          print('VALID conflict coverage:', [(x['title'],x['status'],x['articleCount'],len(x['sourceDomains'])) for x in c['watchlist']])
+          assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in d.get('markers',[]))
+          print('VALID coverage + OSINT:', len(c['watchlist']), 'theaters,', len(os.get('gdeltPoints',[])), 'GDELT points,', len(os.get('liveuamapStories',[])), 'Liveuamap stories')
           PY
       - name: Commit coverage snapshot
         run: |
@@ -58,7 +68,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/snapshot.json
           if git diff --staged --quiet; then echo "No coverage changes"; exit 0; fi
-          git commit -m "chore: refresh conflict coverage evidence"
+          git commit -m "chore: refresh conflict and OSINT map coverage"
           git fetch origin main
           git rebase -X theirs origin/main
           git push origin HEAD:main
