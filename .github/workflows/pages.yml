@@ -21,6 +21,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Enrich snapshot with OSINT coverage
+        run: python update_conflict_coverage.py
+
+      - name: Inject coverage UI
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          tag = '<script src="global_pulse_coverage_ui.js"></script>'
+          if tag not in text:
+              marker = '</body>'
+              if marker in text:
+                  text = text.replace(marker, tag + '\n' + marker, 1)
+              else:
+                  text += '\n' + tag + '\n'
+              p.write_text(text, encoding='utf-8')
+          print('Coverage UI integration:', 'present' if tag in text else 'missing')
+          PY
+
+      - name: Validate enriched snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          markers=d.get('markers', [])
+          osint=[m for m in markers if m.get('layer') in ('osint-gdelt','conflict-coverage')]
+          print(f'Total markers: {len(markers)}')
+          print(f'OSINT/coverage markers: {len(osint)}')
+          if not osint:
+              raise SystemExit('No OSINT/coverage markers reached the Pages artifact')
+          if '</body>' in Path('index.html').read_text(encoding='utf-8') and 'global_pulse_coverage_ui.js' not in Path('index.html').read_text(encoding='utf-8'):
+              raise SystemExit('Coverage UI script was not integrated')
+          PY
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
