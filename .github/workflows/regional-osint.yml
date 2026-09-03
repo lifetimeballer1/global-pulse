@@ -1,0 +1,74 @@
+name: Global Pulse — Regional OSINT Expansion
+
+on:
+  workflow_run:
+    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    types: [completed]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: global-pulse-regional-osint
+  cancel-in-progress: false
+
+jobs:
+  expand:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Expand live regional OSINT coverage
+        run: python update_regional_osint.py
+
+      - name: Install map clustering
+        run: python install_map_clustering.py
+
+      - name: Validate regional coverage and map hooks
+        run: |
+          set -euo pipefail
+          python -m py_compile update_regional_osint.py install_map_clustering.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          r=d.get('regionalOsint',{})
+          assert r.get('version') == 1
+          assert set(r.get('regions',{})) == {'Africa','South America','South Asia'}
+          markers=d.get('markers',[])
+          assert any(m.get('layer')=='osint-regional' for m in markers), 'No regional OSINT markers reached snapshot'
+          assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers if m.get('layer')=='osint-regional')
+          html=Path('index.html').read_text(encoding='utf-8')
+          assert 'leaflet.markercluster' in html
+          assert 'markerClusterGroup' in html
+          print('Regional OSINT validation passed:', r.get('regions'))
+          PY
+
+      - name: Commit regional OSINT and map updates
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/snapshot.json index.html
+          if git diff --cached --quiet; then
+            echo 'No regional OSINT/map changes to commit.'
+          else
+            git commit -m 'Expand regional OSINT map coverage and clustering'
+            git push origin main
+          fi
