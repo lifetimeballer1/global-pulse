@@ -22,6 +22,9 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout refreshed main
         uses: actions/checkout@v4
@@ -43,7 +46,7 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           c=d.get('conflictCoverage',{})
-          assert c.get('version')==2
+          assert c.get('version')==3
           assert len(c.get('watchlist',[]))==12
           for x in c['watchlist']:
             assert x.get('id') and x.get('title') and x.get('region')
@@ -51,15 +54,20 @@ jobs:
             assert 0 <= float(x.get('confidence',0)) <= 1
             assert int(x.get('articleCount',0)) >= 0
           os=d.get('osintMaps',{})
-          assert os.get('version')==1
+          assert os.get('version')==2
           assert isinstance(os.get('gdeltPoints',[]), list)
           assert isinstance(os.get('liveuamapStories',[]), list)
+          assert isinstance(os.get('reportedAreaPoints',[]), list)
           for p in os.get('gdeltPoints',[]):
             assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
             assert p.get('source')=='GDELT GEO'
+          for p in os.get('reportedAreaPoints',[]):
+            assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
+            assert p.get('layer')=='osint-reported' and p.get('sourceUrl')
           assert all(m.get('layer')!='conflict-coverage' or m.get('confidence') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE') for m in d.get('markers',[]))
           assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in d.get('markers',[]))
-          print('VALID coverage + OSINT:', len(c['watchlist']), 'theaters,', len(os.get('gdeltPoints',[])), 'GDELT points,', len(os.get('liveuamapStories',[])), 'Liveuamap stories')
+          assert all(m.get('layer')!='osint-reported' or m.get('sourceUrl') for m in d.get('markers',[]))
+          print('VALID coverage + OSINT:', len(c['watchlist']), 'theaters,', len(os.get('gdeltPoints',[])), 'GDELT points,', len(os.get('liveuamapStories',[])), 'Liveuamap stories,', len(os.get('reportedAreaPoints',[])), 'reported-area points')
           PY
       - name: Commit coverage snapshot
         run: |
@@ -69,9 +77,15 @@ jobs:
           git add data/snapshot.json
           if git diff --staged --quiet; then echo "No coverage changes"; exit 0; fi
           git commit -m "chore: refresh conflict and OSINT map coverage"
-          git fetch origin main
-          git rebase -X theirs origin/main
-          git push origin HEAD:main
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase -X theirs origin/main; then
+              if git push origin HEAD:main; then echo "Published coverage on attempt $attempt"; exit 0; fi
+              git rebase --abort || true
+            else git rebase --abort || true; fi
+            echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
+          done
+          echo "Unable to publish coverage after 5 attempts"; exit 1
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
@@ -81,6 +95,3 @@ jobs:
       - name: Deploy evidence coverage update
         id: deployment
         uses: actions/deploy-pages@v4
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
