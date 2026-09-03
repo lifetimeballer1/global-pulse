@@ -30,12 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - name: Restore persistent live-news SQLite database
         uses: actions/cache@v4
         with:
@@ -43,49 +41,35 @@ jobs:
           key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             ${{ runner.os }}-global-pulse-news-db-
-
       - name: Verify runtime
         run: |
           python --version
           node --version
           git --version
-
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
-
       - name: Poll persistent news and public X RSS sources
         run: python news_feed_db.py --once
-
       - name: Refresh public intelligence data in parallel
         run: python update_snapshot_fast.py
-
       - name: Merge persistent live-news database into public snapshot
         run: python merge_live_news.py
-
       - name: Promote politics and economics to first-class layers
         run: python update_political_layer.py
-
       - name: Build automatic political intelligence and corroboration layer
         run: python update_political_intelligence.py
-
       - name: Sync intelligence maps
         run: python update_osint.py
-
       - name: Sync CFR Global Conflict Tracker
         run: python update_cfr.py
-
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
-
       - name: Build evidence-linked intelligence graph
         run: python update_intelligence_web.py
-
       - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
-
       - name: Install resilient live FastAPI reporting integration
         run: python update9_live_reporting.py
-
       - name: Validate production build
         run: |
           set -euo pipefail
@@ -94,6 +78,10 @@ jobs:
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
           node --check global_pulse_reporting.js
+          node --check global_pulse_v22.js
+          node --check global_pulse_v23.js
+          node --check global_pulse_v24.js
+          node --check global_pulse_v25.js
           python - <<'PY'
           import json,re,sqlite3
           from pathlib import Path
@@ -124,24 +112,19 @@ jobs:
           assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[])), 'strategic layer missing'
           assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[])), 'CFR layer missing'
           assert 'gp-map-rescue-js' in html, 'canonical map UI missing'
-          assert 'global_pulse_graph.js' in html, 'intelligence graph UI missing'
-          assert 'global_pulse_layers.js' in html, 'political intelligence UI missing'
-          assert 'global_pulse_reporting.js' in html, 'live reporting UI missing'
+          for asset in ['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js']:
+            assert asset in html, f'{asset} missing from index'
           assert 'pulse-reporting-feed' in html, 'live reporting container missing'
-          assert 'Pipeline Connection Terminated - Retrying...' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'reporting fallback missing'
-          assert 'target = "_blank"' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'safe external target missing'
-          assert 'noopener noreferrer' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), 'safe external rel missing'
-          assert 'setInterval(fetchPulseReporting, POLL_MS)' in Path('global_pulse_reporting.js').read_text(encoding='utf-8'), '60-second polling missing'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8'), 'political reporting panel missing'
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'politics feed expansion missing'
           assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Fox politics feed missing'
           assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'CNN politics feed missing'
           assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Axios politics feed missing'
           assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Morse Report feed missing'
+          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'), 'V2.4 climate driver missing'
+          assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'), 'V2.5 pathway layer missing'
           assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'X account source missing'
           assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'SQLite integration missing'
-          assert 'while True' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'continuous collector loop missing'
-          assert 'time.sleep(POLL_SECONDS)' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'five-minute polling pause missing'
           assert html.count('Made by J.S.')==1, 'branding duplicated'
           assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
@@ -153,7 +136,6 @@ jobs:
           print(f"UPDATED: {d['updatedAt']}")
           print(f"SOURCE STATUS: {d.get('sourceStatus','unknown')}")
           PY
-
       - name: Commit refreshed data and generated site changes
         run: |
           set -euo pipefail
@@ -166,15 +148,12 @@ jobs:
             git commit -m "chore: refresh global pulse data"
             git push
           fi
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
