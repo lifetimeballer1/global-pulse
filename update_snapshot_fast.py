@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Parallel snapshot builder using the existing Global Pulse scoring engine."""
+"""Parallel snapshot builder using the existing Global Pulse source catalog."""
 from __future__ import annotations
 
 import hashlib
@@ -19,8 +19,10 @@ SNAP = DATA / "snapshot.json"
 HIST = DATA / "history.json"
 SOURCES = DATA / "sources.json"
 MAX_WORKERS = 10
+SCORE_VERSION = 3
 
-CLIMATE_RE = re.compile(r"\b(drought|water shortage|water stress|reservoir|water supply|flood|flooding|cyclone|hurricane|typhoon|storm|landslide|heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold|food insecurity|food crisis|famine|hunger|crop failure|harvest failure|epidemic|outbreak|cholera|malaria|avian flu|pandemic)\b", re.I)
+CLIMATE_RE = re.compile(r"\b(drought|water shortage|water stress|water scarcity|reservoir|water supply|flood|flooding|cyclone|hurricane|typhoon|storm surge|landslide|heatwave|heat wave|extreme heat|wildfire|forest fire|bushfire|extreme cold|food insecurity|food crisis|famine|acute hunger|hunger|crop failure|harvest failure|epidemic|outbreak|cholera|malaria|avian flu|pandemic|disease outbreak)\b", re.I)
+MARKET_RE = re.compile(r"\b(stock market|stocks|shares|bond yields?|treasury yields?|currency|forex|exchange rate|dollar|euro|yen|yuan|oil prices?|crude prices?|natural gas prices?|market volatility|market selloff|market rally|volatility index)\b", re.I)
 
 
 def parse_feed(label, url, kind):
@@ -35,7 +37,7 @@ def parse_feed(label, url, kind):
                 node = item.find("{http://www.w3.org/2005/Atom}link")
                 link = node.attrib.get("href", "") if node is not None else ""
             summary = base.clean(base.text(item, "description") or base.text(item, "{http://www.w3.org/2005/Atom}summary"))
-            pub = base.text(item, "pubDate") or base.text(item, "{http://www.w3.org/2005/Atom}updated")
+            pub = base.text(item, "pubDate") or base.text(item, "updated") or base.text(item, "{http://www.w3.org/2005/Atom}updated")
             if not title or not link:
                 continue
             breaking = base.is_breaking(title, summary)
@@ -45,47 +47,53 @@ def parse_feed(label, url, kind):
     return rows, error
 
 
-def normalized_score(stories, regex, base_score=40):
-    """Score a driver by signal share rather than raw headline count.
+def weighted_total(stories):
+    return sum(max(0.05, base.recency_weight(s.get("time"))) for s in stories)
 
-    The feed expansion added many more sources. Counting raw matches therefore
-    made every broad regex saturate at 100 and artificially pushed the Global
-    Tension Index toward the ceiling. Normalize against the current weighted
-    story volume so adding sources improves coverage without changing the
-    meaning of the scale.
+
+def normalized_score(stories, regex, base_score=40, eligible=None, boost_terms=()):
+    """Calibrate a driver against its relevant reporting pool, not raw headline count.
+
+    Adding a new politics, climate, or disaster feed must not automatically raise
+    every tension driver. Each driver therefore uses only an appropriate source
+    pool and measures the weighted share of that pool carrying the signal.
     """
-    if not stories:
+    pool = [s for s in stories if eligible is None or s.get("sourceType") in eligible]
+    if not pool:
         return int(base_score)
-    matched = sum(base.recency_weight(s.get("time")) for s in stories if regex.search(f"{s.get('title','')} {s.get('summary','')}"))
-    total = sum(base.recency_weight(s.get("time")) for s in stories)
+    total = weighted_total(pool)
     if total <= 0:
         return int(base_score)
-    share = matched / total
-    # Keep the established baseline, but let current signal density move the
-    # driver through the remaining 65 points. A small square-root lift avoids
-    # making low-frequency but important signals disappear.
-    signal = min(65.0, 65.0 * min(1.0, share * 1.35))
+    matched = 0.0
+    for story in pool:
+        text = f"{story.get('title', '')} {story.get('summary', '')}"
+        weight = max(0.05, base.recency_weight(story.get("time")))
+        if regex.search(text):
+            matched += weight
+            if boost_terms and any(re.search(term, text, re.I) for term in boost_terms):
+                matched += weight * 0.35
+    share = min(1.0, matched / total)
+    # 35-100 is the intended monitoring range for an active driver; baselines
+    # remain stable when feeds are unavailable rather than falling to zero.
+    signal = min(65.0, 65.0 * share)
     return int(round(max(0.0, min(100.0, base_score + signal))))
 
 
 def climate_metrics(stories):
-    """Transparent climate/humanitarian signal components from current public reporting."""
     groups = {
-        "Drought & water": re.compile(r"\b(drought|water shortage|water stress|reservoir|water supply)\b", re.I),
-        "Floods & storms": re.compile(r"\b(flood|flooding|cyclone|hurricane|typhoon|storm|landslide|glacier)\b", re.I),
-        "Heat & fire": re.compile(r"\b(heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold)\b", re.I),
-        "Food security": re.compile(r"\b(famine|food insecurity|food crisis|hunger|crop failure|harvest failure)\b", re.I),
-        "Health outbreaks": re.compile(r"\b(epidemic|outbreak|cholera|malaria|avian flu|pandemic)\b", re.I),
+        "Drought & water": re.compile(r"\b(drought|water shortage|water stress|water scarcity|reservoir|water supply)\b", re.I),
+        "Floods & storms": re.compile(r"\b(flood|flooding|cyclone|hurricane|typhoon|storm surge|landslide|glacier)\b", re.I),
+        "Heat & fire": re.compile(r"\b(heatwave|heat wave|extreme heat|wildfire|forest fire|bushfire|extreme cold)\b", re.I),
+        "Food security": re.compile(r"\b(famine|food insecurity|food crisis|acute hunger|hunger|crop failure|harvest failure|food shortage)\b", re.I),
+        "Health outbreaks": re.compile(r"\b(epidemic|outbreak|cholera|malaria|avian flu|pandemic|disease outbreak)\b", re.I),
     }
-    out = {}
-    for name, rx in groups.items():
-        out[name] = normalized_score(stories, rx, 25)
-    return out
+    climate_pool = {"climate-hazard", "food-security", "humanitarian", "international", "regional", "live"}
+    return {name: normalized_score(stories, rx, 25, climate_pool) for name, rx in groups.items()}
 
 
 def build_early_warning(tension, breakdown, history):
-    """Turn recent tension history into a transparent early-warning signal."""
-    points = [p for p in history if isinstance(p, dict) and isinstance(p.get("tension"), (int, float))]
+    """Compare only snapshots produced by the current scoring model."""
+    points = [p for p in history if isinstance(p, dict) and p.get("scoreVersion") == SCORE_VERSION and isinstance(p.get("tension"), (int, float))]
     recent = [float(p["tension"]) for p in points[-12:]]
     prior = [float(p["tension"]) for p in points[-36:-12]]
     recent_avg = sum(recent) / len(recent) if recent else float(tension)
@@ -98,7 +106,7 @@ def build_early_warning(tension, breakdown, history):
         level = "ELEVATED"
     else:
         level = "WATCH"
-    return {"level": level, "score": int(round(tension)), "momentum": momentum, "direction": "rising" if momentum >= 2 else "falling" if momentum <= -2 else "stable", "strongestDriver": strongest_name, "strongestDriverScore": int(strongest_value), "method": "Recent 12 snapshots versus the preceding 24 snapshots, plus current tension level."}
+    return {"level": level, "score": int(round(tension)), "momentum": momentum, "direction": "rising" if momentum >= 2 else "falling" if momentum <= -2 else "stable", "strongestDriver": strongest_name, "strongestDriverScore": int(strongest_value), "method": "Recent 12 snapshots versus the preceding 24 snapshots from the current scoring model only."}
 
 
 def main():
@@ -124,26 +132,57 @@ def main():
     stories = unique[:300]
     old_ids = {s.get("id") for s in old.get("stories", [])}
     new_items = [s for s in stories if s["id"] not in old_ids]
+
+    all_sources = None
+    politics_pool = {"us-politics", "world-politics", "analysis"}
+    economics_pool = {"economics", "international", "regional", "live"}
+    conflict_pool = {"live", "international", "regional", "middle-east", "africa", "americas", "analysis"}
+    military_boost = (r"airstrike", r"missile", r"drone", r"troops", r"offensive", r"shelling", r"invasion")
     breakdown = {
-        "Conflict activity": normalized_score(stories, base.CONFLICT_RE, 35),
-        "Diplomatic strain": normalized_score(stories, base.DIPLO_RE, 32),
-        "Economic pressure": normalized_score(stories, base.ECON_RE, 32),
-        "Market volatility": normalized_score(stories, re.compile(r"\b(market|stocks|bond|currency|oil|gas|volatil)\b", re.I), 30),
-        "Military posture": normalized_score(stories, base.MIL_RE, 34),
-        "Climate & humanitarian pressure": normalized_score(stories, CLIMATE_RE, 25),
+        "Conflict activity": normalized_score(stories, re.compile(r"\b(war|armed conflict|fighting|battle|offensive|airstrike|shelling|invasion|insurgent|insurgency|militant attack|clash|bombing|hostage crisis)\b", re.I), 35, conflict_pool, military_boost),
+        "Diplomatic strain": normalized_score(stories, base.DIPLO_RE, 32, politics_pool, (r"sanction", r"expulsion", r"ultimatum", r"diplomatic crisis")),
+        "Economic pressure": normalized_score(stories, base.ECON_RE, 32, economics_pool, (r"tariff", r"sanction", r"supply disruption", r"recession")),
+        "Market volatility": normalized_score(stories, MARKET_RE, 30, {"economics", "international", "regional", "live"}, (r"selloff", r"plunge", r"surge", r"volatility")),
+        "Military posture": normalized_score(stories, base.MIL_RE, 34, conflict_pool, military_boost),
+        "Climate & humanitarian pressure": normalized_score(stories, CLIMATE_RE, 25, {"climate-hazard", "food-security", "humanitarian", "international", "regional", "live"}),
     }
     climate = climate_metrics(stories)
-    tension = round(sum(breakdown.values()) / len(breakdown))
+    weights = {
+        "Conflict activity": 0.22,
+        "Diplomatic strain": 0.15,
+        "Economic pressure": 0.16,
+        "Market volatility": 0.10,
+        "Military posture": 0.25,
+        "Climate & humanitarian pressure": 0.12,
+    }
+    tension = round(sum(breakdown[k] * weights[k] for k in weights))
     old_tension = old.get("tension")
-    delta = tension - old_tension if isinstance(old_tension, (int, float)) else 0
+    delta = tension - old_tension if isinstance(old_tension, (int, float)) and old.get("scoreVersion") == SCORE_VERSION else 0
     changes = [{"kind": "breaking" if s["breaking"] else "new reporting", "title": s["title"][:150], "detail": f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]]
     if not changes:
         changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(feeds)} feeds checked; {len(stories)} current stories retained."}]
     conflicts = base.make_conflicts(stories, old)
     now = datetime.now(timezone.utc).isoformat()
-    history_with_current = history + [{"updatedAt": now, "tension": tension, "delta": delta}]
+    history_points = [p for p in history if isinstance(p, dict) and p.get("scoreVersion") == SCORE_VERSION]
+    history_with_current = history_points + [{"updatedAt": now, "tension": tension, "delta": delta, "scoreVersion": SCORE_VERSION}]
     early_warning = build_early_warning(tension, breakdown, history_with_current)
-    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Climate & humanitarian pressure is a monitoring signal derived from current reporting and disaster alerts; it is not a climate model or official hazard index.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "climatePressure": climate, "earlyWarning": early_warning, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
+    snapshot = {
+        "updatedAt": now,
+        "scoreVersion": SCORE_VERSION,
+        "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy",
+        "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Driver scores are calibrated by relevant reporting pools; adding sources does not itself raise tension.",
+        "tension": tension,
+        "tensionDelta": delta,
+        "breakdownScores": breakdown,
+        "climatePressure": climate,
+        "earlyWarning": early_warning,
+        "changes": changes,
+        "conflicts": conflicts,
+        "markers": old.get("markers", []),
+        "social": old.get("social", []),
+        "stories": stories,
+        "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds],
+    }
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     HIST.write_text(json.dumps(history_with_current[-288:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a, b, c in feeds], "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
