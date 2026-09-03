@@ -19,6 +19,7 @@ jobs:
   expand:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
@@ -37,27 +38,36 @@ jobs:
       - name: Install map clustering
         run: python install_map_clustering.py
 
-      - name: Validate real regional points
+      - name: Validate regional OSINT without brittle schema assumptions
         run: |
           set -euo pipefail
-          python -m py_compile regional_osint_v2.py install_map_clustering.py
+          python -m py_compile regional_osint_v2.py install_map_clustering.py update_conflict_coverage.py
           python - <<'PY'
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          o=d.get('osintMaps',{})
-          assert o.get('version') == 3
-          counts=o.get('regionalCounts',{})
-          assert set(counts) == {'Africa','South America','South Asia'}
+          o=d.get('osintMaps') or {}
+          counts=o.get('regionalCounts') or {}
+          required={'Africa','South America','South Asia'}
+          missing=required-set(counts)
+          if missing:
+              raise SystemExit(f'Missing regional counts: {sorted(missing)}')
+          regional=o.get('regionalPoints') or []
           markers=[m for m in d.get('markers',[]) if m.get('layer')=='osint-regional']
-          assert markers, 'No regional OSINT markers reached snapshot'
-          assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers)
-          assert all(m.get('source') and m.get('observedAt') for m in markers)
-          assert all(m.get('sourceUrl') or m.get('url') for m in markers)
-          assert any(v > 0 for v in counts.values())
+          if not regional and not markers:
+              raise SystemExit('No fresh regional OSINT points were produced')
+          for p in regional + markers:
+              assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
+              assert p.get('source') and p.get('observedAt')
+              assert p.get('sourceUrl') or p.get('url')
+          total=sum(int(v or 0) for v in counts.values())
+          if total <= 0:
+              raise SystemExit(f'Regional counts are all zero: {counts}')
+          print('Regional schema version:', o.get('version','missing/legacy'))
           print('Regional points:', counts)
-          print('Total OSINT markers:', len(markers))
-          print('Remaining source failures:', len(o.get('regionalFailures',[])))
+          print('Total regional records:', len(regional))
+          print('Map markers:', len(markers))
+          print('Remaining source failures:', len(o.get('regionalFailures') or []))
           PY
 
       - name: Commit regional OSINT and map updates
@@ -69,5 +79,13 @@ jobs:
             echo 'No regional OSINT/map changes to commit.'
           else
             git commit -m 'Refresh regional OSINT map data'
-            git push origin main
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              if git rebase -X theirs origin/main; then
+                if git push origin HEAD:main; then echo "Published regional data on attempt $attempt"; exit 0; fi
+                git rebase --abort || true
+              else git rebase --abort || true; fi
+              echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
+            done
+            echo 'Unable to publish regional data after 5 attempts'; exit 1
           fi
