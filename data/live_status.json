@@ -1,15 +1,19 @@
 {
-  "updatedAt": "2026-09-03T15:03:54.005902+00:00",
+  "updatedAt": "2026-09-03T15:08:16.847570+00:00",
   "feedsChecked": 14,
   "rowsFetched": 139,
-  "newArticles": 2,
+  "newArticles": 1,
   "purged": 0,
-  "databaseArticles": 143,
-  "healthySources": 5,
+  "databaseArticles": 144,
+  "healthySources": 7,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "source": "X @WhiteHouse",
+      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @UN",
@@ -20,27 +24,15 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @NASA",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @WhiteHouse",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
       "source": "X @POTUS",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
+      "source": "X @NASA",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
       "source": "CNN Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Axios Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Morse Report",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     }
   ],
