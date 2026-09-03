@@ -20,7 +20,7 @@ HIST = DATA / "history.json"
 SOURCES = DATA / "sources.json"
 MAX_WORKERS = 10
 
-CLIMATE_RE = re.compile(r"drought|flood|flooding|wildfire|forest fire|cyclone|hurricane|typhoon|heatwave|heat wave|extreme heat|extreme cold|storm|landslide|glacier|sea level|water shortage|water stress|food insecurity|food crisis|famine|hunger|crop failure|harvest failure|epidemic|outbreak|disease|cholera|malaria|avian flu|pandemic", re.I)
+CLIMATE_RE = re.compile(r"\b(drought|water shortage|water stress|reservoir|water supply|flood|flooding|cyclone|hurricane|typhoon|storm|landslide|heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold|food insecurity|food crisis|famine|hunger|crop failure|harvest failure|epidemic|outbreak|cholera|malaria|avian flu|pandemic)\b", re.I)
 
 
 def parse_feed(label, url, kind):
@@ -45,18 +45,41 @@ def parse_feed(label, url, kind):
     return rows, error
 
 
+def normalized_score(stories, regex, base_score=40):
+    """Score a driver by signal share rather than raw headline count.
+
+    The feed expansion added many more sources. Counting raw matches therefore
+    made every broad regex saturate at 100 and artificially pushed the Global
+    Tension Index toward the ceiling. Normalize against the current weighted
+    story volume so adding sources improves coverage without changing the
+    meaning of the scale.
+    """
+    if not stories:
+        return int(base_score)
+    matched = sum(base.recency_weight(s.get("time")) for s in stories if regex.search(f"{s.get('title','')} {s.get('summary','')}"))
+    total = sum(base.recency_weight(s.get("time")) for s in stories)
+    if total <= 0:
+        return int(base_score)
+    share = matched / total
+    # Keep the established baseline, but let current signal density move the
+    # driver through the remaining 65 points. A small square-root lift avoids
+    # making low-frequency but important signals disappear.
+    signal = min(65.0, 65.0 * min(1.0, share * 1.35))
+    return int(round(max(0.0, min(100.0, base_score + signal))))
+
+
 def climate_metrics(stories):
     """Transparent climate/humanitarian signal components from current public reporting."""
     groups = {
-        "Drought & water": re.compile(r"drought|water shortage|water stress|reservoir|water supply", re.I),
-        "Floods & storms": re.compile(r"flood|flooding|cyclone|hurricane|typhoon|storm|landslide|glacier", re.I),
-        "Heat & fire": re.compile(r"heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold", re.I),
-        "Food security": re.compile(r"famine|food insecurity|food crisis|hunger|crop failure|harvest failure", re.I),
-        "Health outbreaks": re.compile(r"epidemic|outbreak|disease|cholera|malaria|avian flu|pandemic", re.I),
+        "Drought & water": re.compile(r"\b(drought|water shortage|water stress|reservoir|water supply)\b", re.I),
+        "Floods & storms": re.compile(r"\b(flood|flooding|cyclone|hurricane|typhoon|storm|landslide|glacier)\b", re.I),
+        "Heat & fire": re.compile(r"\b(heatwave|heat wave|extreme heat|wildfire|forest fire|extreme cold)\b", re.I),
+        "Food security": re.compile(r"\b(famine|food insecurity|food crisis|hunger|crop failure|harvest failure)\b", re.I),
+        "Health outbreaks": re.compile(r"\b(epidemic|outbreak|cholera|malaria|avian flu|pandemic)\b", re.I),
     }
     out = {}
     for name, rx in groups.items():
-        out[name] = min(100, base.score_dimension(stories, rx, 34))
+        out[name] = normalized_score(stories, rx, 25)
     return out
 
 
@@ -102,12 +125,12 @@ def main():
     old_ids = {s.get("id") for s in old.get("stories", [])}
     new_items = [s for s in stories if s["id"] not in old_ids]
     breakdown = {
-        "Conflict activity": base.score_dimension(stories, base.CONFLICT_RE, 35),
-        "Diplomatic strain": base.score_dimension(stories, base.DIPLO_RE, 32),
-        "Economic pressure": base.score_dimension(stories, base.ECON_RE, 32),
-        "Market volatility": base.score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30),
-        "Military posture": base.score_dimension(stories, base.MIL_RE, 34),
-        "Climate & humanitarian pressure": base.score_dimension(stories, CLIMATE_RE, 34),
+        "Conflict activity": normalized_score(stories, base.CONFLICT_RE, 35),
+        "Diplomatic strain": normalized_score(stories, base.DIPLO_RE, 32),
+        "Economic pressure": normalized_score(stories, base.ECON_RE, 32),
+        "Market volatility": normalized_score(stories, re.compile(r"\b(market|stocks|bond|currency|oil|gas|volatil)\b", re.I), 30),
+        "Military posture": normalized_score(stories, base.MIL_RE, 34),
+        "Climate & humanitarian pressure": normalized_score(stories, CLIMATE_RE, 25),
     }
     climate = climate_metrics(stories)
     tension = round(sum(breakdown.values()) / len(breakdown))
