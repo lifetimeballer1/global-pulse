@@ -39,7 +39,6 @@ html.gp-modal-open,body.gp-modal-open{overflow:hidden!important;overscroll-behav
 <style id="gp-map-pro-css">
 /* Global Pulse Update 2 — clean professional intelligence map */
 .gp-map-tools{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}.gp-map-tool{border:1px solid #29445f;background:#081522;color:#b9cbe0;border-radius:8px;padding:7px 10px;font:600 10px/1 system-ui;cursor:pointer}.gp-map-tool.active{border-color:#6b9bd0;background:#10243a;color:#eef6ff}.gp-map-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;padding:9px 10px;border:1px solid #1d3349;border-radius:9px;background:#07111b;color:#8196aa;font-size:10px}.gp-map-legend span{display:inline-flex;align-items:center;gap:5px}.gp-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.gp-dot.conflict{background:#ef6262}.gp-dot.osint{background:#e0ad54}.gp-dot.diplomatic{background:#67a0df}.gp-dot.economic{background:#8d76c9}.gp-dot.humanitarian{background:#69b98b}.gp-map-status{font-size:10px;color:#70879c;margin-left:auto}.grid>.panel{align-self:start}
-/* Hide the unfinished brief until it has a proper command-center slot. */#gpBrief{display:none!important}
 @media(max-width:720px){.gp-map-tools{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.gp-map-tool{white-space:nowrap}.gp-map-status{width:100%;margin-left:0}}
 </style>
 
@@ -99,68 +98,10 @@ async function load(){try{const [a,b]=await Promise.all([fetch('data/snapshot.js
 $('conflictSearch').addEventListener('input',()=>{allConflicts=false;renderConflicts()});document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-region]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeRegion=b.dataset.region;allConflicts=false;renderConflicts()}));$('toggleConflicts').addEventListener('click',()=>{allConflicts=!allConflicts;renderConflicts();if(allConflicts)$('conflictList').scrollIntoView({behavior:'smooth',block:'nearest'})});document.querySelectorAll('[data-news]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-news]').forEach(x=>x.classList.remove('active'));b.classList.add('active');newsMode=b.dataset.news;renderStories()}));document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-layer]').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeLayer=b.dataset.layer;renderMap()}));$('fit').addEventListener('click',()=>{if(markerLayer&&markerLayer.getLayers().length)map.fitBounds(markerLayer.getBounds().pad(.12))});$('drawerClose').addEventListener('click',closeDrawer);$('drawerBackdrop').addEventListener('click',closeDrawer);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});window.addEventListener('popstate',closeDrawer);window.addEventListener('resize',()=>{drawChart();map?.invalidateSize()});initMap();load();setInterval(load,300000);
 </script>
 
-<script>
-/* Global Pulse: capture-phase conflict click fix v2 */
-(function(){
-const coords={
-'ukraine-russia-war':[49,31.2,5.2],'gaza-israel-hamas':[31.4,34.4,4.5],'israel-iran-regional-front':[32,44,6],'iran-strait-of-hormuz':[26.3,53.4,5],'yemen-red-sea':[15.4,44.2,6],'syria-conflict-residual-fronts':[35,38.9,5.5],'iraq-militia-security-risk':[33.2,43.8,5.5],'sudan-civil-war':[15.5,30.2,5.5],'south-sudan-instability':[6.8,31.3,5.8],'eastern-drc-conflict':[-1.5,29.2,5.2],'somalia-al-shabaab':[5.8,46.2,5.5],'ethiopia-internal-conflict-risk':[9.1,40.5,5.8],'nigeria-insurgency-banditry':[9,8.7,5.8],'mali-sahel-insurgency':[17,-3,6],'burkina-faso-insurgency':[12.4,-1.6,5.8],'niger-insurgency-coup-fallout':[17.6,8.1,5.8],'cameroon-separatist-conflict':[5.9,10.2,5.5],'chad-security-sahel-spillover':[15.3,18.7,5.8],'libya-political-militia-risk':[27,17,5.5],'mozambique-cabo-delgado':[-12.3,40.5,5.5],'myanmar-civil-war':[21,96,5.8],'afghanistan-security-risk':[33.9,67.7,5.8],'pakistan-militancy-border-risk':[30.4,69.3,5.8],'taiwan-strait-pressure':[24,120.7,5],'korean-peninsula':[38.5,127.9,5.2],'south-china-sea-flashpoint':[12,114,6],'haiti-gang-conflict':[18.97,-72.3,5.5],'mexico-cartel-conflict':[23.6,-102.5,5.5],'ecuador-organized-crime-conflict':[-1.8,-78.2,5.5],'colombia-armed-groups':[4.6,-74.1,5.5]};
-function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function conflict(id){return typeof findConflict==='function'?findConflict(id):null}
-function show(id){const c=conflict(id);if(!c)return;const m=Array.isArray(DATA?.markers)?DATA.markers:[];const linked=m.filter(x=>String(x.conflictId||'')===String(id));$('drawerBody').innerHTML=`<button class="drawer-close" id="gpClose" aria-label="Close">✕</button><span class="tag amber">${esc2(c.escalation||'MONITORING')}</span> <span class="tag blue">${esc2(c.region||'')}</span><h3>${esc2(c.name)}</h3><div class="muted">${esc2(c.category||'')} · ${esc2(c.status||'Monitoring')} · ${esc2(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Facts</div><p>${esc2(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc2(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${linked.length?linked.length+' directly linked map signal'+(linked.length===1?'':'s')+'.':'No directly linked markers yet; map will center on this theater.'}</p></div><button class="filter active" id="gpFocus" style="width:100%;margin-top:12px">Focus theater on map</button>`;$('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');$('gpClose').onclick=close;$('gpFocus').onclick=()=>focus(c)}
-function close(){$('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open')}
-function focus(c){const m=Array.isArray(DATA?.markers)?DATA.markers:[],linked=m.filter(x=>String(x.conflictId||'')===String(c.id)),p=coords[c.id]||[10,0,2.8];activeLayer='all';if(typeof renderMap==='function')renderMap();close();setTimeout(()=>{if(!map)return;map.invalidateSize(true);const pts=linked.map(x=>[+x.lat,+x.lng]).filter(x=>Number.isFinite(x[0])&&Number.isFinite(x[1]));if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([p[0],p[1]],p[2],{duration:.8});$('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});let b=$('gpFocusBar');if(!b){b=document.createElement('div');b.id='gpFocusBar';b.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',b)}b.innerHTML=`<div><b>Theater focus</b><div>${esc2(c.name)} · ${esc2(c.region||'')}</div></div><button class="filter" id="gpClear">Clear focus</button>`;$('gpClear').onclick=()=>{b.remove();map.flyTo([24,10],2,{duration:.7});renderMap()};},300)}
-document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();show(card.dataset.id)}},true);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();close()}},true);
-const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.target===back)close()});
-})();
-</script>
 
 
-<script>
-/* Global Pulse: capture-phase conflict click fix v3 */
-(function(){
-const coords={
-'ukraine':[49,31.2,5.2],
-'gaza':[31.4,34.4,5.2],
-'israel-iran':[32,44,5.2],
-'hormuz':[26.3,53.4,5.2],
-'yemen':[15.4,44.2,5.5],
-'syria':[35,38.9,5.2],
-'iraq':[33.2,43.8,5.2],
-'sudan':[15.5,30.2,5.2],
-'south-sudan':[6.8,31.3,5.2],
-'drc':[-1.5,29.2,5.2],
-'somalia':[5.8,46.2,5.2],
-'ethiopia':[9.1,40.5,5.2],
-'nigeria':[9,8.7,5.2],
-'sahel-mali':[17,-3,5.2],
-'sahel-burkina':[12.4,-1.6,5.2],
-'sahel-niger':[17.6,8.1,5.2],
-'cameroon':[5.9,10.2,5.2],
-'chad':[15.3,18.7,5.2],
-'libya':[27,17,5.2],
-'mozambique':[-12.3,40.5,5.2],
-'myanmar':[21,96,5.2],
-'afghanistan':[33.9,67.7,5.2],
-'pakistan':[30.4,69.3,5.2],
-'taiwan':[24,120.7,5.2],
-'korea':[38.5,127.9,5.2],
-'south-china-sea':[12,114,5.2],
-'haiti':[18.97,-72.3,5.2],
-'mexico':[23.6,-102.5,5.2],
-'ecuador':[-1.8,-78.2,5.2],
-'colombia':[4.6,-74.1,5.2]
-};
-function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function getConflict(id){return typeof findConflict==='function'?findConflict(id):null}
-function show(id){const c=getConflict(id);if(!c)return;const m=Array.isArray(DATA?.markers)?DATA.markers:[];const linked=m.filter(x=>String(x.conflictId||'')===String(id));$('drawerBody').innerHTML=`<button class="drawer-close" id="gpClose" aria-label="Close">✕</button><span class="tag amber">${esc2(c.escalation||'MONITORING')}</span> <span class="tag blue">${esc2(c.region||'')}</span><h3>${esc2(c.name)}</h3><div class="muted">${esc2(c.category||'')} · ${esc2(c.status||'Monitoring')} · ${esc2(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Facts</div><p>${esc2(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc2(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${linked.length?linked.length+' directly linked map signal'+(linked.length===1?'':'s')+'.':'No directly linked markers yet; map will center on this theater.'}</p></div><button class="filter active" id="gpFocus" style="width:100%;margin-top:12px">Focus theater on map</button>`;$('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');$('gpClose').onclick=close;$('gpFocus').onclick=()=>focus(c)}
-function close(){$('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open')}
-function focus(c){const m=Array.isArray(DATA?.markers)?DATA.markers:[],linked=m.filter(x=>String(x.conflictId||'')===String(c.id)),p=coords[c.id]||[10,0,2.8];activeLayer='all';if(typeof renderMap==='function')renderMap();close();setTimeout(()=>{if(!map)return;map.invalidateSize(true);const pts=linked.map(x=>[+x.lat,+x.lng]).filter(x=>Number.isFinite(x[0])&&Number.isFinite(x[1]));if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([p[0],p[1]],p[2],{duration:.8});$('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});let b=$('gpFocusBar');if(!b){b=document.createElement('div');b.id='gpFocusBar';b.className='gp-focus-bar';$('mapSection')?.querySelector('.section-head')?.insertAdjacentElement('afterend',b)}b.innerHTML=`<div><b>Theater focus</b><div>${esc2(c.name)} · ${esc2(c.region||'')}</div></div><button class="filter" id="gpClear">Clear focus</button>`;$('gpClear').onclick=()=>{b.remove();map.flyTo([24,10],2,{duration:.7});renderMap()};},300)}
-document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();show(card.dataset.id)}},true);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();close()}},true);
-const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.target===back)close()});
-})();
-</script>
+
+
 
 
 <script>
@@ -188,49 +129,31 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 
-<script>
-/* Global Pulse: intelligence brief + watchlist + reliable conflict focus */
-(function(){
-const coords={'ukraine':[49,31.2,5.2],'gaza':[31.4,34.4,5.2],'israel-iran':[32,44,5.2],'hormuz':[26.3,53.4,5.2],'yemen':[15.4,44.2,5.5],'syria':[35,38.9,5.2],'iraq':[33.2,43.8,5.2],'sudan':[15.5,30.2,5.2],'south-sudan':[6.8,31.3,5.2],'drc':[-1.5,29.2,5.2],'somalia':[5.8,46.2,5.2],'ethiopia':[9.1,40.5,5.2],'nigeria':[9,8.7,5.2],'sahel-mali':[17,-3,5.2],'sahel-burkina':[12.4,-1.6,5.2],'sahel-niger':[17.6,8.1,5.2],'cameroon':[5.9,10.2,5.2],'chad':[15.3,18.7,5.2],'libya':[27,17,5.2],'mozambique':[-12.3,40.5,5.2],'myanmar':[21,96,5.2],'afghanistan':[33.9,67.7,5.2],'pakistan':[30.4,69.3,5.2],'taiwan':[24,120.7,5.2],'korea':[38.5,127.9,5.2],'south-china-sea':[12,114,5.2],'haiti':[18.97,-72.3,5.2],'mexico':[23.6,-102.5,5.2],'ecuador':[-1.8,-78.2,5.2],'colombia':[4.6,-74.1,5.2]};
-const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const getC=id=>typeof findConflict==='function'?findConflict(id):null;
-const getW=()=>{try{return JSON.parse(localStorage.getItem('gp_watchlist')||'[]')}catch(e){return[]}};
-const setW=a=>{try{localStorage.setItem('gp_watchlist',JSON.stringify(a))}catch(e){}};
-function renderWatch(){const w=getW();document.querySelectorAll('.gp-watch').forEach(b=>{const on=w.includes(b.dataset.watch);b.classList.toggle('active',on);b.textContent=on?'★ Watching':'☆ Watch'});const box=document.getElementById('gpWatchlistItems');if(!box)return;const items=w.map(getC).filter(Boolean);box.innerHTML=items.length?items.map(c=>`<button class="gp-watch-chip" data-focus="${esc(c.id)}">★ ${esc(c.name)}</button>`).join(''):'<span class="muted">No theaters on your watchlist.</span>';box.querySelectorAll('[data-focus]').forEach(b=>b.onclick=()=>show(b.dataset.focus))}
-function brief(){let root=document.getElementById('gpBrief');if(!root){const main=document.querySelector('main');if(!main)return;root=document.createElement('section');root.id='gpBrief';root.className='gp-brief';main.insertBefore(root,main.firstChild)}const cs=Array.isArray(DATA?.conflicts)?DATA.conflicts:[];const top=[...cs].sort((a,b)=>Number(b.activityScore||0)-Number(a.activityScore||0)).slice(0,3);while(top.length<3)top.push({name:'Monitoring global developments',activityScore:0,escalation:'MONITORING',confidence:'Awaiting source signals'});root.innerHTML=`<div class="gp-brief-head"><b>Intelligence Brief</b><span>Signal-based · not battlefield truth</span></div><div class="gp-brief-grid">${top.map(c=>`<div class="gp-brief-item"><strong>${esc(c.name)} — ${Math.round(Number(c.activityScore||0))} activity</strong><small>${esc(c.escalation||'MONITORING')} · ${esc(c.confidence||'MONITORING')}</small></div>`).join('')}</div><div class="gp-watchlist"><div class="gp-watchlist-title">My Watchlist</div><div class="gp-watchlist-items" id="gpWatchlistItems"></div></div>`;renderWatch()}
-function show(id){const c=getC(id);if(!c)return;const linked=(Array.isArray(DATA?.markers)?DATA.markers:[]).filter(x=>String(x.conflictId||'')===String(id));const on=getW().includes(id);$('drawerBody').innerHTML=`<button class="drawer-close" id="gpClose" aria-label="Close">✕</button><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><span class="tag amber">${esc(c.escalation||'MONITORING')}</span> <span class="tag blue">${esc(c.region||'')}</span></div><button class="gp-watch ${on?'active':''}" id="gpWatch" data-watch="${esc(c.id)}">${on?'★ Watching':'☆ Watch'}</button></div><h3>${esc(c.name)}</h3><div class="muted">${esc(c.category||'')} · ${esc(c.status||'Monitoring')} · ${esc(c.confidence||'MONITORING')}</div><div class="scoreline"><span>Activity signal</span><b>${Math.round(Number(c.activityScore||0))}</b></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,Number(c.activityScore||0)))}%"></div></div><div class="drawer-section"><div class="label">Facts</div><p>${esc(c.facts||'No fact summary available.')}</p></div><div class="drawer-section"><div class="label">Analysis</div><p>${esc(c.analysis||'No analysis available.')}</p></div><div class="drawer-section"><div class="label">Map signals</div><p>${linked.length?linked.length+' directly linked map signal'+(linked.length===1?'':'s')+'.':'No directly linked markers yet; map will center on this theater.'}</p></div><button class="filter active" id="gpFocus" style="width:100%;margin-top:12px">Focus theater on map</button>`;$('drawerBackdrop').classList.add('open');$('drawer').classList.add('open');document.documentElement.classList.add('gp-modal-open');document.body.classList.add('gp-modal-open');$('gpClose').onclick=close;$('gpWatch').onclick=()=>{const a=getW(),i=a.indexOf(c.id);i>=0?a.splice(i,1):a.push(c.id);setW(a);renderWatch()};$('gpFocus').onclick=()=>focus(c)}
-function close(){$('drawerBackdrop').classList.remove('open');$('drawer').classList.remove('open');document.documentElement.classList.remove('gp-modal-open');document.body.classList.remove('gp-modal-open')}
-function focus(c){const m=Array.isArray(DATA?.markers)?DATA.markers:[],linked=m.filter(x=>String(x.conflictId||'')===String(c.id)),p=coords[c.id]||[10,0,2.8];activeLayer='all';if(typeof renderMap==='function')renderMap();close();setTimeout(()=>{if(!window.map)return;map.invalidateSize(true);const pts=linked.map(x=>[+x.lat,+x.lng]).filter(x=>Number.isFinite(x[0])&&Number.isFinite(x[1]));if(pts.length)map.flyToBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:6,duration:.8});else map.flyTo([p[0],p[1]],p[2],{duration:.8});document.getElementById('mapSection')?.scrollIntoView({behavior:'smooth',block:'start'});},250)}
-function boot(){brief();renderWatch()}
-document.addEventListener('click',e=>{const card=e.target.closest?.('.ccard');if(card){e.preventDefault();e.stopImmediatePropagation();show(card.dataset.id)}},true);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer')?.classList.contains('open')){e.preventDefault();e.stopImmediatePropagation();close()}},true);
-const back=$('drawerBackdrop');if(back)back.addEventListener('click',e=>{if(e.target===back)close()});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else setTimeout(boot,0);
-})();
-</script>
+
+
+
 
 
 <script id="gp-map-pro-js">
-/* Update 2: clean professional conflict / OSINT map layer */
+/* Update 2: single clean map controller */
 (function(){
   const typeOf=m=>{const t=String(m?.eventType||m?.type||'conflict').toLowerCase();if(/osint|social|source map/.test(t))return'osint';if(/diplomat|talk|ceasefire|negoti/.test(t))return'diplomatic';if(/economic|market|sanction|trade|oil/.test(t))return'economic';if(/humanitarian|aid|displacement|refugee/.test(t))return'humanitarian';return'conflict'};
   const data=()=>Array.isArray(window.DATA?.markers)?window.DATA.markers:[];
 
   function removeLegacyControls(){
     document.querySelectorAll('.map-tools,.map-filters,#mapFilters,#mapFilterBar,[data-map-controls="legacy"]').forEach(el=>el.remove());
-    /* Remove duplicate copies of our own controls if a cached/older patch created them. */
-    const ours=[...document.querySelectorAll('#gpMapTools')];ours.slice(1).forEach(el=>el.remove());
-    const legends=[...document.querySelectorAll('#gpMapLegend')];legends.slice(1).forEach(el=>el.remove());
+    [...document.querySelectorAll('#gpMapTools')].slice(1).forEach(el=>el.remove());
+    [...document.querySelectorAll('#gpMapLegend')].slice(1).forEach(el=>el.remove());
   }
 
   function ensureTools(){
-    const map=document.getElementById('map');if(!map)return;
+    const mapEl=document.getElementById('map');if(!mapEl)return;
     removeLegacyControls();
     let tools=document.getElementById('gpMapTools');
     if(!tools){
       tools=document.createElement('div');tools.id='gpMapTools';tools.className='gp-map-tools';
       tools.innerHTML='<button class="gp-map-tool active" data-mapfilter="all">ALL</button><button class="gp-map-tool" data-mapfilter="conflict">CONFLICT</button><button class="gp-map-tool" data-mapfilter="osint">OSINT</button><button class="gp-map-tool" data-mapfilter="diplomatic">DIPLOMATIC</button><button class="gp-map-tool" data-mapfilter="economic">ECONOMIC</button><button class="gp-map-tool" data-mapfilter="humanitarian">HUMANITARIAN</button><span class="gp-map-status" id="gpMapStatus"></span>';
-      map.parentElement.insertBefore(tools,map);
+      mapEl.parentElement.insertBefore(tools,mapEl);
     }
     let legend=document.getElementById('gpMapLegend');
     if(!legend){
@@ -238,7 +161,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       legend.innerHTML='<span><i class="gp-dot conflict"></i> Conflict</span><span><i class="gp-dot osint"></i> OSINT / Report</span><span><i class="gp-dot diplomatic"></i> Diplomatic</span><span><i class="gp-dot economic"></i> Economic</span><span><i class="gp-dot humanitarian"></i> Humanitarian</span>';
       tools.insertAdjacentElement('afterend',legend);
     }
-    tools.querySelectorAll('[data-mapfilter]').forEach(b=>{b.onclick=()=>{window.gpMapFilter=b.dataset.mapfilter;tools.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderFiltered()}});
+    tools.querySelectorAll('[data-mapfilter]').forEach(b=>b.onclick=()=>{window.gpMapFilter=b.dataset.mapfilter;tools.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderFiltered()});
   }
 
   function renderFiltered(){
@@ -255,15 +178,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     el.textContent=n+' map signal'+(n===1?'':'s');
   }
 
-  function cleanTop(){
-    /* Remove only known accidental plain-text injections; never touch normal dashboard copy. */
-    document.body.childNodes.forEach(n=>{if(n.nodeType===Node.TEXT_NODE&&/Update 2 map patch prepared|professional intelligence map/i.test(n.nodeValue||''))n.remove()});
+  function boot(){
+    ensureTools();
+    updateStatus();
   }
 
-  function boot(){ensureTools();cleanTop();updateStatus()}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,250));else setTimeout(boot,250);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,250));
+  else setTimeout(boot,250);
 })();
 </script>
-
 </body>
 </html>
