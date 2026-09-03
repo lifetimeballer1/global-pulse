@@ -11,7 +11,7 @@
     let a=Array.isArray(pi?.topSignals)?pi.topSignals:[];
     if(mode==='economics'){
       const all=Array.isArray(window.DATA?.stories)?window.DATA.stories:[];
-      a=all.filter(s=>s.intelligenceLayer==='economics'||String(s.sourceLabel||'').toLowerCase().includes('economics')).sort((x,y)=>new Date(y.time||0)-new Date(x.time||0);
+      a=all.filter(s=>s.intelligenceLayer==='economics'||String(s.sourceLabel||'').toLowerCase().includes('economics')).sort((x,y)=>new Date(y.time||0)-new Date(x.time||0));
     }else if(!a.length){
       const all=Array.isArray(window.DATA?.stories)?window.DATA.stories:[];
       a=all.filter(s=>s.intelligenceLayer==='us-politics'||s.intelligenceLayer==='world-politics').sort((x,y)=>new Date(y.time||0)-new Date(x.time||0));
