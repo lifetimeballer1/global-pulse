@@ -6,6 +6,9 @@ on:
   push:
     paths:
       - '.github/workflows/update-snapshot.yml'
+      - 'global_pulse_v22.js'
+      - 'global_pulse_source_health.js'
+      - 'finalize_intelligence_health.py'
 permissions:
   contents: write
   pages: write
