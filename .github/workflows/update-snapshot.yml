@@ -1,4 +1,4 @@
-name: Global Pulse — Master Refresh
+name: Global Pulse — Master Refresh & Deploy
 
 on:
   push:
@@ -17,43 +17,60 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: global-pulse-master-refresh
   cancel-in-progress: true
 
+env:
+  PYTHONUNBUFFERED: '1'
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Apply stable UI foundation
         run: |
           python patch_index_ui.py
           python apply_ui_patch.py
+
       - name: Refresh public intelligence data
         run: python update_snapshot.py
+
       - name: Sync intelligence maps
         run: python update_osint.py
+
       - name: Sync CFR Global Conflict Tracker
         run: python update_cfr.py
+
       - name: Add strategic and hazard layers + install canonical map
         run: python update8_global_layers.py
+
       - name: Apply final live-data branding and layout cleanup
         run: python update7_live_branding.py
+
       - name: Validate build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py global_map_ui.py apply_ui_patch.py patch_index_ui.py
           python - <<'PY'
           import json,re
-          d=json.load(open('data/snapshot.json'))
-          html=open('index.html',encoding='utf-8').read()
+          from pathlib import Path
+          d=json.load(open('data/snapshot.json',encoding='utf-8'))
+          html=Path('index.html').read_text(encoding='utf-8')
           assert d.get('updatedAt'), 'missing updatedAt'
           assert len(d.get('stories',[])) >= 100, 'too few stories'
           assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
@@ -66,17 +83,32 @@ jobs:
           assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
           assert html.count('Made by J.S.') == 1, 'J.S. branding is duplicated'
           assert html.count('id="gp-brand-live-css"') == 1, 'branding CSS duplicated'
+          assert html.count('id="gp-auto-refresh"') == 1, 'auto-refresh script duplicated'
           assert html.count('class="gp-footer-credit"') == 0, 'footer credit must not create extra spacing'
+          assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b', html, re.I), 'placeholder content remains'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['cfrConflicts']), 'CFR conflicts,', len(d['markers']), 'markers')
           PY
-      - name: Commit and push if changed
+
+      - name: Commit refreshed site data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No changes to commit"
           else
-            git commit -m "fix: deterministic dashboard UI and refresh pipeline"
+            git commit -m "chore: refresh global pulse data"
             git push
           fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
