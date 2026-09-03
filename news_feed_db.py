@@ -13,6 +13,7 @@ import json
 import re
 import sqlite3
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -26,6 +27,7 @@ JSON_PATH = DATA / "live_articles.json"
 STATUS_PATH = DATA / "live_status.json"
 POLL_SECONDS = 300
 RETENTION_DAYS = 7
+MAX_WORKERS = 8
 USER_AGENT = "GlobalPulse/8.0 (+https://github.com/lifetimeballer1/global-pulse)"
 
 SOURCES = {
@@ -241,28 +243,48 @@ def write_export(conn: sqlite3.Connection) -> None:
     JSON_PATH.write_text(export_json(conn), encoding="utf-8")
 
 
+def fetch_news_source(source_id: str, meta: dict):
+    try:
+        return parse_feed(fetch(meta["url"]), source_id, meta), None
+    except Exception as exc:
+        return [], {"source": meta["name"], "error": f"{type(exc).__name__}: {exc}"[:240]}
+
+
+def fetch_x_source(handle: str, display_name: str):
+    try:
+        return parse_x_account(handle, display_name), None
+    except Exception as exc:
+        return [], {"source": f"X @{handle}", "error": f"{type(exc).__name__}: {exc}"[:240]}
+
+
 def run_cycle(conn: sqlite3.Connection) -> dict:
     fetched_rows: list[dict] = []
     errors: list[dict] = []
-    for source_id, meta in SOURCES.items():
-        try:
-            fetched_rows.extend(parse_feed(fetch(meta["url"]), source_id, meta))
-        except Exception as exc:
-            errors.append({"source": meta["name"], "error": f"{type(exc).__name__}: {exc}"[:240]})
-    for handle, display_name in X_ACCOUNTS.items():
-        try:
-            fetched_rows.extend(parse_x_account(handle, display_name))
-        except Exception as exc:
-            errors.append({"source": f"X @{handle}", "error": f"{type(exc).__name__}: {exc}"[:240]})
+    jobs = []
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        for source_id, meta in SOURCES.items():
+            jobs.append(pool.submit(fetch_news_source, source_id, meta))
+        for handle, display_name in X_ACCOUNTS.items():
+            jobs.append(pool.submit(fetch_x_source, handle, display_name))
+        for future in as_completed(jobs):
+            try:
+                rows, error = future.result()
+                fetched_rows.extend(rows)
+                if error:
+                    errors.append(error)
+            except Exception as exc:
+                errors.append({"source": "collector-worker", "error": f"{type(exc).__name__}: {exc}"[:240]})
 
+    # Purge immediately after fetching, before writing the newly fetched batch.
     purged = purge_old(conn)
     added = upsert_articles(conn, fetched_rows)
     write_export(conn)
     count = conn.execute("SELECT COUNT(*) FROM articles").fetchone()[0]
+    total_sources = len(SOURCES) + len(X_ACCOUNTS)
     status = {
-        "updatedAt": iso_now(), "feedsChecked": len(SOURCES) + len(X_ACCOUNTS),
+        "updatedAt": iso_now(), "feedsChecked": total_sources,
         "rowsFetched": len(fetched_rows), "newArticles": added, "purged": purged,
-        "databaseArticles": count, "healthySources": len(SOURCES) + len(X_ACCOUNTS) - len(errors),
+        "databaseArticles": count, "healthySources": total_sources - len(errors),
         "failedSources": errors, "pollSeconds": POLL_SECONDS, "retentionDays": RETENTION_DAYS,
     }
     STATUS_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
