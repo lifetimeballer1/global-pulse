@@ -40,10 +40,14 @@ def rss_rows(payload):
     except Exception:return []
 
 def direct_morse_rows():
-    for u in ('https://morsereport.com/blogs/news/rss','https://morsereport.com/blogs/news.atom','https://morsereport.com/rss','https://morsereport.com/feed'):
+    # Google News is used only as a no-key discovery mirror; every returned link is
+    # filtered to morsereport.com so the dashboard credits the original publisher.
+    candidates=('https://news.google.com/rss/search?q=site%3Amorsereport.com&hl=en-US&gl=US&ceid=US:en','https://morsereport.com/blogs/news/rss','https://morsereport.com/blogs/news.atom','https://morsereport.com/rss','https://morsereport.com/feed')
+    for u in candidates:
         try:
             rows=rss_rows(fetch(u))
-            if rows:return rows
+            rows=[r for r in rows if 'morsereport.com' in r[0]]
+            if rows:return rows[:20]
         except Exception:pass
     try:
         p=MorseParser();p.feed(fetch('https://morsereport.com/').decode('utf-8','ignore')); rows=[];seen=set()
@@ -68,7 +72,7 @@ def add_morse_to_db():
                 from email.utils import parsedate_to_datetime
                 if pub:published=parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat()
             except Exception:pass
-            cur=conn.execute('INSERT OR IGNORE INTO articles (url,title,published_date,summary_snippet,source_name,source_type,category,author,username,credit_metadata,fetched_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)',(url,title,published,summary,'Morse Report','news-mirror','us-politics','','','{"sourceUrl":"https://morsereport.com/","collector":"direct-public-site"}',now))
+            cur=conn.execute('INSERT OR IGNORE INTO articles (url,title,published_date,summary_snippet,source_name,source_type,category,author,username,credit_metadata,fetched_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)',(url,title,published,summary,'Morse Report','news-mirror','us-politics','','','{"sourceUrl":"https://morsereport.com/","collector":"no-key-public-rss-discovery"}',now))
             if cur.rowcount:added+=1
         conn.commit()
         rowsdb=conn.execute('SELECT url,title,published_date,summary_snippet,source_name,source_type,category,author,username,credit_metadata FROM articles ORDER BY datetime(published_date) DESC LIMIT 500').fetchall(); arts=[]
@@ -84,7 +88,6 @@ def merge_morse_into_snapshot():
     if not SNAP.exists() or not LIVE.exists():return 0
     d=json.loads(SNAP.read_text(encoding='utf-8')); live=json.loads(LIVE.read_text(encoding='utf-8')); stories=d.get('stories',[]) if isinstance(d.get('stories'),list) else []
     existing={str(s.get('source') or s.get('url') or '') for s in stories}; added=0
-    import hashlib
     for item in live.get('articles',[]):
         if item.get('source')!='Morse Report':continue
         url=str(item.get('url') or '')
@@ -98,10 +101,10 @@ def merge_morse_into_snapshot():
         d['conflicts']=make_conflicts(stories,{'conflicts':d.get('conflicts',[])})
     except Exception:pass
     health=d.get('sourceHealth',[]) if isinstance(d.get('sourceHealth'),list) else []
-    found=False
+    found=False; count=sum(1 for s in stories if s.get('sourceLabel')=='Morse Report')
     for row in health:
-        if row.get('name')=='Morse Report':row.update({'status':'online','error':'','articles':sum(1 for s in stories if s.get('sourceLabel')=='Morse Report'),'lastChecked':datetime.now(timezone.utc).isoformat()});found=True
-    if not found:health.append({'name':'Morse Report','type':'news-mirror','status':'online','label':'ONLINE','articles':sum(1 for s in stories if s.get('sourceLabel')=='Morse Report'),'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat(),'error':''})
+        if row.get('name')=='Morse Report':row.update({'status':'online','label':'ONLINE','error':'','articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat()});found=True
+    if not found:health.append({'name':'Morse Report','type':'news-mirror','status':'online','label':'ONLINE','articles':count,'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat(),'error':''})
     d['sourceHealth']=health;d['updatedAt']=datetime.now(timezone.utc).isoformat();SNAP.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return added
 
 def dedupe_earthquakes():
