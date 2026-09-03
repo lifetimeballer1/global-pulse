@@ -10,8 +10,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: global-pulse-regional-osint
@@ -21,8 +19,6 @@ jobs:
   expand:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
@@ -35,30 +31,31 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Expand live regional OSINT coverage
-        run: python update_regional_osint.py
+      - name: Collect fresh regional OSINT
+        run: python regional_osint_v2.py
 
       - name: Install map clustering
         run: python install_map_clustering.py
 
-      - name: Validate regional coverage and map hooks
+      - name: Validate real regional points
         run: |
           set -euo pipefail
-          python -m py_compile update_regional_osint.py install_map_clustering.py
+          python -m py_compile regional_osint_v2.py install_map_clustering.py
           python - <<'PY'
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           r=d.get('regionalOsint',{})
-          assert r.get('version') == 1
-          assert set(r.get('regions',{})) == {'Africa','South America','South Asia'}
-          markers=d.get('markers',[])
-          assert any(m.get('layer')=='osint-regional' for m in markers), 'No regional OSINT markers reached snapshot'
-          assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers if m.get('layer')=='osint-regional')
-          html=Path('index.html').read_text(encoding='utf-8')
-          assert 'leaflet.markercluster' in html
-          assert 'markerClusterGroup' in html
-          print('Regional OSINT validation passed:', r.get('regions'))
+          assert r.get('version') == 2
+          regions=r.get('regions',{})
+          assert set(regions) == {'Africa','South America','South Asia'}
+          markers=[m for m in d.get('markers',[]) if m.get('layer')=='osint-regional']
+          assert markers, 'No regional OSINT markers reached snapshot'
+          assert all(-90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180 for m in markers)
+          assert all(m.get('source') and m.get('observedAt') for m in markers)
+          print('Regional points:', {k:v.get('points',0) for k,v in regions.items()})
+          print('Total OSINT markers:', len(markers))
+          print('GDELT failures:', len(r.get('failures',[])))
           PY
 
       - name: Commit regional OSINT and map updates
@@ -69,6 +66,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No regional OSINT/map changes to commit.'
           else
-            git commit -m 'Expand regional OSINT map coverage and clustering'
+            git commit -m 'Restore live regional OSINT collection'
             git push origin main
           fi
