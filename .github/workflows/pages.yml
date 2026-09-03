@@ -26,10 +26,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Pages is a deployment job, not a data collector. Fresh OSINT is
-      # collected by regional-osint.yml and committed to main. Keeping the
-      # network-dependent collector out of Pages prevents a temporary upstream
-      # outage from taking the entire website offline.
+      # Data collection happens in the dedicated refresh/regional workflows.
+      # Pages must remain deployable when an upstream OSINT provider is down.
       - name: Validate committed map data
         run: |
           set -euo pipefail
@@ -45,8 +43,8 @@ jobs:
           print(f'Total markers: {len(markers)}')
           print(f'Committed regional OSINT markers: {len(regional)}')
           print('Regional counts:', counts)
-          if not regional:
-              raise SystemExit('No committed regional OSINT markers are available for Pages')
+          # Regional collection is allowed to be temporarily empty. Existing
+          # committed data remains valid and the dedicated collector retries.
           for m in regional:
               assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
               assert m.get('source') and m.get('observedAt')
