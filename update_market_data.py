@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Collect a small set of live market indicators without an API key.
 
-Yahoo Finance's public chart endpoint is used server-side because it does not
-require browser CORS and needs no API key. A failed quote is non-fatal: the
-previous good marketData is retained and marked stale instead of fabricating a
-number.
+Uses Yahoo Finance's public chart endpoint server-side. The collector tries
+both public Yahoo hosts and retries transient failures. If a quote cannot be
+retrieved, the previous good value is retained and marked stale instead of
+inventing a number.
 """
 from __future__ import annotations
 
@@ -38,31 +38,41 @@ def now() -> str:
 
 
 def fetch_quote(symbol: str) -> dict:
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{quote(symbol, safe='')}?range=5d&interval=1d&events=history"
-    req = Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urlopen(req, timeout=15) as response:
-        payload = json.loads(response.read().decode("utf-8"))
-    result = (payload.get("chart") or {}).get("result") or []
-    if not result:
-        raise RuntimeError("no chart result")
-    meta = result[0].get("meta") or {}
-    price = meta.get("regularMarketPrice")
-    previous = meta.get("previousClose")
-    if price is None:
-        closes = (((result[0].get("indicators") or {}).get("quote") or [{}])[0].get("close") or [])
-        closes = [float(x) for x in closes if x is not None]
-        price = closes[-1] if closes else None
-    if price is None:
-        raise RuntimeError("no current price")
-    if previous is None:
-        previous = price
-    price = float(price)
-    previous = float(previous)
-    change = price - previous
-    pct = (change / previous * 100.0) if previous else 0.0
-    market_time = meta.get("regularMarketTime")
-    timestamp = datetime.fromtimestamp(float(market_time), tz=timezone.utc).isoformat() if market_time else now()
-    return {"price": price, "previousClose": previous, "change": change, "changePercent": pct, "marketTime": timestamp, "currency": meta.get("currency")}
+    encoded = quote(symbol, safe="")
+    last_error = None
+    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
+        url = f"https://{host}/v8/finance/chart/{encoded}?range=5d&interval=1d&events=history"
+        for attempt in range(2):
+            try:
+                req = Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+                with urlopen(req, timeout=12) as response:
+                    payload = json.loads(response.read().decode("utf-8"))
+                result = (payload.get("chart") or {}).get("result") or []
+                if not result:
+                    raise RuntimeError("no chart result")
+                meta = result[0].get("meta") or {}
+                price = meta.get("regularMarketPrice")
+                previous = meta.get("previousClose")
+                if price is None:
+                    closes = (((result[0].get("indicators") or {}).get("quote") or [{}])[0].get("close") or [])
+                    closes = [float(x) for x in closes if x is not None]
+                    price = closes[-1] if closes else None
+                if price is None:
+                    raise RuntimeError("no current price")
+                if previous is None:
+                    previous = price
+                price = float(price)
+                previous = float(previous)
+                change = price - previous
+                pct = (change / previous * 100.0) if previous else 0.0
+                market_time = meta.get("regularMarketTime")
+                timestamp = datetime.fromtimestamp(float(market_time), tz=timezone.utc).isoformat() if market_time else now()
+                return {"price": price, "previousClose": previous, "change": change, "changePercent": pct, "marketTime": timestamp, "currency": meta.get("currency"), "endpoint": host}
+            except Exception as exc:
+                last_error = exc
+                if attempt == 0:
+                    time.sleep(0.5)
+    raise RuntimeError(str(last_error) if last_error else "all public market endpoints failed")
 
 
 def main() -> None:
@@ -90,6 +100,7 @@ def main() -> None:
     data["marketData"]["errors"] = errors
     data["marketData"]["liveCount"] = sum(1 for x in values if x.get("status") == "live")
     data["marketData"]["staleCount"] = sum(1 for x in values if x.get("status") == "stale")
+    data["marketData"]["noApiKey"] = True
     SNAP.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"MARKET DATA: live={data['marketData']['liveCount']} stale={data['marketData']['staleCount']} errors={len(errors)}")
 
