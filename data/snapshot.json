@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-03T14:47:54.521947+00:00",
-  "sourceStatus": "290 stories · 47 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "updatedAt": "2026-09-03T15:04:39.556016+00:00",
+  "sourceStatus": "273 stories · 48 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
   "tension": 89,
   "tensionDelta": 0,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 77,
+    "Diplomatic strain": 74,
     "Economic pressure": 100,
     "Market volatility": 82,
-    "Military posture": 85
+    "Military posture": 88
   },
   "changes": [
     {
@@ -28,29 +28,14 @@
       "detail": "Global War News Map: 250 points | Cartel Intelligence Map: 180 points"
     },
     {
-      "kind": "new reporting",
-      "title": "Please welcome the newest member to our team: The AI agent",
-      "detail": "France 24 · international · DEVELOPING"
+      "kind": "breaking",
+      "title": "Iranian drone damages residential building in Kuwait City",
+      "detail": "Al Jazeera · international · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Rat do izbora na tiho ? Trumpovi ljudi žele smiriti Iran do studenog",
-      "detail": "GDELT Live — Global · live · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "北美观察丨一边重新开火 一边急于刹车 白宫在担心什么 ？",
-      "detail": "GDELT Live — Global · live · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "detail": "CNN Politics — GDELT Mirror · us-politics · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "美伊战事延宕半年 改变了什么 ？",
-      "detail": "GDELT Live — Global · live · DEVELOPING"
+      "title": "33 House Dems break with Jeffries as party fractures over Israel",
+      "detail": "Fox News Politics · us-politics · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -356,11 +341,11 @@
       "status": "Active signal",
       "recent": "Uber shuts operations in Nigeria and Uganda with immediate effect",
       "escalation": "MODERATE",
-      "activityScore": 54,
+      "activityScore": 61,
       "delta": 0,
-      "signalCount": 4,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
+      "signalCount": 5,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
       "eventType": "MONITORING",
       "lastSignal": "Wed, 02 Sep 2026 20:21:04 GMT",
       "signals": [
@@ -405,7 +390,7 @@
           "signal": 6.0
         }
       ],
-      "facts": "4 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "facts": "5 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -3876,6 +3861,244 @@
       "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
       "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
       "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.1366,
+      "lng": 169.3059,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 65 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1815,
+      "lng": 146.1539,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 53 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.4605,
+      "lng": 56.4505,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — Owen Fracture Zone region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
       "source": "USGS Earthquakes",
       "eventType": "Natural Hazard",
       "confidence": "PUBLIC LIVE FEED"
@@ -8774,8 +8997,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5oMVxiJ9pOdrG7vFPmADe9_ZxgfRRKcCeSFoJhG8cXinw8tc0Z2KRTlFgmc9gswRw4KtknxZFt-N7F0T3zlWA4c02WxWI5hXluT43JTvYGxUOAerYlsy2VRSs6pSxcMZFGtK2Mu3GSPquHTukUPY4vBelrryS5uQrrIIU6uIxgfZnYOhy5s9uZcqXjyYVqoGsXL-XtmFL2mMELumfF2lRu34Kl75jYJSIVCkVXsgsqVDpNjOTeTwVlw-Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5oMVxiJ9pOdrG7vFPmADe9_ZxgfRRKcCeSFoJhG8cXinw8tc0Z2KRTlFgmc9gswRw4KtknxZFt-N7F0T3zlWA4c02WxWI5hXluT43JTvYGxUOAerYlsy2VRSs6pSxcMZFGtK2Mu3GSPquHTukUPY4vBelrryS5uQrrIIU6uIxgfZnYOhy5s9uZcqXjyYVqoGsXL-XtmFL2mMELumfF2lRu34Kl75jYJSIVCkVXsgsqVDpNjOTeTwVlw-Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4jvgo9PP3KqyxevKzXR0G3g1MgrqJvEdyWnTimtYkHsrYxj7bxxjCuRIvusZ6fggrwke-8EBZeaE1Og7qIbUpkckdgwzboOu5GQ9jYBvtz0rn5c7oVYIJfePVuGmjze032fy1kXpeTaxYRNNqOXulevYnts8Ob4LIXissoXfs9xlu9qIWtJY224-i_A5aT6P0CZyVOowLpTcae19NU8dpEblRr4HVnDbjtEMYizRiovGpgjQ_jMoTEWLQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4jvgo9PP3KqyxevKzXR0G3g1MgrqJvEdyWnTimtYkHsrYxj7bxxjCuRIvusZ6fggrwke-8EBZeaE1Og7qIbUpkckdgwzboOu5GQ9jYBvtz0rn5c7oVYIJfePVuGmjze032fy1kXpeTaxYRNNqOXulevYnts8Ob4LIXissoXfs9xlu9qIWtJY224-i_A5aT6P0CZyVOowLpTcae19NU8dpEblRr4HVnDbjtEMYizRiovGpgjQ_jMoTEWLQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8810,8 +9033,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5WxYAdspyt1vILCK2EFNTThS6aiUgn_3yA-uM5D_Mu-RpGMnDJxFDNNIVeApHIbt2W0hRK0Xiwuv3FEkPFRUxk-6a78CQQHijYZlaSdGp7H4EdUJeVZh1qCbqlQ2ot_n2Ew-GWBsd7b9XyNZXs4utkod5Cx42JbhSyjt83fUbcdnGpDYnpqGYI05C4lgV8DczN--51N0bGwRkmBxXFqD4-M_31REI9z6P1Di9Vczqq3tZQ74Uwsq5o7wc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5WxYAdspyt1vILCK2EFNTThS6aiUgn_3yA-uM5D_Mu-RpGMnDJxFDNNIVeApHIbt2W0hRK0Xiwuv3FEkPFRUxk-6a78CQQHijYZlaSdGp7H4EdUJeVZh1qCbqlQ2ot_n2Ew-GWBsd7b9XyNZXs4utkod5Cx42JbhSyjt83fUbcdnGpDYnpqGYI05C4lgV8DczN--51N0bGwRkmBxXFqD4-M_31REI9z6P1Di9Vczqq3tZQ74Uwsq5o7wc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7mJ-aQQDCvOEV4YHjLUBzIOH6bzE1kM3_ArBKHj1_mDksa6zouzvqBO75tS0z0hTqF3F-alU59uP2YrymKUt-uzBta_ZAA0AbXlOWlVWd4EvvoK-u8yGF-FaGmOl1E8tdLZSqm80z2c04_wu2-tg4Oaox-sKUkKP879wV_HE7G4mAGM5fKyUPoJFrRY2Xf1Ly0geFtcHm2aMWhUhTh2CSCAjfWtyjgoB4TThRn92SH78rGSRbD6dUbyXQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7mJ-aQQDCvOEV4YHjLUBzIOH6bzE1kM3_ArBKHj1_mDksa6zouzvqBO75tS0z0hTqF3F-alU59uP2YrymKUt-uzBta_ZAA0AbXlOWlVWd4EvvoK-u8yGF-FaGmOl1E8tdLZSqm80z2c04_wu2-tg4Oaox-sKUkKP879wV_HE7G4mAGM5fKyUPoJFrRY2Xf1Ly0geFtcHm2aMWhUhTh2CSCAjfWtyjgoB4TThRn92SH78rGSRbD6dUbyXQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -8864,8 +9087,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6TB0UCHichuOHRCZIDjpWDDQcUHq74rCiXQ7yCh1j4qpSzP2b_2Cz9nooJ3b_IHP4uWfVP3s0dYgtPFckRqYSN6gaILzcyQnDbPDmBBMeE32NjMAfWa4uy5pPMLSSld9WuM6WmvBgv_L0SyGA5q-aTczqr6Wln7ViNNiAYmzk2Lt20cN_Cnub9e7_tk1YgKx8hubogpmxLNZSlj3z2Iti6H26W9xsbc6i6O7sqe3huiNQef8VUV20fc1Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6TB0UCHichuOHRCZIDjpWDDQcUHq74rCiXQ7yCh1j4qpSzP2b_2Cz9nooJ3b_IHP4uWfVP3s0dYgtPFckRqYSN6gaILzcyQnDbPDmBBMeE32NjMAfWa4uy5pPMLSSld9WuM6WmvBgv_L0SyGA5q-aTczqr6Wln7ViNNiAYmzk2Lt20cN_Cnub9e7_tk1YgKx8hubogpmxLNZSlj3z2Iti6H26W9xsbc6i6O7sqe3huiNQef8VUV20fc1Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5rWtQmREy_PeBgmDkeOckAxHnnQOka5mglICYIszRMtvr-rFVoLSK3AvMTKI9pvw7xnbIG18ABkOIIjfoL5MpKForsyAxyF6dGEwjA7ylWOHjpQTj2bHpqYfFCdDEe9Mgyt6YAAgp6W86T8bisdVIWmuO8lfcpxkcfH9V5UFZnFDs2QCFVNOsuNn8SxQol7f3blECJ5KDGOhfo3Ua4Pimjt4Glk7v-ztaa3llBmHhuIRzP6O9cfZyZKsw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5rWtQmREy_PeBgmDkeOckAxHnnQOka5mglICYIszRMtvr-rFVoLSK3AvMTKI9pvw7xnbIG18ABkOIIjfoL5MpKForsyAxyF6dGEwjA7ylWOHjpQTj2bHpqYfFCdDEe9Mgyt6YAAgp6W86T8bisdVIWmuO8lfcpxkcfH9V5UFZnFDs2QCFVNOsuNn8SxQol7f3blECJ5KDGOhfo3Ua4Pimjt4Glk7v-ztaa3llBmHhuIRzP6O9cfZyZKsw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9872,8 +10095,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5QCRj8dTquiExSkOEtEEUQF4056n3wA6ZqVTXldq6pWyZijouqlN_B37y7BFyAOZw-lrb-pdNYsUq0ir1dMf2-ywI_E7y2ZmqXw9SeS8_sDPYLqIwwhOg-nHoGgE5umNYiC6-hfr-RMnYTayylFNzVHk0_Ug7ybcpaXW-YsRPGl2aBwvbt3-QFLh3d6vxlgMiFZX3e__CcT1WblBNYRzUV0c3GMpibotKet0mf50xZECK-FoWWY9tU5sY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5QCRj8dTquiExSkOEtEEUQF4056n3wA6ZqVTXldq6pWyZijouqlN_B37y7BFyAOZw-lrb-pdNYsUq0ir1dMf2-ywI_E7y2ZmqXw9SeS8_sDPYLqIwwhOg-nHoGgE5umNYiC6-hfr-RMnYTayylFNzVHk0_Ug7ybcpaXW-YsRPGl2aBwvbt3-QFLh3d6vxlgMiFZX3e__CcT1WblBNYRzUV0c3GMpibotKet0mf50xZECK-FoWWY9tU5sY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR72U3XSAmkApAjbjJAWamkKFGdGO6QveCIWbG0JzQlZi1PmUnCqJGZG4rr3UnEU4oqm_bDigZh0HEEpIGbfNL0KbsbbZWw8qS-FzLpZlwAooMBfuCg83YQHaiZDFC7JfXWhJgm3zbZicgoxU3asNsSKrsuGASEgivmo5nAqGciZ7kfoyfg5qeyMXA2w2nlgtvm2sDkRV6l2D-Zt2iv0lEJsX3wySbhC_8cnBxxHsXqwwpZE12OCNwwRy00?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR72U3XSAmkApAjbjJAWamkKFGdGO6QveCIWbG0JzQlZi1PmUnCqJGZG4rr3UnEU4oqm_bDigZh0HEEpIGbfNL0KbsbbZWw8qS-FzLpZlwAooMBfuCg83YQHaiZDFC7JfXWhJgm3zbZicgoxU3asNsSKrsuGASEgivmo5nAqGciZ7kfoyfg5qeyMXA2w2nlgtvm2sDkRV6l2D-Zt2iv0lEJsX3wySbhC_8cnBxxHsXqwwpZE12OCNwwRy00?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11060,8 +11283,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64i3LdIYLYHVqQXeLNkL0QMe0AQJsTmtspGGZctsQ8D6PCS0aeshQCINpLqcVQ4bWBLczqJpJCRus8dawCKXHBTmFDKgCHHriDmpy7ca5gE7z6JPexh80MZ8c_ri6P7nAzQKLiIM0rYGBvY0VJ7cTtagfnFF031NdRjOBZpP7ywxkMZDYdl_b2TC2vzzkI7caqu7ijmLDhd_mrXL8d3Zl7vFrrW6_RRvqg8tcW_jj7BkSfSZ-xlSmuzs0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64i3LdIYLYHVqQXeLNkL0QMe0AQJsTmtspGGZctsQ8D6PCS0aeshQCINpLqcVQ4bWBLczqJpJCRus8dawCKXHBTmFDKgCHHriDmpy7ca5gE7z6JPexh80MZ8c_ri6P7nAzQKLiIM0rYGBvY0VJ7cTtagfnFF031NdRjOBZpP7ywxkMZDYdl_b2TC2vzzkI7caqu7ijmLDhd_mrXL8d3Zl7vFrrW6_RRvqg8tcW_jj7BkSfSZ-xlSmuzs0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nr0VMPudT_KNXYGa31FEpFaIIfghhUnNnT0kfVFl98JYK1UMIyc0xnLqC14pWyqjHXcIb-BSJHb2Y-x8QHWF5t-G9DQwF7Uh_Girxf1qyM5ava3QU5RtHtjhmDhlRGe3v1pnISYvaUS9ksPx9ASWKs-_mlXVrtZEI5nlg4Y84Olf_o2uG9FCJiuEn96i23z_O92lHw9e6sJpaos92YTb90WI4zku_bzTb8X6Tk8FhK_J4zsuxpwPrbIs?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nr0VMPudT_KNXYGa31FEpFaIIfghhUnNnT0kfVFl98JYK1UMIyc0xnLqC14pWyqjHXcIb-BSJHb2Y-x8QHWF5t-G9DQwF7Uh_Girxf1qyM5ava3QU5RtHtjhmDhlRGe3v1pnISYvaUS9ksPx9ASWKs-_mlXVrtZEI5nlg4Y84Olf_o2uG9FCJiuEn96i23z_O92lHw9e6sJpaos92YTb90WI4zku_bzTb8X6Tk8FhK_J4zsuxpwPrbIs?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11078,8 +11301,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR51dK6tQS8HDAJyVpNnvKjf8u4gOG1BwimL2d-hGBM9xFLyRDsQWG9UHBgo87x3KxYmPl89h6nP173MwJCMP26Qs-IsOBzQwObmYj_wK1ElWJFmu2kprwcYokzHB67fPnNxzA_GcFbI-KLb8XWxGy3Lzp1QYpU7GRmTeqlQKcnvyFZLgFTuuXnXaUEY5UpRs-c4cAgIyMJcxSh2TzdWKVOqg71zmrIQbNWc4jocrOGia_tv3nkHN1EVyHU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR51dK6tQS8HDAJyVpNnvKjf8u4gOG1BwimL2d-hGBM9xFLyRDsQWG9UHBgo87x3KxYmPl89h6nP173MwJCMP26Qs-IsOBzQwObmYj_wK1ElWJFmu2kprwcYokzHB67fPnNxzA_GcFbI-KLb8XWxGy3Lzp1QYpU7GRmTeqlQKcnvyFZLgFTuuXnXaUEY5UpRs-c4cAgIyMJcxSh2TzdWKVOqg71zmrIQbNWc4jocrOGia_tv3nkHN1EVyHU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mnq0oWYWwmMoto0seIwrlvkk3yODVXNB7OCfas2YoLulVLMwiH39LRCSvp_2j5uU2BcqfMVW8HfYCvP3B4Durm74NMDMxtCpqeyIvwJULewCLUYdnIkQwu-X1tejXJXkbJgxp_jEUCyUvJuSMfU3rWS2eYsgLumLefj3flf50VgcEw5PneUqjPcUpJPpl1GtV9nMK2bCOEQwpLjYcXxvA5K_3T-JEoXc3rZ60brDZjyl9t9UnHkB_xes?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mnq0oWYWwmMoto0seIwrlvkk3yODVXNB7OCfas2YoLulVLMwiH39LRCSvp_2j5uU2BcqfMVW8HfYCvP3B4Durm74NMDMxtCpqeyIvwJULewCLUYdnIkQwu-X1tejXJXkbJgxp_jEUCyUvJuSMfU3rWS2eYsgLumLefj3flf50VgcEw5PneUqjPcUpJPpl1GtV9nMK2bCOEQwpLjYcXxvA5K_3T-JEoXc3rZ60brDZjyl9t9UnHkB_xes?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11096,8 +11319,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qCL8-YopL6xXNJNEN6qZQeSXh4u-iAdS6_QdBV6yv3C7YjiAegsjAx0PGBRE-7RZeWgNh0Cro5bSQ6Yd_qNjhaAQQ-BCZADByRuoms-rEAmscZ4yPS1s36rfrLE7bU8AaQ9vmNKjr9urfvkHRb_CZsnrd4ZlUk9mV6KJ6QmdpW3E4u_QW3EsrR-bfa3-_3zujsOXVN7hinCyMrYH7y0nswbBzvuB9ZxWgOaQTQR8GOLlNzwUTS9O4MQ0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qCL8-YopL6xXNJNEN6qZQeSXh4u-iAdS6_QdBV6yv3C7YjiAegsjAx0PGBRE-7RZeWgNh0Cro5bSQ6Yd_qNjhaAQQ-BCZADByRuoms-rEAmscZ4yPS1s36rfrLE7bU8AaQ9vmNKjr9urfvkHRb_CZsnrd4ZlUk9mV6KJ6QmdpW3E4u_QW3EsrR-bfa3-_3zujsOXVN7hinCyMrYH7y0nswbBzvuB9ZxWgOaQTQR8GOLlNzwUTS9O4MQ0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76bnnD7mlKNVrE_wpoyojpo3Ap7X4Xf76eFK9axhGJn3323osL0chhaHaIZMix-Ecr6pssChUoJVEZW6cBLbyGdrPW8hLMpUuVy797GHtf4En4paGV5Ab9s1DplN_gg3ycMUzzFuL2Wfhv8UHQaCwxDyyPsben956FTid5Z1KBxsguqJNDjJejFwvKpDEgamIg-H3R3HSlCtLIUdJstgklWc0zZhHzRUp1K_GgKdPTxOdCIKXCR22WDoM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76bnnD7mlKNVrE_wpoyojpo3Ap7X4Xf76eFK9axhGJn3323osL0chhaHaIZMix-Ecr6pssChUoJVEZW6cBLbyGdrPW8hLMpUuVy797GHtf4En4paGV5Ab9s1DplN_gg3ycMUzzFuL2Wfhv8UHQaCwxDyyPsben956FTid5Z1KBxsguqJNDjJejFwvKpDEgamIg-H3R3HSlCtLIUdJstgklWc0zZhHzRUp1K_GgKdPTxOdCIKXCR22WDoM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11114,8 +11337,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7w4hSdanZZT1rLoy0HReSsenFbuWfTA33HVJT-3j2CZuX2bQvBbFyyqKGwivyzUjl55m3AX9Oo8TJ3x75Xg0lXLNfxdN9YYrKo7E6qC0MEJE89irVxXE3ckDgVRIUdzAIc30mWECJnl1lTB1xwxvgy1EmEi-H20RbHaHa22uWLCPL2raJwG_PfLpg8DPbtfoJfCvsNI7cx2jYbN5xQQnKgtJBqZBUuzi4L9s4UQ5ddC5jjGA6QIofOZOc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7w4hSdanZZT1rLoy0HReSsenFbuWfTA33HVJT-3j2CZuX2bQvBbFyyqKGwivyzUjl55m3AX9Oo8TJ3x75Xg0lXLNfxdN9YYrKo7E6qC0MEJE89irVxXE3ckDgVRIUdzAIc30mWECJnl1lTB1xwxvgy1EmEi-H20RbHaHa22uWLCPL2raJwG_PfLpg8DPbtfoJfCvsNI7cx2jYbN5xQQnKgtJBqZBUuzi4L9s4UQ5ddC5jjGA6QIofOZOc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7hTjac6nvPt4NtmaxSI6ptdDmiOtr8Xb8gT8O2ALC04wDtrU4k771kbbPy03S0Ycm4xCp9XdXidak7q74UU8Zzme5HhNwiVdPDwFi3KvDTAMoLpkwDbYKtJ5pLxmbY3pOtxZv9wl3m3fotYlD5rWRApvMilcHzEFptXL7hSPI9YbKjudvDhLUaQgAdlj-vAQ-MPchJJGobw4NdrjYD80GxygabNiP3PM9SJ7DXChP-r_wXVpLTysYweyw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7hTjac6nvPt4NtmaxSI6ptdDmiOtr8Xb8gT8O2ALC04wDtrU4k771kbbPy03S0Ycm4xCp9XdXidak7q74UU8Zzme5HhNwiVdPDwFi3KvDTAMoLpkwDbYKtJ5pLxmbY3pOtxZv9wl3m3fotYlD5rWRApvMilcHzEFptXL7hSPI9YbKjudvDhLUaQgAdlj-vAQ-MPchJJGobw4NdrjYD80GxygabNiP3PM9SJ7DXChP-r_wXVpLTysYweyw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11132,8 +11355,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4GMuhVI_FPy6FMzh_0um5rz1U6TgYvA4lc8BAnw1K4Z_eO7RQUlN1YdLALrhpJAezAFMgeIg3Fdqd79d7RpEdOV7jUuQE4HLWVuTfqNNj3GNrhO_NIeRHe-xAr5RQcGQ0w0yN8Mkw9zoYAmGPAA186xcMHWAdHmSLEjbQ7uPzhumGU1qgdTVwqiap775tveZKkS3MZgf4qSS0kqOKbYmXysMqnjtWyUvlxKrD4APvFv6Opjth0X10MVEA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4GMuhVI_FPy6FMzh_0um5rz1U6TgYvA4lc8BAnw1K4Z_eO7RQUlN1YdLALrhpJAezAFMgeIg3Fdqd79d7RpEdOV7jUuQE4HLWVuTfqNNj3GNrhO_NIeRHe-xAr5RQcGQ0w0yN8Mkw9zoYAmGPAA186xcMHWAdHmSLEjbQ7uPzhumGU1qgdTVwqiap775tveZKkS3MZgf4qSS0kqOKbYmXysMqnjtWyUvlxKrD4APvFv6Opjth0X10MVEA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5sKS8I6hJX222VkhIFBvq88osxQXRQQpJICeWXiIpSnM-VUZ9coL-rjduXHmqGPuja6qWoMGoTRpMr9ShuOUHIty4aLmRF14-sKdLsu11YVr3cADM6RjeCkdwzUL5JKGjIJv-4j0wEQzUm57XjUOW2bKOdTBBm5CRX9h6v6VunLjg8MyiuFJlW_usDRsdM0P8Wfh-28NSoazwyc4STHqMkz9pAZG6GMoh-qRsPrqMGUii_3KuwZsckLr0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5sKS8I6hJX222VkhIFBvq88osxQXRQQpJICeWXiIpSnM-VUZ9coL-rjduXHmqGPuja6qWoMGoTRpMr9ShuOUHIty4aLmRF14-sKdLsu11YVr3cADM6RjeCkdwzUL5JKGjIJv-4j0wEQzUm57XjUOW2bKOdTBBm5CRX9h6v6VunLjg8MyiuFJlW_usDRsdM0P8Wfh-28NSoazwyc4STHqMkz9pAZG6GMoh-qRsPrqMGUii_3KuwZsckLr0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11150,8 +11373,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6p4Wl1Wk-jiJUEamEzPbkz_SQkUxuASktuyH6jSwvc-7A5igbCwxojTxu1tE6uoRXXez_gmw5jFKqObIuNfbO-xr3oT6MLSyeyeCveDoRrzj_AlLpfexyl2RdPEDCVg3YcTzDOfoKyeRPv3L_W00iUItWk2Xgyf6S9ux2XWPzVCIk4CMOV-SM3VEYKOF59F8kYgKK_618avS03Z3T7B-dWwcVEO26l6clVgK6q6V9i2u3ysxMqFN9BDfE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6p4Wl1Wk-jiJUEamEzPbkz_SQkUxuASktuyH6jSwvc-7A5igbCwxojTxu1tE6uoRXXez_gmw5jFKqObIuNfbO-xr3oT6MLSyeyeCveDoRrzj_AlLpfexyl2RdPEDCVg3YcTzDOfoKyeRPv3L_W00iUItWk2Xgyf6S9ux2XWPzVCIk4CMOV-SM3VEYKOF59F8kYgKK_618avS03Z3T7B-dWwcVEO26l6clVgK6q6V9i2u3ysxMqFN9BDfE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5NVytCSMwrrp-Poq6fAtjm_hooXQ1yusGH3vugV7DZpDwD7i-HAbc7qXJKJ56ZTfcvyVD9gw1cOPewY1Qf-JoRkc2JqVv-aDEYs2-KHVxjXrvuxstT6tw3H-oAexxvE3fG2_VxGcmxJxFyAVDmid6wKeSXESRxc22jE5a0pFzeSMU-vvHQE3BaqRFShs33K_DaUlpFjQbJ2NbWLdozaAk29yA3sN9qYD_dcVLus6qTI9NCBNElaPHg6BQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5NVytCSMwrrp-Poq6fAtjm_hooXQ1yusGH3vugV7DZpDwD7i-HAbc7qXJKJ56ZTfcvyVD9gw1cOPewY1Qf-JoRkc2JqVv-aDEYs2-KHVxjXrvuxstT6tw3H-oAexxvE3fG2_VxGcmxJxFyAVDmid6wKeSXESRxc22jE5a0pFzeSMU-vvHQE3BaqRFShs33K_DaUlpFjQbJ2NbWLdozaAk29yA3sN9qYD_dcVLus6qTI9NCBNElaPHg6BQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11168,8 +11391,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qhf5kLtLyRhC48AR1s2gVg9JNoAYpaYE8Jl02uglNSERaCBH0AMKbLVxqQ02xcq2p9FwFmj8qar5hrIy05K6y34FLXNmoT3w-AfXEpdKb3NVpCTQSubCGyP3W-jn2sOJckPUwYWKIm_WLiQCuDyIXBpDQN5R_LeVIDwhDZ-37BeuLTWt_LxNPK7kCZ1Xfevt6fzd0E-f3qO_WDzC53zEMnxxglqXxRIzWcGV6ahjJw-AOwQuhwdW2Kro?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qhf5kLtLyRhC48AR1s2gVg9JNoAYpaYE8Jl02uglNSERaCBH0AMKbLVxqQ02xcq2p9FwFmj8qar5hrIy05K6y34FLXNmoT3w-AfXEpdKb3NVpCTQSubCGyP3W-jn2sOJckPUwYWKIm_WLiQCuDyIXBpDQN5R_LeVIDwhDZ-37BeuLTWt_LxNPK7kCZ1Xfevt6fzd0E-f3qO_WDzC53zEMnxxglqXxRIzWcGV6ahjJw-AOwQuhwdW2Kro?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7EzovM49wWRoCMyV0-xA75kImNB9CmkIJpoQWqiDToTL6VBvMPZiHQevEc3V4S5cihZEj_Ne8D20MeBBtZT3JibeHcm_lPE-ItrC3NjBBh-mKccT0JcVcONVfYR__zztj4Rx3akzg7TJWNYLvVipqsFfBr4-fL-3w7WvTv465eIA5wbEGDoZN4tVnHV_K_1dZqavuzv_9ZJLQz9T2_UUQ1s6injMcSU3cJu_7UZoFA1FcruS5XAMMmMu0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7EzovM49wWRoCMyV0-xA75kImNB9CmkIJpoQWqiDToTL6VBvMPZiHQevEc3V4S5cihZEj_Ne8D20MeBBtZT3JibeHcm_lPE-ItrC3NjBBh-mKccT0JcVcONVfYR__zztj4Rx3akzg7TJWNYLvVipqsFfBr4-fL-3w7WvTv465eIA5wbEGDoZN4tVnHV_K_1dZqavuzv_9ZJLQz9T2_UUQ1s6injMcSU3cJu_7UZoFA1FcruS5XAMMmMu0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11186,8 +11409,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5EptiBiLRKCIDROWaja5DMGXhz5x2F5HAoYXhBrWA6rRbXtb6jcP7yHxU-ktiSnW1JJgGz55SS0F6X-mUyoM8FKPLkJw_jy-jb1YfJe7jBHP-32qC-TElQbkTA18xDR8LZLSU3Vlt13_0ZYPoUBkrFlLNdxbMpuKjIi_sNnmzVxaHsYTWYXZn3NEbhkvI83Pb7La1yaUDPTzcQwQIXmT6nEc6sZRUWGChAdD3P9bq1stA8NGPJRX00Bkc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5EptiBiLRKCIDROWaja5DMGXhz5x2F5HAoYXhBrWA6rRbXtb6jcP7yHxU-ktiSnW1JJgGz55SS0F6X-mUyoM8FKPLkJw_jy-jb1YfJe7jBHP-32qC-TElQbkTA18xDR8LZLSU3Vlt13_0ZYPoUBkrFlLNdxbMpuKjIi_sNnmzVxaHsYTWYXZn3NEbhkvI83Pb7La1yaUDPTzcQwQIXmT6nEc6sZRUWGChAdD3P9bq1stA8NGPJRX00Bkc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7JU4a42qhpNXG-XoXoeZybmJs15XrpURKEgc78ToluNrb5lh_COUVoIUaOO3x3_K_en8LSHKCzXSTg-i4q4bP6VbfNN8Kup_EWV5aHsG7dB2DpMp2P3NbcyvJxPmKHDeZRanYyW-yoQTUzhq9YsODFln_PH-AdLCB6ZoSbwkZFQ0nsarD75l5mgN04d_I-fbTtgpTvsNeOcZj2g69n2grvUEXQgAkDG4YkqHOxGscV5WAfVLzKJAxmP3M?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7JU4a42qhpNXG-XoXoeZybmJs15XrpURKEgc78ToluNrb5lh_COUVoIUaOO3x3_K_en8LSHKCzXSTg-i4q4bP6VbfNN8Kup_EWV5aHsG7dB2DpMp2P3NbcyvJxPmKHDeZRanYyW-yoQTUzhq9YsODFln_PH-AdLCB6ZoSbwkZFQ0nsarD75l5mgN04d_I-fbTtgpTvsNeOcZj2g69n2grvUEXQgAkDG4YkqHOxGscV5WAfVLzKJAxmP3M?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11204,8 +11427,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64apA97wBAP6RoK4FqXlfHPCZYz9hC6yJ_KteMJJG7BuBDcyoevAHEcEgu5QMKxRNQr8b2OEeZdk77lFFHEF0Bc5m0Hx-CKpia6ca1PIr9jYpOUy7lT25cxzVv8qB-Db9_yiff5qo1r1-u-64Id2wWORYIoyFm8I9W7lpPBQ0lhiV9zzNUeRs0srBSZK46V1eFFyWB2oF31gdRL4dTFlY0o944hwqEkdxDmkcyj0dCd11UBIayq24itmo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64apA97wBAP6RoK4FqXlfHPCZYz9hC6yJ_KteMJJG7BuBDcyoevAHEcEgu5QMKxRNQr8b2OEeZdk77lFFHEF0Bc5m0Hx-CKpia6ca1PIr9jYpOUy7lT25cxzVv8qB-Db9_yiff5qo1r1-u-64Id2wWORYIoyFm8I9W7lpPBQ0lhiV9zzNUeRs0srBSZK46V1eFFyWB2oF31gdRL4dTFlY0o944hwqEkdxDmkcyj0dCd11UBIayq24itmo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4OQVzJRbajJnuUIPagrRqy3Y8wuEhPeHQyjKy9U8ue4RXGaF873iS6nSCg12XLXS1BPkKeAC5yyHY09LWHVPiwtlU2x7_nin58feR2vq61bVfGB4TEmiwjVwCwz4H6f743ErhlsIg_uJA6uSFrE2Q_j5naYAKdYkPUxUupxchUJjHf-yCpPVH5aOFSdtCUVD7UaeJICPTU83wUlT2ESeK_F92tS6du8MVhtDLmXbYLGhftmSdqrBTfo_o?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4OQVzJRbajJnuUIPagrRqy3Y8wuEhPeHQyjKy9U8ue4RXGaF873iS6nSCg12XLXS1BPkKeAC5yyHY09LWHVPiwtlU2x7_nin58feR2vq61bVfGB4TEmiwjVwCwz4H6f743ErhlsIg_uJA6uSFrE2Q_j5naYAKdYkPUxUupxchUJjHf-yCpPVH5aOFSdtCUVD7UaeJICPTU83wUlT2ESeK_F92tS6du8MVhtDLmXbYLGhftmSdqrBTfo_o?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11258,8 +11481,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6noM50ASUXnHk3VXbUsbWWSTmOYMdo5qpIrn7JnSqVsXOz_aIc_9yq-RZ6uOly_jApXHupT8Xv98Xd92DMQm0ckVhTo3WgcKVyP0RvcaNuHDzjCvG9pcQeETuGmLeiV0FrWc4Jqqo16C3yro9pL_6TMx7YNPled9ZmSjhkTh3NWFPwAQnQBJUflDPCcHIYQ4BjAVVkXukX9uR03uj5oWdyP3WJUaGT9x79lr9ZG9NLnrqEw3wLRG5cQ-Y?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6noM50ASUXnHk3VXbUsbWWSTmOYMdo5qpIrn7JnSqVsXOz_aIc_9yq-RZ6uOly_jApXHupT8Xv98Xd92DMQm0ckVhTo3WgcKVyP0RvcaNuHDzjCvG9pcQeETuGmLeiV0FrWc4Jqqo16C3yro9pL_6TMx7YNPled9ZmSjhkTh3NWFPwAQnQBJUflDPCcHIYQ4BjAVVkXukX9uR03uj5oWdyP3WJUaGT9x79lr9ZG9NLnrqEw3wLRG5cQ-Y?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5OoIlMLyiQ6zpVQpXa3AtaRMwb0erueO3eiawGAXoXMiZsDfhQkyljJI7Fl78vFIyK1kTCs6e116YgnBGNrTkA8oECtL4y5zCgTQCt9vBI4SuYKjA9bjsYaiehBT6AzWVsOpsc9JQQfMzi8sGmqRvRWVok_Mb9yppMCT9FoTpFQW-O1d182aUvtxIgoHdR3V0frMGg0qA_3KdIR_GY9h3mk6dvPpzF4tgFetyuMexH7u3sb-L5f2aYJWg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5OoIlMLyiQ6zpVQpXa3AtaRMwb0erueO3eiawGAXoXMiZsDfhQkyljJI7Fl78vFIyK1kTCs6e116YgnBGNrTkA8oECtL4y5zCgTQCt9vBI4SuYKjA9bjsYaiehBT6AzWVsOpsc9JQQfMzi8sGmqRvRWVok_Mb9yppMCT9FoTpFQW-O1d182aUvtxIgoHdR3V0frMGg0qA_3KdIR_GY9h3mk6dvPpzF4tgFetyuMexH7u3sb-L5f2aYJWg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11276,8 +11499,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4kaSYQ56EO-z2K4KYJrAH723PcppyIgCb52QrQGe_oDfdu6nBfJ08eezg6nFxaajjDIcc4sdB8PVNUO1pKTogwHERHUVPAuHVUz7rAmZIQQIVckVHlPrai2gv-5KBpVmyT0g39pbKFU_aSggkAy0jgvoKWP0w1W3cpuXw4n94DoFhVk7gVAdxbGQZB7I-0ZoicRWM9nfQOj1oVSq51kTOr_pVDxPA-HO0zU4WXSmmi-nl38-bh_i-uzFM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4kaSYQ56EO-z2K4KYJrAH723PcppyIgCb52QrQGe_oDfdu6nBfJ08eezg6nFxaajjDIcc4sdB8PVNUO1pKTogwHERHUVPAuHVUz7rAmZIQQIVckVHlPrai2gv-5KBpVmyT0g39pbKFU_aSggkAy0jgvoKWP0w1W3cpuXw4n94DoFhVk7gVAdxbGQZB7I-0ZoicRWM9nfQOj1oVSq51kTOr_pVDxPA-HO0zU4WXSmmi-nl38-bh_i-uzFM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR45zAu6CGSMCUbS0IucnY5XOMRhQo3LWG4AmTebLQv1jjGm1RwfNgVAxJA2VMOVEDbD9oic_qJJeWzYbKuiiRfH30VuzqzO3_rpcH1srja8lEYS6qt-wvqo2RooEnH1z3os6Gz2k4l-nY-Shg2t9MrrhHbYYWk2fSGtQpKv_R0aAJnp-pCEiKuIVdDGTocqdwO51BemkguyNIpTt-N04v6muPbHu1gyRl2Rb45xTbj4Nz9ZDx5xEthBbGU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR45zAu6CGSMCUbS0IucnY5XOMRhQo3LWG4AmTebLQv1jjGm1RwfNgVAxJA2VMOVEDbD9oic_qJJeWzYbKuiiRfH30VuzqzO3_rpcH1srja8lEYS6qt-wvqo2RooEnH1z3os6Gz2k4l-nY-Shg2t9MrrhHbYYWk2fSGtQpKv_R0aAJnp-pCEiKuIVdDGTocqdwO51BemkguyNIpTt-N04v6muPbHu1gyRl2Rb45xTbj4Nz9ZDx5xEthBbGU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11330,8 +11553,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4fbLqF4cxlzwisbw_RnyJ21wqI7I8YqAE9FHFaDYP7h-u95v1S-nqXyXXyFebiLuAu5RMa13lVVTUMZc4LMGUPjfx_pxM8I5-dANuK-cB84vDrFF7U4XXVRuaDewXqZc07dkY-6VTM3415iRYfKdjzCSdKge6DULhXggVqugWmOUk7JEbSodeIIjn63NOP3CyjzOSlVMRlYUMs_dcK1eYTkm7t32t4F0QZ98J4O1uPFP94N4ljp0WZBn8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4fbLqF4cxlzwisbw_RnyJ21wqI7I8YqAE9FHFaDYP7h-u95v1S-nqXyXXyFebiLuAu5RMa13lVVTUMZc4LMGUPjfx_pxM8I5-dANuK-cB84vDrFF7U4XXVRuaDewXqZc07dkY-6VTM3415iRYfKdjzCSdKge6DULhXggVqugWmOUk7JEbSodeIIjn63NOP3CyjzOSlVMRlYUMs_dcK1eYTkm7t32t4F0QZ98J4O1uPFP94N4ljp0WZBn8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Wb8qtgpfMg6oDo-aACx26l3lbamNzra4oPRS8LktjySADngjW4GtQAZxgH3RJdG10yuIZX_YJsON_PhxRrBI0k_rEvS8AbrdIqv0OXOaNxV9GDbY8yq5ZQo-shOoxwunrdK_c3_xziASXTlRbqQ2P5oBsiAK7TpSusa_FPBviofjDZTG7-tLY_OnnLH-oaYR4-G-xAiDfw_4josG6Xry1bRKzgHpi2z370yMhvup7DW2K02ePGyHj1fY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Wb8qtgpfMg6oDo-aACx26l3lbamNzra4oPRS8LktjySADngjW4GtQAZxgH3RJdG10yuIZX_YJsON_PhxRrBI0k_rEvS8AbrdIqv0OXOaNxV9GDbY8yq5ZQo-shOoxwunrdK_c3_xziASXTlRbqQ2P5oBsiAK7TpSusa_FPBviofjDZTG7-tLY_OnnLH-oaYR4-G-xAiDfw_4josG6Xry1bRKzgHpi2z370yMhvup7DW2K02ePGyHj1fY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11402,8 +11625,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6HmsbrCHI-HURoqKnUeWNTJVLjNsgnLrylaxQ8JozMikrdx7587fS_0RUQ2feS6WzAKZCvIdII-K2DxLI8PXZ4PPhTUdW50qopNu1GKji7yRURLDjC4uaiLF0VDBSdhKcu6LtFnF1leoFHPQJIzf9_Po_YkJG3yzuMLEHyOBY0pcosM8pPdu3gxvGAvNx2o-DVVp8gpjJNRVNNXzKgHGAR3aR_8iImu-BlP7nyDE4d5LyQOhDLLmWWDqw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6HmsbrCHI-HURoqKnUeWNTJVLjNsgnLrylaxQ8JozMikrdx7587fS_0RUQ2feS6WzAKZCvIdII-K2DxLI8PXZ4PPhTUdW50qopNu1GKji7yRURLDjC4uaiLF0VDBSdhKcu6LtFnF1leoFHPQJIzf9_Po_YkJG3yzuMLEHyOBY0pcosM8pPdu3gxvGAvNx2o-DVVp8gpjJNRVNNXzKgHGAR3aR_8iImu-BlP7nyDE4d5LyQOhDLLmWWDqw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6iIkIiF4SrVSYLn2sNNn0-ZdqitoVoKswVWdTlvJbDzirxFL1KZspnLMIo9EzAclAmwkm1wf3GobYcgtyURHA71OVegUkRMjW5MQ75OoA19ELx7l58aBiEIwu8TRMp9zTUBg0OsMHhPvTIiCUPI5L4721HhebP3mlYSmHtNP37iJaNg1p4eSNDSGiJQVtMiJvxwRJum_9to-L9kzqMxQNQospu4alTW5bricKSl9d6uxI2l9ybpkNDbRE?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6iIkIiF4SrVSYLn2sNNn0-ZdqitoVoKswVWdTlvJbDzirxFL1KZspnLMIo9EzAclAmwkm1wf3GobYcgtyURHA71OVegUkRMjW5MQ75OoA19ELx7l58aBiEIwu8TRMp9zTUBg0OsMHhPvTIiCUPI5L4721HhebP3mlYSmHtNP37iJaNg1p4eSNDSGiJQVtMiJvxwRJum_9to-L9kzqMxQNQospu4alTW5bricKSl9d6uxI2l9ybpkNDbRE?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11528,8 +11751,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TteLjnRKerVP1wgLKPlV9C0AyjnX85nhB86kkQvaNZku2bx-olKi2PisseRNLzSNZ8ZQBXfk8K1cWmYuWuBw7u-YG-AcPDD7zzGkN-HL3RKTQ6F_j8DPs2XhcNrQCTlaVjDTw1BxfOrQk3C-vaED_9b769FOLEkml3N76nF2VJeyeqm8xSb31WtNAhX69t8D979M-k4CC5lOT7pZynFPMY8I_-YUh8kRJdphW2h7vwILMAdwsHZOrfzY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5TteLjnRKerVP1wgLKPlV9C0AyjnX85nhB86kkQvaNZku2bx-olKi2PisseRNLzSNZ8ZQBXfk8K1cWmYuWuBw7u-YG-AcPDD7zzGkN-HL3RKTQ6F_j8DPs2XhcNrQCTlaVjDTw1BxfOrQk3C-vaED_9b769FOLEkml3N76nF2VJeyeqm8xSb31WtNAhX69t8D979M-k4CC5lOT7pZynFPMY8I_-YUh8kRJdphW2h7vwILMAdwsHZOrfzY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4XBdLjJktJfvncwdCkwZhzSsVGOvi7EsKQ4BkOPEPVwZqWnzHj-lwnAI2HM67Buy5-DGcSRaibmUIwrHNn6K4QUVTsJGffD8jn-efo9RsUdq7gL4bYeh6eS86twW6fePRZeiSBOExcH46dnwMjaOTjfky1zQt4FMlgljmq0qXhVgml9FZFz-Mtz0plsHRnZatMGlaX_UG-GKLxBG3_lyTnT_T05cY_Sg0l_WwSlyh1h7eIa4yhLdI1CxI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4XBdLjJktJfvncwdCkwZhzSsVGOvi7EsKQ4BkOPEPVwZqWnzHj-lwnAI2HM67Buy5-DGcSRaibmUIwrHNn6K4QUVTsJGffD8jn-efo9RsUdq7gL4bYeh6eS86twW6fePRZeiSBOExcH46dnwMjaOTjfky1zQt4FMlgljmq0qXhVgml9FZFz-Mtz0plsHRnZatMGlaX_UG-GKLxBG3_lyTnT_T05cY_Sg0l_WwSlyh1h7eIa4yhLdI1CxI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13035,25 +13258,6 @@
   ],
   "stories": [
     {
-      "id": "4261658719f9",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-      "summary": "President said Howard Lutnick had Venezuela operation on his mind when he was discussing Iran war on CNBC Donald Trump has claimed his commerce secretary, Howard Lutnick, erroneously stated that no Americans had been killed in the war with Iran because he was thinking about a previous US operation, in Venezuela. The claim, at odds with the Pentagon’s count of 18 US service members dead in the US-Israel war on Iran, s",
-      "source": "https://www.theguardian.com/world/2026/sep/03/howard-lutnick-iran-war-deaths-trump",
-      "time": "2026-09-03T14:38:40+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "62141e3735d6",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -13269,7 +13473,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 47.0
+      "politicalSignalScore": 46.7
     },
     {
       "id": "e97822a7cbe0",
@@ -13289,6 +13493,33 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
+    },
+    {
+      "id": "41d7c8ee8c42",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
+      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
+      "time": "2026-09-03T10:45:16+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Foreign Policy"
+      ],
+      "sourceDomain": "aljazeera.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 42.9
     },
     {
       "id": "3d3071e11746",
@@ -13334,7 +13565,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.5
+      "politicalSignalScore": 42.2
     },
     {
       "id": "7e369d09a9ea",
@@ -13361,7 +13592,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.4
+      "politicalSignalScore": 40.2
     },
     {
       "id": "19e24f5bcc9d",
@@ -13486,7 +13717,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.9
+      "politicalSignalScore": 40.6
     },
     {
       "id": "4853c2337866",
@@ -13570,7 +13801,37 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
+    },
+    {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they're ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "2026-09-03T00:39:05+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate"
+      ],
+      "politicalTopics": [
+        "Elections",
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 35.5
     },
     {
       "id": "0e6d5e98e90c",
@@ -13678,7 +13939,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.8
+      "politicalSignalScore": 34.5
     },
     {
       "id": "ca396a85c9e1",
@@ -13707,7 +13968,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.2
+      "politicalSignalScore": 30.0
     },
     {
       "id": "6ad10dbff853",
@@ -13740,7 +14001,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.0
+      "politicalSignalScore": 31.7
     },
     {
       "id": "6e5d651744cd",
@@ -13770,7 +14031,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.9
+      "politicalSignalScore": 31.7
     },
     {
       "id": "04121260ea77",
@@ -13873,7 +14134,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.0
+      "politicalSignalScore": 19.7
     },
     {
       "id": "750589f89281",
@@ -13903,7 +14164,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.3
+      "politicalSignalScore": 18.0
     },
     {
       "id": "0db692ff9ba8",
@@ -14039,6 +14300,70 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "ef6f0f9c1668",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Iranian drone damages residential building in Kuwait City",
+      "summary": "An Iranian drone attack damaged a residential building in Kuwait, authorities say, with no casualties reported.",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/03-09-iranian-drone-kuwait-building-clip?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 14:47:52 +0000",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "8d3364f1d7bc",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "us-politics",
+      "title": "33 House Dems break with Jeffries as party fractures over Israel",
+      "summary": "The House passed a bill to cut federal funds to colleges participating in boycotts of Israel, but Democrats argue it violates free speech rights.",
+      "source": "https://www.foxnews.com/politics/house-dems-break-jeffries-party-fractures-over-israel",
+      "time": "Thu, 03 Sep 2026 10:46:54 -0400",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 14:41:51 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Congress",
+        "Democrats",
+        "Republicans"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
+      "id": "4261658719f9",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+      "summary": "President said Howard Lutnick had Venezuela operation on his mind when he was discussing Iran war on CNBC  Donald Trump has claimed his commerce secretary, Howard Lutnick, erroneously stated that no Americans had been killed in the war with Iran because he was thinking about a previous US operation, in Venezuela.  The claim, at odds with the Pentagon’s count of 18 US service members dead in the US-Israel war on Iran,",
+      "source": "https://www.theguardian.com/world/2026/sep/03/howard-lutnick-iran-war-deaths-trump",
+      "time": "Thu, 03 Sep 2026 14:38:40 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "5aab72b00104",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -14063,31 +14388,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
-      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 14:14:58 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Congress",
-        "Democrats",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
     },
     {
       "id": "aa033c582456",
@@ -14157,7 +14457,7 @@
       "id": "1c3af167c16b",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
-      "title": "Kafka in paradise: Hawaii fire survivors in bureaucratic trap as US says no more mail delivery",
+      "title": "Kafka in paradise: Hawaii fire survivors in bureaucratic trap as US ends mail delivery",
       "summary": "Wildfire victims rebuilt their homes in Lahaina only to find USPS had ‘eliminated’ their addresses – while houses that didn’t burn receive mail as normal  Two months after a devastating wildfire whipped through Lahaina in August 2023, Pam Reader was allowed back to see what was left of her home. With a heavy heart, she returned to the Hawaiian oceanside town now filled with endless blocks of burned houses. As she rou",
       "source": "https://www.theguardian.com/us-news/2026/sep/03/hawaii-lahaina-mail-delivery-usps",
       "time": "Thu, 03 Sep 2026 14:00:40 GMT",
@@ -14171,7 +14471,7 @@
       "sourceLabel": "BBC World",
       "sourceType": "international",
       "title": "Anthony Joshua's driver attempted overtake before fatal crash, trial hears",
-      "summary": "Adeniyi Mobolaji Kayode, 46, is charged with offences including causing death by dangerous driving and reckless driving.",
+      "summary": "Adeniyi Mobolaji Kayode is charged in Nigeria with offences including causing death by dangerous driving.",
       "source": "https://www.bbc.co.uk/news/articles/cd68jv9d21zo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 13:54:49 GMT",
       "tag": "World",
@@ -15024,27 +15324,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 15.0
-    },
-    {
-      "id": "41d7c8ee8c42",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
-      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 10:45:16 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "aljazeera.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
     },
     {
       "id": "95646c1e74ae",
@@ -15947,30 +16226,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "3593d4dc7a14",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "The primary is over; now come the primetime mistakes",
-      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
-      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
-      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "U.S. Senate"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "foxnews.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
       "id": "608a9487eb92",
       "sourceLabel": "BBC Americas",
       "sourceType": "regional",
@@ -16133,29 +16388,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 17.0
-    },
-    {
-      "id": "2a835d6bfc0c",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Justice department orders US states to expand how they report undocumented immigrants",
-      "summary": "New DoJ opinion says entire state government has duty to report, not just agencies responsible for welfare programs  The US Department of Justice has ordered states to expand how they report undocumented immigrants to the federal government, according to a legal opinion from Tuesday that reverses a policy that has been in place for nearly 30 years.  Under  the new opinion , issued by the department’s office of legal ",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/justice-department-undocumented-immigrants-reports",
-      "time": "Wed, 02 Sep 2026 20:02:39 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Department of Justice"
-      ],
-      "politicalTopics": [
-        "Public Opinion"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
     },
     {
       "id": "1cbc2127fd98",
@@ -17417,27 +17649,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "de9e867299ef",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 22:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
       "id": "f32e3360a606",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -17451,77 +17662,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "d1ef0b0c9360",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 21:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "6de39e851de3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "565fbb2d2b2d",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 19:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
       "id": "5b759f5c0443",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -17533,32 +17673,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "762134456216",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump is staking out extreme positions on White House secrecy , legal experts say",
-      "summary": "",
-      "source": "https://us.cnn.com/trump-white-house-secrecy",
-      "time": "3 Aug 2026 15:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "White House"
-      ],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
     },
     {
       "id": "d572bba06e7a",
@@ -17600,34 +17714,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "fda22457d246",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 13:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com",
-        "edition.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
-    },
-    {
       "id": "6e6b20188dae",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -17639,84 +17725,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "59bfa788d542",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump and Thune showdown splinters GOP unity ahead of midterms",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/02/politics/trump-thune-gop-midterms",
-      "time": "3 Aug 2026 11:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Republicans"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "edition.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
-      "id": "27ad6bde3c9c",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "edition.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com",
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
-    },
-    {
-      "id": "fec6030534e1",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "edition.cnn.com",
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
     },
     {
       "id": "43b14654edbc",
@@ -17745,45 +17753,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "d5e33f33105f",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Key takeaways from Tuesday primaries in Florida , Alaska and Wyoming",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/18/politics/takeaways-florida-alaska-primaries",
-      "time": "3 Aug 2026 07:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "1287dd7a41bf",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 06:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Economy"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
       "id": "5333fa263805",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -17791,45 +17760,6 @@
       "summary": "",
       "source": "https://military.china.com/news/13004177/20260824/49694024.html",
       "time": "3 Aug 2026 05:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "ced705f4efe3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 05:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Economy"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "f644f456c95a",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Key takeaways from Tuesday primaries in Florida , Alaska and Wyoming",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/18/politics/takeaways-florida-alaska-primaries",
-      "time": "3 Aug 2026 04:45:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -17865,19 +17795,6 @@
       "summary": "",
       "source": "http://news.cnfol.com/guandianpinglun/20260826/32347506.shtml",
       "time": "3 Aug 2026 04:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "9abc5d18356f",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Key takeaways from Tuesday primaries in Florida , Alaska and Wyoming",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/18/politics/takeaways-florida-alaska-primaries",
-      "time": "3 Aug 2026 03:45:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -17936,59 +17853,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "8840be077fcb",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Mitch McConnell , Joe Biden and the growing epidemic of politicians hiding health problems",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/07/07/politics/mitch-mcconnell-joe-biden-health-problems",
-      "time": "3 Jul 2026 00:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "cb980a24c9ca",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Nominee for DOJ watchdog refused to call Jan . 6 violence an  attack  on the Capitol",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/06/17/politics/nominee-doj-watchdog-violence-january-6-not-attack",
-      "time": "3 Jun 2026 23:00:00 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "e71b86c4de34",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Speaker Johnson sends bipartisan housing bill to White House but Trump says it a  yawn",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump",
-      "time": "3 Jun 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "White House"
-      ],
-      "politicalTopics": [
-        "Congress",
-        "Executive"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 19.0
-    },
-    {
       "id": "8cf4e2512b23",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -18000,31 +17864,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "66cfcb0fc883",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump fixation on election overhaul bill derails GOP agenda on Capitol Hill",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/06/25/politics/trump-save-act-congress",
-      "time": "3 Jun 2026 01:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
     }
   ],
   "sourceHealth": [
@@ -18056,17 +17895,17 @@
     {
       "name": "CNN Politics — GDELT Mirror",
       "type": "us-politics",
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "Axios Politics — GDELT Mirror",
       "type": "us-politics",
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "Morse Report — GDELT Mirror",
       "type": "us-politics",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "GDELT Live — Global",
@@ -18161,10 +18000,10 @@
   ],
   "liveDatabase": {
     "enabled": true,
-    "articleCount": 141,
-    "lastExport": "2026-09-03T14:47:01.824431+00:00",
+    "articleCount": 143,
+    "lastExport": "2026-09-03T15:03:54.003439+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 47
+    "newMergedThisRun": 48
   },
   "politics": [
     {
@@ -18185,6 +18024,25 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "41d7c8ee8c42",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
+      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
+      "time": "2026-09-03T10:45:16+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics"
     },
     {
       "id": "648d6749c712",
@@ -18261,6 +18119,25 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "world-politics"
+    },
+    {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they're ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "2026-09-03T00:39:05+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
     },
     {
       "id": "eca0fc692bc0",
@@ -18383,7 +18260,7 @@
       "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 14:14:58 GMT",
+      "time": "Thu, 03 Sep 2026 14:41:51 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -18637,19 +18514,6 @@
       "intelligenceLayer": "world-politics"
     },
     {
-      "id": "41d7c8ee8c42",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
-      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 10:45:16 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics"
-    },
-    {
       "id": "95646c1e74ae",
       "sourceLabel": "France 24",
       "sourceType": "international",
@@ -18897,19 +18761,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "3593d4dc7a14",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "The primary is over; now come the primetime mistakes",
-      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
-      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
-      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "c280f70cbb01",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -18934,19 +18785,6 @@
       "confidence": "DEVELOPING",
       "breaking": true,
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "2a835d6bfc0c",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Justice department orders US states to expand how they report undocumented immigrants",
-      "summary": "New DoJ opinion says entire state government has duty to report, not just agencies responsible for welfare programs  The US Department of Justice has ordered states to expand how they report undocumented immigrants to the federal government, according to a legal opinion from Tuesday that reverses a policy that has been in place for nearly 30 years.  Under  the new opinion , issued by the department’s office of legal ",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/justice-department-undocumented-immigrants-reports",
-      "time": "Wed, 02 Sep 2026 20:02:39 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics"
     },
     {
       "id": "972c87a769f6",
@@ -19235,149 +19073,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "de9e867299ef",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 22:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "d1ef0b0c9360",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 21:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "6de39e851de3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "565fbb2d2b2d",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 19:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "762134456216",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump is staking out extreme positions on White House secrecy , legal experts say",
-      "summary": "",
-      "source": "https://us.cnn.com/trump-white-house-secrecy",
-      "time": "3 Aug 2026 15:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "fda22457d246",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 13:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "59bfa788d542",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump and Thune showdown splinters GOP unity ahead of midterms",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/02/politics/trump-thune-gop-midterms",
-      "time": "3 Aug 2026 11:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "27ad6bde3c9c",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "fec6030534e1",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "1287dd7a41bf",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 06:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "ced705f4efe3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 05:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "68f33615f51b",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -19385,32 +19080,6 @@
       "summary": "",
       "source": "https://jambi.tribunnews.com/news/1203618/trump-sebut-iran-runtuh-total-teheran-ejek-as-mengaku-kalah",
       "time": "3 Aug 2026 04:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "e71b86c4de34",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Speaker Johnson sends bipartisan housing bill to White House but Trump says it a  yawn",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump",
-      "time": "3 Jun 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "66cfcb0fc883",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump fixation on election overhaul bill derails GOP agenda on Capitol Hill",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/06/25/politics/trump-save-act-congress",
-      "time": "3 Jun 2026 01:30:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -19444,7 +19113,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 47.0
+      "politicalSignalScore": 46.7
     },
     {
       "id": "648d6749c712",
@@ -19471,7 +19140,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.5
+      "politicalSignalScore": 42.2
     },
     {
       "id": "772547ad1bd2",
@@ -19501,7 +19170,37 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.9
+      "politicalSignalScore": 40.6
+    },
+    {
+      "id": "3593d4dc7a14",
+      "sourceLabel": "Fox News Politics",
+      "sourceType": "news",
+      "title": "The primary is over; now come the primetime mistakes",
+      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they're ready for the Senate.",
+      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+      "time": "2026-09-03T00:39:05+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "fox_politics",
+        "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "U.S. Senate"
+      ],
+      "politicalTopics": [
+        "Elections",
+        "Congress"
+      ],
+      "sourceDomain": "foxnews.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 35.5
     },
     {
       "id": "eca0fc692bc0",
@@ -19533,91 +19232,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.8
-    },
-    {
-      "id": "fda22457d246",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 13:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com",
-        "edition.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
-    },
-    {
-      "id": "27ad6bde3c9c",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "edition.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com",
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
-    },
-    {
-      "id": "fec6030534e1",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-      "time": "3 Aug 2026 11:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Congress"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "edition.cnn.com",
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 34.0
+      "politicalSignalScore": 34.5
     },
     {
       "id": "6ad10dbff853",
@@ -19650,7 +19265,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.0
+      "politicalSignalScore": 31.7
     },
     {
       "id": "6e5d651744cd",
@@ -19680,7 +19295,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.9
+      "politicalSignalScore": 31.7
     },
     {
       "id": "ca396a85c9e1",
@@ -19709,7 +19324,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.2
+      "politicalSignalScore": 30.0
     },
     {
       "id": "10bfce7085f4",
@@ -19791,33 +19406,6 @@
       "politicalSignalScore": 19.0
     },
     {
-      "id": "e71b86c4de34",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Speaker Johnson sends bipartisan housing bill to White House but Trump says it a  yawn",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump",
-      "time": "3 Jun 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "White House"
-      ],
-      "politicalTopics": [
-        "Congress",
-        "Executive"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 19.0
-    },
-    {
       "id": "7435e5436b5c",
       "sourceLabel": "BBC Americas",
       "sourceType": "regional",
@@ -19862,134 +19450,6 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "d1ef0b0c9360",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 21:00:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "6de39e851de3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-      "time": "3 Aug 2026 20:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "762134456216",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump is staking out extreme positions on White House secrecy , legal experts say",
-      "summary": "",
-      "source": "https://us.cnn.com/trump-white-house-secrecy",
-      "time": "3 Aug 2026 15:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "White House"
-      ],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "1287dd7a41bf",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 06:15:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Economy"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "cnn.com"
-      ],
-      "politicalSignalScore": 17.0
-    },
-    {
-      "id": "ced705f4efe3",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-      "time": "3 Aug 2026 05:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Iran"
-      ],
-      "politicalTopics": [
-        "Economy"
-      ],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "CORROBORATED",
-      "corroboratingSources": [
-        "us.cnn.com"
-      ],
       "politicalSignalScore": 17.0
     },
     {
@@ -20165,30 +19625,6 @@
         "Trade"
       ],
       "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "3593d4dc7a14",
-      "sourceLabel": "Fox News Politics",
-      "sourceType": "us-politics",
-      "title": "The primary is over; now come the primetime mistakes",
-      "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
-      "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
-      "time": "Wed, 02 Sep 2026 20:39:05 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "U.S. Senate"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
@@ -20503,31 +19939,6 @@
       "politicalSignalScore": 4.0
     },
     {
-      "id": "66cfcb0fc883",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump fixation on election overhaul bill derails GOP agenda on Capitol Hill",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/06/25/politics/trump-save-act-congress",
-      "time": "3 Jun 2026 01:30:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Congress"
-      ],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
       "id": "4e39b533e89b",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
@@ -20625,7 +20036,7 @@
       "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
       "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
       "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 14:14:58 GMT",
+      "time": "Thu, 03 Sep 2026 14:41:51 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -21072,70 +20483,6 @@
       "politicalSignalScore": 0.0
     },
     {
-      "id": "de9e867299ef",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 22:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
-      "id": "565fbb2d2b2d",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Brazen act of self - dealing . Lawmakers , watchdogs alarmed after Trump regulators let Trump firm start a bank",
-      "summary": "",
-      "source": "https://www.cnn.com/2026/08/17/investing/trump-crypto-bank-world-liberty",
-      "time": "3 Aug 2026 19:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
-      "id": "59bfa788d542",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump and Thune showdown splinters GOP unity ahead of midterms",
-      "summary": "",
-      "source": "https://edition.cnn.com/2026/08/02/politics/trump-thune-gop-midterms",
-      "time": "3 Aug 2026 11:45:00 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump",
-        "Republicans"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "edition.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 0.0
-    },
-    {
       "id": "68f33615f51b",
       "sourceLabel": "GDELT Live — Global",
       "sourceType": "live",
@@ -21159,6 +20506,33 @@
     }
   ],
   "worldPolitics": [
+    {
+      "id": "41d7c8ee8c42",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
+      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
+      "time": "2026-09-03T10:45:16+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Foreign Policy"
+      ],
+      "sourceDomain": "aljazeera.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 42.9
+    },
     {
       "id": "7e369d09a9ea",
       "sourceLabel": "Al Jazeera",
@@ -21184,7 +20558,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.4
+      "politicalSignalScore": 40.2
     },
     {
       "id": "884558a5687b",
@@ -21211,7 +20585,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
     },
     {
       "id": "0859be90fbe5",
@@ -21238,7 +20612,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.0
+      "politicalSignalScore": 19.7
     },
     {
       "id": "750589f89281",
@@ -21268,7 +20642,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.3
+      "politicalSignalScore": 18.0
     },
     {
       "id": "677b245840a5",
@@ -21446,29 +20820,6 @@
       "politicalSignalScore": 4.0
     },
     {
-      "id": "2a835d6bfc0c",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "Justice department orders US states to expand how they report undocumented immigrants",
-      "summary": "New DoJ opinion says entire state government has duty to report, not just agencies responsible for welfare programs  The US Department of Justice has ordered states to expand how they report undocumented immigrants to the federal government, according to a legal opinion from Tuesday that reverses a policy that has been in place for nearly 30 years.  Under  the new opinion , issued by the department’s office of legal ",
-      "source": "https://www.theguardian.com/us-news/2026/sep/02/justice-department-undocumented-immigrants-reports",
-      "time": "Wed, 02 Sep 2026 20:02:39 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [
-        "Department of Justice"
-      ],
-      "politicalTopics": [
-        "Public Opinion"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
       "id": "11ae75dd6032",
       "sourceLabel": "Guardian World",
       "sourceType": "international",
@@ -21506,27 +20857,6 @@
         "Immigration"
       ],
       "sourceDomain": "france24.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "41d7c8ee8c42",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
-      "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 10:45:16 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Foreign Policy"
-      ],
-      "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
@@ -21742,32 +21072,29 @@
     }
   ],
   "layerCounts": {
-    "us-politics": 71,
-    "world-politics": 20,
+    "us-politics": 58,
+    "world-politics": 19,
     "economics": 9,
-    "general": 190
+    "general": 187
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T14:47:43.878486+00:00",
+    "updatedAt": "2026-09-03T15:04:30.186851+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 91,
-    "usPoliticsSignals": 71,
-    "worldPoliticsSignals": 20,
-    "corroboratedSignals": 11,
-    "singleSourceSignals": 80,
+    "totalSignals": 77,
+    "usPoliticsSignals": 58,
+    "worldPoliticsSignals": 19,
+    "corroboratedSignals": 2,
+    "singleSourceSignals": 75,
     "sourceCounts": {
-      "theguardian.com": 21,
+      "theguardian.com": 20,
       "npr.org": 14,
       "foxnews.com": 13,
       "bbc.co.uk": 10,
       "france24.com": 8,
       "crisisgroup.org": 7,
-      "us.cnn.com": 6,
-      "cnn.com": 5,
       "aljazeera.com": 4,
-      "edition.cnn.com": 2,
       "jambi.tribunnews.com": 1
     },
     "topSignals": [
@@ -21797,7 +21124,34 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 47.0
+        "politicalSignalScore": 46.7
+      },
+      {
+        "id": "41d7c8ee8c42",
+        "sourceLabel": "Al Jazeera",
+        "sourceType": "news",
+        "title": "Kyrgyzstan hosts pivotal SCO summit amid global geopolitical shifts",
+        "summary": "Kyrgyzstan balances ties with global powers while leveraging its geography to secure economic and political opportunities.",
+        "source": "https://www.aljazeera.com/news/2026/9/3/kyrgyzstan-hosts-pivotal-sco-summit-amid-global-geopolitical-shifts?traffic_source=rss",
+        "time": "2026-09-03T10:45:16+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "al_jazeera",
+          "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Foreign Policy"
+        ],
+        "sourceDomain": "aljazeera.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 42.9
       },
       {
         "id": "648d6749c712",
@@ -21824,7 +21178,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.5
+        "politicalSignalScore": 42.2
       },
       {
         "id": "772547ad1bd2",
@@ -21854,7 +21208,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.9
+        "politicalSignalScore": 40.6
       },
       {
         "id": "7e369d09a9ea",
@@ -21881,7 +21235,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.4
+        "politicalSignalScore": 40.2
       },
       {
         "id": "884558a5687b",
@@ -21908,7 +21262,37 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.6
+      },
+      {
+        "id": "3593d4dc7a14",
+        "sourceLabel": "Fox News Politics",
+        "sourceType": "news",
+        "title": "The primary is over; now come the primetime mistakes",
+        "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they're ready for the Senate.",
+        "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
+        "time": "2026-09-03T00:39:05+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "fox_politics",
+          "sourceUrl": "https://moxie.foxnews.com/google-publisher/politics.xml",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "U.S. Senate"
+        ],
+        "politicalTopics": [
+          "Elections",
+          "Congress"
+        ],
+        "sourceDomain": "foxnews.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 35.5
       },
       {
         "id": "eca0fc692bc0",
@@ -21940,91 +21324,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.8
-      },
-      {
-        "id": "fda22457d246",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-        "time": "3 Aug 2026 13:30:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Congress"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "cnn.com",
-          "edition.cnn.com"
-        ],
-        "politicalSignalScore": 34.0
-      },
-      {
-        "id": "27ad6bde3c9c",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-        "summary": "",
-        "source": "https://edition.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-        "time": "3 Aug 2026 11:15:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Congress"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "edition.cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "cnn.com",
-          "us.cnn.com"
-        ],
-        "politicalSignalScore": 34.0
-      },
-      {
-        "id": "fec6030534e1",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Inside the Trump campaign plan to keep Congress despite tough odds",
-        "summary": "",
-        "source": "https://www.cnn.com/2026/08/15/politics/trump-midterms-campaign-strategy",
-        "time": "3 Aug 2026 11:00:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Congress"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "edition.cnn.com",
-          "us.cnn.com"
-        ],
-        "politicalSignalScore": 34.0
+        "politicalSignalScore": 34.5
       },
       {
         "id": "6ad10dbff853",
@@ -22057,7 +21357,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.0
+        "politicalSignalScore": 31.7
       },
       {
         "id": "6e5d651744cd",
@@ -22087,7 +21387,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.9
+        "politicalSignalScore": 31.7
       },
       {
         "id": "ca396a85c9e1",
@@ -22116,7 +21416,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 30.2
+        "politicalSignalScore": 30.0
       },
       {
         "id": "0859be90fbe5",
@@ -22143,7 +21443,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 20.0
+        "politicalSignalScore": 19.7
       },
       {
         "id": "10bfce7085f4",
@@ -22225,33 +21525,6 @@
         "politicalSignalScore": 19.0
       },
       {
-        "id": "e71b86c4de34",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Speaker Johnson sends bipartisan housing bill to White House but Trump says it a  yawn",
-        "summary": "",
-        "source": "https://www.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump",
-        "time": "3 Jun 2026 20:30:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "White House"
-        ],
-        "politicalTopics": [
-          "Congress",
-          "Executive"
-        ],
-        "sourceDomain": "cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "us.cnn.com"
-        ],
-        "politicalSignalScore": 19.0
-      },
-      {
         "id": "750589f89281",
         "sourceLabel": "The Guardian World",
         "sourceType": "news",
@@ -22279,7 +21552,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 18.3
+        "politicalSignalScore": 18.0
       },
       {
         "id": "7435e5436b5c",
@@ -22418,134 +21691,6 @@
         "sourceDomain": "crisisgroup.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "d1ef0b0c9360",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-        "summary": "",
-        "source": "https://www.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-        "time": "3 Aug 2026 21:00:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump"
-        ],
-        "politicalTopics": [
-          "Elections"
-        ],
-        "sourceDomain": "cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "us.cnn.com"
-        ],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "6de39e851de3",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump declines to rule out declaring a national security emergency to control the 2026 election",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/08/11/politics/trump-national-emergency-election",
-        "time": "3 Aug 2026 20:30:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump"
-        ],
-        "politicalTopics": [
-          "Elections"
-        ],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "cnn.com"
-        ],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "762134456216",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump is staking out extreme positions on White House secrecy , legal experts say",
-        "summary": "",
-        "source": "https://us.cnn.com/trump-white-house-secrecy",
-        "time": "3 Aug 2026 15:45:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "White House"
-        ],
-        "politicalTopics": [
-          "Executive"
-        ],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "cnn.com"
-        ],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "1287dd7a41bf",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-        "time": "3 Aug 2026 06:15:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Iran"
-        ],
-        "politicalTopics": [
-          "Economy"
-        ],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "cnn.com"
-        ],
-        "politicalSignalScore": 17.0
-      },
-      {
-        "id": "ced705f4efe3",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-        "summary": "",
-        "source": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis",
-        "time": "3 Aug 2026 05:30:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Iran"
-        ],
-        "politicalTopics": [
-          "Economy"
-        ],
-        "sourceDomain": "cnn.com",
-        "evidenceLevel": "CORROBORATED",
-        "corroboratingSources": [
-          "us.cnn.com"
-        ],
         "politicalSignalScore": 17.0
       },
       {
@@ -22782,30 +21927,6 @@
           "Trade"
         ],
         "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 4.0
-      },
-      {
-        "id": "3593d4dc7a14",
-        "sourceLabel": "Fox News Politics",
-        "sourceType": "us-politics",
-        "title": "The primary is over; now come the primetime mistakes",
-        "summary": "Not every candidate is Deion Sanders in Primetime. Abdul El-Sayed and Darline Graham face questions about whether they&apos;re ready for the Senate.",
-        "source": "https://www.foxnews.com/politics/primary-over-now-come-primetime-mistakes",
-        "time": "Wed, 02 Sep 2026 20:39:05 -0400",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "U.S. Senate"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
         "politicalSignalScore": 4.0
@@ -23142,54 +22263,6 @@
         "politicalSignalScore": 4.0
       },
       {
-        "id": "66cfcb0fc883",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump fixation on election overhaul bill derails GOP agenda on Capitol Hill",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/06/25/politics/trump-save-act-congress",
-        "time": "3 Jun 2026 01:30:00 +0000",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump",
-          "Republicans"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Congress"
-        ],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 4.0
-      },
-      {
-        "id": "2a835d6bfc0c",
-        "sourceLabel": "Guardian US",
-        "sourceType": "regional",
-        "title": "Justice department orders US states to expand how they report undocumented immigrants",
-        "summary": "New DoJ opinion says entire state government has duty to report, not just agencies responsible for welfare programs  The US Department of Justice has ordered states to expand how they report undocumented immigrants to the federal government, according to a legal opinion from Tuesday that reverses a policy that has been in place for nearly 30 years.  Under  the new opinion , issued by the department’s office of legal ",
-        "source": "https://www.theguardian.com/us-news/2026/sep/02/justice-department-undocumented-immigrants-reports",
-        "time": "Wed, 02 Sep 2026 20:02:39 GMT",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [
-          "Department of Justice"
-        ],
-        "politicalTopics": [
-          "Public Opinion"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 2.0
-      },
-      {
         "id": "4e39b533e89b",
         "sourceLabel": "Guardian US",
         "sourceType": "regional",
@@ -23274,6 +22347,232 @@
         "politicalEntities": [],
         "politicalTopics": [
           "Congress"
+        ],
+        "sourceDomain": "npr.org",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "6481d41eccb3",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
+        "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
+        "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+        "time": "Thu, 03 Sep 2026 14:41:51 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Congress",
+          "Democrats",
+          "Republicans"
+        ],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "c6ceb9502a6c",
+        "sourceLabel": "France 24",
+        "sourceType": "international",
+        "title": "France's Macron meets UK PM Burnham at Downing Street",
+        "summary": "French President Emmanuel Macron met Britain’s new Prime Minister, Andy Burnham, for official talks at 10 Downing Street. The meeting came a day after the pair were joined by King Charles and Queen Camilla at the British Museum for a preview of the Bayeux Tapestry exhibition in London. Macron is the first EU leader to meet Burnham. Talks are expected to cover relations between Britain and the European Union, support ",
+        "source": "https://www.france24.com/en/video/20260903-france-s-macron-meets-uk-pm-burnham-at-downing-street",
+        "time": "Thu, 03 Sep 2026 13:45:13 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "European Union"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "france24.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "135ba37aedc8",
+        "sourceLabel": "BBC World",
+        "sourceType": "international",
+        "title": "Vance's Antichrist comments are a 'common belief', his friend tells BBC",
+        "summary": "The US vice-president recently mused with a Christian podcast host on whether the end of the world was nigh.",
+        "source": "https://www.bbc.co.uk/news/articles/cn4kwzr8gd9o?at_medium=RSS&at_campaign=rss",
+        "time": "Thu, 03 Sep 2026 13:07:02 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "bbc.co.uk",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "11ae75dd6032",
+        "sourceLabel": "Guardian World",
+        "sourceType": "international",
+        "title": "Spain’s PM says no evidence ‘whatsoever’ Morocco behind Ceuta border breach",
+        "summary": "Pedro Sánchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border     Europe live – latest updates     Spain has seen no evidence “whatsoever” that Morocco planned or facilitated a mass border breach into its north African territory of Ceuta, the Spanish prime minister, Pedro Sánchez, has told parliament.  The address on Thursday followed the emergence of a police report, c",
+        "source": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
+        "time": "Thu, 03 Sep 2026 12:52:08 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Immigration"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "493f99a956ef",
+        "sourceLabel": "France 24",
+        "sourceType": "international",
+        "title": "Spain's Sanchez says no 'solid proof' that Morocco planned Ceuta crisis",
+        "summary": "Spanish Prime Minister Pedro Sanchez has told lawmakers that there is no evidence the Ceuta migrant crisis was orchestrated by Morocco's government. His remarks come a day after tens of thousands of people took part in protests across the country to criticize his handling of the migrant influx. He acknowledged that Ceuta was both a humanitarian crisis and an administrative challenge. But he rejected the findings of a",
+        "source": "https://www.france24.com/en/video/20260903-spain-s-sanchez-says-no-solid-proof-that-morocco-planned-ceuta-crisis",
+        "time": "Thu, 03 Sep 2026 11:58:47 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Immigration"
+        ],
+        "sourceDomain": "france24.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "fe6f41c71588",
+        "sourceLabel": "BBC World",
+        "sourceType": "international",
+        "title": "Kenyan president orders crackdown on foreigners operating small businesses",
+        "summary": "It comes amid concerns over the growing number of traders from neighbouring countries.",
+        "source": "https://www.bbc.co.uk/news/articles/c9861x5pzgxo?at_medium=RSS&at_campaign=rss",
+        "time": "Thu, 03 Sep 2026 10:59:14 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "bbc.co.uk",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "9b2e6ca20dde",
+        "sourceLabel": "BBC World",
+        "sourceType": "international",
+        "title": "Trump $1 coin makes him first living president on US currency in a century",
+        "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+        "source": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss",
+        "time": "Thu, 03 Sep 2026 10:25:43 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "bbc.co.uk",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "aa033c582456",
+        "sourceLabel": "Fox News Politics",
+        "sourceType": "us-politics",
+        "title": "Powerful union leader backs Republican in key Senate showdown",
+        "summary": "Sean O&apos;Brien, one of the top union leaders in the country, backed Sen. Roger Marshall in the Kansas Senate race against Democrat Adam Hamilton.",
+        "source": "https://www.foxnews.com/politics/teamsters-leader-turned-maga-world-darling-backs-republican-key-senate-showdown",
+        "time": "Thu, 03 Sep 2026 10:14:27 -0400",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "U.S. Senate",
+          "Democrats",
+          "Republicans"
+        ],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "foxnews.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "3fe6f04f408b",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "Trump ranks himself the greatest US president ever. Historians beg to differ",
+        "summary": "Donald Trump posted his own presidential rankings to Truth Social last week, separating past US presidents into six categories from ‘greatest’ to ‘failures’  Donald Trump has declared himself to be the “greatest” US president ever, sharing a post on social media last week which graded him above the likes of Abraham Lincoln, Franklin D Roosevelt and George Washington. Experts take a different view.  Few presidential h",
+        "source": "https://www.theguardian.com/us-news/2026/sep/03/greatest-president-trump-historians-disagree",
+        "time": "Thu, 03 Sep 2026 10:00:50 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
+      },
+      {
+        "id": "7b828d93a26e",
+        "sourceLabel": "NPR World",
+        "sourceType": "international",
+        "title": "Dems demand DHS fund election security. And, journalist Gloria Steinem has died",
+        "summary": "Two Democrats are demanding that Homeland Security officials fund election security ahead of the midterms. And, trail-blazing journalist Gloria Steinem has died.",
+        "source": "https://www.npr.org/2026/09/03/g-s1-141784/up-first-newsletter-election-security-venezuela-oil-lindsay-clancy-gloria-steinem",
+        "time": "Thu, 03 Sep 2026 07:17:01 -0400",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Democrats"
+        ],
+        "politicalTopics": [
+          "Elections"
         ],
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
@@ -23590,7 +22889,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T14:47:54.931070Z",
+    "updatedAt": "2026-09-03T15:04:39.953177Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -23598,25 +22897,25 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 65
+        "mentions": 52
       },
       {
         "id": "iran",
         "label": "Iran",
         "kind": "actor",
-        "mentions": 36
-      },
-      {
-        "id": "u-s-politics",
-        "label": "U.S. Politics",
-        "kind": "political",
         "mentions": 35
       },
       {
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 27
+        "mentions": 28
+      },
+      {
+        "id": "u-s-politics",
+        "label": "U.S. Politics",
+        "kind": "political",
+        "mentions": 24
       },
       {
         "id": "united-kingdom",
@@ -23634,12 +22933,6 @@
         "id": "ukraine",
         "label": "Ukraine",
         "kind": "actor",
-        "mentions": 10
-      },
-      {
-        "id": "global-economy",
-        "label": "Global Economy",
-        "kind": "economic",
         "mentions": 10
       },
       {
@@ -23671,6 +22964,12 @@
         "label": "Canada",
         "kind": "actor",
         "mentions": 9
+      },
+      {
+        "id": "global-economy",
+        "label": "Global Economy",
+        "kind": "economic",
+        "mentions": 8
       },
       {
         "id": "venezuela",
@@ -23706,8 +23005,48 @@
     "edges": [
       {
         "source": "United States",
+        "target": "Iran",
+        "weight": 19,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 14:38:40 GMT"
+          },
+          {
+            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
+            "url": "",
+            "source": "France 24",
+            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
+          },
+          {
+            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          },
+          {
+            "title": "China's Xi visits Egypt for the first time in a decade",
+            "url": "",
+            "source": "NPR World",
+            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
+          },
+          {
+            "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
+            "url": "",
+            "source": "The Guardian World",
+            "time": "2026-09-03T14:16:54+00:00"
+          }
+        ]
+      },
+      {
+        "source": "United States",
         "target": "U.S. Politics",
-        "weight": 26,
+        "weight": 15,
         "types": [
           "story"
         ],
@@ -23716,7 +23055,7 @@
             "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
             "url": "",
             "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 14:14:58 GMT"
+            "time": "Thu, 03 Sep 2026 14:41:51 GMT"
           },
           {
             "title": "Another White House renovation? A look at Trump's new helipad",
@@ -23741,46 +23080,6 @@
             "url": "",
             "source": "Fox News Politics",
             "time": "2026-09-02T20:35:34+00:00"
-          }
-        ]
-      },
-      {
-        "source": "United States",
-        "target": "Iran",
-        "weight": 21,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Putin's 'global battle' against US, NATO: Russia 'testing' NATO since 2022 Ukraine invasion began",
-            "url": "",
-            "source": "France 24",
-            "time": "Thu, 03 Sep 2026 10:26:42 GMT"
-          },
-          {
-            "title": "The wars in Ukraine and Iran are becoming dangerously enmeshed | Christopher S Chivvis",
-            "url": "",
-            "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 10:00:50 GMT"
-          },
-          {
-            "title": "China's Xi visits Egypt for the first time in a decade",
-            "url": "",
-            "source": "NPR World",
-            "time": "Thu, 03 Sep 2026 04:08:39 -0400"
-          },
-          {
-            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:38:40+00:00"
-          },
-          {
-            "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:16:54+00:00"
           }
         ]
       },
@@ -23841,16 +23140,16 @@
             "time": "Wed, 02 Sep 2026 23:01:37 GMT"
           },
           {
+            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 14:38:40 GMT"
+          },
+          {
             "title": "U.S.-Israel relations are on the rocks ahead of elections",
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:38:40+00:00"
           },
           {
             "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
@@ -23875,6 +23174,12 @@
         ],
         "evidence": [
           {
+            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 14:38:40 GMT"
+          },
+          {
             "title": "FIRST ON FOX: ‘No Kings’ protest network behind fight against AI data centers and Flock cameras",
             "url": "",
             "source": "Fox News Politics",
@@ -23885,12 +23190,6 @@
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:38:40+00:00"
           },
           {
             "title": "Iran targets US bases as Israel warns sanctions could drive Tehran to ‘desperate steps’",
@@ -23962,6 +23261,12 @@
             "time": "Wed, 02 Sep 2026 14:44:39 GMT"
           },
           {
+            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 14:38:40 GMT"
+          },
+          {
             "title": "The US and Venezuela: a century-old relationship drenched in oil",
             "url": "",
             "source": "Guardian World",
@@ -23978,12 +23283,6 @@
             "url": "",
             "source": "NPR World",
             "time": "Thu, 03 Sep 2026 04:07:44 -0400"
-          },
-          {
-            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:38:40+00:00"
           }
         ]
       },
@@ -24105,62 +23404,6 @@
             "url": "",
             "source": "Conflict record",
             "time": ""
-          }
-        ]
-      },
-      {
-        "source": "U.S. Politics",
-        "target": "Global Economy",
-        "weight": 4,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Working-class ER nurse seeks to flip battleground Wisconsin House seat",
-            "url": "",
-            "source": "Guardian US",
-            "time": "Thu, 03 Sep 2026 11:00:51 GMT"
-          },
-          {
-            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
-            "url": "",
-            "source": "Fox News Politics",
-            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
-          },
-          {
-            "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-            "url": "",
-            "source": "CNN Politics — GDELT Mirror",
-            "time": "3 Aug 2026 06:15:00 +0000"
-          }
-        ]
-      },
-      {
-        "source": "United States",
-        "target": "Global Economy",
-        "weight": 4,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
-            "url": "",
-            "source": "NPR World",
-            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
-          },
-          {
-            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
-            "url": "",
-            "source": "Fox News Politics",
-            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
-          },
-          {
-            "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-            "url": "",
-            "source": "CNN Politics — GDELT Mirror",
-            "time": "3 Aug 2026 06:15:00 +0000"
           }
         ]
       },
@@ -24418,50 +23661,6 @@
       },
       {
         "source": "U.S. Politics",
-        "target": "Iran",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "U.S.-Israel relations are on the rocks ahead of elections",
-            "url": "",
-            "source": "NPR World",
-            "time": "Thu, 03 Sep 2026 04:06:18 -0400"
-          },
-          {
-            "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-            "url": "",
-            "source": "CNN Politics — GDELT Mirror",
-            "time": "3 Aug 2026 06:15:00 +0000"
-          }
-        ]
-      },
-      {
-        "source": "Iran",
-        "target": "Global Economy",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
-            "url": "",
-            "source": "NPR World",
-            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
-          },
-          {
-            "title": "Trump has a Carter - style Iran problem as the economy drags before the midterms",
-            "url": "",
-            "source": "CNN Politics — GDELT Mirror",
-            "time": "3 Aug 2026 06:15:00 +0000"
-          }
-        ]
-      },
-      {
-        "source": "U.S. Politics",
         "target": "United Kingdom",
         "weight": 2,
         "types": [
@@ -24615,6 +23814,28 @@
         ]
       },
       {
+        "source": "U.S. Politics",
+        "target": "Global Economy",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Working-class ER nurse seeks to flip battleground Wisconsin House seat",
+            "url": "",
+            "source": "Guardian US",
+            "time": "Thu, 03 Sep 2026 11:00:51 GMT"
+          },
+          {
+            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
+          }
+        ]
+      },
+      {
         "source": "United States",
         "target": "Russia",
         "weight": 2,
@@ -24721,6 +23942,28 @@
             "url": "",
             "source": "Guardian US",
             "time": "Thu, 03 Sep 2026 10:00:50 GMT"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Global Economy",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Iran fires on its Gulf neighbors, retaliating for U.S. strikes after a monthlong lull",
+            "url": "",
+            "source": "NPR World",
+            "time": "Wed, 02 Sep 2026 11:18:09 -0400"
+          },
+          {
+            "title": "Johnson downplays GOP's midterm woes as Democrats eye House takeover: 'I am very bullish'",
+            "url": "",
+            "source": "Fox News Politics",
+            "time": "Thu, 03 Sep 2026 05:00:45 -0400"
           }
         ]
       },
