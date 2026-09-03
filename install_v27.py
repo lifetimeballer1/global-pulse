@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -18,6 +19,7 @@ def install() -> None:
         html = re.sub(rf'\n?\s*<script[^>]+src="{re.escape(name)}(?:\?[^\"]*)?"[^>]*></script>\s*', '\n', html, flags=re.I)
     tags = []
     for asset in ASSETS:
+        subprocess.run(["node", "--check", str(asset)], check=True)
         digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
         tags.append(f'<script src="{asset.name}?v={digest}" defer></script>')
     html = html.replace('</body>', '\n'.join(tags) + '\n</body>', 1)
