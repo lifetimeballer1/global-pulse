@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Parallel snapshot builder using the existing Global Pulse scoring engine."""
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import urlparse
+from xml.etree import ElementTree as ET
+
+import update_snapshot as base
+
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / "data"
+SNAP = DATA / "snapshot.json"
+HIST = DATA / "history.json"
+SOURCES = DATA / "sources.json"
+MAX_WORKERS = 10
+
+
+def parse_feed(label, url, kind):
+    rows, error = [], None
+    try:
+        root = ET.fromstring(base.fetch(url))
+        items = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
+        for item in items[:18]:
+            title = base.clean(base.text(item, "title") or base.text(item, "{http://www.w3.org/2005/Atom}title"))
+            link = base.text(item, "link")
+            if not link:
+                node = item.find("{http://www.w3.org/2005/Atom}link")
+                link = node.attrib.get("href", "") if node is not None else ""
+            summary = base.clean(base.text(item, "description") or base.text(item, "{http://www.w3.org/2005/Atom}summary"))
+            pub = base.text(item, "pubDate") or base.text(item, "{http://www.w3.org/2005/Atom}updated")
+            if not title or not link:
+                continue
+            breaking = base.is_breaking(title, summary)
+            rows.append({"id": hashlib.sha1(link.encode()).hexdigest()[:12], "sourceLabel": label, "sourceType": kind, "title": title[:240], "summary": summary[:420], "source": link, "time": pub, "tag": "Breaking" if breaking else "World", "confidence": "DEVELOPING", "breaking": breaking})
+    except Exception as exc:
+        error = f"{label}: {type(exc).__name__}"
+    return rows, error
+
+
+def main():
+    DATA.mkdir(exist_ok=True)
+    old = base.load_json(SNAP, {})
+    stories, errors = [], []
+    feeds = list(dict.fromkeys(base.FEEDS))
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        futures = [pool.submit(parse_feed, *feed) for feed in feeds]
+        for future in as_completed(futures):
+            rows, error = future.result()
+            stories.extend(rows)
+            if error:
+                errors.append(error)
+
+    unique, seen = [], set()
+    for story in stories:
+        if story["id"] not in seen:
+            seen.add(story["id"])
+            unique.append(story)
+    unique.sort(key=lambda s: base.parse_time(s["time"]) or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
+    stories = unique[:300]
+    old_ids = {s.get("id") for s in old.get("stories", [])}
+    new_items = [s for s in stories if s["id"] not in old_ids]
+    breakdown = {
+        "Conflict activity": base.score_dimension(stories, base.CONFLICT_RE, 35),
+        "Diplomatic strain": base.score_dimension(stories, base.DIPLO_RE, 32),
+        "Economic pressure": base.score_dimension(stories, base.ECON_RE, 32),
+        "Market volatility": base.score_dimension(stories, re.compile(r"market|stocks|bond|currency|oil|gas|volatil", re.I), 30),
+        "Military posture": base.score_dimension(stories, base.MIL_RE, 34),
+    }
+    tension = round(sum(breakdown.values()) / len(breakdown))
+    old_tension = old.get("tension")
+    delta = tension - old_tension if isinstance(old_tension, (int, float)) else 0
+    changes = [{"kind": "breaking" if s["breaking"] else "new reporting", "title": s["title"][:150], "detail": f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]]
+    if not changes:
+        changes = [{"kind": "refresh", "title": "Public sources checked — no new unique headlines", "detail": f"{len(feeds)} feeds checked; {len(stories)} current stories retained."}]
+    conflicts = base.make_conflicts(stories, old)
+    now = datetime.now(timezone.utc).isoformat()
+    snapshot = {"updatedAt": now, "sourceStatus": f"{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy", "dataNote": "Public RSS aggregation. Conflict scores are theater-specific analytical signals based on current reporting, source breadth, event severity, and recency. They are not official conflict measurements.", "tension": tension, "tensionDelta": delta, "breakdownScores": breakdown, "changes": changes, "conflicts": conflicts, "markers": old.get("markers", []), "social": old.get("social", []), "stories": stories, "sourceHealth": [{"name": label, "type": kind, "status": "error" if any(e.startswith(label + ":") for e in errors) else "ok"} for label, _, kind in feeds]}
+    SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    history = base.load_json(HIST, [])
+    history.append({"updatedAt": now, "tension": tension, "delta": delta})
+    HIST.write_text(json.dumps(history[-240:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    SOURCES.write_text(json.dumps({"updatedAt": now, "feeds": [{"name": a, "url": b, "type": c, "domain": urlparse(b).netloc} for a, b, c in feeds], "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(snapshot["sourceStatus"], "tension", tension, "conflicts", len(conflicts))
+    if errors:
+        print("errors:", "; ".join(errors))
+
+
+if __name__ == "__main__":
+    main()
