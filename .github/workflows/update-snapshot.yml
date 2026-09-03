@@ -4,19 +4,15 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
   pages: write
   id-token: write
-
 concurrency:
   group: global-pulse-production
   cancel-in-progress: true
-
 env:
   PYTHONUNBUFFERED: '1'
-
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
@@ -31,6 +27,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Expand live intelligence feeds
+        run: python update_feed_expansion.py
       - name: Refresh public intelligence data
         run: python update_snapshot.py
       - name: Sync intelligence maps
@@ -45,42 +43,33 @@ jobs:
         run: python update7_live_branding.py
       - name: Validate production build
         run: |
-          python -m py_compile update_snapshot.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_feed_expansion.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
           python - <<'PY'
           import json,re
           from pathlib import Path
-          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          html=Path('index.html').read_text(encoding='utf-8')
-          graph=d.get('intelligenceGraph',{})
-          assert d.get('updatedAt'), 'missing updatedAt'
-          assert len(d.get('stories',[])) >= 100, 'too few stories'
-          assert len(d.get('conflicts',[])) >= 25, 'too few conflicts'
-          assert len(d.get('cfrConflicts',[])) >= 20, 'CFR layer did not sync enough conflicts'
-          assert len(graph.get('nodes',[])) >= 10, 'intelligence graph has too few nodes'
-          assert len(graph.get('edges',[])) >= 10, 'intelligence graph has too few links'
-          assert isinstance(d.get('markers',[]), list), 'markers missing'
-          assert any(m.get('source') == 'Guerilla Map Strategic Reference' for m in d['markers']), 'strategic layer missing'
-          assert any(m.get('source') == 'Council on Foreign Relations — Global Conflict Tracker' for m in d['markers']), 'CFR map layer missing'
-          assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
-          assert html.count('Made by J.S.') == 1, 'J.S. branding is duplicated'
-          assert html.count('id="gp-brand-live-css"') == 1, 'branding CSS duplicated'
-          assert html.count('id="gp-auto-refresh"') == 1, 'auto-refresh script duplicated'
-          assert html.count('class="gp-footer-credit"') == 0, 'footer credit must not create extra spacing'
-          assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b', html, re.I), 'placeholder content remains'
-          assert not re.search(r'\b(coming soon|under construction)\b', html, re.I), 'unfinished copy remains'
-          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(graph['nodes'])} graph nodes, {len(graph['edges'])} graph edges")
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'));html=Path('index.html').read_text(encoding='utf-8');g=d.get('intelligenceGraph',{})
+          assert d.get('updatedAt')
+          assert len(d.get('stories',[]))>=100
+          assert len(d.get('conflicts',[]))>=25
+          assert len(d.get('cfrConflicts',[]))>=20
+          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
+          assert any(m.get('source')=='Guerilla Map Strategic Reference' for m in d.get('markers',[]))
+          assert any(m.get('source')=='Council on Foreign Relations — Global Conflict Tracker' for m in d.get('markers',[]))
+          assert 'gp-map-rescue-js' in html
+          assert html.count('Made by J.S.')==1
+          assert html.count('id="gp-brand-live-css"')==1
+          assert html.count('id="gp-auto-refresh"')==1
+          assert html.count('class="gp-footer-credit"')==0
+          assert not re.search(r'\b(placeholder|lorem ipsum|sample data|fake data)\b',html,re.I)
+          assert not re.search(r'\b(coming soon|under construction)\b',html,re.I)
+          print(f"VALID: {len(d['stories'])} stories, {len(d['conflicts'])} conflicts, {len(d['cfrConflicts'])} CFR conflicts, {len(d['markers'])} markers, {len(g['nodes'])} graph nodes, {len(g['edges'])} graph edges")
           PY
       - name: Commit refreshed data when changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/*.json
-          if git diff --staged --quiet; then
-            echo "No generated site/data changes to commit"
-          else
-            git commit -m "chore: refresh global pulse data"
-            git push
-          fi
+          git add index.html data/*.json update_snapshot.py
+          if git diff --staged --quiet; then echo "No generated site/data changes to commit"; else git commit -m "chore: refresh global pulse data"; git push; fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
