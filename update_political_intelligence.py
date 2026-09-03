@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """Build an automatic, provenance-first political intelligence layer.
 
-This is intentionally deterministic and conservative. It does not decide what is
-true from outlet reputation alone. It clusters similar reports, counts independent
-source domains, extracts issue/entity signals, and labels a story corroborated only
-when independent domains report a sufficiently similar event in a limited time
-window. Otherwise it remains single-source/developing.
+Deterministic and conservative: clusters similar reports, counts independent
+source domains, extracts issue/entity signals, and labels corroboration only
+when independent domains report a sufficiently similar event in a limited window.
 """
 import json
 import re
@@ -49,7 +47,7 @@ TOPICS = {
     "Public Opinion": r"\bpoll\w*\b|\bapproval\b|\bfavorability\b|\bsurvey\b|\bvoters\b|\bopinion\b",
 }
 
-STOP = set("the and that with from for this have has were will into about after before while says said their they them president latest report reports politics political news according amid over under its are was been being would could should where which what when how more than also very against between through during there here").split()
+STOP = set("the and that with from for this have has were will into about after before while says said their they them president latest report reports politics political news according amid over under its are was been being would could should where which what when how more than also very against between through during there here".split())
 
 
 def clean_text(story):
@@ -108,11 +106,8 @@ def event_match(a, b):
     shared_entities = len(ea & eb)
     shared_topics = len(ta & tb)
     sim = similarity(a, b)
-    if shared_entities >= 2 and shared_topics >= 1 and sim >= 0.18:
-        return True
-    if shared_entities >= 1 and shared_topics >= 1 and sim >= 0.32:
-        return True
-    return False
+    return ((shared_entities >= 2 and shared_topics >= 1 and sim >= 0.18) or
+            (shared_entities >= 1 and shared_topics >= 1 and sim >= 0.32))
 
 
 def main():
@@ -131,16 +126,15 @@ def main():
         t = parse_time(story)
         matches = []
         for j, other in enumerate(political):
-            if i == j:
-                continue
-            if story["sourceDomain"] == other["sourceDomain"]:
+            if i == j or story["sourceDomain"] == other["sourceDomain"]:
                 continue
             ot = parse_time(other)
             if t and ot and abs((t - ot).total_seconds()) > 24 * 3600:
                 continue
             if event_match(story, other):
                 matches.append(other)
-        domains = sorted({m["sourceDomain"] for m in matches if m.get("sourceDomain") not in ("", "unknown", "gdelt-aggregate")})
+        domains = sorted({m["sourceDomain"] for m in matches
+                          if m.get("sourceDomain") not in ("", "unknown", "gdelt-aggregate")})
         if domains:
             story["evidenceLevel"] = "CORROBORATED"
             story["corroboratingSources"] = domains[:8]
