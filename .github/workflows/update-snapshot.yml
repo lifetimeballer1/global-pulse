@@ -64,9 +64,9 @@ jobs:
           assert 'gp-map-rescue-js' in html, 'canonical map renderer missing'
           assert 'gp-evidence-css' not in html and 'gp-evidence-js' not in html, 'duplicate evidence UI remains'
           assert 'gp-map-pro-js' not in html and 'gp-own-map-js' not in html, 'legacy map controller remains'
-          assert len(re.findall(r'Made by J\\.S\\.',html)) <= 2, 'J.S. branding is duplicated'
+          assert html.count('Made by J.S.') == 1, 'J.S. branding is duplicated'
           assert html.count('id="gp-brand-live-css"') == 1, 'branding CSS duplicated'
-          assert html.count('class="gp-footer-credit"') <= 1, 'footer credit duplicated'
+          assert html.count('class="gp-footer-credit"') == 0, 'footer credit must not create extra spacing'
           print('VALID:', len(d['stories']), 'stories,', len(d['conflicts']), 'conflicts,', len(d['cfrConflicts']), 'CFR conflicts,', len(d['markers']), 'markers')
           PY
       - name: Commit and push if changed
