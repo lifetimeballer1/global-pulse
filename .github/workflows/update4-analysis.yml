@@ -1,0 +1,55 @@
+name: Global Pulse Update 4 — Intelligence Analysis
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'update4_analysis.py'
+      - '.github/workflows/update4-analysis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: global-pulse-update4
+  cancel-in-progress: true
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build intelligence analysis layer
+        run: python update4_analysis.py
+      - name: Validate Update 4 markup
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s = Path('index.html').read_text(encoding='utf-8')
+          checks = ['gp-analysis-css', 'analysisCenter', 'gp-analysis-js']
+          for x in checks:
+              assert s.count(x) == 1, f'Expected exactly one {x}, found {s.count(x)}'
+          assert 'Current Assessment' in s
+          assert 'Flashpoints' in s
+          assert 'Strategic Posture' in s
+          assert 'What Changed' in s
+          assert 'Recent Signal Timeline' in s
+          print('Update 4 validation passed')
+          PY
+      - name: Commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          if git diff --staged --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'feat: add intelligence analysis layer'
+            git push
+          fi
