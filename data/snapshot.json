@@ -256,6 +256,11 @@
   "changes": [
     {
       "kind": "system",
+      "title": "Evidence-driven conflict coverage refreshed",
+      "detail": "Monitored 12 underrepresented Africa/Americas theaters; only theaters with current reporting receive map markers."
+    },
+    {
+      "kind": "system",
       "title": "Global layers expanded",
       "detail": "Added 33 strategic reference nodes and refreshed USGS M4.5+ earthquake signals."
     },
@@ -288,11 +293,6 @@
       "kind": "new reporting",
       "title": "White House gives classic arcade games a MAGA makeover in new online launch",
       "detail": "Fox News Politics · us-politics · DEVELOPING"
-    },
-    {
-      "kind": "breaking",
-      "title": "Funeral held for child killed in US strike on Iranian wedding",
-      "detail": "Al Jazeera · international · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -10688,6 +10688,34 @@
       "region": "Haiti",
       "eventType": "ORGANIZED CRIME NODE",
       "confidence": "REFERENCE NODE / NOT AN INCIDENT"
+    },
+    {
+      "lat": 23.6345,
+      "lng": -102.5528,
+      "type": "conflict-coverage",
+      "layer": "conflict-coverage",
+      "importance": 1,
+      "title": "Mexico Cartel Violence",
+      "detail": "SINGLE-SOURCE | 1 current reports | 0 independent domains | Evidence-linked monitoring",
+      "url": null,
+      "sourceUrl": null,
+      "source": "Global Pulse evidence-driven coverage",
+      "eventType": "ORGANIZED CRIME",
+      "confidence": "SINGLE-SOURCE"
+    },
+    {
+      "lat": 6.6,
+      "lng": 20.9,
+      "type": "conflict-coverage",
+      "layer": "conflict-coverage",
+      "importance": 1,
+      "title": "Central African Republic Conflict",
+      "detail": "SINGLE-SOURCE | 4 current reports | 0 independent domains | Evidence-linked monitoring",
+      "url": null,
+      "sourceUrl": null,
+      "source": "Global Pulse evidence-driven coverage",
+      "eventType": "CONFLICT",
+      "confidence": "SINGLE-SOURCE"
     }
   ],
   "social": [
@@ -24228,5 +24256,227 @@
     "lastChecked": "2026-09-03T20:27:09.270602+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
-  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
+  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events.",
+  "conflictCoverage": {
+    "version": 1,
+    "updatedAt": "2026-09-03T20:27:33.955551+00:00",
+    "method": "Current snapshot reporting + independent source-domain corroboration; no API key required.",
+    "watchlist": [
+      {
+        "id": "haiti-criminal-violence",
+        "title": "Haiti Criminal Violence",
+        "region": "Americas",
+        "type": "CRIME/SECURITY",
+        "lat": 18.5944,
+        "lng": -72.3074,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "mexico-cartel-violence",
+        "title": "Mexico Cartel Violence",
+        "region": "Americas",
+        "type": "ORGANIZED CRIME",
+        "lat": 23.6345,
+        "lng": -102.5528,
+        "status": "SINGLE-SOURCE",
+        "confidence": 0.06,
+        "articleCount": 1,
+        "sourceDomains": [],
+        "evidence": [
+          {
+            "title": "US military laser downs Mexican cartel drones near border",
+            "source": "https://www.stripes.com/theaters/us/2026-08-28/us-military-laser-cartel-drones-22686161.html",
+            "url": null,
+            "time": "2026-08-28T20:20:18+00:00",
+            "matchedTerms": [
+              "mexican cartel"
+            ]
+          }
+        ],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "ecuador-security",
+        "title": "Ecuador Security Crisis",
+        "region": "Americas",
+        "type": "ORGANIZED CRIME",
+        "lat": -1.8312,
+        "lng": -78.1834,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "colombia-armed-groups",
+        "title": "Colombia Armed Groups",
+        "region": "Americas",
+        "type": "INSURGENCY/CRIME",
+        "lat": 4.5709,
+        "lng": -74.2973,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "venezuela-security",
+        "title": "Venezuela Security / Political Crisis",
+        "region": "Americas",
+        "type": "POLITICAL/SECURITY",
+        "lat": 8.0,
+        "lng": -66.0,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "central-america-security",
+        "title": "Central America Security",
+        "region": "Americas",
+        "type": "SECURITY",
+        "lat": 14.1,
+        "lng": -88.9,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "car-central-africa",
+        "title": "Central African Republic Conflict",
+        "region": "Africa",
+        "type": "CONFLICT",
+        "lat": 6.6,
+        "lng": 20.9,
+        "status": "SINGLE-SOURCE",
+        "confidence": 0.24,
+        "articleCount": 4,
+        "sourceDomains": [],
+        "evidence": [
+          {
+            "title": "Israel’s siege on Gaza is forcing dentists to operate in the streets",
+            "source": "https://www.aljazeera.com/features/2026/9/3/gaza-housing-dentists?traffic_source=rss",
+            "url": null,
+            "time": "2026-09-03T16:45:21+00:00",
+            "matchedTerms": [
+              "car"
+            ]
+          },
+          {
+            "title": "Air Force halts use of 1950s-era missile test kits after finding potentially carcinogenic residue",
+            "source": "https://www.stripes.com/branches/air_force/2026-09-01/missile-tests-kits-toxic-chemical-residue-22713303.html",
+            "url": null,
+            "time": "2026-09-01T11:21:07+00:00",
+            "matchedTerms": [
+              "car"
+            ]
+          },
+          {
+            "title": "US military laser downs Mexican cartel drones near border",
+            "source": "https://www.stripes.com/theaters/us/2026-08-28/us-military-laser-cartel-drones-22686161.html",
+            "url": null,
+            "time": "2026-08-28T20:20:18+00:00",
+            "matchedTerms": [
+              "car"
+            ]
+          },
+          {
+            "title": "US soldier dies in fiery crash on German highway",
+            "source": "https://www.stripes.com/branches/army/2026-08-28/soldier-dies-germany-car-crash-22685423.html",
+            "url": null,
+            "time": "2026-08-28T18:49:20+00:00",
+            "matchedTerms": [
+              "car"
+            ]
+          }
+        ],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "nigeria-northwest",
+        "title": "Nigeria Insurgency / Banditry",
+        "region": "Africa",
+        "type": "INSURGENCY",
+        "lat": 10.0,
+        "lng": 8.0,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "mozambique-cabo-delgado",
+        "title": "Mozambique Cabo Delgado",
+        "region": "Africa",
+        "type": "INSURGENCY",
+        "lat": -12.5,
+        "lng": 40.0,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "cameroon-anglophone",
+        "title": "Cameroon Anglophone Conflict",
+        "region": "Africa",
+        "type": "INSURGENCY",
+        "lat": 5.96,
+        "lng": 10.15,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "libya-militia",
+        "title": "Libya Militia / Political Security",
+        "region": "Africa",
+        "type": "SECURITY",
+        "lat": 27.0,
+        "lng": 17.0,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      },
+      {
+        "id": "ethiopia-regional",
+        "title": "Ethiopia Regional Conflict Risk",
+        "region": "Africa",
+        "type": "CONFLICT",
+        "lat": 9.145,
+        "lng": 40.4897,
+        "status": "NO CURRENT SIGNAL",
+        "confidence": 0,
+        "articleCount": 0,
+        "sourceDomains": [],
+        "evidence": [],
+        "note": "Evidence-driven monitoring coverage; this is not a claim that every matched report describes a new incident."
+      }
+    ]
+  }
 }
