@@ -13,12 +13,12 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  PYTHONUNBUFFERED: '1'
+
 concurrency:
   group: global-pulse-production
   cancel-in-progress: true
-
-env:
-  PYTHONUNBUFFERED: '1'
 
 jobs:
   refresh-and-deploy:
@@ -56,8 +56,8 @@ jobs:
       - name: Poll persistent news and public X RSS sources
         run: python news_feed_db.py --once
 
-      - name: Refresh public intelligence data
-        run: python update_snapshot.py
+      - name: Refresh public intelligence data in parallel
+        run: python update_snapshot_fast.py
 
       - name: Merge persistent live-news database into public snapshot
         run: python merge_live_news.py
@@ -86,7 +86,7 @@ jobs:
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update_intelligence_web.py global_map_ui.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
@@ -130,6 +130,8 @@ jobs:
           assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8'), 'Morse Report feed missing'
           assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'X account source missing'
           assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'SQLite integration missing'
+          assert 'while True' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'continuous collector loop missing'
+          assert 'time.sleep(POLL_SECONDS)' in Path('news_feed_db.py').read_text(encoding='utf-8'), 'five-minute polling pause missing'
           assert html.count('Made by J.S.')==1, 'branding duplicated'
           assert html.count('id="gp-brand-live-css"')==1, 'branding CSS duplicated'
           assert html.count('id="gp-auto-refresh"')==1, 'auto refresh duplicated'
