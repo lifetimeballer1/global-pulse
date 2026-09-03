@@ -37,14 +37,15 @@ jobs:
           import json
           from pathlib import Path
           html=Path('index.html').read_text(encoding='utf-8')
-          assert html.count('id="gp-final-css"') == 1
-          assert html.count('id="gp-final-js"') == 1
-          assert 'DATA PIPELINE ACTIVE' in html
+          assert html.count('id="gp-final-css"') == 1, 'Update 5 CSS missing or duplicated'
+          assert html.count('id="gp-final-js"') == 1, 'Update 5 JS missing or duplicated'
+          assert html.count('id="gpFinalBar"') == 1, 'Update 5 final bar missing or duplicated'
+          assert html.count('id="gpFreshText"') == 1, 'Freshness indicator missing or duplicated'
           data=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          assert data.get('updatedAt')
-          assert isinstance(data.get('conflicts'),list) and len(data['conflicts']) >= 25
-          assert isinstance(data.get('stories'),list)
-          assert isinstance(data.get('markers'),list)
+          assert data.get('updatedAt'), 'snapshot updatedAt missing'
+          assert isinstance(data.get('conflicts'),list) and len(data['conflicts']) >= 25, 'conflict data incomplete'
+          assert isinstance(data.get('stories'),list) and len(data['stories']) > 0, 'story data missing'
+          assert isinstance(data.get('markers'),list), 'marker data missing'
           print('Final validation passed:', len(data['conflicts']), 'conflicts,', len(data['stories']), 'stories,', len(data['markers']), 'markers')
           PY
       - name: Commit generated dashboard and data
