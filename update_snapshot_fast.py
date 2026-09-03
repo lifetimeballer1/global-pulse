@@ -80,26 +80,18 @@ def refine_conflict_evidence(conflicts):
             matched=set(sig.get('match',[]))
             if unique_aliases and matched & unique_aliases:
                 kept.append(sig); continue
-            # A signal matching only a shared alias (for example JNIM) must also
-            # contain a theater-specific country/location alias in the headline.
             if unique_aliases:
                 if any(base.alias_present(a, blob) for a in unique_aliases): kept.append(sig)
             else: kept.append(sig)
-        c['signals']=kept
-        c['signalCount']=len(kept)
+        c['signals']=kept; c['signalCount']=len(kept)
         domains={urlparse(str(s.get('url',''))).netloc.lower() for s in kept if urlparse(str(s.get('url',''))).netloc}
         c['sourceCount']=len(domains)
         if len(domains)>=3: c['confidence']='CORROBORATED'
         elif len(domains)==2: c['confidence']='MULTI-SOURCE'
         elif len(domains)==1: c['confidence']='SINGLE-SOURCE'
         else: c['confidence']='MONITORING'
-        if kept:
-            c['lastSignal']=kept[0].get('time')
-            c['recent']=kept[0].get('title','')[:180]
-        else:
-            c['lastSignal']=None
-            c['recent']='No specific current signal passed the theater-specific evidence filter.'
-            c['status']='Monitoring'
+        if kept: c['lastSignal']=kept[0].get('time'); c['recent']=kept[0].get('title','')[:180]
+        else: c['lastSignal']=None; c['recent']='No specific current signal passed the theater-specific evidence filter.'; c['status']='Monitoring'
         c['facts']=f"{len(kept)} conflict-specific signal(s) from {len(domains)} independent source domain(s) after theater and corroboration filtering."
         c['analysis']='Score is a monitoring signal based on theater-specific identifiers, event severity, source-domain breadth, and recency. Shared militant/group names alone cannot corroborate a theater. It is not a battlefield truth, casualty count, or war probability.'
     return conflicts
@@ -121,7 +113,13 @@ def main():
  weights={'Conflict activity':.22,'Diplomatic strain':.15,'Economic pressure':.16,'Market volatility':.10,'Military posture':.25,'Climate & humanitarian pressure':.12}; tension=round(sum(breakdown[k]*weights[k] for k in weights)); old_tension=old.get('tension'); delta=tension-old_tension if isinstance(old_tension,(int,float)) and old.get('scoreVersion')==SCORE_VERSION else 0
  changes=[{'kind':'breaking' if s['breaking'] else 'new reporting','title':s['title'][:150],'detail':f"{s['sourceLabel']} · {s['sourceType']} · {s['confidence']}"} for s in new_items[:10]] or [{'kind':'refresh','title':'Public sources checked — no new unique headlines','detail':f'{len(feeds)} feeds checked; {len(stories)} current stories retained.'}]
  conflicts=refine_conflict_evidence(base.make_conflicts(stories,old)); now=datetime.now(timezone.utc).isoformat(); hp=[p for p in history if isinstance(p,dict) and p.get('scoreVersion')==SCORE_VERSION]; hw=hp+[{'updatedAt':now,'tension':tension,'delta':delta,'scoreVersion':SCORE_VERSION}]; early=build_early_warning(tension,breakdown,hw)
+ # CRITICAL: the 5-minute refresh owns news/scoring, but must never erase OSINT
+ # map state produced by the regional, conflict-coverage, or other map workflows.
+ # Preserve the whole osintMaps object so regionalPoints/counts/diagnostics survive
+ # every refresh and remain available to Pages and the frontend.
+ preserved_osint=old.get('osintMaps') if isinstance(old.get('osintMaps'),dict) else None
  snapshot={'updatedAt':now,'scoreVersion':SCORE_VERSION,'sourceStatus':f'{len(stories)} stories · {len(new_items)} new · {len(feeds)-len(errors)}/{len(feeds)} feeds healthy','dataNote':'Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score.','tension':tension,'tensionDelta':delta,'breakdownScores':breakdown,'driverSignals':evidence,'climatePressure':climate,'earlyWarning':early,'changes':changes,'conflicts':conflicts,'markers':old.get('markers',[]),'social':old.get('social',[]),'stories':stories,'sourceHealth':[{'name':label,'type':kind,'status':'failed' if any(e.startswith(label+':') for e in errors) else 'online'} for label,_,kind in feeds]}
- SNAP.write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); HIST.write_text(json.dumps(hw[-288:],ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); SOURCES.write_text(json.dumps({'updatedAt':now,'feeds':[{'name':a,'url':b,'type':c,'domain':urlparse(b).netloc} for a,b,c in feeds],'errors':errors},ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); print(snapshot['sourceStatus'],'tension',tension,'early warning',early['level'],'conflicts',len(conflicts))
+ if preserved_osint is not None: snapshot['osintMaps']=preserved_osint
+ SNAP.write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); HIST.write_text(json.dumps(hw[-288:],ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); SOURCES.write_text(json.dumps({'updatedAt':now,'feeds':[{'name':a,'url':b,'type':c,'domain':urlparse(b).netloc} for a,b,c in feeds],'errors':errors},ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); print(snapshot['sourceStatus'],'tension',tension,'early warning',early['level'],'conflicts',len(conflicts),'preserved_osint',bool(preserved_osint))
  if errors: print('errors:','; '.join(errors))
 if __name__=='__main__': main()
