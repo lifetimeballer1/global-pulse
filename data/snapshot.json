@@ -1,32 +1,33 @@
 {
-  "updatedAt": "2026-09-03T18:18:49.973401+00:00",
-  "sourceStatus": "300 stories · 128 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
-  "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Climate & humanitarian pressure is a monitoring signal derived from current reporting and disaster alerts; it is not a climate model or official hazard index. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
-  "tension": 43,
-  "tensionDelta": -47,
+  "updatedAt": "2026-09-03T18:36:53.044834+00:00",
+  "scoreVersion": 3,
+  "sourceStatus": "300 stories · 130 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "dataNote": "Public RSS aggregation plus keyless disaster/humanitarian feeds. Driver scores are calibrated by relevant reporting pools; adding sources does not itself raise tension. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
+  "tension": 40,
+  "tensionDelta": 0,
   "breakdownScores": {
-    "Conflict activity": 60,
+    "Conflict activity": 44,
     "Diplomatic strain": 37,
-    "Economic pressure": 48,
-    "Market volatility": 37,
-    "Military posture": 42,
-    "Climate & humanitarian pressure": 33
+    "Economic pressure": 44,
+    "Market volatility": 32,
+    "Military posture": 41,
+    "Climate & humanitarian pressure": 32
   },
   "climatePressure": {
     "Drought & water": 26,
-    "Floods & storms": 29,
-    "Heat & fire": 29,
+    "Floods & storms": 28,
+    "Heat & fire": 28,
     "Food security": 25,
-    "Health outbreaks": 26
+    "Health outbreaks": 25
   },
   "earlyWarning": {
     "level": "WATCH",
-    "score": 43,
-    "momentum": -1.8,
+    "score": 40,
+    "momentum": 0.0,
     "direction": "stable",
     "strongestDriver": "Conflict activity",
-    "strongestDriverScore": 60,
-    "method": "Recent 12 snapshots versus the preceding 24 snapshots, plus current tension level."
+    "strongestDriverScore": 44,
+    "method": "Recent 12 snapshots versus the preceding 24 snapshots from the current scoring model only."
   },
   "changes": [
     {
@@ -45,28 +46,28 @@
       "detail": "Global War News Map: 250 points | Cartel Intelligence Map: 180 points"
     },
     {
-      "kind": "breaking",
-      "title": "ICE officer faces federal charges for lying about shooting of Venezuelan immigrant",
-      "detail": "NPR Politics · us-politics · DEVELOPING"
-    },
-    {
       "kind": "new reporting",
-      "title": "Fox News star Maria Bartiromo is out at the network",
-      "detail": "NPR Politics · us-politics · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Gaza farmers restore seed bank to preserve local crops",
+      "title": "Stranded survivors in Nepal cross raging Trishuli River using zip line",
       "detail": "Al Jazeera · international · DEVELOPING"
     },
     {
-      "kind": "breaking",
-      "title": "Hong Kong pro-democracy activist Joshua Wong pleads guilty in second national security case",
-      "detail": "Guardian World · international · DEVELOPING"
+      "kind": "new reporting",
+      "title": "Israel releases Lebanese civilian, says five prisoners will be freed",
+      "detail": "Al Jazeera · international · DEVELOPING"
     },
     {
       "kind": "new reporting",
-      "title": "Jailed HK activist Joshua Wong pleads guilty to foreign collusion",
+      "title": "Rat do izbora na tiho ? Trumpovi ljudi žele smiriti Iran do studenog",
+      "detail": "GDELT Live — Global · live · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "北美观察丨一边重新开火 一边急于刹车 白宫在担心什么 ？",
+      "detail": "GDELT Live — Global · live · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "South Korea jails care home head for sexually assaulting disabled residents",
       "detail": "BBC Asia · regional · DEVELOPING"
     }
   ],
@@ -188,7 +189,7 @@
           "title": "Jerusalem Daily: Students sing ‘Erase Palestine’",
           "source": "Al Jazeera",
           "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/jerusalem-daily-students-sing-erase?traffic_source=rss",
-          "time": "Thu, 03 Sep 2026 15:32:33 +0000",
+          "time": "2026-09-03T15:32:33+00:00",
           "match": [
             "west bank",
             "palestinian"
@@ -8109,6 +8110,286 @@
       "confidence": "PUBLIC LIVE FEED"
     },
     {
+      "lat": 37.7963,
+      "lng": 95.4671,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 271 km SSE of Dunhuang, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te21",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2887,
+      "lng": -169.4187,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 81 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te09",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2839,
+      "lng": -169.2869,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 78 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000te02",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 14.4605,
+      "lng": 56.4505,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — Owen Fracture Zone region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdzk",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.1366,
+      "lng": 169.3059,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 65 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdz8",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.0562,
+      "lng": -169.1988,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 100 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdys",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.253,
+      "lng": -169.579,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 90 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdyi",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.8458,
+      "lng": 104.5066,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 21 km WNW of Jiangyou, China",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.3458,
+      "lng": -169.5607,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.9 earthquake — 81 km SW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw5",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 17.6542,
+      "lng": -94.6336,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.8 earthquake — 12 km E of Venustiano Carranza (Peña Blanca), Mexico",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw2",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.1321,
+      "lng": -169.4182,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.2 earthquake — 97 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdy7",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 52.2579,
+      "lng": -169.4088,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.3 earthquake — 84 km SSW of Nikolski, Alaska",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 31.3618,
+      "lng": 80.33,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 115 km NE of Joshīmath, India",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv4",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.7887,
+      "lng": -176.4067,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 122 km WNW of Houma, Tonga",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdv1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -29.7346,
+      "lng": -71.6979,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.1 earthquake — 42 km NW of Coquimbo, Chile",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tduc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": 4.3826,
+      "lng": -76.6896,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.5 earthquake — 30 km S of Sipí, Colombia",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdu1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -17.4745,
+      "lng": -178.0581,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M4.6 earthquake — 285 km ENE of Levuka, Fiji",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdt3",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -56.2062,
+      "lng": -27.9085,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 1,
+      "title": "M6.2 earthquake — South Sandwich Islands region",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdrv",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -20.279,
+      "lng": 169.4012,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 82 km S of Isangel, Vanuatu",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdr1",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
+      "lat": -7.1178,
+      "lng": 146.174,
+      "type": "hazard",
+      "layer": "environment",
+      "importance": 2,
+      "title": "M5.4 earthquake — 52 km W of Bulolo, Papua New Guinea",
+      "detail": "Near-real-time USGS earthquake feed; magnitude and location are preliminary and may be revised.",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "sourceUrl": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdqc",
+      "source": "USGS Earthquakes",
+      "eventType": "Natural Hazard",
+      "confidence": "PUBLIC LIVE FEED"
+    },
+    {
       "lat": 50.55428,
       "lng": 36.47101,
       "type": "conflict",
@@ -12778,8 +13059,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Avk6A7LKm75TxehyWBW3OsclPeVX7p6xRoNac6rBOCXOc4-qi1YJusJqqaCoIkPyBoLOwPp5RtDt98j7IqpOZB273WGMB7k9hUfGlPsOflgNVAN0ym4i2IRqUaMuAuBg80TNmmWXIoO5H6iLjPQsqzNVqXKk-RR8u0HSdE9gi22vZz-DH0DVJ-vYh-6yeEViWh3vZLVBVtzYdB3Zh7W9BHc97-_gvhh9YDubTm-qnSVqWFX85B1xDc2Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Avk6A7LKm75TxehyWBW3OsclPeVX7p6xRoNac6rBOCXOc4-qi1YJusJqqaCoIkPyBoLOwPp5RtDt98j7IqpOZB273WGMB7k9hUfGlPsOflgNVAN0ym4i2IRqUaMuAuBg80TNmmWXIoO5H6iLjPQsqzNVqXKk-RR8u0HSdE9gi22vZz-DH0DVJ-vYh-6yeEViWh3vZLVBVtzYdB3Zh7W9BHc97-_gvhh9YDubTm-qnSVqWFX85B1xDc2Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4m-fz51zKRE_t3v8mYQgqrOsL7D4S2NlzzKVwPGdCHC8PrDHTeQx31epp9U7Ws0Gs-TphJy3nz0dSmWC8E74hx2ereLOLGPDCHtn_8oTa6cvDxYgRlsddjkJwULp7yB4KORanCiYXoHIDnXt-79SMP_R3G15t155NnZxxmEe_Q_dCEeBm5kQsu8MPrq9cgjheLWAfc6Euvr-9U3cA38O588jZSavQ_VJqbag3-h_WZxV777ACQDm9wyzM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4m-fz51zKRE_t3v8mYQgqrOsL7D4S2NlzzKVwPGdCHC8PrDHTeQx31epp9U7Ws0Gs-TphJy3nz0dSmWC8E74hx2ereLOLGPDCHtn_8oTa6cvDxYgRlsddjkJwULp7yB4KORanCiYXoHIDnXt-79SMP_R3G15t155NnZxxmEe_Q_dCEeBm5kQsu8MPrq9cgjheLWAfc6Euvr-9U3cA38O588jZSavQ_VJqbag3-h_WZxV777ACQDm9wyzM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12814,8 +13095,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UfnpR0USjl6L0MqFAGp_A7e33O58yDlypFQ5JxPlwlzI1JP7VeA7tF2NGDCqpvrXlqv7AFRpFncIt2yUTCdfcdLGEM-pSuLPYsq4eFXxoO3QWTv9ZXJ01RhR9RRzdUlm7kva80yu-sx9do0RewNVunUqzF-1vKBnwmZdOcr3HGkmVswpOrQiJCmTcRnch0Ci1gn0YwxgwC-DUISXO1F_4G0htYrO0k7jCD0rJ9YpyprokR9QMggPZ314?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UfnpR0USjl6L0MqFAGp_A7e33O58yDlypFQ5JxPlwlzI1JP7VeA7tF2NGDCqpvrXlqv7AFRpFncIt2yUTCdfcdLGEM-pSuLPYsq4eFXxoO3QWTv9ZXJ01RhR9RRzdUlm7kva80yu-sx9do0RewNVunUqzF-1vKBnwmZdOcr3HGkmVswpOrQiJCmTcRnch0Ci1gn0YwxgwC-DUISXO1F_4G0htYrO0k7jCD0rJ9YpyprokR9QMggPZ314?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4FwMk_9DA3svczj052aYO_KLLpX-GOXIZqy6mIEmBMXbIeLH_qVsjNAqJpaUnXHgZ4QcyD46MTNZa0BBypQI_aaV3lS5_onfUIi44jQvRk329TG6cKzpyiKowUIX5cQBLoCMMi8J8waoIfzDkObJ70hBboPI9xt0QmCe1QkmHYSDYANde4nUHGxBiA5qj_Apr8g9ikvs8D3p0UZ5oWR_GXDZV5ONMAFVCayNjzpx6mFFLsgNM1AZ6aAwg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4FwMk_9DA3svczj052aYO_KLLpX-GOXIZqy6mIEmBMXbIeLH_qVsjNAqJpaUnXHgZ4QcyD46MTNZa0BBypQI_aaV3lS5_onfUIi44jQvRk329TG6cKzpyiKowUIX5cQBLoCMMi8J8waoIfzDkObJ70hBboPI9xt0QmCe1QkmHYSDYANde4nUHGxBiA5qj_Apr8g9ikvs8D3p0UZ5oWR_GXDZV5ONMAFVCayNjzpx6mFFLsgNM1AZ6aAwg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -12868,8 +13149,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64Sa-NviRDWYemHVn1P1cZ4NDAwPN5O5rdzcDUes16z9eINmWFS7Wosko9h76RfpJoBY3xf15crGQcVvtwcb6eX-QOA6jhEosAMzd6rzOQ4KHqTML0NI7s9Y-It20mvOuXwcfvsMQX3w5RVhJIWcJMv42rGG0Wq3Cx2Sa8LkHN48hUFwF9_11M3RAliBcksIMkka2a0iQIMGKQSTkWzTsFrg-Iz0b9Thwl2ezJiKBwJcydFzinc37JLpk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64Sa-NviRDWYemHVn1P1cZ4NDAwPN5O5rdzcDUes16z9eINmWFS7Wosko9h76RfpJoBY3xf15crGQcVvtwcb6eX-QOA6jhEosAMzd6rzOQ4KHqTML0NI7s9Y-It20mvOuXwcfvsMQX3w5RVhJIWcJMv42rGG0Wq3Cx2Sa8LkHN48hUFwF9_11M3RAliBcksIMkka2a0iQIMGKQSTkWzTsFrg-Iz0b9Thwl2ezJiKBwJcydFzinc37JLpk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7iEuy-oGGNmALgxKyE4qY-3yb1IxLBtufrKd3vMKdgH1t_vV2ss50yEEaK1DnZ6cI0X6LNo39RruOVn5nMb9o5zuIhwmnzDOJeqtY8fDQvuJEpY0Xq07Duv6TDXi5Bl4rB25PUfFxA8MJDpC-omcOHWWOt0omuuVSReljhhRFV5KjT3idLTU_MXZzvl78Lv1DzLV9Fw6oH-IL1Xc33PU_m0LzlSdw-Sk9IBgDDWoMjt_TOCM9faUclJc0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7iEuy-oGGNmALgxKyE4qY-3yb1IxLBtufrKd3vMKdgH1t_vV2ss50yEEaK1DnZ6cI0X6LNo39RruOVn5nMb9o5zuIhwmnzDOJeqtY8fDQvuJEpY0Xq07Duv6TDXi5Bl4rB25PUfFxA8MJDpC-omcOHWWOt0omuuVSReljhhRFV5KjT3idLTU_MXZzvl78Lv1DzLV9Fw6oH-IL1Xc33PU_m0LzlSdw-Sk9IBgDDWoMjt_TOCM9faUclJc0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -13876,8 +14157,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76BmJdh1FcPcXta02hh1xiUAor0ZWOA9ihsDJQqUh4SiDmwhSO0OBqOYPA4X-YGup0TK7-IgOzQj6n6DqWfuYDjSYQjK7HtI4MbaQRxIWkNGNlWh1uDW36v8ICwAP2E2ackAi9a40uZhrDe3QFR_Hoahn1cngBKE0l6_VD0jvZglEMHl7exRBlUtDcdmv7VcjPH9keN9TX4yYuAtzo5oJYQsk9dem-QbE4OaMjRvEfluC29crz9TqD-a0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76BmJdh1FcPcXta02hh1xiUAor0ZWOA9ihsDJQqUh4SiDmwhSO0OBqOYPA4X-YGup0TK7-IgOzQj6n6DqWfuYDjSYQjK7HtI4MbaQRxIWkNGNlWh1uDW36v8ICwAP2E2ackAi9a40uZhrDe3QFR_Hoahn1cngBKE0l6_VD0jvZglEMHl7exRBlUtDcdmv7VcjPH9keN9TX4yYuAtzo5oJYQsk9dem-QbE4OaMjRvEfluC29crz9TqD-a0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4IM4aSHUDODoq5zGZd4GmQeihNKhgc6CC-SFYC9fU1qzFpYxZL0aveAeZB9abDwtSsahDOZqscmnDFG5Qj8-bo8Wi_UDvj6XsbUmi4iQ5yysBif4_Pc1ZGpYZTL_ZQkyST1l7nv6tUuwqSFVSZ5tRJvnXCLVPiqDH6zwnJMxCYrf9JijC9q4zX9I54DB1IGxrcPEnghpOSFu9Ucs460GGbT09Un8YhYGT5HPYEdbLJ44G2SUTWGEa5dDY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4IM4aSHUDODoq5zGZd4GmQeihNKhgc6CC-SFYC9fU1qzFpYxZL0aveAeZB9abDwtSsahDOZqscmnDFG5Qj8-bo8Wi_UDvj6XsbUmi4iQ5yysBif4_Pc1ZGpYZTL_ZQkyST1l7nv6tUuwqSFVSZ5tRJvnXCLVPiqDH6zwnJMxCYrf9JijC9q4zX9I54DB1IGxrcPEnghpOSFu9Ucs460GGbT09Un8YhYGT5HPYEdbLJ44G2SUTWGEa5dDY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15064,8 +15345,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7t_V9iWhvXqlC1yykUyyQFCBHsGVgeDIydE0aIfJdaU0-C72tGoSqvxAcIhEX_TI3y5m90iNyDnh-_wQbdqRKXoYSoiZxK3s5Lk7eJCsGGD_Dqxv1LA7wVTHFNmSIErKx4h74lS7BhF8H9M7XMfFhJZANFZvlztp7huj4oEKiaru2jmcA4y5H6eBWNFPU8wsYU_PMj9lW1h7x859Ysw5UuaQ5VQeN7NbX7ZVHDeSq09VWVA2xCVQudXuo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7t_V9iWhvXqlC1yykUyyQFCBHsGVgeDIydE0aIfJdaU0-C72tGoSqvxAcIhEX_TI3y5m90iNyDnh-_wQbdqRKXoYSoiZxK3s5Lk7eJCsGGD_Dqxv1LA7wVTHFNmSIErKx4h74lS7BhF8H9M7XMfFhJZANFZvlztp7huj4oEKiaru2jmcA4y5H6eBWNFPU8wsYU_PMj9lW1h7x859Ysw5UuaQ5VQeN7NbX7ZVHDeSq09VWVA2xCVQudXuo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5hQfpVIbN8oS1BdRiGSGGlxmCBFU6bK35e4ZAcBz5026T9JcrtMsxQz9aoYR-JZl9y_KqjnfvRJa543oPmLJFpdoIqEPAgoF_uAPnwB9TxnB0xkchPp9HosODjT0hNqIIp-HCaI6lQDca4piHQndatl-a3QJ49TTu4u7vpcF8X6RSiLm86zmXbmgOYsJM03AQVL7OTxnikXT5EOPfBYozWuKpZjDLf7JtleVjEqr5ImN4JNbzliRyV9qI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5hQfpVIbN8oS1BdRiGSGGlxmCBFU6bK35e4ZAcBz5026T9JcrtMsxQz9aoYR-JZl9y_KqjnfvRJa543oPmLJFpdoIqEPAgoF_uAPnwB9TxnB0xkchPp9HosODjT0hNqIIp-HCaI6lQDca4piHQndatl-a3QJ49TTu4u7vpcF8X6RSiLm86zmXbmgOYsJM03AQVL7OTxnikXT5EOPfBYozWuKpZjDLf7JtleVjEqr5ImN4JNbzliRyV9qI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15082,8 +15363,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR46uvPuWCtEWxQWYWA5f54ujekT7z2zhvTPK5TJe0TJpE12MKCAqm9n68PJz8q-0ckF2GQIStLdtosn4IMpuly9nTcgtanZCROl_-3De--prNQ-lvkMRqwz63c-uV77ht79axFh_kIoRyJuW-JKwPfg94dx9g_YAB3BSo78QBaEIF8uMWtyzM9jBH5jIjAb9jNLmRcIGieRp2yMICJAiq_kbC6rTsPAAm302rT0Ijqlc98RQDU63PLXTo4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR46uvPuWCtEWxQWYWA5f54ujekT7z2zhvTPK5TJe0TJpE12MKCAqm9n68PJz8q-0ckF2GQIStLdtosn4IMpuly9nTcgtanZCROl_-3De--prNQ-lvkMRqwz63c-uV77ht79axFh_kIoRyJuW-JKwPfg94dx9g_YAB3BSo78QBaEIF8uMWtyzM9jBH5jIjAb9jNLmRcIGieRp2yMICJAiq_kbC6rTsPAAm302rT0Ijqlc98RQDU63PLXTo4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mBwB4HSfC6XPc71UwhhyGowgZmMp1KEQ8HXZcVaEaUqcZ0KsX8XDfTuzDZk57V06bFrJI6VXR4XQXQmgGB87CirvLxFgcrWePkOPyXNjW1aUe3ZFRwt9s9x4fAMMMoX4fyTeoQ6VBuB2chQXD2XTy6OqfK9cUt0Q-b5MFCtceCmfloEG2KIaG3pD-lMygA6IrwzBJzZ6vupyAbbMpBiycDFGlPe48dtaZaB5qhzakaSeYWYyzLtVQKIE?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5mBwB4HSfC6XPc71UwhhyGowgZmMp1KEQ8HXZcVaEaUqcZ0KsX8XDfTuzDZk57V06bFrJI6VXR4XQXQmgGB87CirvLxFgcrWePkOPyXNjW1aUe3ZFRwt9s9x4fAMMMoX4fyTeoQ6VBuB2chQXD2XTy6OqfK9cUt0Q-b5MFCtceCmfloEG2KIaG3pD-lMygA6IrwzBJzZ6vupyAbbMpBiycDFGlPe48dtaZaB5qhzakaSeYWYyzLtVQKIE?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15100,8 +15381,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR49tIoScPrsW9HbZmGtc67h2UwHoV377qlcX-gb79FxG-7hF_05Csks5Suf-XevfHEcHAoDoFHNXN_bCsx5drfJrsKsMj04mfsbvKBUaUr4mp7KqKgYLWg9NsoMRUYxVomkjIljx53pUfjOY0T_NUk_jxx679GtnMRYuI5JBSp2OfBa22ag-LsoZYQayPV_D4dPCu6ZocIXbP03fUNxCm0P83Rdsm-8flMCQ_v61GbGy79vbbpMZPRCKZ4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR49tIoScPrsW9HbZmGtc67h2UwHoV377qlcX-gb79FxG-7hF_05Csks5Suf-XevfHEcHAoDoFHNXN_bCsx5drfJrsKsMj04mfsbvKBUaUr4mp7KqKgYLWg9NsoMRUYxVomkjIljx53pUfjOY0T_NUk_jxx679GtnMRYuI5JBSp2OfBa22ag-LsoZYQayPV_D4dPCu6ZocIXbP03fUNxCm0P83Rdsm-8flMCQ_v61GbGy79vbbpMZPRCKZ4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4JENGcJrKuLdpKE8TzTTM_BRU9Zb2O4aHQMExTeEKTepyyi8pfA17w9gXMwHzr8yObKuLImrBCjSnoqy_HI07Gd0upS3TRh7vMVXFhcCRe-o0532jTpEUKGaqHIwVKu38G3ajHdOp2TpQPH9W20K10e145elDKrfXomkEQsXwf_sjlg4dYcyFC4bMe1pKvyIrXU3aoCLqv8-_UIpjlIsrji7LttkgwjnxYsHeAh3iWQyCH1VgWmFu-U7w?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4JENGcJrKuLdpKE8TzTTM_BRU9Zb2O4aHQMExTeEKTepyyi8pfA17w9gXMwHzr8yObKuLImrBCjSnoqy_HI07Gd0upS3TRh7vMVXFhcCRe-o0532jTpEUKGaqHIwVKu38G3ajHdOp2TpQPH9W20K10e145elDKrfXomkEQsXwf_sjlg4dYcyFC4bMe1pKvyIrXU3aoCLqv8-_UIpjlIsrji7LttkgwjnxYsHeAh3iWQyCH1VgWmFu-U7w?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15118,8 +15399,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZXSaj01FqfS4z3y-Ngq7GKWRlN8hoHFL_90ZnOoicStzO9N1GWOkL7cAEKB0qvASwm2tuxmlIpxYDXJm2wOGqXHa3xOOgLuPNLroviIlqBw1Yd4jctu4yTm0kvrdT7Mr_RDT4ym5g-jDN-hRvvsqcASBiDDt9HEKfn8v6bZ__1oyHP7MG0w9Lx2jpqBcvjVVpffikhQGxPDkKc6New1HRk9obNC9Vmwnt-ZntJ1l76El8h5JSFY70NS4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZXSaj01FqfS4z3y-Ngq7GKWRlN8hoHFL_90ZnOoicStzO9N1GWOkL7cAEKB0qvASwm2tuxmlIpxYDXJm2wOGqXHa3xOOgLuPNLroviIlqBw1Yd4jctu4yTm0kvrdT7Mr_RDT4ym5g-jDN-hRvvsqcASBiDDt9HEKfn8v6bZ__1oyHP7MG0w9Lx2jpqBcvjVVpffikhQGxPDkKc6New1HRk9obNC9Vmwnt-ZntJ1l76El8h5JSFY70NS4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6cpF4bQl8yCNIGcb7Pgk_UNb5Wq2HjGWmii607nPE0WViX1_5GuVlsBo-VXfKPCnpI8Fc_83aQLwEG9Ab6Sb2lns-_73bCb9DE3ldS9Dyi_N0Y7vrg5VxqyYur1EAfdtWchg8IQ2cezZl0MyWd97crknmQMtuTIJrKKzjarf-FCguYKI0pqqTNgnvjEAtlTJZOaxxK3LP7kNvaC2n-HNUS7Yhel13g8bPqL_VtaYc_c3NVlmBxg7HdzOU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6cpF4bQl8yCNIGcb7Pgk_UNb5Wq2HjGWmii607nPE0WViX1_5GuVlsBo-VXfKPCnpI8Fc_83aQLwEG9Ab6Sb2lns-_73bCb9DE3ldS9Dyi_N0Y7vrg5VxqyYur1EAfdtWchg8IQ2cezZl0MyWd97crknmQMtuTIJrKKzjarf-FCguYKI0pqqTNgnvjEAtlTJZOaxxK3LP7kNvaC2n-HNUS7Yhel13g8bPqL_VtaYc_c3NVlmBxg7HdzOU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15136,8 +15417,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7VCTeTdoRqzcR1ChzfRuAGYQed6DCPpj2b-SCEWVIQ4tDm-2o-AEFvk2VWj6rLYt0UtJh7dusRdfFES1WCfUlyVwJDlDRyFB4a5rPMI2MnoZI8swp1cEI1Mjmo_QZfqgMaC9KZbCSe8Fp1YMA5wJq2nqMRjijbwx2pVgkYF8f4febze4iax1yv8rbXrjp6BTjr5D4XF7TwGR310iLZ3-N1ZFlrP6pF7QUMe_2DC-p1O1brMeQGlxREX28?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7VCTeTdoRqzcR1ChzfRuAGYQed6DCPpj2b-SCEWVIQ4tDm-2o-AEFvk2VWj6rLYt0UtJh7dusRdfFES1WCfUlyVwJDlDRyFB4a5rPMI2MnoZI8swp1cEI1Mjmo_QZfqgMaC9KZbCSe8Fp1YMA5wJq2nqMRjijbwx2pVgkYF8f4febze4iax1yv8rbXrjp6BTjr5D4XF7TwGR310iLZ3-N1ZFlrP6pF7QUMe_2DC-p1O1brMeQGlxREX28?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6heRV5J-zZv6XfeVW0xsv4mVeH8JbpMa1bIN_QgcD69tgBzqTxx01QVH84Ke1XnEGF1DVdOnu9Snptrc-p59HK8ZgxL7pCWisW_54URmEmYyIDiaafSr7Nts3p-frQvLB7sgpcxb1OLPtUSOMJefQS-OQXuOsjqnEOnkUZutYTF7YlOw6BdeCEo2-utEhV7cm8IPO1FrZi2c6r3d544Nvhs1MJtyqX30iN78fE8RD98FrEHWiTfWMvQqw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6heRV5J-zZv6XfeVW0xsv4mVeH8JbpMa1bIN_QgcD69tgBzqTxx01QVH84Ke1XnEGF1DVdOnu9Snptrc-p59HK8ZgxL7pCWisW_54URmEmYyIDiaafSr7Nts3p-frQvLB7sgpcxb1OLPtUSOMJefQS-OQXuOsjqnEOnkUZutYTF7YlOw6BdeCEo2-utEhV7cm8IPO1FrZi2c6r3d544Nvhs1MJtyqX30iN78fE8RD98FrEHWiTfWMvQqw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15154,8 +15435,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5izBb8gltw4_DBgJIhql-4E9z8VYLiiFP3Jw0BdaeGImpGj0qqopVhCZKNbCgNsspJcQ9Ut5VPYZ1aNm6FFDkjLLW_4zaHJgIOl6NtTusquEIKfMDM0_UTF5M7BCG1t2Ynrk8ffrNxK6kwW13AmkjZNHR_dQP-97zcvXN_ADvdOHa04paKBOxsnVBYlcmL_oZCYzJHMpg-SOxikvBCPGr_ZkCOZdI6aMz-TuApdRAQDiYfaE7W6IhZGPc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5izBb8gltw4_DBgJIhql-4E9z8VYLiiFP3Jw0BdaeGImpGj0qqopVhCZKNbCgNsspJcQ9Ut5VPYZ1aNm6FFDkjLLW_4zaHJgIOl6NtTusquEIKfMDM0_UTF5M7BCG1t2Ynrk8ffrNxK6kwW13AmkjZNHR_dQP-97zcvXN_ADvdOHa04paKBOxsnVBYlcmL_oZCYzJHMpg-SOxikvBCPGr_ZkCOZdI6aMz-TuApdRAQDiYfaE7W6IhZGPc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7AnORu7jguOthtQBkssDX-75eVCP8FVY53lC_v3V9mK_dfKcPDRujNhxezfbPECqCJvoY1rlLV5ECaEKVAfSCo2YTvkwj00WixE8FwdIu06ZD3Q-bxU0adf9cPb2hgNVpnjslaDv3GSyTEtTNwgYQXLdhcAZgs9i2f5os88x9PBU-fWZu1gCzpbj__EEHbyD4vaNQ2fhxea7rJ-IZ9eLfkFBdP0hXjl_ufqorlbj9j8b6UYiwt4cKMsXQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7AnORu7jguOthtQBkssDX-75eVCP8FVY53lC_v3V9mK_dfKcPDRujNhxezfbPECqCJvoY1rlLV5ECaEKVAfSCo2YTvkwj00WixE8FwdIu06ZD3Q-bxU0adf9cPb2hgNVpnjslaDv3GSyTEtTNwgYQXLdhcAZgs9i2f5os88x9PBU-fWZu1gCzpbj__EEHbyD4vaNQ2fhxea7rJ-IZ9eLfkFBdP0hXjl_ufqorlbj9j8b6UYiwt4cKMsXQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15172,8 +15453,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nTibn2e4iCnhFfcGPuyCc1rOwZYo6rJEZuAkwYkk_UgVhWQxiWnpUpnAUJfyIRYuzUTaaubbDUcjyENSPLA_SbBCboRGOe1PDavnPj8_2Z3zWBb3aWz6mTgue7IIixenz0PyX2Hhf5Jq8FrnY1DKnaRSldGJe21F8BXT9CRx9lAHCxhCbBdvW4Jdjhn4XkA04xzKqNZXZg-CYtGN_u_cIQpWt0Odhn98V2zJMdAvmIWsKSgD4lZJzB2Y?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7nTibn2e4iCnhFfcGPuyCc1rOwZYo6rJEZuAkwYkk_UgVhWQxiWnpUpnAUJfyIRYuzUTaaubbDUcjyENSPLA_SbBCboRGOe1PDavnPj8_2Z3zWBb3aWz6mTgue7IIixenz0PyX2Hhf5Jq8FrnY1DKnaRSldGJe21F8BXT9CRx9lAHCxhCbBdvW4Jdjhn4XkA04xzKqNZXZg-CYtGN_u_cIQpWt0Odhn98V2zJMdAvmIWsKSgD4lZJzB2Y?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_hT_unBjXnQpxi9fCRpRNaPS5csHeIQVsIK6-80S_QWdq_xWinof4AtjoDh1Cq86kFssFF2PDo-vfVuZn_BZxTtUEaGMNDuJpHIUtFKM3nCbmXI8yrHB2IsguF6r1pK6mOqGYk-xE7TzllMtxFYCs2b56EQNDoDhsLU-_eCKZuYmJDlnpCzIwEFRD1l8qq5TwTJ4roUAHkwdYLhovXVQpmblf_g2WEtgXnJwJmPGk7A7yD2icftqoU8k?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_hT_unBjXnQpxi9fCRpRNaPS5csHeIQVsIK6-80S_QWdq_xWinof4AtjoDh1Cq86kFssFF2PDo-vfVuZn_BZxTtUEaGMNDuJpHIUtFKM3nCbmXI8yrHB2IsguF6r1pK6mOqGYk-xE7TzllMtxFYCs2b56EQNDoDhsLU-_eCKZuYmJDlnpCzIwEFRD1l8qq5TwTJ4roUAHkwdYLhovXVQpmblf_g2WEtgXnJwJmPGk7A7yD2icftqoU8k?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15190,8 +15471,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Sb1oD0ESo8p4tfzGNIaNET6QmDBU-Gy811HmkMHpf8wm-bmyTgI-WdX0svWrNK6uIyNIJvWMEsdAy0Kr_EhjeORp34_GFZ8ra1S4JHW9XlcJOLAN0VXkgZFU3d0X_nHgGnFraagazF_jG81fX1b95UuBNoJSePAyrhoild8PlolZTQMArULof8RK93atcoBDdnD1AoKjBlbjLDVN8dfb8uw9PCqIYKr3VDbG_np-GDJH8A21VOdbFwzk?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Sb1oD0ESo8p4tfzGNIaNET6QmDBU-Gy811HmkMHpf8wm-bmyTgI-WdX0svWrNK6uIyNIJvWMEsdAy0Kr_EhjeORp34_GFZ8ra1S4JHW9XlcJOLAN0VXkgZFU3d0X_nHgGnFraagazF_jG81fX1b95UuBNoJSePAyrhoild8PlolZTQMArULof8RK93atcoBDdnD1AoKjBlbjLDVN8dfb8uw9PCqIYKr3VDbG_np-GDJH8A21VOdbFwzk?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7kHh1AonAu3fNAo2Gv-UOFwb5tKrcaUWGvD0fo0t69KI5vuES2BU6rP4p4T9cxN1hM35vhiSvA85DsoUBFVPxtKGK73eQjFHvdMBG0eLz9ZbvinOvyDLpOM0NLm0SQB0PdBPxSHVeh96hqyLciovJkCrAfzudBMjo7S6r-bIWk7k4_tMlgPWKv7W8dmNwcoe9PcLoWDCdoBVUoSq70Lo_JeX1x-cvg85wG6S7jviJ1FTJbuRGcv5GxTGo?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7kHh1AonAu3fNAo2Gv-UOFwb5tKrcaUWGvD0fo0t69KI5vuES2BU6rP4p4T9cxN1hM35vhiSvA85DsoUBFVPxtKGK73eQjFHvdMBG0eLz9ZbvinOvyDLpOM0NLm0SQB0PdBPxSHVeh96hqyLciovJkCrAfzudBMjo7S6r-bIWk7k4_tMlgPWKv7W8dmNwcoe9PcLoWDCdoBVUoSq70Lo_JeX1x-cvg85wG6S7jviJ1FTJbuRGcv5GxTGo?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15208,8 +15489,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4pobVnMhiuF4mKXHWl03vqshJUYgMe0I_ssEQT-kayHx-t86LFrwwVmEktvvf43nIxdAlBST7OGVm1X31b3GemvB_oEzqTWUpGHMV9P5zQpEAv2rO6aLg8PEx2GmezVK6O7IT4mPzKHIdVa8i8dj9dk1BzXlWSv5BRGq-xaajNYPX9iWeLsonLh_H9W69F8MXcuEwsHHd13ms_a0koDOxS-4y7I1tZOv7D_Nyrfh0Va2vVpiS3WY6DWJM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4pobVnMhiuF4mKXHWl03vqshJUYgMe0I_ssEQT-kayHx-t86LFrwwVmEktvvf43nIxdAlBST7OGVm1X31b3GemvB_oEzqTWUpGHMV9P5zQpEAv2rO6aLg8PEx2GmezVK6O7IT4mPzKHIdVa8i8dj9dk1BzXlWSv5BRGq-xaajNYPX9iWeLsonLh_H9W69F8MXcuEwsHHd13ms_a0koDOxS-4y7I1tZOv7D_Nyrfh0Va2vVpiS3WY6DWJM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5F6qbJ1oa3QrteHoP2fuR4WcfyDlKUfnPvfy7GFTQjVNpIDYwcIV26wf0D2UeOkIQ0DjmwNXHyB7BiV56JNo0dQNEpobQm1Ddn9m9FEdFzsQslsNkO8Ac1I5IOWgBqEKRSFmMww_a5nZnKlmFTpC7lvUAG_SUlTfhiFoRsSN9ATZpIutVU-_Y4iuJvNVkl7z9EkkKHx1CF17gvrcNHoh7vjU-YJ_Ne4ng33VuBB1L6rCd_0COVHoEJJ8o?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5F6qbJ1oa3QrteHoP2fuR4WcfyDlKUfnPvfy7GFTQjVNpIDYwcIV26wf0D2UeOkIQ0DjmwNXHyB7BiV56JNo0dQNEpobQm1Ddn9m9FEdFzsQslsNkO8Ac1I5IOWgBqEKRSFmMww_a5nZnKlmFTpC7lvUAG_SUlTfhiFoRsSN9ATZpIutVU-_Y4iuJvNVkl7z9EkkKHx1CF17gvrcNHoh7vjU-YJ_Ne4ng33VuBB1L6rCd_0COVHoEJJ8o?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15262,8 +15543,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6rY0XlhXcdXFlMmrHd49i0X07PZt0veeoNoZ9mGACtLObfWyANjqRGRfeBbD5sBQwdMPRbymay9q1RbG2CioTtjZ03WvHChY_DlV_zGOiXU9uEcAqmwzrmcfEYtLbbUGdwW0Tt-iZFlTamaeYK-_KeNt9GyqvAdSa4APbvwb8qN81Ktokb6lk8Chm5aB4_rhdkPqVkQnMPW7tgam3gNF9tcv38zan2CUd9vE_fZr1pCn33C_VGAkuTqQw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6rY0XlhXcdXFlMmrHd49i0X07PZt0veeoNoZ9mGACtLObfWyANjqRGRfeBbD5sBQwdMPRbymay9q1RbG2CioTtjZ03WvHChY_DlV_zGOiXU9uEcAqmwzrmcfEYtLbbUGdwW0Tt-iZFlTamaeYK-_KeNt9GyqvAdSa4APbvwb8qN81Ktokb6lk8Chm5aB4_rhdkPqVkQnMPW7tgam3gNF9tcv38zan2CUd9vE_fZr1pCn33C_VGAkuTqQw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4-4HUPhTPh8i56A0aMsMymCy4OuwjyAc6vOVGqwmf7D3E1tBwP_ht_cylZ4Ispyn2G-mq6LMm1TS3aGUu2YhoqV10G3VApIRCesvx0hj1amzIXAynfdd9_r5rkuEplOhNT6aTbFfL9Jy7iWsw9Igblx9uIX55Fo6s3d1chsfCxBzWvVEKv6e0eA-1ckqbs9rHVcA7yF6-rS5ltUrBAWTD4KSXXa5Fl9FoZy2Z26IGssF4-YdlbPvIm3mI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4-4HUPhTPh8i56A0aMsMymCy4OuwjyAc6vOVGqwmf7D3E1tBwP_ht_cylZ4Ispyn2G-mq6LMm1TS3aGUu2YhoqV10G3VApIRCesvx0hj1amzIXAynfdd9_r5rkuEplOhNT6aTbFfL9Jy7iWsw9Igblx9uIX55Fo6s3d1chsfCxBzWvVEKv6e0eA-1ckqbs9rHVcA7yF6-rS5ltUrBAWTD4KSXXa5Fl9FoZy2Z26IGssF4-YdlbPvIm3mI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15280,8 +15561,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Pm0ict30RjHPHJMpO-yK_u1Ge1ENN5EU9Cv6n4joqy9GS4HocUOpQO8aG93tmPViQA5YtYIrxP1qjDRHuFymTtsYuftcEj4xZ-kzaRV_3PoeXTOXYDd_TtYYA6S0GLsIIk80nuZ2cLtw0wxk1I8sE1qtS4hZpjIOUXbLCpKSuQNGic3obOMZYor8z-vtidMYzhPs4Gu4IGtqOI3wuZ8vq0y3-mhuwae3aKpPVvxhMOX6IOKpeSVr6OWU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Pm0ict30RjHPHJMpO-yK_u1Ge1ENN5EU9Cv6n4joqy9GS4HocUOpQO8aG93tmPViQA5YtYIrxP1qjDRHuFymTtsYuftcEj4xZ-kzaRV_3PoeXTOXYDd_TtYYA6S0GLsIIk80nuZ2cLtw0wxk1I8sE1qtS4hZpjIOUXbLCpKSuQNGic3obOMZYor8z-vtidMYzhPs4Gu4IGtqOI3wuZ8vq0y3-mhuwae3aKpPVvxhMOX6IOKpeSVr6OWU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4TIiEIgM5KaIz33lnw9eY4xxo7iyAdK7GYpws3ZK-qRI1HAp3lZsBJHkaKOCxqRday0fIVIYPOa7k1h94KwPxHYdQAzfFH1fJdtODe7x5czOA-nf_99xwdXq3ZGKr7KOlbUoQnHCCBFiMvv-05YfLT5XjTE1EBVau-AzrieTZRgFPH8EoMIzqkBcXWIj5LdpAJ8PtqtMUFqeD_7nI-9WNpWbACK3_y1EAOABKkgcOzr2-eVpO6Sxei2iM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4TIiEIgM5KaIz33lnw9eY4xxo7iyAdK7GYpws3ZK-qRI1HAp3lZsBJHkaKOCxqRday0fIVIYPOa7k1h94KwPxHYdQAzfFH1fJdtODe7x5czOA-nf_99xwdXq3ZGKr7KOlbUoQnHCCBFiMvv-05YfLT5XjTE1EBVau-AzrieTZRgFPH8EoMIzqkBcXWIj5LdpAJ8PtqtMUFqeD_7nI-9WNpWbACK3_y1EAOABKkgcOzr2-eVpO6Sxei2iM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15334,8 +15615,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xg5mrlWaG9abXLW8ssjw_SbosqF9vyse7rbCbZC_INrqpl5dBXaHNiuhQQJL5KVtgaM0OzamP32AsuqU0Y7jezFlSKTQLAZYwnB8eJXHTQ8ffNcT_XWxYLW_VQNSI4155lQwppJlnNvEikHXEuVGoFnrOA8443R0A2J_a8Ln8FKGFR4D1ByvuBGCHo-WUmYCSGQZWTuyAwKho6zecLnD74o603MabZ4Thh4cAOf3O1huvvn4YEHN0blE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xg5mrlWaG9abXLW8ssjw_SbosqF9vyse7rbCbZC_INrqpl5dBXaHNiuhQQJL5KVtgaM0OzamP32AsuqU0Y7jezFlSKTQLAZYwnB8eJXHTQ8ffNcT_XWxYLW_VQNSI4155lQwppJlnNvEikHXEuVGoFnrOA8443R0A2J_a8Ln8FKGFR4D1ByvuBGCHo-WUmYCSGQZWTuyAwKho6zecLnD74o603MabZ4Thh4cAOf3O1huvvn4YEHN0blE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Wz1LzPUXkOIAZlc7ZVAaJ7G4h98cZ6GOYGirKCE9nSq12dp_bK8mstlvN0eCSAiUT-C8OgZ2Mbqf838HQJXfe9fXyD-S8DRDghf988y0l4pHHrMq9FSAtNVsLi50iJaCZrVwpTc4753dM8oztbTYUi6wlscFESZw8agIohLP1RdB3wdhn314n4YQBocYOwDYuw8Hz9-KgbAbLUG8OE310OtBYaPBcyMCoTwDlyYT2KRcvsRe1smmKiiI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Wz1LzPUXkOIAZlc7ZVAaJ7G4h98cZ6GOYGirKCE9nSq12dp_bK8mstlvN0eCSAiUT-C8OgZ2Mbqf838HQJXfe9fXyD-S8DRDghf988y0l4pHHrMq9FSAtNVsLi50iJaCZrVwpTc4753dM8oztbTYUi6wlscFESZw8agIohLP1RdB3wdhn314n4YQBocYOwDYuw8Hz9-KgbAbLUG8OE310OtBYaPBcyMCoTwDlyYT2KRcvsRe1smmKiiI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15406,8 +15687,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WQw23YF8wNdOD_VQsVqSprWdpugar5Ff3EobfEGirP-PO0AKn7FNf1tPbkIA7y1wV508pTixlBFpWSXEWsAqG0_Jr4CJZTnmSq9-ZwlVoPDu3fMZxbSbTSfX4RlIixc-RF7zEIoOGSiW8Eo0dieOOqbbvfUo1XDnMHaq6-nxLcktfoqu2n9wtn4Pi2629l5S-Ox9-5PqjhWhGnooZc1_Jqke8iX0RGgU_N-Cw81ZhAa3KTAP3-iAeBTw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4WQw23YF8wNdOD_VQsVqSprWdpugar5Ff3EobfEGirP-PO0AKn7FNf1tPbkIA7y1wV508pTixlBFpWSXEWsAqG0_Jr4CJZTnmSq9-ZwlVoPDu3fMZxbSbTSfX4RlIixc-RF7zEIoOGSiW8Eo0dieOOqbbvfUo1XDnMHaq6-nxLcktfoqu2n9wtn4Pi2629l5S-Ox9-5PqjhWhGnooZc1_Jqke8iX0RGgU_N-Cw81ZhAa3KTAP3-iAeBTw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4OF4WG9FGM_PhSrx4uy6QtCa_e2J7E6LKcxC-brVSFRLbir1MFpQoGY1imb-KzeYTGR9STG2NFI97w1MRlJLd4Wpc8f0cmsAvU4ssDiFv6lxG1rsa2fDxHKwsTcEZihoo_HRHbj260osOYOzLkW6jZ5QcMbLlerVx7cYVYOx0CQxOwtUPvfDlkIW8Ym_GcuTp_rsV3cBItpskLOQ9XlAPO7RCBis2zVEb3p60Bw26n9Ri9898UAw-u94Y?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4OF4WG9FGM_PhSrx4uy6QtCa_e2J7E6LKcxC-brVSFRLbir1MFpQoGY1imb-KzeYTGR9STG2NFI97w1MRlJLd4Wpc8f0cmsAvU4ssDiFv6lxG1rsa2fDxHKwsTcEZihoo_HRHbj260osOYOzLkW6jZ5QcMbLlerVx7cYVYOx0CQxOwtUPvfDlkIW8Ym_GcuTp_rsV3cBItpskLOQ9XlAPO7RCBis2zVEb3p60Bw26n9Ri9898UAw-u94Y?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -15532,8 +15813,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR66VpaSe9qDdSIwScLtYq_zW0P_Op5JIdAorI5Q-ZGeVLK1H8bFSO_ZCLt_g3MYbd8AFu79VlPiBzGjiNpR170_dr2AEp0Y4eMltJxoP5DZhQgAT-pnFazOH-J6W4Z9qZkKDQXFI4a9SUjoZYO79vG-dVdsCP09Oj9lHYtkJLknKH97Hb7L5v7QsnKdLAPMoSqNHwyYtNEZFHemYzeyIXel3QDzCsigofgfJfQz3PI9ZNQPebtaVVoECOQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR66VpaSe9qDdSIwScLtYq_zW0P_Op5JIdAorI5Q-ZGeVLK1H8bFSO_ZCLt_g3MYbd8AFu79VlPiBzGjiNpR170_dr2AEp0Y4eMltJxoP5DZhQgAT-pnFazOH-J6W4Z9qZkKDQXFI4a9SUjoZYO79vG-dVdsCP09Oj9lHYtkJLknKH97Hb7L5v7QsnKdLAPMoSqNHwyYtNEZFHemYzeyIXel3QDzCsigofgfJfQz3PI9ZNQPebtaVVoECOQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR57slHL8hXmo9SFWgWLoznDG_tSOXwuZ2cQoWqOBccDiXeW9g-077XfqOQENoD80caE175Zag3gwKj6iFRsIuBM8VoVsndG0sNRkAS7FBXb-_D5MxKYKuWT1ijXDi91n6joBex7ap10zLgTo1UaSc16YnAB9EA5mPWJGuHGEjQ_oPV_8Bz_gK5DbxfqVa-f4mrX62QOLAr3inKefLZ04556gMZbwfczemf87DYf66yqDToN9EHqfLq--c8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR57slHL8hXmo9SFWgWLoznDG_tSOXwuZ2cQoWqOBccDiXeW9g-077XfqOQENoD80caE175Zag3gwKj6iFRsIuBM8VoVsndG0sNRkAS7FBXb-_D5MxKYKuWT1ijXDi91n6joBex7ap10zLgTo1UaSc16YnAB9EA5mPWJGuHGEjQ_oPV_8Bz_gK5DbxfqVa-f4mrX62QOLAr3inKefLZ04556gMZbwfczemf87DYf66yqDToN9EHqfLq--c8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -17577,7 +17858,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.5
+      "politicalSignalScore": 44.2
     },
     {
       "id": "9814589d83ea",
@@ -17732,6 +18013,44 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "5b3d8c1e07af",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Jerusalem Daily: Students sing ‘Erase Palestine’",
+      "summary": "Two Palestinian teens were killed in the occupied West Bank as Israeli settlers and snipers surround a village.",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/jerusalem-daily-students-sing-erase?traffic_source=rss",
+      "time": "2026-09-03T15:32:33+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "3b3441b53a4b",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "Four imprisoned Palestine Action activists appeal ‘terrorism’ sentences",
+      "summary": "Supporters of those who participated in a raid on an Israeli weapons maker say the sentences set a dangerous precedent.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/four-imprisoned-palestine-action-activists-appeal-terrorism-sentences?traffic_source=rss",
+      "time": "2026-09-03T15:09:38+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "00fee9d810eb",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -17773,7 +18092,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.0
+      "politicalSignalScore": 56.7
     },
     {
       "id": "22a927b5166e",
@@ -18083,7 +18402,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "af5bbb5af053",
@@ -18206,7 +18525,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.7
+      "politicalSignalScore": 43.4
     },
     {
       "id": "e7fa1a0ad5c6",
@@ -18404,7 +18723,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.6
     },
     {
       "id": "8f72dc6bf787",
@@ -18432,7 +18751,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
     },
     {
       "id": "f43c01e5cbeb",
@@ -18459,7 +18778,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
     },
     {
       "id": "04a471261a98",
@@ -18545,7 +18864,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.4
     },
     {
       "id": "71c2f023cc8d",
@@ -18576,7 +18895,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "0f0fedcaa48f",
@@ -18641,7 +18960,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.2
+      "politicalSignalScore": 38.9
     },
     {
       "id": "7e369d09a9ea",
@@ -18668,7 +18987,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.1
+      "politicalSignalScore": 36.8
     },
     {
       "id": "19e24f5bcc9d",
@@ -18810,7 +19129,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.3
+      "politicalSignalScore": 36.0
     },
     {
       "id": "121c9b78c635",
@@ -18845,7 +19164,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.3
+      "politicalSignalScore": 44.0
     },
     {
       "id": "772547ad1bd2",
@@ -18875,7 +19194,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.3
     },
     {
       "id": "4853c2337866",
@@ -18919,7 +19238,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.6
+      "politicalSignalScore": 34.3
     },
     {
       "id": "83dbf39de042",
@@ -19001,7 +19320,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.5
+      "politicalSignalScore": 33.2
     },
     {
       "id": "152a974ea76c",
@@ -19047,7 +19366,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.6
+      "politicalSignalScore": 34.3
     },
     {
       "id": "c113500cb434",
@@ -19230,7 +19549,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "2a21cb0360a5",
@@ -19257,7 +19576,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.2
+      "politicalSignalScore": 29.0
     },
     {
       "id": "b21d64cc6178",
@@ -19325,7 +19644,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.4
+      "politicalSignalScore": 32.2
     },
     {
       "id": "0e6d5e98e90c",
@@ -19433,7 +19752,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.5
+      "politicalSignalScore": 31.2
     },
     {
       "id": "ca396a85c9e1",
@@ -19462,7 +19781,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 26.9
+      "politicalSignalScore": 26.7
     },
     {
       "id": "6ad10dbff853",
@@ -19495,7 +19814,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.7
+      "politicalSignalScore": 28.4
     },
     {
       "id": "6e5d651744cd",
@@ -19525,7 +19844,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.6
+      "politicalSignalScore": 28.4
     },
     {
       "id": "04121260ea77",
@@ -19647,7 +19966,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 16.7
+      "politicalSignalScore": 16.4
     },
     {
       "id": "750589f89281",
@@ -19677,7 +19996,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.0
+      "politicalSignalScore": 14.7
     },
     {
       "id": "0db692ff9ba8",
@@ -19746,7 +20065,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 9.9
+      "politicalSignalScore": 9.7
     },
     {
       "id": "1ce74d8ef321",
@@ -19792,7 +20111,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 5.7
+      "politicalSignalScore": 5.5
     },
     {
       "id": "4565edc51082",
@@ -19871,6 +20190,20 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "9938b7be34b2",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Stranded survivors in Nepal cross raging Trishuli River using zip line",
+      "summary": "Survivors in relief camps in Nepal are struggling to get basic commodities like food and medicine",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/stranded-survivors-in-nepal-cross-raging-trishuli-river-using-zip-line?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/stranded-survivors-in-nepal-cross-raging-trishuli-river-using-zip-line?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:23:38 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "economics"
+    },
+    {
       "id": "2710243b9bee",
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
@@ -19888,6 +20221,45 @@
         "Immigration"
       ],
       "sourceDomain": "npr.org",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 17.0
+    },
+    {
+      "id": "8fbd1c1e53bc",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Israel releases Lebanese civilian, says five prisoners will be freed",
+      "summary": "The prisoner, identified as Malek Ghazi, is the first Lebanese citizen held by Israel to be set free since talks began.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/israel-releases-lebanese-civilian-says-five-more-will-be-freed?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/9/3/israel-releases-lebanese-civilian-says-five-more-will-be-freed?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:13:55 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Vance pushes back on reports that US strikes hit wedding in Iran but says ‘sometimes things happen’ – live",
+      "summary": "Vice president holds first press briefing since Karoline Leavitt’s departure and rebuffs Iran’s claims of deadly US strikes while defending Pete Hegseth     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit against the oversig",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 18:11:16 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Republicans",
+        "Iran"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 17.0
@@ -19925,32 +20297,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 0.0
-    },
-    {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
-      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 18:05:29 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Congress",
-        "Democrats",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Congress"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
     },
     {
       "id": "ca58672fbc86",
@@ -20603,20 +20949,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "5b3d8c1e07af",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Jerusalem Daily: Students sing ‘Erase Palestine’",
-      "summary": "Two Palestinian teens were killed in the occupied West Bank as Israeli settlers and snipers surround a village.",
-      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/jerusalem-daily-students-sing-erase?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/jerusalem-daily-students-sing-erase?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 15:32:33 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "43e95c5c4f75",
       "sourceLabel": "France 24",
       "sourceType": "international",
@@ -20751,20 +21083,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 2.0
-    },
-    {
-      "id": "3b3441b53a4b",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "Four imprisoned Palestine Action activists appeal ‘terrorism’ sentences",
-      "summary": "Supporters of those who participated in a raid on an Israeli weapons maker say the sentences set a dangerous precedent.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/four-imprisoned-palestine-action-activists-appeal-terrorism-sentences?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/9/3/four-imprisoned-palestine-action-activists-appeal-terrorism-sentences?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 15:09:38 +0000",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "intelligenceLayer": "general"
     },
     {
       "id": "d2e6443239cf",
@@ -21093,7 +21411,7 @@
       "id": "9fbade295891",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
-      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "title": "'Why would he do this to us?': One crucial Trump decision is hurting his base, Republicans warn",
       "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
       "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
       "url": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
@@ -21312,8 +21630,8 @@
     },
     {
       "id": "055e5c2e898a",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
       "title": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
       "summary": "Millions of people have been exposed to the smog, with more than 12,000 children suffering respiratory issues.",
       "source": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
@@ -22012,6 +22330,20 @@
       "politicalSignalScore": 4.0
     },
     {
+      "id": "28db2d9c5ac3",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "Rat do izbora na tiho ? Trumpovi ljudi žele smiriti Iran do studenog",
+      "summary": "",
+      "source": "https://www.advance.hr/telegrafska-zica/sjeverna-amerika/sad/2026/09/03/rat-do-izbora-na-tiho-trumpovi-ljudi-zele-smiriti-iran-do-studenog",
+      "url": "https://www.advance.hr/telegrafska-zica/sjeverna-amerika/sad/2026/09/03/rat-do-izbora-na-tiho-trumpovi-ljudi-zele-smiriti-iran-do-studenog",
+      "time": "3 Sep 2026 06:30:00 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "a75fefc502eb",
       "sourceLabel": "BBC World",
       "sourceType": "international",
@@ -22048,6 +22380,20 @@
       "source": "https://www.bbc.co.uk/news/articles/ce3rn93de9eo?at_medium=RSS&at_campaign=rss",
       "url": "https://www.bbc.co.uk/news/articles/ce3rn93de9eo?at_medium=RSS&at_campaign=rss",
       "time": "Thu, 03 Sep 2026 05:00:04 GMT",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "e10fe522ecdb",
+      "sourceLabel": "GDELT Live — Global",
+      "sourceType": "live",
+      "title": "北美观察丨一边重新开火 一边急于刹车 白宫在担心什么 ？",
+      "summary": "",
+      "source": "https://baijiahao.baidu.com/s?id=1875279354879891417",
+      "url": "https://baijiahao.baidu.com/s?id=1875279354879891417",
+      "time": "3 Sep 2026 04:00:00 +0000",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -22719,83 +23065,6 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 4.0
-    },
-    {
-      "id": "2c9e8b422460",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
-      "summary": "President Trump seems to be pulling out all the stops to mitigate high gas prices ahead of the midterms.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "time": "Wed, 02 Sep 2026 04:42:26 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "9a8c6a72f8d5",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
-      "summary": "NPR's Steve Inskeep speaks with political consultant Sarah Longwell about Trump's low approval rating and high gas prices, as affordability shadows the approaching midterm election.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "time": "Wed, 02 Sep 2026 04:41:54 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Public Opinion"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "0032f0a516f0",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
-      "title": "Why US troops have a history in this raucous Thai city",
-      "summary": "The BBC's Jonathan Head looks at the historical echoes of US troops arriving in Pattaya, a beach resort famous for its racy bars.",
-      "source": "https://www.bbc.co.uk/news/videos/c5yw03jr892o?at_medium=RSS&at_campaign=rss",
-      "url": "https://www.bbc.co.uk/news/videos/c5yw03jr892o?at_medium=RSS&at_campaign=rss",
-      "time": "Wed, 02 Sep 2026 07:18:39 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "fc3b4e4c2778",
-      "sourceLabel": "Guardian World",
-      "sourceType": "international",
-      "title": "Almost half of world’s farmers poisoned by pesticides every year, experts find",
-      "summary": "Study reveals that pesticide poisoning kills 11,000 people each year, with India accounting for nearly 60% of fatalities  Almost half of the world’s farmers are poisoned by pesticides every single year, a  study  has found.  Using publicly available data from 2006-2023, the study, which was commissioned by  Pesticide Action Network , found there to be an estimated 402-433m cases of unintentional acute pesticide poiso",
-      "source": "https://www.theguardian.com/environment/2026/sep/02/50-per-cent-world-farmers-poisoned-pesticides-every-year-experts",
-      "url": "https://www.theguardian.com/environment/2026/sep/02/50-per-cent-world-farmers-poisoned-pesticides-every-year-experts",
-      "time": "Wed, 02 Sep 2026 06:00:25 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -22862,7 +23131,7 @@
     {
       "name": "GDELT Live — Global",
       "type": "live",
-      "status": "error"
+      "status": "ok"
     },
     {
       "name": "GDELT Live — Africa",
@@ -22952,10 +23221,10 @@
   ],
   "liveDatabase": {
     "enabled": true,
-    "articleCount": 226,
-    "lastExport": "2026-09-03T18:17:39.642452+00:00",
+    "articleCount": 228,
+    "lastExport": "2026-09-03T18:35:47.105105+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 128
+    "newMergedThisRun": 130
   },
   "politics": [
     {
@@ -23695,6 +23964,20 @@
       "intelligenceLayer": "us-politics"
     },
     {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Vance pushes back on reports that US strikes hit wedding in Iran but says ‘sometimes things happen’ – live",
+      "summary": "Vice president holds first press briefing since Karoline Leavitt’s departure and rebuffs Iran’s claims of deadly US strikes while defending Pete Hegseth     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit against the oversig",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 18:11:16 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "us-politics"
+    },
+    {
       "id": "43e6eee6779c",
       "sourceLabel": "NPR Politics",
       "sourceType": "us-politics",
@@ -23703,20 +23986,6 @@
       "source": "https://www.npr.org/2026/09/03/nx-s1-5955645/maria-bartiromo-fox-news",
       "url": "https://www.npr.org/2026/09/03/nx-s1-5955645/maria-bartiromo-fox-news",
       "time": "Thu, 03 Sep 2026 14:05:57 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
-      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 18:05:29 GMT",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -23992,7 +24261,7 @@
       "id": "9fbade295891",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
-      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "title": "'Why would he do this to us?': One crucial Trump decision is hurting his base, Republicans warn",
       "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
       "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
       "url": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
@@ -24393,34 +24662,6 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "2c9e8b422460",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
-      "summary": "President Trump seems to be pulling out all the stops to mitigate high gas prices ahead of the midterms.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "time": "Wed, 02 Sep 2026 04:42:26 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "9a8c6a72f8d5",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
-      "summary": "NPR's Steve Inskeep speaks with political consultant Sarah Longwell about Trump's low approval rating and high gas prices, as affordability shadows the approaching midterm election.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "time": "Wed, 02 Sep 2026 04:41:54 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics"
     }
   ],
   "usPolitics": [
@@ -24575,7 +24816,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "2e5cd7b9be37",
@@ -24772,7 +25013,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.3
+      "politicalSignalScore": 44.0
     },
     {
       "id": "cc40b4f6f36f",
@@ -24800,7 +25041,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.7
+      "politicalSignalScore": 43.4
     },
     {
       "id": "fa6dc7bcd69d",
@@ -24829,7 +25070,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.4
     },
     {
       "id": "71c2f023cc8d",
@@ -24860,7 +25101,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "648d6749c712",
@@ -24887,7 +25128,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.2
+      "politicalSignalScore": 38.9
     },
     {
       "id": "8f72dc6bf787",
@@ -24915,7 +25156,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
     },
     {
       "id": "f43c01e5cbeb",
@@ -24942,7 +25183,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.6
     },
     {
       "id": "772547ad1bd2",
@@ -24972,7 +25213,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.3
     },
     {
       "id": "99d3f0b739c1",
@@ -25000,7 +25241,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.3
+      "politicalSignalScore": 36.0
     },
     {
       "id": "3593d4dc7a14",
@@ -25030,7 +25271,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.4
+      "politicalSignalScore": 32.2
     },
     {
       "id": "eca0fc692bc0",
@@ -25062,7 +25303,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.5
+      "politicalSignalScore": 31.2
     },
     {
       "id": "2a21cb0360a5",
@@ -25089,7 +25330,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.2
+      "politicalSignalScore": 29.0
     },
     {
       "id": "6ad10dbff853",
@@ -25122,7 +25363,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.7
+      "politicalSignalScore": 28.4
     },
     {
       "id": "6e5d651744cd",
@@ -25152,7 +25393,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.6
+      "politicalSignalScore": 28.4
     },
     {
       "id": "ca396a85c9e1",
@@ -25181,7 +25422,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 26.9
+      "politicalSignalScore": 26.7
     },
     {
       "id": "24b250618b77",
@@ -25254,6 +25495,31 @@
         "Executive"
       ],
       "sourceDomain": "bbc.co.uk",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 17.0
+    },
+    {
+      "id": "6481d41eccb3",
+      "sourceLabel": "Guardian US",
+      "sourceType": "regional",
+      "title": "Vance pushes back on reports that US strikes hit wedding in Iran but says ‘sometimes things happen’ – live",
+      "summary": "Vice president holds first press briefing since Karoline Leavitt’s departure and rebuffs Iran’s claims of deadly US strikes while defending Pete Hegseth     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit against the oversig",
+      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+      "time": "Thu, 03 Sep 2026 18:11:16 GMT",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Republicans",
+        "Iran"
+      ],
+      "politicalTopics": [
+        "Executive"
+      ],
+      "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 17.0
@@ -25356,7 +25622,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 9.9
+      "politicalSignalScore": 9.7
     },
     {
       "id": "0c46f73cc410",
@@ -25389,7 +25655,7 @@
       "id": "9fbade295891",
       "sourceLabel": "Fox News Politics",
       "sourceType": "us-politics",
-      "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+      "title": "'Why would he do this to us?': One crucial Trump decision is hurting his base, Republicans warn",
       "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
       "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
       "url": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
@@ -25464,7 +25730,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 5.7
+      "politicalSignalScore": 5.5
     },
     {
       "id": "c280f70cbb01",
@@ -25573,31 +25839,6 @@
       "source": "https://www.npr.org/2026/09/02/nx-s1-5952211/usps-whistleblower-lawyer-reaction-mail-ballots",
       "url": "https://www.npr.org/2026/09/02/nx-s1-5952211/usps-whistleblower-lawyer-reaction-mail-ballots",
       "time": "Wed, 02 Sep 2026 04:43:19 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Elections",
-        "Public Opinion"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 4.0
-    },
-    {
-      "id": "9a8c6a72f8d5",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
-      "summary": "NPR's Steve Inskeep speaks with political consultant Sarah Longwell about Trump's low approval rating and high gas prices, as affordability shadows the approaching midterm election.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-      "time": "Wed, 02 Sep 2026 04:41:54 -0400",
       "tag": "World",
       "confidence": "DEVELOPING",
       "breaking": false,
@@ -25831,56 +26072,6 @@
       ],
       "politicalTopics": [
         "Executive"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "2c9e8b422460",
-      "sourceLabel": "NPR Politics",
-      "sourceType": "us-politics",
-      "title": "Trump attempts to combat high gas prices as affordability crisis looms over midterms",
-      "summary": "President Trump seems to be pulling out all the stops to mitigate high gas prices ahead of the midterms.",
-      "source": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "url": "https://www.npr.org/2026/09/02/nx-s1-5951976/trump-attempts-to-combat-high-gas-prices-as-affordability-crisis-looms-over-midterms",
-      "time": "Wed, 02 Sep 2026 04:42:26 -0400",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Executive"
-      ],
-      "sourceDomain": "npr.org",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 2.0
-    },
-    {
-      "id": "6481d41eccb3",
-      "sourceLabel": "Guardian US",
-      "sourceType": "regional",
-      "title": "‘Leon Black is hiding behind litigation’: outrage after billionaire sues Congress over subpoenas for Epstein investigation – live",
-      "summary": "Republican oversight chair James Comer says he will speak to committee about next steps as Democrat calls for holding billionaire in contempt for defying two subpoenas     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit agai",
-      "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
-      "time": "Thu, 03 Sep 2026 18:05:29 GMT",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Congress",
-        "Democrats",
-        "Republicans"
-      ],
-      "politicalTopics": [
-        "Congress"
       ],
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
@@ -26398,7 +26589,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 57.0
+      "politicalSignalScore": 56.7
     },
     {
       "id": "e4a1ce9ee168",
@@ -26423,7 +26614,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.5
+      "politicalSignalScore": 44.2
     },
     {
       "id": "db855776bafb",
@@ -26448,7 +26639,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "41d7c8ee8c42",
@@ -26475,7 +26666,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.9
+      "politicalSignalScore": 39.6
     },
     {
       "id": "7e369d09a9ea",
@@ -26502,7 +26693,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.1
+      "politicalSignalScore": 36.8
     },
     {
       "id": "973b1ca1b2ea",
@@ -26527,7 +26718,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.6
+      "politicalSignalScore": 34.3
     },
     {
       "id": "884558a5687b",
@@ -26554,7 +26745,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.6
+      "politicalSignalScore": 34.3
     },
     {
       "id": "7b3f87bda84f",
@@ -26579,7 +26770,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.5
+      "politicalSignalScore": 33.2
     },
     {
       "id": "0859be90fbe5",
@@ -26606,7 +26797,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 16.7
+      "politicalSignalScore": 16.4
     },
     {
       "id": "750589f89281",
@@ -26636,7 +26827,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.0
+      "politicalSignalScore": 14.7
     },
     {
       "id": "7af15c78cc3e",
@@ -26846,6 +27037,20 @@
       "intelligenceLayer": "economics"
     },
     {
+      "id": "9938b7be34b2",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Stranded survivors in Nepal cross raging Trishuli River using zip line",
+      "summary": "Survivors in relief camps in Nepal are struggling to get basic commodities like food and medicine",
+      "source": "https://www.aljazeera.com/video/newsfeed/2026/9/3/stranded-survivors-in-nepal-cross-raging-trishuli-river-using-zip-line?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/stranded-survivors-in-nepal-cross-raging-trishuli-river-using-zip-line?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:23:38 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "economics"
+    },
+    {
       "id": "3c4a62dce6a4",
       "sourceLabel": "Al Jazeera",
       "sourceType": "international",
@@ -26959,25 +27164,25 @@
     }
   ],
   "layerCounts": {
-    "us-politics": 75,
+    "us-politics": 73,
     "world-politics": 16,
-    "economics": 12,
-    "general": 197
+    "economics": 13,
+    "general": 198
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T18:18:38.108300+00:00",
+    "updatedAt": "2026-09-03T18:36:40.422466+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 91,
-    "usPoliticsSignals": 75,
+    "totalSignals": 89,
+    "usPoliticsSignals": 73,
     "worldPoliticsSignals": 16,
     "corroboratedSignals": 4,
-    "singleSourceSignals": 87,
+    "singleSourceSignals": 85,
     "sourceCounts": {
       "theguardian.com": 22,
       "foxnews.com": 18,
-      "npr.org": 16,
+      "npr.org": 14,
       "us.cnn.com": 9,
       "bbc.co.uk": 8,
       "aljazeera.com": 7,
@@ -27102,7 +27307,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 57.0
+        "politicalSignalScore": 56.7
       },
       {
         "id": "408a5192a823",
@@ -27162,7 +27367,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 46.2
+        "politicalSignalScore": 46.0
       },
       {
         "id": "2e5cd7b9be37",
@@ -27349,7 +27554,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.5
+        "politicalSignalScore": 44.2
       },
       {
         "id": "121c9b78c635",
@@ -27384,7 +27589,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.3
+        "politicalSignalScore": 44.0
       },
       {
         "id": "cc40b4f6f36f",
@@ -27412,7 +27617,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.7
+        "politicalSignalScore": 43.4
       },
       {
         "id": "db855776bafb",
@@ -27437,7 +27642,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.1
+        "politicalSignalScore": 39.9
       },
       {
         "id": "41d7c8ee8c42",
@@ -27464,7 +27669,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.9
+        "politicalSignalScore": 39.6
       },
       {
         "id": "fa6dc7bcd69d",
@@ -27493,7 +27698,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.7
+        "politicalSignalScore": 39.4
       },
       {
         "id": "71c2f023cc8d",
@@ -27524,7 +27729,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.4
+        "politicalSignalScore": 39.2
       },
       {
         "id": "648d6749c712",
@@ -27551,7 +27756,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.2
+        "politicalSignalScore": 38.9
       },
       {
         "id": "8f72dc6bf787",
@@ -27579,7 +27784,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.6
       },
       {
         "id": "f43c01e5cbeb",
@@ -27606,7 +27811,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.6
       },
       {
         "id": "772547ad1bd2",
@@ -27636,7 +27841,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.3
       },
       {
         "id": "7e369d09a9ea",
@@ -27663,7 +27868,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.1
+        "politicalSignalScore": 36.8
       },
       {
         "id": "99d3f0b739c1",
@@ -27691,7 +27896,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.3
+        "politicalSignalScore": 36.0
       },
       {
         "id": "973b1ca1b2ea",
@@ -27716,7 +27921,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.6
+        "politicalSignalScore": 34.3
       },
       {
         "id": "884558a5687b",
@@ -27743,7 +27948,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.6
+        "politicalSignalScore": 34.3
       },
       {
         "id": "7b3f87bda84f",
@@ -27768,7 +27973,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.5
+        "politicalSignalScore": 33.2
       },
       {
         "id": "3593d4dc7a14",
@@ -27798,7 +28003,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.4
+        "politicalSignalScore": 32.2
       },
       {
         "id": "eca0fc692bc0",
@@ -27830,7 +28035,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.5
+        "politicalSignalScore": 31.2
       },
       {
         "id": "2a21cb0360a5",
@@ -27857,7 +28062,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.2
+        "politicalSignalScore": 29.0
       },
       {
         "id": "6ad10dbff853",
@@ -27890,7 +28095,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 28.7
+        "politicalSignalScore": 28.4
       },
       {
         "id": "6e5d651744cd",
@@ -27920,7 +28125,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 28.6
+        "politicalSignalScore": 28.4
       },
       {
         "id": "ca396a85c9e1",
@@ -27949,7 +28154,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 26.9
+        "politicalSignalScore": 26.7
       },
       {
         "id": "24b250618b77",
@@ -28027,6 +28232,31 @@
         "politicalSignalScore": 17.0
       },
       {
+        "id": "6481d41eccb3",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "Vance pushes back on reports that US strikes hit wedding in Iran but says ‘sometimes things happen’ – live",
+        "summary": "Vice president holds first press briefing since Karoline Leavitt’s departure and rebuffs Iran’s claims of deadly US strikes while defending Pete Hegseth     Sign up for US Breaking News emails      Republican oversight chair James Comer has also weighed in on Leon Black not sitting for a deposition about his ties to Jeffrey Epstein.  The billionaire financier, who has denied wrongdoing, filed suit against the oversig",
+        "source": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+        "url": "https://www.theguardian.com/us-news/live/2026/sep/03/donald-trump-immigration-tariffs-canada-trade-iran-jd-vance-latest-news-updates",
+        "time": "Thu, 03 Sep 2026 18:11:16 GMT",
+        "tag": "Breaking",
+        "confidence": "DEVELOPING",
+        "breaking": true,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Republicans",
+          "Iran"
+        ],
+        "politicalTopics": [
+          "Executive"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 17.0
+      },
+      {
         "id": "f6f8e16c5c1a",
         "sourceLabel": "Guardian World",
         "sourceType": "international",
@@ -28098,7 +28328,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 16.7
+        "politicalSignalScore": 16.4
       },
       {
         "id": "e10d8c6173b8",
@@ -28150,7 +28380,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 15.0
+        "politicalSignalScore": 14.7
       },
       {
         "id": "37197c7701db",
@@ -28181,7 +28411,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 9.9
+        "politicalSignalScore": 9.7
       },
       {
         "id": "0c46f73cc410",
@@ -28214,7 +28444,7 @@
         "id": "9fbade295891",
         "sourceLabel": "Fox News Politics",
         "sourceType": "us-politics",
-        "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+        "title": "'Why would he do this to us?': One crucial Trump decision is hurting his base, Republicans warn",
         "summary": "Republican lawmakers warn President Donald Trump that his foreign beef import order is hurting loyal cattle ranchers ahead of the midterm elections.",
         "source": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
         "url": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
@@ -28289,7 +28519,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 5.7
+        "politicalSignalScore": 5.5
       },
       {
         "id": "c280f70cbb01",
@@ -28421,31 +28651,6 @@
         "source": "https://www.npr.org/2026/09/02/nx-s1-5952211/usps-whistleblower-lawyer-reaction-mail-ballots",
         "url": "https://www.npr.org/2026/09/02/nx-s1-5952211/usps-whistleblower-lawyer-reaction-mail-ballots",
         "time": "Wed, 02 Sep 2026 04:43:19 -0400",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump"
-        ],
-        "politicalTopics": [
-          "Elections",
-          "Public Opinion"
-        ],
-        "sourceDomain": "npr.org",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 4.0
-      },
-      {
-        "id": "9a8c6a72f8d5",
-        "sourceLabel": "NPR Politics",
-        "sourceType": "us-politics",
-        "title": "Political consultant on how the cost-of-living is affecting Trump's approval rating",
-        "summary": "NPR's Steve Inskeep speaks with political consultant Sarah Longwell about Trump's low approval rating and high gas prices, as affordability shadows the approaching midterm election.",
-        "source": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-        "url": "https://www.npr.org/2026/09/02/nx-s1-5951679/political-consultant-on-how-the-cost-of-living-is-affecting-trumps-approval-rating",
-        "time": "Wed, 02 Sep 2026 04:41:54 -0400",
         "tag": "World",
         "confidence": "DEVELOPING",
         "breaking": false,
@@ -28923,7 +29128,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T18:18:50.394804Z",
+    "updatedAt": "2026-09-03T18:36:53.472678Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -28931,25 +29136,25 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 64
-      },
-      {
-        "id": "u-s-politics",
-        "label": "U.S. Politics",
-        "kind": "political",
-        "mentions": 27
+        "mentions": 61
       },
       {
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 26
+        "mentions": 27
       },
       {
         "id": "iran",
         "label": "Iran",
         "kind": "actor",
-        "mentions": 22
+        "mentions": 24
+      },
+      {
+        "id": "u-s-politics",
+        "label": "U.S. Politics",
+        "kind": "political",
+        "mentions": 24
       },
       {
         "id": "oil-markets",
@@ -29028,13 +29233,19 @@
         "label": "Egypt",
         "kind": "actor",
         "mentions": 3
+      },
+      {
+        "id": "lebanon",
+        "label": "Lebanon",
+        "kind": "actor",
+        "mentions": 2
       }
     ],
     "edges": [
       {
         "source": "United States",
         "target": "U.S. Politics",
-        "weight": 16,
+        "weight": 13,
         "types": [
           "story"
         ],
@@ -29081,16 +29292,16 @@
         ],
         "evidence": [
           {
-            "title": "Gaza farmers restore seed bank to preserve local crops",
-            "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/gaza-farmers-restore-seed-bank-to-preserve-local-crops?traffic_source=rss",
-            "source": "Al Jazeera",
-            "time": "Thu, 03 Sep 2026 17:50:48 +0000"
-          },
-          {
             "title": "Far-right Israeli minister outlines plan for removal of all Palestinians from Gaza",
             "url": "",
             "source": "The Guardian World",
             "time": "2026-09-03T18:01:05+00:00"
+          },
+          {
+            "title": "Jerusalem Daily: Students sing ‘Erase Palestine’",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "2026-09-03T15:32:33+00:00"
           },
           {
             "title": "No end to torture of Gaza doctor Abu Safia in Israeli prison: What to know",
@@ -29618,7 +29829,7 @@
             "time": "Wed, 02 Sep 2026 05:00:00 -0400"
           },
           {
-            "title": "‘Why would he do this to us?’: Trump's foreign beef push is hurting his base, Republicans warn",
+            "title": "'Why would he do this to us?': One crucial Trump decision is hurting his base, Republicans warn",
             "url": "https://www.foxnews.com/politics/why-would-he-do-us-trumps-foreign-beef-push-hurting-his-base-republicans-warn",
             "source": "Fox News Politics",
             "time": "Thu, 03 Sep 2026 09:00:50 -0400"
@@ -29876,6 +30087,28 @@
             "url": "",
             "source": "The Guardian World",
             "time": "2026-09-02T18:20:36+00:00"
+          }
+        ]
+      },
+      {
+        "source": "Israel",
+        "target": "Lebanon",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Israel releases Lebanese civilian, says five prisoners will be freed",
+            "url": "https://www.aljazeera.com/news/2026/9/3/israel-releases-lebanese-civilian-says-five-more-will-be-freed?traffic_source=rss",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 18:13:55 +0000"
+          },
+          {
+            "title": "Israeli bombing seen behind journalist reporting from Lebanese village",
+            "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/israeli-bombing-seen-behind-journalist-reporting-from-lebanese-village?traffic_source=rss",
+            "source": "Al Jazeera",
+            "time": "Thu, 03 Sep 2026 16:56:55 +0000"
           }
         ]
       },
