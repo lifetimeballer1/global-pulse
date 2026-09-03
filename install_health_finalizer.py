@@ -80,6 +80,30 @@ def add_morse_to_db():
     finally:conn.close()
     return added
 
+def merge_morse_into_snapshot():
+    if not SNAP.exists() or not LIVE.exists():return 0
+    d=json.loads(SNAP.read_text(encoding='utf-8')); live=json.loads(LIVE.read_text(encoding='utf-8')); stories=d.get('stories',[]) if isinstance(d.get('stories'),list) else []
+    existing={str(s.get('source') or s.get('url') or '') for s in stories}; added=0
+    import hashlib
+    for item in live.get('articles',[]):
+        if item.get('source')!='Morse Report':continue
+        url=str(item.get('url') or '')
+        if not url or url in existing:continue
+        title=str(item.get('title') or 'Morse Report update'); summary=str(item.get('summary_snippet') or '')
+        blob=(title+' '+summary).lower(); breaking=any(x in blob for x in ('strike','attack','killed','drone','missile','blockade','escalat','invasion','ceasefire','bomb','shell','offensive','coup','clash','shooting','airstrike'))
+        stories.append({'id':hashlib.sha1(url.encode()).hexdigest()[:12],'sourceLabel':'Morse Report','sourceType':'news-mirror','title':title[:240],'summary':summary[:420],'source':url,'time':item.get('published_date'),'tag':'Breaking' if breaking else 'U.S. Politics','confidence':'DEVELOPING','breaking':breaking,'liveDatabase':True,'credit':item.get('credit',{})}); existing.add(url);added+=1
+    stories=sorted(stories,key=lambda s:str(s.get('time') or ''),reverse=True)[:300]; d['stories']=stories
+    try:
+        from update_snapshot import make_conflicts
+        d['conflicts']=make_conflicts(stories,{'conflicts':d.get('conflicts',[])})
+    except Exception:pass
+    health=d.get('sourceHealth',[]) if isinstance(d.get('sourceHealth'),list) else []
+    found=False
+    for row in health:
+        if row.get('name')=='Morse Report':row.update({'status':'online','error':'','articles':sum(1 for s in stories if s.get('sourceLabel')=='Morse Report'),'lastChecked':datetime.now(timezone.utc).isoformat()});found=True
+    if not found:health.append({'name':'Morse Report','type':'news-mirror','status':'online','label':'ONLINE','articles':sum(1 for s in stories if s.get('sourceLabel')=='Morse Report'),'domains':1,'lastChecked':datetime.now(timezone.utc).isoformat(),'error':''})
+    d['sourceHealth']=health;d['updatedAt']=datetime.now(timezone.utc).isoformat();SNAP.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return added
+
 def dedupe_earthquakes():
     if not SNAP.exists():return 0
     d=json.loads(SNAP.read_text(encoding='utf-8')); out=[];seen=set();removed=0
@@ -100,12 +124,11 @@ def install_ui():
     s=re.sub(r'<script src="global_pulse_source_health\.js(?:\?[^" ]*)?" defer></script>','',s)
     s=re.sub(r'<script src="global_pulse_v26\.js(?:\?[^" ]*)?" defer></script>','',s)
     if '</body>' not in s:raise SystemExit('index.html has no </body>')
-    d=hashlib.sha256(Path('global_pulse_source_health.js').read_bytes()).hexdigest()[:12]; v=hashlib.sha256(Path('global_pulse_v26.js').read_bytes()).hexdigest()[:12]
-    s=s.replace('</body>',f'<script src="global_pulse_source_health.js?v={d}" defer></script><script src="global_pulse_v26.js?v={v}" defer></script></body>',1)
-    INDEX.write_text(s,encoding='utf-8')
+    d=hashlib.sha256(Path('global_pulse_source_health.js').read_bytes()).hexdigest()[:12];v=hashlib.sha256(Path('global_pulse_v26.js').read_bytes()).hexdigest()[:12]
+    s=s.replace('</body>',f'<script src="global_pulse_source_health.js?v={d}" defer></script><script src="global_pulse_v26.js?v={v}" defer></script></body>',1);INDEX.write_text(s,encoding='utf-8')
 
 def main():
-    morse=add_morse_to_db(); quake=dedupe_earthquakes(); install_ui()
-    print(f'V2.6 repairs: Morse rows added={morse}; duplicate USGS earthquake markers removed={quake}; single conflict dialog and visible V5 trend installed.')
+    morse=add_morse_to_db(); merged=merge_morse_into_snapshot(); quake=dedupe_earthquakes(); install_ui()
+    print(f'V2.6 repairs: Morse rows added={morse}; Morse stories merged={merged}; duplicate USGS earthquake markers removed={quake}; single conflict dialog and visible V5 trend installed.')
 
 if __name__=='__main__':main()
