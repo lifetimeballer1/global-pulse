@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-09-03T19:27:08.946416+00:00",
+  "updatedAt": "2026-09-03T19:29:22.567683+00:00",
   "scoreVersion": 5,
   "sourceStatus": "300 stories · 138 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 180 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
-  "tension": 81,
+  "tension": 80,
   "tensionDelta": 0,
   "breakdownScores": {
     "Conflict activity": 100,
-    "Diplomatic strain": 49,
+    "Diplomatic strain": 47,
     "Economic pressure": 69,
     "Market volatility": 60,
     "Military posture": 100,
@@ -16,11 +16,17 @@
   "driverSignals": {
     "Conflict activity": {
       "poolSize": 182,
-      "matches": 25,
+      "matches": 26,
       "sources": 5,
-      "recentMatches": 17,
-      "signalRatio": 0.144,
+      "recentMatches": 18,
+      "signalRatio": 0.15,
       "topSignals": [
+        {
+          "title": "Is Nepal leading the battle for climate justice?",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+          "time": "Thu, 03 Sep 2026 18:58:05 +0000"
+        },
         {
           "title": "Foreign fighters and external support fuel Sudan’s war: UN-backed probe",
           "source": "Al Jazeera",
@@ -44,12 +50,6 @@
           "source": "Al Jazeera",
           "url": "https://www.aljazeera.com/news/2026/9/3/trump-calls-media-treasonous-scum-over-reports-of-low-iran-war-munitions?traffic_source=rss",
           "time": "Thu, 03 Sep 2026 17:26:09 +0000"
-        },
-        {
-          "title": "What’s behind the vote-by-mail controversy in the US?",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/news/2026/9/3/whats-behind-the-vote-by-mail-controversy-in-the-us?traffic_source=rss",
-          "time": "Thu, 03 Sep 2026 17:14:47 +0000"
         }
       ]
     },
@@ -246,7 +246,7 @@
   },
   "earlyWarning": {
     "level": "HIGH",
-    "score": 81,
+    "score": 80,
     "direction": "stable",
     "momentum": 0,
     "strongestDriver": "Conflict activity",
@@ -388,7 +388,7 @@
         },
         {
           "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
-          "source": "BBC World",
+          "source": "BBC Middle East",
           "url": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
           "time": "Thu, 03 Sep 2026 15:05:57 GMT",
           "match": [
@@ -432,7 +432,7 @@
       "recent": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
       "escalation": "CRITICAL",
       "activityScore": 100,
-      "delta": 0,
+      "delta": 34,
       "signalCount": 6,
       "sourceCount": 3,
       "confidence": "CORROBORATED",
@@ -558,7 +558,7 @@
       "recent": "Foreign fighters and external support fuel Sudan’s war: UN-backed probe",
       "escalation": "MODERATE",
       "activityScore": 53,
-      "delta": 0,
+      "delta": -13,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -588,7 +588,7 @@
       "recent": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
       "escalation": "MODERATE",
       "activityScore": 52,
-      "delta": 0,
+      "delta": -3,
       "signalCount": 2,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -628,7 +628,7 @@
       "recent": "Somalia repels armed assault on Baidoa amid regional political tensions",
       "escalation": "MODERATE",
       "activityScore": 50,
-      "delta": 0,
+      "delta": 6,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -658,7 +658,7 @@
       "recent": "Uber shuts operations in Nigeria and Uganda with immediate effect",
       "escalation": "LOW",
       "activityScore": 48,
-      "delta": 0,
+      "delta": -13,
       "signalCount": 2,
       "sourceCount": 2,
       "confidence": "MULTI-SOURCE",
@@ -698,7 +698,7 @@
       "recent": "Houthi fighters clash with Yemeni government forces in country’s southwest",
       "escalation": "LOW",
       "activityScore": 47,
-      "delta": 0,
+      "delta": -14,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -747,7 +747,7 @@
       "recent": "Green earthquake (Magnitude 5.6M, Depth:10km) in Mexico 02/09/2026 12:28 UTC, 560 thousand in MMI IV.",
       "escalation": "LOW",
       "activityScore": 41,
-      "delta": 0,
+      "delta": -2,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -891,7 +891,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": 0,
+      "delta": -2,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -929,7 +929,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": 0,
+      "delta": -4,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -948,7 +948,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 37,
-      "delta": 0,
+      "delta": -6,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -967,7 +967,7 @@
       "recent": "US and Iran exchange more airstrikes, fuelling fears of wider return to hostilities",
       "escalation": "LOW",
       "activityScore": 35,
-      "delta": 0,
+      "delta": 8,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -997,7 +997,7 @@
       "recent": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
       "escalation": "LOW",
       "activityScore": 29,
-      "delta": 0,
+      "delta": -13,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -1065,7 +1065,7 @@
       "recent": "No specific current signal in the public feed window.",
       "escalation": "LOW",
       "activityScore": 27,
-      "delta": 0,
+      "delta": -7,
       "signalCount": 0,
       "sourceCount": 0,
       "confidence": "MONITORING",
@@ -6717,8 +6717,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6_S0op1g0tGnABkQoEYQlQIf9ptQG79jxKRAy3HtOtskC69Dk43HHAKGjTVxOb-hu6kcRQ9q21ld15kJfbJGP55suwBJ-gMxAk1zbv4JMrlBwYIuOPSmhadBpw0BwsEzCTjrgeZZIA96AWoFEAvB-p-6q0RJw6FPFmWzRPVcPzOMyZmK748oa7rU5xSTT5xGAQwZHdDPJvJnS7AvcL-piB2eCVTGNtDfJ03N9KffmliikPK92pT-4H3d0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6_S0op1g0tGnABkQoEYQlQIf9ptQG79jxKRAy3HtOtskC69Dk43HHAKGjTVxOb-hu6kcRQ9q21ld15kJfbJGP55suwBJ-gMxAk1zbv4JMrlBwYIuOPSmhadBpw0BwsEzCTjrgeZZIA96AWoFEAvB-p-6q0RJw6FPFmWzRPVcPzOMyZmK748oa7rU5xSTT5xGAQwZHdDPJvJnS7AvcL-piB2eCVTGNtDfJ03N9KffmliikPK92pT-4H3d0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_i9hHfvkEGKpGACDhOjZz_k-ORWHRq5miuYahTaF7QoQ8YtUFr2VWCRkKF1xDs20u42_5JegYccKaFGKyEvguqZ1qtuyrRcSEajPvSfh1t-yYslXi3z2HmZdCVsQSOtYAj9ukJxarrD2c46JHmHDbLSrpV7om4U7SGK8D4K5rmRIB1bXxCX8gttUlB6cDUHTaWjulrrApuFWUvgnaIU-qTWnjWXqQ_PVC76iuDh53ySuIb1TEVoMvgcw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5_i9hHfvkEGKpGACDhOjZz_k-ORWHRq5miuYahTaF7QoQ8YtUFr2VWCRkKF1xDs20u42_5JegYccKaFGKyEvguqZ1qtuyrRcSEajPvSfh1t-yYslXi3z2HmZdCVsQSOtYAj9ukJxarrD2c46JHmHDbLSrpV7om4U7SGK8D4K5rmRIB1bXxCX8gttUlB6cDUHTaWjulrrApuFWUvgnaIU-qTWnjWXqQ_PVC76iuDh53ySuIb1TEVoMvgcw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -6753,8 +6753,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Q_Pe5peD_bJTsEpsL9UQAd0D7h9P-qSPTvGSmNarKz8aX32qjaOe_45xokIkg4X7mF_DSnm32do20FDtIo3zLTBmzld7IFlU2tmMEiNnvIggyGqUA5cHQZYmNhOSk18sLc21uWtrIutJuv_kVLGlFTiFskpO8XwKbYeHBw8qYJvYy4j3S5XqLfheTP4INl7uT4Qp1TxaPapPdrFrXbIToSyRz3u2xP_-LNfevqWOTngeQAsNziZREpPg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Q_Pe5peD_bJTsEpsL9UQAd0D7h9P-qSPTvGSmNarKz8aX32qjaOe_45xokIkg4X7mF_DSnm32do20FDtIo3zLTBmzld7IFlU2tmMEiNnvIggyGqUA5cHQZYmNhOSk18sLc21uWtrIutJuv_kVLGlFTiFskpO8XwKbYeHBw8qYJvYy4j3S5XqLfheTP4INl7uT4Qp1TxaPapPdrFrXbIToSyRz3u2xP_-LNfevqWOTngeQAsNziZREpPg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40T9YXkMu6ZDQHt34Ewct2Xncfk2fZuqGMs8coYivspBTRQVy88IXgvEFl6kqeaSFtlzXUBe5KkbIvnH5z6cJWdrsuNq6d9iJnFlyhXA5jlcNEFTsPADyCn6nLaD60hoEtX0wqTfj6hPwej7VMqIVnjrmsdZ09oA3x6jM3xJUhvkQa-fZlyQpMBUdTgSEWlNTkdd1cSoj0PxIlf5blv7pxoylSzTB2va3343M6hk_AoRwnA_Da5A50HuY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40T9YXkMu6ZDQHt34Ewct2Xncfk2fZuqGMs8coYivspBTRQVy88IXgvEFl6kqeaSFtlzXUBe5KkbIvnH5z6cJWdrsuNq6d9iJnFlyhXA5jlcNEFTsPADyCn6nLaD60hoEtX0wqTfj6hPwej7VMqIVnjrmsdZ09oA3x6jM3xJUhvkQa-fZlyQpMBUdTgSEWlNTkdd1cSoj0PxIlf5blv7pxoylSzTB2va3343M6hk_AoRwnA_Da5A50HuY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -6807,8 +6807,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64GHD6w5EpjtKeM567vEnYNb0AIPkmBtORu-9dUSwAHgy9l7GMdtc6lNuHddrkh8TyUGLTjtG4V_zu9FI-qMUbllLcmLeeHzM9yztmsP7tbMqCXUPCJGfbADGDPkX35J1RempDf51U5EWrHFHHSNQV5c2qV615orLtLfYcx_DFgKWqYeCya50c279E1WqWrzvd6TBRRrGSRhMmD3xpxHXnUgus5kw2IzqhC4l_dzgZJmJWCfd8S1f5V58?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64GHD6w5EpjtKeM567vEnYNb0AIPkmBtORu-9dUSwAHgy9l7GMdtc6lNuHddrkh8TyUGLTjtG4V_zu9FI-qMUbllLcmLeeHzM9yztmsP7tbMqCXUPCJGfbADGDPkX35J1RempDf51U5EWrHFHHSNQV5c2qV615orLtLfYcx_DFgKWqYeCya50c279E1WqWrzvd6TBRRrGSRhMmD3xpxHXnUgus5kw2IzqhC4l_dzgZJmJWCfd8S1f5V58?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4w32RJn2gKdMgviqJTm9oYVczuqA-pXCeOBfYx2ldI6gnvKiCC35mrjfhdPRKFc6J0yD0geG7zVN45-YnW-WfMaJDgGCyEMf7y_ccXIorD3KsC7N7IxMceNST4kkQEeOv8xc2msOCcR6X7vW35dPEoVw3E2-G5yiToRYa4UBp6n8Ym34uGxClWODMKG2xa5u7cRTV5lGZrI5Ni5qZtbvEVOxIvJwR2nEKIu-b3rNHDmr7pmmMYQC_dYgQ?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4w32RJn2gKdMgviqJTm9oYVczuqA-pXCeOBfYx2ldI6gnvKiCC35mrjfhdPRKFc6J0yD0geG7zVN45-YnW-WfMaJDgGCyEMf7y_ccXIorD3KsC7N7IxMceNST4kkQEeOv8xc2msOCcR6X7vW35dPEoVw3E2-G5yiToRYa4UBp6n8Ym34uGxClWODMKG2xa5u7cRTV5lGZrI5Ni5qZtbvEVOxIvJwR2nEKIu-b3rNHDmr7pmmMYQC_dYgQ?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -7815,8 +7815,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76K7j72UaCLcsjqRPmFEdS-7kV-fznu9fFYiSq59Vy3-S4s75y-i7N6yBsE9JAT4UQ-1HAvYD7WO0fGsO-7mPu_sVSXS_wqIQKtePt9AdxprXvVEncJy6FJNXCylnIzzIsXKj5W8gR_VtkNFmRmNyEijgVhSzKibwCwTalhkgESuQobtk5rSr_HFhFtLBodbtg_z85egmnwj-LAC4hA1hVuvDgbvlXEfOfT3mSfH3sky7N7crroO20kIg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR76K7j72UaCLcsjqRPmFEdS-7kV-fznu9fFYiSq59Vy3-S4s75y-i7N6yBsE9JAT4UQ-1HAvYD7WO0fGsO-7mPu_sVSXS_wqIQKtePt9AdxprXvVEncJy6FJNXCylnIzzIsXKj5W8gR_VtkNFmRmNyEijgVhSzKibwCwTalhkgESuQobtk5rSr_HFhFtLBodbtg_z85egmnwj-LAC4hA1hVuvDgbvlXEfOfT3mSfH3sky7N7crroO20kIg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6k02wKdq6ZR3dRHH2SqxtOxxh0odnLEnZOad9A9w2S1icgc-zSEXYYO_VEd_lNMFV0FZfNrsgE8dGJJlw3gSo8QLJOh23NMllOmG-PpVYPhrnjU3KTIvzQgGUqcxqCdOuV7x93pVItC70sG7jF0v0DmF-9mrULqoJ88Rvp9KN9iQa_CtBNhQ_esoF-hD7zPCk4KfIojhHYNlUTTuSHTymUmd4zCQjAFG6ioMQmioPWUBlCxu5NASdYK2U?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6k02wKdq6ZR3dRHH2SqxtOxxh0odnLEnZOad9A9w2S1icgc-zSEXYYO_VEd_lNMFV0FZfNrsgE8dGJJlw3gSo8QLJOh23NMllOmG-PpVYPhrnjU3KTIvzQgGUqcxqCdOuV7x93pVItC70sG7jF0v0DmF-9mrULqoJ88Rvp9KN9iQa_CtBNhQ_esoF-hD7zPCk4KfIojhHYNlUTTuSHTymUmd4zCQjAFG6ioMQmioPWUBlCxu5NASdYK2U?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9003,8 +9003,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR63mQ-3w3qm4IFS_VEdYF5AJqGcPazSY_ax_jJim43cs_1WK3bWx4ZV7ugyz-ZYOJiqTgwkanEkz4b1ai7QbUW9uqmWLwkavhNuClDIhhVAwKl1ZH6lZuQ2zLWIF2j8uqbphUdEApgx4Cm9VZtt8PDAHTT011kHwOQ5Ng7eC13-AmGjazQCF8TI2QIAuEFAd-344B79wQ1RxiBZjFnho61UnVzDgcDCiZ-25yIR16QqwmCckKNNSlR0e0M?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR63mQ-3w3qm4IFS_VEdYF5AJqGcPazSY_ax_jJim43cs_1WK3bWx4ZV7ugyz-ZYOJiqTgwkanEkz4b1ai7QbUW9uqmWLwkavhNuClDIhhVAwKl1ZH6lZuQ2zLWIF2j8uqbphUdEApgx4Cm9VZtt8PDAHTT011kHwOQ5Ng7eC13-AmGjazQCF8TI2QIAuEFAd-344B79wQ1RxiBZjFnho61UnVzDgcDCiZ-25yIR16QqwmCckKNNSlR0e0M?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uFZik480-eUrYRDvBruIBFfE5u-3OLy1v_7qt6m9bNfSR2XCkS3O_YqDwSuGebXULS8NDG_xfQE1sh50vbZX6toWnXKVAJ4Rc0Sjgrd04nlSkDa7eydOCi9yLMy5xM46gfWyOoLgdaVS7zvgzPlrolRap-QbUOcXY6GUtnipMLLze5HSPOnAJsJNgzDqW0-6JAH7Egd-a4daD0m92Cbn3EAEzFqujgNYLi11M8fQQF0AQedR9ZmQSwww?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6uFZik480-eUrYRDvBruIBFfE5u-3OLy1v_7qt6m9bNfSR2XCkS3O_YqDwSuGebXULS8NDG_xfQE1sh50vbZX6toWnXKVAJ4Rc0Sjgrd04nlSkDa7eydOCi9yLMy5xM46gfWyOoLgdaVS7zvgzPlrolRap-QbUOcXY6GUtnipMLLze5HSPOnAJsJNgzDqW0-6JAH7Egd-a4daD0m92Cbn3EAEzFqujgNYLi11M8fQQF0AQedR9ZmQSwww?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9021,8 +9021,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5GTiTLfUNg5OVhDgxto70YJxtLfhtNkp4EF8HPsFeSA5MANIob8_gK7StA1neKDb-_P7vF-DzNklXd1NALp9D4oXt0H2Bl4cewAMay8p6n3NCc0BumJc3ahPnVBUnPXrirbG1E9aLl-EdeeAaU4y0eHUZuysW-E-J8sDTMv0oNCxSgykXCKHDwcwFOoHcY9Z2sr3Jo0789LKj3m2c394C9VgMooyqmTb24u0o3-cTLSqPZ00PyvhQ2K7Y?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5GTiTLfUNg5OVhDgxto70YJxtLfhtNkp4EF8HPsFeSA5MANIob8_gK7StA1neKDb-_P7vF-DzNklXd1NALp9D4oXt0H2Bl4cewAMay8p6n3NCc0BumJc3ahPnVBUnPXrirbG1E9aLl-EdeeAaU4y0eHUZuysW-E-J8sDTMv0oNCxSgykXCKHDwcwFOoHcY9Z2sr3Jo0789LKj3m2c394C9VgMooyqmTb24u0o3-cTLSqPZ00PyvhQ2K7Y?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xZkaJ_BZFAqbtS7jWlxxnFa6oD_95cPdocnEDZiIUiCwMJzAY4Di5QbFDPWQ6k8BpbCp114bBDf50KZkEIpQekwnfRK42A3BxDZn7vONDkTtxXrY7b0OIHkWkYJtJ6E771Z0AtrXxA35vO6E4emSkAm5TUTVkZa7_UBXhcLErf3sSdr9BPYQV7Fq8ulbJOYj9mo7rPu5eb-l84ZglX9OeW56pnVHeQQFuRM7Zha0T_lOgYUrBliCrcDM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7xZkaJ_BZFAqbtS7jWlxxnFa6oD_95cPdocnEDZiIUiCwMJzAY4Di5QbFDPWQ6k8BpbCp114bBDf50KZkEIpQekwnfRK42A3BxDZn7vONDkTtxXrY7b0OIHkWkYJtJ6E771Z0AtrXxA35vO6E4emSkAm5TUTVkZa7_UBXhcLErf3sSdr9BPYQV7Fq8ulbJOYj9mo7rPu5eb-l84ZglX9OeW56pnVHeQQFuRM7Zha0T_lOgYUrBliCrcDM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9039,8 +9039,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5L4IPvVlls6Qk9KKlkVl4wMDQP1tacuwJpq0nieO_ilGTvpX9hGMmGQApNdyU7sSk07aJMCjcelJdwOX0M24oyoMntoyOKP4NwoQDB_1O2cZIGEr_HNngeOoJoG6ZOQaVso_ALp29UvGPypIDAdJYRFjgJjSMQJuqIQQKdLbOeeL2FWGtP3-8URF2AoyD5iJgGAL5R_NfN2TK9Z898M8QulWTGc3E6f_kJUBf7NAZLTQiN7yhNs-ho8Lg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5L4IPvVlls6Qk9KKlkVl4wMDQP1tacuwJpq0nieO_ilGTvpX9hGMmGQApNdyU7sSk07aJMCjcelJdwOX0M24oyoMntoyOKP4NwoQDB_1O2cZIGEr_HNngeOoJoG6ZOQaVso_ALp29UvGPypIDAdJYRFjgJjSMQJuqIQQKdLbOeeL2FWGtP3-8URF2AoyD5iJgGAL5R_NfN2TK9Z898M8QulWTGc3E6f_kJUBf7NAZLTQiN7yhNs-ho8Lg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Mte3onjpn0ZsHikIv6N2meTHG7XJ4d9ZS87firgW2bCn4cnzMGTTuT0f2qVLuBAmgOY14-5o8KdRA3uYQkqHlJJynoqvGknBiLhmzS5SVF3Ai5dFAjXQPZ0CeL5BE0s5s-GTvmGCGxo5nYknVAVCxvanqYjmezKMGTzY8z9Q9w47Eq6U82t6SCOV2RjpLGn0hz2wdzWItsAdTxls1FURJzxY0symYz4H2v7HLr6ClNub6lEJGGziiaJM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Mte3onjpn0ZsHikIv6N2meTHG7XJ4d9ZS87firgW2bCn4cnzMGTTuT0f2qVLuBAmgOY14-5o8KdRA3uYQkqHlJJynoqvGknBiLhmzS5SVF3Ai5dFAjXQPZ0CeL5BE0s5s-GTvmGCGxo5nYknVAVCxvanqYjmezKMGTzY8z9Q9w47Eq6U82t6SCOV2RjpLGn0hz2wdzWItsAdTxls1FURJzxY0symYz4H2v7HLr6ClNub6lEJGGziiaJM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9057,8 +9057,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4gsn-gE_5wWrdgJBJ6NIqRyJW0fN3nnMaHr5xIwAvBbfvmTlfRxOS1B89exCMAULgNuEAjfysm_JUzOGxzgnJBSlx2uUOpPVSMhOmZ8TzRo8bvu71r2IbJx0xU3AbakpT5vN45dTmnG0pW1Po9hxdkJHAZzoqr_KTponfTY54mpAjm_-gedLp0jQAZq8TmiEEs7Odbh3x-Pk96EAWrz57-2DcTWZEnQivQiKr4qnCSFaHPegNQPjYW0E4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4gsn-gE_5wWrdgJBJ6NIqRyJW0fN3nnMaHr5xIwAvBbfvmTlfRxOS1B89exCMAULgNuEAjfysm_JUzOGxzgnJBSlx2uUOpPVSMhOmZ8TzRo8bvu71r2IbJx0xU3AbakpT5vN45dTmnG0pW1Po9hxdkJHAZzoqr_KTponfTY54mpAjm_-gedLp0jQAZq8TmiEEs7Odbh3x-Pk96EAWrz57-2DcTWZEnQivQiKr4qnCSFaHPegNQPjYW0E4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7rldxfC4pTub5jvr1YXclmCA6TWR49xHS387316ZZEtzz7-MeunyozGzVhBjetiHfi3xIlUh0kU4u7zjeyHsngcYM44yg3cvLiOcJ1X3_l3cmV6ONdBXDNfPAO0VSog3K6ob7z6uV9WuSfR3CFxqqJQ-NbzWsSYygaMXdxAiugX97kzfNmtCDrmGRAW3c0yu4hPk44ZFgchg8CS66-fO2xbP2uAaPNTTU3C_Ne6jm_z_NKsGlbpF-PmpI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7rldxfC4pTub5jvr1YXclmCA6TWR49xHS387316ZZEtzz7-MeunyozGzVhBjetiHfi3xIlUh0kU4u7zjeyHsngcYM44yg3cvLiOcJ1X3_l3cmV6ONdBXDNfPAO0VSog3K6ob7z6uV9WuSfR3CFxqqJQ-NbzWsSYygaMXdxAiugX97kzfNmtCDrmGRAW3c0yu4hPk44ZFgchg8CS66-fO2xbP2uAaPNTTU3C_Ne6jm_z_NKsGlbpF-PmpI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9075,8 +9075,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40SNuB8yUkoW6P6Xshw3LL9WofzzLTYllK1W6NutmOxfWyGbqG6QUvCX_Tvj9wmyDPjx3oGksp0RTknArsl1aT_rjaQOXOX5GFsExAIAF1t05jyUqe4sIyYqgUHmEuoNQBeRg42RV6174wiMcfFtfDkKaqHXfmxxCv9BbGrmAqzyTzC2sIuGVabpML751ifWhmOq52soLawABzg6Kh-fg0sZUNUrLgglduPTTaBfeUQCRBOE3L4hT3j4o?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40SNuB8yUkoW6P6Xshw3LL9WofzzLTYllK1W6NutmOxfWyGbqG6QUvCX_Tvj9wmyDPjx3oGksp0RTknArsl1aT_rjaQOXOX5GFsExAIAF1t05jyUqe4sIyYqgUHmEuoNQBeRg42RV6174wiMcfFtfDkKaqHXfmxxCv9BbGrmAqzyTzC2sIuGVabpML751ifWhmOq52soLawABzg6Kh-fg0sZUNUrLgglduPTTaBfeUQCRBOE3L4hT3j4o?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7UmNLyR28-T3c57Agf6qLUmAUeM7hH0B2dTPUR-q58fsUq-VPPsfZmMYjqspaoyf-Ycq0JOyJbcKTpj0E76Cuqyy-86WtjIOsBvtkTrQzYbW2VNdbZmMBl5Gc7s_Ma9gWRmfOFX3IjES_TilNhqZ0i5EFL2Kv1siGvsG6yImGZ7UDTq3iFfl-vSCW4JWpCCNDl9MU8ZAVCOBZFklwlMvFaF9N4dSqp_tGnNjFQGlOk0YjyNhmOTFOjRZY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7UmNLyR28-T3c57Agf6qLUmAUeM7hH0B2dTPUR-q58fsUq-VPPsfZmMYjqspaoyf-Ycq0JOyJbcKTpj0E76Cuqyy-86WtjIOsBvtkTrQzYbW2VNdbZmMBl5Gc7s_Ma9gWRmfOFX3IjES_TilNhqZ0i5EFL2Kv1siGvsG6yImGZ7UDTq3iFfl-vSCW4JWpCCNDl9MU8ZAVCOBZFklwlMvFaF9N4dSqp_tGnNjFQGlOk0YjyNhmOTFOjRZY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9093,8 +9093,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5gFZgbZoR5r0bM8Yzu9o1ApNdy6B9fqcQD9O-erXAHiNt4d21HxIq6qmBY6w3aIoF5K9Rl4WvXgYRaREjnYPjix7E3AzKrgFkO0QpPggKfjQ_xLGtyCG6ZWgYJ11y6Nqdf_C7GVSMonscF-wG77csmwsacyGjQPcgOVNYwIPLTLtdVpi7ymqlfsC4Y7oEc-_LxB3jMijeZDOoajqzqBxgjs0kN-ExoCM5MB_kwYJACOMcl66uFtPvSHDQ?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5gFZgbZoR5r0bM8Yzu9o1ApNdy6B9fqcQD9O-erXAHiNt4d21HxIq6qmBY6w3aIoF5K9Rl4WvXgYRaREjnYPjix7E3AzKrgFkO0QpPggKfjQ_xLGtyCG6ZWgYJ11y6Nqdf_C7GVSMonscF-wG77csmwsacyGjQPcgOVNYwIPLTLtdVpi7ymqlfsC4Y7oEc-_LxB3jMijeZDOoajqzqBxgjs0kN-ExoCM5MB_kwYJACOMcl66uFtPvSHDQ?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7i9e9pCDUBIx4Nrj_FMRp6Vf6KsGgnr0JQGEoMrzTdtD9-_KhgyzJ-WA3WDZ8CvwmBbYrsW_3lDwrGf1wp_kZQZTkdYqhG-V7e-hWLAUc93MsG_JPR4-_UWjQgGdjqtmF-hhZmdMVuTx7okavlpjbPdDNcC4H9GCG8OKECdX1CzT7Aw28JpTuaJ0a94wulv4WttqMgXBxM4MytyI0lBmK_PmaynNyRNqFXF9wEAIIn-fwO4nMx6hSbtOk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7i9e9pCDUBIx4Nrj_FMRp6Vf6KsGgnr0JQGEoMrzTdtD9-_KhgyzJ-WA3WDZ8CvwmBbYrsW_3lDwrGf1wp_kZQZTkdYqhG-V7e-hWLAUc93MsG_JPR4-_UWjQgGdjqtmF-hhZmdMVuTx7okavlpjbPdDNcC4H9GCG8OKECdX1CzT7Aw28JpTuaJ0a94wulv4WttqMgXBxM4MytyI0lBmK_PmaynNyRNqFXF9wEAIIn-fwO4nMx6hSbtOk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9111,8 +9111,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ACx4tTCeHttFnPC4CAzH0yf3Vh2Mbq5mh5Ma9CuqIRTKXs_xOZeZm8xOU5nx7_N5P9SOleb6Ev7XmHDuqT32iEAr6bx0zKuGX1XSgznparwZut_C21PJ2Df8StqQDItsqaSTZYVhmkmUF1sGPzDBe8LDF-2DqkVoYDo05_iJXray211q98i9CQsY3FWRmg7llbwBeo9Umk1_IB85uf6V8JwaMIUizbBKCvRifHmkBQWmlnGXQzbNY6nE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ACx4tTCeHttFnPC4CAzH0yf3Vh2Mbq5mh5Ma9CuqIRTKXs_xOZeZm8xOU5nx7_N5P9SOleb6Ev7XmHDuqT32iEAr6bx0zKuGX1XSgznparwZut_C21PJ2Df8StqQDItsqaSTZYVhmkmUF1sGPzDBe8LDF-2DqkVoYDo05_iJXray211q98i9CQsY3FWRmg7llbwBeo9Umk1_IB85uf6V8JwaMIUizbBKCvRifHmkBQWmlnGXQzbNY6nE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SRy2bEzhu_bEq_iLa-7gN_JG7bEOCBKPD4WhYBkzVe0mnOYx1qbITnA1PHf-uYaHnDjV8OfLwruBu6DImb-LiIjOUNZUCq-wr9172MGto-jHlyToetUHW3u0kx8DnvCnyBYT6w3NWK1_Bg6Lvq0jKrs-BOdFtOf8zImYDuUak9kMiS9oWPuRShlp9T0fBjAwrIrK-gZUSmuaoS_wuKbtSKcrPujujyJz5ujWSBbL6hxLij5Hfn1dnG8Y?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5SRy2bEzhu_bEq_iLa-7gN_JG7bEOCBKPD4WhYBkzVe0mnOYx1qbITnA1PHf-uYaHnDjV8OfLwruBu6DImb-LiIjOUNZUCq-wr9172MGto-jHlyToetUHW3u0kx8DnvCnyBYT6w3NWK1_Bg6Lvq0jKrs-BOdFtOf8zImYDuUak9kMiS9oWPuRShlp9T0fBjAwrIrK-gZUSmuaoS_wuKbtSKcrPujujyJz5ujWSBbL6hxLij5Hfn1dnG8Y?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9129,8 +9129,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR759pTq5tPeoy6tde4_QEuKx73eCfqxyBhSQCdUxIH9-xUvhyoNen4wmYl77K51o7-V0rdPvSgC2eElQLPkAb4FSt-Y_Wm_oj5dCJWJqa5AIbk7hk6WHDj4hMfQ-36xjhRs5uStU8EbdUpvSMEuSqh317GvsfPe8W-dI2MpBatfIrJrH1CUkSamgYblx2M2ItJzzcbTEco2DxLHc4Ljz7MLpbsGPfnKNRuPOW-Q8FbKxzQVECoVTqQ91PM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR759pTq5tPeoy6tde4_QEuKx73eCfqxyBhSQCdUxIH9-xUvhyoNen4wmYl77K51o7-V0rdPvSgC2eElQLPkAb4FSt-Y_Wm_oj5dCJWJqa5AIbk7hk6WHDj4hMfQ-36xjhRs5uStU8EbdUpvSMEuSqh317GvsfPe8W-dI2MpBatfIrJrH1CUkSamgYblx2M2ItJzzcbTEco2DxLHc4Ljz7MLpbsGPfnKNRuPOW-Q8FbKxzQVECoVTqQ91PM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6y_wmoM4ooohKDnJaIvJVJTsm6diBR8LVl1tXHqg4iRPNhONXb-36Zu2eJypW6oL9Ux3HNGoMyZWMphXXwJxhze_NjecwK0mBehRAOzD82qUGY1G7bUp3-pC2mhU4EFWvL4rK_Ke62pP7QyY3yakeGuSd74jHxhhDXk_4pEWInWbbASMu9MYzNDzKSz7pgs4D-g4eqY_BSMWxHpamggpS43TJ5ryemTPGFZUen9k-OQHijNX_XDoLh2qY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6y_wmoM4ooohKDnJaIvJVJTsm6diBR8LVl1tXHqg4iRPNhONXb-36Zu2eJypW6oL9Ux3HNGoMyZWMphXXwJxhze_NjecwK0mBehRAOzD82qUGY1G7bUp3-pC2mhU4EFWvL4rK_Ke62pP7QyY3yakeGuSd74jHxhhDXk_4pEWInWbbASMu9MYzNDzKSz7pgs4D-g4eqY_BSMWxHpamggpS43TJ5ryemTPGFZUen9k-OQHijNX_XDoLh2qY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9147,8 +9147,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR492o8RuTxzHe9KMt9H3cSGVRdk7Y076xaGBFFKusFk2AhIwIM8QCAwkMo40WYbF6pG9E_ltbcHGDZOEBtxSQIsznoRh68MvzsaCl0bw5DVHQXIhAXSKeYb9JXNUL8ZiRo64rqv70_DVusCIqAIfOlumcuf3lFOW8WHFcj2Lp8R1di_jPGeVdhKbfwnaaY7BVvpo67dazp70gAfr3EpONqyeQ07IwRJD9IKczrNrF9ld57YClesNwyyi1M?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR492o8RuTxzHe9KMt9H3cSGVRdk7Y076xaGBFFKusFk2AhIwIM8QCAwkMo40WYbF6pG9E_ltbcHGDZOEBtxSQIsznoRh68MvzsaCl0bw5DVHQXIhAXSKeYb9JXNUL8ZiRo64rqv70_DVusCIqAIfOlumcuf3lFOW8WHFcj2Lp8R1di_jPGeVdhKbfwnaaY7BVvpo67dazp70gAfr3EpONqyeQ07IwRJD9IKczrNrF9ld57YClesNwyyi1M?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4mBKlSNMXoAhl06nsDMjsXcUiGVM6ApD9nBVM2xJowykNQH3JmcjGkNe-oLxyJFD15GPLY7BCliDJABVnLDHDBk6zxza0EGZfOxwf89SsrHMlNLg01b4dL058I9oNsU1lHiRrAQCvNtyUon9mesOMCPy2IXNodf56S6s7R8_SYbiCD-qG4-hGo3J7qD2J4BYtyeV0TrI2KM22prGzM9IwImhoAR9XtZjdKbj-2hK4KMaQ3mPNNYZkHUyI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4mBKlSNMXoAhl06nsDMjsXcUiGVM6ApD9nBVM2xJowykNQH3JmcjGkNe-oLxyJFD15GPLY7BCliDJABVnLDHDBk6zxza0EGZfOxwf89SsrHMlNLg01b4dL058I9oNsU1lHiRrAQCvNtyUon9mesOMCPy2IXNodf56S6s7R8_SYbiCD-qG4-hGo3J7qD2J4BYtyeV0TrI2KM22prGzM9IwImhoAR9XtZjdKbj-2hK4KMaQ3mPNNYZkHUyI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9201,8 +9201,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Xu8zzlYRs0L_hpTEXdTgTuG2Y456m1C-w2yaXFwIzA_qy-50zGP-b2FG8Zl3iwq6XhyhRTNsZscH4RCetBHWCKckU1zWCcVxWyKGzk9hyRBnlNT0_GV7SGspd7KYA8rcHJdP2_QBSsJ3bSqzxIR2GaZP3OtuvCZlCJZ2j4na3Ey27fi2iW1s-4ZaMqnCq1LQeAbcTPaYHmDBLQ51yYdpdYbjPz6X1rFbRO9VQkG2U8PbZdnPE6PRaCNE?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Xu8zzlYRs0L_hpTEXdTgTuG2Y456m1C-w2yaXFwIzA_qy-50zGP-b2FG8Zl3iwq6XhyhRTNsZscH4RCetBHWCKckU1zWCcVxWyKGzk9hyRBnlNT0_GV7SGspd7KYA8rcHJdP2_QBSsJ3bSqzxIR2GaZP3OtuvCZlCJZ2j4na3Ey27fi2iW1s-4ZaMqnCq1LQeAbcTPaYHmDBLQ51yYdpdYbjPz6X1rFbRO9VQkG2U8PbZdnPE6PRaCNE?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6k2t2ckSGLnCaLerArRZqme0A90p24As_zP-9XGTgKhIWcOFGtV8wtDpUlU0f43dTJo4eakv8lbiUWoG18i_27vnbFShxNPvVmDwB1ttDKJqmKRv6_XlP6W5tVsF4cJGpXOpg4keAdTu-7WBOMtzYBKb-aWOCIfnHqrb1Bgc-tGMClYE9vRy-ranOE2uyYEAdrxS8UrJpT0HvESqwal-A5ynAll4TRaAOXKF26T7n8mveaVHR2APAGiac?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6k2t2ckSGLnCaLerArRZqme0A90p24As_zP-9XGTgKhIWcOFGtV8wtDpUlU0f43dTJo4eakv8lbiUWoG18i_27vnbFShxNPvVmDwB1ttDKJqmKRv6_XlP6W5tVsF4cJGpXOpg4keAdTu-7WBOMtzYBKb-aWOCIfnHqrb1Bgc-tGMClYE9vRy-ranOE2uyYEAdrxS8UrJpT0HvESqwal-A5ynAll4TRaAOXKF26T7n8mveaVHR2APAGiac?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9219,8 +9219,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7_iox8k0Ibinjn5b-taoFbqthJZAFYI5cPK8-dmDJSeetdc2P4Xd0f2AMXeNrEIKbeF2rng0B_PB3EcYRGvzSulJHS8XrjI3yc5aXbDEP6VO-BS4bnZrZM9y7BBQvFG4lIjXEFDy8EKHtp10R84P_ANl36uk_J6x6P0yCbCbmuGrBFpMSj14O37zLfv93zP9aqn7iPjKUYeAcxBpqzEtqi_l-pSp3Kba7VYTSBgEwtZTBTxRpldxdbyKs?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7_iox8k0Ibinjn5b-taoFbqthJZAFYI5cPK8-dmDJSeetdc2P4Xd0f2AMXeNrEIKbeF2rng0B_PB3EcYRGvzSulJHS8XrjI3yc5aXbDEP6VO-BS4bnZrZM9y7BBQvFG4lIjXEFDy8EKHtp10R84P_ANl36uk_J6x6P0yCbCbmuGrBFpMSj14O37zLfv93zP9aqn7iPjKUYeAcxBpqzEtqi_l-pSp3Kba7VYTSBgEwtZTBTxRpldxdbyKs?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Uw9tGI6-ptxoQ3VLjou4-cPvvZgKL3-N_UsxpsMZZbhi_2MKWe8p4GEKXxm_i5dPoneur0H82HZNYh0oIePIVyUD5mtJ0jAP6w-vw3NU1MHkxgIiXyxXOStW3cZBc1ssihWFOFPa8u4Cq22_nX9vy02zTQsXR-KILB4B3Rh2OyUIKOWMxceq1ZDYYnKMNrZmjySoahwfTLPoRz7TDvfSTPNqGvymJSc1Y2gTYE7q5FVUkMuDmSWLrJi0?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4Uw9tGI6-ptxoQ3VLjou4-cPvvZgKL3-N_UsxpsMZZbhi_2MKWe8p4GEKXxm_i5dPoneur0H82HZNYh0oIePIVyUD5mtJ0jAP6w-vw3NU1MHkxgIiXyxXOStW3cZBc1ssihWFOFPa8u4Cq22_nX9vy02zTQsXR-KILB4B3Rh2OyUIKOWMxceq1ZDYYnKMNrZmjySoahwfTLPoRz7TDvfSTPNqGvymJSc1Y2gTYE7q5FVUkMuDmSWLrJi0?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9273,8 +9273,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Le22CPBog33WDrccajZmR-MZ7UanS0UIa4-vn-IoIndEw2596lXxBiVcRpiLcEaKEnBDThlsona-mWaM_0bUw4F8iYiZLtsnYGTAHOS3QAcAH6LL29W4GjwTLIp0kDn4gkjpSTS5uZ5HGBRxHltI_b0FYciJDVnNIV2erhszhqzPq-JD6Yvya6-0LVKU4nReNhw5RyAf8cLgwFu4bWyvhhQZs7XMkqCp5jByvXluFmYZ-sxSvwduF1FY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Le22CPBog33WDrccajZmR-MZ7UanS0UIa4-vn-IoIndEw2596lXxBiVcRpiLcEaKEnBDThlsona-mWaM_0bUw4F8iYiZLtsnYGTAHOS3QAcAH6LL29W4GjwTLIp0kDn4gkjpSTS5uZ5HGBRxHltI_b0FYciJDVnNIV2erhszhqzPq-JD6Yvya6-0LVKU4nReNhw5RyAf8cLgwFu4bWyvhhQZs7XMkqCp5jByvXluFmYZ-sxSvwduF1FY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40x9gBwKNxAsRwhVTRyF4SkBfGRP7DqhtL3BDxGAFR0RGSDIQZcKP6bnn1K7KTXka3I-sFB-yiN3zKO3FqVLHtD-52WRYSydwKKvv7FcwvNq11C854dlxe9Bhr3hPR8xUkl3hfoXVDVxSObZaxpC2SzA-IhNsRffpDCkxSBUKumJ5YWMPFL-iHXLCg5yuEpx2LI1neWMlIMHFNIykmsmqsD5C5vWKv9oZZ-fjIR2vpVCzOaU-w-XuhenU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR40x9gBwKNxAsRwhVTRyF4SkBfGRP7DqhtL3BDxGAFR0RGSDIQZcKP6bnn1K7KTXka3I-sFB-yiN3zKO3FqVLHtD-52WRYSydwKKvv7FcwvNq11C854dlxe9Bhr3hPR8xUkl3hfoXVDVxSObZaxpC2SzA-IhNsRffpDCkxSBUKumJ5YWMPFL-iHXLCg5yuEpx2LI1neWMlIMHFNIykmsmqsD5C5vWKv9oZZ-fjIR2vpVCzOaU-w-XuhenU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9345,8 +9345,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Ct80XHDLdKQEwf2NrWOBHnBJ8_oWuESPNVQAIEHdhaBiLoChDdtcSInBTXODiK_czyD5hftCQqq2fm4R-1kiUwIYx4m1zkwLS1jSkwacWONm7H-DR3G5h5Tl_-PG9WIVEgJjWPRF7vFn7fzFHJ9Q98FUbK-2ArMLEXEKg5Cq6L0FumR7Hw8AF70d0XvHnfboL6Q5ZeSi85CtAnIv9IlGfUxqB_NgnaKW5DaEPw61hWp8nbU6T_Kqw4Jo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Ct80XHDLdKQEwf2NrWOBHnBJ8_oWuESPNVQAIEHdhaBiLoChDdtcSInBTXODiK_czyD5hftCQqq2fm4R-1kiUwIYx4m1zkwLS1jSkwacWONm7H-DR3G5h5Tl_-PG9WIVEgJjWPRF7vFn7fzFHJ9Q98FUbK-2ArMLEXEKg5Cq6L0FumR7Hw8AF70d0XvHnfboL6Q5ZeSi85CtAnIv9IlGfUxqB_NgnaKW5DaEPw61hWp8nbU6T_Kqw4Jo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ciIuRRISYn4b6ibcGjPS6xg8NASGIhl7l8Zyd5-NS_m3Kz2jroF3xdWfX_PjGNFkUSJ_xBPu_S8-xYMAaHCLo018xIObn1nyxmxNS_o10YUQ4UPPBzi2apqVLF1Tb6apKY2OXDQnvD_z4z62Gpt2wUKREmIcc53eu7jtNN7PWcGb0ieDl1UsYbXtPsmvFXPwW9-qz5HpiUFYyem6dC5_yeXtraR4fkQfLwVIsA0jlttIMqeMQkZjilbM?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7ciIuRRISYn4b6ibcGjPS6xg8NASGIhl7l8Zyd5-NS_m3Kz2jroF3xdWfX_PjGNFkUSJ_xBPu_S8-xYMAaHCLo018xIObn1nyxmxNS_o10YUQ4UPPBzi2apqVLF1Tb6apKY2OXDQnvD_z4z62Gpt2wUKREmIcc53eu7jtNN7PWcGb0ieDl1UsYbXtPsmvFXPwW9-qz5HpiUFYyem6dC5_yeXtraR4fkQfLwVIsA0jlttIMqeMQkZjilbM?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -9471,8 +9471,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4pAL0yEZYvEFIQ6BxFE9y5sbCfBtHXIXkDnOj79L_2O8IrrEeWotHe56cUyTdwfrAIVfUw7UbHfqPE5Hh2abKfaudyq72CBGuABGffjeqdZ-mJSAZhHmThc-YvnCFONdH5Mk_7pzLiPHwoTL8Xft2XLsYD3pOk5yvy9RAFgk0pQjKB9OZXPcTn122w01vKk2_H_i9nxPEnA9EkJapZTPBgVFBZgTOgKZ735p8pX2DL0uzvIGZVaM1SkOM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4pAL0yEZYvEFIQ6BxFE9y5sbCfBtHXIXkDnOj79L_2O8IrrEeWotHe56cUyTdwfrAIVfUw7UbHfqPE5Hh2abKfaudyq72CBGuABGffjeqdZ-mJSAZhHmThc-YvnCFONdH5Mk_7pzLiPHwoTL8Xft2XLsYD3pOk5yvy9RAFgk0pQjKB9OZXPcTn122w01vKk2_H_i9nxPEnA9EkJapZTPBgVFBZgTOgKZ735p8pX2DL0uzvIGZVaM1SkOM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4C0Jp5rIMR5WFfnp3LuvXDBGo7QeRdVXUJ41PJHhBFO8OUaXPkG0T4B-ip35XKi59M7WQ45eAiYdSFjjCiFoIyx574EG0dFNb3gkUtMd_Z9SIjKZGYEf0y6NpFwLOq85OEot8s4I__UhxLspPr0nFOc4qRUqyMw5ONqnhYW_rU7LH3thmTpo4KPV-eHFmK9iWalRiCiPqrkMK9GSDz3fU-cs8trjzni7U8ylF933peRYyBhJKReXNJnJw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4C0Jp5rIMR5WFfnp3LuvXDBGo7QeRdVXUJ41PJHhBFO8OUaXPkG0T4B-ip35XKi59M7WQ45eAiYdSFjjCiFoIyx574EG0dFNb3gkUtMd_Z9SIjKZGYEf0y6NpFwLOq85OEot8s4I__UhxLspPr0nFOc4qRUqyMw5ONqnhYW_rU7LH3thmTpo4KPV-eHFmK9iWalRiCiPqrkMK9GSDz3fU-cs8trjzni7U8ylF933peRYyBhJKReXNJnJw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -11115,6 +11115,28 @@
       "politicalSignalScore": 2.0
     },
     {
+      "id": "aa673d39c205",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Is Nepal leading the battle for climate justice?",
+      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
+      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:58:05 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Public Opinion"
+      ],
+      "sourceDomain": "aljazeera.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
+    },
+    {
       "id": "6481d41eccb3",
       "sourceLabel": "Guardian US",
       "sourceType": "regional",
@@ -11622,20 +11644,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "477094435a75",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "20 million children a year face online sexual abuse, UNICEF says",
-      "summary": "More than one in five children aged 12 to 17 were targeted on digital platforms, the UN children’s agency reports.",
-      "source": "https://www.aljazeera.com/news/2026/9/3/20-million-children-a-year-face-online-sexual-abuse-unicef-says?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/9/3/20-million-children-a-year-face-online-sexual-abuse-unicef-says?traffic_source=rss",
-      "time": "Thu, 03 Sep 2026 15:51:57 +0000",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "intelligenceLayer": "general"
-    },
-    {
       "id": "f562afeec197",
       "sourceLabel": "BBC Europe",
       "sourceType": "regional",
@@ -11836,8 +11844,8 @@
     },
     {
       "id": "4e4cfa70881f",
-      "sourceLabel": "BBC World",
-      "sourceType": "international",
+      "sourceLabel": "BBC Middle East",
+      "sourceType": "regional",
       "title": "Palestinian teens killed during settler attack on West Bank village, officials say",
       "summary": "Al-Mughayyir's council says they were trying to stop settlers stealing sheep, but the Israeli military says they threw stones at its troops.",
       "source": "https://www.bbc.co.uk/news/articles/cj6482r6yl4o?at_medium=RSS&at_campaign=rss",
@@ -12491,8 +12499,8 @@
     },
     {
       "id": "055e5c2e898a",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
       "title": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
       "summary": "Millions of people have been exposed to the smog, with more than 12,000 children suffering respiratory issues.",
       "source": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
@@ -13415,8 +13423,8 @@
     },
     {
       "id": "8cadd309d68e",
-      "sourceLabel": "BBC Asia",
-      "sourceType": "regional",
+      "sourceLabel": "BBC World",
+      "sourceType": "international",
       "title": "Why Nepal floods should worry India",
       "summary": "The disaster comes as a warning as climate change raises shared Himalayan risks.",
       "source": "https://www.bbc.co.uk/news/articles/cn8e940gz10o?at_medium=RSS&at_campaign=rss",
@@ -13930,33 +13938,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "aa673d39c205",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "news",
-      "title": "Is Nepal leading the battle for climate justice?",
-      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
-      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
-      "time": "2026-09-03T18:58:05+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "al_jazeera",
-        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Public Opinion"
-      ],
-      "sourceDomain": "aljazeera.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 46.5
-    },
-    {
       "id": "b38d2f0c8406",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -13998,7 +13979,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.5
+      "politicalSignalScore": 43.4
     },
     {
       "id": "9814589d83ea",
@@ -14091,6 +14072,25 @@
       "credit": {
         "sourceId": "guardian_world",
         "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "477094435a75",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "news",
+      "title": "20 million children a year face online sexual abuse, UNICEF says",
+      "summary": "More than one in five children aged 12 to 17 were targeted on digital platforms, the UN children’s agency reports.",
+      "source": "https://www.aljazeera.com/news/2026/9/3/20-million-children-a-year-face-online-sexual-abuse-unicef-says?traffic_source=rss",
+      "time": "2026-09-03T15:51:57+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "al_jazeera",
+        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
@@ -14609,7 +14609,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.1
+      "politicalSignalScore": 39.0
     },
     {
       "id": "af5bbb5af053",
@@ -14679,7 +14679,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.0
+      "politicalSignalScore": 44.9
     },
     {
       "id": "07062ad50053",
@@ -15134,7 +15134,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.4
+      "politicalSignalScore": 38.3
     },
     {
       "id": "0f0fedcaa48f",
@@ -15226,7 +15226,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.1
+      "politicalSignalScore": 36.0
     },
     {
       "id": "19e24f5bcc9d",
@@ -15477,7 +15477,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.6
+      "politicalSignalScore": 33.5
     },
     {
       "id": "83dbf39de042",
@@ -15788,7 +15788,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 45.2
+      "politicalSignalScore": 45.1
     },
     {
       "id": "2a21cb0360a5",
@@ -15815,7 +15815,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.2
+      "politicalSignalScore": 28.1
     },
     {
       "id": "b21d64cc6178",
@@ -15883,7 +15883,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.3
     },
     {
       "id": "0e6d5e98e90c",
@@ -16039,7 +16039,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.9
+      "politicalSignalScore": 25.8
     },
     {
       "id": "6ad10dbff853",
@@ -16102,7 +16102,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.6
+      "politicalSignalScore": 27.5
     },
     {
       "id": "04121260ea77",
@@ -16353,7 +16353,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.9
+      "politicalSignalScore": 8.8
     },
     {
       "id": "1ce74d8ef321",
@@ -16399,7 +16399,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 4.7
+      "politicalSignalScore": 4.6
     },
     {
       "id": "4565edc51082",
@@ -16486,7 +16486,7 @@
       "label": "ONLINE",
       "articles": 51,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16496,7 +16496,7 @@
       "label": "ONLINE",
       "articles": 4,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16506,7 +16506,7 @@
       "label": "ONLINE",
       "articles": 12,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16514,9 +16514,9 @@
       "type": "regional",
       "status": "online",
       "label": "ONLINE",
-      "articles": 7,
+      "articles": 5,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16526,7 +16526,7 @@
       "label": "ONLINE",
       "articles": 10,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16534,9 +16534,9 @@
       "type": "regional",
       "status": "online",
       "label": "ONLINE",
-      "articles": 3,
+      "articles": 4,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16544,9 +16544,9 @@
       "type": "international",
       "status": "online",
       "label": "ONLINE",
-      "articles": 23,
+      "articles": 24,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16556,7 +16556,7 @@
       "label": "ONLINE",
       "articles": 37,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16566,7 +16566,7 @@
       "label": "ONLINE",
       "articles": 18,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16576,7 +16576,7 @@
       "label": "ONLINE",
       "articles": 10,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16586,7 +16586,7 @@
       "label": "ONLINE",
       "articles": 17,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16596,7 +16596,7 @@
       "label": "ONLINE",
       "articles": 12,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16606,7 +16606,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16616,7 +16616,7 @@
       "label": "ONLINE",
       "articles": 10,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16626,7 +16626,7 @@
       "label": "ONLINE",
       "articles": 10,
       "domains": 1,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16636,7 +16636,7 @@
       "label": "DEGRADED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16646,7 +16646,7 @@
       "label": "DEGRADED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16656,7 +16656,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16666,7 +16666,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16676,7 +16676,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16686,7 +16686,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16696,7 +16696,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16706,7 +16706,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16716,7 +16716,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16726,7 +16726,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16736,7 +16736,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16746,7 +16746,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16756,7 +16756,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16766,7 +16766,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16776,7 +16776,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     },
     {
@@ -16786,14 +16786,14 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+      "lastChecked": "2026-09-03T19:29:22.567683+00:00",
       "error": ""
     }
   ],
   "liveDatabase": {
     "enabled": true,
     "articleCount": 237,
-    "lastExport": "2026-09-03T19:26:27.516513+00:00",
+    "lastExport": "2026-09-03T19:28:43.460130+00:00",
     "retentionDays": 7,
     "newMergedThisRun": 138
   },
@@ -16987,25 +16987,6 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
-    },
-    {
-      "id": "aa673d39c205",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "news",
-      "title": "Is Nepal leading the battle for climate justice?",
-      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
-      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
-      "time": "2026-09-03T18:58:05+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "al_jazeera",
-        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "world-politics"
     },
     {
       "id": "e4a1ce9ee168",
@@ -17623,6 +17604,20 @@
       "confidence": "DEVELOPING",
       "breaking": false,
       "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "aa673d39c205",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Is Nepal leading the battle for climate justice?",
+      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
+      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:58:05 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics"
     },
     {
       "id": "6481d41eccb3",
@@ -18407,7 +18402,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 45.2
+      "politicalSignalScore": 45.1
     },
     {
       "id": "2e5cd7b9be37",
@@ -18601,7 +18596,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.0
+      "politicalSignalScore": 44.9
     },
     {
       "id": "d0651b9f9065",
@@ -18753,7 +18748,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.4
+      "politicalSignalScore": 38.3
     },
     {
       "id": "648d6749c712",
@@ -18923,7 +18918,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.3
     },
     {
       "id": "eca0fc692bc0",
@@ -18982,7 +18977,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.2
+      "politicalSignalScore": 28.1
     },
     {
       "id": "6ad10dbff853",
@@ -19045,7 +19040,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.6
+      "politicalSignalScore": 27.5
     },
     {
       "id": "ca396a85c9e1",
@@ -19074,7 +19069,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.9
+      "politicalSignalScore": 25.8
     },
     {
       "id": "24b250618b77",
@@ -19304,7 +19299,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.9
+      "politicalSignalScore": 8.8
     },
     {
       "id": "a5d592dedc0c",
@@ -19385,7 +19380,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 4.7
+      "politicalSignalScore": 4.6
     },
     {
       "id": "c280f70cbb01",
@@ -20192,33 +20187,6 @@
       "politicalSignalScore": 55.9
     },
     {
-      "id": "aa673d39c205",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "news",
-      "title": "Is Nepal leading the battle for climate justice?",
-      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
-      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
-      "time": "2026-09-03T18:58:05+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "al_jazeera",
-        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "world-politics",
-      "politicalEntities": [],
-      "politicalTopics": [
-        "Public Opinion"
-      ],
-      "sourceDomain": "aljazeera.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 46.5
-    },
-    {
       "id": "e4a1ce9ee168",
       "sourceLabel": "The Guardian World",
       "sourceType": "news",
@@ -20241,7 +20209,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.5
+      "politicalSignalScore": 43.4
     },
     {
       "id": "db855776bafb",
@@ -20266,7 +20234,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.1
+      "politicalSignalScore": 39.0
     },
     {
       "id": "41d7c8ee8c42",
@@ -20320,7 +20288,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.1
+      "politicalSignalScore": 36.0
     },
     {
       "id": "973b1ca1b2ea",
@@ -20345,7 +20313,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.6
+      "politicalSignalScore": 33.5
     },
     {
       "id": "884558a5687b",
@@ -20455,6 +20423,28 @@
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
       "politicalSignalScore": 13.9
+    },
+    {
+      "id": "aa673d39c205",
+      "sourceLabel": "Al Jazeera",
+      "sourceType": "international",
+      "title": "Is Nepal leading the battle for climate justice?",
+      "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
+      "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
+      "time": "Thu, 03 Sep 2026 18:58:05 +0000",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [],
+      "politicalTopics": [
+        "Public Opinion"
+      ],
+      "sourceDomain": "aljazeera.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 2.0
     },
     {
       "id": "a5fd09c6459f",
@@ -20785,7 +20775,7 @@
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-03T19:26:53.578924+00:00",
+    "updatedAt": "2026-09-03T19:29:09.878035+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
     "totalSignals": 89,
@@ -20953,33 +20943,6 @@
         "politicalSignalScore": 47.0
       },
       {
-        "id": "aa673d39c205",
-        "sourceLabel": "Al Jazeera",
-        "sourceType": "news",
-        "title": "Is Nepal leading the battle for climate justice?",
-        "summary": "Foreign minister demands top three polluting nations compensate Nepal for recent disaster.",
-        "source": "https://www.aljazeera.com/video/inside-story/2026/9/3/is-nepal-leading-the-battle-for-climate-justice?traffic_source=rss",
-        "time": "2026-09-03T18:58:05+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "al_jazeera",
-          "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "world-politics",
-        "politicalEntities": [],
-        "politicalTopics": [
-          "Public Opinion"
-        ],
-        "sourceDomain": "aljazeera.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 46.5
-      },
-      {
         "id": "3ba400ddb739",
         "sourceLabel": "CNN Politics",
         "sourceType": "news-mirror",
@@ -21008,7 +20971,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 45.2
+        "politicalSignalScore": 45.1
       },
       {
         "id": "2e5cd7b9be37",
@@ -21202,7 +21165,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.0
+        "politicalSignalScore": 44.9
       },
       {
         "id": "e4a1ce9ee168",
@@ -21227,7 +21190,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.5
+        "politicalSignalScore": 43.4
       },
       {
         "id": "d0651b9f9065",
@@ -21344,7 +21307,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.1
+        "politicalSignalScore": 39.0
       },
       {
         "id": "41d7c8ee8c42",
@@ -21431,7 +21394,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.4
+        "politicalSignalScore": 38.3
       },
       {
         "id": "648d6749c712",
@@ -21570,7 +21533,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.1
+        "politicalSignalScore": 36.0
       },
       {
         "id": "99d3f0b739c1",
@@ -21623,7 +21586,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.6
+        "politicalSignalScore": 33.5
       },
       {
         "id": "884558a5687b",
@@ -21705,7 +21668,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.4
+        "politicalSignalScore": 31.3
       },
       {
         "id": "eca0fc692bc0",
@@ -21764,7 +21727,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 28.2
+        "politicalSignalScore": 28.1
       },
       {
         "id": "6ad10dbff853",
@@ -21827,7 +21790,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 27.6
+        "politicalSignalScore": 27.5
       },
       {
         "id": "ca396a85c9e1",
@@ -21856,7 +21819,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 25.9
+        "politicalSignalScore": 25.8
       },
       {
         "id": "24b250618b77",
@@ -22143,7 +22106,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 8.9
+        "politicalSignalScore": 8.8
       },
       {
         "id": "a5d592dedc0c",
@@ -22224,7 +22187,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 4.7
+        "politicalSignalScore": 4.6
       },
       {
         "id": "c280f70cbb01",
@@ -22449,6 +22412,30 @@
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
         "politicalSignalScore": 4.0
+      },
+      {
+        "id": "4e39b533e89b",
+        "sourceLabel": "Guardian US",
+        "sourceType": "regional",
+        "title": "Trump admin spends billions to deport Black and brown people while doubling dollars for white ‘refugees’ | Heba Gowayed",
+        "summary": "‘Where the wealthiest country in the world allocates money has always been a question of political will over political way’  The United States once led most other nations on resettling refugees from all over the world. But in the fiscal year 2025- 2026, except for three people from  Afghanistan ,  all  of the  10,258 people  admitted through resettlement were white South Africans.  But admitting en masse the benefici",
+        "source": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
+        "url": "https://www.theguardian.com/commentisfree/2026/sep/02/trump-deportation-refugees-south-africa",
+        "time": "Wed, 02 Sep 2026 14:27:00 GMT",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [
+          "Immigration"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 2.0
       }
     ]
   },
@@ -22760,7 +22747,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-03T19:27:05.912935Z",
+    "updatedAt": "2026-09-03T19:29:20.500888Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -23783,7 +23770,7 @@
     "online": 15,
     "degraded": 2,
     "failed": 14,
-    "lastChecked": "2026-09-03T19:27:08.946416+00:00",
+    "lastChecked": "2026-09-03T19:29:22.567683+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
   "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
