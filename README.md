@@ -6,14 +6,14 @@ A no-API-key global intelligence dashboard built for GitHub Pages. It combines p
 
 ## What it does
 
-- **Global news:** public RSS/open feeds with regional and global coverage.
-- **Conflict monitor:** activity signals, escalation/status labels, facts, and analysis.
-- **CFR layer:** Council on Foreign Relations Global Conflict Tracker data.
+- **Global news:** public RSS/open feeds with global and regional coverage.
+- **Conflict monitor:** theater activity signals, escalation/status labels, facts, and analysis.
+- **CFR layer:** Council on Foreign Relations Global Conflict Tracker reference data.
 - **Global map:** conflict, OSINT, organized-crime, strategic-reference, and hazard layers.
 - **Hazards:** public USGS earthquake data where available.
-- **Watchlist:** save theaters locally on your device for quick access.
-- **Automatic refresh:** the backend refreshes every 30 minutes; an open page checks for a newer snapshot and reloads automatically.
-- **No API keys required:** the refresh pipeline uses public sources that do not require private credentials.
+- **Watchlist:** save theaters locally on the device for quick access.
+- **Automatic refresh:** backend data refreshes every 30 minutes; an open page checks for a newer snapshot and reloads automatically.
+- **No API keys required:** the pipeline uses public sources that do not require private credentials.
 
 ## Project structure
 
@@ -22,20 +22,18 @@ A no-API-key global intelligence dashboard built for GitHub Pages. It combines p
 - `update_osint.py` — public map/OSINT synchronization.
 - `update_cfr.py` — CFR conflict synchronization.
 - `update8_global_layers.py` — strategic and hazard layers plus map installation.
-- `update7_live_branding.py` — final deterministic UI cleanup and live-refresh logic.
+- `update7_live_branding.py` — deterministic branding/layout cleanup and live-refresh logic.
 - `global_map_ui.py` — canonical Leaflet map renderer.
-- `apply_ui_patch.py` — stable intelligence brief/watchlist/modal behavior.
-- `patch_index_ui.py` — small compatibility hardening step.
 - `data/snapshot.json` — current published intelligence snapshot.
 - `data/history.json` — tension/activity history.
 - `data/sources.json` — source metadata.
-- `.github/workflows/update-snapshot.yml` — refreshes, validates, commits, and deploys the site every 30 minutes.
+- `.github/workflows/update-snapshot.yml` — scheduled/manual refresh, validation, and direct Pages deployment.
 
 ## Automatic updates
 
 The GitHub Actions workflow runs every 30 minutes and can also be started manually from the **Actions** tab. It validates the generated data and UI before deployment.
 
-GitHub Pages is deployed from the same workflow that refreshes the data. This is intentional: commits made with the GitHub Actions token do not themselves start a second Pages workflow, so deployment happens directly after the refreshed site is built.
+The refresh workflow deploys the refreshed artifact directly. It intentionally does not run on ordinary pushes because GitHub Pages already handles source-change deployments; this avoids duplicate deployments while preserving scheduled data publishing. GitHub notes that commits made with `GITHUB_TOKEN` do not themselves trigger another workflow or Pages build. citeturn0search1turn0search4
 
 ## Local development
 
@@ -43,11 +41,17 @@ GitHub Pages is deployed from the same workflow that refreshes the data. This is
 python3 update_snapshot.py
 ```
 
-Then open `index.html` in a browser or serve the folder with a local HTTP server.
+Then serve the folder with a local HTTP server rather than opening the HTML file directly:
+
+```bash
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000` in a browser.
 
 ## Data philosophy
 
-Global Pulse separates **reported signals** from confirmed battlefield truth. Map points may be source-map reports or reference nodes and should not automatically be interpreted as verified incidents. Activity scores are signals derived from the available public data, not authoritative casualty or military assessments.
+Global Pulse separates **reported signals** from confirmed battlefield truth. Map points may be source-map reports or reference nodes and should not automatically be interpreted as verified incidents. Activity scores are analytical signals derived from available public data, not authoritative casualty or military assessments.
 
 Direct X/Twitter ingestion is not included because reliable unauthenticated live access is not guaranteed. Public links can still be preserved when supplied by source data.
 
