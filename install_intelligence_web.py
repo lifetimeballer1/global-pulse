@@ -27,4 +27,4 @@ for marker in required_js:
     if marker not in js:
         raise SystemExit(f"Intelligence Web renderer missing required marker: {marker}")
 
-print("Verified canonical Intelligence Web renderer v4; no file rewrite performed")
+print("Verified canonical Intelligence Web renderer v5; no file rewrite performed")
