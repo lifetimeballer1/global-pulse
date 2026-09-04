@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T17:08:06.435833Z",
+  "updatedAt": "2026-09-04T17:58:49.130514Z",
   "method": "Explainable indicator layer using current public reporting, clustered events and evidence-backed network data. Scores are not forecasts and market relationships are not treated as causal.",
   "assessments": [
     {
@@ -10,11 +10,11 @@
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 68
+          "delta": 66
         },
         {
           "label": "Live event activity",
-          "delta": 16
+          "delta": 20
         },
         {
           "label": "Economic / energy signals",
@@ -51,28 +51,6 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
-      "entity": "Global Economy",
-      "score": 46,
-      "level": "ELEVATED",
-      "delta": 0,
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 26
-        },
-        {
-          "label": "Live event activity",
-          "delta": 4
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 11,
-      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
-    },
-    {
       "entity": "Global Trade",
       "score": 45,
       "level": "ELEVATED",
@@ -92,6 +70,28 @@
         }
       ],
       "evidenceCount": 11,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
+      "entity": "Global Economy",
+      "score": 44,
+      "level": "WATCH",
+      "delta": 0,
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 26
+        },
+        {
+          "label": "Live event activity",
+          "delta": 4
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 10,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -329,6 +329,20 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
+      "entity": "India",
+      "score": 14,
+      "level": "WATCH",
+      "delta": 0,
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 8
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
       "entity": "Central African Republic",
       "score": 13,
       "level": "WATCH",
@@ -429,20 +443,6 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
-      "entity": "India",
-      "score": 8,
-      "level": "WATCH",
-      "delta": 0,
-      "factors": [
-        {
-          "label": "Live event activity",
-          "delta": 4
-        }
-      ],
-      "evidenceCount": 3,
-      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
-    },
-    {
       "entity": "Sudan",
       "score": 7,
       "level": "WATCH",
@@ -516,20 +516,6 @@
     {
       "eventId": "749fdb5a9264928e",
       "title": "نائب ترامب : دول الخليج تساعد سراً في عزل إيران | CNN Arabic",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 3,
-      "sourceCount": 0,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
-    },
-    {
-      "eventId": "27cafa7a3b8f1a0b",
-      "title": "US feminist icon Gloria Steinem dies aged 92",
       "category": "general",
       "confidence": "low",
       "reportCount": 3,
@@ -668,6 +654,20 @@
       "urls": []
     },
     {
+      "eventId": "27cafa7a3b8f1a0b",
+      "title": "US feminist icon Gloria Steinem dies aged 92",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 2,
+      "sourceCount": 0,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
       "eventId": "720947f856ea1b59",
       "title": "Tunisia’s top court upholds conviction of opposition figures, activists",
       "category": "general",
@@ -724,8 +724,36 @@
       "urls": []
     },
     {
-      "eventId": "6547947cd064d9fc",
-      "title": "Rescuers race to save10-year-old Algerian boy trapped in deep well",
+      "eventId": "db53fdde911d4989",
+      "title": "Farage seeks to shore up damaged leadership as scandal engulfs Reform conference",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
+      "eventId": "7ce93086b75d36d9",
+      "title": "US and allies want IAEA board to report Iran to UN Security Council, diplomats say",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
+      "eventId": "ec89e2949ec9bcb7",
+      "title": "5 EU countries aim to send rejected migrants to 'return hub' by 2027",
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
@@ -740,34 +768,6 @@
     {
       "eventId": "7105798fb7c69ec8",
       "title": "Judge declares mistrial in US infanticide case but puts ruling on hold",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
-    },
-    {
-      "eventId": "2b902113f86e3576",
-      "title": "Investigations launched into polling firm at centre of Reform UK allegations",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
-    },
-    {
-      "eventId": "729d4ead7ec9208b",
-      "title": "Reports emerge of Fort Carson soldiers sleeping in cars amid AC failures",
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
