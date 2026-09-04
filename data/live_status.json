@@ -1,23 +1,17 @@
 {
-  "updatedAt": "2026-09-04T20:22:42.887376+00:00",
-  "feedsChecked": 20,
-  "rowsFetched": 374,
-  "newArticles": 84,
-  "purged": 83,
-  "databaseArticles": 815,
-  "healthySources": 11,
+  "updatedAt": "2026-09-04T20:32:45.996250+00:00",
+  "feedsChecked": 52,
+  "rowsFetched": 766,
+  "newArticles": 405,
+  "purged": 84,
+  "databaseArticles": 1136,
+  "healthySources": 46,
+  "emptySources": 7,
+  "fallbackSources": 0,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
-    },
-    {
-      "source": "X @NATO",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @UN",
-      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @NASA",
@@ -32,16 +26,586 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "Axios Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "source": "X @NATO",
+      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "CNN Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "source": "X @UN",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    }
+  ],
+  "sourceResults": [
+    {
+      "sourceId": "gdacs_global_disaster_alerts",
+      "name": "GDACS Global Disaster Alerts",
+      "type": "climate-hazard",
+      "category": "climate-hazard",
+      "rowsFetched": 100,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
     },
     {
-      "source": "Morse Report — GDELT Mirror",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "sourceId": "npr_politics",
+      "name": "NPR Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 10,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "fox_news_politics",
+      "name": "Fox News Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 25,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "bbc_world",
+      "name": "BBC World",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 31,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "bbc_middle_east",
+      "name": "BBC Middle East",
+      "type": "regional",
+      "category": "regional",
+      "rowsFetched": 32,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "bbc_africa",
+      "name": "BBC Africa",
+      "type": "regional",
+      "category": "regional",
+      "rowsFetched": 43,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "bbc_asia",
+      "name": "BBC Asia",
+      "type": "regional",
+      "category": "regional",
+      "rowsFetched": 16,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "bbc_europe",
+      "name": "BBC Europe",
+      "type": "regional",
+      "category": "regional",
+      "rowsFetched": 23,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "guardian_world",
+      "name": "Guardian World",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 45,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "guardian_us",
+      "name": "Guardian US",
+      "type": "regional",
+      "category": "regional",
+      "rowsFetched": 33,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "npr_world",
+      "name": "NPR World",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 10,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "al_jazeera",
+      "name": "Al Jazeera",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 25,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "dw_world",
+      "name": "DW World",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "france_24",
+      "name": "France 24",
+      "type": "international",
+      "category": "international",
+      "rowsFetched": 24,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "crisis_group",
+      "name": "Crisis Group",
+      "type": "analysis",
+      "category": "analysis",
+      "rowsFetched": 10,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_climate_disaster",
+      "name": "Google News — Climate & Disaster",
+      "type": "climate-hazard",
+      "category": "climate-hazard",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_climate_security",
+      "name": "Google News — Climate Security",
+      "type": "climate-hazard",
+      "category": "climate-hazard",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_humanitarian",
+      "name": "Google News — Humanitarian",
+      "type": "humanitarian",
+      "category": "humanitarian",
+      "rowsFetched": 9,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_u_s_politics",
+      "name": "Google News — U.S. Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 13,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_cnn_politics",
+      "name": "Google News — CNN Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 10,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_axios_politics",
+      "name": "Google News — Axios Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_morse_report",
+      "name": "Google News — Morse Report",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_world_politics",
+      "name": "Google News — World Politics",
+      "type": "world-politics",
+      "category": "world-politics",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_global_economics",
+      "name": "Google News — Global Economics",
+      "type": "economics",
+      "category": "economics",
+      "rowsFetched": 34,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_global_conflict",
+      "name": "Google News — Global Conflict",
+      "type": "live",
+      "category": "live",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_africa_security",
+      "name": "Google News — Africa Security",
+      "type": "africa",
+      "category": "africa",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_sudan_conflict",
+      "name": "Google News — Sudan Conflict",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 6,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_drc_m23",
+      "name": "Google News — DRC / M23",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_sahel_security",
+      "name": "Google News — Sahel Security",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_somalia_security",
+      "name": "Google News — Somalia Security",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 3,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_haiti_security",
+      "name": "Google News — Haiti Security",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 7,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_mexico_cartel_conflict",
+      "name": "Google News — Mexico Cartel Conflict",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_ecuador_security",
+      "name": "Google News — Ecuador Security",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_myanmar_civil_war",
+      "name": "Google News — Myanmar Civil War",
+      "type": "asia-conflict",
+      "category": "asia-conflict",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_afghanistan_security",
+      "name": "Google News — Afghanistan Security",
+      "type": "south-asia-conflict",
+      "category": "south-asia-conflict",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_yemen_red_sea",
+      "name": "Google News — Yemen / Red Sea",
+      "type": "middle-east-conflict",
+      "category": "middle-east-conflict",
+      "rowsFetched": 19,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_iran_israel",
+      "name": "Google News — Iran Israel",
+      "type": "middle-east-conflict",
+      "category": "middle-east-conflict",
+      "rowsFetched": 43,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_ukraine_war",
+      "name": "Google News — Ukraine War",
+      "type": "europe-conflict",
+      "category": "europe-conflict",
+      "rowsFetched": 26,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_south_america_security",
+      "name": "Google News — South America Security",
+      "type": "americas",
+      "category": "americas",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_middle_east_security",
+      "name": "Google News — Middle East Security",
+      "type": "middle-east",
+      "category": "middle-east",
+      "rowsFetched": 3,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_south_asia_security",
+      "name": "Google News — South Asia Security",
+      "type": "south-asia",
+      "category": "south-asia",
+      "rowsFetched": 4,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "cnn",
+      "name": "CNN",
+      "type": "news",
+      "category": "international",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "sourceId": "fox_politics",
+      "name": "Fox News Politics",
+      "type": "news",
+      "category": "us-politics",
+      "rowsFetched": 25,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "france24",
+      "name": "France 24",
+      "type": "news",
+      "category": "international",
+      "rowsFetched": 24,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "cna_world",
+      "name": "CNA World",
+      "type": "news",
+      "category": "international",
+      "rowsFetched": 20,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "stars_stripes",
+      "name": "Stars and Stripes",
+      "type": "news",
+      "category": "security",
+      "rowsFetched": 81,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "morse_audio",
+      "name": "Morse Report",
+      "type": "podcast",
+      "category": "us-politics",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "x:NASA",
+      "name": "X @NASA",
+      "type": "social",
+      "category": "osint",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "sourceId": "x:WhiteHouse",
+      "name": "X @WhiteHouse",
+      "type": "social",
+      "category": "osint",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "sourceId": "x:POTUS",
+      "name": "X @POTUS",
+      "type": "social",
+      "category": "osint",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "sourceId": "x:NATO",
+      "name": "X @NATO",
+      "type": "social",
+      "category": "osint",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "sourceId": "x:UN",
+      "name": "X @UN",
+      "type": "social",
+      "category": "osint",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "RuntimeError: proxy challenge/whitelist response"
     }
   ],
   "pollSeconds": 300,
