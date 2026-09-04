@@ -131,7 +131,10 @@ jobs:
           assert 'ForceGraph3D' in intel and 'data/snapshot.json' in intel, '3D Intelligence Web not wired to real snapshot'
           assert 'enableNodeDrag(true)' in intel, '3D node dragging is not enabled'
           assert '3d-force-graph@1.80.0' in intel, '3D renderer is not pinned'
-          assert 'gpLoad3D' in intel, '3D loader missing'
+          # The current deterministic 3D page uses an internal Promise-based CDN
+          # loader rather than the older gpLoad3D callback. Validate the actual
+          # loader contract instead of requiring a removed legacy symbol.
+          assert 'function load()' in intel and 'cdn.jsdelivr.net' in intel and 'unpkg.com/3d-force-graph@1.80.0' in intel, '3D loader contract missing'
           assert 'global_pulse_map_3d.js' not in intel, 'deprecated globe renderer referenced'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
