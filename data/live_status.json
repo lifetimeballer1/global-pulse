@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-04T05:00:17.664114+00:00",
+  "updatedAt": "2026-09-04T09:31:34.959229+00:00",
   "feedsChecked": 20,
-  "rowsFetched": 407,
-  "newArticles": 107,
-  "purged": 84,
-  "databaseArticles": 611,
-  "healthySources": 14,
+  "rowsFetched": 375,
+  "newArticles": 120,
+  "purged": 85,
+  "databaseArticles": 646,
+  "healthySources": 11,
   "failedSources": [
     {
       "source": "CNN",
@@ -13,6 +13,10 @@
     },
     {
       "source": "X @UN",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "X @POTUS",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -24,12 +28,20 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @POTUS",
+      "source": "X @NATO",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @NATO",
-      "error": "RuntimeError: proxy challenge/whitelist response"
+      "source": "Axios Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "CNN Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "Morse Report — GDELT Mirror",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     }
   ],
   "pollSeconds": 300,
