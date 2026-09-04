@@ -1,57 +1,17 @@
-/* Global Pulse — static-first live reporting bridge. */
+/* Global Pulse — live reporting bridge with open-data first refresh. */
 (function(){
   "use strict";
-  var POLL_MS=60000, TIMEOUT_MS=7000, FEED_ID="pulse-reporting-feed", COUNT_ID="pulse-reporting-count";
+  var POLL_MS=60000,TIMEOUT_MS=9000,FEED_ID="pulse-reporting-feed",COUNT_ID="pulse-reporting-count";
+  var LIVE=["https://api.gdeltproject.org/api/v2/doc/doc?query="+encodeURIComponent('(Russia OR Ukraine OR NATO OR missile OR airstrike OR bombing OR explosion OR invasion OR attack OR ceasefire OR coup OR earthquake OR tsunami OR hurricane OR wildfire OR oil OR sanctions OR tariff)')+"&mode=artlist&format=json&maxrecords=75&timespan=15min&sort=datedesc"];
   var FALLBACK=["data/live_articles.json","data/snapshot.json"];
   function $(id){return document.getElementById(id)}
   function safe(v,d){v=String(v==null?"":v).trim();return v||d||""}
   function url(v){try{var u=new URL(String(v||""),location.href);return /^https?:$/.test(u.protocol)?u.href:""}catch(e){return ""}}
-  function ago(v){var t=Date.parse(v||"");if(!isFinite(t))return "Time unavailable";var m=Math.max(0,Math.floor((Date.now()-t)/60000)),h=Math.floor(m/60),d=Math.floor(h/24);return m<1?"just now":m<60?m+"m ago":h<24?h+"h ago":d+"d ago"}
-  function removeDuplicateReporting(){
-    var sections=Array.from(document.querySelectorAll("section")),found=false;
-    sections.forEach(function(sec){
-      var heading=sec.querySelector("h2");
-      var isReporting=heading&&/^latest reporting$/i.test((heading.textContent||"").trim());
-      if(!isReporting)return;
-      if(!found){found=true;return}
-      sec.remove();
-    });
-  }
-  function normalize(p){
-    var a=Array.isArray(p)?p:(p&&p.articles)||(p&&p.stories)||[];
-    return a.map(function(x){x=x||{};var c=x.credit||{};return {title:safe(x.title||x.headline,"Untitled report"),published_date:safe(x.published_date||x.time||x.publishedAt||x.timestamp),summary_snippet:safe(x.summary_snippet||x.summary||x.description,"No summary was provided by the source."),original_link:url(x.original_link||x.url||x.link||c.source_url),source:safe(c.source||x.source_name||x.sourceLabel||x.source,"Open-data source")}}).filter(function(x){return x.title})
-  }
-  function render(items,mode){
-    var f=$(FEED_ID);if(!f)return;
-    f.replaceChildren();var c=$(COUNT_ID);if(c)c.textContent=items.length+" ACTIVE"+(mode==="snapshot"?" · SNAPSHOT":"");
-    if(!items.length){var e=document.createElement("div");e.className="gp-reporting-empty";e.textContent="No active reporting is currently available.";f.appendChild(e);return}
-    var list=items.slice(0,50),expanded=false;
-    function paint(){
-      f.replaceChildren();var limit=expanded?list.length:Math.min(5,list.length);
-      for(var i=0;i<limit;i++){var a=list[i],card=document.createElement("article");card.className="gp-reporting-card";
-        var b=document.createElement("div");b.className="gp-reporting-source";b.textContent="◉ "+a.source;card.appendChild(b);
-        var t=document.createElement(a.original_link?"a":"div");t.className="gp-reporting-title";t.textContent=a.title;if(a.original_link){t.href=a.original_link;t.target = "_blank";t.rel="noopener noreferrer"}card.appendChild(t);
-        var tm=document.createElement("time");tm.className="gp-reporting-time";tm.dateTime=a.published_date;tm.textContent=ago(a.published_date);card.appendChild(tm);
-        var s=document.createElement("p");s.className="gp-reporting-summary";s.textContent=a.summary_snippet;card.appendChild(s);
-        var src=document.createElement("div");src.className="gp-reporting-source-name";src.textContent="Source: "+a.source;card.appendChild(src);
-        if(a.original_link){var r=document.createElement("a");r.className="gp-reporting-action";r.href=a.original_link;r.target = "_blank";r.rel="noopener noreferrer";r.textContent="Read Full Source Report ↗";card.appendChild(r)}
-        f.appendChild(card)
-      }
-      if(list.length>5){var more=document.createElement("button");more.type="button";more.className="gp-reporting-more";more.textContent=expanded?"Show Less ↑":"See More ("+list.length+") ↓";more.onclick=function(){expanded=!expanded;paint()};f.appendChild(more)}
-    }
-    paint();
-  }
-  function alertBox(){var f=$(FEED_ID);if(!f)return;var a=document.createElement("div");a.className="gp-reporting-alert";a.setAttribute("role","alert");var s=document.createElement("strong");s.textContent="Pipeline Connection Terminated - Retrying...";var d=document.createElement("span");d.textContent="Live API unavailable. Showing repository data when available; retrying automatically.";a.appendChild(s);a.appendChild(d);f.replaceChildren(a);var c=$(COUNT_ID);if(c)c.textContent="RECONNECTING"}
-  async function get(u){var ac=new AbortController(),id=setTimeout(function(){ac.abort()},TIMEOUT_MS);try{var r=await fetch(u,{cache:"no-store",signal:ac.signal,headers:{Accept:"application/json"}});if(!r.ok)throw Error(r.status);return await r.json()}finally{clearTimeout(id)}}
-  async function fetchPulseReporting(){
-    removeDuplicateReporting();
-    var f=$(FEED_ID);if(!f)return;f.setAttribute("aria-busy","true");
-    for(var i=0;i<FALLBACK.length;i++){try{var p=await get(FALLBACK[i]+"?t="+Date.now()),a=normalize(p);if(a.length){render(a,"snapshot");f.classList.add("gp-reporting-fallback");f.setAttribute("aria-busy","false");return true}}catch(e){}}
-    var candidates=[];if(window.GLOBAL_PULSE_API)candidates.push(window.GLOBAL_PULSE_API);if(location.hostname==="localhost"||location.hostname==="127.0.0.1")candidates.push(location.origin+"/");
-    for(var j=0;j<candidates.length;j++){try{var q=normalize(await get(candidates[j]));if(q.length){render(q,"live");f.classList.remove("gp-reporting-fallback");f.setAttribute("aria-busy","false");return true}}catch(e2){}}
-    alertBox();f.setAttribute("aria-busy","false");return false;
-  }
-  window.fetchPulseReporting=fetchPulseReporting;
-  function start(){removeDuplicateReporting();fetchPulseReporting();setInterval(fetchPulseReporting, POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
+  function parseTime(v){if(!v)return NaN;var t=Date.parse(v);if(isFinite(t))return t;var n=Number(v);if(isFinite(n))return n<2e10?n*1000:n;return NaN}
+  function ago(v){var t=parseTime(v);if(!isFinite(t))return "Time unavailable";var m=Math.max(0,Math.floor((Date.now()-t)/60000)),h=Math.floor(m/60),d=Math.floor(h/24);return m<1?"just now":m<60?m+"m ago":h<24?h+"h ago":d+"d ago"}
+  function normalize(p){var a=Array.isArray(p)?p:(p&&p.articles)||(p&&p.results)||(p&&p.stories)||[];return a.map(function(x){x=x||{};var c=x.credit||{},t=x.published_date||x.publishedAt||x.pubDate||x.datetime||x.timestamp||x.time;return {title:safe(x.title||x.headline,"Untitled report"),published_date:safe(t),summary_snippet:safe(x.summary_snippet||x.summary||x.description,"No summary was provided by the source."),original_link:url(x.original_link||x.url||x.link||c.source_url),source:safe(x.source||x.source_name||x.sourceLabel||c.source||x.domain||"Open-data source")}}).filter(function(x){return x.title})}
+  function render(items,mode){var f=$(FEED_ID);if(!f)return;items.sort(function(a,b){return (parseTime(b.published_date)||0)-(parseTime(a.published_date)||0)});f.replaceChildren();var c=$(COUNT_ID);if(c)c.textContent=items.length+" ACTIVE · "+(mode==="live"?"LIVE":"SNAPSHOT");if(!items.length){var e=document.createElement("div");e.className="gp-reporting-empty";e.textContent="No current reporting found.";f.appendChild(e);return}items.slice(0,50).forEach(function(a){var card=document.createElement("article");card.className="gp-reporting-card";var b=document.createElement("div");b.className="gp-reporting-source";b.textContent="◉ "+a.source;card.appendChild(b);var t=document.createElement(a.original_link?"a":"div");t.className="gp-reporting-title";t.textContent=a.title;if(a.original_link){t.href=a.original_link;t.target="_blank";t.rel="noopener noreferrer"}card.appendChild(t);var tm=document.createElement("time");tm.className="gp-reporting-time";tm.dateTime=a.published_date;tm.textContent=ago(a.published_date);card.appendChild(tm);var s=document.createElement("p");s.className="gp-reporting-summary";s.textContent=a.summary_snippet;card.appendChild(s);var src=document.createElement("div");src.className="gp-reporting-source-name";src.textContent="Source: "+a.source;card.appendChild(src);if(a.original_link){var r=document.createElement("a");r.className="gp-reporting-action";r.href=a.original_link;r.target="_blank";r.rel="noopener noreferrer";r.textContent="Read Full Source Report ↗";card.appendChild(r)}f.appendChild(card)})}
+  async function get(u){var ac=new AbortController(),id=setTimeout(function(){ac.abort()},TIMEOUT_MS);try{var r=await fetch(u+((u.indexOf("?")>=0?"&":"?")+"_="+Date.now()),{cache:"no-store",signal:ac.signal,headers:{Accept:"application/json"}});if(!r.ok)throw Error(r.status);return await r.json()}finally{clearTimeout(id)}}
+  async function fetchPulseReporting(){var f=$(FEED_ID);if(!f)return;f.setAttribute("aria-busy","true");for(var i=0;i<LIVE.length;i++){try{var live=normalize(await get(LIVE[i]));if(live.length){render(live,"live");f.setAttribute("aria-busy","false");return true}}catch(e){}}for(var j=0;j<FALLBACK.length;j++){try{var snap=normalize(await get(FALLBACK[j]));if(snap.length){render(snap,"snapshot");f.setAttribute("aria-busy","false");return true}}catch(e2){}}f.setAttribute("aria-busy","false");return false}
+  window.fetchPulseReporting=fetchPulseReporting;function start(){fetchPulseReporting();setInterval(fetchPulseReporting,POLL_MS);setInterval(function(){document.querySelectorAll(".gp-reporting-time").forEach(function(x){if(x.dateTime)x.textContent=ago(x.dateTime)})},30000)}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
