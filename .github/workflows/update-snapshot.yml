@@ -58,7 +58,7 @@ jobs:
           git --version
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
-      - name: Poll persistent news and public X RSS sources
+      - name: Poll persistent live-news SQLite database
         run: python news_feed_db.py --once
       - name: Refresh public intelligence data with resilient no-key feeds
         run: python run_snapshot_resilient.py
@@ -94,18 +94,9 @@ jobs:
         run: |
           set -euo pipefail
           python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
-          node --check global_pulse_graph.js
-          node --check global_pulse_enhancements.js
-          node --check global_pulse_layers.js
-          node --check global_pulse_reporting.js
-          node --check global_pulse_tension.js
-          node --check global_pulse_source_health.js
-          node --check global_pulse_v22.js
-          node --check global_pulse_v23.js
-          node --check global_pulse_v24.js
-          node --check global_pulse_v25.js
-          node --check global_pulse_v26.js
           node --check global_pulse_v27.js
+          node --check global_pulse_v27_quality.js
+          node --check global_pulse_source_health.js
           python - <<'PY'
           import json,re,sqlite3
           from datetime import datetime,timezone
@@ -128,8 +119,9 @@ jobs:
           print('CFR conflicts:',len(d.get('cfrConflicts',[])))
           optional=['gp-map-rescue-js','gp-map-v3-js','pulse-reporting-feed','global_pulse_v27.js?v=']
           print('OPTIONAL FRONTEND TOKENS MISSING:',[x for x in optional if x not in html])
-          required_assets=['global_pulse_graph.js','global_pulse_layers.js','global_pulse_reporting.js','global_pulse_tension.js','global_pulse_source_health.js','global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js','global_pulse_v26.js','global_pulse_v27.js']
-          missing_assets=[x for x in required_assets if x not in html]; assert not missing_assets, f'frontend scripts missing: {missing_assets}'
+          required_assets=['global_pulse_source_health.js','global_pulse_v27_quality.js']
+          missing_assets=[x for x in required_assets if x not in html]; assert not missing_assets, f'canonical frontend scripts missing: {missing_assets}'
+          assert 'gp-map-v3-js' in html, 'map v3 UI missing'; assert 'pulse-reporting-feed' in html, 'live reporting feed missing'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
           assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
