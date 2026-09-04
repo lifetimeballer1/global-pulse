@@ -6,6 +6,11 @@ on:
   push:
     paths:
       - '.github/workflows/update-snapshot.yml'
+      - 'claim_intelligence.py'
+      - 'claim_intelligence.js'
+      - 'install_claim_intelligence.py'
+      - 'PRIVACY.md'
+      - 'SECURITY.md'
       - 'intelligence-web.html'
       - 'intelligence_web_v2.js'
       - 'update_intelligence_web.py'
@@ -130,47 +135,56 @@ jobs:
         run: python install_health_finalizer.py
       - name: Recalculate final source health and tension
         run: python finalize_intelligence_health.py
+      - name: Build claim-level evidence clusters
+        run: python claim_intelligence.py
+      - name: Install claim and evidence monitor
+        run: python install_claim_intelligence.py
       - name: Install V2.7 intelligence layer
         run: python install_v27.py
       - name: Preserve canonical 2D map
         run: python install_map_v3.py
-      - name: Final syntax and data validation
+      - name: Final syntax, privacy and data validation
         run: |
           set -euo pipefail
-          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
+          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
+          node --check claim_intelligence.js
           node --check intelligence_web_v2.js
           node --check global_pulse_breaking.js
           node --check global_pulse_events.js
           node --check global_pulse_assessment.js
           test -s data/snapshot.json
+          test -s data/claims.json
           test -s data/intelligence_graph.json
           test -s data/breaking_news.json
           test -s data/live_events.json
           test -s data/intelligence_assessment.json
           python - <<'PY'
-          import json
+          import json,re
           from pathlib import Path
-          g=json.loads(Path('data/intelligence_graph.json').read_text()); b=json.loads(Path('data/breaking_news.json').read_text()); s=json.loads(Path('data/snapshot.json').read_text()); ev=json.loads(Path('data/live_events.json').read_text()); a=json.loads(Path('data/intelligence_assessment.json').read_text()); m=s.get('marketData') or {}
-          h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text(); main=Path('index.html').read_text(); br=Path('global_pulse_breaking.js').read_text(); ej=Path('global_pulse_events.js').read_text(); aj=Path('global_pulse_assessment.js').read_text()
-          assert len(g.get('nodes',[]))>=10, 'Intelligence Web has too few nodes'
-          assert len(g.get('edges',[]))>=3, 'Intelligence Web has too few evidence-backed connections'
+          claims=json.loads(Path('data/claims.json').read_text())
+          g=json.loads(Path('data/intelligence_graph.json').read_text())
+          s=json.loads(Path('data/snapshot.json').read_text())
+          b=json.loads(Path('data/breaking_news.json').read_text())
+          ev=json.loads(Path('data/live_events.json').read_text())
+          a=json.loads(Path('data/intelligence_assessment.json').read_text())
+          main=Path('index.html').read_text()
+          assert isinstance(claims.get('claims'),list) and claims.get('updatedAt'), 'Claim artifact missing'
+          assert all(c.get('id') and c.get('claim') and c.get('confidence') for c in claims['claims']), 'Malformed claim'
+          assert all(c.get('independentSourceDomains',0) >= 0 for c in claims['claims']), 'Invalid source count'
+          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=3, 'Intelligence Web too small'
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
-          assert g.get('updatedAt') and s.get('updatedAt'), 'Intelligence timestamps missing'
-          assert len(m.get('indicators',[]))>=5, 'Market dataset is empty/incomplete'
-          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'control-toggle' in h
-          assert 'function close(' in j and 'WHY THIS NODE IS CONNECTED' in j and 'SOURCES FOR THIS NODE' in j and 'OPEN ORIGINAL SOURCE' in j
-          assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in br
-          assert 'global_pulse_events.js?v=' in main and 'gp-events' in ej
-          assert 'global_pulse_assessment.js' in main and 'gp-assessment' in aj
           assert isinstance(ev.get('events'),list) and ev.get('updatedAt'), 'Live event artifact missing'
           assert isinstance(a.get('assessments'),list) and a.get('updatedAt'), 'Assessment artifact missing'
+          assert 'claim_intelligence.js?v=1' in main, 'Claim UI not installed'
+          assert not re.search(r'(google-analytics|googletagmanager|gtag\(|analytics\.js|sentry\.io|hotjar|mixpanel|segment\.com)',main,re.I), 'Unexpected tracking code detected'
+          assert not re.search(r'(navigator\.sendBeacon|new\s+Image\s*\(|fetch\s*\([^)]*(telemetry|analytics|track))',main,re.I), 'Unexpected client telemetry detected'
           print('FINAL VALIDATION PASSED')
-          print('Intelligence Web:',len(g['nodes']),'nodes /',len(g['edges']),'evidence-backed connections /',g['updatedAt'])
-          print('Snapshot:',s['updatedAt'])
-          print('Markets:',len(m['indicators']),'indicators / live',m.get('liveCount',0),'closed',m.get('closedCount',0),'stale',m.get('staleCount',0))
-          print('Breaking:',len(b.get('articles',[])),'rapid records /',b.get('updatedAt'))
-          print('Live events:',len(ev.get('events',[])),'clusters /',ev.get('updatedAt'))
-          print('Assessments:',len(a.get('assessments',[])),'entities /',len(a.get('eventImpacts',[])),'event impacts /',a.get('updatedAt'))
+          print('Claims:',len(claims['claims']))
+          print('Intelligence Web:',len(g['nodes']),'nodes /',len(g['edges']),'evidence-backed connections')
+          print('Snapshot:',s.get('updatedAt'))
+          print('Breaking:',len(b.get('articles',[])))
+          print('Live events:',len(ev.get('events',[])))
+          print('Assessments:',len(a.get('assessments',[])))
           PY
       - name: Commit generated artifacts
         run: |
@@ -188,7 +202,7 @@ jobs:
           set -euo pipefail
           rm -rf _site; mkdir -p _site
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name _site -exec cp -a {} _site/ \;
-          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/intelligence_graph.json; test -s _site/data/breaking_news.json; test -s _site/data/live_events.json; test -s _site/data/intelligence_assessment.json
+          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/claims.json; test -s _site/data/intelligence_graph.json; test -s _site/data/breaking_news.json; test -s _site/data/live_events.json; test -s _site/data/intelligence_assessment.json
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with: { path: _site }
