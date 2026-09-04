@@ -3245,7 +3245,11 @@
       "geoResolution": "COUNTRY-CENTER-APPROXIMATE",
       "confidence": "OSINT REPORT",
       "observedAt": "Fri, 04 Sep 2026 12:40:39 GMT",
-      "imageUrl": null
+      "imageUrl": null,
+      "eventId": "6de6247d88dbde67",
+      "eventTitle": "As the China-US AI race reaches Cairo, Egypt faces a strategic decision",
+      "eventLinkConfidence": "candidate",
+      "eventMatchScore": 0.421
     },
     {
       "id": "rss-EG-71d88298250d082f",
@@ -5599,7 +5603,11 @@
       "geoResolution": "COUNTRY-CENTER-APPROXIMATE",
       "confidence": "OSINT REPORT",
       "observedAt": "Fri, 04 Sep 2026 05:31:17 GMT",
-      "imageUrl": null
+      "imageUrl": null,
+      "eventId": "5648560860b3389c",
+      "eventTitle": "Syria begins destroying Assad-era chemical weapons",
+      "eventLinkConfidence": "candidate",
+      "eventMatchScore": 0.333
     },
     {
       "id": "rss-CG-f114a46e60422f37",
@@ -13387,7 +13395,11 @@
       "geoResolution": "COUNTRY-CENTER-APPROXIMATE",
       "confidence": "OSINT REPORT",
       "observedAt": "Fri, 04 Sep 2026 16:29:21 GMT",
-      "imageUrl": null
+      "imageUrl": null,
+      "eventId": "fcd857ccc7016d2d",
+      "eventTitle": "‘Things happen’: How Vance’s comment on Iran wedding strike fits US pattern",
+      "eventLinkConfidence": "candidate",
+      "eventMatchScore": 0.45
     },
     {
       "id": "rss-AF-fc59a9664f17eae9",
@@ -64614,5 +64626,10 @@
     "lastChecked": "2026-09-04T19:58:58.669701+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
-  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
+  "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events.",
+  "mapEventLinking": {
+    "linkedMarkers": 3,
+    "reviewCandidates": 3,
+    "method": "token-overlap candidate linking between marker text and live-event titles; no coordinates are moved or invented."
+  }
 }
