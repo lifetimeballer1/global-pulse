@@ -1,0 +1,12 @@
+/* Global Pulse: compact list UX */
+.gp-list-actions{display:flex;justify-content:center;margin:10px 0 2px;position:relative;z-index:2}
+.gp-list-more{min-width:150px;font-weight:800;font-size:11px;border-color:rgba(98,160,255,.35);background:rgba(98,160,255,.08);color:var(--blue)}
+.gp-list-more:hover{background:rgba(98,160,255,.15)}
+.items,.stories,.conflict-list,#gp-ei-content,#gp-assessment-content,#gp-live-reporting-content,.gp-event-list{scrollbar-width:thin}
+@media(min-width:721px){
+  .items,.stories,.conflict-list,#gp-ei-content,#gp-assessment-content,#gp-live-reporting-content,.gp-event-list{max-height:620px;overflow:auto;padding-right:3px}
+}
+@media(max-width:720px){
+  .items,.stories,.conflict-list,#gp-ei-content,#gp-assessment-content,#gp-live-reporting-content,.gp-event-list{max-height:560px;overflow:auto;padding-right:2px}
+  .gp-list-more{width:100%;min-height:38px}
+}
