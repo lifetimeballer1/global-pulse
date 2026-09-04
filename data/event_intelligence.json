@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T19:51:53.508908Z",
+  "updatedAt": "2026-09-04T19:54:38.906981Z",
   "method": "rule-based event enrichment with source-domain diversity, near-identical headline grouping, and corroboration scoring",
   "disclaimer": "Corroboration scores are monitoring aids, not truth probabilities. Domain diversity is not proof of independence.",
   "events": [
@@ -1500,6 +1500,40 @@
       ]
     },
     {
+      "eventId": "20d353ae0d10f2f3",
+      "title": "An inside look at Lucas Museum of Narrative Art in Los Angeles",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "france24.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T13:57:54+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
       "eventId": "f25701fd5d35e66c",
       "title": "Woman, 45, killed in Florence in seventh alleged femicide in Italy since mid-August",
       "category": "general",
@@ -1528,6 +1562,78 @@
       },
       "evidenceUrls": [
         "https://www.theguardian.com/world/rss"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "f6f06383198ab335",
+      "title": "Nepal floods: Two workers pulled alive from tunnel after nine days",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "france24.com"
+      ],
+      "entityCandidates": [
+        "nepal"
+      ],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T13:54:33+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "735bb09438cb24f0",
+      "title": "Meloni celebrates milestone as Italy's longest-lasting government",
+      "category": "political",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "france24.com"
+      ],
+      "entityCandidates": [
+        "italy"
+      ],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T13:50:38+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
       ],
       "caveats": [
         "Limited source diversity",
@@ -3034,124 +3140,6 @@
       },
       "evidenceUrls": [
         "https://subscribe.stripes.com/rss/top-news.xml"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "715cfec6476b3740",
-      "title": "Reform UK officials step down as new funding scandal hits far-right party",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:26:42+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "df4acadad2a596cc",
-      "title": "Iranian town mourns after deadly strike on wedding",
-      "category": "conflict",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "theguardian.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:19:23+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "theguardian.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.theguardian.com/world/rss"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "7b993319b302c4e5",
-      "title": "Argentina’s Milei threatens sanctions as he refocuses on Falklands",
-      "category": "diplomatic",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [
-        "argentina"
-      ],
-      "regionalContext": [
-        {
-          "region": "latin america",
-          "entities": [
-            "argentina"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "brazil",
-        "chile",
-        "colombia",
-        "mexico",
-        "peru",
-        "venezuela"
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:17:47+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
       ],
       "caveats": [
         "Limited source diversity",

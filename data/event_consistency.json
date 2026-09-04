@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T19:51:53.569349Z",
+  "updatedAt": "2026-09-04T19:54:38.974010Z",
   "method": "heuristic contradiction signals from report titles; flags require human review and are not truth judgments",
   "events": [
     {
@@ -636,6 +636,28 @@
       ]
     },
     {
+      "eventId": "20d353ae0d10f2f3",
+      "title": "An inside look at Lucas Museum of Narrative Art in Los Angeles",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "An inside look at Lucas Museum of Narrative Art in Los Angeles",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "f25701fd5d35e66c",
       "title": "Woman, 45, killed in Florence in seventh alleged femicide in Italy since mid-August",
       "consistency": "moderate",
@@ -652,6 +674,38 @@
       "reports": [
         {
           "title": "Woman, 45, killed in Florence in seventh alleged femicide in Italy since mid-August",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "f6f06383198ab335",
+      "title": "Nepal floods: Two workers pulled alive from tunnel after nine days",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Nepal floods: Two workers pulled alive from tunnel after nine days",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "735bb09438cb24f0",
+      "title": "Meloni celebrates milestone as Italy's longest-lasting government",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Meloni celebrates milestone as Italy's longest-lasting government",
           "url": "",
           "domain": ""
         }
@@ -1280,54 +1334,6 @@
           "domain": ""
         }
       ]
-    },
-    {
-      "eventId": "715cfec6476b3740",
-      "title": "Reform UK officials step down as new funding scandal hits far-right party",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Reform UK officials step down as new funding scandal hits far-right party",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "df4acadad2a596cc",
-      "title": "Iranian town mourns after deadly strike on wedding",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Iranian town mourns after deadly strike on wedding",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "7b993319b302c4e5",
-      "title": "Argentina’s Milei threatens sanctions as he refocuses on Falklands",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Argentina’s Milei threatens sanctions as he refocuses on Falklands",
-          "url": "",
-          "domain": ""
-        }
-      ]
     }
   ],
   "flaggedEvents": [
@@ -1359,6 +1365,28 @@
       ]
     },
     {
+      "eventId": "20d353ae0d10f2f3",
+      "title": "An inside look at Lucas Museum of Narrative Art in Los Angeles",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "An inside look at Lucas Museum of Narrative Art in Los Angeles",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "f25701fd5d35e66c",
       "title": "Woman, 45, killed in Florence in seventh alleged femicide in Italy since mid-August",
       "consistency": "moderate",
@@ -1383,7 +1411,7 @@
   ],
   "summary": {
     "eventsAnalyzed": 80,
-    "eventsFlagged": 2,
+    "eventsFlagged": 3,
     "highSeverity": 0
   }
 }
