@@ -11,6 +11,7 @@ on:
       - 'update_intelligence_web.py'
       - 'build_intelligence_graph.py'
       - 'install_intelligence_web.py'
+      - 'update_market_data.py'
       - 'breaking_news.py'
       - 'global_pulse_breaking.js'
       - 'install_breaking_alerts.py'
@@ -95,7 +96,7 @@ jobs:
       - name: Validate exact Intelligence Web artifacts
         run: |
           set -euo pipefail
-          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py breaking_news.py install_breaking_alerts.py
+          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py install_breaking_alerts.py
           node --check intelligence_web_v2.js
           node --check global_pulse_breaking.js
           test -s data/snapshot.json
