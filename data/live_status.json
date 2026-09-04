@@ -1,15 +1,19 @@
 {
-  "updatedAt": "2026-09-03T22:56:47.271898+00:00",
+  "updatedAt": "2026-09-04T00:16:27.548866+00:00",
   "feedsChecked": 20,
-  "rowsFetched": 400,
-  "newArticles": 89,
-  "purged": 83,
-  "databaseArticles": 539,
-  "healthySources": 14,
+  "rowsFetched": 372,
+  "newArticles": 98,
+  "purged": 84,
+  "databaseArticles": 553,
+  "healthySources": 11,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "source": "X @WhiteHouse",
+      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @UN",
@@ -28,8 +32,16 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @WhiteHouse",
-      "error": "RuntimeError: proxy challenge/whitelist response"
+      "source": "Morse Report — GDELT Mirror",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "CNN Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "source": "Axios Politics",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     }
   ],
   "pollSeconds": 300,
