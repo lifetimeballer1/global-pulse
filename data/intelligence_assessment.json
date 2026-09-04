@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T19:28:50.596692Z",
+  "updatedAt": "2026-09-04T19:41:45.577195Z",
   "method": "Explainable indicator layer using current public reporting, clustered events and evidence-backed network data. Scores are not forecasts and market relationships are not treated as causal.",
   "assessments": [
     {
@@ -26,7 +26,7 @@
           "delta": -2
         }
       ],
-      "evidenceCount": 23,
+      "evidenceCount": 24,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -275,6 +275,25 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
+      "entity": "Yemen",
+      "score": 20,
+      "level": "WATCH",
+      "delta": 5,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 8
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 7
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
       "entity": "United Kingdom",
       "score": 18,
       "level": "WATCH",
@@ -294,22 +313,22 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
-      "entity": "Yemen",
+      "entity": "Palestinians",
       "score": 15,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
+      "delta": 6,
+      "trend": "UP",
       "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 7
-        },
         {
           "label": "Live event activity",
           "delta": 4
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
         }
       ],
-      "evidenceCount": 3,
+      "evidenceCount": 6,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -419,21 +438,6 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
-      "entity": "Palestinians",
-      "score": 9,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
-    },
-    {
       "entity": "Nigeria",
       "score": 9,
       "level": "WATCH",
@@ -510,6 +514,21 @@
       "factors": [
         {
           "label": "Economic / energy signals",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 2,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
+      "entity": "Saudi Arabia",
+      "score": 5,
+      "level": "WATCH",
+      "delta": 0,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
           "delta": 2
         }
       ],
@@ -611,6 +630,38 @@
         "immediate": "regional spillover monitoring",
         "shortTerm": "market and policy sensitivity",
         "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
+      "eventId": "f41c91657387affa",
+      "title": "Outrage as Maltese tycoon acquitted in journalist's murder",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "sourceIndependence": "low",
+      "uniqueDomains": 0,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
+      "eventId": "530bf3a0cf66e922",
+      "title": "Yemen: Fighting intensifies amid Houthi push in the west",
+      "category": "conflict",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "sourceIndependence": "low",
+      "uniqueDomains": 0,
+      "whyThisMatters": {
+        "immediate": "regional military escalation risk",
+        "shortTerm": "energy and shipping exposure",
+        "mediumTerm": "NATO / alliance-response monitoring"
       },
       "urls": []
     },
@@ -805,41 +856,48 @@
         "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": []
-    },
-    {
-      "eventId": "66cca8bcebd85a3b",
-      "title": "British army halts some training exercises to save money, reports say",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "sourceIndependence": "low",
-      "uniqueDomains": 0,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
-    },
-    {
-      "eventId": "413ba9e79df7c815",
-      "title": "China's Xi to bring large CEO delegation on US visit: Sources",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "sourceIndependence": "low",
-      "uniqueDomains": 0,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
     }
   ],
-  "whatChanged": [],
+  "whatChanged": [
+    {
+      "entity": "Palestinians",
+      "score": 15,
+      "level": "WATCH",
+      "delta": 6,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 4
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 6,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
+      "entity": "Yemen",
+      "score": 20,
+      "level": "WATCH",
+      "delta": 5,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 8
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 7
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    }
+  ],
   "sourceSummary": {
     "uniqueReportCount": 280,
     "uniqueSourceDomains": 0
