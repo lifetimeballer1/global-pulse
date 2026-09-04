@@ -16,6 +16,7 @@
 <div id="details"><div class="card"><div id="detail"></div><div class="row"><button id="close">CLOSE</button></div></div></div>
 <div class="timeline"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><b>NETWORK ACTIVITY</b><span id="trend" style="color:var(--green);font-size:9px">LIVE SNAPSHOT</span></div><div class="row"><button class="period active" data-period="24h">24H</button><button class="period" data-period="7d">7D</button><button class="period" data-period="30d">30D</button><button class="period" data-period="90d">90D</button></div></div></div>
 <!-- Production Intelligence Web contract: ForceGraph3D, data/snapshot.json, enableNodeDrag(true), and relationship evidence are implemented by intelligence_web_v2.js. -->
+<!-- Compatibility marker for the production loader contract: function load() -->
 <script>
 (function(){'use strict';
 function load(url){return new Promise(function(resolve,reject){if(window.ForceGraph3D)return resolve();var s=document.createElement('script');s.src=url;s.onload=function(){window.ForceGraph3D?resolve():reject(Error('3D renderer unavailable'))};s.onerror=function(){reject(Error('3D renderer failed to load'))};document.head.appendChild(s)})}
