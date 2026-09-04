@@ -9,9 +9,11 @@ on:
       - 'build_source_evidence.py'
       - 'build_event_intelligence.py'
       - 'build_event_consistency.py'
+      - 'build_event_history.py'
       - 'install_event_intelligence.py'
       - 'global_pulse_event_intelligence.js'
       - 'global_pulse_event_consistency.js'
+      - 'global_pulse_event_history.js'
       - 'global_pulse_list_density.js'
       - 'global_pulse_list_density.css'
       - 'build_intelligence_assessment.py'
@@ -171,7 +173,7 @@ jobs:
       - name: Final syntax, privacy and data validation
         run: |
           set -euo pipefail
-          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py build_source_evidence.py build_event_intelligence.py build_event_consistency.py install_event_intelligence.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
+          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py build_source_evidence.py build_event_intelligence.py build_event_consistency.py build_event_history.py install_event_intelligence.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
           node --check claim_intelligence.js
           node --check intelligence_web_v2.js
           node --check global_pulse_breaking.js
@@ -179,6 +181,7 @@ jobs:
           node --check global_pulse_assessment.js
           node --check global_pulse_event_intelligence.js
           node --check global_pulse_event_consistency.js
+          node --check global_pulse_event_history.js
           node --check global_pulse_list_density.js
           test -s data/snapshot.json
           test -s data/claims.json
@@ -188,6 +191,7 @@ jobs:
           test -s data/source_evidence.json
           test -s data/event_intelligence.json
           test -s data/event_consistency.json
+          test -s data/event_history.json
           test -s data/intelligence_assessment.json
           python - <<'PY'
           import json,re
@@ -200,6 +204,7 @@ jobs:
           se=json.loads(Path('data/source_evidence.json').read_text())
           ei=json.loads(Path('data/event_intelligence.json').read_text())
           ec=json.loads(Path('data/event_consistency.json').read_text())
+          eh=json.loads(Path('data/event_history.json').read_text())
           a=json.loads(Path('data/intelligence_assessment.json').read_text())
           main=Path('index.html').read_text()
           assert isinstance(claims.get('claims'),list) and claims.get('updatedAt'), 'Claim artifact missing'
@@ -212,12 +217,15 @@ jobs:
           assert isinstance(ei.get('events'),list) and ei.get('updatedAt'), 'Event intelligence artifact missing'
           assert isinstance(ec.get('events'),list) and ec.get('updatedAt'), 'Event consistency artifact missing'
           assert isinstance(ec.get('summary'),dict), 'Event consistency summary missing'
+          assert isinstance(eh.get('events'),dict) and eh.get('updatedAt'), 'Event history artifact missing'
+          assert eh.get('window') == '30 days', 'Unexpected history window'
           assert isinstance(a.get('assessments'),list) and a.get('updatedAt'), 'Assessment artifact missing'
           assert isinstance(a.get('whatChanged'),list), 'Change detection missing'
           assert isinstance(a.get('sourceSummary'),dict), 'Source summary missing'
           assert 'claim_intelligence.js?v=1' in main, 'Claim UI not installed'
           assert 'global_pulse_event_intelligence.js?v=1' in main, 'Event intelligence UI not installed'
           assert 'global_pulse_event_consistency.js?v=1' in main, 'Event consistency UI not installed'
+          assert 'global_pulse_event_history.js?v=1' in main, 'Event history UI not installed'
           assert not re.search(r'(google-analytics|googletagmanager|gtag\(|analytics\.js|sentry\.io|hotjar|mixpanel|segment\.com)',main,re.I), 'Unexpected tracking code detected'
           assert not re.search(r'(navigator\.sendBeacon|new\s+Image\s*\(|fetch\s*\([^)]*(telemetry|analytics|track))',main,re.I), 'Unexpected client telemetry detected'
           print('FINAL VALIDATION PASSED')
@@ -229,6 +237,7 @@ jobs:
           print('Source domains:',se.get('uniqueSourceDomains'))
           print('Enriched events:',len(ei.get('events',[])))
           print('Consistency flags:',len(ec.get('flaggedEvents',[])))
+          print('Historical events:',len(eh.get('events',{})))
           print('Assessments:',len(a.get('assessments',[])))
           print('Material changes:',len(a.get('whatChanged',[])))
           PY
