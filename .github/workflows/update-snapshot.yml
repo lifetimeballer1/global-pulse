@@ -11,6 +11,8 @@ on:
       - 'global_pulse_v26.js'
       - 'global_pulse_v27.js'
       - 'update_market_data.py'
+      - 'resilient_feed_catalog.py'
+      - 'run_snapshot_resilient.py'
       - 'news_feed_db.py'
       - 'install_v27.py'
       - 'install_map_v3.py'
@@ -33,10 +35,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: Checkout exact triggering commit
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.sha }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -57,8 +60,8 @@ jobs:
         run: python update_feed_expansion.py
       - name: Poll persistent news and public X RSS sources
         run: python news_feed_db.py --once
-      - name: Refresh public intelligence data in parallel
-        run: python update_snapshot_fast.py
+      - name: Refresh public intelligence data with resilient no-key feeds
+        run: python run_snapshot_resilient.py
       - name: Refresh keyless live market indicators
         run: python update_market_data.py
       - name: Merge persistent live-news database into public snapshot
@@ -90,7 +93,7 @@ jobs:
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
           node --check global_pulse_graph.js
           node --check global_pulse_enhancements.js
           node --check global_pulse_layers.js
@@ -105,6 +108,7 @@ jobs:
           node --check global_pulse_v27.js
           python - <<'PY'
           import json,re,sqlite3
+          from datetime import datetime,timezone
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
@@ -125,11 +129,18 @@ jobs:
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
           assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
-          assert isinstance(d.get('marketData'),dict); assert isinstance(d['marketData'].get('indicators'),list); assert d['marketData'].get('noApiKey') is True; assert len(d['marketData']['indicators'])>=1
+          m=d.get('marketData',{}); indicators=m.get('indicators',[]); assert isinstance(m,dict); assert m.get('noApiKey') is True; assert len(indicators)>=20, f"market indicators too low: {len(indicators)}"
+          assert all(x.get('symbol') and x.get('price') is not None for x in indicators), 'market indicator missing price'
+          checked=[]
+          for x in indicators:
+            try: checked.append(datetime.fromisoformat(str(x.get('checkedAt','')).replace('Z','+00:00')))
+            except: pass
+          assert checked and (datetime.now(timezone.utc)-max(checked)).total_seconds()<1200, 'market collector is stale (>20m)'
+          assert m.get('liveCount',0)+m.get('closedCount',0)+m.get('staleCount',0)==len(indicators), 'market status counts do not reconcile'
           assert isinstance(d.get('markers'),list); quake_keys=set();
-          for m in d['markers']:
-            if str(m.get('source','')).lower().find('usgs')>=0 or 'earthquake' in str(m.get('eventType',m.get('type',''))).lower():
-              key=str(m.get('url') or m.get('id') or m.get('eventId') or (m.get('title'),m.get('lat',m.get('latitude')),m.get('lng',m.get('lon')))); assert key not in quake_keys, f'duplicate earthquake marker: {key}'; quake_keys.add(key)
+          for marker in d['markers']:
+            if str(marker.get('source','')).lower().find('usgs')>=0 or 'earthquake' in str(marker.get('eventType',marker.get('type',''))).lower():
+              key=str(marker.get('url') or marker.get('id') or marker.get('eventId') or (marker.get('title'),marker.get('lat',marker.get('latitude')),marker.get('lng',marker.get('lon')))); assert key not in quake_keys, f'duplicate earthquake marker: {key}'; quake_keys.add(key)
           assert html.count('Made by J.S.')==1; assert html.count('id="gp-brand-live-css"')==1; assert html.count('id="gp-auto-refresh"')==1; assert html.count('class="gp-footer-credit"')==0
           assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I); assert not re.search(r'\b(coming soon|under construction)\b',html,re.I)
           assert d.get('scoreVersion')==5, f"unexpected score version: {d.get('scoreVersion')}"
@@ -140,7 +151,7 @@ jobs:
           for x in d['sourceHealth']: assert x.get('status') in ('online','degraded','failed','unknown') and 'articles' in x and 'lastChecked' in x, f'invalid source health: {x}'
           for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal, f'invalid driver evidence: {name}'
           print(f"VALID: tension={d['tension']} drivers={d['breakdownScores']}")
-          print(f"MARKETS: {d['marketData']['liveCount']} live, {d['marketData']['staleCount']} stale")
+          print(f"MARKETS: {m.get('liveCount')} live, {m.get('closedCount')} closed, {m.get('staleCount')} stale; collector timestamps fresh")
           print(f"SOURCE HEALTH: {d['sourceHealthSummary']}")
           print(f"DRIVER EVIDENCE: { {k:(v['matches'],v['sources']) for k,v in d['driverSignals'].items()} }")
           PY
