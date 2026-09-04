@@ -15,33 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 1
+        with: {ref: main, fetch-depth: 1}
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+        with: {python-version: '3.12'}
       - run: python link_events_to_map.py
-      - name: Validate map links
+      - name: Validate map-event sidecar
         run: |
           python -m py_compile link_events_to_map.py
           python - <<'PY'
           import json
-          d=json.load(open('data/snapshot.json'))
-          info=d.get('mapEventLinking',{})
-          assert info.get('linkedMarkers',0) >= 0
-          for m in d.get('markers',[]):
-              if m.get('eventId'):
-                  assert m.get('eventTitle') and m.get('eventLinkConfidence') in {'candidate','strong-candidate'}
-          print('MAP EVENT LINK VALIDATION PASSED:',info)
+          d=json.load(open('data/map_event_links.json'))
+          assert d.get('version')==1
+          assert d.get('linkedMarkers',0) >= 0
+          for x in d.get('links',[]):
+              assert x.get('eventId') and x.get('lat') is not None and x.get('lng') is not None
+          print('MAP EVENT LINK VALIDATION PASSED:',d.get('linkedMarkers'))
           PY
-      - name: Commit map links
+      - name: Commit sidecar
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/snapshot.json
+          git add data/map_event_links.json
           if git diff --staged --quiet; then exit 0; fi
-          git commit -m 'feat: link map signals to live events'
+          git commit -m 'feat: refresh map event links'
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
