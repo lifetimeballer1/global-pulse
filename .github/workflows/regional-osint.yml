@@ -5,8 +5,6 @@ on:
     workflows: ["Global Pulse — Refresh, Validate & Deploy"]
     types: [completed]
   workflow_dispatch:
-  # A collector-code change gets one immediate validation run. This avoids
-  # waiting for the overnight schedule to repopulate regional coverage.
   push:
     branches: [main]
     paths:
@@ -16,6 +14,11 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+env:
+  PYTHONUNBUFFERED: '1'
 
 concurrency:
   group: global-pulse-regional-osint
@@ -25,7 +28,10 @@ jobs:
   expand:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
@@ -44,7 +50,7 @@ jobs:
       - name: Install map clustering
         run: python install_map_clustering.py
 
-      - name: Validate regional OSINT without brittle schema assumptions
+      - name: Validate regional OSINT and preserve core data
         run: |
           set -euo pipefail
           python -m py_compile regional_osint_v2.py install_map_clustering.py update_conflict_coverage.py
@@ -56,28 +62,30 @@ jobs:
           counts=o.get('regionalCounts') or {}
           required={'Africa','South America','South Asia'}
           missing=required-set(counts)
-          if missing:
-              raise SystemExit(f'Missing regional counts: {sorted(missing)}')
+          if missing: raise SystemExit(f'Missing regional counts: {sorted(missing)}')
           regional=o.get('regionalPoints') or []
           markers=[m for m in d.get('markers',[]) if m.get('layer')=='osint-regional']
-          if not regional and not markers:
-              raise SystemExit('No fresh regional OSINT points were produced')
+          if not regional and not markers: raise SystemExit('No fresh regional OSINT points were produced')
           for p in regional + markers:
               assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
               assert p.get('source') and p.get('observedAt')
               assert p.get('sourceUrl') or p.get('url')
-          total=sum(int(v or 0) for v in counts.values())
-          if total <= 0:
-              raise SystemExit(f'Regional counts are all zero: {counts}')
-          print('Regional schema version:', o.get('version','missing/legacy'))
+          if sum(int(v or 0) for v in counts.values()) <= 0: raise SystemExit(f'Regional counts are all zero: {counts}')
+          stories=d.get('stories') or []
+          indicators=(d.get('marketData') or {}).get('indicators') or []
+          if len(stories) < 25: raise SystemExit(f'Snapshot news data unexpectedly missing: {len(stories)} stories')
+          if len(indicators) < 20: raise SystemExit(f'Snapshot market data unexpectedly missing: {len(indicators)} indicators')
           print('Regional points:', counts)
-          print('Total regional records:', len(regional))
+          print('Regional records:', len(regional))
           print('Map markers:', len(markers))
-          print('Remaining source failures:', len(o.get('regionalFailures') or []))
+          print('Remaining regional failures:', len(o.get('regionalFailures') or []))
+          print('Preserved stories:', len(stories))
+          print('Preserved market indicators:', len(indicators))
           PY
 
       - name: Commit regional OSINT and map updates
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/snapshot.json index.html
@@ -88,10 +96,39 @@ jobs:
             for attempt in 1 2 3 4 5; do
               git fetch origin main
               if git rebase -X theirs origin/main; then
-                if git push origin HEAD:main; then echo "Published regional data on attempt $attempt"; exit 0; fi
+                if git push origin HEAD:main; then echo "Published regional data on attempt $attempt"; break; fi
                 git rebase --abort || true
               else git rebase --abort || true; fi
+              if [ "$attempt" = 5 ]; then echo 'Unable to publish regional data after 5 attempts'; exit 1; fi
               echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
             done
-            echo 'Unable to publish regional data after 5 attempts'; exit 1
           fi
+
+      - name: Re-check published snapshot
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout --detach origin/main
+          test -s data/snapshot.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          assert len(d.get('stories',[])) >= 25, 'published snapshot lost news data'
+          assert len((d.get('marketData') or {}).get('indicators',[])) >= 20, 'published snapshot lost market data'
+          counts=((d.get('osintMaps') or {}).get('regionalCounts') or {})
+          assert sum(int(v or 0) for v in counts.values()) > 0, 'published snapshot lost regional data'
+          print('PUBLISHED SNAPSHOT OK:',len(d['stories']),'stories;',len(d['marketData']['indicators']),'market indicators;',counts)
+          PY
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload current main as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy current regional snapshot to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
