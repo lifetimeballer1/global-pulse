@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "Global Pulse Intelligence Taxonomy",
+  "purpose": "A stable classification system for routing reports, events, entities, relationships, and assessments into consistent intelligence domains.",
+  "domains": [
+    {"id":"conflict","label":"Conflict & Security","subdomains":["wars","insurgencies","terrorism","cartels-organized-crime","coups","civil-unrest","border-conflicts"]},
+    {"id":"military","label":"Military","subdomains":["air","land","maritime","missiles-drones","exercises","deployments","bases"]},
+    {"id":"politics","label":"Politics & Governance","subdomains":["elections","government","diplomacy","alliances","sanctions","political-instability"]},
+    {"id":"economics","label":"Economics & Finance","subdomains":["markets","inflation","trade","tariffs","central-banks","debt","currency"]},
+    {"id":"energy","label":"Energy & Infrastructure","subdomains":["oil","gas","electricity","pipelines","refineries","ports","chokepoints"]},
+    {"id":"humanitarian","label":"Humanitarian","subdomains":["displacement","food-security","famine","health","civilian-impact","aid"]},
+    {"id":"disaster","label":"Disasters & Hazards","subdomains":["earthquake","flood","wildfire","storm","drought","volcano","epidemic"]},
+    {"id":"cyber","label":"Cyber & Information","subdomains":["cyber-incidents","information-operations","platform-disruption","major-breaches"]},
+    {"id":"strategic","label":"Strategic","subdomains":["alliances","supply-chains","critical-minerals","infrastructure","geography","strategic-resources"]}
+  ],
+  "confidence_levels":["HIGH","MODERATE","LIMITED","UNVERIFIED"],
+  "assessment_levels":["CRITICAL","ELEVATED","WATCH","LOW"],
+  "evidence_rules": {
+    "single_report": "Treat as a report, not a confirmed event.",
+    "independent_sources": "Count independent publishers separately from repeated mirrors or syndicated copies.",
+    "official_confirmation": "Record as supporting evidence but do not automatically treat an official claim as independently verified.",
+    "conflict": "Preserve materially conflicting reports and expose the disagreement to the user.",
+    "correlation": "Never label temporal or geographic correlation as causation without direct evidence."
+  }
+}
