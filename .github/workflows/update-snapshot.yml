@@ -13,8 +13,23 @@ on:
       - 'install_intelligence_web.py'
       - 'update_market_data.py'
       - 'breaking_news.py'
-      - 'global_pulse_breaking.js'
+      - 'update_cfr.py'
+      - 'update_feed_expansion.py'
+      - 'news_feed_db.py'
+      - 'run_snapshot_resilient.py'
+      - 'merge_live_news.py'
+      - 'update_political_layer.py'
+      - 'update_political_intelligence.py'
+      - 'update_osint.py'
+      - 'update8_global_layers.py'
+      - 'update7_live_branding.py'
+      - 'update9_live_reporting.py'
       - 'install_breaking_alerts.py'
+      - 'install_health_finalizer.py'
+      - 'finalize_intelligence_health.py'
+      - 'install_v27.py'
+      - 'install_map_v3.py'
+      - 'global_pulse_breaking.js'
       - 'global_pulse_graph.js'
       - 'global_pulse_graph_pro.js'
 env:
@@ -96,7 +111,7 @@ jobs:
       - name: Final syntax and data validation
         run: |
           set -euo pipefail
-          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py install_breaking_alerts.py
+          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py update_cfr.py install_breaking_alerts.py
           node --check intelligence_web_v2.js
           node --check global_pulse_breaking.js
           test -s data/snapshot.json
@@ -105,20 +120,15 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          g=json.loads(Path('data/intelligence_graph.json').read_text())
-          b=json.loads(Path('data/breaking_news.json').read_text())
-          s=json.loads(Path('data/snapshot.json').read_text())
-          m=s.get('marketData') or {}
+          g=json.loads(Path('data/intelligence_graph.json').read_text()); b=json.loads(Path('data/breaking_news.json').read_text()); s=json.loads(Path('data/snapshot.json').read_text()); m=s.get('marketData') or {}
           h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text(); main=Path('index.html').read_text(); br=Path('global_pulse_breaking.js').read_text()
           assert len(g.get('nodes',[]))>=10, 'Intelligence Web has too few nodes'
           assert len(g.get('edges',[]))>=3, 'Intelligence Web has too few evidence-backed connections'
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
-          assert g.get('updatedAt'), 'Intelligence Web timestamp missing'
-          assert s.get('updatedAt'), 'Snapshot timestamp missing'
+          assert g.get('updatedAt') and s.get('updatedAt'), 'Intelligence timestamps missing'
           assert len(m.get('indicators',[]))>=5, 'Market dataset is empty/incomplete'
-          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'data/intelligence_graph.json' in h
+          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'data/intelligence_graph.json' in h and 'control-toggle' in h
           assert 'function close(' in j and 'WHY THIS NODE IS CONNECTED' in j and 'SOURCES FOR THIS NODE' in j and 'OPEN ORIGINAL SOURCE' in j
-          assert 'control-toggle' in h
           assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in br
           print('FINAL VALIDATION PASSED')
           print('Intelligence Web:',len(g['nodes']),'nodes /',len(g['edges']),'evidence-backed connections /',g['updatedAt'])
@@ -140,18 +150,12 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           set -euo pipefail
-          rm -rf _site
-          mkdir -p _site
+          rm -rf _site; mkdir -p _site
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name _site -exec cp -a {} _site/ \;
-          test -s _site/index.html
-          test -s _site/intelligence-web.html
-          test -s _site/data/snapshot.json
-          test -s _site/data/intelligence_graph.json
-          test -s _site/data/breaking_news.json
+          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/intelligence_graph.json; test -s _site/data/breaking_news.json
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+        with: { path: _site }
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
