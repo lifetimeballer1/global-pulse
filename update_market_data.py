@@ -88,7 +88,10 @@ def main():
             name, symbol, kind, unit, decimals = item
             if quote_data:
                 state = quote_data.get("marketState", "")
-                status = "live" if state in {"REGULAR", "PRE", "POST"} else "closed"
+                # Crypto trades 24/7. Yahoo can report CLOSED for BTC-USD even
+                # while its quote endpoint is returning a current price, so a
+                # successful crypto quote is considered live by definition.
+                status = "live" if kind == "crypto" or state in {"REGULAR", "PRE", "POST"} else "closed"
                 quote_data.update({"name": name, "symbol": symbol, "type": kind, "unit": unit,
                                    "decimals": decimals, "status": status,
                                    "source": "Yahoo Finance public chart (1m)", "checkedAt": now()})
