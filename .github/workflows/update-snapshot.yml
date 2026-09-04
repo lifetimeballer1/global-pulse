@@ -16,17 +16,18 @@ on:
       - 'news_feed_db.py'
       - 'install_v27.py'
       - 'install_map_v3.py'
+      - 'install_intelligence_web.py'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
-permissions:
-  contents: write
-  pages: write
-  id-token: write
 env:
   PYTHONUNBUFFERED: '1'
 concurrency:
   group: global-pulse-production
   cancel-in-progress: false
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
@@ -78,6 +79,8 @@ jobs:
         run: python update8_global_layers.py
       - name: Build evidence-linked intelligence graph
         run: python update_intelligence_web.py
+      - name: Install functional 3D Intelligence Web entry point
+        run: python install_intelligence_web.py
       - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
       - name: Install resilient live FastAPI reporting integration
@@ -88,12 +91,12 @@ jobs:
         run: python finalize_intelligence_health.py
       - name: Install Global Pulse V2.7 intelligence layer
         run: python install_v27.py
-      - name: Preserve canonical 2D map and remove deprecated 3D experiment
+      - name: Preserve canonical 2D map and remove deprecated 3D globe experiment
         run: python install_map_v3.py
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
           node --check global_pulse_v27.js
           node --check global_pulse_v27_quality.js
           node --check global_pulse_source_health.js
@@ -105,6 +108,7 @@ jobs:
           live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
           status=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
+          intel=Path('intelligence-web.html').read_text(encoding='utf-8')
           g=d.get('intelligenceGraph',{}); pi=d.get('politicalIntelligence',{})
           con=sqlite3.connect('news_feed.db'); cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}; db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]; con.close()
           required={'url','title','published_date','summary_snippet','credit_metadata'}; assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
@@ -119,6 +123,10 @@ jobs:
           assert 'gp-map-v3-js' in html, 'canonical map v3 UI missing'
           assert 'pulse-reporting-feed' in html, 'live reporting feed missing'
           assert 'GP-MAP-3D-START' not in html and 'global_pulse_map_3d.js' not in html, 'deprecated 3D globe still installed'
+          assert 'GP-INTELLIGENCE-WEB-START' in html, '3D Intelligence Web entry missing'
+          assert 'ForceGraph3D' in intel and 'data/snapshot.json' in intel, '3D Intelligence Web not wired to real snapshot'
+          assert 'enableNodeDrag(true)' in intel, '3D node dragging is not enabled'
+          assert 'global_pulse_map_3d.js' not in intel, 'deprecated globe renderer referenced'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
           assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
@@ -144,7 +152,7 @@ jobs:
           failed=sum(1 for x in d['sourceHealth'] if x.get('status')=='failed'); assert failed<=5, f'too many failed sources after failover: {failed}'
           for x in d['sourceHealth']: assert x.get('status') in ('online','degraded','failed','unknown') and 'articles' in x and 'lastChecked' in x, f'invalid source health: {x}'
           for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal, f'invalid driver evidence: {name}'
-          print(f"VALID: tension={d['tension']} markers={len(markers)} stories={len(d['stories'])}")
+          print(f"VALID: tension={d['tension']} markers={len(markers)} stories={len(d['stories'])} graph_nodes={len(g.get('nodes',[]))} graph_edges={len(g.get('edges',[]))}")
           print(f"MARKETS: {m.get('liveCount')} live, {m.get('closedCount')} closed, {m.get('staleCount')} stale")
           print(f"SOURCE HEALTH: {d['sourceHealthSummary']}")
           PY
