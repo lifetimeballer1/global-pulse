@@ -9,8 +9,7 @@ BLOCK = r'''<!-- GP-MAP-3D-START -->
 <style id="gp-map-3d-css">
 .gp-globe-wrap{display:grid;gap:8px;margin:0 0 10px}.gp-globe-toolbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.gp-globe-toolbar button{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.04em;min-height:34px;padding:7px 10px;border:1px solid rgba(70,255,160,.22);background:#03100c;color:#8bb8a4;border-radius:7px}.gp-globe-toolbar button:hover,.gp-globe-toolbar button.active{border-color:#49ff9a;color:#49ff9a;background:rgba(73,255,154,.08);box-shadow:0 0 14px rgba(73,255,154,.08)}#gp-globe-count{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.04em;color:#6f9b88;margin-left:auto}.gp-globe-stage{position:relative;height:540px;border:1px solid rgba(73,255,154,.2);border-radius:12px;overflow:hidden;background:#010504;display:none;touch-action:none;box-shadow:inset 0 0 70px rgba(0,0,0,.55),0 0 24px rgba(73,255,154,.04)}.gp-globe-stage.active{display:block}.gp-globe-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(rgba(73,255,154,.025) 50%,transparent 50%);background-size:100% 4px;mix-blend-mode:screen;opacity:.55}.gp-globe-stage #gp-globe-canvas{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}.gp-globe-stage #gp-globe-canvas canvas{display:block}.gp-globe-hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;color:rgba(73,255,154,.75);pointer-events:none;text-shadow:0 0 8px rgba(73,255,154,.5);z-index:5}.gp-globe-hint{position:absolute;left:10px;bottom:9px;padding:6px 8px;border:1px solid rgba(73,255,154,.15);border-radius:6px;background:rgba(2,10,7,.8);backdrop-filter:blur(7px);font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.03em;color:#5e8a76;pointer-events:none;z-index:5}.gp-globe-detail{padding:10px;border:1px solid rgba(73,255,154,.2);border-radius:8px;background:#03100c;color:#709b86;font:10px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.gp-globe-detail strong{display:block;color:#d5ffe7;font-size:12px;margin-bottom:4px}.gp-globe-detail a{display:inline-block;margin-top:5px;color:#49ff9a}.gp-globe-wrap+.gp-2d-hidden{display:none!important}@media(max-width:720px){.gp-globe-stage{height:390px}.gp-globe-toolbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.gp-globe-toolbar button{white-space:nowrap}.gp-globe-count{min-width:max-content;margin-left:0}}
 </style>
-<script src="https://unpkg.com/globe.gl@2.44.0/dist/globe.gl.min.js"></script>
-<script src="global_pulse_map_3d.js?v=2" defer></script>
+<script src="global_pulse_map_3d.js?v=3" defer></script>
 <!-- GP-MAP-3D-END -->'''
 
 html = INDEX.read_text(encoding="utf-8")
@@ -24,4 +23,4 @@ else:
         raise SystemExit("index.html has no </body>; refusing to install 3D map")
     html = html.replace(marker, BLOCK + "\n" + marker, 1)
 INDEX.write_text(html, encoding="utf-8")
-print("Installed Globe.gl Matrix-style no-key 3D globe UI")
+print("Installed Globe.gl Matrix-style no-key 3D globe UI v3")
