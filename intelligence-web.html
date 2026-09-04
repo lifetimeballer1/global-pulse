@@ -6,35 +6,24 @@
 <meta name="theme-color" content="#000">
 <title>Global Pulse — Intelligence Web</title>
 <style>
-:root{--bg:#000;--panel:#030b10e8;--line:#163044;--text:#eaf3ff;--muted:#7890a5;--green:#39ff88;--blue:#5da8ff;--amber:#ffc857;--purple:#b58cff;--red:#ff5368}
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font:13px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-#graph{position:fixed;inset:0;background:radial-gradient(circle at 50% 45%,#071725 0,#000 70%)}#graph canvas{display:block}
-#labels{position:fixed;inset:0;pointer-events:none;overflow:hidden}.label{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #5da8ff38;border-radius:7px;background:#02080dcc;color:#eaf3ff;font-size:10px;white-space:nowrap;box-shadow:0 4px 18px #0008;backdrop-filter:blur(6px);text-shadow:0 1px 2px #000}.label i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 9px currentColor}.label small{font-size:7px;color:#7890a5}.label.sel{border-color:#fff;box-shadow:0 0 20px #5da8ff66;transform:translate(-50%,-50%) scale(1.06)}.label.near{border-color:#5da8ff99}.label.dim{opacity:.14}
-.hud{position:fixed;z-index:10;left:12px;top:12px;width:min(430px,calc(100vw - 24px));pointer-events:none}.card{pointer-events:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 16px 55px #000c;backdrop-filter:blur(14px)}.title{font-weight:950;letter-spacing:.15em;color:var(--green);font-size:13px}.sub{margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}button{border:1px solid var(--line);background:#061018;color:var(--text);border-radius:8px;padding:7px 9px;font-weight:850;font-size:9px;min-height:34px}button.active{border-color:var(--green);color:var(--green);box-shadow:0 0 15px #39ff8824}#stats{margin-top:8px;color:var(--muted);font-size:9px}.ok{color:var(--green)}
-#details{position:fixed;z-index:11;right:12px;top:12px;width:min(370px,calc(100vw - 24px));display:none}.detail-title{font-size:18px;font-weight:950}.pill{display:inline-block;padding:3px 7px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:8px;margin:6px 4px 0 0}.evidence{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);max-height:45vh;overflow:auto;font-size:9px;color:var(--muted)}.evidence a{display:block;color:var(--blue);margin-top:4px}.hint{position:fixed;z-index:8;left:50%;bottom:12px;transform:translateX(-50%);padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#020805e8;color:var(--muted);font-size:9px;white-space:nowrap}.loading{position:fixed;z-index:20;inset:0;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at center,#06130d,#000 60%);padding:24px;color:var(--muted);font-size:11px;letter-spacing:.06em}.loading b{color:var(--green)}.loading button{margin-top:10px}.error{color:var(--red)}
-@media(max-width:700px){.hud{left:8px;top:8px;width:calc(100vw - 16px)}#details{left:8px;right:8px;top:auto;bottom:55px;width:auto;max-height:44vh}.hint{bottom:8px;font-size:7px}.sub{font-size:9px}.label{font-size:8px;padding:3px 5px}.label small{display:none}}
+:root{--bg:#000;--panel:#030b10e8;--line:#163044;--text:#eaf3ff;--muted:#7890a5;--green:#39ff88;--blue:#5da8ff;--amber:#ffc857;--purple:#b58cff;--red:#ff5368}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font:13px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}#graph{position:fixed;inset:0;background:radial-gradient(circle at 50% 45%,#071725 0,#000 70%)}#graph canvas{display:block}#labels{position:fixed;inset:0;pointer-events:none;overflow:hidden}.label{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #5da8ff38;border-radius:7px;background:#02080dcc;color:#eaf3ff;font-size:10px;white-space:nowrap;box-shadow:0 4px 18px #0008;backdrop-filter:blur(6px);text-shadow:0 1px 2px #000}.label i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 9px currentColor}.label small{font-size:7px;color:#7890a5}.label.sel{border-color:#fff;box-shadow:0 0 20px #5da8ff66;transform:translate(-50%,-50%) scale(1.06)}.label.near{border-color:#5da8ff99}.label.dim{opacity:.14}.hud{position:fixed;z-index:10;left:12px;top:12px;width:min(430px,calc(100vw - 24px));pointer-events:none}.card{pointer-events:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 16px 55px #000c;backdrop-filter:blur(14px)}.title{font-weight:950;letter-spacing:.15em;color:var(--green);font-size:13px}.sub{margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}button{border:1px solid var(--line);background:#061018;color:var(--text);border-radius:8px;padding:7px 9px;font-weight:850;font-size:9px;min-height:34px}button.active{border-color:var(--green);color:var(--green);box-shadow:0 0 15px #39ff8824}#stats{margin-top:8px;color:var(--muted);font-size:9px}.ok{color:var(--green)}#details{position:fixed;z-index:11;right:12px;top:12px;width:min(370px,calc(100vw - 24px));display:none}.detail-title{font-size:18px;font-weight:950}.pill{display:inline-block;padding:3px 7px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:8px;margin:6px 4px 0 0}.evidence{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);max-height:45vh;overflow:auto;font-size:9px;color:var(--muted)}.evidence a{display:block;color:var(--blue);margin-top:4px}.hint{position:fixed;z-index:8;left:50%;bottom:12px;transform:translateX(-50%);padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#020805e8;color:var(--muted);font-size:9px;white-space:nowrap}.loading{position:fixed;z-index:20;inset:0;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at center,#06130d,#000 60%);padding:24px;color:var(--muted);font-size:11px;letter-spacing:.06em}.loading b{color:var(--green)}.loading button{margin-top:10px}.error{color:var(--red)}@media(max-width:700px){.hud{left:8px;top:8px;width:calc(100vw - 16px)}#details{left:8px;right:8px;top:auto;bottom:55px;width:auto;max-height:44vh}.hint{bottom:8px;font-size:7px}.sub{font-size:9px}.label{font-size:8px;padding:3px 5px}.label small{display:none}}
 </style>
 <script>
 (function(){
   'use strict';
-  var cdns=[
-    'https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js',
-    'https://unpkg.com/3d-force-graph@1.80.0/dist/3d-force-graph.min.js'
-  ];
+  var cdns=['https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js','https://unpkg.com/3d-force-graph@1.80.0/dist/3d-force-graph.min.js'];
   window.gpLoad3D=function(done){
-    if(window.ForceGraph3D){done();return;}
+    if(window.ForceGraph3D){done();return}
     var index=0,finished=false;
     function next(){
       if(finished)return;
-      if(index>=cdns.length){finished=true;done(new Error('3D renderer unavailable'));return;}
-      var script=document.createElement('script');
-      var settled=false;
+      if(index>=cdns.length){finished=true;done(new Error('3D renderer unavailable'));return}
+      var script=document.createElement('script'),settled=false;
       var timer=setTimeout(function(){if(settled)return;settled=true;try{script.remove()}catch(e){}next()},7000);
       script.async=true;
       script.onload=function(){if(settled)return;settled=true;clearTimeout(timer);if(window.ForceGraph3D){finished=true;done()}else next()};
       script.onerror=function(){if(settled)return;settled=true;clearTimeout(timer);next()};
-      script.src=cdns[index++];
-      document.head.appendChild(script);
+      script.src=cdns[index++];document.head.appendChild(script);
     }
     next();
   };
@@ -42,100 +31,34 @@
 </script>
 </head>
 <body>
-<div id="graph"></div><div id="labels"></div>
-<div id="loading" class="loading">INITIALIZING <b>&nbsp;GLOBAL PULSE</b> // 3D INTELLIGENCE WEB</div>
+<div id="graph"></div><div id="labels"></div><div id="loading" class="loading">INITIALIZING <b>&nbsp;GLOBAL PULSE</b> // 3D INTELLIGENCE WEB</div>
 <div class="hud"><div class="card"><div class="title">GLOBAL PULSE // INTELLIGENCE WEB</div><div class="sub">Evidence-linked relationships from the public snapshot. A connection represents shared reporting/evidence; it does not by itself establish causation, coordination, or alliance.</div><div class="row"><button id="all" class="active">ALL</button><button data-kind="actor">ACTORS</button><button data-kind="political">POLITICAL</button><button data-kind="economic">ECONOMIC</button><button data-kind="strategic">STRATEGIC</button></div><div class="row"><button id="reset">RESET VIEW</button><button id="orbit">AUTO ORBIT</button><button id="flow">RELATION FLOW</button></div><div id="stats">Loading snapshot…</div></div></div>
-<div id="details"><div class="card"><div id="detailContent"></div><div class="row"><button id="close">CLOSE</button></div></div></div>
-<div class="hint">DRAG NODES · ROTATE / ZOOM · TAP A NODE FOR EVIDENCE</div>
+<div id="details"><div class="card"><div id="detailContent"></div><div class="row"><button id="close">CLOSE</button></div></div></div><div class="hint">DRAG NODES · ROTATE / ZOOM · TAP A NODE FOR EVIDENCE</div>
 <script>
 (function(){
-  'use strict';
-  var graph=null,raw=null,base=null,active=null,selected=null,filterKind='all',orbit=false,flow=false,orbitRaf=0,labelRaf=0,labelEls=new Map();
-  function $(id){return document.getElementById(id)}
-  function esc(v){return String(v==null?'':v).replace(/[&<>\"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]})}
-  function safe(v){try{var u=new URL(String(v||''),location.href);return /^https?:$/.test(u.protocol)?u.href:''}catch(e){return''}}
-  function normalize(d){
-    var g=d&&d.intelligenceGraph;
-    if(!g||!Array.isArray(g.nodes)||!g.nodes.length)return{nodes:[],links:[]};
-    var ids={};g.nodes.forEach(function(n){ids[String(n.id)]=1});
-    var links=(Array.isArray(g.edges)?g.edges:[]).filter(function(e){return ids[String(e.source)]&&ids[String(e.target)]&&String(e.source)!==String(e.target)}).map(function(e){return Object.assign({},e,{source:String(e.source),target:String(e.target),weight:Number(e.weight)||1,types:Array.isArray(e.types)?e.types:[],evidence:Array.isArray(e.evidence)?e.evidence:[]})});
-    return{nodes:g.nodes.map(function(n){return Object.assign({},n,{id:String(n.id),label:String(n.label||n.name||n.id),kind:String(n.kind||'actor')})}),links:links};
-  }
-  function color(k){return({actor:'#5da8ff',political:'#b58cff',economic:'#ffc857',strategic:'#48d9ff',military:'#ff5368',resource:'#39df88',oil:'#ff922e'}[k]||'#5da8ff')}
-  function filtered(){
-    if(filterKind==='all')return{nodes:base.nodes.slice(),links:base.links.slice()};
-    var keep={};base.nodes.forEach(function(n){if(n.kind===filterKind)keep[n.id]=1});
-    var links=base.links.filter(function(l){return keep[String(l.source)]||keep[String(l.target)]});
-    var ids={};links.forEach(function(l){ids[String(l.source)]=1;ids[String(l.target)]=1});
-    return{nodes:base.nodes.filter(function(n){return ids[n.id]}),links:links};
-  }
-  function ends(l){return[typeof l.source==='object'?l.source.id:l.source,typeof l.target==='object'?l.target.id:l.target]}
-  function isConnected(id){return!!selected&&active.links.some(function(l){var a=ends(l);return(String(a[0])===String(selected.id)&&String(a[1])===String(id))||(String(a[1])===String(selected.id)&&String(a[0])===String(id))})}
-  function rebuildLabels(){
-    var layer=$('labels');layer.innerHTML='';labelEls=new Map();
-    active.nodes.forEach(function(n){var e=document.createElement('div');e.className='label';e.innerHTML='<i style="background:'+color(n.kind)+';color:'+color(n.kind)+'"></i><span>'+esc(n.label)+'</span><small>'+(n.mentions?esc(n.mentions)+'m':'')+'</small>';layer.appendChild(e);labelEls.set(n.id,e)})
-  }
-  function project(n){
-    if(!graph||!Number.isFinite(n.x)||!Number.isFinite(n.y)||!Number.isFinite(n.z))return null;
-    var c=graph.camera();if(!c)return null;var p=c.projectionMatrix.elements,v=c.matrixWorldInverse.elements,x=n.x,y=n.y,z=n.z;
-    var vx=v[0]*x+v[4]*y+v[8]*z+v[12],vy=v[1]*x+v[5]*y+v[9]*z+v[13],vz=v[2]*x+v[6]*y+v[10]*z+v[14],vw=v[3]*x+v[7]*y+v[11]*z+v[15];
-    var cx=p[0]*vx+p[4]*vy+p[8]*vz+p[12]*vw,cy=p[1]*vx+p[5]*vy+p[9]*vz+p[13]*vw,cw=p[3]*vx+p[7]*vy+p[11]*vz+p[15]*vw;
-    if(!Number.isFinite(cw)||cw<=.05)return null;return{x:(cx/cw*.5+.5)*innerWidth,y:(-cy/cw*.5+.5)*innerHeight,z:vz};
-  }
-  function updateLabels(){
-    if(!active||!graph)return;
-    active.nodes.forEach(function(n){var e=labelEls.get(n.id);if(!e)return;var q=project(n);if(!q){e.style.display='none';return}e.style.display='flex';e.style.left=q.x+'px';e.style.top=(q.y+14)+'px';var sel=!!selected&&String(selected.id)===String(n.id),near=isConnected(n.id);e.classList.toggle('sel',sel);e.classList.toggle('near',near);e.classList.toggle('dim',!!selected&&!sel&&!near);e.style.opacity=q.z>0?(selected&&!sel&&!near?.15:1):.18})
-  }
-  function startLabels(){if(labelRaf)return;function tick(){labelRaf=requestAnimationFrame(tick);updateLabels()}labelRaf=requestAnimationFrame(tick)}
-  function stopLabels(){if(labelRaf){cancelAnimationFrame(labelRaf);labelRaf=0}}
-  function evidenceFor(n){
-    var out=[],seen={};function add(e){var u=safe(e&&e.url),key=u||(e&&e.title)||JSON.stringify(e);if(!seen[key]){seen[key]=1;out.push(e)}}
-    (Array.isArray(n.evidence)?n.evidence:[]).forEach(add);
-    active.links.forEach(function(l){var a=ends(l);if(String(a[0])===String(n.id)||String(a[1])===String(n.id))(Array.isArray(l.evidence)?l.evidence:[]).forEach(add)});
-    return out.slice(0,8);
-  }
-  function select(n){
-    if(!n||!graph)return;selected=n;var ev=evidenceFor(n),h='<div class="detail-title">'+esc(n.label)+'</div><span class="pill">'+esc(n.kind||'signal')+'</span><span class="pill">'+esc(n.mentions||0)+' mentions</span>';
-    if(ev.length){h+='<div class="evidence"><b>EVIDENCE</b>';ev.forEach(function(e){var u=safe(e.url);h+='<div style="margin-top:8px">'+esc(e.title||'Public report')+'<br>'+esc(e.source||'Public source')+(u?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">OPEN SOURCE ↗</a>':'')+'</div>'});h+='</div>'}
-    $('detailContent').innerHTML=h;$('details').style.display='block';
-    graph.nodeColor(function(x){return String(x.id)===String(n.id)?'#fff':(isConnected(x.id)?color(x.kind):'#203445')});
-    graph.linkColor(function(l){var a=ends(l);var on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?color((l.types&&l.types[0])||'actor'):'#10202d'});
-    graph.linkOpacity(function(l){var a=ends(l);var on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?0.9:0.08});
-    graph.linkWidth(function(l){var a=ends(l);var on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?Math.max(1.5,Math.min(5,(Number(l.weight)||1)*0.8)):0.35});
-    var distance=55,len=Math.hypot(n.x||0,n.y||0,n.z||0)||1,ratio=(len+distance)/len;
-    graph.cameraPosition({x:(n.x||0)*ratio,y:(n.y||0)*ratio,z:(n.z||0)*ratio},{x:n.x||0,y:n.y||0,z:n.z||0},650);updateLabels();
-  }
-  function render(){
-    active=filtered();selected=null;rebuildLabels();
-    if(!graph){
-      graph=new ForceGraph3D($('graph'),{controlType:'orbit',rendererConfig:{antialias:false,alpha:true,powerPreference:'high-performance'}})
-        .backgroundColor('#000').showNavInfo(false).nodeId('id')
-        .nodeLabel(function(n){return'<b>'+esc(n.label)+'</b><br><span style="opacity:.7">'+esc(n.kind||'signal')+' · '+esc(n.mentions||0)+' mentions</span>'})
-        .nodeColor(function(n){return color(n.kind)})
-        .nodeVal(function(n){return Math.max(3,Math.min(20,3+Math.sqrt(Math.max(1,Number(n.mentions)||1))*1.4))})
-        .nodeResolution(10).linkColor(function(l){return color((l.types&&l.types[0])||'actor')}).linkOpacity(.5)
-        .linkWidth(function(l){return Math.max(.6,Math.min(3.5,Number(l.weight)||1))})
-        .linkDirectionalParticles(function(){return flow?2:0}).linkDirectionalParticleWidth(1.2)
-        .linkDirectionalParticleSpeed(function(l){return .004+Math.min(.008,(Number(l.weight)||1)*.001)})
-        .enablePointerInteraction(true).enableNodeDrag(true).onNodeClick(select)
-        .onNodeHover(function(n){$('graph').style.cursor=n?'pointer':'default'}).onNodeDragEnd(updateLabels)
-        .d3VelocityDecay(.45).d3AlphaDecay(.035).warmupTicks(55).cooldownTime(5000);
-    }
-    graph.graphData(active);graph.d3ReheatSimulation();graph.zoomToFit(500,90);$('stats').innerHTML='<span class="ok">'+active.nodes.length+'</span> nodes · <span class="ok">'+active.links.length+'</span> evidence links';$('loading').style.display='none';updateLabels();
-  }
-  function stopOrbit(){orbit=false;$('orbit').classList.remove('active');if(orbitRaf)cancelAnimationFrame(orbitRaf);orbitRaf=0;if(graph)graph.enableNavigationControls(true)}
-  function startOrbit(){if(!graph)return;stopOrbit();orbit=true;$('orbit').classList.add('active');graph.enableNavigationControls(false);var angle=0;function tick(){if(!orbit||!graph){orbitRaf=0;return}var c=graph.camera(),p=c.position,d=Math.max(500,Math.hypot(p.x,p.y,p.z));angle+=.0025;graph.cameraPosition({x:d*Math.sin(angle),y:p.y,z:d*Math.cos(angle)},{x:0,y:0,z:0},0);orbitRaf=requestAnimationFrame(tick)}tick()}
-  function fail(message){$('loading').innerHTML='<div><div class="error"><b>3D NETWORK COULD NOT START</b></div><div style="margin-top:6px">'+esc(message)+'</div><button id="retry">RETRY</button></div>';$('retry').onclick=function(){location.reload()}}
-  $('all').onclick=function(){filterKind='all';document.querySelectorAll('[data-kind]').forEach(function(b){b.classList.remove('active')});$('all').classList.add('active');render()};
-  document.querySelectorAll('[data-kind]').forEach(function(b){b.onclick=function(){filterKind=b.getAttribute('data-kind');document.querySelectorAll('[data-kind],#all').forEach(function(x){x.classList.remove('active')});b.classList.add('active');render()}});
-  $('reset').onclick=function(){stopOrbit();filterKind='all';document.querySelectorAll('[data-kind]').forEach(function(b){b.classList.remove('active')});$('all').classList.add('active');render()};
-  $('orbit').onclick=function(){orbit?stopOrbit():startOrbit()};
-  $('flow').onclick=function(){flow=!flow;$('flow').classList.toggle('active',flow);if(graph)graph.linkDirectionalParticles(function(){return flow?2:0}).refresh()};
-  $('close').onclick=function(){$('details').style.display='none';selected=null;updateLabels()};
-  window.addEventListener('resize',function(){if(graph){graph.width(innerWidth).height(innerHeight);updateLabels()}});
-  window.addEventListener('beforeunload',function(){stopOrbit();stopLabels()});
-  startLabels();
-  fetch('data/snapshot.json?intel3d='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('snapshot '+r.status);return r.json()}).then(function(d){raw=d;base=normalize(d);if(!base.nodes.length)throw Error('intelligence graph contains no nodes');return new Promise(function(resolve,reject){gpLoad3D(function(e){e?reject(e):resolve()})})}).then(render).catch(fail);
+'use strict';
+var graph=null,raw=null,base=null,active=null,selected=null,filterKind='all',orbit=false,flow=false,orbitRaf=0,labelRaf=0,labelEls=new Map();
+function $(id){return document.getElementById(id)}
+function esc(v){return String(v==null?'':v).replace(/[&<>\"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]})}
+function safe(v){try{var u=new URL(String(v||''),location.href);return /^https?:$/.test(u.protocol)?u.href:''}catch(e){return''}}
+function normalize(d){var g=d&&d.intelligenceGraph;if(!g||!Array.isArray(g.nodes)||!g.nodes.length)return{nodes:[],links:[]};var ids={};g.nodes.forEach(function(n){ids[String(n.id)]=1});var links=(Array.isArray(g.edges)?g.edges:[]).filter(function(e){return ids[String(e.source)]&&ids[String(e.target)]&&String(e.source)!==String(e.target)}).map(function(e){return Object.assign({},e,{source:String(e.source),target:String(e.target),weight:Number(e.weight)||1,types:Array.isArray(e.types)?e.types:[],evidence:Array.isArray(e.evidence)?e.evidence:[]})});return{nodes:g.nodes.map(function(n){return Object.assign({},n,{id:String(n.id),label:String(n.label||n.name||n.id),kind:String(n.kind||'actor')})}),links:links}}
+function color(k){return({actor:'#5da8ff',political:'#b58cff',economic:'#ffc857',strategic:'#48d9ff',military:'#ff5368',resource:'#39df88',oil:'#ff922e'}[k]||'#5da8ff')}
+function filtered(){if(filterKind==='all')return{nodes:base.nodes.slice(),links:base.links.slice()};var keep={};base.nodes.forEach(function(n){if(n.kind===filterKind)keep[n.id]=1});var links=base.links.filter(function(l){return keep[String(l.source)]||keep[String(l.target)]}),ids={};links.forEach(function(l){ids[String(l.source)]=1;ids[String(l.target)]=1});return{nodes:base.nodes.filter(function(n){return ids[n.id]}),links:links}}
+function ends(l){return[typeof l.source==='object'?l.source.id:l.source,typeof l.target==='object'?l.target.id:l.target]}
+function connected(id){return!!selected&&active.links.some(function(l){var a=ends(l);return(String(a[0])===String(selected.id)&&String(a[1])===String(id))||(String(a[1])===String(selected.id)&&String(a[0])===String(id))})}
+function rebuildLabels(){var layer=$('labels');layer.innerHTML='';labelEls=new Map();active.nodes.forEach(function(n){var e=document.createElement('div');e.className='label';e.innerHTML='<i style="background:'+color(n.kind)+';color:'+color(n.kind)+'"></i><span>'+esc(n.label)+'</span><small>'+(n.mentions?esc(n.mentions)+'m':'')+'</small>';layer.appendChild(e);labelEls.set(n.id,e)})}
+function project(n){if(!graph||!Number.isFinite(n.x)||!Number.isFinite(n.y)||!Number.isFinite(n.z))return null;var c=graph.camera(),p=c.projectionMatrix.elements,v=c.matrixWorldInverse.elements,x=n.x,y=n.y,z=n.z;var vx=v[0]*x+v[4]*y+v[8]*z+v[12],vy=v[1]*x+v[5]*y+v[9]*z+v[13],vz=v[2]*x+v[6]*y+v[10]*z+v[14],vw=v[3]*x+v[7]*y+v[11]*z+v[15];var cx=p[0]*vx+p[4]*vy+p[8]*vz+p[12]*vw,cy=p[1]*vx+p[5]*vy+p[9]*vz+p[13]*vw,cw=p[3]*vx+p[7]*vy+p[11]*vz+p[15]*vw;if(!Number.isFinite(cw)||cw<=.05)return null;return{x:(cx/cw*.5+.5)*innerWidth,y:(-cy/cw*.5+.5)*innerHeight,z:vz}}
+function updateLabels(){if(!active||!graph)return;active.nodes.forEach(function(n){var e=labelEls.get(n.id);if(!e)return;var q=project(n);if(!q){e.style.display='none';return}e.style.display='flex';e.style.left=q.x+'px';e.style.top=(q.y+14)+'px';var sel=!!selected&&String(selected.id)===String(n.id),near=connected(n.id);e.classList.toggle('sel',sel);e.classList.toggle('near',near);e.classList.toggle('dim',!!selected&&!sel&&!near);var opacity=1;if(q.z<=0)opacity=.18;else if(selected&&!sel&&!near)opacity=.15;e.style.opacity=String(opacity)})}
+function startLabels(){if(labelRaf)return;function tick(){labelRaf=requestAnimationFrame(tick);updateLabels()}labelRaf=requestAnimationFrame(tick)}
+function stopLabels(){if(labelRaf){cancelAnimationFrame(labelRaf);labelRaf=0}}
+function evidenceFor(n){var out=[],seen={};function add(e){var u=safe(e&&e.url),key=u||(e&&e.title)||JSON.stringify(e);if(!seen[key]){seen[key]=1;out.push(e)}}(Array.isArray(n.evidence)?n.evidence:[]).forEach(add);active.links.forEach(function(l){var a=ends(l);if(String(a[0])===String(n.id)||String(a[1])===String(n.id))(Array.isArray(l.evidence)?l.evidence:[]).forEach(add)});return out.slice(0,8)}
+function select(n){if(!n||!graph)return;selected=n;var ev=evidenceFor(n),h='<div class="detail-title">'+esc(n.label)+'</div><span class="pill">'+esc(n.kind||'signal')+'</span><span class="pill">'+esc(n.mentions||0)+' mentions</span>';if(ev.length){h+='<div class="evidence"><b>EVIDENCE</b>';ev.forEach(function(e){var u=safe(e.url);h+='<div style="margin-top:8px">'+esc(e.title||'Public report')+'<br>'+esc(e.source||'Public source')+(u?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">OPEN SOURCE ↗</a>':'')+'</div>'});h+='</div>'}$("detailContent").innerHTML=h;$("details").style.display='block';graph.nodeColor(function(x){return String(x.id)===String(n.id)?'#fff':(connected(x.id)?color(x.kind):'#203445')});graph.linkColor(function(l){var a=ends(l),on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?color((l.types&&l.types[0])||'actor'):'#10202d'});graph.linkOpacity(function(l){var a=ends(l),on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?0.9:0.08});graph.linkWidth(function(l){var a=ends(l),on=String(a[0])===String(n.id)||String(a[1])===String(n.id);return on?Math.max(1.5,Math.min(5,(Number(l.weight)||1)*.8)):0.35});var distance=55,len=Math.hypot(n.x||0,n.y||0,n.z||0)||1,ratio=(len+distance)/len;graph.cameraPosition({x:(n.x||0)*ratio,y:(n.y||0)*ratio,z:(n.z||0)*ratio},{x:n.x||0,y:n.y||0,z:n.z||0},650);updateLabels()}
+function render(){active=filtered();selected=null;rebuildLabels();if(!graph){graph=new ForceGraph3D($('graph'),{controlType:'orbit',rendererConfig:{antialias:false,alpha:true,powerPreference:'high-performance'}}).backgroundColor('#000').showNavInfo(false).nodeId('id').nodeLabel(function(n){return'<b>'+esc(n.label)+'</b><br><span style="opacity:.7">'+esc(n.kind||'signal')+' · '+esc(n.mentions||0)+' mentions</span>'}).nodeColor(function(n){return color(n.kind)}).nodeVal(function(n){return Math.max(3,Math.min(20,3+Math.sqrt(Math.max(1,Number(n.mentions)||1))*1.4))}).nodeResolution(10).linkColor(function(l){return color((l.types&&l.types[0])||'actor')}).linkOpacity(.5).linkWidth(function(l){return Math.max(.6,Math.min(3.5,Number(l.weight)||1))}).linkDirectionalParticles(function(){return flow?2:0}).linkDirectionalParticleWidth(1.2).linkDirectionalParticleSpeed(function(l){return .004+Math.min(.008,(Number(l.weight)||1)*.001)}).enablePointerInteraction(true).enableNodeDrag(true).onNodeClick(select).onNodeHover(function(n){$('graph').style.cursor=n?'pointer':'default'}).onNodeDragEnd(updateLabels).d3VelocityDecay(.45).d3AlphaDecay(.035).warmupTicks(55).cooldownTime(5000)}graph.graphData(active);graph.d3ReheatSimulation();graph.zoomToFit(500,90);$('stats').innerHTML='<span class="ok">'+active.nodes.length+'</span> nodes · <span class="ok">'+active.links.length+'</span> evidence links';$('loading').style.display='none';updateLabels()}
+function stopOrbit(){orbit=false;$('orbit').classList.remove('active');if(orbitRaf)cancelAnimationFrame(orbitRaf);orbitRaf=0;if(graph)graph.enableNavigationControls(true)}
+function startOrbit(){if(!graph)return;stopOrbit();orbit=true;$('orbit').classList.add('active');graph.enableNavigationControls(false);var angle=0;function tick(){if(!orbit||!graph){orbitRaf=0;return}var c=graph.camera(),p=c.position,d=Math.max(500,Math.hypot(p.x,p.y,p.z));angle+=.0025;graph.cameraPosition({x:d*Math.sin(angle),y:p.y,z:d*Math.cos(angle)},{x:0,y:0,z:0},0);orbitRaf=requestAnimationFrame(tick)}tick()}
+function fail(message){$('loading').innerHTML='<div><div class="error"><b>3D NETWORK COULD NOT START</b></div><div style="margin-top:6px">'+esc(message)+'</div><button id="retry">RETRY</button></div>';$('retry').onclick=function(){location.reload()}}
+$('all').onclick=function(){filterKind='all';document.querySelectorAll('[data-kind]').forEach(function(b){b.classList.remove('active')});$('all').classList.add('active');render()};document.querySelectorAll('[data-kind]').forEach(function(b){b.onclick=function(){filterKind=b.getAttribute('data-kind');document.querySelectorAll('[data-kind],#all').forEach(function(x){x.classList.remove('active')});b.classList.add('active');render()}});$('reset').onclick=function(){stopOrbit();filterKind='all';document.querySelectorAll('[data-kind]').forEach(function(b){b.classList.remove('active')});$('all').classList.add('active');render()};$('orbit').onclick=function(){orbit?stopOrbit():startOrbit()};$('flow').onclick=function(){flow=!flow;$('flow').classList.toggle('active',flow);if(graph)graph.linkDirectionalParticles(function(){return flow?2:0}).refresh()};$('close').onclick=function(){$('details').style.display='none';selected=null;updateLabels()};window.addEventListener('resize',function(){if(graph){graph.width(innerWidth).height(innerHeight);updateLabels()}});window.addEventListener('beforeunload',function(){stopOrbit();stopLabels()});startLabels();
+fetch('data/snapshot.json?intel3d='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('snapshot '+r.status);return r.json()}).then(function(d){raw=d;base=normalize(d);if(!base.nodes.length)throw Error('intelligence graph contains no nodes');return new Promise(function(resolve,reject){gpLoad3D(function(e){e?reject(e):resolve()})})}).then(render).catch(fail);
 })();
 </script>
 </body>
