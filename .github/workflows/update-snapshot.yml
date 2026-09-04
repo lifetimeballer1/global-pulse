@@ -21,6 +21,7 @@ on:
       - 'install_map_v3.py'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
+# Recovery note: a workflow-only push intentionally retriggers the full production build/deploy.
 env:
   PYTHONUNBUFFERED: '1'
 concurrency:
