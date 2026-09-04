@@ -21,13 +21,15 @@ function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("
 
 s=INDEX.read_text(encoding='utf-8')
 block=START+'\n'+CSS+'\n'+JS+'\n'+END
+# Always keep the v3 block immediately before </head>. This prevents later
+# body-level installers (branding, tension, reporting) from deleting it.
 start=s.find(START)
 if start>=0:
     end=s.find(END,start)
     if end<0: end=s.find('</body>',start)
     else: end+=len(END)
-    s=s[:start]+block+s[end:]
-else:
-    s=s.replace('</head>',CSS+'\n</head>',1)
-    s=s.replace('</body>',START+'\n'+JS+'\n'+END+'\n</body>',1)
-INDEX.write_text(s,encoding='utf-8');print('Installed map v3 safely: only its own block is replaced; existing map renderer, data-ready refresh, regional coverage and other dashboard scripts are preserved.')
+    s=s[:start]+s[end:]
+head=s.find('</head>')
+if head<0: raise RuntimeError('index.html has no </head>')
+s=s[:head]+block+'\n'+s[head:]
+INDEX.write_text(s,encoding='utf-8');print('Installed map v3 safely in head: its block is isolated and cannot delete the canonical map, tension, reporting, or other body scripts.')
