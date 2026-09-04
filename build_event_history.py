@@ -13,15 +13,18 @@ DATA=ROOT/'data'
 LIVE=DATA/'live_events.json'
 OUT=DATA/'event_history.json'
 
-
 def clean(v): return re.sub(r'\s+',' ',str(v or '')).strip()
 def tokens(v): return set(re.findall(r'[a-z0-9]{4,}',clean(v).lower()))
 def fingerprint(e):
     anchors='|'.join(sorted(str(x).lower() for x in (e.get('anchors') or [])))
-    title=' '.join(sorted(tokens(e.get('title',''))))
-    # Prefer geographic/actor anchors, then normalized title. This remains stable
-    # when the lead headline changes while the underlying event continues.
-    return hashlib.sha1((anchors+'::'+title+'::'+str(e.get('category',''))).encode()).hexdigest()[:20]
+    category=str(e.get('category','general')).lower()
+    # Use anchors/category as the primary identity. If anchors are absent, use a
+    # compact normalized title signature; this avoids creating a new history key
+    # for every headline punctuation/word-order change.
+    if anchors:
+        return hashlib.sha1((anchors+'::'+category).encode()).hexdigest()[:20]
+    words=sorted(tokens(e.get('title','')))
+    return hashlib.sha1(('::'.join(words[:12])+'::'+category).encode()).hexdigest()[:20]
 def iso(v):
     if not v: return None
     try:
@@ -43,39 +46,28 @@ def main():
         h['title']=e.get('title') or h.get('title')
         h['category']=e.get('category') or h.get('category')
         h['anchors']=sorted(set((h.get('anchors') or [])+(e.get('anchors') or [])))[:16]
-        observation={
-            'observedAt':now.isoformat().replace('+00:00','Z'),
-            'firstSeen':iso(e.get('firstSeen')),
-            'lastSeen':iso(e.get('lastSeen')),
-            'reportCount':int(e.get('reportCount') or 0),
-            'sourceCount':int(e.get('sourceCount') or 0),
-            'confidence':e.get('confidence','unknown'),
-            'title':e.get('title',''),
-            'urls':(e.get('urls') or [])[:5]
-        }
+        observation={'observedAt':now.isoformat().replace('+00:00','Z'),'firstSeen':iso(e.get('firstSeen')),'lastSeen':iso(e.get('lastSeen')),'reportCount':int(e.get('reportCount') or 0),'sourceCount':int(e.get('sourceCount') or 0),'confidence':e.get('confidence','unknown'),'title':e.get('title',''),'urls':(e.get('urls') or [])[:5]}
         obs=h.setdefault('observations',[])
-        # Avoid duplicate observations during repeated 5-minute refreshes when
-        # nothing material changed. Keep a fresh observation when counts/title differ.
         sig=(observation['reportCount'],observation['sourceCount'],observation['confidence'],observation['title'])
-        if not obs or tuple((obs[-1].get(k),obs[-1].get('sourceCount'),obs[-1].get('confidence'),obs[-1].get('title')) for k in ['reportCount']) != (sig,):
-            obs.append(observation)
-        # Keep approximately 30 days / 180 observations per event.
-        cutoff=(now-timedelta(days=30)).timestamp()
+        prev_sig=None
+        if obs:
+            last=obs[-1]; prev_sig=(int(last.get('reportCount') or 0),int(last.get('sourceCount') or 0),last.get('confidence','unknown'),last.get('title',''))
+        if prev_sig != sig: obs.append(observation)
+        cutoff=now-timedelta(days=30)
         kept=[]
         for o in obs[-240:]:
             try:
-                if datetime.fromisoformat(o['observedAt'].replace('Z','+00:00')).timestamp()>=cutoff: kept.append(o)
+                if datetime.fromisoformat(o['observedAt'].replace('Z','+00:00'))>=cutoff: kept.append(o)
             except Exception: pass
         h['observations']=kept[-180:]
         histories[fid]=h
-    # Retain histories touched within 30 days; old entries are not useful to the live UI.
     active={}
     for k,h in histories.items():
         obs=h.get('observations') or []
         if obs:
             try:
                 dt=datetime.fromisoformat(obs[-1]['observedAt'].replace('Z','+00:00'))
-                if (now-dt).days<=30: active[k]=h
+                if now-dt<=timedelta(days=30): active[k]=h
             except Exception: pass
     payload={'updatedAt':now.isoformat().replace('+00:00','Z'),'window':'30 days','method':'stable candidate fingerprint plus material observation snapshots; historical records are descriptive, not proof of event identity','events':active}
     OUT.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
