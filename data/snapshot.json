@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T01:18:30.697682+00:00",
+  "updatedAt": "2026-09-04T01:31:27.792911+00:00",
   "scoreVersion": 5,
   "sourceStatus": "300 stories · 376 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 202 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
@@ -9,9 +9,9 @@
     "Conflict activity": 100,
     "Diplomatic strain": 66,
     "Economic pressure": 72,
-    "Market volatility": 78,
+    "Market volatility": 76,
     "Military posture": 100,
-    "Climate & humanitarian pressure": 77
+    "Climate & humanitarian pressure": 76
   },
   "driverSignals": {
     "Conflict activity": {
@@ -160,10 +160,10 @@
     },
     "Military posture": {
       "poolSize": 176,
-      "matches": 22,
+      "matches": 21,
       "sources": 5,
-      "recentMatches": 14,
-      "signalRatio": 0.129,
+      "recentMatches": 13,
+      "signalRatio": 0.122,
       "topSignals": [
         {
           "title": "Trump names Adam Telle as acting army secretary following departure of Dan Driscoll",
@@ -190,10 +190,10 @@
           "time": "Thu, 03 Sep 2026 22:07:14 GMT"
         },
         {
-          "title": "Lindsay Clancy jury sent home again without verdict in murder trial",
-          "source": "Guardian US",
-          "url": "https://www.theguardian.com/us-news/2026/sep/03/lindsay-clancy-murder-trial-jury",
-          "time": "Thu, 03 Sep 2026 20:48:21 GMT"
+          "title": "Ten injured in Ukraine as Kyiv expects talks with US envoys in coming days",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/9/3/ten-injured-in-ukraine-as-kyiv-expects-talks-with-us-envoys-in-coming-days?traffic_source=rss",
+          "time": "Thu, 03 Sep 2026 20:44:49 +0000"
         }
       ]
     },
@@ -271,8 +271,18 @@
     },
     {
       "kind": "breaking",
+      "title": "ICE agent charged with lying about shooting Venezuelan man during crackdown",
+      "detail": "BBC World · international · DEVELOPING"
+    },
+    {
+      "kind": "breaking",
       "title": "News live: Two more Australians confirmed safe in Nepal-Tibet floods; Sydney’s first case of bird flu confirmed",
       "detail": "Guardian World · international · DEVELOPING"
+    },
+    {
+      "kind": "new reporting",
+      "title": "Missouri state legislative candidate accused of trying to plant cocaine on opponent",
+      "detail": "Guardian US · regional · DEVELOPING"
     },
     {
       "kind": "new reporting",
@@ -283,16 +293,6 @@
       "kind": "new reporting",
       "title": "Haitian government calls for renewal of international anti-gang task force",
       "detail": "Al Jazeera · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Volkswagen to cut another 50,000 jobs to counter tariffs and Chinese competition",
-      "detail": "France 24 · international · DEVELOPING"
-    },
-    {
-      "kind": "new reporting",
-      "title": "Kenya's chai tea lovers are not happy as the nation's cows run dry",
-      "detail": "BBC Africa · regional · DEVELOPING"
     }
   ],
   "conflicts": [
@@ -430,11 +430,11 @@
       "status": "Active signal",
       "recent": "US military fended off Iranian drones as it escorted a record amount of oil through Strait of Hormuz , sources say",
       "escalation": "CRITICAL",
-      "activityScore": 97,
-      "delta": -3,
-      "signalCount": 6,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
+      "activityScore": 100,
+      "delta": 0,
+      "signalCount": 7,
+      "sourceCount": 3,
+      "confidence": "CORROBORATED",
       "eventType": "KINETIC",
       "lastSignal": "2026-09-03T23:30:00+00:00",
       "signals": [
@@ -469,7 +469,7 @@
             "strait of hormuz",
             "hormuz"
           ],
-          "signal": 15.7
+          "signal": 15.0
         },
         {
           "title": "Funeral held for child killed in US strike on Iranian wedding",
@@ -483,7 +483,7 @@
           "signal": 13.0
         }
       ],
-      "facts": "6 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "facts": "7 conflict-specific signal(s) from 3 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -547,6 +547,66 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
+      "id": "korea",
+      "name": "Korean Peninsula",
+      "region": "Indo-Pacific",
+      "category": "FLASHPOINT",
+      "status": "Active signal",
+      "recent": "South Korea prepares Hormuz military deployment: Reports",
+      "escalation": "MODERATE",
+      "activityScore": 67,
+      "delta": 26,
+      "signalCount": 4,
+      "sourceCount": 2,
+      "confidence": "MULTI-SOURCE",
+      "eventType": "MILITARY POSTURE",
+      "lastSignal": "2026-09-04T01:27:08+00:00",
+      "signals": [
+        {
+          "title": "South Korea prepares Hormuz military deployment: Reports",
+          "source": "CNA World",
+          "url": "https://www.channelnewsasia.com/asia/south-korea-hormuz-military-deployment-6361626",
+          "time": "2026-09-04T01:27:08+00:00",
+          "match": [
+            "south korea"
+          ],
+          "signal": 10.0
+        },
+        {
+          "title": "US Army reportedly plans to move multidomain troops from Germany to South Korea",
+          "source": "Stars and Stripes",
+          "url": "https://www.stripes.com/branches/army/2026-09-03/army-multidomain-effects-battalion-korea-22738642.html",
+          "time": "2026-09-03T08:41:39+00:00",
+          "match": [
+            "south korea"
+          ],
+          "signal": 9.7
+        },
+        {
+          "title": "South Korea’s proposed $53.5 billion defense budget prioritizes taking wartime command from US",
+          "source": "Stars and Stripes",
+          "url": "https://www.stripes.com/theaters/asia_pacific/2026-09-02/south-korea-defense-budget-opcon-22728386.html",
+          "time": "2026-09-02T09:21:42+00:00",
+          "match": [
+            "south korea"
+          ],
+          "signal": 9.0
+        },
+        {
+          "title": "US ready to search North Korea for war dead if Trump-Kim diplomacy advances",
+          "source": "Stars and Stripes",
+          "url": "https://www.stripes.com/theaters/asia_pacific/2026-09-01/korean-war-remains-recovery-trump-kim-22726456.html",
+          "time": "2026-09-02T03:27:24+00:00",
+          "match": [
+            "north korea"
+          ],
+          "signal": 6.0
+        }
+      ],
+      "facts": "4 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
       "id": "syria",
       "name": "Syria Conflict / Residual Fronts",
       "region": "Middle East",
@@ -606,56 +666,6 @@
         }
       ],
       "facts": "5 conflict-specific signal(s) from 2 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
-      "id": "korea",
-      "name": "Korean Peninsula",
-      "region": "Indo-Pacific",
-      "category": "FLASHPOINT",
-      "status": "Active signal",
-      "recent": "US Army reportedly plans to move multidomain troops from Germany to South Korea",
-      "escalation": "MODERATE",
-      "activityScore": 55,
-      "delta": 14,
-      "signalCount": 3,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MILITARY POSTURE",
-      "lastSignal": "2026-09-03T08:41:39+00:00",
-      "signals": [
-        {
-          "title": "US Army reportedly plans to move multidomain troops from Germany to South Korea",
-          "source": "Stars and Stripes",
-          "url": "https://www.stripes.com/branches/army/2026-09-03/army-multidomain-effects-battalion-korea-22738642.html",
-          "time": "2026-09-03T08:41:39+00:00",
-          "match": [
-            "south korea"
-          ],
-          "signal": 9.7
-        },
-        {
-          "title": "South Korea’s proposed $53.5 billion defense budget prioritizes taking wartime command from US",
-          "source": "Stars and Stripes",
-          "url": "https://www.stripes.com/theaters/asia_pacific/2026-09-02/south-korea-defense-budget-opcon-22728386.html",
-          "time": "2026-09-02T09:21:42+00:00",
-          "match": [
-            "south korea"
-          ],
-          "signal": 9.0
-        },
-        {
-          "title": "US ready to search North Korea for war dead if Trump-Kim diplomacy advances",
-          "source": "Stars and Stripes",
-          "url": "https://www.stripes.com/theaters/asia_pacific/2026-09-01/korean-war-remains-recovery-trump-kim-22726456.html",
-          "time": "2026-09-02T03:27:24+00:00",
-          "match": [
-            "north korea"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "3 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -18424,8 +18434,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6DuPvszqUsRl6yfUd4aNTyAiMHoC-KO0JJPE93WcosWz9St4QO1buOaL18mETlzqOFayFi9KoGyKb2K8oMbQZ244uS5XLw9I2pmgMI0ohGbSyI9_IJkVDvTBFXBNBTGaa0-B-WMzyfgK_DzLMxXhKmpSmLvbqSja8TdYV4Ei1_oE5oSWXqlc_EztSLvnIYxp7FluERPS15qGzdeRvKXxHkDkn3Tiwo_KGN2So_bKH5-CrS3hCjdX4-gpc?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6DuPvszqUsRl6yfUd4aNTyAiMHoC-KO0JJPE93WcosWz9St4QO1buOaL18mETlzqOFayFi9KoGyKb2K8oMbQZ244uS5XLw9I2pmgMI0ohGbSyI9_IJkVDvTBFXBNBTGaa0-B-WMzyfgK_DzLMxXhKmpSmLvbqSja8TdYV4Ei1_oE5oSWXqlc_EztSLvnIYxp7FluERPS15qGzdeRvKXxHkDkn3Tiwo_KGN2So_bKH5-CrS3hCjdX4-gpc?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UHADfpl59emz9AjjG3XeQjGfxJ9axMF6XSXUAV4vm8AN5IyjfraWtXbR2NkKgYqmwKOAQSSXC9yyVYAMX5bCWG02S5TYCxsxqgxcs-O53NnJqUJD4kPO_PqyOrb-ye3X1YwKCOs6gYlvi_3tWRCRquRo97T4R5-eQuy0VomPn1VoiU55IGLuXY0oR2ejjxTpB2xPHaG3S8JL7vL9CEjvo1dtuVpHzbOXsnG1ZjtshC63IoxK5poMOy14?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UHADfpl59emz9AjjG3XeQjGfxJ9axMF6XSXUAV4vm8AN5IyjfraWtXbR2NkKgYqmwKOAQSSXC9yyVYAMX5bCWG02S5TYCxsxqgxcs-O53NnJqUJD4kPO_PqyOrb-ye3X1YwKCOs6gYlvi_3tWRCRquRo97T4R5-eQuy0VomPn1VoiU55IGLuXY0oR2ejjxTpB2xPHaG3S8JL7vL9CEjvo1dtuVpHzbOXsnG1ZjtshC63IoxK5poMOy14?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -18460,8 +18470,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bIsMk4hvJYQrHTPcIOrCDzMXIPpAK2njvm4Cl2LDKumKRcUc6p4K0-kJDirBEepsLDY18ge3GxyB2eGRVcVMrnKioWEiP66KOrRGKDfLZ4FyGj1N6p67-AlFfVcTJoqbhBQ5tTxkIHSAEGQdTajPhslca3anWBPSQNEHjLxdnSZBU1kAMzFr-Py-ZIPdR2jJ8VLric1Gy-5jbDD57TLOpTNycLrSy9j0ceTh2mnEqPBs2OhfQx5jMvN8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5bIsMk4hvJYQrHTPcIOrCDzMXIPpAK2njvm4Cl2LDKumKRcUc6p4K0-kJDirBEepsLDY18ge3GxyB2eGRVcVMrnKioWEiP66KOrRGKDfLZ4FyGj1N6p67-AlFfVcTJoqbhBQ5tTxkIHSAEGQdTajPhslca3anWBPSQNEHjLxdnSZBU1kAMzFr-Py-ZIPdR2jJ8VLric1Gy-5jbDD57TLOpTNycLrSy9j0ceTh2mnEqPBs2OhfQx5jMvN8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6tR5cIuGctV6_LJ7sTvCT8jjfegoI6PIq0EQicb3SrIqP7tdcCBPrhyA2SHKHU_ydqJnCGK1nBda_Fkg4rQ0PP9Fr3QaTIPOkO10PvlXL63TxeZJniDF3H1jUW_9wJL4ikIlhfGsS-zHcMKcTrT7WT9HRJ5iFWYNbOCLuR_sinVTVo-oNKGmA1DsdrW7Iw9J6EFQH0C8cgC2Wj8ZZ90rJVgYOiVp2QuiAceUuroWgWW9KRyRMdbDKQpu8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6tR5cIuGctV6_LJ7sTvCT8jjfegoI6PIq0EQicb3SrIqP7tdcCBPrhyA2SHKHU_ydqJnCGK1nBda_Fkg4rQ0PP9Fr3QaTIPOkO10PvlXL63TxeZJniDF3H1jUW_9wJL4ikIlhfGsS-zHcMKcTrT7WT9HRJ5iFWYNbOCLuR_sinVTVo-oNKGmA1DsdrW7Iw9J6EFQH0C8cgC2Wj8ZZ90rJVgYOiVp2QuiAceUuroWgWW9KRyRMdbDKQpu8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -18514,8 +18524,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tY3NAEcaPZjDvfppzwlAlro8LWCzCwzbMOA1v1H1brkB7Z7HNCnPH_KCiceMEtducw-0VX_yjl9UQfvS1J0HP-DOKXL0n_Ugy7APD3Cnq6qqo9m8hWbMuUNse8jd4NGIc4OODUHzejA4CjlwHkZQQ-VdWnLs2RjFCRkaf5FFGJ1qcGvxxqwb4hta1Brzf269nHSuj1JJbcQOVE9vf0jqS4hzcUxTQdUsWmLakfssI3xfK9qsgjK5lMso?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4tY3NAEcaPZjDvfppzwlAlro8LWCzCwzbMOA1v1H1brkB7Z7HNCnPH_KCiceMEtducw-0VX_yjl9UQfvS1J0HP-DOKXL0n_Ugy7APD3Cnq6qqo9m8hWbMuUNse8jd4NGIc4OODUHzejA4CjlwHkZQQ-VdWnLs2RjFCRkaf5FFGJ1qcGvxxqwb4hta1Brzf269nHSuj1JJbcQOVE9vf0jqS4hzcUxTQdUsWmLakfssI3xfK9qsgjK5lMso?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6gOnFD6dr1wipplpyowciB6qSSeyviHlF_1WTESs5h8KdcjEeAGtlwzcNjIJMfpY3o0pCVExg-g3eNgwJu77EVY9OMVE193DfAhK7nHivrMzzqiMtWaomPqGAsCa112_KkfmJVBmdOkInpypmbomyiBth0oebgLGHUqhFUNSDe1VcDzIcP6M84L7llwT5_Qvwd0WzOlpTOQxqAtWiR49ZzDHQq6OZZ0FsdRqQ9pCS42TbsGcfnVstNKtw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6gOnFD6dr1wipplpyowciB6qSSeyviHlF_1WTESs5h8KdcjEeAGtlwzcNjIJMfpY3o0pCVExg-g3eNgwJu77EVY9OMVE193DfAhK7nHivrMzzqiMtWaomPqGAsCa112_KkfmJVBmdOkInpypmbomyiBth0oebgLGHUqhFUNSDe1VcDzIcP6M84L7llwT5_Qvwd0WzOlpTOQxqAtWiR49ZzDHQq6OZZ0FsdRqQ9pCS42TbsGcfnVstNKtw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -19918,8 +19928,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6ynmh_H2N5F-ERTlOQIw8PegVM3j1nfosS2XuWtl6BFsAX8FVxnB2CwjmYdl6epeEqvZf0CLRJSkWpKgI7AXACjvoAsQqIpxEABOT7O_hLarEVH0-9XTp1K7xrjJq_RIgXH_0kZFAu1mWM-wZ4v7RLfkYNKfS7TP0aTLaiELz8DILu_GTEpm8ukKM7VtS3KQL-1ehcktrCogJKtMfnYb1ScfUAxcnINqaV82graw6RSMyYpduRJ5J-e8M?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6ynmh_H2N5F-ERTlOQIw8PegVM3j1nfosS2XuWtl6BFsAX8FVxnB2CwjmYdl6epeEqvZf0CLRJSkWpKgI7AXACjvoAsQqIpxEABOT7O_hLarEVH0-9XTp1K7xrjJq_RIgXH_0kZFAu1mWM-wZ4v7RLfkYNKfS7TP0aTLaiELz8DILu_GTEpm8ukKM7VtS3KQL-1ehcktrCogJKtMfnYb1ScfUAxcnINqaV82graw6RSMyYpduRJ5J-e8M?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6VfyoZg55esAWBTLc9Vsb_mZTms4W18YmL_NHVUUMDwenszz39uALqxIkuDmiG1NoRTucG-eLEqxqPWLPB3terCfsTymWD3mYnwGGZztAY3B6_AukEvaZa3Q_glBs1iKl_-iyLR21-Ozp21_1lvUog8KvBMcFGZ_-0vZquXwZOaCH4B92uAO_-T3DylcOqjW-FddorwSofFHKPbt_f533Y3gkwM_STvRuIdKe3csYqOAaHBBGSdE8PLek?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6VfyoZg55esAWBTLc9Vsb_mZTms4W18YmL_NHVUUMDwenszz39uALqxIkuDmiG1NoRTucG-eLEqxqPWLPB3terCfsTymWD3mYnwGGZztAY3B6_AukEvaZa3Q_glBs1iKl_-iyLR21-Ozp21_1lvUog8KvBMcFGZ_-0vZquXwZOaCH4B92uAO_-T3DylcOqjW-FddorwSofFHKPbt_f533Y3gkwM_STvRuIdKe3csYqOAaHBBGSdE8PLek?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21106,8 +21116,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR78cqr6N0oWzBnYbfyERxivI3h8ebbHltFIf1XsK9gZ2GoE8ETnnPTEXKpTHuV5nRAxc3zCMUgAgQHF6MnxVK8gwlo9bE6wnsK-1-p8DnIg77l-tsyMKfdICZeXA7CkAPnYdj0tLJ-Jh4xFCnVWaRQ7QV2MW3pSfRnVn3ao668oSZHAg_P-ah5R9ePzmBYCxPVem69B7m0huysSJDAN5pXByYTNwLX35Zt3_43Xzg3uc8M6cHBnnXM8474?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR78cqr6N0oWzBnYbfyERxivI3h8ebbHltFIf1XsK9gZ2GoE8ETnnPTEXKpTHuV5nRAxc3zCMUgAgQHF6MnxVK8gwlo9bE6wnsK-1-p8DnIg77l-tsyMKfdICZeXA7CkAPnYdj0tLJ-Jh4xFCnVWaRQ7QV2MW3pSfRnVn3ao668oSZHAg_P-ah5R9ePzmBYCxPVem69B7m0huysSJDAN5pXByYTNwLX35Zt3_43Xzg3uc8M6cHBnnXM8474?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4uvUUunCST4cib971GKnVncMVI-ZE3cEfLCTh7e6qs01alligEqi7rynz40DzRGayYUecZo3QssKvWX_4dGqJXts5XpLBcPaxIvXJs_JC72iUkI2ToHQmsQkPbRXAoboD5ZMKVf7VmBEh6qaVR5sXSvxMBl_sBRRwuqzuVNUAO3rkyBZAos9GKtv-Deo-RSRQrVxZmQexjjtRPKr5oDgEyrpVvYdnWV9swkMwtGUFyzn-C6qbBGwVItHI?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4uvUUunCST4cib971GKnVncMVI-ZE3cEfLCTh7e6qs01alligEqi7rynz40DzRGayYUecZo3QssKvWX_4dGqJXts5XpLBcPaxIvXJs_JC72iUkI2ToHQmsQkPbRXAoboD5ZMKVf7VmBEh6qaVR5sXSvxMBl_sBRRwuqzuVNUAO3rkyBZAos9GKtv-Deo-RSRQrVxZmQexjjtRPKr5oDgEyrpVvYdnWV9swkMwtGUFyzn-C6qbBGwVItHI?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21124,8 +21134,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6OV21Bcw_S3xAQ6_TggnRlwLVTtzkBmahpz_KLoFN3YrsmItJTWwKhwie1oK-x1-qOvBgCVrp5yo1srgbVFemVEzuPT5UbbC2L-ySKmNYpAvrj54OtSWVkH4zErjl2EpsSvp7b4hJPXypa56sOGZ_EoIZ-c0KIoDAhfzZVTvEUm2EONvDWRqziKhgvCa0mclhhXef0qM0nujTYbTNeExQwIvByemrAVhfjGevKNacb4UPuwnlHjlacSo4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6OV21Bcw_S3xAQ6_TggnRlwLVTtzkBmahpz_KLoFN3YrsmItJTWwKhwie1oK-x1-qOvBgCVrp5yo1srgbVFemVEzuPT5UbbC2L-ySKmNYpAvrj54OtSWVkH4zErjl2EpsSvp7b4hJPXypa56sOGZ_EoIZ-c0KIoDAhfzZVTvEUm2EONvDWRqziKhgvCa0mclhhXef0qM0nujTYbTNeExQwIvByemrAVhfjGevKNacb4UPuwnlHjlacSo4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7oHOcemQc6Xh54QvE7qcE0_bsdK6Z3BPvBcfIm1iwpcMLO2g5lGHH5iiYLzV9wzeA8S3xOs9P-LTrzd2UmaS5U6M111RO1l8SPlt8ajUwT5Zh-TwI85eW3_i4Csqggoga-BZWBH9693FwgX3HLJL_VQyiE4EkJKZ9fNdSmm7QAg7OfAHitT8YTNn8mXr7yKGzaX0Qu0-Cd04EDk77h4TU1DlEE1vnniK2rg6-lRVKAMCssfsjFPtn8Esc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7oHOcemQc6Xh54QvE7qcE0_bsdK6Z3BPvBcfIm1iwpcMLO2g5lGHH5iiYLzV9wzeA8S3xOs9P-LTrzd2UmaS5U6M111RO1l8SPlt8ajUwT5Zh-TwI85eW3_i4Csqggoga-BZWBH9693FwgX3HLJL_VQyiE4EkJKZ9fNdSmm7QAg7OfAHitT8YTNn8mXr7yKGzaX0Qu0-Cd04EDk77h4TU1DlEE1vnniK2rg6-lRVKAMCssfsjFPtn8Esc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21142,8 +21152,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5csSwHOqja6WmauXEDUastIrM_tLnNqsfifG-i0uIZ7LQmivAheD55L4FL8q20KI5-HjJG_3Ge66SEHRVUEpbwOSTgjPZJ2xcmC7QwmjSZfrlWUecpGP7iOtsRnAkdrRfYzsMswUxSIBJC-k-fEPDVQl9fyt-8kezrjOP6Z8Zb5NiFktKiQNfw2mand87qV_RM3jnNO56YgmBNp1BpcK0RCo1pD6DCpEZ8OjcFCJ_BOGUzZ4TTL69xsWM?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5csSwHOqja6WmauXEDUastIrM_tLnNqsfifG-i0uIZ7LQmivAheD55L4FL8q20KI5-HjJG_3Ge66SEHRVUEpbwOSTgjPZJ2xcmC7QwmjSZfrlWUecpGP7iOtsRnAkdrRfYzsMswUxSIBJC-k-fEPDVQl9fyt-8kezrjOP6Z8Zb5NiFktKiQNfw2mand87qV_RM3jnNO56YgmBNp1BpcK0RCo1pD6DCpEZ8OjcFCJ_BOGUzZ4TTL69xsWM?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5WkI5YS1rnwJ7eQz-YJmY81EdqIjajoj0IEpOhfeL6UnD5pHP3R2bliOtIMMGPafSDOVTMt75X9UUCIKZ_kL77jUFOjfB1V2rgTkr1lxx6VrSyoL_oMVkGFLy5BoBIytJl1McqGMx-t2luHPqF0NW3vf6OyjegyKbr1p1KAK7PvglUlYsCI5BH0RhwFFnxrPLb2XY6axlXzUJ1fhhCzskr1XgZrABXoMp0p7_0npX9_TRn2o6sINCVH3o?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5WkI5YS1rnwJ7eQz-YJmY81EdqIjajoj0IEpOhfeL6UnD5pHP3R2bliOtIMMGPafSDOVTMt75X9UUCIKZ_kL77jUFOjfB1V2rgTkr1lxx6VrSyoL_oMVkGFLy5BoBIytJl1McqGMx-t2luHPqF0NW3vf6OyjegyKbr1p1KAK7PvglUlYsCI5BH0RhwFFnxrPLb2XY6axlXzUJ1fhhCzskr1XgZrABXoMp0p7_0npX9_TRn2o6sINCVH3o?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21160,8 +21170,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4w14_LFBV7NH0iEUl6fqsXCh4ygRl0cVOlAYXcX_1MOS-P4e5rj0SF6eUrah46WXpmoEjlGEjxbR4VE42-MoT4dvJbEzdMpUWooM1I9bwIYJobm-N9RNUgWML_OXEj3CrLya6HXJi3z8NpYc_1sH_DOcJ8_sMr4_O1bt0ztTJC7n3394ERVkdPIuJdCbaDQ_ffMzpjE4OoakZOYj0CRzmJ-WM3QBecd-XIIeSSau1Lg2vfWcDhavOZzGg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4w14_LFBV7NH0iEUl6fqsXCh4ygRl0cVOlAYXcX_1MOS-P4e5rj0SF6eUrah46WXpmoEjlGEjxbR4VE42-MoT4dvJbEzdMpUWooM1I9bwIYJobm-N9RNUgWML_OXEj3CrLya6HXJi3z8NpYc_1sH_DOcJ8_sMr4_O1bt0ztTJC7n3394ERVkdPIuJdCbaDQ_ffMzpjE4OoakZOYj0CRzmJ-WM3QBecd-XIIeSSau1Lg2vfWcDhavOZzGg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7u3gA10Uje_aVZahfoZFU5I6y36wKZ_6Aml8BHGo3BXFpRPHLkejTeWsrlkSo7LVKFqoNtlFdg9hHVmJpzuymrqMgmGjCqaPm3h56pS7-vRC5Dpo0C354UuUcQ73cCgcaArMnd41uP1o54R2I_be-N-Xvoq-xybmdUzmiuG4wBPzxsOBbDaP8dLo12bmFjy_sesqAzsJb6djBEKokBSBm8K5JE4AYZH1P471lKENTMgNC32X4OAIeZhgo?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7u3gA10Uje_aVZahfoZFU5I6y36wKZ_6Aml8BHGo3BXFpRPHLkejTeWsrlkSo7LVKFqoNtlFdg9hHVmJpzuymrqMgmGjCqaPm3h56pS7-vRC5Dpo0C354UuUcQ73cCgcaArMnd41uP1o54R2I_be-N-Xvoq-xybmdUzmiuG4wBPzxsOBbDaP8dLo12bmFjy_sesqAzsJb6djBEKokBSBm8K5JE4AYZH1P471lKENTMgNC32X4OAIeZhgo?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21178,8 +21188,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR654nHsfQuwv97pB1XtF4HZF4gjG79AjG3_dMBLeoHijGcDL-Kz6fxn0llQrNi3LJH-zDp-h8-OuDs9jjy54N8Qa37mR08kQTHE28TOc1G-Xsn1oqtLQKiIhAMHKn0dIl6Gou5CbHx-4dUNO4bTSPH_n84bkqsXzf1XZfK_hXBC8luBczjhxpWLT-O24NkMBCsPpHbJboPeWViGuKoi6o88dT7CGzM7TXg_B9Z7gkEs8vh2D0S_bBiLm4M?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR654nHsfQuwv97pB1XtF4HZF4gjG79AjG3_dMBLeoHijGcDL-Kz6fxn0llQrNi3LJH-zDp-h8-OuDs9jjy54N8Qa37mR08kQTHE28TOc1G-Xsn1oqtLQKiIhAMHKn0dIl6Gou5CbHx-4dUNO4bTSPH_n84bkqsXzf1XZfK_hXBC8luBczjhxpWLT-O24NkMBCsPpHbJboPeWViGuKoi6o88dT7CGzM7TXg_B9Z7gkEs8vh2D0S_bBiLm4M?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7MSjxUKSz9TtHxdwuzTQfjqSoOdoJtjc77rM-epCT67ZhhOzgZ5dGUJdkhxpQXPaho06lUA4qX7NU-RMPdWBJNo6ixEMOMLQt9MurJlItqwv19lLOKIq3EXPkq-UjdBFGjDSULERzk_Y8FmGcCT-JSocE73sA5HCg5DXZumb2obesDozsh60Gy8pdlSx0xtbI4129NiKBFNMTx7vDiP1EAe3-lVy5Jgl2rdHyiaZQAeILcT7T4AZSC_t4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7MSjxUKSz9TtHxdwuzTQfjqSoOdoJtjc77rM-epCT67ZhhOzgZ5dGUJdkhxpQXPaho06lUA4qX7NU-RMPdWBJNo6ixEMOMLQt9MurJlItqwv19lLOKIq3EXPkq-UjdBFGjDSULERzk_Y8FmGcCT-JSocE73sA5HCg5DXZumb2obesDozsh60Gy8pdlSx0xtbI4129NiKBFNMTx7vDiP1EAe3-lVy5Jgl2rdHyiaZQAeILcT7T4AZSC_t4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21196,8 +21206,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4rUwm-PH95zRSlmeU4bPbmmkq0KsmmpK-gP9xJKHYNuhUIaIvndGEi2Zv8ShafaWLDZ3_14weiabUII5-CidtDR9IMs2MekHa_OdMQGSzd2PWCMeg4qpMxmz-85Is_lxChK3lzsIk5nFiNfVDEEWqUWv5UoGMQ7TnCK9E9_L4OrCG__PUgDAVq06Kpt6cjEs7TE06KhPqql4ZwjwOnPMH3p-tZSm1KWJjkocnxrmPDby1iIDb2EYjM_j0?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4rUwm-PH95zRSlmeU4bPbmmkq0KsmmpK-gP9xJKHYNuhUIaIvndGEi2Zv8ShafaWLDZ3_14weiabUII5-CidtDR9IMs2MekHa_OdMQGSzd2PWCMeg4qpMxmz-85Is_lxChK3lzsIk5nFiNfVDEEWqUWv5UoGMQ7TnCK9E9_L4OrCG__PUgDAVq06Kpt6cjEs7TE06KhPqql4ZwjwOnPMH3p-tZSm1KWJjkocnxrmPDby1iIDb2EYjM_j0?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6tiEEnLN91GsyhsJ8Z0eSUDmBZ0i63WU7jDImqEkL5xxACM5KMlbtdLz6dYYQABUx4XtLs78aP7HKTpqcqzGXKH0d3WikTdsIxLCwVTB3pcPqhMaPUgw6Vzt-Nla_oa_yExFzEDgYpaoamr7qKITCP9oE_cH3aiGSrlqwa89LxK0bN4_OPrQkt5ekuPybPLNhbE8j0bZ4gpO57LRySk8FWpMBTzb8JoJYiBx3h0ZZ55YL-1Wkk_zvB9xA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6tiEEnLN91GsyhsJ8Z0eSUDmBZ0i63WU7jDImqEkL5xxACM5KMlbtdLz6dYYQABUx4XtLs78aP7HKTpqcqzGXKH0d3WikTdsIxLCwVTB3pcPqhMaPUgw6Vzt-Nla_oa_yExFzEDgYpaoamr7qKITCP9oE_cH3aiGSrlqwa89LxK0bN4_OPrQkt5ekuPybPLNhbE8j0bZ4gpO57LRySk8FWpMBTzb8JoJYiBx3h0ZZ55YL-1Wkk_zvB9xA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21214,8 +21224,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6YNFv7UDkNU66S8BaSbBqUBu5JwcgL6sFsKKItSabyYK5tkXxQiRsPEfvdnfmnC6zv_iwqj8QA-hM5MJxc04hyDWQlz87CKh7YlWCL7h-2Dv3skmJOQkUbp8ofkL8y02KjxllhHot3jYHIBnnEVKWVRXE1y6BwesKm6yL19kXEUFEo_vQ6lPF2sCZLeZmJVjhpd7mOi9miUCNHp35sbTrmixvuIQl0H3PdU45q5JA-XkwG536fXIeToMA?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6YNFv7UDkNU66S8BaSbBqUBu5JwcgL6sFsKKItSabyYK5tkXxQiRsPEfvdnfmnC6zv_iwqj8QA-hM5MJxc04hyDWQlz87CKh7YlWCL7h-2Dv3skmJOQkUbp8ofkL8y02KjxllhHot3jYHIBnnEVKWVRXE1y6BwesKm6yL19kXEUFEo_vQ6lPF2sCZLeZmJVjhpd7mOi9miUCNHp35sbTrmixvuIQl0H3PdU45q5JA-XkwG536fXIeToMA?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR79toHtTmviAPYRlnPOmpf8Veqr3kyaZSlrGtSZMr8hMyw9AE2TwC10RNpSOouJYuUFCedMprwy4sH96fw7pZN9Wl7OHfE_dEZLm2LtoBYkLvuEoYQunequvRnv4zTZzhSJsbSZglMqOwPNnB_5_2apIREIkkjIEuIxO-kUIesJ6xE43J5BjZRfm7yRLA-YH9GzFjCNSx8KxbYZveky_sXiDznPPlvM28jDH_InjpueqplJUhmBjBkR2xk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR79toHtTmviAPYRlnPOmpf8Veqr3kyaZSlrGtSZMr8hMyw9AE2TwC10RNpSOouJYuUFCedMprwy4sH96fw7pZN9Wl7OHfE_dEZLm2LtoBYkLvuEoYQunequvRnv4zTZzhSJsbSZglMqOwPNnB_5_2apIREIkkjIEuIxO-kUIesJ6xE43J5BjZRfm7yRLA-YH9GzFjCNSx8KxbYZveky_sXiDznPPlvM28jDH_InjpueqplJUhmBjBkR2xk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21232,8 +21242,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Faqom1ozZjRPV1q_IcO40EK6R4-BRm3wn-a9e_z2ivHUQfAfqar7zS6Ase_SYRLXOVarmIFxlfvpL74w9USLCiolJT8quHTSrc5kDlEbzS_7TzQQ3u_wTv0-O7DlV2DKA_s85ihJ2zINEBv4KcuYUPD4U7XK83uwDz6L2zfircVo4SqfwrSCF_tSDVax6uw9jzqjDWKvwlgFyvyldT01vDKMdiGF0-oKmbpx_j5Zi9dgfgdovoZzhuew?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Faqom1ozZjRPV1q_IcO40EK6R4-BRm3wn-a9e_z2ivHUQfAfqar7zS6Ase_SYRLXOVarmIFxlfvpL74w9USLCiolJT8quHTSrc5kDlEbzS_7TzQQ3u_wTv0-O7DlV2DKA_s85ihJ2zINEBv4KcuYUPD4U7XK83uwDz6L2zfircVo4SqfwrSCF_tSDVax6uw9jzqjDWKvwlgFyvyldT01vDKMdiGF0-oKmbpx_j5Zi9dgfgdovoZzhuew?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR42Lr-88KHKBjXBazr55WyClj-6h_TRa08lJ0bCA6G0UzXJlt8IpDLId2NB8OQO9QNz7O7gxl8SKN-VShgoaSdA6yHeaA7TxUYn4mKmJ_KYdiWs6OO4FLs6j0gMmuvJo644BgKd49U5-nZJmUih0lrm4lrJw5y3SueB-aXJdshzyfk6DTP44xBhktUt_rsb9lUoGAxmNNRTEuU71Wy7ucbwbg8tfnTNiF9DhicZ5VjFROAaI_V1a-4II_w?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR42Lr-88KHKBjXBazr55WyClj-6h_TRa08lJ0bCA6G0UzXJlt8IpDLId2NB8OQO9QNz7O7gxl8SKN-VShgoaSdA6yHeaA7TxUYn4mKmJ_KYdiWs6OO4FLs6j0gMmuvJo644BgKd49U5-nZJmUih0lrm4lrJw5y3SueB-aXJdshzyfk6DTP44xBhktUt_rsb9lUoGAxmNNRTEuU71Wy7ucbwbg8tfnTNiF9DhicZ5VjFROAaI_V1a-4II_w?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21250,8 +21260,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5fd6aAOi3I6IXABJKNJuijjR0xnEU48RMk5sgXzo8gxsPN-UPKgKpsS_ESmkXcfYUeaBYCKGWccShUMtbTUfUJ8_jNiJzVSuto_r3G19cOWqSsxZgGhOA2H6f5slIsHr9ft7qcZnpUwrW-zqq0SdwWhLYsAN_kPi6vWraBG1LThHmj3hyX8euoHtwBtvUkydzvEZBj7dH9X6QthUucwWudwUB6u2SkA5Z0HdPqfcwsmSiweYy2yOWXRsU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5fd6aAOi3I6IXABJKNJuijjR0xnEU48RMk5sgXzo8gxsPN-UPKgKpsS_ESmkXcfYUeaBYCKGWccShUMtbTUfUJ8_jNiJzVSuto_r3G19cOWqSsxZgGhOA2H6f5slIsHr9ft7qcZnpUwrW-zqq0SdwWhLYsAN_kPi6vWraBG1LThHmj3hyX8euoHtwBtvUkydzvEZBj7dH9X6QthUucwWudwUB6u2SkA5Z0HdPqfcwsmSiweYy2yOWXRsU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4U0lDRHFyeA8Za9uWqhooy_SYNEHB5Le4fmqp6cC6U_3BvJKkwBNXd7bOTNIZndndEc8AvF6TpAH-RkzQUudDmDrjHjyi4iKvmNDzS5I3fQeGCPaQj4Wb5G-1s_H8bf5x5SnuJt7-ciNmesqaF8pKjGDNct_oSA_gYNPZzcmCQJimDYMpzpIs4DwIZgVxP57tXxtJxlGmu7crbDM2Ml5_8RpraAu2LdH_iXd8D87Eh0vAgt52SG3PU4gU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4U0lDRHFyeA8Za9uWqhooy_SYNEHB5Le4fmqp6cC6U_3BvJKkwBNXd7bOTNIZndndEc8AvF6TpAH-RkzQUudDmDrjHjyi4iKvmNDzS5I3fQeGCPaQj4Wb5G-1s_H8bf5x5SnuJt7-ciNmesqaF8pKjGDNct_oSA_gYNPZzcmCQJimDYMpzpIs4DwIZgVxP57tXxtJxlGmu7crbDM2Ml5_8RpraAu2LdH_iXd8D87Eh0vAgt52SG3PU4gU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21304,8 +21314,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR69n6G7KOJMIEBax3CvA9JHXXE1JhUu1qfMT3Vwps5gbiAmQU3g1eqi1JxvuE3sdk_T1pF8vxwHwU58TM_UevYB6Bw75agiXhDuznCPK88mqOlWKw1tY3voIsIMaAKSr5jmTsO1aUBTUmc7LN-FGKCWkHldpodAV6xXNbdsx-yhFdvuPNLr83lS6ar8mS-CSyD_ih6PGIIpDQuyHmz2t_AfpbO7ytPivuiNHBUL5vETvVxUHPc4Ed7TpUo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR69n6G7KOJMIEBax3CvA9JHXXE1JhUu1qfMT3Vwps5gbiAmQU3g1eqi1JxvuE3sdk_T1pF8vxwHwU58TM_UevYB6Bw75agiXhDuznCPK88mqOlWKw1tY3voIsIMaAKSr5jmTsO1aUBTUmc7LN-FGKCWkHldpodAV6xXNbdsx-yhFdvuPNLr83lS6ar8mS-CSyD_ih6PGIIpDQuyHmz2t_AfpbO7ytPivuiNHBUL5vETvVxUHPc4Ed7TpUo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4D53jsklBHUfhtTiPcoq_tf8goSl2-yxXrcNXafaOunXvYKnBzesHgn4EvAuBVf0f6rAGZNQWsQ6QEaiFzXuIx73Zb5K9nFSwdGXrV8eUcW5tho_0EvCGuTjLiyOY855O7L2cmflqnu24fJjvIKA9N22VKjCWHGpxgY-g1CznV86HU_ZnRcVmFJnBpg0RFgDcX39uqUIi1dM1Zl8iM4x2g08FGE6jwsHo7dd5JpCkd4i1QhD0rjkW3z1M?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4D53jsklBHUfhtTiPcoq_tf8goSl2-yxXrcNXafaOunXvYKnBzesHgn4EvAuBVf0f6rAGZNQWsQ6QEaiFzXuIx73Zb5K9nFSwdGXrV8eUcW5tho_0EvCGuTjLiyOY855O7L2cmflqnu24fJjvIKA9N22VKjCWHGpxgY-g1CznV86HU_ZnRcVmFJnBpg0RFgDcX39uqUIi1dM1Zl8iM4x2g08FGE6jwsHo7dd5JpCkd4i1QhD0rjkW3z1M?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21322,8 +21332,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7DzeiDMMQmDktzE8uCl9Rdt65xx-3IbKbSxv847cDrP2Z6n4SHFFwz1QSI7HlRhMpsmnTFYt5WajCgdKk4Q4vggLsE4EooiWPtIGFZS6ciD6iMOjeXPm9Hf8UQu6eJB90XWwBzGKvchNT8SACmk4C5llLY6GtfI5Tf3SDSDDu-xv86_NBu3i1V2iOB3t1SqMsuE6JnW-Gn6BtDYWxh5DV3r2j01GTjmWaAbW9DXaKsWzQZ6oTEHfmTjyo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7DzeiDMMQmDktzE8uCl9Rdt65xx-3IbKbSxv847cDrP2Z6n4SHFFwz1QSI7HlRhMpsmnTFYt5WajCgdKk4Q4vggLsE4EooiWPtIGFZS6ciD6iMOjeXPm9Hf8UQu6eJB90XWwBzGKvchNT8SACmk4C5llLY6GtfI5Tf3SDSDDu-xv86_NBu3i1V2iOB3t1SqMsuE6JnW-Gn6BtDYWxh5DV3r2j01GTjmWaAbW9DXaKsWzQZ6oTEHfmTjyo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4yVl-Ie3xcqA46v0vOONbQILrCkkvMSlUlLj1hm4GjR7lN2xIME5aVhJbVBXK5cQlIw93BvUmiVA47ga-LDrxkwebiB89sid2Rfehr9VJVnxkCIxUgNnUlZ97f5OyR3QoFBVZK8D2EULrHQKXe9R7bNzZrcbSZL35wTe-ErE6kimT4bHmeTrNqR10udYhjexjywrRn5qb3eHHOUcT2wiRIv886uNB9Nj-p5PW0E4hrTfnobmSTGX01crg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4yVl-Ie3xcqA46v0vOONbQILrCkkvMSlUlLj1hm4GjR7lN2xIME5aVhJbVBXK5cQlIw93BvUmiVA47ga-LDrxkwebiB89sid2Rfehr9VJVnxkCIxUgNnUlZ97f5OyR3QoFBVZK8D2EULrHQKXe9R7bNzZrcbSZL35wTe-ErE6kimT4bHmeTrNqR10udYhjexjywrRn5qb3eHHOUcT2wiRIv886uNB9Nj-p5PW0E4hrTfnobmSTGX01crg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21376,8 +21386,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6eTihDfMbfLwPQz5o0RvMJ7j-FSejyBRIp4W0S9p_Ge6v8EZZvyGfl_c-NigWBe9o2zm-EMgY-u3rdYKvlvENvUQsIf72ZTdcv2CKlEyROdRbmXZ7iisWDBd0Dm4rTuK7Xe9C7AfYVRRqRz9xPHrL4wxcSHAzLma7pg1MXG85Y3e4VdIJLM9fwZ9lQaPquCkTZ5Dp4as7DIEe6OYzg0xsWbZEvyjyY5Ija9vDX6TIeszAbAKb9bv1NFZo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6eTihDfMbfLwPQz5o0RvMJ7j-FSejyBRIp4W0S9p_Ge6v8EZZvyGfl_c-NigWBe9o2zm-EMgY-u3rdYKvlvENvUQsIf72ZTdcv2CKlEyROdRbmXZ7iisWDBd0Dm4rTuK7Xe9C7AfYVRRqRz9xPHrL4wxcSHAzLma7pg1MXG85Y3e4VdIJLM9fwZ9lQaPquCkTZ5Dp4as7DIEe6OYzg0xsWbZEvyjyY5Ija9vDX6TIeszAbAKb9bv1NFZo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZHhWTHevoIHcn8uLnFjQZ7opamtgIiCpfOzfDv6iVgDRisT8cC_ZT6bz8Qi_gy8WptsKGw9h3dLgeRFp4S9pLmHE1m-boRNBKqcE4SyvmA_ELioitAQbWozoz6uubdxYI5MjwNmLkoy3Yeg-DGQcSU8yH6imjd9fH9We8Co6JvPjsmMtKhbZaGeL3cEyjdUhVKAzEt6FU_rNWT0tio95eKYu66HwNsYEsvf04l_AFfyffyZDUaspx32Q?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5ZHhWTHevoIHcn8uLnFjQZ7opamtgIiCpfOzfDv6iVgDRisT8cC_ZT6bz8Qi_gy8WptsKGw9h3dLgeRFp4S9pLmHE1m-boRNBKqcE4SyvmA_ELioitAQbWozoz6uubdxYI5MjwNmLkoy3Yeg-DGQcSU8yH6imjd9fH9We8Co6JvPjsmMtKhbZaGeL3cEyjdUhVKAzEt6FU_rNWT0tio95eKYu66HwNsYEsvf04l_AFfyffyZDUaspx32Q?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21448,8 +21458,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR44upmNZ7M0L8Xe_PwXjZpr0sLW6jrp_OIJFLGgh9owIAjBXJRbKb9FYaj5GB2XIln1Yo5rC8wsGvze8LeMDQ4tmgOU4ZGwTuiXGMHBFleFBEQ9sNdAusGKhYqwtlYWPd0WesxbSRsd2tIdbm0jzS82SwQbu3a3zqwstfrA15Ktyylayc5XLxBXMGGJleZjNpSTPETxVZJtEbMY5oKblSVcKGt9D-8jQIpWnvtmf-LnWK4crPGJw9zUdBo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR44upmNZ7M0L8Xe_PwXjZpr0sLW6jrp_OIJFLGgh9owIAjBXJRbKb9FYaj5GB2XIln1Yo5rC8wsGvze8LeMDQ4tmgOU4ZGwTuiXGMHBFleFBEQ9sNdAusGKhYqwtlYWPd0WesxbSRsd2tIdbm0jzS82SwQbu3a3zqwstfrA15Ktyylayc5XLxBXMGGJleZjNpSTPETxVZJtEbMY5oKblSVcKGt9D-8jQIpWnvtmf-LnWK4crPGJw9zUdBo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7m_BlvBaOFqPnKBWNIFPDTie9MfonToAza4zNg4qYOTeHqtZCatPTJKJsZE_QBmTG4LoA4Y4iw2jNbtDCHJ9q1nujRa6wESRlzeU6d9AX56J5EfhIYyAqOlaJdnvhKzm_Q8kOu6iVeT1ybM9q9no8-o8s0KhxZF-2pnoYTJTFJBd2dsHVNk82n-j7RkxjDSJ-XQuELqpCm6-_0XByMPDHdP1thpbbll-CY6voXUZ3k7sXB8rLE3k1dxlw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7m_BlvBaOFqPnKBWNIFPDTie9MfonToAza4zNg4qYOTeHqtZCatPTJKJsZE_QBmTG4LoA4Y4iw2jNbtDCHJ9q1nujRa6wESRlzeU6d9AX56J5EfhIYyAqOlaJdnvhKzm_Q8kOu6iVeT1ybM9q9no8-o8s0KhxZF-2pnoYTJTFJBd2dsHVNk82n-j7RkxjDSJ-XQuELqpCm6-_0XByMPDHdP1thpbbll-CY6voXUZ3k7sXB8rLE3k1dxlw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21574,8 +21584,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5zyZBRcPVgFk00ZGsEq0gtCQ_9yZh3Sw2eNlIE5QBKI9PHp9x0si9cGTWBSKIf7m7ZgaGVuHYaNPRs-LudHtUWOUVD9KVKXrFPZW1MiJaXOXSmK73sbc_sPiD8or3febyx0wCQ6uB59NARDWLmr3Ce-tN4gbxSm4VhMHQQ_mmdWF3hLOj_VCTGZl7Mj1Bx_4W1BUNA8Gi2pxSaTcEmqVnWuO6dxWvSpL1Y9GEfUA34DtgtwABSiASOf-s?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5zyZBRcPVgFk00ZGsEq0gtCQ_9yZh3Sw2eNlIE5QBKI9PHp9x0si9cGTWBSKIf7m7ZgaGVuHYaNPRs-LudHtUWOUVD9KVKXrFPZW1MiJaXOXSmK73sbc_sPiD8or3febyx0wCQ6uB59NARDWLmr3Ce-tN4gbxSm4VhMHQQ_mmdWF3hLOj_VCTGZl7Mj1Bx_4W1BUNA8Gi2pxSaTcEmqVnWuO6dxWvSpL1Y9GEfUA34DtgtwABSiASOf-s?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR559iB131m6SVS3FTf0QZbdtfQZhTs8r9ODL2_ibQIL8FP3_aIkI0u-zzEHiHTlRf1eOUEhtnZH7JbXMkoozis_69wwOpru5PAZV29ZIbFfdvQLDtcmgLnFYGPrv9T7NTnq7Tf_sifSIUDVQPlIHLZzME_NpnYK9pCbHKxLBdQHKXvjUMNEEGZNcgmXdonZR6ibLsee6tdXtjwXt0Dp5TaJoBh7oeoU2xEcHv1epNmDPTmYokZ_j_KMwfc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR559iB131m6SVS3FTf0QZbdtfQZhTs8r9ODL2_ibQIL8FP3_aIkI0u-zzEHiHTlRf1eOUEhtnZH7JbXMkoozis_69wwOpru5PAZV29ZIbFfdvQLDtcmgLnFYGPrv9T7NTnq7Tf_sifSIUDVQPlIHLZzME_NpnYK9pCbHKxLBdQHKXvjUMNEEGZNcgmXdonZR6ibLsee6tdXtjwXt0Dp5TaJoBh7oeoU2xEcHv1epNmDPTmYokZ_j_KMwfc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -22843,6 +22853,63 @@
   ],
   "stories": [
     {
+      "id": "8d78946cbae7",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "US feminist icon Gloria Steinem dies aged 92",
+      "summary": "",
+      "source": "https://www.channelnewsasia.com/world/gloria-steinem-dies-age-92-us-feminist-6361831",
+      "time": "2026-09-04T01:28:18+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "2b03003aec12",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "South Korea prepares Hormuz military deployment: Reports",
+      "summary": "South Korea is considering options including sending a maritime patrol aircraft, a logistics support vessel or a mine detection and clearance unit, according to media reports.",
+      "source": "https://www.channelnewsasia.com/asia/south-korea-hormuz-military-deployment-6361626",
+      "time": "2026-09-04T01:27:08+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "23b1f749e8dc",
+      "sourceLabel": "CNA World",
+      "sourceType": "news",
+      "title": "US probes Iran wedding strike that analysis shows was likely direct hit by US munition",
+      "summary": "Three experts said the munition that hit a wedding celebration on Tuesday (Sep 1) was likely a US weapon, rather than an errant Iranian air defence missile.",
+      "source": "https://www.channelnewsasia.com/world/us-iran-wedding-strike-direct-hit-6361771",
+      "time": "2026-09-04T01:20:00+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cna_world",
+        "sourceUrl": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "ed7f13e6f076",
       "sourceLabel": "CNN Politics",
       "sourceType": "news-mirror",
@@ -22871,7 +22938,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 60.3
+      "politicalSignalScore": 60.1
     },
     {
       "id": "70e3976f9c3d",
@@ -22917,7 +22984,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.8
+      "politicalSignalScore": 42.6
     },
     {
       "id": "46c0658d61cb",
@@ -23001,7 +23068,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "878d5cd6863f",
@@ -23047,7 +23114,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "8535608b212d",
@@ -23074,7 +23141,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "9b25ff7c54dd",
@@ -23105,7 +23172,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 59.4
+      "politicalSignalScore": 59.2
     },
     {
       "id": "bbf328f619cc",
@@ -23173,7 +23240,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.2
     },
     {
       "id": "171dabd88a0e",
@@ -23200,7 +23267,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "a387471e61ef",
@@ -23229,7 +23296,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.2
     },
     {
       "id": "3682147f02f9",
@@ -23256,7 +23323,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "5301a08f05b1",
@@ -23324,7 +23391,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.9
+      "politicalSignalScore": 45.7
     },
     {
       "id": "8793513abf6c",
@@ -23391,7 +23458,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.2
+      "politicalSignalScore": 43.0
     },
     {
       "id": "b4253dd015fc",
@@ -23418,7 +23485,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "fdd1ee75e973",
@@ -23464,7 +23531,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "9a39adc43ca8",
@@ -23495,7 +23562,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 58.2
+      "politicalSignalScore": 58.0
     },
     {
       "id": "b042c23f5733",
@@ -23593,6 +23660,25 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "14bcac044e21",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "Lindsay Clancy jury sent home again without verdict in murder trial",
+      "summary": "Deadlocked jurors to return on Friday to see if they can reach a decision after dramatic day of deliberations The deadlocked jury in the Lindsay Clancy trial went home without a verdict Thursday in a dramatic sixth day of deliberations. Her defense lawyer told the judge that the panel’s foreperson said in a note that a single juror would not follow the court’s instructions about reasonable doubt and was holding up a ",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/lindsay-clancy-murder-trial-jury",
+      "time": "2026-09-03T20:48:21+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
       "id": "be0c993e8104",
       "sourceLabel": "CNA World",
       "sourceType": "news",
@@ -23672,7 +23758,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.0
+      "politicalSignalScore": 39.8
     },
     {
       "id": "6c8bc690c87e",
@@ -23702,7 +23788,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.9
+      "politicalSignalScore": 43.7
     },
     {
       "id": "8fb7e246ee18",
@@ -23781,36 +23867,6 @@
       "intelligenceLayer": "general"
     },
     {
-      "id": "32dc274744b5",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "ICE officer who shot Venezuelan man in Minneapolis charged with lying to investigators",
-      "summary": "Julio Sosa-Celis, who was shot in the leg by Christian Castro and survived, was one of three people shot by federal immigration agents during Trump’s ‘Operation Metro Surge’ A US Immigration and Customs Enforcement (ICE) officer has been indicted on charges of lying to investigators about the events leading up to the shooting of a Venezuelan man during the Minneapolis immigration crackdown earlier this year, accordin",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/ice-officer-charged-venzuela-man-shot-minneapolis",
-      "time": "2026-09-03T19:40:53+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Immigration",
-        "Trade"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 58.7
-    },
-    {
       "id": "8bbbc8b96267",
       "sourceLabel": "CNA World",
       "sourceType": "news",
@@ -23835,7 +23891,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.6
+      "politicalSignalScore": 41.4
     },
     {
       "id": "886939dea435",
@@ -23995,7 +24051,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.1
+      "politicalSignalScore": 40.9
     },
     {
       "id": "87abe9bea4a5",
@@ -24025,7 +24081,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.0
+      "politicalSignalScore": 40.8
     },
     {
       "id": "15082f627e9f",
@@ -24071,7 +24127,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.9
+      "politicalSignalScore": 38.7
     },
     {
       "id": "f74b6cd93a9f",
@@ -24098,7 +24154,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.9
+      "politicalSignalScore": 38.7
     },
     {
       "id": "dc05050490d4",
@@ -24275,7 +24331,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.0
+      "politicalSignalScore": 37.8
     },
     {
       "id": "333a69b87758",
@@ -24338,7 +24394,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "3fa4ac96d872",
@@ -24460,7 +24516,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "5e6d2ae88266",
@@ -24603,7 +24659,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 54.0
+      "politicalSignalScore": 53.8
     },
     {
       "id": "f7325d2b4a6f",
@@ -24649,7 +24705,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "95c9e563db1f",
@@ -24714,7 +24770,38 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.6
+      "politicalSignalScore": 36.4
+    },
+    {
+      "id": "c75f5998b1b1",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "US House passes bill penalizing universities that participate in boycott of Israel",
+      "summary": "GOP-backed bill mandates institutions receiving federal funds not impose restrictions on programs related to Israel The US House of Representatives on Thursday passed a Republican-backed bill that would penalize universities that participate in boycotts of Israel, or attempt to prevent students from taking part in exchange programs with the country. The Protect Economic and Academic Freedom Act passed by a 237-169 vo",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/israel-boycott-university-ban-bill",
+      "time": "2026-09-03T16:15:49+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Congress",
+        "Republicans",
+        "Israel"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 38.3
     },
     {
       "id": "e800f748c934",
@@ -24876,7 +24963,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "309d5505ad3c",
@@ -24963,7 +25050,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.7
+      "politicalSignalScore": 37.5
     },
     {
       "id": "4799f8223439",
@@ -25028,7 +25115,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.5
+      "politicalSignalScore": 37.3
     },
     {
       "id": "3b3441b53a4b",
@@ -25110,7 +25197,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 50.5
+      "politicalSignalScore": 50.3
     },
     {
       "id": "6e0585720806",
@@ -25367,7 +25454,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.8
+      "politicalSignalScore": 36.6
     },
     {
       "id": "f6352dcaaee2",
@@ -25455,7 +25542,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.6
+      "politicalSignalScore": 36.4
     },
     {
       "id": "19030097bde2",
@@ -25575,7 +25662,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.3
+      "politicalSignalScore": 34.1
     },
     {
       "id": "ec9e47d09309",
@@ -25642,7 +25729,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.2
+      "politicalSignalScore": 36.0
     },
     {
       "id": "c05cd0cfe2cd",
@@ -25745,7 +25832,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.9
+      "politicalSignalScore": 48.7
     },
     {
       "id": "829daa1d395f",
@@ -25827,7 +25914,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.6
+      "politicalSignalScore": 33.4
     },
     {
       "id": "1e13f581b855",
@@ -25916,7 +26003,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "a5d592dedc0c",
@@ -25948,7 +26035,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "07062ad50053",
@@ -25995,7 +26082,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.3
+      "politicalSignalScore": 37.1
     },
     {
       "id": "107a20e98b52",
@@ -26099,7 +26186,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.1
+      "politicalSignalScore": 36.9
     },
     {
       "id": "e7fa1a0ad5c6",
@@ -26147,7 +26234,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.8
+      "politicalSignalScore": 32.6
     },
     {
       "id": "567da72b14ce",
@@ -26214,7 +26301,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.5
+      "politicalSignalScore": 34.3
     },
     {
       "id": "211ce5a0e4c7",
@@ -26436,7 +26523,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "41d7c8ee8c42",
@@ -26463,7 +26550,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.4
+      "politicalSignalScore": 33.2
     },
     {
       "id": "8f72dc6bf787",
@@ -26491,7 +26578,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.2
     },
     {
       "id": "f43c01e5cbeb",
@@ -26518,7 +26605,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.2
     },
     {
       "id": "04a471261a98",
@@ -26583,7 +26670,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.3
+      "politicalSignalScore": 46.1
     },
     {
       "id": "df78e4fc9583",
@@ -26631,7 +26718,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.1
+      "politicalSignalScore": 32.9
     },
     {
       "id": "690fe1a807de",
@@ -26700,7 +26787,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.9
+      "politicalSignalScore": 32.7
     },
     {
       "id": "3d3071e11746",
@@ -26784,7 +26871,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.6
+      "politicalSignalScore": 32.4
     },
     {
       "id": "7e369d09a9ea",
@@ -26811,7 +26898,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.6
+      "politicalSignalScore": 30.4
     },
     {
       "id": "19e24f5bcc9d",
@@ -26972,7 +27059,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.7
+      "politicalSignalScore": 29.5
     },
     {
       "id": "121c9b78c635",
@@ -27007,7 +27094,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.7
+      "politicalSignalScore": 37.5
     },
     {
       "id": "7460e3950716",
@@ -27056,7 +27143,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.0
+      "politicalSignalScore": 30.8
     },
     {
       "id": "fe80d88bc908",
@@ -27157,7 +27244,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "56a02f09ef06",
@@ -27296,7 +27383,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 26.9
+      "politicalSignalScore": 26.7
     },
     {
       "id": "152a974ea76c",
@@ -27342,7 +27429,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.8
+      "politicalSignalScore": 28.6
     },
     {
       "id": "4d029b2adec7",
@@ -27388,7 +27475,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "57b1d5f89822",
@@ -27529,7 +27616,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.7
+      "politicalSignalScore": 25.5
     },
     {
       "id": "9a0aece83077",
@@ -27693,7 +27780,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.5
     },
     {
       "id": "2a21cb0360a5",
@@ -27720,7 +27807,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.7
+      "politicalSignalScore": 22.5
     },
     {
       "id": "b21d64cc6178",
@@ -27845,7 +27932,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.9
+      "politicalSignalScore": 25.7
     },
     {
       "id": "f49e34d92669",
@@ -28067,7 +28154,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.4
+      "politicalSignalScore": 27.2
     },
     {
       "id": "8b8cb38ad2a8",
@@ -28137,7 +28224,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.9
+      "politicalSignalScore": 24.7
     },
     {
       "id": "ca7fe60fdd98",
@@ -28185,7 +28272,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.4
+      "politicalSignalScore": 20.2
     },
     {
       "id": "6ad10dbff853",
@@ -28218,7 +28305,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.1
+      "politicalSignalScore": 21.9
     },
     {
       "id": "6e5d651744cd",
@@ -28248,7 +28335,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.1
+      "politicalSignalScore": 21.9
     },
     {
       "id": "39c9649abfbb",
@@ -28353,7 +28440,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.4
+      "politicalSignalScore": 18.2
     },
     {
       "id": "fd7fdb28a09f",
@@ -28456,7 +28543,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.8
+      "politicalSignalScore": 15.6
     },
     {
       "id": "40a47e9395fb",
@@ -28618,7 +28705,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.1
+      "politicalSignalScore": 10.9
     },
     {
       "id": "0859be90fbe5",
@@ -28645,7 +28732,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.2
+      "politicalSignalScore": 10.0
     },
     {
       "id": "a7cce114e21d",
@@ -28711,7 +28798,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.2
+      "politicalSignalScore": 11.0
     },
     {
       "id": "9b0ceb9471df",
@@ -28741,7 +28828,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.0
+      "politicalSignalScore": 10.8
     },
     {
       "id": "2c9e8b422460",
@@ -28770,7 +28857,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.9
+      "politicalSignalScore": 8.7
     },
     {
       "id": "9a8c6a72f8d5",
@@ -28800,7 +28887,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.9
+      "politicalSignalScore": 10.7
     },
     {
       "id": "55c061267665",
@@ -28868,7 +28955,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.4
+      "politicalSignalScore": 8.2
     },
     {
       "id": "969486dfe3fe",
@@ -29242,82 +29329,6 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "220de764c089",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "Nepal-Tibet flood deaths pass 1,000 as police ask relatives for DNA to identify victims",
-      "summary": "Relatives of missing tourists asked for blood samples and photos, as efforts continue to rescue trapped hydropower workers Nepal-Tibet floods – latest updates Visual guide: How the Nepal-Tibet flash flood unfolded Nepali rescuers have built temporary bridges to reach remote areas and dug through the ruins of hydropower projects in the Himalayas to rescue hundreds of trapped workers, as the death toll passed 1,000 nea",
-      "source": "https://www.theguardian.com/world/2026/sep/01/nepal-tibet-flood-deaths-police-relatives-dna-identification",
-      "time": "2026-09-01T17:32:40+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "794f1743eb85",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Navy seeks new drones to fly alongside manned aircraft",
-      "summary": "The unmanned platforms would fly in collaboration with existing and future Navy attack aircraft such as the F-35C Lightning II and the future F/A-XX.",
-      "source": "https://www.stripes.com/branches/navy/2026-09-01/navy-new-carrier-based-drones-22721024.html",
-      "time": "2026-09-01T16:48:08+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "fb452b447158",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Bill to establish monument to Medal of Honor recipients clears Congress",
-      "summary": "The Hershel Woody Williams National Medal of Honor Monument Location Act authorizes the placement of a permanent sculpture in the nation’s capital to commemorate individuals who’ve been awarded the military’s highest honor for valor in action.",
-      "source": "https://www.stripes.com/history/2026-09-01/congress-medal-of-honor-monument-22720130.html",
-      "time": "2026-09-01T15:08:26+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "7d328381fa29",
-      "sourceLabel": "Stars and Stripes",
-      "sourceType": "news",
-      "title": "Army receives prototype that could eventually replace Bradley Fighting Vehicle",
-      "summary": "The first of eight Lynx XM30 vehicles has been delivered to the Army, and the remaining ones are slated to arrive later this year.",
-      "source": "https://www.stripes.com/theaters/us/2026-09-01/army-receives-prototype-replace-bradley-22720127.html",
-      "time": "2026-09-01T14:46:02+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "stars_stripes",
-        "sourceUrl": "https://subscribe.stripes.com/rss/top-news.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -29328,7 +29339,7 @@
       "label": "ONLINE",
       "articles": 56,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29338,7 +29349,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29348,7 +29359,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29358,7 +29369,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29368,7 +29379,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29378,7 +29389,7 @@
       "label": "ONLINE",
       "articles": 11,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29388,7 +29399,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29398,7 +29409,7 @@
       "label": "ONLINE",
       "articles": 12,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29408,7 +29419,7 @@
       "label": "ONLINE",
       "articles": 28,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29418,7 +29429,7 @@
       "label": "ONLINE",
       "articles": 14,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29428,7 +29439,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29438,7 +29449,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29448,7 +29459,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29458,7 +29469,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29468,7 +29479,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29478,7 +29489,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29488,7 +29499,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29498,7 +29509,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29508,7 +29519,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29518,7 +29529,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29528,7 +29539,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29538,7 +29549,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29548,7 +29559,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29558,7 +29569,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29568,7 +29579,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29578,7 +29589,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29588,7 +29599,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29598,7 +29609,7 @@
       "label": "ONLINE",
       "articles": 7,
       "domains": 1,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29608,7 +29619,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     },
     {
@@ -29618,7 +29629,7 @@
       "label": "UNKNOWN",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+      "lastChecked": "2026-09-04T01:31:27.792911+00:00",
       "error": ""
     }
   ],
@@ -52853,7 +52864,7 @@
     ]
   },
   "marketData": {
-    "updatedAt": "2026-09-04T01:18:14.345347+00:00",
+    "updatedAt": "2026-09-04T01:31:09.944600+00:00",
     "source": "Yahoo Finance public chart (1m)",
     "provider": "Yahoo Finance",
     "noApiKey": true,
@@ -52879,7 +52890,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.075405+00:00"
+        "checkedAt": "2026-09-04T01:31:09.473678+00:00"
       },
       {
         "price": 53686.11,
@@ -52900,7 +52911,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.050768+00:00"
+        "checkedAt": "2026-09-04T01:31:09.513564+00:00"
       },
       {
         "price": 26584.06,
@@ -52921,7 +52932,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.106203+00:00"
+        "checkedAt": "2026-09-04T01:31:09.474776+00:00"
       },
       {
         "price": 29482.32,
@@ -52942,7 +52953,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.067858+00:00"
+        "checkedAt": "2026-09-04T01:31:09.500244+00:00"
       },
       {
         "price": 2968.271,
@@ -52963,7 +52974,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.112209+00:00"
+        "checkedAt": "2026-09-04T01:31:09.472102+00:00"
       },
       {
         "price": 14.32,
@@ -52984,14 +52995,14 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.108740+00:00"
+        "checkedAt": "2026-09-04T01:31:09.511852+00:00"
       },
       {
-        "price": 91.68,
+        "price": 91.89,
         "previousClose": 91.3,
-        "change": 0.38000000000000966,
-        "changePercent": 0.4162102957283786,
-        "marketTime": "2026-09-04T01:08:13+00:00",
+        "change": 0.5900000000000034,
+        "changePercent": 0.6462212486308909,
+        "marketTime": "2026-09-04T01:21:07+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "NY Mercantile",
@@ -53005,14 +53016,14 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.171449+00:00"
+        "checkedAt": "2026-09-04T01:31:09.621639+00:00"
       },
       {
-        "price": 4523.6,
+        "price": 4522.4,
         "previousClose": 4539.9,
-        "change": -16.299999999999272,
-        "changePercent": -0.3590387453467978,
-        "marketTime": "2026-09-04T01:08:08+00:00",
+        "change": -17.5,
+        "changePercent": -0.3854710456177449,
+        "marketTime": "2026-09-04T01:21:06+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "COMEX",
@@ -53026,14 +53037,14 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.123708+00:00"
+        "checkedAt": "2026-09-04T01:31:09.515194+00:00"
       },
       {
-        "price": 80955.0,
+        "price": 80926.62,
         "previousClose": 81271.92,
-        "change": -316.91999999999825,
-        "changePercent": -0.3899501820554975,
-        "marketTime": "2026-09-04T01:18:08+00:00",
+        "change": -345.3000000000029,
+        "changePercent": -0.4248699919972395,
+        "marketTime": "2026-09-04T01:31:05+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "CCC",
@@ -53047,14 +53058,14 @@
         "decimals": 0,
         "status": "live",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.099030+00:00"
+        "checkedAt": "2026-09-04T01:31:09.569681+00:00"
       },
       {
         "price": 1.1632,
         "previousClose": 1.1631,
         "change": 9.999999999998899e-05,
         "changePercent": 0.008597713008338835,
-        "marketTime": "2026-09-04T01:17:50+00:00",
+        "marketTime": "2026-09-04T01:30:50+00:00",
         "marketState": "",
         "currency": "USD",
         "exchange": "CCY",
@@ -53068,14 +53079,14 @@
         "decimals": 4,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.151549+00:00"
+        "checkedAt": "2026-09-04T01:31:09.605483+00:00"
       },
       {
-        "price": 155.892,
+        "price": 155.935,
         "previousClose": 155.844,
-        "change": 0.04800000000000182,
-        "changePercent": 0.03080003080003197,
-        "marketTime": "2026-09-04T01:18:12+00:00",
+        "change": 0.09100000000000819,
+        "changePercent": 0.05839172505839698,
+        "marketTime": "2026-09-04T01:31:08+00:00",
         "marketState": "",
         "currency": "JPY",
         "exchange": "CCY",
@@ -53089,7 +53100,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.124705+00:00"
+        "checkedAt": "2026-09-04T01:31:09.654740+00:00"
       },
       {
         "price": 4.762,
@@ -53110,7 +53121,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.161092+00:00"
+        "checkedAt": "2026-09-04T01:31:09.635456+00:00"
       },
       {
         "price": 10831.52,
@@ -53131,7 +53142,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.238385+00:00"
+        "checkedAt": "2026-09-04T01:31:09.646808+00:00"
       },
       {
         "price": 26003.32,
@@ -53152,14 +53163,14 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.168283+00:00"
+        "checkedAt": "2026-09-04T01:31:09.648873+00:00"
       },
       {
-        "price": 64715.67,
+        "price": 64650.15,
         "previousClose": 64214.48,
-        "change": 501.18999999999505,
-        "changePercent": 0.7804937453359352,
-        "marketTime": "2026-09-04T01:03:10+00:00",
+        "change": 435.66999999999825,
+        "changePercent": 0.6784606836339688,
+        "marketTime": "2026-09-04T01:16:05+00:00",
         "marketState": "",
         "currency": "JPY",
         "exchange": "Osaka",
@@ -53173,7 +53184,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.157206+00:00"
+        "checkedAt": "2026-09-04T01:31:09.610964+00:00"
       },
       {
         "price": 3942.088,
@@ -53194,7 +53205,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.199881+00:00"
+        "checkedAt": "2026-09-04T01:31:09.668804+00:00"
       },
       {
         "price": 25213.31,
@@ -53215,7 +53226,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.187784+00:00"
+        "checkedAt": "2026-09-04T01:31:09.702113+00:00"
       },
       {
         "price": 23873.45,
@@ -53236,7 +53247,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.226141+00:00"
+        "checkedAt": "2026-09-04T01:31:09.746734+00:00"
       },
       {
         "price": 76152.86,
@@ -53257,7 +53268,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.209067+00:00"
+        "checkedAt": "2026-09-04T01:31:09.750272+00:00"
       },
       {
         "price": 328.21,
@@ -53278,7 +53289,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.292185+00:00"
+        "checkedAt": "2026-09-04T01:31:09.783084+00:00"
       },
       {
         "price": 510.12,
@@ -53299,7 +53310,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.243433+00:00"
+        "checkedAt": "2026-09-04T01:31:09.790919+00:00"
       },
       {
         "price": 228.45,
@@ -53320,7 +53331,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.244736+00:00"
+        "checkedAt": "2026-09-04T01:31:09.769961+00:00"
       },
       {
         "price": 258.9,
@@ -53341,7 +53352,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.262358+00:00"
+        "checkedAt": "2026-09-04T01:31:09.864093+00:00"
       },
       {
         "price": 342.48,
@@ -53362,7 +53373,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.274607+00:00"
+        "checkedAt": "2026-09-04T01:31:09.785969+00:00"
       },
       {
         "price": 610.68,
@@ -53383,7 +53394,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.344790+00:00"
+        "checkedAt": "2026-09-04T01:31:09.898199+00:00"
       },
       {
         "price": 376.365,
@@ -53404,7 +53415,7 @@
         "decimals": 2,
         "status": "closed",
         "source": "Yahoo Finance public chart (1m)",
-        "checkedAt": "2026-09-04T01:18:14.307881+00:00"
+        "checkedAt": "2026-09-04T01:31:09.944008+00:00"
       }
     ],
     "errors": [],
@@ -53415,7 +53426,7 @@
   "liveDatabase": {
     "enabled": true,
     "articleCount": 500,
-    "lastExport": "2026-09-04T01:18:10.675820+00:00",
+    "lastExport": "2026-09-04T01:31:04.157804+00:00",
     "retentionDays": 7,
     "newMergedThisRun": 376
   },
@@ -53744,25 +53755,6 @@
       "intelligenceLayer": "us-politics"
     },
     {
-      "id": "32dc274744b5",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "ICE officer who shot Venezuelan man in Minneapolis charged with lying to investigators",
-      "summary": "Julio Sosa-Celis, who was shot in the leg by Christian Castro and survived, was one of three people shot by federal immigration agents during Trump’s ‘Operation Metro Surge’ A US Immigration and Customs Enforcement (ICE) officer has been indicted on charges of lying to investigators about the events leading up to the shooting of a Venezuelan man during the Minneapolis immigration crackdown earlier this year, accordin",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/ice-officer-charged-venzuela-man-shot-minneapolis",
-      "time": "2026-09-03T19:40:53+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics"
-    },
-    {
       "id": "8bbbc8b96267",
       "sourceLabel": "CNA World",
       "sourceType": "news",
@@ -53967,6 +53959,25 @@
       "credit": {
         "sourceId": "morse_site",
         "sourceUrl": "https://news.google.com/rss/search?q=site%3Amorsereport.com&hl=en-US&gl=US&ceid=US%3Aen",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics"
+    },
+    {
+      "id": "c75f5998b1b1",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "US House passes bill penalizing universities that participate in boycott of Israel",
+      "summary": "GOP-backed bill mandates institutions receiving federal funds not impose restrictions on programs related to Israel The US House of Representatives on Thursday passed a Republican-backed bill that would penalize universities that participate in boycotts of Israel, or attempt to prevent students from taking part in exchange programs with the country. The Protect Economic and Academic Freedom Act passed by a 237-169 vo",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/israel-boycott-university-ban-bill",
+      "time": "2026-09-03T16:15:49+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
         "feedFormat": "rss"
       },
       "intelligenceLayer": "us-politics"
@@ -55009,7 +55020,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 60.3
+      "politicalSignalScore": 60.1
     },
     {
       "id": "9b25ff7c54dd",
@@ -55040,37 +55051,7 @@
       "corroboratingSources": [
         "us.cnn.com"
       ],
-      "politicalSignalScore": 59.4
-    },
-    {
-      "id": "32dc274744b5",
-      "sourceLabel": "The Guardian World",
-      "sourceType": "news",
-      "title": "ICE officer who shot Venezuelan man in Minneapolis charged with lying to investigators",
-      "summary": "Julio Sosa-Celis, who was shot in the leg by Christian Castro and survived, was one of three people shot by federal immigration agents during Trump’s ‘Operation Metro Surge’ A US Immigration and Customs Enforcement (ICE) officer has been indicted on charges of lying to investigators about the events leading up to the shooting of a Venezuelan man during the Minneapolis immigration crackdown earlier this year, accordin",
-      "source": "https://www.theguardian.com/us-news/2026/sep/03/ice-officer-charged-venzuela-man-shot-minneapolis",
-      "time": "2026-09-03T19:40:53+00:00",
-      "tag": "Breaking",
-      "confidence": "DEVELOPING",
-      "breaking": true,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "guardian_world",
-        "sourceUrl": "https://www.theguardian.com/world/rss",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [
-        "Immigration",
-        "Trade"
-      ],
-      "sourceDomain": "theguardian.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 58.7
+      "politicalSignalScore": 59.2
     },
     {
       "id": "9a39adc43ca8",
@@ -55101,7 +55082,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 58.2
+      "politicalSignalScore": 58.0
     },
     {
       "id": "e10d8c6173b8",
@@ -55128,7 +55109,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.3
+      "politicalSignalScore": 46.1
     },
     {
       "id": "4069b2ef9c4d",
@@ -55158,7 +55139,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.9
+      "politicalSignalScore": 45.7
     },
     {
       "id": "9fd745a35feb",
@@ -55188,7 +55169,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.2
     },
     {
       "id": "a387471e61ef",
@@ -55217,7 +55198,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.4
+      "politicalSignalScore": 44.2
     },
     {
       "id": "6c8bc690c87e",
@@ -55247,7 +55228,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.9
+      "politicalSignalScore": 43.7
     },
     {
       "id": "408a5192a823",
@@ -55276,7 +55257,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.2
+      "politicalSignalScore": 43.0
     },
     {
       "id": "2e5cd7b9be37",
@@ -55303,7 +55284,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.8
+      "politicalSignalScore": 42.6
     },
     {
       "id": "e5e9304438cb",
@@ -55330,7 +55311,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "cc7fab12a4e5",
@@ -55357,7 +55338,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "8535608b212d",
@@ -55384,7 +55365,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "171dabd88a0e",
@@ -55411,7 +55392,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "3682147f02f9",
@@ -55438,7 +55419,7 @@
       "sourceDomain": "edition.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.4
+      "politicalSignalScore": 42.2
     },
     {
       "id": "b4253dd015fc",
@@ -55465,7 +55446,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "da13648ad5ce",
@@ -55492,7 +55473,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "87abe9bea4a5",
@@ -55522,7 +55503,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.0
+      "politicalSignalScore": 40.8
     },
     {
       "id": "3ba400ddb739",
@@ -55553,7 +55534,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 39.7
+      "politicalSignalScore": 39.5
     },
     {
       "id": "9fbade295891",
@@ -55585,7 +55566,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "a5d592dedc0c",
@@ -55617,7 +55598,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.5
+      "politicalSignalScore": 39.3
     },
     {
       "id": "14645c604d74",
@@ -55644,7 +55625,38 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
+    },
+    {
+      "id": "c75f5998b1b1",
+      "sourceLabel": "The Guardian World",
+      "sourceType": "news",
+      "title": "US House passes bill penalizing universities that participate in boycott of Israel",
+      "summary": "GOP-backed bill mandates institutions receiving federal funds not impose restrictions on programs related to Israel The US House of Representatives on Thursday passed a Republican-backed bill that would penalize universities that participate in boycotts of Israel, or attempt to prevent students from taking part in exchange programs with the country. The Protect Economic and Academic Freedom Act passed by a 237-169 vo",
+      "source": "https://www.theguardian.com/us-news/2026/sep/03/israel-boycott-university-ban-bill",
+      "time": "2026-09-03T16:15:49+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "guardian_world",
+        "sourceUrl": "https://www.theguardian.com/world/rss",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Congress",
+        "Republicans",
+        "Israel"
+      ],
+      "politicalTopics": [
+        "Congress"
+      ],
+      "sourceDomain": "theguardian.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 38.3
     },
     {
       "id": "d0651b9f9065",
@@ -55673,7 +55685,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "55595fbf78b7",
@@ -55703,7 +55715,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.7
+      "politicalSignalScore": 37.5
     },
     {
       "id": "121c9b78c635",
@@ -55738,7 +55750,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.7
+      "politicalSignalScore": 37.5
     },
     {
       "id": "a8f6eada3b77",
@@ -55770,7 +55782,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "0fc963fbe9a6",
@@ -55798,7 +55810,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.3
+      "politicalSignalScore": 37.1
     },
     {
       "id": "cc40b4f6f36f",
@@ -55826,7 +55838,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.1
+      "politicalSignalScore": 36.9
     },
     {
       "id": "e5de1c2df6ac",
@@ -55853,7 +55865,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "f087904d2867",
@@ -55880,7 +55892,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.6
+      "politicalSignalScore": 36.4
     },
     {
       "id": "aa033c582456",
@@ -55911,7 +55923,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.6
+      "politicalSignalScore": 36.4
     },
     {
       "id": "c6ceb9502a6c",
@@ -55940,7 +55952,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.2
+      "politicalSignalScore": 36.0
     },
     {
       "id": "fa6dc7bcd69d",
@@ -55969,7 +55981,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.1
+      "politicalSignalScore": 32.9
     },
     {
       "id": "71c2f023cc8d",
@@ -56000,7 +56012,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.9
+      "politicalSignalScore": 32.7
     },
     {
       "id": "39715aa1890c",
@@ -56029,7 +56041,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.8
+      "politicalSignalScore": 32.6
     },
     {
       "id": "648d6749c712",
@@ -56056,7 +56068,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.6
+      "politicalSignalScore": 32.4
     },
     {
       "id": "8f72dc6bf787",
@@ -56084,7 +56096,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.2
     },
     {
       "id": "f43c01e5cbeb",
@@ -56111,7 +56123,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.4
+      "politicalSignalScore": 31.2
     },
     {
       "id": "772547ad1bd2",
@@ -56141,7 +56153,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.0
+      "politicalSignalScore": 30.8
     },
     {
       "id": "99d3f0b739c1",
@@ -56169,7 +56181,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 29.7
+      "politicalSignalScore": 29.5
     },
     {
       "id": "7ed6758be96b",
@@ -56201,7 +56213,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 27.4
+      "politicalSignalScore": 27.2
     },
     {
       "id": "3593d4dc7a14",
@@ -56231,7 +56243,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.9
+      "politicalSignalScore": 25.7
     },
     {
       "id": "eca0fc692bc0",
@@ -56263,7 +56275,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 24.9
+      "politicalSignalScore": 24.7
     },
     {
       "id": "2a21cb0360a5",
@@ -56290,7 +56302,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.7
+      "politicalSignalScore": 22.5
     },
     {
       "id": "6ad10dbff853",
@@ -56323,7 +56335,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.1
+      "politicalSignalScore": 21.9
     },
     {
       "id": "6e5d651744cd",
@@ -56353,7 +56365,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 22.1
+      "politicalSignalScore": 21.9
     },
     {
       "id": "ca396a85c9e1",
@@ -56382,7 +56394,7 @@
       "sourceDomain": "foxnews.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 20.4
+      "politicalSignalScore": 20.2
     },
     {
       "id": "23bd688561f4",
@@ -56411,7 +56423,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 18.4
+      "politicalSignalScore": 18.2
     },
     {
       "id": "312437a09978",
@@ -56438,7 +56450,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 15.8
+      "politicalSignalScore": 15.6
     },
     {
       "id": "3e32018cb4af",
@@ -56466,7 +56478,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.2
+      "politicalSignalScore": 11.0
     },
     {
       "id": "624e801a39b4",
@@ -56495,7 +56507,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.1
+      "politicalSignalScore": 10.9
     },
     {
       "id": "9b0ceb9471df",
@@ -56525,7 +56537,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 11.0
+      "politicalSignalScore": 10.8
     },
     {
       "id": "9a8c6a72f8d5",
@@ -56555,7 +56567,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.9
+      "politicalSignalScore": 10.7
     },
     {
       "id": "2c9e8b422460",
@@ -56584,7 +56596,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.9
+      "politicalSignalScore": 8.7
     },
     {
       "id": "37197c7701db",
@@ -56703,7 +56715,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 54.0
+      "politicalSignalScore": 53.8
     },
     {
       "id": "b617e4baa27e",
@@ -56728,7 +56740,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 50.5
+      "politicalSignalScore": 50.3
     },
     {
       "id": "fc12678f45a4",
@@ -56755,7 +56767,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.9
+      "politicalSignalScore": 48.7
     },
     {
       "id": "8bbbc8b96267",
@@ -56782,7 +56794,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.6
+      "politicalSignalScore": 41.4
     },
     {
       "id": "aa673d39c205",
@@ -56809,7 +56821,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.1
+      "politicalSignalScore": 40.9
     },
     {
       "id": "1e326b3b5a78",
@@ -56834,7 +56846,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.0
+      "politicalSignalScore": 39.8
     },
     {
       "id": "1612a02448f2",
@@ -56861,7 +56873,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.9
+      "politicalSignalScore": 38.7
     },
     {
       "id": "f74b6cd93a9f",
@@ -56888,7 +56900,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.9
+      "politicalSignalScore": 38.7
     },
     {
       "id": "e4a1ce9ee168",
@@ -56913,7 +56925,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.0
+      "politicalSignalScore": 37.8
     },
     {
       "id": "c2f71f9f1279",
@@ -56938,7 +56950,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.9
+      "politicalSignalScore": 37.7
     },
     {
       "id": "a5fd09c6459f",
@@ -56965,7 +56977,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.5
+      "politicalSignalScore": 37.3
     },
     {
       "id": "335a28ad89e1",
@@ -56994,7 +57006,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.8
+      "politicalSignalScore": 36.6
     },
     {
       "id": "890268c3bd5c",
@@ -57023,7 +57035,7 @@
       "sourceDomain": "dw.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.5
+      "politicalSignalScore": 34.3
     },
     {
       "id": "356ab75ed3f7",
@@ -57048,7 +57060,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.3
+      "politicalSignalScore": 34.1
     },
     {
       "id": "db855776bafb",
@@ -57073,7 +57085,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.6
+      "politicalSignalScore": 33.4
     },
     {
       "id": "41d7c8ee8c42",
@@ -57100,7 +57112,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 33.4
+      "politicalSignalScore": 33.2
     },
     {
       "id": "7e369d09a9ea",
@@ -57127,7 +57139,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 30.6
+      "politicalSignalScore": 30.4
     },
     {
       "id": "7aa4bb34682e",
@@ -57154,7 +57166,7 @@
       "sourceDomain": "stripes.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.8
+      "politicalSignalScore": 28.6
     },
     {
       "id": "973b1ca1b2ea",
@@ -57179,7 +57191,7 @@
       "sourceDomain": "cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "884558a5687b",
@@ -57206,7 +57218,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 28.1
+      "politicalSignalScore": 27.9
     },
     {
       "id": "7b3f87bda84f",
@@ -57231,7 +57243,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 26.9
+      "politicalSignalScore": 26.7
     },
     {
       "id": "953f69f538b2",
@@ -57258,7 +57270,7 @@
       "sourceDomain": "channelnewsasia.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 25.7
+      "politicalSignalScore": 25.5
     },
     {
       "id": "0859be90fbe5",
@@ -57285,7 +57297,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 10.2
+      "politicalSignalScore": 10.0
     },
     {
       "id": "750589f89281",
@@ -57315,7 +57327,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 8.4
+      "politicalSignalScore": 8.2
     }
   ],
   "economics": [
@@ -57594,7 +57606,7 @@
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-04T01:18:17.322399+00:00",
+    "updatedAt": "2026-09-04T01:31:12.963211+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
     "totalSignals": 82,
@@ -57647,7 +57659,7 @@
         "corroboratingSources": [
           "us.cnn.com"
         ],
-        "politicalSignalScore": 60.3
+        "politicalSignalScore": 60.1
       },
       {
         "id": "9b25ff7c54dd",
@@ -57678,37 +57690,7 @@
         "corroboratingSources": [
           "us.cnn.com"
         ],
-        "politicalSignalScore": 59.4
-      },
-      {
-        "id": "32dc274744b5",
-        "sourceLabel": "The Guardian World",
-        "sourceType": "news",
-        "title": "ICE officer who shot Venezuelan man in Minneapolis charged with lying to investigators",
-        "summary": "Julio Sosa-Celis, who was shot in the leg by Christian Castro and survived, was one of three people shot by federal immigration agents during Trump’s ‘Operation Metro Surge’ A US Immigration and Customs Enforcement (ICE) officer has been indicted on charges of lying to investigators about the events leading up to the shooting of a Venezuelan man during the Minneapolis immigration crackdown earlier this year, accordin",
-        "source": "https://www.theguardian.com/us-news/2026/sep/03/ice-officer-charged-venzuela-man-shot-minneapolis",
-        "time": "2026-09-03T19:40:53+00:00",
-        "tag": "Breaking",
-        "confidence": "DEVELOPING",
-        "breaking": true,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "guardian_world",
-          "sourceUrl": "https://www.theguardian.com/world/rss",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump"
-        ],
-        "politicalTopics": [
-          "Immigration",
-          "Trade"
-        ],
-        "sourceDomain": "theguardian.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 58.7
+        "politicalSignalScore": 59.2
       },
       {
         "id": "9a39adc43ca8",
@@ -57739,7 +57721,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 58.2
+        "politicalSignalScore": 58.0
       },
       {
         "id": "d92e4d396386",
@@ -57768,7 +57750,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 54.0
+        "politicalSignalScore": 53.8
       },
       {
         "id": "b617e4baa27e",
@@ -57793,7 +57775,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 50.5
+        "politicalSignalScore": 50.3
       },
       {
         "id": "fc12678f45a4",
@@ -57820,7 +57802,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 48.9
+        "politicalSignalScore": 48.7
       },
       {
         "id": "e10d8c6173b8",
@@ -57847,7 +57829,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.3
+        "politicalSignalScore": 46.1
       },
       {
         "id": "4069b2ef9c4d",
@@ -57877,7 +57859,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.9
+        "politicalSignalScore": 45.7
       },
       {
         "id": "9fd745a35feb",
@@ -57907,7 +57889,7 @@
         "sourceDomain": "edition.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.4
+        "politicalSignalScore": 44.2
       },
       {
         "id": "a387471e61ef",
@@ -57936,7 +57918,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.4
+        "politicalSignalScore": 44.2
       },
       {
         "id": "6c8bc690c87e",
@@ -57966,7 +57948,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.9
+        "politicalSignalScore": 43.7
       },
       {
         "id": "408a5192a823",
@@ -57995,7 +57977,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.2
+        "politicalSignalScore": 43.0
       },
       {
         "id": "2e5cd7b9be37",
@@ -58022,7 +58004,7 @@
         "sourceDomain": "edition.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.8
+        "politicalSignalScore": 42.6
       },
       {
         "id": "e5e9304438cb",
@@ -58049,7 +58031,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.4
+        "politicalSignalScore": 42.2
       },
       {
         "id": "cc7fab12a4e5",
@@ -58076,7 +58058,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.4
+        "politicalSignalScore": 42.2
       },
       {
         "id": "8535608b212d",
@@ -58103,7 +58085,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.4
+        "politicalSignalScore": 42.2
       },
       {
         "id": "171dabd88a0e",
@@ -58130,7 +58112,7 @@
         "sourceDomain": "edition.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.4
+        "politicalSignalScore": 42.2
       },
       {
         "id": "3682147f02f9",
@@ -58157,7 +58139,7 @@
         "sourceDomain": "edition.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.4
+        "politicalSignalScore": 42.2
       },
       {
         "id": "8bbbc8b96267",
@@ -58184,7 +58166,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.6
+        "politicalSignalScore": 41.4
       },
       {
         "id": "b4253dd015fc",
@@ -58211,7 +58193,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.2
+        "politicalSignalScore": 41.0
       },
       {
         "id": "da13648ad5ce",
@@ -58238,7 +58220,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.2
+        "politicalSignalScore": 41.0
       },
       {
         "id": "aa673d39c205",
@@ -58265,7 +58247,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.1
+        "politicalSignalScore": 40.9
       },
       {
         "id": "87abe9bea4a5",
@@ -58295,7 +58277,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.0
+        "politicalSignalScore": 40.8
       },
       {
         "id": "1e326b3b5a78",
@@ -58320,7 +58302,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.0
+        "politicalSignalScore": 39.8
       },
       {
         "id": "3ba400ddb739",
@@ -58351,7 +58333,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 39.7
+        "politicalSignalScore": 39.5
       },
       {
         "id": "9fbade295891",
@@ -58383,7 +58365,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.5
+        "politicalSignalScore": 39.3
       },
       {
         "id": "a5d592dedc0c",
@@ -58415,7 +58397,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.5
+        "politicalSignalScore": 39.3
       },
       {
         "id": "14645c604d74",
@@ -58442,7 +58424,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.4
+        "politicalSignalScore": 39.2
       },
       {
         "id": "1612a02448f2",
@@ -58469,7 +58451,7 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.9
+        "politicalSignalScore": 38.7
       },
       {
         "id": "f74b6cd93a9f",
@@ -58496,7 +58478,38 @@
         "sourceDomain": "channelnewsasia.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.9
+        "politicalSignalScore": 38.7
+      },
+      {
+        "id": "c75f5998b1b1",
+        "sourceLabel": "The Guardian World",
+        "sourceType": "news",
+        "title": "US House passes bill penalizing universities that participate in boycott of Israel",
+        "summary": "GOP-backed bill mandates institutions receiving federal funds not impose restrictions on programs related to Israel The US House of Representatives on Thursday passed a Republican-backed bill that would penalize universities that participate in boycotts of Israel, or attempt to prevent students from taking part in exchange programs with the country. The Protect Economic and Academic Freedom Act passed by a 237-169 vo",
+        "source": "https://www.theguardian.com/us-news/2026/sep/03/israel-boycott-university-ban-bill",
+        "time": "2026-09-03T16:15:49+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "guardian_world",
+          "sourceUrl": "https://www.theguardian.com/world/rss",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Congress",
+          "Republicans",
+          "Israel"
+        ],
+        "politicalTopics": [
+          "Congress"
+        ],
+        "sourceDomain": "theguardian.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 38.3
       },
       {
         "id": "e4a1ce9ee168",
@@ -58521,7 +58534,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.0
+        "politicalSignalScore": 37.8
       },
       {
         "id": "c2f71f9f1279",
@@ -58546,7 +58559,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.7
       },
       {
         "id": "d0651b9f9065",
@@ -58575,7 +58588,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.9
+        "politicalSignalScore": 37.7
       },
       {
         "id": "55595fbf78b7",
@@ -58605,7 +58618,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.7
+        "politicalSignalScore": 37.5
       },
       {
         "id": "121c9b78c635",
@@ -58640,7 +58653,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.7
+        "politicalSignalScore": 37.5
       },
       {
         "id": "a8f6eada3b77",
@@ -58672,7 +58685,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.4
       },
       {
         "id": "a5fd09c6459f",
@@ -58699,7 +58712,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.5
+        "politicalSignalScore": 37.3
       },
       {
         "id": "0fc963fbe9a6",
@@ -58727,7 +58740,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.3
+        "politicalSignalScore": 37.1
       },
       {
         "id": "cc40b4f6f36f",
@@ -58755,7 +58768,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.1
+        "politicalSignalScore": 36.9
       },
       {
         "id": "e5de1c2df6ac",
@@ -58782,7 +58795,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.9
+        "politicalSignalScore": 36.7
       },
       {
         "id": "335a28ad89e1",
@@ -58811,7 +58824,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.8
+        "politicalSignalScore": 36.6
       },
       {
         "id": "f087904d2867",
@@ -58838,7 +58851,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.6
+        "politicalSignalScore": 36.4
       },
       {
         "id": "aa033c582456",
@@ -58869,7 +58882,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.6
+        "politicalSignalScore": 36.4
       },
       {
         "id": "c6ceb9502a6c",
@@ -58898,7 +58911,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.2
+        "politicalSignalScore": 36.0
       },
       {
         "id": "890268c3bd5c",
@@ -58927,7 +58940,7 @@
         "sourceDomain": "dw.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.5
+        "politicalSignalScore": 34.3
       },
       {
         "id": "356ab75ed3f7",
@@ -58952,7 +58965,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.3
+        "politicalSignalScore": 34.1
       },
       {
         "id": "db855776bafb",
@@ -58977,7 +58990,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.6
+        "politicalSignalScore": 33.4
       },
       {
         "id": "41d7c8ee8c42",
@@ -59004,7 +59017,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.4
+        "politicalSignalScore": 33.2
       },
       {
         "id": "fa6dc7bcd69d",
@@ -59033,7 +59046,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 33.1
+        "politicalSignalScore": 32.9
       },
       {
         "id": "71c2f023cc8d",
@@ -59064,7 +59077,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.9
+        "politicalSignalScore": 32.7
       },
       {
         "id": "39715aa1890c",
@@ -59093,7 +59106,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.8
+        "politicalSignalScore": 32.6
       },
       {
         "id": "648d6749c712",
@@ -59120,7 +59133,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.6
+        "politicalSignalScore": 32.4
       },
       {
         "id": "8f72dc6bf787",
@@ -59148,7 +59161,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.4
+        "politicalSignalScore": 31.2
       },
       {
         "id": "f43c01e5cbeb",
@@ -59175,7 +59188,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.4
+        "politicalSignalScore": 31.2
       },
       {
         "id": "772547ad1bd2",
@@ -59205,7 +59218,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.0
+        "politicalSignalScore": 30.8
       },
       {
         "id": "7e369d09a9ea",
@@ -59232,7 +59245,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 30.6
+        "politicalSignalScore": 30.4
       },
       {
         "id": "99d3f0b739c1",
@@ -59260,7 +59273,7 @@
         "sourceDomain": "foxnews.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 29.7
+        "politicalSignalScore": 29.5
       },
       {
         "id": "7aa4bb34682e",
@@ -59287,7 +59300,7 @@
         "sourceDomain": "stripes.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 28.8
+        "politicalSignalScore": 28.6
       },
       {
         "id": "973b1ca1b2ea",
@@ -59312,7 +59325,7 @@
         "sourceDomain": "cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 28.1
+        "politicalSignalScore": 27.9
       }
     ]
   },
@@ -59624,7 +59637,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-04T01:18:29.346152Z",
+    "updatedAt": "2026-09-04T01:31:26.004890Z",
     "method": "co-occurrence graph from public stories and conflict records",
     "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
     "nodes": [
@@ -59632,24 +59645,24 @@
         "id": "united-states",
         "label": "United States",
         "kind": "actor",
-        "mentions": 69
+        "mentions": 67
       },
       {
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 25
-      },
-      {
-        "id": "u-s-politics",
-        "label": "U.S. Politics",
-        "kind": "political",
-        "mentions": 23
+        "mentions": 26
       },
       {
         "id": "iran",
         "label": "Iran",
         "kind": "actor",
+        "mentions": 23
+      },
+      {
+        "id": "u-s-politics",
+        "label": "U.S. Politics",
+        "kind": "political",
         "mentions": 22
       },
       {
@@ -59686,17 +59699,11 @@
         "id": "strait-of-hormuz",
         "label": "Strait of Hormuz",
         "kind": "strategic",
-        "mentions": 7
+        "mentions": 8
       },
       {
         "id": "canada",
         "label": "Canada",
-        "kind": "actor",
-        "mentions": 7
-      },
-      {
-        "id": "venezuela",
-        "label": "Venezuela",
         "kind": "actor",
         "mentions": 7
       },
@@ -59713,6 +59720,12 @@
         "mentions": 6
       },
       {
+        "id": "venezuela",
+        "label": "Venezuela",
+        "kind": "actor",
+        "mentions": 6
+      },
+      {
         "id": "lebanon",
         "label": "Lebanon",
         "kind": "actor",
@@ -59722,14 +59735,14 @@
         "id": "south-korea",
         "label": "South Korea",
         "kind": "actor",
-        "mentions": 2
+        "mentions": 3
       }
     ],
     "edges": [
       {
         "source": "United States",
         "target": "U.S. Politics",
-        "weight": 16,
+        "weight": 15,
         "types": [
           "story"
         ],
@@ -60104,34 +60117,6 @@
         ]
       },
       {
-        "source": "United States",
-        "target": "Venezuela",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "ICE officer who shot Venezuelan man in Minneapolis charged with lying to investigators",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T19:40:53+00:00"
-          },
-          {
-            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
-            "url": "",
-            "source": "The Guardian World",
-            "time": "2026-09-03T14:38:40+00:00"
-          },
-          {
-            "title": "Commentary: The US-Venezuela oil deal looks like it is built on quicksand",
-            "url": "",
-            "source": "CNA World",
-            "time": "2026-09-02T21:59:00+00:00"
-          }
-        ]
-      },
-      {
         "source": "Russia",
         "target": "Ukraine",
         "weight": 3,
@@ -60223,6 +60208,28 @@
             "url": "",
             "source": "Al Jazeera",
             "time": "2026-09-03T15:38:19+00:00"
+          },
+          {
+            "title": "Commentary: The US-Venezuela oil deal looks like it is built on quicksand",
+            "url": "",
+            "source": "CNA World",
+            "time": "2026-09-02T21:59:00+00:00"
+          }
+        ]
+      },
+      {
+        "source": "United States",
+        "target": "Venezuela",
+        "weight": 2,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "US commerce secretary erroneously said no Americans have died in Iran war, Trump claims",
+            "url": "",
+            "source": "The Guardian World",
+            "time": "2026-09-03T14:38:40+00:00"
           },
           {
             "title": "Commentary: The US-Venezuela oil deal looks like it is built on quicksand",
@@ -60327,7 +60334,7 @@
     "online": 29,
     "degraded": 0,
     "failed": 0,
-    "lastChecked": "2026-09-04T01:18:30.697682+00:00",
+    "lastChecked": "2026-09-04T01:31:27.792911+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
   "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."
