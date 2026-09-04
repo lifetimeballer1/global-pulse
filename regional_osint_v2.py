@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Robust regional OSINT collector with correct GDELT FIPS codes and failover."""
+# Coverage is intentionally independent of the 5-minute news snapshot writer;
+# its output is preserved by update_snapshot_fast.py and published separately.
 import hashlib,json,urllib.parse,urllib.request,xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timezone
