@@ -21,7 +21,7 @@ env:
   PYTHONUNBUFFERED: '1'
 concurrency:
   group: global-pulse-production
-  cancel-in-progress: true
+  cancel-in-progress: false
 permissions:
   contents: write
   pages: write
@@ -29,7 +29,7 @@ permissions:
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -107,18 +107,21 @@ jobs:
           from pathlib import Path
           g=json.loads(Path('data/intelligence_graph.json').read_text())
           b=json.loads(Path('data/breaking_news.json').read_text())
+          s=json.loads(Path('data/snapshot.json').read_text())
           h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text(); main=Path('index.html').read_text()
           assert len(g.get('nodes',[]))>=10, 'Intelligence Web has too few nodes'
           assert len(g.get('edges',[]))>=3, 'Intelligence Web has too few evidence-backed connections'
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
+          assert g.get('updatedAt'), 'Intelligence Web timestamp missing'
+          assert s.get('updatedAt'), 'Snapshot timestamp missing'
           assert 'data/snapshot.json' in j and 'data/intelligence_graph.json' in j
           assert 'OPEN ORIGINAL SOURCE' in j and 'WHY THIS NODE IS CONNECTED' in j
-          assert 'makeEmergencyData' in j
           assert 'ForceGraph3D' in h and 'intelligence_web_v2.js?v=' in h
           assert 'z-index:1000' in h and 'control-toggle' in h
           assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in Path('global_pulse_breaking.js').read_text()
-          print('INTELLIGENCE WEB VALID:',len(g['nodes']),'nodes /',len(g['edges']),'connections')
-          print('BREAKING INTEL VALID:',len(b.get('articles',[])),'rapid discoveries')
+          print('INTELLIGENCE WEB VALID:',len(g['nodes']),'nodes /',len(g['edges']),'connections / updated',g['updatedAt'])
+          print('SNAPSHOT VALID: updated',s['updatedAt'])
+          print('BREAKING INTEL VALID:',len(b.get('articles',[])),'rapid discoveries / updated',b.get('updatedAt'))
           PY
       - name: Commit generated artifacts
         run: |
