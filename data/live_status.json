@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-09-04T15:13:37.331183+00:00",
+  "updatedAt": "2026-09-04T15:19:59.110374+00:00",
   "feedsChecked": 20,
-  "rowsFetched": 371,
-  "newArticles": 85,
+  "rowsFetched": 271,
+  "newArticles": 3,
   "purged": 83,
-  "databaseArticles": 738,
-  "healthySources": 11,
+  "databaseArticles": 658,
+  "healthySources": 10,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "source": "X @UN",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "X @NASA",
+      "error": "RuntimeError: proxy challenge/whitelist response"
+    },
+    {
+      "source": "X @WhiteHouse",
+      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @NATO",
@@ -20,27 +32,19 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @WhiteHouse",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @NASA",
-      "error": "RuntimeError: proxy challenge/whitelist response"
-    },
-    {
-      "source": "X @UN",
-      "error": "RuntimeError: proxy challenge/whitelist response"
+      "source": "Morse Report — Google News",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "source": "Axios Politics",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
-      "source": "CNN Politics",
+      "source": "Morse Report — GDELT Mirror",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
-      "source": "Morse Report — GDELT Mirror",
+      "source": "CNN Politics",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     }
   ],
