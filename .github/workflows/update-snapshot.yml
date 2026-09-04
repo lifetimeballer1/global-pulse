@@ -10,6 +10,8 @@ on:
       - 'global_pulse_source_health.js'
       - 'global_pulse_v26.js'
       - 'global_pulse_v27.js'
+      - 'global_pulse_graph.js'
+      - 'install_intelligence_web.py'
       - 'update_market_data.py'
       - 'resilient_feed_catalog.py'
       - 'run_snapshot_resilient.py'
@@ -97,6 +99,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
+          node --check global_pulse_graph.js
           node --check global_pulse_v27.js
           node --check global_pulse_v27_quality.js
           node --check global_pulse_source_health.js
