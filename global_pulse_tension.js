@@ -30,10 +30,11 @@
     return {score:Math.max(0,Math.min(100,score)),matches:Math.round(hit),sources:Object.keys(sources).length,confidence:share>.35?'HIGH':share>.15?'MEDIUM':'LOW'};
   }
   function render(d){
+    d=d||{};
     var box=document.getElementById('breakdown');
     if(!box)return false;
-    var raw=d&&d.breakdownScores||{};
-    var meta=d&&d.driverSignals||{};
+    var raw=d.breakdownScores||{};
+    var meta=d.driverSignals||{};
     box.classList.add('gp-tension-drivers');
     box.innerHTML='';
     IDS.forEach(function(name){
@@ -47,6 +48,10 @@
         '<div class="gp-driver-foot"><span class="gp-driver-state">'+label+'</span><span>'+matches+' matching signals · '+sourceCount+' sources</span></div>';
       box.appendChild(row);
     });
+    var scoreEl=document.getElementById('globalScore');
+    if(scoreEl && Number.isFinite(Number(d.tension))) scoreEl.textContent=Math.round(Number(d.tension));
+    var deltaEl=document.getElementById('globalDelta');
+    if(deltaEl && Number.isFinite(Number(d.tension))) deltaEl.textContent=Number(d.tension)>=70?'Elevated global pressure':Number(d.tension)>=45?'Moderate global pressure':'Lower global pressure';
     var note=document.getElementById('gp-tension-note');
     if(!note){note=document.createElement('div');note.id='gp-tension-note';box.parentNode.appendChild(note)}
     note.textContent='Live driver model · scores use current public reporting signals, recency and source diversity. A headline count alone does not raise tension.';
@@ -58,6 +63,7 @@
   }
   function run(){ensureStyle();var d=window.DATA;if(d)render(d)}
   document.addEventListener('DOMContentLoaded',run);
+  document.addEventListener('globalpulse:dataready',run);
   window.addEventListener('globalpulse:dataready',run);
   setTimeout(run,1500);setTimeout(run,5000);setInterval(run,60000);
 })();
