@@ -35,15 +35,23 @@ jobs:
           from pathlib import Path
           p=Path('data/source_health.json')
           d=json.loads(p.read_text(encoding='utf-8'))
-          assert d.get('version') == 1
-          assert isinstance(d.get('sources'), list) and len(d['sources']) >= 10
+          assert d.get('version') == 2
+          assert isinstance(d.get('sources'), list) and len(d['sources']) >= 20
           assert isinstance(d.get('summary'), dict)
+          allowed={'online','failed'}
+          content={'data_available','fallback_data_available','online_empty','unavailable'}
           for s in d['sources']:
-              assert s.get('name') and s.get('status') in {'online','degraded','failed'}
+              assert s.get('name') and s.get('status') in allowed
+              assert s.get('contentStatus') in content
               assert s.get('lastChecked')
-              assert 'fallbackCoverage' in s
+              assert isinstance(s.get('rowsFetched'), int) and s['rowsFetched'] >= 0
+          assert d['summary'].get('onlineWithData',0) + d['summary'].get('onlineEmpty',0) == d['summary'].get('online',0)
           print('SOURCE HEALTH VALIDATION PASSED')
           print('Summary:', d['summary'])
+          empty=[s['name'] for s in d['sources'] if s.get('contentStatus')=='online_empty']
+          print('Online but empty:', empty)
+          fallback=[s['name'] for s in d['sources'] if s.get('contentStatus')=='fallback_data_available']
+          print('Recovered by fallback:', fallback)
           PY
       - name: Commit source health telemetry
         run: |
