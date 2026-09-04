@@ -2,7 +2,7 @@
 """Canonical no-key feed catalog for Global Pulse.
 
 The old catalog contained duplicate entries and several GDELT RSS queries that
-were returning HTTP errors.  This catalog deliberately favors direct publisher
+were returning HTTP errors. This catalog deliberately favors direct publisher
 RSS feeds and Google News RSS search feeds as a no-key resilience layer.
 """
 from urllib.parse import quote_plus
@@ -29,10 +29,10 @@ FEEDS = [
     ("DW World", "https://rss.dw.com/rdf/rss-en-world", "international"),
     ("France 24", "https://www.france24.com/en/rss", "international"),
     ("Crisis Group", "https://www.crisisgroup.org/rss.xml", "analysis"),
-    ("ReliefWeb", "https://reliefweb.int/updates/rss.xml", "humanitarian"),
 
     ("Google News — Climate & Disaster", google("drought flood wildfire cyclone hurricane famine epidemic"), "climate-hazard"),
     ("Google News — Climate Security", google("climate security migration food water disease crisis"), "climate-hazard"),
+    ("Google News — Humanitarian", google("humanitarian crisis disaster displacement food insecurity emergency"), "humanitarian"),
     ("Google News — U.S. Politics", google("US politics Congress Senate White House election"), "us-politics"),
     ("Google News — CNN Politics", google("site:cnn.com politics Trump Congress Senate White House"), "us-politics"),
     ("Google News — Axios Politics", google("site:axios.com politics Trump Congress Senate White House"), "us-politics"),
@@ -46,5 +46,4 @@ FEEDS = [
     ("Google News — South Asia Security", google("India Pakistan Afghanistan Bangladesh Nepal Sri Lanka conflict security"), "south-asia"),
 ]
 
-# Stable unique catalog; URL duplication must never create duplicate health rows.
 FEEDS = list(dict.fromkeys(FEEDS))
