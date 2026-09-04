@@ -1,0 +1,53 @@
+name: Global Pulse — Publish Compact Intelligence Graph
+on:
+  schedule:
+    - cron: '4-59/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: global-pulse-compact-graph
+  cancel-in-progress: false
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build compact Intelligence Web payload
+        run: python build_intelligence_graph.py
+      - name: Validate compact payload
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/intelligence_graph.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert len(d.get('nodes',[])) >= 10
+          assert len(d.get('edges',[])) >= 10
+          assert all(e.get('source') and e.get('target') and e.get('evidence') for e in d['edges'])
+          print(f"VALID: {len(d['nodes'])} nodes / {len(d['edges'])} edges / {p.stat().st_size} bytes")
+          PY
+      - name: Publish if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/intelligence_graph.json
+          if git diff --staged --quiet; then echo "Compact graph unchanged"; exit 0; fi
+          git commit -m "chore: refresh compact intelligence graph"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          exit 1
