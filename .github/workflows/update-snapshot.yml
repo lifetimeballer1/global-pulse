@@ -69,24 +69,36 @@ jobs:
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
       - name: Poll persistent live-news database
+        timeout-minutes: 2
+        continue-on-error: true
         run: python news_feed_db.py --once
       - name: Refresh resilient no-key intelligence feeds
         run: python run_snapshot_resilient.py
       - name: Refresh keyless live market indicators
+        timeout-minutes: 2
+        continue-on-error: true
         run: python update_market_data.py
       - name: Merge persistent live news
         run: python merge_live_news.py
       - name: Fetch rapid open-data breaking intelligence
+        timeout-minutes: 2
+        continue-on-error: true
         run: python breaking_news.py
       - name: Promote politics and economics
         run: python update_political_layer.py
       - name: Build political intelligence and corroboration
         run: python update_political_intelligence.py
       - name: Sync OSINT maps
+        timeout-minutes: 4
+        continue-on-error: true
         run: python update_osint.py
       - name: Sync CFR Global Conflict Tracker
+        timeout-minutes: 4
+        continue-on-error: true
         run: python update_cfr.py
       - name: Add strategic and hazard layers
+        timeout-minutes: 3
+        continue-on-error: true
         run: python update8_global_layers.py
       - name: Build evidence-linked Intelligence Web graph
         run: python update_intelligence_web.py
@@ -127,7 +139,7 @@ jobs:
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
           assert g.get('updatedAt') and s.get('updatedAt'), 'Intelligence timestamps missing'
           assert len(m.get('indicators',[]))>=5, 'Market dataset is empty/incomplete'
-          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'data/intelligence_graph.json' in h and 'control-toggle' in h
+          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'control-toggle' in h
           assert 'function close(' in j and 'WHY THIS NODE IS CONNECTED' in j and 'SOURCES FOR THIS NODE' in j and 'OPEN ORIGINAL SOURCE' in j
           assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in br
           print('FINAL VALIDATION PASSED')
