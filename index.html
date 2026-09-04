@@ -49,11 +49,17 @@ function installPopupMedia(map){map.on("popupopen",e=>{const src=e.popup&&e.popu
 function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("#map"))return;const bar=document.querySelector(".gp-mapbar");if(!bar||!window.gpGlobalMap)return;installed=true;const row=document.createElement("div");row.className="gp-map-v3";row.innerHTML='<button type="button" id="gpHeatToggle">INTENSITY OFF</button><button type="button" id="gpFitAll">FIT ALL</button><span class="gp-map-count" id="gpRegionTotal"></span>';bar.parentElement.insertBefore(row,bar.nextSibling);const stats=document.createElement("div");stats.className="gp-region-stats";bar.parentElement.insertBefore(stats,row.nextSibling);const legend=document.createElement("div");legend.className="gp-heat-legend";legend.textContent="Intensity = concentration of sourced map signals; not a prediction or casualty measure.";bar.parentElement.insertBefore(legend,stats.nextSibling);addBaseSwitch(window.gpGlobalMap);installPopupMedia(window.gpGlobalMap);document.getElementById("gpHeatToggle").onclick=()=>{heatOn=!heatOn;document.getElementById("gpHeatToggle").textContent=heatOn?"INTENSITY ON":"INTENSITY OFF";document.getElementById("gpHeatToggle").classList.toggle("active",heatOn);drawHeat()};document.getElementById("gpFitAll").onclick=()=>{const p=points();if(p.length&&window.gpGlobalMap)window.gpGlobalMap.fitBounds(L.latLngBounds(p.map(x=>[x[0],x[1]])).pad(.06),{maxZoom:5})};regionStats(stats);const old=window.renderMap;if(typeof old==='function')window.renderMap=function(){old();setTimeout(()=>{regionStats(stats);drawHeat()},20)};setTimeout(drawHeat,50);document.addEventListener("globalpulse:dataready",()=>{if(window.gpGlobalMap){window.gpMapBooted=false;regionStats(stats);drawHeat();setTimeout(()=>window.gpGlobalMap.invalidateSize(),50)}})}const t=setInterval(()=>{if(installed||boot())clearInterval(t)},250);setTimeout(()=>clearInterval(t),30000)})();</script>
 <!-- GP-MAP-V3-ENHANCEMENTS-END -->
 
-
-
-
-
 <style id="gp-claims-css">.gp-claims-list{display:grid;gap:9px}.gp-claim details{margin-top:8px}.gp-claim summary{cursor:pointer;color:var(--blue);font-size:11px;font-weight:800}.gp-claim-evidence{display:grid;gap:6px;margin-top:7px}.gp-claim-evidence .item{padding:8px}.gp-claim a{font-size:10px}</style>
+
+
+
+
+
+<!-- GP-MARKER-CLUSTER-START -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin="anonymous"></script>
+<!-- GP-MARKER-CLUSTER-END -->
 
 <style id="gp-map-rescue-css">
 #map{height:540px;min-height:320px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#07101a}
@@ -68,11 +74,6 @@ function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("
 </style>
 <script id="gp-live-reporting-config">window.GLOBAL_PULSE_API="";</script>
 <script id="gp-auto-refresh" type="text/plain"></script>
-<!-- GP-MARKER-CLUSTER-START -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin="anonymous"></script>
-<!-- GP-MARKER-CLUSTER-END -->
 </head>
 <body>
 <header><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
@@ -201,10 +202,12 @@ setInterval(load,60000);
 
 <script src="global_pulse_breaking.js?v=20260904a" defer></script>
 
+<script src="global_pulse_breaking.js?v=20260904a" defer></script>
+<script src="claim_intelligence.js?v=1"></script>
+
 
 
 <script src="global_pulse_breaking.js?v=20260904a" defer></script>
-<script src="claim_intelligence.js?v=1"></script>
 <script id="gp-map-rescue-js">
 (function(){
   "use strict";
