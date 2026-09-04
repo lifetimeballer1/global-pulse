@@ -2,6 +2,9 @@
 """Build transparent, evidence-aware event intelligence.
 No API key required. Scores are monitoring aids, not truth probabilities.
 """
+# Quality model: corroboration must reflect independent reporting groups,
+# source quality, concentration, and contradiction signals; raw article volume
+# must never be allowed to masquerade as confirmation.
 from __future__ import annotations
 import json,re
 from collections import Counter
@@ -75,8 +78,7 @@ def main():
   if group_count<=1:score=min(score,44)
   elif group_count==2:score=min(score,62)
   elif group_count==3:score=min(score,78)
-  score=max(0,min(95,round(score))); g=grade(score,group_count,len(non_agg),high_flags)
-  status={'A':'well-corroborated','B':'moderately corroborated','C':'limited corroboration','D':'insufficient / conflicting evidence'}[g]; caveats=[]
+  score=max(0,min(95,round(score))); g=grade(score,group_count,len(non_agg),high_flags); status={'A':'well-corroborated','B':'moderately corroborated','C':'limited corroboration','D':'insufficient / conflicting evidence'}[g]; caveats=[]
   if len(non_agg)<3:caveats.append('Fewer than three non-aggregator domains observed')
   if group_count<2:caveats.append('Only one independent reporting group detected')
   if concentration>.5:caveats.append('Reporting is concentrated in one domain')
