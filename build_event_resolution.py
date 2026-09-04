@@ -1,72 +1,41 @@
 #!/usr/bin/env python3
-"""Resolve near-duplicate live reports into stronger event clusters.
-
-This is deterministic, explainable clustering: normalized title tokens, entity/location
-signals, and publication-time proximity are combined. It never claims two reports are
-independent merely because they have different URLs.
-"""
-import json, re
-from collections import defaultdict
-from datetime import datetime, timezone
+"""Resolve candidate duplicate live-event clusters with explainable signals."""
+import json,re
+from datetime import datetime,timezone
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-EVENTS = ROOT / "data/live_events.json"
-OUT = ROOT / "data/event_resolution.json"
-
-STOP = {"the","a","an","and","or","of","to","in","on","for","with","from","after","before","as","is","are","at","by","new","latest","report","reports"}
-
-def tokens(text):
-    return {x for x in re.findall(r"[a-z0-9]{3,}", (text or "").lower()) if x not in STOP}
-
+ROOT=Path(__file__).resolve().parent; EVENTS=ROOT/'data/live_events.json'; OUT=ROOT/'data/event_resolution.json'
+STOP=set('the a an and or of to in on for with from after before as is are at by new latest report reports'.split())
+def tokens(s): return {x for x in re.findall(r'[a-z0-9]{3,}',str(s or '').lower()) if x not in STOP}
 def dt(v):
-    if not v: return None
-    try: return datetime.fromisoformat(v.replace("Z", "+00:00"))
-    except Exception: return None
-
-def similarity(a,b):
-    ta,tb=tokens(a.get("title")),tokens(b.get("title"))
-    if not ta or not tb: return 0.0
-    j=len(ta&tb)/len(ta|tb)
-    ea=set(a.get("entities") or []) & set(b.get("entities") or [])
-    la=set(a.get("locations") or []) & set(b.get("locations") or [])
-    # Entity/location agreement can rescue differently worded headlines.
-    bonus=min(0.35, .12*len(ea)+.15*len(la))
-    da,db=dt(a.get("published_at")),dt(b.get("published_at"))
-    time_bonus=0
-    if da and db:
-        minutes=abs((da-db).total_seconds())/60
-        if minutes <= 90: time_bonus=.12
-        elif minutes <= 240: time_bonus=.06
-    return min(1.0,j*.65+bonus+time_bonus)
+ try:return datetime.fromisoformat(str(v).replace('Z','+00:00')) if v else None
+ except:return None
+def sim(a,b):
+ ta,tb=tokens(a.get('title')),tokens(b.get('title')); j=len(ta&tb)/max(1,len(ta|tb)) if ta and tb else 0
+ aa=set(a.get('anchors') or []); ab=set(b.get('anchors') or []); shared=aa&ab
+ score=.60*j+min(.30,.15*len(shared))
+ if a.get('category')==b.get('category'): score+=.08
+ da,db=dt(a.get('lastSeen')),dt(b.get('lastSeen'))
+ if da and db:
+  mins=abs((da-db).total_seconds())/60
+  if mins<=90: score+=.10
+  elif mins<=240: score+=.05
+ if not shared: score-=.10
+ return max(0,min(1,score)),shared
 
 def main():
-    data=json.loads(EVENTS.read_text()) if EVENTS.exists() else {"events":[]}
-    events=data.get("events", data if isinstance(data,list) else [])
-    resolved=[]; used=set()
-    for i,e in enumerate(events):
-        if i in used: continue
-        cluster=[i]; used.add(i)
-        for j in range(i+1,len(events)):
-            if j in used: continue
-            score=similarity(e, events[j])
-            if score >= .62:
-                cluster.append(j); used.add(j)
-        members=[events[k] for k in cluster]
-        domains=[]
-        for m in members:
-            d=(m.get("source_domain") or m.get("domain") or "").lower()
-            if d: domains.append(d)
-        resolved.append({
-            "resolution_id": f"ER-{len(resolved)+1:04d}",
-            "event_ids": [m.get("id") or m.get("event_id") for m in members],
-            "report_count": len(members),
-            "unique_domains": sorted(set(domains)),
-            "merge_reason": "shared title/entity/location/time signals" if len(members)>1 else "single event candidate",
-            "confidence": "high" if len(members)>=3 else "moderate" if len(members)==2 else "low",
-        })
-    out={"generated_at":datetime.now(timezone.utc).isoformat(),"method":"explainable similarity clustering","events":resolved}
-    OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n")
-    print(f"resolved {len(resolved)} event groups")
-
-if __name__ == "__main__": main()
+ data=json.loads(EVENTS.read_text(encoding='utf-8')) if EVENTS.exists() else {'events':[]}; events=data.get('events',[])
+ resolved=[]; used=set()
+ for i,e in enumerate(events):
+  if i in used: continue
+  members=[e]; used.add(i); reasons=[]
+  for j,x in enumerate(events[i+1:],i+1):
+   if j in used: continue
+   score,shared=sim(e,x)
+   if score>=.60:
+    members.append(x); used.add(j); reasons.append(f"score {score:.2f}; shared anchors: {', '.join(sorted(shared)) or 'none'}")
+  domains=sorted({d for m in members for d in (m.get('sources') or [])})
+  ids=[m.get('id') for m in members if m.get('id')]
+  resolved.append({'resolution_id':f'ER-{len(resolved)+1:04d}','title':members[0].get('title'),'event_ids':ids,'report_count':sum(int(m.get('reportCount') or 0) for m in members),'unique_domains':domains,'member_count':len(members),'merge_reason':' ; '.join(reasons) if reasons else 'single candidate event cluster','confidence':'high' if len(members)>=3 and len(domains)>=3 else 'moderate' if len(members)>=2 else 'low'})
+ out={'updatedAt':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'generated_at':datetime.now(timezone.utc).isoformat(),'method':'event-cluster similarity using title tokens, geographic/actor anchors, category and publication timing; candidate grouping only','events':resolved}
+ OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n',encoding='utf-8'); print(f'resolved {len(resolved)} candidate groups from {len(events)} live clusters')
+if __name__=='__main__': main()
