@@ -1,0 +1,35 @@
+name: Global Pulse — Repair Intelligence Source Links
+on:
+  workflow_run:
+    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: global-pulse-production
+  cancel-in-progress: false
+jobs:
+  enrich:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Restore canonical source URLs
+        run: python enrich_intelligence_source_urls.py
+      - name: Commit repaired evidence links
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/snapshot.json
+          if git diff --cached --quiet; then
+            echo 'No source URL changes needed.'
+          else
+            git commit -m 'fix: restore Intelligence Web source URLs'
+            git push
+          fi
