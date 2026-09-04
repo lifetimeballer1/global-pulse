@@ -1,67 +1,56 @@
-/* Global Pulse — canonical page layout
- * One stable layout controller. Uses CSS order; never reparents dynamic modules.
- */
-(() => {
+/* Global Pulse — canonical page layout. Uses CSS order only; never reparents dynamic modules. */
+(function(){
   'use strict';
-  if (window.__GLOBAL_PULSE_LAYOUT__) return;
-  window.__GLOBAL_PULSE_LAYOUT__ = true;
+  if(window.__GLOBAL_PULSE_LAYOUT__) return;
+  window.__GLOBAL_PULSE_LAYOUT__=true;
 
-  const SELECTORS = {
-    root: '#global-pulse-app, main, .app, .container',
-    sections: [
-      { key: 'breaking', order: 10, selectors: ['#breaking-intelligence', '#breaking-news', '[data-section="breaking"]'] },
-      { key: 'changed', order: 20, selectors: ['#what-changed', '[data-section="what-changed"]'] },
-      { key: 'assessment', order: 30, selectors: ['#global-index', '#global-assessment', '[data-section="assessment"]'] },
-      { key: 'conflicts', order: 40, selectors: ['#active-conflicts', '#conflict-watch', '[data-section="conflicts"]'] },
-      { key: 'evidence', order: 50, selectors: ['#event-intelligence', '#investigation', '[data-section="evidence"]'] },
-      { key: 'map', order: 60, selectors: ['#global-map', '#situation-map', '[data-section="map"]'] },
-      { key: 'regional', order: 70, selectors: ['#regional-intelligence', '[data-section="regional"]'] },
-      { key: 'reporting', order: 80, selectors: ['#latest-reporting', '#news-feed', '[data-section="reporting"]'] },
-      { key: 'history', order: 90, selectors: ['#event-history', '#historical-trends', '[data-section="history"]'] },
-      { key: 'markets', order: 100, selectors: ['#market-context', '#markets', '[data-section="markets"]'] },
-      { key: 'graph', order: 110, selectors: ['#intelligence-web', '#intelligence-graph', '[data-section="graph"]'] },
-      { key: 'watchlist', order: 120, selectors: ['#watchlist', '[data-section="watchlist"]'] },
-      { key: 'sources', order: 130, selectors: ['#source-health', '#sources-health', '[data-section="source-health"]'] }
-    ]
-  };
+  const sections=[
+    ['breaking',10,['#breaking-intelligence','#breaking-news','[data-section="breaking"]']],
+    ['changed',20,['#what-changed','[data-section="what-changed"]']],
+    ['assessment',30,['#top']],
+    ['conflicts',40,['#conflictSection','#active-conflicts','#conflict-watch','[data-section="conflicts"]']],
+    ['evidence',50,['#event-intelligence','#investigation','[data-section="evidence"]']],
+    ['map',60,['#mapSection','#global-map','#situation-map','[data-section="map"]']],
+    ['regional',70,['#regional-intelligence','[data-section="regional"]']],
+    ['reporting',80,['#newsSection','#latest-reporting','#news-feed','[data-section="reporting"]']],
+    ['history',90,['#event-history','#historical-trends','[data-section="history"]']],
+    ['markets',100,['#market-context','#markets','[data-section="markets"]']],
+    ['graph',110,['.gp-intel-web-entry','#intelligence-web','#intelligence-graph','[data-section="graph"]']],
+    ['watchlist',120,['#gp-watchlist','#watchlist','[data-section="watchlist"]']],
+    ['sources',130,['#source-health','#sources-health','[data-section="source-health"]']]
+  ];
 
-  const find = (selectors, root) => {
-    for (const selector of selectors) {
-      try { const el = root.querySelector(selector); if (el) return el; } catch (_) {}
-    }
-    return null;
-  };
-
-  function apply() {
-    const root = document.querySelector(SELECTORS.root);
-    if (!root) return false;
+  function apply(){
+    const root=document.querySelector('.wrap');
+    if(!root) return false;
     root.classList.add('gp-canonical-layout');
-    root.style.setProperty('--gp-layout-managed', '1');
-
-    let found = 0;
-    for (const section of SELECTORS.sections) {
-      const el = find(section.selectors, root);
-      if (!el) continue;
-      found += 1;
-      el.dataset.gpLayoutKey = section.key;
-      el.style.order = String(section.order);
+    let found=0;
+    for(const [key,order,selectors] of sections){
+      let el=null;
+      for(const selector of selectors){
+        try{el=root.querySelector(selector)}catch(_){el=null}
+        if(el) break;
+      }
+      if(!el) continue;
+      found++;
+      el.dataset.gpLayoutKey=key;
+      el.style.order=String(order);
       el.classList.add('gp-layout-section');
     }
-    return found > 0;
+    return found>0;
   }
 
-  const boot = () => {
+  function boot(){
     apply();
-    let queued = false;
-    const schedule = () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(() => { queued = false; apply(); });
+    let queued=false;
+    const schedule=()=>{
+      if(queued) return;
+      queued=true;
+      requestAnimationFrame(()=>{queued=false;apply()});
     };
-    const root = document.querySelector(SELECTORS.root) || document.body;
-    new MutationObserver(schedule).observe(root, { childList: true, subtree: true });
-  };
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+    const root=document.querySelector('.wrap')||document.body;
+    new MutationObserver(schedule).observe(root,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
   else boot();
 })();
