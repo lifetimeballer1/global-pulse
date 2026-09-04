@@ -18,8 +18,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout exact workflow commit
         uses: actions/checkout@v4
+        with:
+          # Pin the build to the commit that triggered this run. This prevents
+          # a newer concurrent push from making the run validate an older tree.
+          ref: ${{ github.sha }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
