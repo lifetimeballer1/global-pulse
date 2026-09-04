@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 """Canonical no-key feed catalog for Global Pulse.
 
-The old catalog contained duplicate entries and several GDELT RSS queries that
-were returning HTTP errors. This catalog deliberately favors direct publisher
-RSS feeds and Google News RSS search feeds as a no-key resilience layer.
+Favors direct publisher RSS plus Google News RSS search feeds so coverage can
+expand without API keys. Topic feeds are intentionally specific so smaller
+conflicts are not drowned out by major-war headlines.
 """
 from urllib.parse import quote_plus
-
 
 def google(query: str) -> str:
     q = quote_plus(f"{query} when:1d")
     return f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
-
 
 FEEDS = [
     ("GDACS Global Disaster Alerts", "https://www.gdacs.org/xml/rss.xml", "climate-hazard"),
@@ -29,7 +27,6 @@ FEEDS = [
     ("DW World", "https://rss.dw.com/rdf/rss-en-world", "international"),
     ("France 24", "https://www.france24.com/en/rss", "international"),
     ("Crisis Group", "https://www.crisisgroup.org/rss.xml", "analysis"),
-
     ("Google News — Climate & Disaster", google("drought flood wildfire cyclone hurricane famine epidemic"), "climate-hazard"),
     ("Google News — Climate Security", google("climate security migration food water disease crisis"), "climate-hazard"),
     ("Google News — Humanitarian", google("humanitarian crisis disaster displacement food insecurity emergency"), "humanitarian"),
@@ -41,9 +38,20 @@ FEEDS = [
     ("Google News — Global Economics", google("oil inflation tariff trade interest rate central bank stocks bonds currency"), "economics"),
     ("Google News — Global Conflict", google("war conflict military sanctions crisis attack airstrike missile drone"), "live"),
     ("Google News — Africa Security", google("Africa Sudan Congo Sahel Nigeria Somalia conflict military attack"), "africa"),
+    ("Google News — Sudan Conflict", google("Sudan SAF RSF war Darfur Kordofan conflict"), "africa-conflict"),
+    ("Google News — DRC / M23", google("DRC Congo M23 Goma Bukavu armed conflict Rwanda"), "africa-conflict"),
+    ("Google News — Sahel Security", google("Mali Burkina Faso Niger Sahel jihadist insurgency military"), "africa-conflict"),
+    ("Google News — Somalia Security", google("Somalia al Shabaab Puntland militant attack security"), "africa-conflict"),
+    ("Google News — Haiti Security", google("Haiti gangs Port-au-Prince transitional government security"), "americas-conflict"),
+    ("Google News — Mexico Cartel Conflict", google("Mexico cartel violence Sinaloa CJNG military security"), "americas-conflict"),
+    ("Google News — Ecuador Security", google("Ecuador organized crime gangs military security conflict"), "americas-conflict"),
+    ("Google News — Myanmar Civil War", google("Myanmar civil war junta resistance fighting conflict"), "asia-conflict"),
+    ("Google News — Afghanistan Security", google("Afghanistan Taliban ISIS-K attack security conflict"), "south-asia-conflict"),
+    ("Google News — Yemen / Red Sea", google("Yemen Houthis Red Sea shipping missile drone conflict"), "middle-east-conflict"),
+    ("Google News — Iran Israel", google("Iran Israel conflict missile drone strike escalation"), "middle-east-conflict"),
+    ("Google News — Ukraine War", google("Ukraine Russia war frontline missile drone strike"), "europe-conflict"),
     ("Google News — South America Security", google("South America Colombia Venezuela Brazil Ecuador Peru conflict crime military"), "americas"),
     ("Google News — Middle East Security", google("Gaza Iran Israel Yemen Syria Iraq conflict missile drone"), "middle-east"),
     ("Google News — South Asia Security", google("India Pakistan Afghanistan Bangladesh Nepal Sri Lanka conflict security"), "south-asia"),
 ]
-
 FEEDS = list(dict.fromkeys(FEEDS))
