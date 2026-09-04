@@ -7,6 +7,9 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'build_source_evidence.py'
+      - 'build_event_intelligence.py'
+      - 'install_event_intelligence.py'
+      - 'global_pulse_event_intelligence.js'
       - 'build_intelligence_assessment.py'
       - 'global_pulse_assessment.js'
       - 'claim_intelligence.py'
@@ -100,6 +103,8 @@ jobs:
         run: python build_live_events.py
       - name: Build source diversity evidence
         run: python build_source_evidence.py
+      - name: Build enriched event intelligence
+        run: python build_event_intelligence.py
       - name: Promote politics and economics
         run: python update_political_layer.py
       - name: Build political intelligence and corroboration
@@ -124,6 +129,8 @@ jobs:
         run: python install_intelligence_web.py
       - name: Install live event intelligence layer
         run: python install_live_events.py
+      - name: Install enriched event intelligence UI
+        run: python install_event_intelligence.py
       - name: Build dynamic risk and impact assessments
         run: python build_intelligence_assessment.py
       - name: Install dynamic risk and impact UI
@@ -149,18 +156,20 @@ jobs:
       - name: Final syntax, privacy and data validation
         run: |
           set -euo pipefail
-          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py build_source_evidence.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
+          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py build_source_evidence.py build_event_intelligence.py install_event_intelligence.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py
           node --check claim_intelligence.js
           node --check intelligence_web_v2.js
           node --check global_pulse_breaking.js
           node --check global_pulse_events.js
           node --check global_pulse_assessment.js
+          node --check global_pulse_event_intelligence.js
           test -s data/snapshot.json
           test -s data/claims.json
           test -s data/intelligence_graph.json
           test -s data/breaking_news.json
           test -s data/live_events.json
           test -s data/source_evidence.json
+          test -s data/event_intelligence.json
           test -s data/intelligence_assessment.json
           python - <<'PY'
           import json,re
@@ -171,6 +180,7 @@ jobs:
           b=json.loads(Path('data/breaking_news.json').read_text())
           ev=json.loads(Path('data/live_events.json').read_text())
           se=json.loads(Path('data/source_evidence.json').read_text())
+          ei=json.loads(Path('data/event_intelligence.json').read_text())
           a=json.loads(Path('data/intelligence_assessment.json').read_text())
           main=Path('index.html').read_text()
           assert isinstance(claims.get('claims'),list) and claims.get('updatedAt'), 'Claim artifact missing'
@@ -180,10 +190,12 @@ jobs:
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
           assert isinstance(ev.get('events'),list) and ev.get('updatedAt'), 'Live event artifact missing'
           assert isinstance(se.get('eventSourceEvidence'),list) and se.get('updatedAt'), 'Source evidence artifact missing'
+          assert isinstance(ei.get('events'),list) and ei.get('updatedAt'), 'Event intelligence artifact missing'
           assert isinstance(a.get('assessments'),list) and a.get('updatedAt'), 'Assessment artifact missing'
           assert isinstance(a.get('whatChanged'),list), 'Change detection missing'
           assert isinstance(a.get('sourceSummary'),dict), 'Source summary missing'
           assert 'claim_intelligence.js?v=1' in main, 'Claim UI not installed'
+          assert 'global_pulse_event_intelligence.js?v=1' in main, 'Event intelligence UI not installed'
           assert not re.search(r'(google-analytics|googletagmanager|gtag\(|analytics\.js|sentry\.io|hotjar|mixpanel|segment\.com)',main,re.I), 'Unexpected tracking code detected'
           assert not re.search(r'(navigator\.sendBeacon|new\s+Image\s*\(|fetch\s*\([^)]*(telemetry|analytics|track))',main,re.I), 'Unexpected client telemetry detected'
           print('FINAL VALIDATION PASSED')
@@ -193,6 +205,7 @@ jobs:
           print('Breaking:',len(b.get('articles',[])))
           print('Live events:',len(ev.get('events',[])))
           print('Source domains:',se.get('uniqueSourceDomains'))
+          print('Enriched events:',len(ei.get('events',[])))
           print('Assessments:',len(a.get('assessments',[])))
           print('Material changes:',len(a.get('whatChanged',[])))
           PY
@@ -212,7 +225,7 @@ jobs:
           set -euo pipefail
           rm -rf _site; mkdir -p _site
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name _site -exec cp -a {} _site/ \;
-          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/claims.json; test -s _site/data/intelligence_graph.json; test -s _site/data/breaking_news.json; test -s _site/data/live_events.json; test -s _site/data/source_evidence.json; test -s _site/data/intelligence_assessment.json
+          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/claims.json; test -s _site/data/intelligence_graph.json; test -s _site/data/breaking_news.json; test -s _site/data/live_events.json; test -s _site/data/source_evidence.json; test -s _site/data/event_intelligence.json; test -s _site/data/intelligence_assessment.json
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with: { path: _site }
