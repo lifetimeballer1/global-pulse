@@ -1,4 +1,5 @@
 /* Global Pulse — stable intelligence-web loader + command-center layout cleanup. */
+/* Deployment trigger: keep the embedded Intelligence Web renderer changes in production. */
 (function(){
   'use strict';
   if(window.__GP_STABLE_LOADER__) return;
