@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Install the stable standalone 3D Intelligence Web entry point.
+"""Keep the canonical standalone Intelligence Web entry point intact.
 
-The renderer lives in intelligence_web_v2.js so the workflow cannot accidentally
-replace the production page with a stale inline experiment. The page loads the
-pinned 3d-force-graph build and the real public data/snapshot.json file.
+The page and renderer are versioned files in the repository. Earlier versions of
+this installer rewrote the HTML on every refresh, which could undo a UI fix.
+The production workflow now validates the committed page instead of replacing it.
 """
 from pathlib import Path
 
@@ -11,34 +11,20 @@ ROOT = Path(__file__).resolve().parent
 PAGE = ROOT / "intelligence-web.html"
 JS = ROOT / "intelligence_web_v2.js"
 
+if not PAGE.exists():
+    raise SystemExit("intelligence-web.html is missing")
 if not JS.exists():
     raise SystemExit("intelligence_web_v2.js is missing")
 
-PAGE.write_text(r'''<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#03070b">
-<title>Global Pulse — Intelligence Web</title>
-<style>
-:root{--bg:#03070b;--panel:rgba(5,12,18,.93);--line:#193244;--text:#eaf4ff;--muted:#8198aa;--green:#39ff88;--blue:#5da8ff;--amber:#ffc857;--purple:#b58cff;--red:#ff5368}*{box-sizing:border-box}html,body,#graph{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font:13px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}#graph{position:fixed;inset:0;background:radial-gradient(circle at 50% 46%,#0b1d2b 0,#03070b 52%,#000 100%)}#labels{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:3}.label{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid #315069;background:rgba(2,8,13,.88);border-radius:7px;box-shadow:0 5px 18px #000b;white-space:nowrap;font-size:10px;font-weight:850;letter-spacing:.015em;text-shadow:0 1px 2px #000}.label i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 9px currentColor}.label.sel{border-color:#fff;box-shadow:0 0 22px #5da8ff88}.label.near{border-color:#5da8ff}.label.dim{opacity:.18}.hud,.details,.timeline{position:fixed;z-index:10}.hud{left:14px;top:14px;width:min(500px,calc(100vw - 28px))}.details{right:14px;top:14px;width:min(410px,calc(100vw - 28px));display:none}.details.open{display:block}.timeline{left:50%;bottom:14px;transform:translateX(-50%);width:min(680px,calc(100vw - 28px))}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 20px 70px #000e;backdrop-filter:blur(18px)}.brand{color:var(--green);font-size:13px;font-weight:950;letter-spacing:.16em}.sub{margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}.row{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}button{border:1px solid var(--line);background:#07121b;color:var(--text);border-radius:9px;padding:8px 10px;min-height:34px;font-size:9px;font-weight:950;letter-spacing:.07em}button.active{color:var(--green);border-color:var(--green);box-shadow:0 0 18px #39ff8822}input{flex:1;min-width:180px;background:#050d14;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px 10px;font-size:11px;outline:none}#stats{margin-top:9px;color:var(--muted);font-size:10px}.warn{color:var(--amber)}.title{font-size:20px;font-weight:950}.meta{color:var(--muted);font-size:9px;margin-top:5px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.chips span{border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:8px;color:var(--muted)}.section{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}.section>b{font-size:8px;letter-spacing:.12em}.muted{color:var(--muted);line-height:1.5;font-size:9px}.evidence{max-height:42vh;overflow:auto}.evidence article{margin-top:10px;padding-top:9px;border-top:1px solid #112431}.evidence strong{display:block;font-size:10px;line-height:1.35}.evidence small{display:block;color:var(--muted);margin-top:3px;font-size:8px}.evidence a{display:block;color:var(--blue);margin-top:5px;font-size:8px;font-weight:900;text-decoration:none}.timeline .row button{flex:1}.timeline b{font-size:9px;letter-spacing:.12em}#loading{position:fixed;z-index:50;inset:0;display:grid;place-items:center;background:#02070b;color:var(--muted);font-size:11px;letter-spacing:.08em}.error{color:var(--red)}#hint{color:var(--muted);font-size:8px;text-align:center;margin-top:6px}@media(max-width:700px){.hud{left:8px;top:8px;width:calc(100vw - 16px)}.details{left:8px;right:8px;top:auto;bottom:72px;width:auto;max-height:50vh}.timeline{bottom:8px;width:calc(100vw - 16px)}.sub{display:none}.label{font-size:8px;padding:3px 6px}.timeline .row{gap:4px}.timeline .row button{padding:7px 4px}}
-</style>
-</head>
-<body>
-<div id="graph"></div><div id="labels"></div>
-<div id="loading">INITIALIZING <b style="color:var(--green)">&nbsp;GLOBAL PULSE // INTELLIGENCE WEB</b></div>
-<div class="hud"><div class="card"><div class="brand">GLOBAL PULSE // INTELLIGENCE WEB</div><div class="sub">Evidence-linked public-data relationships. Links represent shared reporting/evidence and do not independently prove causation, coordination, or alliance.</div><div class="row"><input id="search" placeholder="Search entities, countries, conflicts…"><button id="clear">CLEAR</button></div><div class="row"><button class="filter active" data-kind="all">ALL</button><button class="filter" data-kind="actor">ACTORS</button><button class="filter" data-kind="political">POLITICAL</button><button class="filter" data-kind="economic">ECONOMIC</button><button class="filter" data-kind="strategic">STRATEGIC</button></div><div class="row"><button id="reset">RESET VIEW</button><button id="orbit">AUTO ORBIT</button><button id="flow">RELATION FLOW</button></div><div id="stats">Loading snapshot…</div><div id="hint">DRAG NODES · ROTATE / ZOOM · TAP A NODE FOR INTELLIGENCE</div></div></div>
-<div id="details"><div class="card"><div id="detail"></div><div class="row"><button id="close">CLOSE</button></div></div></div>
-<div class="timeline"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><b>NETWORK ACTIVITY</b><span id="trend" style="color:var(--green);font-size:9px">LIVE SNAPSHOT</span></div><div class="row"><button class="period active" data-period="24h">24H</button><button class="period" data-period="7d">7D</button><button class="period" data-period="30d">30D</button><button class="period" data-period="90d">90D</button></div></div></div>
-<!-- ForceGraph3D is pinned to 3d-force-graph@1.80.0 and reads data/snapshot.json. enableNodeDrag(true) is in intelligence_web_v2.js. -->
-<script>
-(function(){'use strict';
-function load(){return new Promise(function(resolve,reject){if(window.ForceGraph3D)return resolve();var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js';s.onload=function(){window.ForceGraph3D?resolve():reject(Error('3D renderer unavailable'))};s.onerror=function(){reject(Error('3D renderer failed to load'))};document.head.appendChild(s)})}
-load().then(function(){var s=document.createElement('script');s.src='intelligence_web_v2.js?v='+Date.now();s.onload=function(){window.dispatchEvent(new Event('gp-intelligence-ready'))};s.onerror=function(){document.getElementById('loading').innerHTML='<span class="error">INTELLIGENCE WEB SCRIPT FAILED</span>'};document.head.appendChild(s)}).catch(function(e){document.getElementById('loading').innerHTML='<span class="error">3D ENGINE FAILED<br><small>'+e.message+'</small></span>'});
-})();
-</script>
-</body></html>
-''', encoding="utf-8")
+page = PAGE.read_text(encoding="utf-8")
+js = JS.read_text(encoding="utf-8")
+required_page = ("ForceGraph3D", "3d-force-graph@1.80.0", "data/snapshot.json", "unpkg.com/3d-force-graph@1.80.0")
+required_js = ("enableNodeDrag(true)", "HOW THIS NODE CONNECTS", "OPEN SOURCE")
+for marker in required_page:
+    if marker not in page:
+        raise SystemExit(f"Intelligence Web page missing required marker: {marker}")
+for marker in required_js:
+    if marker not in js:
+        raise SystemExit(f"Intelligence Web renderer missing required marker: {marker}")
 
-print("Installed stable Intelligence Web renderer")
+print("Verified canonical Intelligence Web renderer; no file rewrite performed")
