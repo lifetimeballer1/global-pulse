@@ -1,0 +1,45 @@
+name: Global Pulse — Enforcer Map Watcher
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'enforcer_map_watcher.py'
+      - 'data/enforcer_maps.json'
+permissions:
+  contents: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract public map links from The Enforcer RSS descriptions
+        run: python enforcer_map_watcher.py
+      - name: Validate watcher output
+        run: |
+          python -m py_compile enforcer_map_watcher.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/enforcer_maps.json').read_text())
+          assert d.get('source') == 'The Enforcer'
+          assert isinstance(d.get('maps'), list)
+          assert all(x.get('url','').startswith('https://www.google.com/maps/d/') for x in d['maps'])
+          print(f"VALID: {len(d['maps'])} Enforcer map links tracked")
+          PY
+      - name: Publish changed map references
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/enforcer_maps.json
+          if git diff --staged --quiet; then exit 0; fi
+          git commit -m "chore: refresh Enforcer map references"
+          git pull --rebase origin main
+          git push origin HEAD:main
