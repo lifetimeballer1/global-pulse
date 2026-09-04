@@ -1,19 +1,15 @@
 {
-  "updatedAt": "2026-09-04T12:47:30.160152+00:00",
+  "updatedAt": "2026-09-04T14:22:10.274826+00:00",
   "feedsChecked": 20,
   "rowsFetched": 369,
-  "newArticles": 91,
+  "newArticles": 112,
   "purged": 83,
-  "databaseArticles": 697,
+  "databaseArticles": 726,
   "healthySources": 11,
   "failedSources": [
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
-    },
-    {
-      "source": "X @NATO",
-      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
       "source": "X @NASA",
@@ -24,7 +20,7 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "X @POTUS",
+      "source": "X @NATO",
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
@@ -32,18 +28,23 @@
       "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "Morse Report — GDELT Mirror",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "source": "X @POTUS",
+      "error": "RuntimeError: proxy challenge/whitelist response"
     },
     {
-      "source": "Axios Politics",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "source": "Morse Report — GDELT Mirror",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "CNN Politics",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "Axios Politics",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     }
   ],
   "pollSeconds": 300,
-  "retentionDays": 7
+  "retentionDays": 7,
+  "fetchTimeoutSeconds": 8
 }
