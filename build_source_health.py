@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build durable, per-source freshness/health telemetry from the live collector.
 
-No API key is required.  The collector writes data/live_status.json on every
+No API key is required. The collector writes data/live_status.json on every
 poll; this layer keeps the previous successful check so a transient failure
 cannot make a source appear to have been offline forever.
 """
@@ -40,10 +40,6 @@ PRIMARY = [
 ]
 
 
-def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
-
-
 def parse_dt(value: str | None):
     if not value:
         return None
@@ -53,7 +49,7 @@ def parse_dt(value: str | None):
         return None
 
 
-def age_minutes(value: str | None, now: datetime) -> float | None:
+def age_minutes(value: str | None, now: datetime):
     dt = parse_dt(value)
     if not dt:
         return None
@@ -70,14 +66,10 @@ def main() -> None:
         except Exception:
             previous = {}
     previous_by = {str(x.get("name")): x for x in previous.get("sources", []) if isinstance(x, dict)}
-
-    errors = {
-        str(x.get("source")): str(x.get("error", ""))
-        for x in current.get("failedSources", [])
-        if isinstance(x, dict)
-    }
+    errors = {str(x.get("source")): str(x.get("error", "")) for x in current.get("failedSources", []) if isinstance(x, dict)}
     checked_at = str(current.get("updatedAt") or now.isoformat())
     sources = []
+
     for name, kind, category, fallback in PRIMARY:
         old = previous_by.get(name, {})
         error = errors.get(name, "")
@@ -108,7 +100,7 @@ def main() -> None:
     online = sum(x["status"] == "online" for x in sources)
     degraded = sum(x["status"] == "degraded" for x in sources)
     failed = sum(x["status"] == "failed" for x in sources)
-    covered = sum(x["status"] != "online" and x["fallbackCoverage"] for x in sources)
+    alternate = sum(x["status"] != "online" and x["fallbackCoverage"] for x in sources)
     result = {
         "version": 1,
         "updatedAt": now.isoformat(),
@@ -123,8 +115,8 @@ def main() -> None:
             "online": online,
             "degraded": degraded,
             "failed": failed,
-            "fallbackCovered": covered,
-            "coveragePercent": round(100 * (online + covered) / len(sources), 1) if sources else 0,
+            "alternateAvailable": alternate,
+            "alternateAvailablePercent": round(100 * alternate / len(sources), 1) if sources else 0,
         },
         "sources": sources,
     }
