@@ -92,7 +92,7 @@ jobs:
         run: python install_v27.py
       - name: Install map v3 intensity and regional coverage controls
         run: python install_map_v3.py
-      - name: Install isolated no-key 3D globe map
+      - name: Install Matrix-style no-key 3D globe map
         run: python install_map_3d.py
       - name: Validate production build
         run: |
@@ -124,9 +124,9 @@ jobs:
           print('CFR conflicts:',len(d.get('cfrConflicts',[])))
           assert 'gp-map-v3-js' in html, 'map v3 UI missing'
           assert 'pulse-reporting-feed' in html, 'live reporting feed missing'
-          assert 'GP-MAP-3D-START' in html and 'global_pulse_map_3d.js?v=1' in html and 'GP-MAP-3D-END' in html, '3D globe installer missing'
+          assert 'GP-MAP-3D-START' in html and 'global_pulse_map_3d.js?v=2' in html and 'GP-MAP-3D-END' in html, '3D globe installer missing'
           assert html.count('id="gp-map-3d-css"')==1, '3D CSS duplicated'
-          assert html.count('global_pulse_map_3d.js?v=1')==1, '3D globe script duplicated'
+          assert html.count('global_pulse_map_3d.js?v=2')==1, '3D globe script duplicated'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
           assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
