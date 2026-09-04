@@ -1,64 +1,40 @@
-/* Global Pulse — professional 3D evidence intelligence web.
- * Built around Vasturiano's open-source 3d-force-graph renderer.
- * No API key is required. Labels are rendered as a lightweight DOM overlay so
- * they remain readable while the 3D network rotates, zooms and is dragged.
+/* Global Pulse — stable 3D evidence intelligence web.
+ * Uses Vasturiano's MIT-licensed 3d-force-graph bundle.
+ * Designed for GitHub Pages + iPhone: lazy loading, bounded animation,
+ * one label RAF loop, pause/resume when off-screen, and a graceful fallback.
  */
 (function () {
   'use strict';
 
-  if (window.__GLOBAL_PULSE_GRAPH_V2__) return;
-  window.__GLOBAL_PULSE_GRAPH_V2__ = true;
+  if (window.__GLOBAL_PULSE_GRAPH_STABLE_V3__) return;
+  window.__GLOBAL_PULSE_GRAPH_STABLE_V3__ = true;
 
-  const esc = (v) => String(v == null ? '' : v).replace(/[&<>\"']/g, (m) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', "'": '&#39;'
+  const esc = v => String(v == null ? '' : v).replace(/[&<>\"']/g, m => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'
   }[m]));
-
-  const safeUrl = (v) => {
+  const safeUrl = v => {
     try {
-      const raw = String(v || '').trim();
-      if (!raw) return '';
-      const u = new URL(raw, location.href);
+      const u = new URL(String(v || '').trim(), location.href);
       return /^https?:$/.test(u.protocol) ? u.href : '';
     } catch (_) { return ''; }
   };
-
-  const num = (v, fallback = 0) => Number.isFinite(Number(v)) ? Number(v) : fallback;
-
-  const evidenceUrl = (e) => safeUrl(e && (
-    e.url || e.source_url || e.original_link || e.link || e.sourceUrl || e.href
-  ));
-
-  const edgeKind = (e) => {
-    const evidence = Array.isArray(e.evidence)
-      ? e.evidence.map(x => `${x.title || ''} ${x.source || ''} ${x.source_name || ''}`).join(' ')
-      : '';
-    const t = String(`${e.relationship || e.type || e.category || e.topic || e.label || ''} ${evidence}`).toLowerCase();
-    if (/oil|crude|petroleum|lng|natural gas|energy|opec|brent|wti|pipeline/.test(t)) return 'oil';
-    if (/rare earth|lithium|cobalt|critical mineral|mineral|nickel|uranium|critical resource/.test(t)) return 'resource';
-    if (/economic|trade|market|finance|investment|currency|supply|shipping|commodity|tariff|inflation|gdp/.test(t)) return 'economic';
-    if (/military|defense|weapons|troop|missile|conflict|war|airstrike|drone/.test(t)) return 'military';
-    if (/politic|government|election|diplomacy|treaty|sanction|alliance|president|congress|senate/.test(t)) return 'political';
-    return 'connection';
-  };
+  const num = (v, d = 0) => Number.isFinite(Number(v)) ? Number(v) : d;
 
   const COLORS = {
-    country: '#5da8ff', actor: '#5da8ff', political: '#b58cff',
-    economic: '#ffc857', resource: '#39df88', strategic: '#48d9ff',
-    military: '#ff5f73', oil: '#ff922e', connection: '#5d8dca'
+    country:'#5da8ff', actor:'#5da8ff', political:'#b58cff', economic:'#ffc857',
+    resource:'#39df88', military:'#ff5f73', strategic:'#48d9ff', oil:'#ff922e', connection:'#5d8dca'
   };
-
   const COUNTRY_NAMES = new Set([
-    'United States', 'China', 'Russia', 'Ukraine', 'Iran', 'Israel', 'Palestinians',
-    'Saudi Arabia', 'Turkey', 'India', 'Pakistan', 'Taiwan', 'North Korea', 'South Korea',
-    'Japan', 'United Kingdom', 'Mexico', 'Canada', 'Brazil', 'Venezuela', 'Colombia',
-    'Haiti', 'Sudan', 'Democratic Republic of Congo', 'Somalia', 'Nigeria', 'Sahel',
-    'Yemen', 'Syria', 'Iraq', 'Lebanon', 'Egypt', 'Ethiopia', 'Kenya', 'Libya',
-    'Mali', 'Niger', 'Chad', 'Myanmar', 'Bangladesh', 'Sri Lanka', 'Nepal', 'Afghanistan'
+    'United States','China','Russia','Ukraine','Iran','Israel','Palestinians','Saudi Arabia','Turkey',
+    'India','Pakistan','Taiwan','North Korea','South Korea','Japan','United Kingdom','Mexico','Canada',
+    'Brazil','Venezuela','Colombia','Haiti','Sudan','Democratic Republic of Congo','Somalia','Nigeria',
+    'Sahel','Yemen','Syria','Iraq','Lebanon','Egypt','Ethiopia','Kenya','Libya','Mali','Niger','Chad',
+    'Myanmar','Bangladesh','Sri Lanka','Nepal','Afghanistan'
   ]);
 
-  const nodeKind = (node) => {
-    const k = String(node.kind || node.type || 'actor').toLowerCase();
-    const label = String(node.label || node.name || node.id || '');
+  function kindOf(n) {
+    const k = String(n.kind || n.type || 'actor').toLowerCase();
+    const label = String(n.label || n.name || n.id || '');
     if (COUNTRY_NAMES.has(label) || /country|nation|state/.test(k)) return 'country';
     if (/economic|market|company|finance/.test(k)) return 'economic';
     if (/resource|oil|energy|mineral/.test(k)) return 'resource';
@@ -66,409 +42,267 @@
     if (/political|government/.test(k)) return 'political';
     if (/strategic/.test(k)) return 'strategic';
     return k === 'actor' ? 'actor' : k;
-  };
+  }
 
-  function loadGraphLibrary() {
+  function edgeKind(e) {
+    const evidence = Array.isArray(e.evidence) ? e.evidence.map(x =>
+      `${x.title || ''} ${x.source || ''} ${x.source_name || ''}`
+    ).join(' ') : '';
+    const t = `${e.relationship || e.type || e.category || e.topic || e.label || ''} ${evidence}`.toLowerCase();
+    if (/oil|crude|petroleum|lng|natural gas|energy|opec|brent|wti|pipeline/.test(t)) return 'oil';
+    if (/rare earth|lithium|cobalt|critical mineral|mineral|nickel|uranium|critical resource/.test(t)) return 'resource';
+    if (/economic|trade|market|finance|investment|currency|supply|shipping|commodity|tariff|inflation|gdp/.test(t)) return 'economic';
+    if (/military|defense|weapons|troop|missile|conflict|war|airstrike|drone/.test(t)) return 'military';
+    if (/politic|government|election|diplomacy|treaty|sanction|alliance|president|congress|senate/.test(t)) return 'political';
+    return 'connection';
+  }
+
+  function makeData(raw) {
+    const rn = Array.isArray(raw.nodes) ? raw.nodes : [];
+    const re = Array.isArray(raw.edges) ? raw.edges : [];
+    const nodes = rn.map((n, i) => {
+      const label = String(n.label || n.name || n.id || `Node ${i + 1}`);
+      const kind = kindOf(Object.assign({}, n, { label }));
+      return Object.assign({}, n, {
+        id:String(n.id || label), label, __kind:kind,
+        __color:COLORS[kind] || COLORS.connection,
+        __mentions:Math.max(0, num(n.mentions, 0))
+      });
+    });
+    const ids = new Set(nodes.map(n => n.id));
+    const byLabel = new Map(nodes.map(n => [n.label, n.id]));
+    const links = re.map(e => {
+      const a0 = String(e.source || e.from || '');
+      const b0 = String(e.target || e.to || '');
+      const source = ids.has(a0) ? a0 : byLabel.get(a0);
+      const target = ids.has(b0) ? b0 : byLabel.get(b0);
+      if (!source || !target || source === target) return null;
+      const k = edgeKind(e);
+      return Object.assign({}, e, {
+        source, target, __kind:k, __color:COLORS[k] || COLORS.connection,
+        __weight:Math.max(1, num(e.weight, 1))
+      });
+    }).filter(Boolean);
+    return { nodes, links };
+  }
+
+  function evidenceUrl(e) {
+    return safeUrl(e && (e.url || e.source_url || e.original_link || e.link || e.sourceUrl || e.href));
+  }
+
+  function loadLibrary(timeoutMs = 9000) {
     if (window.ForceGraph3D) return Promise.resolve(window.ForceGraph3D);
     return new Promise((resolve, reject) => {
-      const existing = document.querySelector('script[data-global-pulse-3d-graph]');
+      let done = false;
+      const finish = (fn, value) => { if (done) return; done = true; clearTimeout(timer); fn(value); };
+      const existing = document.querySelector('script[data-gp-force-graph]');
+      const onload = () => window.ForceGraph3D ? finish(resolve, window.ForceGraph3D) : finish(reject, new Error('3D renderer loaded without ForceGraph3D'));
+      const onerror = () => finish(reject, new Error('3D renderer CDN unavailable'));
+      const timer = setTimeout(() => finish(reject, new Error('3D renderer timed out')), timeoutMs);
       if (existing) {
-        existing.addEventListener('load', () => window.ForceGraph3D ? resolve(window.ForceGraph3D) : reject(new Error('3D graph library loaded without ForceGraph3D')));
-        existing.addEventListener('error', () => reject(new Error('3D graph library failed to load')));
+        existing.addEventListener('load', onload, { once:true });
+        existing.addEventListener('error', onerror, { once:true });
+        if (window.ForceGraph3D) onload();
         return;
       }
       const s = document.createElement('script');
       s.src = 'https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js';
       s.async = true;
-      s.dataset.globalPulse3dGraph = '1';
-      s.onload = () => window.ForceGraph3D ? resolve(window.ForceGraph3D) : reject(new Error('ForceGraph3D unavailable'));
-      s.onerror = () => reject(new Error('Unable to load 3D graph renderer'));
+      s.dataset.gpForceGraph = '1';
+      s.onload = onload; s.onerror = onerror;
       document.head.appendChild(s);
     });
   }
 
-  function makeData(raw) {
-    const rawNodes = Array.isArray(raw.nodes) ? raw.nodes : [];
-    const rawEdges = Array.isArray(raw.edges) ? raw.edges : [];
-    const nodes = rawNodes.map((node, i) => {
-      const label = String(node.label || node.name || node.id || `Node ${i + 1}`);
-      const kind = nodeKind(Object.assign({}, node, { label }));
-      return Object.assign({}, node, {
-        id: String(node.id || label),
-        label,
-        __kind: kind,
-        __color: COLORS[kind] || COLORS.connection,
-        __mentions: Math.max(0, num(node.mentions, 0))
-      });
-    });
-
-    const ids = new Set(nodes.map(x => x.id));
-    const labels = new Map(nodes.map(x => [x.label, x.id]));
-    const links = rawEdges.map((edge) => {
-      const sourceRaw = String(edge.source || edge.from || '');
-      const targetRaw = String(edge.target || edge.to || '');
-      const source = ids.has(sourceRaw) ? sourceRaw : labels.get(sourceRaw);
-      const target = ids.has(targetRaw) ? targetRaw : labels.get(targetRaw);
-      if (!source || !target || source === target) return null;
-      const kind = edgeKind(edge);
-      return Object.assign({}, edge, {
-        source,
-        target,
-        __kind: kind,
-        __color: COLORS[kind] || COLORS.connection,
-        __weight: Math.max(1, num(edge.weight, 1))
-      });
-    }).filter(Boolean);
-
-    return { nodes, links };
-  }
-
-  function installStyle() {
-    if (document.getElementById('gp-intel-web-style-v2')) return;
-    const style = document.createElement('style');
-    style.id = 'gp-intel-web-style-v2';
-    style.textContent = `
-      #gp-intel-web.gp-v2{position:relative;overflow:hidden}
-      #gp-intel-web.gp-v2 .gp-web-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:12px}
-      #gp-intel-web.gp-v2 .gp-web-kicker{font-size:10px;letter-spacing:.18em;color:#5da8ff;font-weight:900;margin-bottom:5px}
-      #gp-intel-web.gp-v2 h2{margin:0;font-size:18px;letter-spacing:.12em;font-weight:950}
-      #gp-intel-web.gp-v2 .gp-web-sub{margin-top:6px;max-width:720px;color:var(--muted);font-size:10px;line-height:1.55}
-      #gp-intel-web.gp-v2 .gp-web-count{text-align:right;white-space:nowrap;color:#dcecff;font-size:11px;font-weight:850}
-      #gp-intel-web.gp-v2 .gp-web-count b{color:#5da8ff;font-size:15px}
-      #gp-intel-web.gp-v2 .gp-web-legend{display:flex;gap:10px 15px;flex-wrap:wrap;margin:9px 0 11px;padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:rgba(5,13,21,.7)}
-      #gp-intel-web.gp-v2 .gp-web-legend span{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:9px;font-weight:750}
-      #gp-intel-web.gp-v2 .gp-web-legend i{width:8px;height:8px;border-radius:50%;box-shadow:0 0 8px currentColor;display:inline-block}
-      #gp-intel-web.gp-v2 .gp-web-controls{display:grid;grid-template-columns:minmax(0,1fr) 190px auto auto;gap:8px;margin:9px 0}
-      #gp-intel-web.gp-v2 .gp-web-controls input,#gp-intel-web.gp-v2 .gp-web-controls select,#gp-intel-web.gp-v2 .gp-web-controls button{min-height:39px}
-      #gp-intel-web.gp-v2 .gp-web-controls input,#gp-intel-web.gp-v2 .gp-web-controls select{background:#07111b;color:#eafff2;border:1px solid var(--line);border-radius:9px;padding:0 11px;outline:none}
-      #gp-intel-web.gp-v2 .gp-web-controls input:focus,#gp-intel-web.gp-v2 .gp-web-controls select:focus{border-color:#5da8ff;box-shadow:0 0 0 2px #5da8ff18}
-      #gp-intel-web.gp-v2 .gp-web-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:7px 0 8px}
-      #gp-intel-web.gp-v2 .gp-live{display:inline-flex;align-items:center;gap:6px;color:#7f9f91;font-size:8px;letter-spacing:.1em;font-weight:850}
-      #gp-intel-web.gp-v2 .gp-live-dot{width:7px;height:7px;border-radius:50%;background:#39ff88;box-shadow:0 0 10px #39ff88;animation:gpPulse 1.8s infinite}
-      @keyframes gpPulse{0%,100%{opacity:.65;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
-      #gp-intel-web.gp-v2 .gp-web-stage{position:relative;height:650px;min-height:450px;border:1px solid #193046;border-radius:15px;overflow:hidden;background:radial-gradient(circle at 50% 46%,rgba(19,55,82,.28),rgba(2,8,14,.98) 62%);box-shadow:inset 0 0 100px rgba(0,0,0,.6),0 12px 40px rgba(0,0,0,.25)}
-      #gp-intel-web.gp-v2 .gp-web-stage:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(rgba(93,168,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(93,168,255,.025) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
-      #gp-intel-web.gp-v2 .gp-canvas{position:absolute;inset:0}
-      #gp-intel-web.gp-v2 .gp-canvas canvas{display:block;width:100%!important;height:100%!important;touch-action:none}
-      #gp-intel-web.gp-v2 .gp-label-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-      #gp-intel-web.gp-v2 .gp-node-label{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;display:flex;align-items:center;gap:5px;padding:3px 6px;border:1px solid rgba(100,160,210,.22);border-radius:6px;background:rgba(1,7,12,.76);box-shadow:0 4px 16px rgba(0,0,0,.25);font-size:9px;line-height:1;color:#dcecff;text-shadow:0 1px 2px #000;backdrop-filter:blur(4px);transition:opacity .12s,transform .12s,border-color .12s,box-shadow .12s}
-      #gp-intel-web.gp-v2 .gp-node-label .gp-label-dot{width:6px;height:6px;border-radius:50%;flex:0 0 6px;box-shadow:0 0 8px currentColor}
-      #gp-intel-web.gp-v2 .gp-node-label .gp-label-count{color:#7f9f91;font-size:8px;margin-left:1px}
-      #gp-intel-web.gp-v2 .gp-node-label.gp-selected{border-color:#fff;box-shadow:0 0 18px rgba(93,168,255,.35);transform:translate(-50%,-50%) scale(1.08);z-index:5}
-      #gp-intel-web.gp-v2 .gp-node-label.gp-dim{opacity:.16}
-      #gp-intel-web.gp-v2 .gp-node-label.gp-near{border-color:rgba(93,168,255,.65);opacity:1}
-      #gp-intel-web.gp-v2 .gp-reticle{position:absolute;left:50%;top:50%;width:22px;height:22px;transform:translate(-50%,-50%);border:1px solid rgba(93,168,255,.13);border-radius:50%;pointer-events:none}
-      #gp-intel-web.gp-v2 .gp-reticle:before,#gp-intel-web.gp-v2 .gp-reticle:after{content:"";position:absolute;background:rgba(93,168,255,.12)}
-      #gp-intel-web.gp-v2 .gp-reticle:before{width:1px;height:42px;left:10px;top:-11px}.gp-reticle:after{height:1px;width:42px;left:-11px;top:10px}
-      #gp-intel-web.gp-v2 .gp-stage-hud{position:absolute;left:12px;bottom:11px;display:flex;gap:7px;pointer-events:none}
-      #gp-intel-web.gp-v2 .gp-stage-chip{padding:5px 8px;border:1px solid rgba(93,168,255,.18);border-radius:999px;background:rgba(2,9,15,.72);color:#7f9f91;font-size:8px;letter-spacing:.06em;backdrop-filter:blur(6px)}
-      #gp-intel-web.gp-v2 .gp-detail{margin-top:10px;border:1px solid var(--line);border-radius:13px;background:rgba(4,12,19,.82);padding:13px;min-height:74px}
-      #gp-intel-web.gp-v2 .gp-detail-empty{color:var(--muted);font-size:10px;line-height:1.55}
-      #gp-intel-web.gp-v2 .gp-detail-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-      #gp-intel-web.gp-v2 .gp-detail-name{font-size:17px;font-weight:950;letter-spacing:-.01em}
-      #gp-intel-web.gp-v2 .gp-detail-kind{font-size:8px;letter-spacing:.12em;color:#7f9f91;text-transform:uppercase;margin-top:4px}
-      #gp-intel-web.gp-v2 .gp-detail-metrics{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-      #gp-intel-web.gp-v2 .gp-metric{border:1px solid var(--line);border-radius:8px;padding:5px 7px;text-align:center;min-width:62px}
-      #gp-intel-web.gp-v2 .gp-metric b{display:block;color:#eafff2;font-size:12px}.gp-metric span{display:block;color:#7f9f91;font-size:7px;text-transform:uppercase;letter-spacing:.08em;margin-top:1px}
-      #gp-intel-web.gp-v2 .gp-detail-summary{margin-top:9px;color:#a8bdb4;font-size:10px;line-height:1.5}
-      #gp-intel-web.gp-v2 .gp-connections{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:6px;margin-top:9px}
-      #gp-intel-web.gp-v2 .gp-connection{padding:7px 8px;border:1px solid rgba(93,168,255,.13);border-radius:8px;background:#07111a;cursor:pointer;text-align:left;color:#dcecff}
-      #gp-intel-web.gp-v2 .gp-connection:hover{border-color:#5da8ff55}
-      #gp-intel-web.gp-v2 .gp-connection strong{font-size:9px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      #gp-intel-web.gp-v2 .gp-connection small{font-size:8px;color:#7f9f91}
-      #gp-intel-web.gp-v2 .gp-evidence-list{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}
-      #gp-intel-web.gp-v2 .gp-evidence-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:7px 0;border-bottom:1px solid rgba(21,48,38,.65)}
-      #gp-intel-web.gp-v2 .gp-evidence-title{font-size:9px;line-height:1.35;color:#dcecff}.gp-evidence-source{font-size:8px;color:#7f9f91;margin-top:2px}
-      #gp-intel-web.gp-v2 .gp-evidence-open{align-self:center;padding:5px 7px;border:1px solid rgba(93,168,255,.28);border-radius:7px;background:transparent;color:#5da8ff;font-size:8px;font-weight:850;text-decoration:none}
-      #gp-intel-web.gp-v2 .gp-web-note{margin-top:9px;color:#6f8b82;font-size:8px;line-height:1.5}
-      @media(max-width:700px){
-        #gp-intel-web.gp-v2 .gp-web-head{display:block}.gp-web-count{text-align:left!important;margin-top:7px}
-        #gp-intel-web.gp-v2 .gp-web-controls{grid-template-columns:1fr 1fr}.gp-web-controls input{grid-column:1/-1}
-        #gp-intel-web.gp-v2 .gp-web-stage{height:570px;min-height:430px}
-        #gp-intel-web.gp-v2 .gp-node-label{font-size:8px;padding:3px 5px}.gp-label-count{display:none!important}
-        #gp-intel-web.gp-v2 .gp-detail-top{display:block}.gp-detail-metrics{justify-content:flex-start!important;margin-top:8px}
-      }
+  function installCss() {
+    if (document.getElementById('gp-intel-web-stable-css')) return;
+    const s = document.createElement('style');
+    s.id = 'gp-intel-web-stable-css';
+    s.textContent = `
+      #gp-intel-web.gp-stable{position:relative;overflow:hidden}
+      #gp-intel-web.gp-stable .gp-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:12px}
+      #gp-intel-web.gp-stable .gp-kicker{font-size:9px;letter-spacing:.2em;color:#5da8ff;font-weight:900;margin-bottom:5px}
+      #gp-intel-web.gp-stable h2{margin:0;font-size:18px;letter-spacing:.12em;font-weight:950}
+      #gp-intel-web.gp-stable .gp-sub{margin-top:6px;max-width:720px;color:var(--muted);font-size:10px;line-height:1.55}
+      #gp-intel-web.gp-stable .gp-count{text-align:right;white-space:nowrap;color:#dcecff;font-size:10px;font-weight:800}.gp-count b{font-size:15px;color:#5da8ff}
+      #gp-intel-web.gp-stable .gp-legend{display:flex;flex-wrap:wrap;gap:8px 14px;padding:9px 10px;margin:9px 0;border:1px solid var(--line);border-radius:10px;background:rgba(4,12,20,.75)}
+      #gp-intel-web.gp-stable .gp-legend span{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-size:8px;font-weight:750}.gp-legend i{width:7px;height:7px;border-radius:50%;box-shadow:0 0 8px currentColor}
+      #gp-intel-web.gp-stable .gp-controls{display:grid;grid-template-columns:minmax(0,1fr) 170px auto auto;gap:7px;margin:8px 0}
+      #gp-intel-web.gp-stable .gp-controls input,#gp-intel-web.gp-stable .gp-controls select,#gp-intel-web.gp-stable .gp-controls button{min-height:37px}
+      #gp-intel-web.gp-stable .gp-controls input,#gp-intel-web.gp-stable .gp-controls select{background:#07111b;color:#eafff2;border:1px solid var(--line);border-radius:8px;padding:0 10px;outline:0}
+      #gp-intel-web.gp-stable .gp-controls button,#gp-intel-web.gp-stable .gp-orbit{background:#091522;color:#dcecff;border:1px solid var(--line);border-radius:8px;padding:0 10px;font-size:8px;font-weight:900;letter-spacing:.06em}
+      #gp-intel-web.gp-stable .gp-controls button:hover,#gp-intel-web.gp-stable .gp-orbit:hover{border-color:#5da8ff;color:#5da8ff}
+      #gp-intel-web.gp-stable .gp-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0 8px}.gp-live{font-size:8px;letter-spacing:.1em;color:#7f9f91;font-weight:850}.gp-live:before{content:'';display:inline-block;width:6px;height:6px;margin-right:5px;border-radius:50%;background:#39ff88;box-shadow:0 0 9px #39ff88}
+      #gp-intel-web.gp-stable .gp-stage{position:relative;height:620px;border:1px solid #193046;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(17,52,78,.32),#02080e 68%);box-shadow:inset 0 0 100px rgba(0,0,0,.58)}
+      #gp-intel-web.gp-stable .gp-stage:before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(rgba(93,168,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(93,168,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 92%)}
+      #gp-intel-web.gp-stable .gp-canvas{position:absolute;inset:0}.gp-canvas canvas{display:block!important;width:100%!important;height:100%!important;touch-action:none}
+      #gp-intel-web.gp-stable .gp-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.gp-node-label{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:5px;white-space:nowrap;padding:3px 6px;border:1px solid rgba(120,170,215,.25);border-radius:6px;background:rgba(1,7,12,.78);color:#e4efff;font-size:9px;line-height:1;box-shadow:0 3px 14px rgba(0,0,0,.28);backdrop-filter:blur(4px);text-shadow:0 1px 2px #000}.gp-node-label i{width:6px;height:6px;border-radius:50%;box-shadow:0 0 8px currentColor}.gp-node-label small{color:#7f9f91;font-size:7px}.gp-node-label.dim{opacity:.16}.gp-node-label.near{border-color:#5da8ff88}.gp-node-label.selected{border-color:#fff;box-shadow:0 0 18px #5da8ff55;transform:translate(-50%,-50%) scale(1.06);z-index:5}
+      #gp-intel-web.gp-stable .gp-hud{position:absolute;left:10px;bottom:9px;display:flex;gap:6px;pointer-events:none}.gp-chip{padding:5px 7px;border:1px solid #5da8ff2e;border-radius:999px;background:#02090fc9;color:#7f9f91;font-size:7px;letter-spacing:.07em;backdrop-filter:blur(6px)}
+      #gp-intel-web.gp-stable .gp-detail{margin-top:9px;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(4,12,19,.9);min-height:70px}.gp-empty{font-size:10px;color:var(--muted);line-height:1.5}.gp-detail-top{display:flex;justify-content:space-between;gap:12px}.gp-detail-name{font-size:16px;font-weight:950}.gp-detail-kind{font-size:7px;color:#7f9f91;letter-spacing:.12em;text-transform:uppercase;margin-top:3px}.gp-metrics{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.gp-metric{min-width:58px;text-align:center;border:1px solid var(--line);border-radius:7px;padding:4px 6px}.gp-metric b{display:block;font-size:11px}.gp-metric span{display:block;font-size:7px;color:#7f9f91;text-transform:uppercase;letter-spacing:.08em}.gp-summary{margin-top:8px;color:#a8bdb4;font-size:9px;line-height:1.45}.gp-conns{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:6px;margin-top:8px}.gp-conn{border:1px solid #5da8ff20;background:#07111a;color:#dcecff;border-radius:7px;padding:7px;text-align:left;cursor:pointer}.gp-conn strong{display:block;font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gp-conn small{font-size:7px;color:#7f9f91}.gp-evidence{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}.gp-evidence-row{display:flex;justify-content:space-between;gap:7px;padding:6px 0;border-bottom:1px solid #153026}.gp-evidence-title{font-size:8px;line-height:1.3}.gp-evidence-source{font-size:7px;color:#7f9f91;margin-top:2px}.gp-open{align-self:center;border:1px solid #5da8ff45;border-radius:6px;padding:5px 6px;color:#5da8ff;font-size:7px;font-weight:900;text-decoration:none}.gp-error{height:100%;display:grid;place-items:center;text-align:center;padding:30px;color:#a8bdb4;font-size:10px}.gp-error b{display:block;color:#ff6678;margin-bottom:5px}.gp-fallback-list{display:grid;gap:5px;margin-top:10px;max-height:360px;overflow:auto}.gp-fallback-item{display:flex;justify-content:space-between;gap:8px;padding:7px 8px;border:1px solid #193046;border-radius:7px;background:#07111a}.gp-fallback-item strong{font-size:8px}.gp-fallback-item span{font-size:7px;color:#7f9f91}
+      @media(max-width:700px){#gp-intel-web.gp-stable .gp-head{display:block}.gp-count{text-align:left!important;margin-top:7px}.gp-controls{grid-template-columns:1fr 1fr!important}.gp-controls input{grid-column:1/-1}.gp-stage{height:520px!important}.gp-node-label{font-size:8px;padding:3px 5px}.gp-node-label small{display:none}.gp-detail-top{display:block}.gp-metrics{justify-content:flex-start;margin-top:7px}.gp-toolbar{align-items:flex-start!important;flex-direction:column}.gp-sub{max-width:none!important}}
     `;
-    document.head.appendChild(style);
+    document.head.appendChild(s);
   }
 
   function boot() {
     if (document.getElementById('gp-intel-web')) return true;
     const source = window.DATA && window.DATA.intelligenceGraph;
-    if (!source || !Array.isArray(source.nodes) || !Array.isArray(source.edges) || !source.nodes.length) return false;
+    if (!source || !Array.isArray(source.nodes) || !source.nodes.length) return false;
     const wrap = document.querySelector('.wrap');
     if (!wrap) return false;
+    installCss();
 
-    installStyle();
-
+    const data = makeData(source);
     const sec = document.createElement('section');
-    sec.className = 'panel wide gp-v2';
+    sec.className = 'panel wide gp-stable';
     sec.id = 'gp-intel-web';
     sec.innerHTML = `
-      <div class="gp-web-head">
-        <div>
-          <div class="gp-web-kicker">GLOBAL PULSE / NETWORK INTELLIGENCE</div>
-          <h2>INTELLIGENCE WEB</h2>
-          <div class="gp-web-sub">An evidence-linked network of countries, actors, political pressure, economic exposure, energy and military activity. Nodes are visible at all times; select one to expose its evidence trail and connected entities.</div>
-        </div>
-        <div class="gp-web-count"><b>${source.nodes.length}</b> nodes<br><span>${source.edges.length} evidence links</span></div>
-      </div>
-      <div class="gp-web-legend">
-        <span><i style="color:#5da8ff;background:#5da8ff"></i>Countries / actors</span>
-        <span><i style="color:#b58cff;background:#b58cff"></i>Politics</span>
-        <span><i style="color:#ffc857;background:#ffc857"></i>Economic</span>
-        <span><i style="color:#ff922e;background:#ff922e"></i>Oil / energy</span>
-        <span><i style="color:#39df88;background:#39df88"></i>Resources</span>
-        <span><i style="color:#ff5f73;background:#ff5f73"></i>Military</span>
-      </div>
-      <div class="gp-web-controls">
-        <input id="gp-web-search-v2" placeholder="Search country, actor, issue…" aria-label="Search intelligence web">
-        <select id="gp-web-kind-v2" aria-label="Filter intelligence web">
-          <option value="all">All categories</option><option value="country">Countries</option><option value="actor">Actors</option><option value="political">Politics</option><option value="economic">Economics</option><option value="resource">Resources</option><option value="military">Military</option><option value="strategic">Strategic</option>
-        </select>
-        <button id="gp-web-fit-v2" type="button">FIT NETWORK</button>
-        <button id="gp-web-reset-v2" type="button">RESET</button>
-      </div>
-      <div class="gp-web-toolbar">
-        <div class="gp-live"><span class="gp-live-dot"></span>LIVE 3D NETWORK · DRAG NODES · ROTATE · ZOOM</div>
-        <button id="gp-web-orbit-v2" type="button">AUTO ORBIT</button>
-      </div>
-      <div class="gp-web-stage" id="gp-web-stage-v2">
-        <div class="gp-canvas" id="gp-web-canvas-v2"></div>
-        <div class="gp-label-layer" id="gp-label-layer-v2"></div>
-        <div class="gp-reticle"></div>
-        <div class="gp-stage-hud"><span class="gp-stage-chip">EVIDENCE GRAPH</span><span class="gp-stage-chip" id="gp-selected-chip">NO NODE SELECTED</span></div>
-      </div>
-      <div class="gp-detail" id="gp-web-detail-v2"><div class="gp-detail-empty">Select a node to inspect its network position, connected entities, mention volume and public evidence. Dragging a node changes its position without changing the underlying data.</div></div>
-      <div class="gp-web-note">Connections represent shared public reporting/evidence, not proof of causation, coordination or alliance. Node size reflects available mention volume. Labels are intentionally kept visible so the network can be understood without opening every point.</div>`;
+      <div class="gp-head"><div><div class="gp-kicker">GLOBAL PULSE / NETWORK INTELLIGENCE</div><h2>INTELLIGENCE WEB</h2><div class="gp-sub">Evidence-linked relationships across countries, politics, economics, energy, resources and military activity. Every point is visible; tap a point for its evidence trail.</div></div><div class="gp-count"><b>${data.nodes.length}</b> nodes<br>${data.links.length} evidence links</div></div>
+      <div class="gp-legend"><span><i style="background:#5da8ff;color:#5da8ff"></i>Countries / actors</span><span><i style="background:#b58cff;color:#b58cff"></i>Politics</span><span><i style="background:#ffc857;color:#ffc857"></i>Economic</span><span><i style="background:#ff922e;color:#ff922e"></i>Oil / energy</span><span><i style="background:#39df88;color:#39df88"></i>Resources</span><span><i style="background:#ff5f73;color:#ff5f73"></i>Military</span></div>
+      <div class="gp-controls"><input id="gp-search" placeholder="Search country, actor, issue…" aria-label="Search intelligence web"><select id="gp-kind"><option value="all">All categories</option><option value="country">Countries</option><option value="actor">Actors</option><option value="political">Politics</option><option value="economic">Economics</option><option value="resource">Resources</option><option value="military">Military</option><option value="strategic">Strategic</option></select><button id="gp-fit" type="button">FIT NETWORK</button><button id="gp-reset" type="button">RESET</button></div>
+      <div class="gp-toolbar"><div class="gp-live">3D NETWORK · DRAG · ROTATE · ZOOM</div><button class="gp-orbit" id="gp-orbit" type="button">AUTO ORBIT</button></div>
+      <div class="gp-stage" id="gp-stage"><div class="gp-canvas" id="gp-canvas"></div><div class="gp-labels" id="gp-labels"></div><div class="gp-hud"><span class="gp-chip" id="gp-selected-chip">NO NODE SELECTED</span><span class="gp-chip">LIVE DATA GRAPH</span></div></div>
+      <div class="gp-detail" id="gp-detail"><div class="gp-empty">Tap a node to inspect its network position, connections, mention volume and public evidence. Dragging changes only its visual position.</div></div>
+    `;
+    wrap.appendChild(sec);
 
-    const mapSection = document.getElementById('map') && document.getElementById('map').closest('section');
-    wrap.insertBefore(sec, mapSection || wrap.firstElementChild || null);
-
-    const canvas = sec.querySelector('#gp-web-canvas-v2');
-    const stage = sec.querySelector('#gp-web-stage-v2');
-    const labelsLayer = sec.querySelector('#gp-label-layer-v2');
-    const detail = sec.querySelector('#gp-web-detail-v2');
-    const search = sec.querySelector('#gp-web-search-v2');
-    const kind = sec.querySelector('#gp-web-kind-v2');
+    const canvas = sec.querySelector('#gp-canvas');
+    const labelsLayer = sec.querySelector('#gp-labels');
+    const stage = sec.querySelector('#gp-stage');
+    const detail = sec.querySelector('#gp-detail');
+    const search = sec.querySelector('#gp-search');
+    const kind = sec.querySelector('#gp-kind');
     const selectedChip = sec.querySelector('#gp-selected-chip');
-    const data = makeData(source);
-    let Graph = null;
-    let selected = null;
-    let hovered = null;
-    let orbitTimer = null;
-    let raf = 0;
+    let Graph = null, selected = null, activeData = data, orbitRaf = 0, labelRaf = 0, labelLoopOn = false, visible = true;
     let labelEls = new Map();
-    let activeData = { nodes: data.nodes.slice(), links: data.links.slice() };
 
-    function nodeById(id) { return data.nodes.find(n => n.id === String(id)); }
-
-    function linkEnds(link) {
-      return [typeof link.source === 'object' ? link.source.id : link.source, typeof link.target === 'object' ? link.target.id : link.target];
-    }
-
-    function filteredData() {
-      const q = String(search.value || '').toLowerCase().trim();
-      const k = kind.value;
-      const visible = data.nodes.filter(node => {
-        const hay = `${node.label} ${node.kind || ''} ${node.type || ''} ${node.description || ''}`.toLowerCase();
-        return (!q || hay.includes(q)) && (k === 'all' || node.__kind === k);
-      });
-      const set = new Set(visible.map(n => n.id));
-      return {
-        nodes: visible,
-        links: data.links.filter(link => {
-          const [a,b] = linkEnds(link); return set.has(String(a)) && set.has(String(b));
-        })
-      };
-    }
-
-    function setGraphData() {
-      activeData = filteredData();
-      if (!Graph) return;
-      Graph.graphData(activeData);
-      selected = activeData.nodes.some(n => selected && n.id === selected.id) ? selected : null;
-      updateLabels();
-      Graph.d3ReheatSimulation();
-      setTimeout(() => Graph.zoomToFit(650, 70), 30);
-      updateDetail(selected);
-    }
-
-    function makeLabel(node) {
-      const el = document.createElement('div');
-      el.className = 'gp-node-label';
-      el.innerHTML = `<span class="gp-label-dot" style="color:${node.__color};background:${node.__color}"></span><span>${esc(node.label)}</span><span class="gp-label-count">${node.__mentions ? `${esc(node.__mentions)}m` : ''}</span>`;
-      labelsLayer.appendChild(el);
-      labelEls.set(node.id, el);
-      return el;
-    }
+    const linkEnds = l => [typeof l.source === 'object' ? l.source.id : l.source, typeof l.target === 'object' ? l.target.id : l.target];
+    const nodeById = id => activeData.nodes.find(n => String(n.id) === String(id));
+    const connected = id => selected && activeData.links.some(l => { const [a,b] = linkEnds(l); return String(a)===String(selected.id)&&String(b)===String(id) || String(b)===String(selected.id)&&String(a)===String(id); });
 
     function rebuildLabels() {
       labelsLayer.innerHTML = '';
       labelEls = new Map();
-      activeData.nodes.forEach(makeLabel);
+      activeData.nodes.forEach(n => {
+        const el = document.createElement('div');
+        el.className = 'gp-node-label';
+        el.innerHTML = `<i style="background:${n.__color};color:${n.__color}"></i><span>${esc(n.label)}</span><small>${n.__mentions ? `${esc(n.__mentions)}m` : ''}</small>`;
+        labelsLayer.appendChild(el); labelEls.set(n.id, el);
+      });
     }
 
-    // Project a graph node into the label overlay without importing another THREE.js copy.
-    function project(node) {
-      if (!Graph || !node || !Number.isFinite(node.x) || !Number.isFinite(node.y) || !Number.isFinite(node.z)) return null;
+    function project(n) {
+      if (!Graph || !Number.isFinite(n.x) || !Number.isFinite(n.y) || !Number.isFinite(n.z)) return null;
       const cam = Graph.camera && Graph.camera();
       if (!cam || !cam.projectionMatrix || !cam.matrixWorldInverse) return null;
-      const p = cam.projectionMatrix.elements;
-      const v = cam.matrixWorldInverse.elements;
-      const x=node.x,y=node.y,z=node.z;
-      const vx=v[0]*x+v[4]*y+v[8]*z+v[12];
-      const vy=v[1]*x+v[5]*y+v[9]*z+v[13];
-      const vz=v[2]*x+v[6]*y+v[10]*z+v[14];
-      const vw=v[3]*x+v[7]*y+v[11]*z+v[15];
-      const cx=p[0]*vx+p[4]*vy+p[8]*vz+p[12]*vw;
-      const cy=p[1]*vx+p[5]*vy+p[9]*vz+p[13]*vw;
-      const cw=p[3]*vx+p[7]*vy+p[11]*vz+p[15]*vw;
-      if (!Number.isFinite(cw) || cw <= 0.05) return null;
-      const rect=stage.getBoundingClientRect();
-      return {x:(cx/cw*.5+.5)*rect.width,y:(-cy/cw*.5+.5)*rect.height,z:vz};
+      const p=cam.projectionMatrix.elements, v=cam.matrixWorldInverse.elements, x=n.x,y=n.y,z=n.z;
+      const vx=v[0]*x+v[4]*y+v[8]*z+v[12], vy=v[1]*x+v[5]*y+v[9]*z+v[13], vz=v[2]*x+v[6]*y+v[10]*z+v[14], vw=v[3]*x+v[7]*y+v[11]*z+v[15];
+      const cx=p[0]*vx+p[4]*vy+p[8]*vz+p[12]*vw, cy=p[1]*vx+p[5]*vy+p[9]*vz+p[13]*vw, cw=p[3]*vx+p[7]*vy+p[11]*vz+p[15]*vw;
+      if (!Number.isFinite(cw) || cw <= .05) return null;
+      const r=stage.getBoundingClientRect();
+      return {x:(cx/cw*.5+.5)*r.width,y:(-cy/cw*.5+.5)*r.height,z:vz};
     }
 
     function updateLabels() {
-      if (!Graph) return;
-      const visibleIds = new Set(activeData.nodes.map(n => n.id));
-      activeData.nodes.forEach(node => {
-        const el = labelEls.get(node.id) || makeLabel(node);
-        const pos = project(node);
-        if (!pos) { el.style.display='none'; return; }
-        el.style.display='flex';
-        el.style.left = `${pos.x}px`; el.style.top = `${pos.y + 15}px`;
-        const isSelected = selected && selected.id === node.id;
-        const isNear = selected && connectedToSelected(node.id);
-        el.classList.toggle('gp-selected', !!isSelected);
-        el.classList.toggle('gp-near', !!isNear);
-        el.classList.toggle('gp-dim', !!selected && !isSelected && !isNear);
-        el.style.opacity = pos.z > 0 ? (selected && !isSelected && !isNear ? '.14' : '1') : '.22';
-      });
-      Array.from(labelEls.keys()).forEach(id => { if (!visibleIds.has(id)) labelEls.get(id).remove(); });
-      raf = requestAnimationFrame(updateLabels);
-    }
-
-    function connectedToSelected(id) {
-      if (!selected) return false;
-      return activeData.links.some(l => {
-        const [a,b] = linkEnds(l); return String(a) === selected.id && String(b) === id || String(b) === selected.id && String(a) === id;
+      if (!Graph || !visible) return;
+      activeData.nodes.forEach(n => {
+        const el=labelEls.get(n.id); if(!el) return;
+        const pos=project(n); if(!pos){el.style.display='none';return;}
+        el.style.display='flex'; el.style.left=`${pos.x}px`; el.style.top=`${pos.y+15}px`;
+        const sel=!!selected&&String(selected.id)===String(n.id), near=!!connected(n.id);
+        el.classList.toggle('selected',sel); el.classList.toggle('near',near); el.classList.toggle('dim',!!selected&&!sel&&!near);
+        el.style.opacity=pos.z>0 ? (selected&&!sel&&!near?'.15':'1') : '.22';
       });
     }
 
-    function nodeConnections(node) {
-      return activeData.links.map(l => {
-        const [a,b] = linkEnds(l);
-        if (String(a) !== node.id && String(b) !== node.id) return null;
-        const other = String(a) === node.id ? nodeById(b) : nodeById(a);
-        if (!other) return null;
-        return { node: other, link: l };
-      }).filter(Boolean).sort((a,b) => num(b.link.__weight,1)-num(a.link.__weight,1));
+    function startLabelLoop() {
+      if (labelLoopOn) return;
+      labelLoopOn = true;
+      const tick = () => {
+        if (!labelLoopOn) { labelRaf=0; return; }
+        updateLabels();
+        labelRaf=requestAnimationFrame(tick);
+      };
+      labelRaf=requestAnimationFrame(tick);
     }
+    function stopLabelLoop() { labelLoopOn=false; if(labelRaf){cancelAnimationFrame(labelRaf);labelRaf=0;} }
 
-    function evidenceFor(node) {
-      const out=[]; const seen=new Set();
-      (Array.isArray(node.evidence) ? node.evidence : []).forEach(e => { const u=evidenceUrl(e); const key=u||e.title||JSON.stringify(e); if(!seen.has(key)){seen.add(key);out.push(e)} });
-      nodeConnections(node).forEach(({link}) => (Array.isArray(link.evidence)?link.evidence:[]).forEach(e => { const u=evidenceUrl(e); const key=u||e.title||JSON.stringify(e); if(!seen.has(key)){seen.add(key);out.push(e)} }));
+    function connections(n) {
+      return activeData.links.map(l=>{const[a,b]=linkEnds(l);if(String(a)!==String(n.id)&&String(b)!==String(n.id))return null;const other=nodeById(String(a)===String(n.id)?b:a);return other?{node:other,link:l}:null;}).filter(Boolean).sort((a,b)=>b.link.__weight-a.link.__weight);
+    }
+    function evidenceFor(n) {
+      const out=[],seen=new Set();
+      const add=e=>{const u=evidenceUrl(e),key=u||e.title||JSON.stringify(e);if(!seen.has(key)){seen.add(key);out.push(e);}};
+      (Array.isArray(n.evidence)?n.evidence:[]).forEach(add);
+      connections(n).forEach(x=>(Array.isArray(x.link.evidence)?x.link.evidence:[]).forEach(add));
       return out.slice(0,8);
     }
-
-    function updateDetail(node) {
-      if (!node) {
-        detail.innerHTML='<div class="gp-detail-empty">Select a node to inspect its network position, connected entities, mention volume and public evidence. Dragging a node changes its position without changing the underlying data.</div>';
-        selectedChip.textContent='NO NODE SELECTED';
-        return;
-      }
-      const connections=nodeConnections(node);
-      const evidence=evidenceFor(node);
-      selectedChip.textContent=node.label.toUpperCase().slice(0,26);
-      let html=`<div class="gp-detail-top"><div><div class="gp-detail-name">${esc(node.label)}</div><div class="gp-detail-kind">${esc(node.__kind)} · evidence-linked entity</div></div><div class="gp-detail-metrics"><div class="gp-metric"><b>${esc(node.__mentions||0)}</b><span>mentions</span></div><div class="gp-metric"><b>${connections.length}</b><span>connections</span></div><div class="gp-metric"><b>${evidence.length}</b><span>evidence</span></div></div></div>`;
-      if(node.description) html+=`<div class="gp-detail-summary">${esc(node.description)}</div>`;
-      if(connections.length){html+='<div class="gp-connections">';connections.slice(0,8).forEach(({node:other,link})=>{html+=`<button class="gp-connection" data-node-id="${esc(other.id)}"><strong>${esc(other.label)}</strong><small>${esc(edgeKind(link))} · weight ${esc(link.__weight)}</small></button>`});html+='</div>'}
-      if(evidence.length){html+='<div class="gp-evidence-list">';evidence.forEach(e=>{const u=evidenceUrl(e);html+=`<div class="gp-evidence-row"><div><div class="gp-evidence-title">${esc(e.title||'Public report')}</div><div class="gp-evidence-source">${esc(e.source||e.source_name||'Public source')}</div></div>${u?`<a class="gp-evidence-open" href="${esc(u)}" target="_blank" rel="noopener noreferrer">OPEN ↗</a>`:''}</div>`});html+='</div>'}
-      detail.innerHTML=html;
-      detail.querySelectorAll('[data-node-id]').forEach(btn=>btn.addEventListener('click',()=>selectNode(nodeById(btn.getAttribute('data-node-id')))));
+    function updateDetail(n) {
+      if(!n){detail.innerHTML='<div class="gp-empty">Tap a node to inspect its network position, connections, mention volume and public evidence.</div>';selectedChip.textContent='NO NODE SELECTED';return;}
+      const con=connections(n), ev=evidenceFor(n); selectedChip.textContent=n.label.toUpperCase().slice(0,25);
+      let h=`<div class="gp-detail-top"><div><div class="gp-detail-name">${esc(n.label)}</div><div class="gp-detail-kind">${esc(n.__kind)} · evidence-linked entity</div></div><div class="gp-metrics"><div class="gp-metric"><b>${esc(n.__mentions||0)}</b><span>mentions</span></div><div class="gp-metric"><b>${con.length}</b><span>connections</span></div><div class="gp-metric"><b>${ev.length}</b><span>evidence</span></div></div></div>`;
+      if(n.description)h+=`<div class="gp-summary">${esc(n.description)}</div>`;
+      if(con.length){h+='<div class="gp-conns">';con.slice(0,8).forEach(x=>{h+=`<button class="gp-conn" data-id="${esc(x.node.id)}"><strong>${esc(x.node.label)}</strong><small>${esc(edgeKind(x.link))} · weight ${esc(x.link.__weight)}</small></button>`});h+='</div>';}
+      if(ev.length){h+='<div class="gp-evidence">';ev.forEach(e=>{const u=evidenceUrl(e);h+=`<div class="gp-evidence-row"><div><div class="gp-evidence-title">${esc(e.title||'Public report')}</div><div class="gp-evidence-source">${esc(e.source||e.source_name||'Public source')}</div></div>${u?`<a class="gp-open" href="${esc(u)}" target="_blank" rel="noopener noreferrer">OPEN ↗</a>`:''}</div>`});h+='</div>';}
+      detail.innerHTML=h; detail.querySelectorAll('[data-id]').forEach(b=>b.addEventListener('click',()=>selectNode(nodeById(b.getAttribute('data-id')))));
     }
-
-    function selectNode(node) {
-      if (!node || !Graph) return;
-      selected=node;
-      updateDetail(node);
-      Graph.nodeColor(n => n.id === node.id ? '#ffffff' : (connectedToSelected(n.id) ? n.__color : '#203445'));
-      Graph.linkColor(l => { const [a,b]=linkEnds(l); return String(a)===node.id || String(b)===node.id ? (l.__color||'#5da8ff') : '#10202d'; });
-      Graph.linkOpacity(l => { const [a,b]=linkEnds(l); return String(a)===node.id || String(b)===node.id ? .9 : .1; });
-      Graph.linkWidth(l => { const [a,b]=linkEnds(l); return String(a)===node.id || String(b)===node.id ? Math.max(1.5,Math.min(5,l.__weight*.8)) : .35; });
-      const dist=55; const len=Math.hypot(node.x||0,node.y||0,node.z||0)||1; const ratio=(len+dist)/len;
-      Graph.cameraPosition({x:(node.x||0)*ratio,y:(node.y||0)*ratio,z:(node.z||0)*ratio},{x:node.x||0,y:node.y||0,z:node.z||0},900);
+    function selectNode(n) {
+      if(!n||!Graph)return;
+      selected=n; updateDetail(n);
+      Graph.nodeColor(x=>String(x.id)===String(n.id)?'#ffffff':(connected(x.id)?x.__color:'#203445'));
+      Graph.linkColor(l=>{const[a,b]=linkEnds(l);return String(a)===String(n.id)||String(b)===String(n.id)?l.__color:'#10202d';});
+      Graph.linkOpacity(l=>{const[a,b]=linkEnds(l);return String(a)===String(n.id)||String(b)===String(n.id)?.88:.08;});
+      Graph.linkWidth(l=>{const[a,b]=linkEnds(l);return String(a)===String(n.id)||String(b)===String(n.id)?Math.max(1.5,Math.min(5,l.__weight*.8)):.35;});
+      const d=55, len=Math.hypot(n.x||0,n.y||0,n.z||0)||1, r=(len+d)/len;
+      Graph.cameraPosition({x:(n.x||0)*r,y:(n.y||0)*r,z:(n.z||0)*r},{x:n.x||0,y:n.y||0,z:n.z||0},700);
       updateLabels();
     }
+    function clearSelection(){selected=null;updateDetail(null);if(!Graph)return;Graph.nodeColor(n=>n.__color).linkColor(l=>l.__color).linkOpacity(.48).linkWidth(l=>Math.max(.6,Math.min(3.5,l.__weight*.7)));updateLabels();}
+    function applyFilter(){
+      const q=String(search.value||'').trim().toLowerCase(), k=kind.value;
+      const keep=data.nodes.filter(n=>(!q||`${n.label} ${n.description||''} ${n.kind||''}`.toLowerCase().includes(q))&&(k==='all'||n.__kind===k));
+      const ids=new Set(keep.map(n=>n.id));
+      activeData={nodes:keep,links:data.links.filter(l=>ids.has(String(typeof l.source==='object'?l.source.id:l.source))&&ids.has(String(typeof l.target==='object'?l.target.id:l.target)))};
+      selected=null;updateDetail(null);rebuildLabels();if(Graph){Graph.graphData(activeData);Graph.d3ReheatSimulation();setTimeout(()=>Graph.zoomToFit(600,60),80);}updateLabels();
+    }
+    function stopOrbit(){if(orbitRaf){cancelAnimationFrame(orbitRaf);orbitRaf=0;}sec.querySelector('#gp-orbit').textContent='AUTO ORBIT';}
+    function startOrbit(){if(!Graph)return;stopOrbit();let a=0;const tick=()=>{if(!Graph||!visible){orbitRaf=0;return;}const c=Graph.camera(),p=c.position,dist=Math.max(480,Math.hypot(p.x,p.y,p.z));a+=.0018;Graph.cameraPosition({x:dist*Math.sin(a),y:p.y,z:dist*Math.cos(a)},{x:0,y:0,z:0},0);orbitRaf=requestAnimationFrame(tick);};sec.querySelector('#gp-orbit').textContent='STOP ORBIT';orbitRaf=requestAnimationFrame(tick);}
 
-    function clearSelection() {
-      selected=null; updateDetail(null);
-      Graph.nodeColor(n => n.__color).linkColor(l => l.__color).linkOpacity(.48).linkWidth(l => Math.max(.6,Math.min(3.5,l.__weight*.7)));
-      updateLabels();
+    function showFallback(message) {
+      const items=data.nodes.slice(0,40).map(n=>`<div class="gp-fallback-item"><strong>${esc(n.label)}</strong><span>${esc(n.__kind)} · ${esc(n.__mentions||0)} mentions</span></div>`).join('');
+      canvas.innerHTML=`<div class="gp-error"><div><b>3D NETWORK COULD NOT START</b>${esc(message)}<div class="gp-fallback-list">${items}</div></div></div>`;
     }
 
-    function startOrbit() {
-      if (!Graph) return;
-      stopOrbit();
-      let angle=0;
-      const tick=()=>{ if(!Graph || !orbitTimer) return; const cam=Graph.camera(),p=cam.position; const dist=Math.max(520,Math.hypot(p.x,p.y,p.z)); angle+=.0018; Graph.cameraPosition({x:dist*Math.sin(angle),y:p.y,z:dist*Math.cos(angle)},{x:0,y:0,z:0},0); orbitTimer=requestAnimationFrame(tick); };
-      orbitTimer=requestAnimationFrame(tick);
-      sec.querySelector('#gp-web-orbit-v2').classList.add('active');
+    function initGraph(){
+      loadLibrary().then(ForceGraph3D=>{
+        if(!document.body.contains(sec))return;
+        Graph=new ForceGraph3D(canvas,{controlType:'orbit',rendererConfig:{antialias:false,alpha:true,powerPreference:'high-performance'}})
+          .backgroundColor('#020812').showNavInfo(false).nodeId('id').nodeLabel(n=>`<b>${esc(n.label)}</b><br><span style="opacity:.7">${esc(n.__kind)} · ${esc(n.__mentions||0)} mentions</span>`)
+          .nodeColor(n=>n.__color).nodeVal(n=>Math.max(3,Math.min(22,3+Math.sqrt(Math.max(1,n.__mentions||1))*1.5))).nodeResolution(10)
+          .linkColor(l=>l.__color).linkOpacity(.48).linkWidth(l=>Math.max(.6,Math.min(3.5,l.__weight*.7)))
+          .linkDirectionalParticles(l=>Math.min(3,Math.max(0,Math.round(l.__weight)))).linkDirectionalParticleWidth(1)
+          .linkDirectionalParticleSpeed(l=>.0025+Math.min(.006,l.__weight*.0006)).enablePointerInteraction(true).enableNodeDrag(true)
+          .onNodeClick(selectNode).onNodeHover(n=>{canvas.style.cursor=n?'pointer':'grab';}).onNodeDragEnd(updateLabels)
+          .d3VelocityDecay(.5).d3AlphaDecay(.04).warmupTicks(35).cooldownTime(3500);
+        Graph.graphData(activeData);rebuildLabels();startLabelLoop();setTimeout(()=>Graph&&Graph.zoomToFit(600,60),120);
+      }).catch(err=>showFallback(err.message));
     }
-    function stopOrbit(){ if(orbitTimer){cancelAnimationFrame(orbitTimer);orbitTimer=null} sec.querySelector('#gp-web-orbit-v2').classList.remove('active'); }
 
-    loadGraphLibrary().then((ForceGraph3D) => {
-      Graph = new ForceGraph3D(canvas, { controlType: 'orbit' })
-        .backgroundColor('#020812')
-        .showNavInfo(false)
-        .nodeId('id')
-        .nodeLabel(node => `<b>${esc(node.label)}</b><br><span style="opacity:.7">${esc(node.__kind)} · ${esc(node.__mentions||0)} mentions</span>`)
-        .nodeColor(node => node.__color)
-        .nodeVal(node => Math.max(3, Math.min(28, 3 + Math.sqrt(Math.max(1,node.__mentions||1))*1.7)))
-        .nodeResolution(12)
-        .linkColor(link => link.__color)
-        .linkOpacity(.48)
-        .linkWidth(link => Math.max(.6, Math.min(3.5, link.__weight*.7)))
-        .linkDirectionalParticles(link => Math.min(4, Math.max(0, Math.round(link.__weight))))
-        .linkDirectionalParticleWidth(1.2)
-        .linkDirectionalParticleSpeed(link => .0025 + Math.min(.008,link.__weight*.0008))
-        .enablePointerInteraction(true)
-        .enableNodeDrag(true)
-        .onNodeClick(selectNode)
-        .onNodeHover(node => { hovered=node; canvas.style.cursor=node?'pointer':'grab'; })
-        .onNodeDragEnd(() => updateLabels())
-        .d3VelocityDecay(.38)
-        .d3AlphaDecay(.025)
-        .warmupTicks(80)
-        .cooldownTime(7000);
-
-      Graph.graphData(activeData);
-      rebuildLabels();
-      updateLabels();
-      setTimeout(() => Graph.zoomToFit(700,70), 100);
-    }).catch((err) => {
-      canvas.innerHTML=`<div style="display:grid;place-items:center;height:100%;padding:25px;text-align:center;color:#ff6678;font-size:11px">3D NETWORK UNAVAILABLE<br><span style="font-size:9px;color:#7f9f91">${esc(err.message)}</span></div>`;
-    });
-
-    search.addEventListener('input',setGraphData);
-    kind.addEventListener('change',setGraphData);
-    sec.querySelector('#gp-web-fit-v2').addEventListener('click',()=>Graph&&Graph.zoomToFit(800,75));
-    sec.querySelector('#gp-web-reset-v2').addEventListener('click',()=>{stopOrbit();clearSelection();if(Graph){Graph.zoomToFit(800,75);Graph.cameraPosition({x:0,y:0,z:750},{x:0,y:0,z:0},700)}});
-    sec.querySelector('#gp-web-orbit-v2').addEventListener('click',()=>orbitTimer?stopOrbit():startOrbit());
-    window.addEventListener('resize',()=>{if(Graph){Graph.width(stage.clientWidth).height(stage.clientHeight);updateLabels()}});
-    window.addEventListener('beforeunload',()=>{stopOrbit();if(raf)cancelAnimationFrame(raf)});
+    search.addEventListener('input',applyFilter);kind.addEventListener('change',applyFilter);
+    sec.querySelector('#gp-fit').addEventListener('click',()=>Graph&&Graph.zoomToFit(700,65));
+    sec.querySelector('#gp-reset').addEventListener('click',()=>{stopOrbit();search.value='';kind.value='all';activeData=data;clearSelection();rebuildLabels();if(Graph){Graph.graphData(data);Graph.d3ReheatSimulation();setTimeout(()=>Graph&&Graph.zoomToFit(700,65),80);}});
+    sec.querySelector('#gp-orbit').addEventListener('click',()=>orbitRaf?stopOrbit():startOrbit());
+    const ro=new ResizeObserver(()=>{if(Graph){Graph.width(stage.clientWidth).height(stage.clientHeight);updateLabels();}});ro.observe(stage);
+    const io=new IntersectionObserver(entries=>{const e=entries[0];visible=!!e&&e.isIntersecting;if(Graph){if(visible&&Graph.resumeAnimation)Graph.resumeAnimation();if(!visible&&Graph.pauseAnimation)Graph.pauseAnimation();}if(visible){startLabelLoop();}else{stopLabelLoop();stopOrbit();}}, {threshold:0.05});io.observe(sec);
+    window.addEventListener('beforeunload',()=>{stopOrbit();stopLabelLoop();ro.disconnect();io.disconnect();});
+    initGraph();
     return true;
   }
 
-  function waitForData() {
-    if (boot()) return;
-    document.addEventListener('globalpulse:dataready', () => boot(), { once: true });
-    let tries=0;
-    const timer=setInterval(()=>{ if(boot() || ++tries>30) clearInterval(timer); },1000);
+  function waitForData(){
+    if(boot())return;
+    document.addEventListener('globalpulse:dataready',()=>boot(),{once:true});
+    let tries=0;const t=setInterval(()=>{if(boot()||++tries>30)clearInterval(t);},1000);
   }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', waitForData, { once: true });
-  else waitForData();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',waitForData,{once:true});else waitForData();
 })();
