@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""Persistent no-key news/X RSS collector for Global Pulse."""
+"""Persistent no-key news/X RSS collector for Global Pulse.
+
+The collector uses the live source registry so every registered feed is actually
+polled. A reachable feed with zero entries is recorded as online-empty rather
+than silently looking healthy. For direct publisher feeds that return no entries,
+a GDELT domain mirror is attempted so useful public reporting is not discarded
+just because a publisher's RSS endpoint is sparse or temporarily incomplete.
+"""
 from __future__ import annotations
 import argparse,html,json,re,sqlite3,time
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from datetime import datetime,timedelta,timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import quote,urlparse
 from urllib.request import Request,urlopen
 from xml.etree import ElementTree as ET
-ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';DB_PATH=ROOT/'news_feed.db';JSON_PATH=DATA/'live_articles.json';STATUS_PATH=DATA/'live_status.json';POLL_SECONDS=300;RETENTION_DAYS=7;MAX_WORKERS=15;FETCH_TIMEOUT=8;USER_AGENT='GlobalPulse/12.0 (+https://github.com/lifetimeballer1/global-pulse)'
-SOURCES={
-'cnn':{'name':'CNN','url':'https://rss.cnn.com/rss/edition.rss','type':'news','category':'international'},'fox_politics':{'name':'Fox News Politics','url':'https://moxie.foxnews.com/google-publisher/politics.xml','type':'news','category':'us-politics'},'npr_politics':{'name':'NPR Politics','url':'https://feeds.npr.org/1014/rss.xml','type':'news','category':'us-politics'},'bbc_world':{'name':'BBC World','url':'https://feeds.bbci.co.uk/news/world/rss.xml','type':'news','category':'international'},'guardian_world':{'name':'The Guardian World','url':'https://www.theguardian.com/world/rss','type':'news','category':'international'},'al_jazeera':{'name':'Al Jazeera','url':'https://www.aljazeera.com/xml/rss/all.xml','type':'news','category':'international'},'dw_world':{'name':'DW World','url':'https://rss.dw.com/xml/rss-en-world','type':'news','category':'international'},'france24':{'name':'France 24','url':'https://www.france24.com/en/rss','type':'news','category':'international'},'cna_world':{'name':'CNA World','url':'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311','type':'news','category':'international'},'stars_stripes':{'name':'Stars and Stripes','url':'https://subscribe.stripes.com/rss/top-news.xml','type':'news','category':'security'},'morse_audio':{'name':'Morse Report','url':'https://rss.buzzsprout.com/2637181.rss','type':'podcast','category':'us-politics'},'morse_site':{'name':'Morse Report — Google News','url':'https://news.google.com/rss/search?q=site%3Amorsereport.com&hl=en-US&gl=US&ceid=US%3Aen','type':'news-mirror','category':'us-politics'},'axios_politics':{'name':'Axios Politics','url':'https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Aaxios.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h','type':'news-mirror','category':'us-politics'},'cnn_politics':{'name':'CNN Politics','url':'https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h','type':'news-mirror','category':'us-politics'},'morse_report':{'name':'Morse Report — GDELT Mirror','url':'https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Amorsereport.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h','type':'news-mirror','category':'us-politics'}}
+ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';DB_PATH=ROOT/'news_feed.db';JSON_PATH=DATA/'live_articles.json';STATUS_PATH=DATA/'live_status.json';POLL_SECONDS=300;RETENTION_DAYS=7;MAX_WORKERS=15;FETCH_TIMEOUT=8;USER_AGENT='GlobalPulse/13.0 (+https://github.com/lifetimeballer1/global-pulse)'
+BUILTIN_SOURCES={
+'cnn':{'name':'CNN','url':'https://rss.cnn.com/rss/edition.rss','type':'news','category':'international'},'fox_politics':{'name':'Fox News Politics','url':'https://moxie.foxnews.com/google-publisher/politics.xml','type':'news','category':'us-politics'},'npr_politics':{'name':'NPR Politics','url':'https://feeds.npr.org/1014/rss.xml','type':'news','category':'us-politics'},'bbc_world':{'name':'BBC World','url':'https://feeds.bbci.co.uk/news/world/rss.xml','type':'news','category':'international'},'guardian_world':{'name':'Guardian World','url':'https://www.theguardian.com/world/rss','type':'news','category':'international'},'al_jazeera':{'name':'Al Jazeera','url':'https://www.aljazeera.com/xml/rss/all.xml','type':'news','category':'international'},'dw_world':{'name':'DW World','url':'https://rss.dw.com/xml/rss-en-world','type':'news','category':'international'},'france24':{'name':'France 24','url':'https://www.france24.com/en/rss','type':'news','category':'international'},'cna_world':{'name':'CNA World','url':'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311','type':'news','category':'international'},'stars_stripes':{'name':'Stars and Stripes','url':'https://subscribe.stripes.com/rss/top-news.xml','type':'news','category':'security'},'morse_audio':{'name':'Morse Report','url':'https://rss.buzzsprout.com/2637181.rss','type':'podcast','category':'us-politics'}}
 X_ACCOUNTS={'NASA':'NASA','WhiteHouse':'White House','POTUS':'POTUS','NATO':'NATO','UN':'United Nations'}
 def utc_now():return datetime.now(timezone.utc)
 def iso_now():return utc_now().isoformat()
@@ -46,7 +54,7 @@ def parse_feed(payload,source_id,meta):
   title=clean(node_text(item,'title','{http://www.w3.org/2005/Atom}title'),300);link=node_link(item);summary=clean(node_text(item,'description','summary','content','{http://www.w3.org/2005/Atom}summary','{http://www.w3.org/2005/Atom}content'),900);pub=node_text(item,'pubDate','published','updated','{http://www.w3.org/2005/Atom}published','{http://www.w3.org/2005/Atom}updated');author=clean(node_text(item,'author','{http://purl.org/dc/elements/1.1/}creator','{http://www.w3.org/2005/Atom}author'),160)
   if not link:continue
   if not title:title=f"Update from {meta['name']}"
-  rows.append({'url':link,'title':title,'published_date':parse_date(pub),'summary_snippet':summary,'source_name':meta['name'],'source_type':meta['type'],'category':meta['category'],'author':author,'username':'','credit_metadata':json.dumps({'sourceId':source_id,'sourceUrl':meta['url'],'feedFormat':'atom' if atom else 'rss'},ensure_ascii=False)})
+  rows.append({'url':link,'title':title,'published_date':parse_date(pub),'summary_snippet':summary,'source_name':meta['name'],'source_type':meta.get('type','news'),'category':meta.get('category','general'),'author':author,'username':'','credit_metadata':json.dumps({'sourceId':source_id,'sourceUrl':meta['url'],'feedFormat':'atom' if atom else 'rss'},ensure_ascii=False)})
  return rows
 def fetch(url):
  req=Request(url,headers={'User-Agent':USER_AGENT,'Accept':'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8'})
@@ -63,6 +71,51 @@ def parse_x_account(handle,display_name):
    return rows
   except Exception as exc:last=exc
  raise RuntimeError(str(last) if last else 'X proxy unavailable')
+def load_sources():
+ """Load every registered feed, falling back to the built-in safety set."""
+ result={}
+ registry=DATA/'sources.json'
+ try:
+  doc=json.loads(registry.read_text(encoding='utf-8'))
+  for i,item in enumerate(doc.get('feeds',[])):
+   if not isinstance(item,dict) or not item.get('url') or not item.get('name'):continue
+   key=re.sub(r'[^a-z0-9]+','_',str(item['name']).lower()).strip('_') or f'feed_{i}'
+   base=key;n=2
+   while key in result:key=f'{base}_{n}';n+=1
+   result[key]={'name':str(item['name']),'url':str(item['url']),'type':str(item.get('type') or 'news'),'category':str(item.get('type') or 'general')}
+ except Exception:pass
+ for key,meta in BUILTIN_SOURCES.items():result.setdefault(key,meta)
+ return result
+def is_aggregator(url):
+ host=urlparse(url).netloc.lower()
+ return any(x in host for x in ('news.google.com','api.gdeltproject.org'))
+def domain_mirror_url(meta):
+ host=urlparse(meta['url']).netloc.lower().split(':')[0]
+ if not host or is_aggregator(meta['url']) or host.startswith('feeds.') or host.startswith('rss.') or host.startswith('subscribe.'):
+  return None
+ query=quote(f'domain:{host}',safe='')
+ return f'https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&format=rss&maxrecords=75&timespan=24h&sort=datedesc'
+def fetch_news_source(source_id,meta):
+ try:
+  rows=parse_feed(fetch(meta['url']),source_id,meta)
+  if rows:return rows,None,{'mode':'native','httpOk':True,'rowsFetched':len(rows),'empty':False}
+  mirror=domain_mirror_url(meta)
+  if mirror:
+   try:
+    fallback_meta=dict(meta);fallback_meta['url']=mirror
+    rows=parse_feed(fetch(mirror),source_id,fallback_meta)
+    for row in rows:
+     row['source_name']=meta['name'];row['source_type']=meta.get('type','news');row['category']=meta.get('category','general')
+     row['credit_metadata']=json.dumps({'sourceId':source_id,'sourceUrl':meta['url'],'fallback':'GDELT domain mirror','fallbackUrl':mirror,'originalSource':meta['name']},ensure_ascii=False)
+    if rows:return rows,None,{'mode':'gdelt-domain-fallback','httpOk':True,'rowsFetched':len(rows),'empty':False}
+   except Exception as fallback_exc:
+    return [],{'source':meta['name'],'error':f'empty native feed; GDELT fallback failed: {type(fallback_exc).__name__}: {fallback_exc}'[:240]},{'mode':'online-empty','httpOk':True,'rowsFetched':0,'empty':True}
+  return [],None,{'mode':'online-empty','httpOk':True,'rowsFetched':0,'empty':True}
+ except Exception as exc:return [],{'source':meta['name'],'error':f'{type(exc).__name__}: {exc}'[:240]},{'mode':'failed','httpOk':False,'rowsFetched':0,'empty':False}
+def fetch_x_source(handle,display_name):
+ try:
+  rows=parse_x_account(handle,display_name);return rows,None,{'mode':'native','httpOk':True,'rowsFetched':len(rows),'empty':not bool(rows)}
+ except Exception as exc:return [],{'source':f'X @{handle}','error':f'{type(exc).__name__}: {exc}'[:240]},{'mode':'failed','httpOk':False,'rowsFetched':0,'empty':False}
 def init_db(conn):
  conn.execute('PRAGMA journal_mode=WAL');conn.execute('PRAGMA busy_timeout=5000');conn.execute('CREATE TABLE IF NOT EXISTS articles (url TEXT PRIMARY KEY,title TEXT NOT NULL,published_date TEXT NOT NULL,summary_snippet TEXT DEFAULT \'\',source_name TEXT NOT NULL,source_type TEXT NOT NULL,category TEXT DEFAULT \'general\',author TEXT DEFAULT \'\',username TEXT DEFAULT \'\',credit_metadata TEXT DEFAULT \'{}\',fetched_at TEXT NOT NULL)');conn.execute('CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published_date DESC)');conn.execute('CREATE INDEX IF NOT EXISTS idx_articles_source ON articles(source_name)');conn.commit()
 def purge_old(conn):
@@ -82,29 +135,28 @@ def export_json(conn,limit=500):
   articles.append({'url':r[0],'title':r[1],'published_date':r[2],'summary_snippet':r[3],'source':r[4],'sourceType':r[5],'category':r[6],'author':r[7],'username':r[8],'credit':credit})
  return json.dumps({'updatedAt':iso_now(),'retentionDays':RETENTION_DAYS,'count':len(articles),'articles':articles},ensure_ascii=False,indent=2)+'\n'
 def write_export(conn):DATA.mkdir(exist_ok=True);JSON_PATH.write_text(export_json(conn),encoding='utf-8')
-def fetch_news_source(source_id,meta):
- try:return parse_feed(fetch(meta['url']),source_id,meta),None
- except Exception as exc:return [],{'source':meta['name'],'error':f'{type(exc).__name__}: {exc}'[:240]}
-def fetch_x_source(handle,display_name):
- try:return parse_x_account(handle,display_name),None
- except Exception as exc:return [],{'source':f'X @{handle}','error':f'{type(exc).__name__}: {exc}'[:240]}
 def run_cycle(conn):
- fetched_rows=[];errors=[];jobs=[]
+ sources=load_sources();fetched_rows=[];errors=[];source_results=[];jobs=[]
  with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
-  jobs += [pool.submit(fetch_news_source,source_id,meta) for source_id,meta in SOURCES.items()]
-  jobs += [pool.submit(fetch_x_source,handle,name) for handle,name in X_ACCOUNTS.items()]
-  for future in as_completed(jobs):
+  for source_id,meta in sources.items():jobs.append((source_id,meta,pool.submit(fetch_news_source,source_id,meta)))
+  for handle,name in X_ACCOUNTS.items():jobs.append((f'x:{handle}',{'name':f'X @{handle}','type':'social','category':'osint','url':''},pool.submit(fetch_x_source,handle,name)))
+  for source_id,meta,future in jobs:
    try:
-    rows,error=future.result();fetched_rows.extend(rows)
+    rows,error,telemetry=future.result();fetched_rows.extend(rows)
+    result={'sourceId':source_id,'name':meta['name'],'type':meta.get('type','news'),'category':meta.get('category','general'),'rowsFetched':len(rows),'httpOk':bool(telemetry.get('httpOk')),'mode':telemetry.get('mode'),'emptyFeed':bool(telemetry.get('empty')),'error':(error or {}).get('error','')}
+    source_results.append(result)
     if error:errors.append(error)
-   except Exception as exc:errors.append({'source':'collector-worker','error':f'{type(exc).__name__}: {exc}'[:240]})
- purged=purge_old(conn);added=upsert_articles(conn,fetched_rows);write_export(conn);count=conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0];total_sources=len(SOURCES)+len(X_ACCOUNTS);status={'updatedAt':iso_now(),'feedsChecked':total_sources,'rowsFetched':len(fetched_rows),'newArticles':added,'purged':purged,'databaseArticles':count,'healthySources':total_sources-len(errors),'failedSources':errors,'pollSeconds':POLL_SECONDS,'retentionDays':RETENTION_DAYS,'fetchTimeoutSeconds':FETCH_TIMEOUT};STATUS_PATH.write_text(json.dumps(status,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return status
+   except Exception as exc:
+    result={'sourceId':source_id,'name':meta['name'],'type':meta.get('type','news'),'category':meta.get('category','general'),'rowsFetched':0,'httpOk':False,'mode':'failed','emptyFeed':False,'error':f'{type(exc).__name__}: {exc}'[:240]};source_results.append(result);errors.append({'source':meta['name'],'error':result['error']})
+ purged=purge_old(conn);added=upsert_articles(conn,fetched_rows);write_export(conn);count=conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0];healthy=sum(1 for x in source_results if x['httpOk']);empty=sum(1 for x in source_results if x['httpOk'] and x['emptyFeed']);fallback=sum(1 for x in source_results if x['mode']=='gdelt-domain-fallback');total=len(source_results)
+ status={'updatedAt':iso_now(),'feedsChecked':total,'rowsFetched':len(fetched_rows),'newArticles':added,'purged':purged,'databaseArticles':count,'healthySources':healthy,'emptySources':empty,'fallbackSources':fallback,'failedSources':errors,'sourceResults':source_results,'pollSeconds':POLL_SECONDS,'retentionDays':RETENTION_DAYS,'fetchTimeoutSeconds':FETCH_TIMEOUT}
+ STATUS_PATH.write_text(json.dumps(status,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return status
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--once',action='store_true');args=parser.parse_args();DATA.mkdir(exist_ok=True);conn=sqlite3.connect(DB_PATH)
  try:
   init_db(conn)
   while True:
-   try:status=run_cycle(conn);print(json.dumps(status,ensure_ascii=False))
+   try:status=run_cycle(conn);print(json.dumps({'feedsChecked':status['feedsChecked'],'rowsFetched':status['rowsFetched'],'newArticles':status['newArticles'],'healthySources':status['healthySources'],'emptySources':status['emptySources'],'fallbackSources':status['fallbackSources'],'failedSources':len(status['failedSources'])},ensure_ascii=False))
    except Exception as exc:print(f'collector-cycle-error: {type(exc).__name__}: {exc}')
    if args.once:break
    time.sleep(POLL_SECONDS)
