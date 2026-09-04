@@ -1,8 +1,9 @@
 name: Deploy Global Pulse to GitHub Pages
 
+# The main refresh workflow owns scheduled collection and production deploys.
+# Keep this workflow manual-only so a plain push cannot deploy an older snapshot
+# in parallel with the data refresh pipeline.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,8 +22,6 @@ jobs:
       - name: Checkout exact workflow commit
         uses: actions/checkout@v4
         with:
-          # Pin the build to the commit that triggered this run. This prevents
-          # a newer concurrent push from making the run validate an older tree.
           ref: ${{ github.sha }}
 
       - name: Setup Python
@@ -30,8 +29,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Data collection happens in the dedicated refresh/regional workflows.
-      # Pages must remain deployable when an upstream OSINT provider is down.
       - name: Install map precision and photo layer
         run: python map_precision_photos.py
 
@@ -50,9 +47,6 @@ jobs:
           print(f'Total markers: {len(markers)}')
           print(f'Committed regional OSINT markers: {len(regional)}')
           print('Regional counts:', counts)
-          # Regional source-quality validation belongs to the collector.
-          # Pages only requires safe geometry so stale/partial upstream
-          # metadata cannot take the public dashboard offline.
           for m in regional:
               assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
           if counts:
@@ -62,15 +56,8 @@ jobs:
                   raise SystemExit(f'Incomplete regional count schema: {sorted(missing)}')
               if any(int(v or 0) < 0 for v in counts.values()):
                   raise SystemExit('Regional counts cannot be negative')
-          else:
-              print('Regional OSINT is awaiting its next collector commit; deploying existing committed map data.')
           html=Path('index.html').read_text(encoding='utf-8')
-          required_assets=(
-              'global_pulse_coverage_ui.js',
-              'global_pulse_intelligence.js',
-              'global_pulse_intelligence.css',
-              'GP-MAP-PRECISION-PHOTOS',
-          )
+          required_assets=('global_pulse_coverage_ui.js','global_pulse_intelligence.js','global_pulse_intelligence.css','GP-MAP-PRECISION-PHOTOS')
           for asset in required_assets:
               if asset not in html:
                   raise SystemExit(f'{asset} was not integrated')
@@ -81,23 +68,13 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          text = p.read_text(encoding='utf-8')
-          tags = [
-              '<link rel="stylesheet" href="global_pulse_intelligence.css">',
-              '<script src="global_pulse_coverage_ui.js"></script>',
-              '<script src="global_pulse_intelligence.js"></script>'
-          ]
+          p=Path('index.html'); text=p.read_text(encoding='utf-8')
+          tags=['<link rel="stylesheet" href="global_pulse_intelligence.css">','<script src="global_pulse_coverage_ui.js"></script>','<script src="global_pulse_intelligence.js"></script>']
           for tag in tags:
               if tag not in text:
-                  marker = '</body>'
-                  if marker in text:
-                      text = text.replace(marker, tag + '\n' + marker, 1)
-                  else:
-                      text += '\n' + tag + '\n'
-          p.write_text(text, encoding='utf-8')
-          for tag in tags:
-              print(tag, 'present' if tag in text else 'missing')
+                  marker='</body>'
+                  text=text.replace(marker,tag+'\n'+marker,1) if marker in text else text+'\n'+tag+'\n'
+          p.write_text(text,encoding='utf-8')
           PY
 
       - name: Validate Pages artifact inputs
