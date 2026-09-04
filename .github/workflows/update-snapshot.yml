@@ -93,7 +93,7 @@ jobs:
         run: python install_v27.py
       - name: Preserve canonical 2D map
         run: python install_map_v3.py
-      - name: Validate exact Intelligence Web artifacts
+      - name: Final syntax and data validation
         run: |
           set -euo pipefail
           python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py install_breaking_alerts.py
@@ -108,20 +108,23 @@ jobs:
           g=json.loads(Path('data/intelligence_graph.json').read_text())
           b=json.loads(Path('data/breaking_news.json').read_text())
           s=json.loads(Path('data/snapshot.json').read_text())
-          h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text(); main=Path('index.html').read_text()
+          m=s.get('marketData') or {}
+          h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text(); main=Path('index.html').read_text(); br=Path('global_pulse_breaking.js').read_text()
           assert len(g.get('nodes',[]))>=10, 'Intelligence Web has too few nodes'
           assert len(g.get('edges',[]))>=3, 'Intelligence Web has too few evidence-backed connections'
           assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
           assert g.get('updatedAt'), 'Intelligence Web timestamp missing'
           assert s.get('updatedAt'), 'Snapshot timestamp missing'
-          assert 'data/snapshot.json' in j and 'data/intelligence_graph.json' in j
-          assert 'OPEN ORIGINAL SOURCE' in j and 'WHY THIS NODE IS CONNECTED' in j
-          assert 'ForceGraph3D' in h and 'intelligence_web_v2.js?v=' in h
-          assert 'z-index:1000' in h and 'control-toggle' in h
-          assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in Path('global_pulse_breaking.js').read_text()
-          print('INTELLIGENCE WEB VALID:',len(g['nodes']),'nodes /',len(g['edges']),'connections / updated',g['updatedAt'])
-          print('SNAPSHOT VALID: updated',s['updatedAt'])
-          print('BREAKING INTEL VALID:',len(b.get('articles',[])),'rapid discoveries / updated',b.get('updatedAt'))
+          assert len(m.get('indicators',[]))>=5, 'Market dataset is empty/incomplete'
+          assert 'id="graph"' in h and 'intelligence_web_v2.js?v=' in h and 'data/intelligence_graph.json' in h
+          assert 'function close(' in j and 'WHY THIS NODE IS CONNECTED' in j and 'SOURCES FOR THIS NODE' in j and 'OPEN ORIGINAL SOURCE' in j
+          assert 'control-toggle' in h
+          assert 'global_pulse_breaking.js?v=' in main and 'gp-breaking' in br
+          print('FINAL VALIDATION PASSED')
+          print('Intelligence Web:',len(g['nodes']),'nodes /',len(g['edges']),'evidence-backed connections /',g['updatedAt'])
+          print('Snapshot:',s['updatedAt'])
+          print('Markets:',len(m['indicators']),'indicators / live',m.get('liveCount',0),'closed',m.get('closedCount',0),'stale',m.get('staleCount',0))
+          print('Breaking:',len(b.get('articles',[])),'rapid records /',b.get('updatedAt'))
           PY
       - name: Commit generated artifacts
         run: |
