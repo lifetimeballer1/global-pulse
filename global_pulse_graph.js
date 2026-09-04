@@ -7,7 +7,7 @@
   function loadStableRenderer(){
     if(document.querySelector('script[data-gp-stable-renderer]')) return;
     var s=document.createElement('script');
-    s.src='global_pulse_graph_stable.js?v=20260904';
+    s.src='global_pulse_graph_pro.js?v=20260903a';
     s.async=true;
     s.dataset.gpStableRenderer='1';
     document.head.appendChild(s);
