@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build an evidence-linked relationship web from the public snapshot.
+"""Build a resilient evidence-linked relationship web from the public snapshot.
 
-Edges represent entities appearing together in a source story or conflict record.
-They are reporting relationships, not proof of causation, coordination, or alliance.
+The graph is deliberately derived from current public records. A missing edge set
+never causes entities to disappear; the web can still render disconnected entities.
 """
 import json
 import re
@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parent
 SNAP = ROOT / "data" / "snapshot.json"
 
 ENTITIES = {
-    "United States": ("actor", ["united states", "u.s.", "us government", "washington", "white house", "trump", "congress"]),
-    "U.S. Politics": ("political", ["u.s. politics", "congress", "senate", "house republicans", "house democrats", "white house", "supreme court", "election", "midterms"]),
+    "United States": ("actor", ["united states", "u.s.", "u.s", "us government", "washington", "white house", "trump"]),
+    "U.S. Politics": ("political", ["u.s. politics", "congress", "senate", "white house", "supreme court", "election"]),
     "China": ("actor", ["china", "chinese", "beijing", "pla"]), "Russia": ("actor", ["russia", "russian", "moscow", "kremlin", "putin"]),
     "Ukraine": ("actor", ["ukraine", "ukrainian", "kyiv", "zelensky"]), "Iran": ("actor", ["iran", "iranian", "tehran"]),
     "Israel": ("actor", ["israel", "israeli", "tel aviv", "jerusalem"]), "Palestinians": ("actor", ["palestinian", "gaza", "west bank", "hamas"]),
@@ -44,58 +44,104 @@ def norm(value):
 def has_alias(blob, alias):
     return re.search(r"(?<![a-z0-9])" + re.escape(alias) + r"(?![a-z0-9])", blob) is not None
 
-def matched_aliases(blob, aliases):
-    return [a for a in aliases if has_alias(blob, a)]
+def record_text(record):
+    keys = ("title", "summary", "description", "content", "text", "name", "region", "country", "location", "category", "type", "tags", "keywords")
+    parts = []
+    for key in keys:
+        value = record.get(key, "") if isinstance(record, dict) else ""
+        parts.append(" ".join(map(str, value)) if isinstance(value, list) else str(value or ""))
+    return norm(" ".join(parts))
 
-def add_node(nodes, name, kind):
-    node = nodes.setdefault(name, {"id": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "label": name, "kind": kind, "mentions": 0})
-    node["mentions"] += 1
+def slug(name):
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 def main():
     data = json.loads(SNAP.read_text(encoding="utf-8"))
     nodes, edges = {}, {}
 
+    def add_node(name, kind, mentions=1):
+        node = nodes.setdefault(name, {"id": slug(name), "label": name, "kind": kind, "mentions": 0})
+        node["mentions"] += max(1, int(mentions))
+        return node
+
     def add_edge(a, b, evidence, source_type):
-        if a == b: return
+        if not a or not b or a == b:
+            return
         key = "|".join(sorted((a, b)))
         edge = edges.setdefault(key, {"source": a, "target": b, "weight": 0, "types": set(), "evidence": []})
         edge["weight"] += 1
         edge["types"].add(source_type)
-        if evidence and len(edge["evidence"]) < 6 and not any(x.get("title") == evidence.get("title") for x in edge["evidence"]):
-            edge["evidence"].append(evidence)
+        if evidence and len(edge["evidence"]) < 6:
+            title = evidence.get("title", "")
+            if not any(x.get("title") == title for x in edge["evidence"]):
+                edge["evidence"].append(evidence)
 
-    for story in data.get("stories", []):
-        title = str(story.get("title") or "").strip(); summary = str(story.get("summary") or "").strip(); blob = norm(title + " " + summary)
+    stories = data.get("stories", []) if isinstance(data.get("stories", []), list) else []
+    conflicts = data.get("conflicts", []) if isinstance(data.get("conflicts", []), list) else []
+
+    # Seed the graph from the configured entity catalog so important actors stay
+    # available even during a thin feed cycle.
+    for name, (kind, _) in ENTITIES.items():
+        add_node(name, kind, 0)
+
+    for record, source_type in [(x, "story") for x in stories[:1000]] + [(x, "conflict") for x in conflicts]:
+        blob = record_text(record)
         found = []
         for name, (kind, aliases) in ENTITIES.items():
-            hits = matched_aliases(blob, aliases)
-            if name == "U.S. Politics" and not hits: continue
-            if hits: add_node(nodes, name, kind); found.append(name)
-        evidence = {"title": title, "url": str(story.get("url") or ""), "source": str(story.get("sourceLabel") or story.get("source") or "Public source"), "time": str(story.get("time") or "")}
+            if any(has_alias(blob, alias) for alias in aliases):
+                add_node(name, kind)
+                found.append(name)
+        evidence = {
+            "title": str(record.get("title") or record.get("name") or "Public intelligence record"),
+            "url": str(record.get("url") or record.get("sourceUrl") or ""),
+            "source": str(record.get("sourceLabel") or record.get("source") or "Public source"),
+            "time": str(record.get("time") or record.get("publishedAt") or record.get("updatedAt") or ""),
+        }
         for i, a in enumerate(found):
-            for b in found[i + 1:]: add_edge(a, b, evidence, "story")
+            for b in found[i + 1:]:
+                add_edge(a, b, evidence, source_type)
 
-    for conflict in data.get("conflicts", []):
-        name_text = str(conflict.get("name") or "").strip(); blob = norm(" ".join(str(conflict.get(k) or "") for k in ("name", "region", "category")))
-        found = []
-        for name, (kind, aliases) in ENTITIES.items():
-            if matched_aliases(blob, aliases): add_node(nodes, name, kind); found.append(name)
-        evidence = {"title": name_text, "url": str(conflict.get("sourceUrl") or conflict.get("url") or ""), "source": str(conflict.get("source") or "Conflict record"), "time": str(conflict.get("updatedAt") or conflict.get("time") or "")}
-        for i, a in enumerate(found):
-            for b in found[i + 1:]: add_edge(a, b, evidence, "conflict")
+    # Preserve any valid relationships already produced by another graph pass.
+    old_graph = data.get("intelligenceGraph", {}) if isinstance(data.get("intelligenceGraph", {}), dict) else {}
+    old_nodes = {str(n.get("id")): n for n in old_graph.get("nodes", []) if isinstance(n, dict)}
+    for node in nodes.values():
+        old = old_nodes.get(node["id"])
+        if old:
+            node["mentions"] = max(node["mentions"], int(old.get("mentions") or 0))
+    for edge in old_graph.get("edges", []) if isinstance(old_graph.get("edges", []), list) else []:
+        if not isinstance(edge, dict):
+            continue
+        source = str(edge.get("source", "")); target = str(edge.get("target", ""))
+        by_id = {n["id"]: n for n in nodes.values()}
+        if source in by_id and target in by_id and source != target:
+            a, b = by_id[source]["label"], by_id[target]["label"]
+            add_edge(a, b, None, "graph")
 
-    # Keep first-order relationships too. The old >=2 filter made the graph look
-    # empty when a region/entity only appeared once in the current snapshot.
     edge_list = []
     for edge in edges.values():
-        edge["types"] = sorted(edge["types"]); edge["evidence"].sort(key=lambda x: x.get("time", ""), reverse=True)
-        if edge["weight"] >= 1: edge_list.append(edge)
-    edge_list.sort(key=lambda e: (e["weight"], len(e["evidence"])), reverse=True); edge_list = edge_list[:400]
-    keep = {e["source"] for e in edge_list} | {e["target"] for e in edge_list}
-    node_list = [n for n in nodes.values() if n["label"] in keep]; node_list.sort(key=lambda n: n["mentions"], reverse=True)
+        edge["types"] = sorted(edge["types"])
+        edge["evidence"].sort(key=lambda x: x.get("time", ""), reverse=True)
+        edge_list.append(edge)
+    edge_list.sort(key=lambda e: (e["weight"], len(e["evidence"])), reverse=True)
+    edge_list = edge_list[:500]
 
-    data["intelligenceGraph"] = {"updatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "method": "co-occurrence graph from public stories and conflict records", "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.", "nodes": node_list, "edges": edge_list}
-    SNAP.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Keep seeded entities, but rank active entities first. This prevents a
+    # single feed failure from collapsing the network to one visible point.
+    degree = {name: 0 for name in nodes}
+    for edge in edge_list:
+        degree[edge["source"]] = degree.get(edge["source"], 0) + edge["weight"]
+        degree[edge["target"]] = degree.get(edge["target"], 0) + edge["weight"]
+    node_list = sorted(nodes.values(), key=lambda n: (degree.get(n["label"], 0), n["mentions"]), reverse=True)[:80]
+
+    data["intelligenceGraph"] = {
+        "updatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "method": "co-occurrence graph from current public stories and conflict records",
+        "caution": "Connections indicate shared reporting/evidence, not proof of causation, coordination, or alliance.",
+        "nodes": node_list,
+        "edges": edge_list,
+    }
+    SNAP.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Intelligence graph: {len(node_list)} nodes / {len(edge_list)} edges")
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
