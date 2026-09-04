@@ -12,13 +12,13 @@ on:
       - 'global_pulse_v27.js'
       - 'global_pulse_graph.js'
       - 'install_intelligence_web.py'
+      - 'update_intelligence_web.py'
       - 'update_market_data.py'
       - 'resilient_feed_catalog.py'
       - 'run_snapshot_resilient.py'
       - 'news_feed_db.py'
       - 'install_v27.py'
       - 'install_map_v3.py'
-      - 'install_intelligence_web.py'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
 env:
@@ -129,6 +129,8 @@ jobs:
           assert 'GP-INTELLIGENCE-WEB-START' in html, '3D Intelligence Web entry missing'
           assert 'ForceGraph3D' in intel and 'data/snapshot.json' in intel, '3D Intelligence Web not wired to real snapshot'
           assert 'enableNodeDrag(true)' in intel, '3D node dragging is not enabled'
+          assert '3d-force-graph@1.80.0' in intel, '3D renderer is not pinned'
+          assert 'gpLoad3D' in intel, '3D loader missing'
           assert 'global_pulse_map_3d.js' not in intel, 'deprecated globe renderer referenced'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
           assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
@@ -178,6 +180,15 @@ jobs:
           echo "Unable to publish refreshed data after 5 attempts"; exit 1
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Prepare GitHub Pages site directory
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name _site -exec cp -a {} _site/ \;
+          test -s _site/index.html
+          test -s _site/intelligence-web.html
+          test -s _site/data/snapshot.json
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
