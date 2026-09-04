@@ -1,5 +1,5 @@
 /* Global Pulse — stable intelligence-web loader + command-center layout cleanup. */
-/* Deployment trigger: keep the embedded Intelligence Web renderer changes in production. */
+/* Deployment trigger: persistent graph links, priority layout, and one-tap freshness control. */
 (function(){
   'use strict';
   if(window.__GP_STABLE_LOADER__) return;
@@ -8,10 +8,58 @@
   function loadStableRenderer(){
     if(document.querySelector('script[data-gp-stable-renderer]')) return;
     var s=document.createElement('script');
-    s.src='global_pulse_graph_pro.js?v=20260903a';
+    s.src='global_pulse_graph_pro.js?v=20260904b';
     s.async=true;
     s.dataset.gpStableRenderer='1';
     document.head.appendChild(s);
+  }
+
+  function installRefresh(){
+    if(document.getElementById('gp-minute-refresh')) return;
+    var top=document.getElementById('top') || document.querySelector('header');
+    if(!top) return;
+    var style=document.createElement('style');
+    style.id='gp-minute-refresh-css';
+    style.textContent='\
+#gp-minute-refresh{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:6px 9px;border:1px solid rgba(72,223,131,.32);border-radius:8px;background:rgba(72,223,131,.07);color:#48df83;font-size:9px;font-weight:900;letter-spacing:.06em;cursor:pointer;white-space:nowrap}\
+#gp-minute-refresh:hover{background:rgba(72,223,131,.13);border-color:rgba(72,223,131,.58)}\
+#gp-minute-refresh.busy{opacity:.65;pointer-events:none}\
+#gp-minute-refresh i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 8px #48df83}\
+.gp-refresh-stamp{font-size:8px;color:#91a4b8;margin-left:2px;white-space:nowrap}\
+@media(max-width:620px){#gp-minute-refresh{font-size:8px;padding:6px 7px}.gp-refresh-stamp{display:none}}';
+    document.head.appendChild(style);
+    var live=top.querySelector('.live');
+    var btn=document.createElement('button');
+    btn.id='gp-minute-refresh';
+    btn.type='button';
+    btn.innerHTML='<i></i><span>REFRESH DATA</span><span class="gp-refresh-stamp">LIVE SNAPSHOT</span>';
+    (live||top).appendChild(btn);
+    btn.addEventListener('click',async function(){
+      if(btn.classList.contains('busy')) return;
+      btn.classList.add('busy');
+      var label=btn.querySelector('span');
+      if(label) label.textContent='CHECKING…';
+      try{
+        if(typeof window.gpForceRefresh==='function'){
+          await Promise.resolve(window.gpForceRefresh());
+        }else{
+          var r=await fetch('data/snapshot.json?refresh='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+          if(!r.ok) throw Error('Snapshot '+r.status);
+          window.DATA=await r.json();
+          document.dispatchEvent(new CustomEvent('globalpulse:dataready',{detail:window.DATA}));
+          if(typeof window.renderStories==='function') window.renderStories();
+          if(typeof window.fetchPulseReporting==='function') window.fetchPulseReporting();
+        }
+        if(label) label.textContent='UPDATED';
+        var stamp=btn.querySelector('.gp-refresh-stamp');
+        if(stamp) stamp.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      }catch(e){
+        if(label) label.textContent='RETRY';
+        console.error('Global Pulse refresh failed',e);
+      }finally{
+        setTimeout(function(){btn.classList.remove('busy');if(label)label.textContent='REFRESH DATA'},1200);
+      }
+    });
   }
 
   function installCommandCenter(){
@@ -36,24 +84,18 @@
 .gp-command-link.primary{border-color:rgba(57,255,136,.35);background:linear-gradient(135deg,rgba(57,255,136,.09),rgba(8,19,30,.96));color:#39ff88}\
 .gp-command-link small{display:block;color:#91a4b8;font-size:8px;font-weight:650;margin-top:2px}\
 .gp-command-arrow{font-size:14px;color:#62a0ff}\
-.gp-intel-web-entry{margin:0!important;width:100%}\
-.gp-intel-web-entry>a{display:flex!important;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:54px;padding:11px 13px!important;border:1px solid rgba(57,255,136,.38)!important;border-radius:11px!important;background:linear-gradient(135deg,rgba(57,255,136,.10),rgba(6,16,24,.98))!important;color:#39ff88!important;box-shadow:0 8px 28px rgba(0,0,0,.18);font-size:11px!important;font-weight:950!important;letter-spacing:.08em!important}\
-.gp-intel-web-entry>a:after{content:"OPEN 3D WEB  →";font-size:9px;letter-spacing:.06em;color:#d8ffe8;opacity:.85}\
-.gp-priority-label{font-size:8px;color:#91a4b8;letter-spacing:.08em;text-transform:uppercase;margin-top:1px}\
+.gp-intel-web-entry{display:none!important}\
 @media(max-width:900px){.gp-command-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gp-command-link.primary{grid-column:span 2}}\
-@media(max-width:620px){#gp-command-center{padding:11px}.gp-command-title{font-size:16px}.gp-command-live{display:none}.gp-command-grid{grid-template-columns:1fr 1fr}.gp-command-link.primary{grid-column:span 2}.gp-command-link{min-height:40px;font-size:9px}.gp-command-link small{display:none}.gp-intel-web-entry>a{min-height:50px;font-size:10px!important}.gp-intel-web-entry>a:after{font-size:8px}}';
+@media(max-width:620px){#gp-command-center{padding:11px}.gp-command-title{font-size:16px}.gp-command-live{display:none}.gp-command-grid{grid-template-columns:1fr 1fr}.gp-command-link.primary{grid-column:span 2}.gp-command-link{min-height:40px;font-size:9px}.gp-command-link small{display:none}}';
     document.head.appendChild(style);
 
     var intel=document.querySelector('.gp-intel-web-entry');
-    if(intel){
-      top.parentNode.insertBefore(intel,top.nextSibling);
-      intel.innerHTML='<a href="intelligence-web.html" aria-label="Open 3D Intelligence Web"><span>◈ INTELLIGENCE WEB — 3D</span><span class="gp-priority-label">Evidence-linked relationships · draggable nodes · source-backed analysis</span></a>';
-    }
+    if(intel) intel.style.display='none';
 
     var nav=document.createElement('section');
     nav.id='gp-command-center';
     nav.setAttribute('aria-label','Global Pulse priority navigation');
-    nav.innerHTML='<div class="gp-command-head"><div><div class="gp-command-kicker">COMMAND CENTER</div><div class="gp-command-title">What matters now</div><div class="gp-command-sub">Start with the network, then move from global pressure to the map, conflicts and reporting.</div></div><span class="gp-command-live"><i></i>LIVE SNAPSHOT</span></div><div class="gp-command-grid"><a class="gp-command-link primary" href="intelligence-web.html"><span>◈ Intelligence Web<small>Relationships &amp; evidence</small></span><b class="gp-command-arrow">→</b></a><a class="gp-command-link" href="#top"><span>Global Index<small>World pressure</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#mapSection"><span>Situation Map<small>Geospatial signals</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#conflictSection"><span>Conflicts<small>Active watch</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#newsSection"><span>Reporting<small>Current signals</small></span><b class="gp-command-arrow">↗</b></a></div></section>';
+    nav.innerHTML='<div class="gp-command-head"><div><div class="gp-command-kicker">COMMAND CENTER</div><div class="gp-command-title">What matters now</div><div class="gp-command-sub">Start with the intelligence network, then move from global pressure to the map, conflicts and reporting.</div></div><span class="gp-command-live"><i></i>LIVE SNAPSHOT</span></div><div class="gp-command-grid"><a class="gp-command-link primary" href="intelligence-web.html"><span>◈ Intelligence Web<small>Relationships &amp; evidence</small></span><b class="gp-command-arrow">→</b></a><a class="gp-command-link" href="#top"><span>Global Index<small>World pressure</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#mapSection"><span>Situation Map<small>Geospatial signals</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#conflictSection"><span>Conflicts<small>Active watch</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#newsSection"><span>Reporting<small>Current signals</small></span><b class="gp-command-arrow">↗</b></a></div></section>';
     wrap.insertBefore(nav,wrap.firstElementChild===top?top:wrap.firstElementChild);
 
     var status=document.getElementById('gp-production-status');
@@ -62,6 +104,7 @@
 
   function run(){
     loadStableRenderer();
+    installRefresh();
     installCommandCenter();
   }
 
