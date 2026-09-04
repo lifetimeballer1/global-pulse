@@ -1,0 +1,64 @@
+name: Global Pulse — Security & Quality Gates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.py'
+      - '**.js'
+      - '**.html'
+      - '**.json'
+      - '.github/workflows/**'
+      - 'PRIVACY.md'
+      - 'SECURITY.md'
+      - 'INTELLIGENCE_ARCHITECTURE.md'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security-and-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile all Python modules
+        run: python -m compileall -q -f .
+
+      - name: Validate browser JavaScript
+        run: |
+          set -euo pipefail
+          for f in *.js; do node --check "$f"; done
+
+      - name: Validate JSON data and manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in [Path('site.webmanifest'), Path('data/claims.json'), Path('data/intelligence_graph.json'), Path('data/snapshot.json')]:
+              if p.exists():
+                  json.loads(p.read_text(encoding='utf-8'))
+                  print('OK', p)
+          PY
+
+      - name: Run privacy and workflow safety checks
+        run: python validate_security.py
+
+      - name: Check for accidental private material
+        run: |
+          set -euo pipefail
+          if grep -RInE --exclude-dir=.git --exclude='*.png' --exclude='*.jpg' --exclude='*.jpeg' '(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})' .; then
+            echo 'Potential private credential detected.'
+            exit 1
+          fi
+          echo 'No obvious private credential material detected.'
