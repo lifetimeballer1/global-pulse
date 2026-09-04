@@ -1,50 +1,22 @@
 {
-  "updatedAt": "2026-09-04T19:50:05.539670Z",
-  "method": "rule-based event enrichment from existing public-report artifacts",
-  "disclaimer": "Candidates and relationships require human/source verification; source-domain diversity is not proof of independence.",
+  "updatedAt": "2026-09-04T19:51:53.508908Z",
+  "method": "rule-based event enrichment with source-domain diversity, near-identical headline grouping, and corroboration scoring",
+  "disclaimer": "Corroboration scores are monitoring aids, not truth probabilities. Domain diversity is not proof of independence.",
   "events": [
-    {
-      "eventId": "749fdb5a9264928e",
-      "title": "نائب ترامب : دول الخليج تساعد سراً في عزل إيران | CNN Arabic",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 3,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-03T21:30:00+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T03:15:00+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T03:15:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
-      "caveats": [
-        "Limited source diversity",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
     {
       "eventId": "5b2c48d78978f28d",
       "title": "At least 100 killed as Yemen’s Houthis push towards key strait",
       "category": "general",
       "confidence": "low",
       "reportCount": 2,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "uniqueSourceDomains": 2,
+      "independentReportingGroups": 2,
+      "corroborationScore": 100,
+      "sourceIndependence": "mixed",
+      "sourceDomains": [
+        "aljazeera.com",
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [
         "yemen"
       ],
@@ -76,8 +48,14 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1,
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
@@ -89,9 +67,14 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 2,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "uniqueSourceDomains": 2,
+      "independentReportingGroups": 2,
+      "corroborationScore": 100,
+      "sourceIndependence": "mixed",
+      "sourceDomains": [
+        "aljazeera.com",
+        "france24.com"
+      ],
       "entityCandidates": [
         "israel"
       ],
@@ -123,53 +106,14 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
-      "caveats": [
-        "Limited source diversity",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "7fdb4bf62cef620f",
-      "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
-      "category": "political",
-      "confidence": "low",
-      "reportCount": 2,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
-      "entityCandidates": [
-        "germany"
+      "sourceBreakdown": {
+        "aljazeera.com": 1,
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://www.france24.com/en/rss"
       ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "germany"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "belarus",
-        "france",
-        "poland",
-        "russia",
-        "ukraine",
-        "united kingdom"
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T12:19:38+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T12:19:38+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
       "caveats": [
         "Limited source diversity",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
@@ -181,26 +125,17 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 2,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
-      "entityCandidates": [
-        "south korea"
+      "uniqueSourceDomains": 2,
+      "independentReportingGroups": 2,
+      "corroborationScore": 100,
+      "sourceIndependence": "mixed",
+      "sourceDomains": [
+        "channelnewsasia.com",
+        "france24.com"
       ],
-      "regionalContext": [
-        {
-          "region": "east asia",
-          "entities": [
-            "south korea"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "china",
-        "japan",
-        "north korea",
-        "taiwan"
-      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
       "timeline": [
         {
           "time": "2026-09-04T01:27:00+00:00",
@@ -211,8 +146,14 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1,
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss",
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
@@ -224,9 +165,14 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 2,
-      "uniqueSourceDomains": 0,
-      "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "uniqueSourceDomains": 2,
+      "independentReportingGroups": 1,
+      "corroborationScore": 97,
+      "sourceIndependence": "mixed",
+      "sourceDomains": [
+        "aljazeera.com",
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [
         "syria"
       ],
@@ -258,10 +204,117 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1,
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "Multiple reports may not represent independent reporting",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "7fdb4bf62cef620f",
+      "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
+      "category": "political",
+      "confidence": "low",
+      "reportCount": 2,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 2,
+      "corroborationScore": 84,
+      "sourceIndependence": "mixed",
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "germany"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "germany"
+          ]
+        }
+      ],
+      "spilloverCandidates": [
+        "belarus",
+        "france",
+        "poland",
+        "russia",
+        "ukraine",
+        "united kingdom"
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-04T12:19:38+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-04T12:19:38+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 2
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "749fdb5a9264928e",
+      "title": "نائب ترامب : دول الخليج تساعد سراً في عزل إيران | CNN Arabic",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 3,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 82,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "api.gdeltproject.org"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-03T21:30:00+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-04T03:15:00+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-04T03:15:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "api.gdeltproject.org": 3
+      },
+      "evidenceUrls": [
+        "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h",
+        "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20election)&mode=ArtList&format=rss&maxrecords=100&timespan=24h"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Multiple reports may not represent independent reporting",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -271,9 +324,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -283,10 +340,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -296,9 +358,13 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [
         "yemen"
       ],
@@ -326,10 +392,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -339,9 +410,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -351,10 +426,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -364,9 +444,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -376,10 +460,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -389,9 +478,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -401,10 +494,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -414,9 +512,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -426,10 +528,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -439,9 +546,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -451,10 +562,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -464,9 +580,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [
         "iran"
       ],
@@ -494,10 +614,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -507,9 +632,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -519,10 +648,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -532,9 +666,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -544,10 +682,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -557,9 +700,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -569,10 +716,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -582,9 +734,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -594,10 +750,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -607,9 +768,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [
         "ukraine",
         "russia"
@@ -638,10 +803,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -651,9 +821,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [
         "nigeria"
       ],
@@ -665,10 +839,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -678,9 +857,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -690,10 +873,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -703,9 +891,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [
         "china"
       ],
@@ -729,10 +921,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -742,9 +939,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -754,10 +955,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -767,9 +973,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -779,10 +989,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -792,9 +1007,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -804,10 +1023,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -817,9 +1041,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [
         "germany"
       ],
@@ -845,10 +1073,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -858,9 +1091,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -870,10 +1107,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -883,9 +1125,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "lebanon",
         "israel"
@@ -915,10 +1161,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -928,9 +1179,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -940,10 +1195,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -953,9 +1213,13 @@
       "category": "political",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -965,10 +1229,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -978,9 +1247,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -990,10 +1263,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1003,9 +1281,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "israel"
       ],
@@ -1033,10 +1315,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1046,9 +1333,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1058,10 +1349,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1071,9 +1367,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1083,10 +1383,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1096,9 +1401,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1108,10 +1417,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1121,9 +1435,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1133,10 +1451,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1146,9 +1469,13 @@
       "category": "disaster",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [
         "nepal"
       ],
@@ -1160,10 +1487,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1173,9 +1505,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [
         "italy"
       ],
@@ -1187,10 +1523,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1200,9 +1541,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1212,10 +1557,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1225,9 +1575,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1237,10 +1591,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1250,9 +1609,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1262,10 +1625,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1275,9 +1643,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "india"
       ],
@@ -1289,10 +1661,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1302,9 +1679,13 @@
       "category": "political",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1314,10 +1695,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1327,9 +1713,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "ireland"
       ],
@@ -1341,10 +1731,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1354,9 +1749,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [
         "lebanon"
       ],
@@ -1384,10 +1783,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1397,9 +1801,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1409,10 +1817,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1422,9 +1835,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1434,10 +1851,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1447,9 +1869,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1459,10 +1885,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1472,9 +1903,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [
         "iran"
       ],
@@ -1502,10 +1937,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1515,9 +1955,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1527,10 +1971,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1540,9 +1989,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1552,10 +2005,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1565,9 +2023,13 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "iran"
       ],
@@ -1595,10 +2057,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1608,9 +2075,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1620,10 +2091,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1633,9 +2109,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1645,10 +2125,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1658,9 +2143,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1670,10 +2159,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1683,9 +2177,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "ukraine",
         "russia"
@@ -1714,10 +2212,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1727,9 +2230,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [
         "argentina"
       ],
@@ -1755,10 +2262,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1768,9 +2280,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [
         "france"
       ],
@@ -1796,10 +2312,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1809,9 +2330,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1821,10 +2346,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1834,9 +2364,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "feeds.bbci.co.uk"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1846,10 +2380,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "feeds.bbci.co.uk": 1
+      },
+      "evidenceUrls": [
+        "https://feeds.bbci.co.uk/news/world/rss.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1859,9 +2398,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1871,10 +2414,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1884,9 +2432,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "egypt",
         "china"
@@ -1911,10 +2463,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1924,9 +2481,13 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -1936,10 +2497,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1949,9 +2515,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [
         "germany"
       ],
@@ -1977,10 +2547,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -1990,9 +2565,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2002,10 +2581,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2015,36 +2599,31 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
-      "entityCandidates": [
-        "south korea"
+      "sourceDomains": [
+        "aljazeera.com"
       ],
-      "regionalContext": [
-        {
-          "region": "east asia",
-          "entities": [
-            "south korea"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "china",
-        "japan",
-        "north korea",
-        "taiwan"
-      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
       "timeline": [
         {
           "time": "2026-09-04T12:10:51+00:00",
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2054,9 +2633,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2066,10 +2649,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2079,9 +2667,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2091,10 +2683,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2104,9 +2701,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "india"
       ],
@@ -2118,10 +2719,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2131,9 +2737,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2143,10 +2753,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2156,9 +2771,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [
         "algeria"
       ],
@@ -2170,10 +2789,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2183,9 +2807,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "iran"
       ],
@@ -2213,10 +2841,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2226,9 +2859,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "rss.dw.com"
+      ],
       "entityCandidates": [
         "serbia"
       ],
@@ -2240,10 +2877,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "rss.dw.com": 1
+      },
+      "evidenceUrls": [
+        "https://rss.dw.com/xml/rss-en-world"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2253,9 +2895,13 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2265,10 +2911,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2278,9 +2929,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2290,10 +2945,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2303,9 +2963,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "france24.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2315,10 +2979,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "france24.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.france24.com/en/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2328,9 +2997,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
       "entityCandidates": [
         "poland"
       ],
@@ -2356,10 +3029,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2369,9 +3047,13 @@
       "category": "general",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2381,10 +3063,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2394,9 +3081,13 @@
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
       "entityCandidates": [],
       "regionalContext": [],
       "spilloverCandidates": [],
@@ -2406,10 +3097,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -2419,9 +3115,13 @@
       "category": "diplomatic",
       "confidence": "low",
       "reportCount": 1,
-      "uniqueSourceDomains": 0,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
       "sourceIndependence": "limited",
-      "sourceDomains": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
       "entityCandidates": [
         "argentina"
       ],
@@ -2447,10 +3147,15 @@
           "type": "report"
         }
       ],
-      "sourceBreakdown": {},
-      "evidenceUrls": [],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
       "caveats": [
         "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     }
