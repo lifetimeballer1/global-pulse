@@ -1,110 +1,32 @@
 #!/usr/bin/env python3
-"""Sync CFR Global Conflict Tracker metadata without an API key.
-
-CFR's current tracker page renders conflict links dynamically, so scraping only
-its HTML anchor tags can return zero links. Use a maintained set of CFR public
-conflict URLs instead, then refresh each page's assessment fields.
-"""
+"""Sync CFR Global Conflict Tracker metadata without an API key."""
 import json
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
-
-ROOT = Path(__file__).resolve().parent
-SNAP = ROOT / "data" / "snapshot.json"
-BASE = "https://www.cfr.org"
-TRACKER = BASE + "/global-conflict-tracker"
-UA = "GlobalPulse/10.0 (+https://github.com/lifetimeballer1/global-pulse)"
-
-# CFR's current 27 tracked conflicts. URLs are public and do not require a key.
-URLS = {
-"Criminal Violence in Haiti":"/global-conflict-tracker/conflict/instability-haiti",
-"Criminal Violence in Mexico":"/global-conflict-tracker/conflict/criminal-violence-mexico",
-"Instability in the Northern Triangle":"/global-conflict-tracker/conflict/violent-instability-northern-triangle",
-"Instability in Venezuela":"/global-conflict-tracker/conflict/instability-venezuela",
-"Civil War in Myanmar":"/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
-"Conflict Between Afghanistan and Pakistan":"/global-conflict-tracker/conflict/war-afghanistan",
-"Conflict Between India and Pakistan":"/global-conflict-tracker/conflict/conflict-between-india-and-pakistan",
-"Confrontation Over Taiwan":"/global-conflict-tracker/conflict/confrontation-over-taiwan",
-"Confrontation With North Korea":"/global-conflict-tracker/conflict/north-korea-crisis",
-"Territorial Disputes in the South China Sea":"/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
-"Tensions Between Armenia and Azerbaijan":"/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
-"War in Ukraine":"/global-conflict-tracker/conflict/conflict-ukraine",
-"Conflict Between Turkey and Armed Kurdish Groups":"/global-conflict-tracker/conflict/conflict-between-turkey-and-armed-kurdish-groups",
-"Conflict in Yemen and the Red Sea":"/global-conflict-tracker/conflict/war-yemen",
-"Conflict With Hezbollah in Lebanon":"/global-conflict-tracker/conflict/political-instability-lebanon",
-"Conflict With Iran":"/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran",
-"Instability in Iraq":"/global-conflict-tracker/conflict/political-instability-iraq",
-"Instability in Libya":"/global-conflict-tracker/conflict/civil-war-libya",
-"Instability in Syria":"/global-conflict-tracker/conflict/conflict-syria",
-"Israeli-Palestinian Conflict":"/global-conflict-tracker/conflict/israeli-palestinian-conflict",
-"Civil War in Sudan":"/global-conflict-tracker/conflict/power-struggle-sudan",
-"Conflict in Ethiopia":"/global-conflict-tracker/conflict/conflict-ethiopia",
-"Conflict in the Central African Republic":"/global-conflict-tracker/conflict/violence-central-african-republic",
-"Conflict in the Democratic Republic of Congo":"/global-conflict-tracker/conflict/violence-democratic-republic-congo",
-"Conflict With Al-Shabaab in Somalia":"/global-conflict-tracker/conflict/al-shabab-somalia",
-"Instability in South Sudan":"/global-conflict-tracker/conflict/civil-war-south-sudan",
-"Violent Extremism in the Sahel":"/global-conflict-tracker/conflict/violent-extremism-sahel",
-}
-
-POINTS = {
-"Criminal Violence in Haiti":(18.5944,-72.3074),"Criminal Violence in Mexico":(23.6345,-102.5528),
-"Instability in the Northern Triangle":(14.1,-88.9),"Instability in Venezuela":(8.0,-66.0),
-"Civil War in Myanmar":(21.9162,95.9560),"Conflict Between Afghanistan and Pakistan":(33.7,70.0),
-"Conflict Between India and Pakistan":(34.0,74.5),"Confrontation Over Taiwan":(23.6978,120.9605),
-"Confrontation With North Korea":(39.0,127.0),"Territorial Disputes in the South China Sea":(12.0,114.0),
-"Tensions Between Armenia and Azerbaijan":(40.3,46.0),"War in Ukraine":(48.3794,31.1656),
-"Conflict Between Turkey and Armed Kurdish Groups":(37.5,42.5),"Conflict in Yemen and the Red Sea":(15.5,44.2),
-"Conflict With Hezbollah in Lebanon":(33.85,35.85),"Conflict With Iran":(32.4279,53.6880),
-"Instability in Iraq":(33.2232,43.6793),"Instability in Libya":(27.0,17.0),"Instability in Syria":(35.0,38.0),
-"Israeli-Palestinian Conflict":(31.8,35.2),"Civil War in Sudan":(15.5,32.5),"Conflict in Ethiopia":(9.1,40.5),
-"Conflict in the Central African Republic":(6.6,20.9),"Conflict in the Democratic Republic of Congo":(-2.9,23.7),
-"Conflict With Al-Shabaab in Somalia":(2.0,45.3),"Instability in South Sudan":(6.9,31.3),"Violent Extremism in the Sahel":(15.0,0.0),
-}
-
+ROOT=Path(__file__).resolve().parent; SNAP=ROOT/'data'/'snapshot.json'; BASE='https://www.cfr.org'; TRACKER=BASE+'/global-conflict-tracker'; UA='GlobalPulse/12.0 (+https://github.com/lifetimeballer1/global-pulse)'
+URLS={"Criminal Violence in Haiti":"/global-conflict-tracker/conflict/instability-haiti","Criminal Violence in Mexico":"/global-conflict-tracker/conflict/criminal-violence-mexico","Instability in the Northern Triangle":"/global-conflict-tracker/conflict/violent-instability-northern-triangle","Instability in Venezuela":"/global-conflict-tracker/conflict/instability-venezuela","Civil War in Myanmar":"/global-conflict-tracker/conflict/rohingya-crisis-myanmar","Conflict Between Afghanistan and Pakistan":"/global-conflict-tracker/conflict/war-afghanistan","Conflict Between India and Pakistan":"/global-conflict-tracker/conflict/conflict-between-india-and-pakistan","Confrontation Over Taiwan":"/global-conflict-tracker/conflict/confrontation-over-taiwan","Confrontation With North Korea":"/global-conflict-tracker/conflict/north-korea-crisis","Territorial Disputes in the South China Sea":"/global-conflict-tracker/conflict/territorial-disputes-south-china-sea","Tensions Between Armenia and Azerbaijan":"/global-conflict-tracker/conflict/nagorno-karabakh-conflict","War in Ukraine":"/global-conflict-tracker/conflict/conflict-ukraine","Conflict Between Turkey and Armed Kurdish Groups":"/global-conflict-tracker/conflict/conflict-between-turkey-and-armed-kurdish-groups","Conflict in Yemen and the Red Sea":"/global-conflict-tracker/conflict/war-yemen","Conflict With Hezbollah in Lebanon":"/global-conflict-tracker/conflict/political-instability-lebanon","Conflict With Iran":"/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran","Instability in Iraq":"/global-conflict-tracker/conflict/political-instability-iraq","Instability in Libya":"/global-conflict-tracker/conflict/civil-war-libya","Instability in Syria":"/global-conflict-tracker/conflict/conflict-syria","Israeli-Palestinian Conflict":"/global-conflict-tracker/conflict/israeli-palestinian-conflict","Civil War in Sudan":"/global-conflict-tracker/conflict/power-struggle-sudan","Conflict in Ethiopia":"/global-conflict-tracker/conflict/conflict-ethiopia","Conflict in the Central African Republic":"/global-conflict-tracker/conflict/violence-central-african-republic","Conflict in the Democratic Republic of Congo":"/global-conflict-tracker/conflict/violence-democratic-republic-congo","Conflict With Al-Shabaab in Somalia":"/global-conflict-tracker/conflict/al-shabab-somalia","Instability in South Sudan":"/global-conflict-tracker/conflict/civil-war-south-sudan","Violent Extremism in the Sahel":"/global-conflict-tracker/conflict/violent-extremism-sahel"}
+POINTS={"Criminal Violence in Haiti":(18.5944,-72.3074),"Criminal Violence in Mexico":(23.6345,-102.5528),"Instability in the Northern Triangle":(14.1,-88.9),"Instability in Venezuela":(8,-66),"Civil War in Myanmar":(21.9162,95.956),"Conflict Between Afghanistan and Pakistan":(33.7,70),"Conflict Between India and Pakistan":(34,74.5),"Confrontation Over Taiwan":(23.6978,120.9605),"Confrontation With North Korea":(39,127),"Territorial Disputes in the South China Sea":(12,114),"Tensions Between Armenia and Azerbaijan":(40.3,46),"War in Ukraine":(48.3794,31.1656),"Conflict Between Turkey and Armed Kurdish Groups":(37.5,42.5),"Conflict in Yemen and the Red Sea":(15.5,44.2),"Conflict With Hezbollah in Lebanon":(33.85,35.85),"Conflict With Iran":(32.4279,53.688),"Instability in Iraq":(33.2232,43.6793),"Instability in Libya":(27,17),"Instability in Syria":(35,38),"Israeli-Palestinian Conflict":(31.8,35.2),"Civil War in Sudan":(15.5,32.5),"Conflict in Ethiopia":(9.1,40.5),"Conflict in the Central African Republic":(6.6,20.9),"Conflict in the Democratic Republic of Congo":(-2.9,23.7),"Conflict With Al-Shabaab in Somalia":(2,45.3),"Instability in South Sudan":(6.9,31.3),"Violent Extremism in the Sahel":(15,0)}
 def fetch(url):
-    req=Request(url,headers={"User-Agent":UA})
-    with urlopen(req,timeout=30) as r:return r.read().decode("utf-8","ignore")
-
+ req=Request(url,headers={'User-Agent':UA,'Accept':'text/html'}); 
+ with urlopen(req,timeout=12) as r:return r.read().decode('utf-8','ignore')
 def strip_html(raw):
-    raw=re.sub(r"<script\b[^>]*>.*?</script>"," ",raw,flags=re.I|re.S)
-    raw=re.sub(r"<style\b[^>]*>.*?</style>"," ",raw,flags=re.I|re.S)
-    raw=re.sub(r"<[^>]+>"," ",raw)
-    return re.sub(r"\s+"," ",raw).strip()
-
+ raw=re.sub(r'<script\b[^>]*>.*?</script>',' ',raw,flags=re.I|re.S);raw=re.sub(r'<style\b[^>]*>.*?</style>',' ',raw,flags=re.I|re.S);raw=re.sub(r'<[^>]+>',' ',raw);return re.sub(r'\s+',' ',raw).strip()
 def field(text,start,stops):
-    m=re.search(re.escape(start)+r"\s*(.*?)\s*(?:"+"|".join(map(re.escape,stops))+r")",text,re.I)
-    return re.sub(r"\s+"," ",m.group(1)).strip() if m else ""
-
-def parse(name,path):
-    raw=fetch(BASE+path); text=strip_html(raw)
-    ctype=field(text,"TYPE",["IMPACT ON U.S.","STATUS","Updated","Overview"])[:120]
-    impact=field(text,"IMPACT ON U.S.",["STATUS","Updated","Overview"])[:60]
-    status=field(text,"STATUS",["Updated","Overview"])[:60]
-    m=re.search(r"Updated\s+([A-Z][a-z]+\s+\d{1,2},\s+\d{4})",text)
-    lat,lng=POINTS[name]
-    return {"title":name,"url":BASE+path,"type":ctype or "Conflict","impactOnUS":impact or "Not specified","status":status or "Not specified","updated":m.group(1) if m else "Not specified","lat":lat,"lng":lng,"source":"Council on Foreign Relations — Global Conflict Tracker"}
-
+ m=re.search(re.escape(start)+r'\s*(.*?)\s*(?:'+'|'.join(map(re.escape,stops))+r')',text,re.I);return re.sub(r'\s+',' ',m.group(1)).strip() if m else ''
+def parse(item):
+ name,path=item; text=strip_html(fetch(BASE+path));ctype=field(text,'TYPE',['IMPACT ON U.S.','STATUS','Updated','Overview'])[:120];impact=field(text,'IMPACT ON U.S.',['STATUS','Updated','Overview'])[:60];status=field(text,'STATUS',['Updated','Overview'])[:60];m=re.search(r'Updated\s+([A-Z][a-z]+\s+\d{1,2},\s+\d{4})',text);lat,lng=POINTS[name];return {'title':name,'url':BASE+path,'type':ctype or 'Conflict','impactOnUS':impact or 'Not specified','status':status or 'Not specified','updated':m.group(1) if m else 'Not specified','lat':lat,'lng':lng,'source':'Council on Foreign Relations — Global Conflict Tracker'}
 def main():
-    snap=json.loads(SNAP.read_text()) if SNAP.exists() else {}
-    records=[]
-    for name,path in URLS.items():
-        try: records.append(parse(name,path))
-        except Exception as exc: print("CFR skip",name,type(exc).__name__)
-    if len(records)<20 and len(snap.get("cfrConflicts",[]))>=20:
-        print(f"CFR refresh incomplete ({len(records)}/27); preserving previous successful layer")
-        records=snap["cfrConflicts"]
-    old=[m for m in snap.get("markers",[]) if m.get("source")!="Council on Foreign Relations — Global Conflict Tracker"]
-    for x in records:
-        old.append({"lat":x["lat"],"lng":x["lng"],"type":"strategic","layer":"cfr","importance":3,"title":"CFR: "+x["title"],"detail":f"CFR status: {x['status']} | U.S. impact: {x['impactOnUS']} | Type: {x['type']} | Updated: {x['updated']}","url":x["url"],"sourceUrl":x["url"],"source":x["source"],"eventType":"CONFLICT ASSESSMENT","confidence":"CFR ASSESSMENT / REFERENCE POINT"})
-    snap["markers"]=old; snap["cfrConflicts"]=records
-    snap.setdefault("externalLayers",{})["cfrGlobalConflictTracker"]={"name":"Council on Foreign Relations — Global Conflict Tracker","url":TRACKER,"status":"live public assessment layer","count":len(records),"note":"Conflict assessment metadata and reference points; points represent tracked conflicts, not individual incidents."}
-    note=snap.get("dataNote") or ""; add="CFR Global Conflict Tracker is an independent conflict-assessment layer; its reference points are not incident reports."
-    if add not in note:snap["dataNote"]=(note+" "+add).strip()
-    changes=snap.get("changes") or []; changes.insert(0,{"kind":"system","title":"CFR conflict layer refreshed","detail":f"Synced {len(records)} CFR tracked-conflict assessments and map reference points."}); snap["changes"]=changes[:8]
-    snap["updatedAt"]=datetime.now(timezone.utc).isoformat()
-    SNAP.write_text(json.dumps(snap,ensure_ascii=False,indent=2)+"\n")
-    print(f"CFR synced: {len(records)} conflicts")
-
-if __name__=="__main__":main()
+ snap=json.loads(SNAP.read_text()) if SNAP.exists() else {};records=[]
+ with ThreadPoolExecutor(max_workers=8) as pool:
+  futures={pool.submit(parse,item):item[0] for item in URLS.items()}
+  for f in as_completed(futures):
+   try:records.append(f.result())
+   except Exception as exc:print('CFR skip',futures[f],type(exc).__name__)
+ if len(records)<20 and len(snap.get('cfrConflicts',[]))>=20: print(f'CFR refresh incomplete ({len(records)}/27); preserving previous successful layer');records=snap['cfrConflicts']
+ old=[m for m in snap.get('markers',[]) if m.get('source')!='Council on Foreign Relations — Global Conflict Tracker']
+ for x in records:old.append({'lat':x['lat'],'lng':x['lng'],'type':'strategic','layer':'cfr','importance':3,'title':'CFR: '+x['title'],'detail':f"CFR status: {x['status']} | U.S. impact: {x['impactOnUS']} | Type: {x['type']} | Updated: {x['updated']}",'url':x['url'],'sourceUrl':x['url'],'source':x['source'],'eventType':'CONFLICT ASSESSMENT','confidence':'CFR ASSESSMENT / REFERENCE POINT'})
+ snap['markers']=old;snap['cfrConflicts']=records;snap.setdefault('externalLayers',{})['cfrGlobalConflictTracker']={'name':'Council on Foreign Relations — Global Conflict Tracker','url':TRACKER,'status':'live public assessment layer','count':len(records),'note':'Conflict assessment metadata and reference points; points represent tracked conflicts, not individual incidents.'};snap['updatedAt']=datetime.now(timezone.utc).isoformat();SNAP.write_text(json.dumps(snap,ensure_ascii=False,indent=2)+'\n');print(f'CFR synced: {len(records)} conflicts')
+if __name__=='__main__':main()
