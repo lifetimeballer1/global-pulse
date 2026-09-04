@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T19:58:49.565561Z",
+  "updatedAt": "2026-09-04T20:01:28.484649Z",
   "method": "rule-based event enrichment with source-domain diversity, near-identical headline grouping, and corroboration scoring",
   "disclaimer": "Corroboration scores are monitoring aids, not truth probabilities. Domain diversity is not proof of independence.",
   "events": [
@@ -315,6 +315,40 @@
         "Limited source diversity",
         "One domain supplies most observed reports",
         "Multiple reports may not represent independent reporting",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "45ee32ee07a9e2cd",
+      "title": "Advisers to Reform UK's Farage step down after allegations of electoral law breach",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T19:56:20+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
         "Entity and spillover links are rule-based candidates, not verified causal relationships"
       ]
     },
@@ -3090,56 +3124,6 @@
       },
       "evidenceUrls": [
         "https://www.france24.com/en/rss"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "a63785b711d7b65e",
-      "title": "Russian reconnaissance plane’s flight triggers stepped-up air defense for Poland",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "subscribe.stripes.com"
-      ],
-      "entityCandidates": [
-        "poland"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "poland"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "belarus",
-        "france",
-        "germany",
-        "russia",
-        "ukraine",
-        "united kingdom"
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:28:12+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "subscribe.stripes.com": 1
-      },
-      "evidenceUrls": [
-        "https://subscribe.stripes.com/rss/top-news.xml"
       ],
       "caveats": [
         "Limited source diversity",
