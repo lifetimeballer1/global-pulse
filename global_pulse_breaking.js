@@ -2,14 +2,48 @@
 const API='https://api.gdeltproject.org/api/v2/doc/doc?query='+encodeURIComponent('(Russia OR Ukraine OR NATO OR missile OR airstrike OR bombing OR explosion OR invasion OR attack OR coup OR earthquake OR tsunami OR hurricane OR wildfire OR oil OR sanctions)')+'&mode=artlist&format=json&maxrecords=30&timespan=15min&sort=datedesc';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]||c));
 const url=v=>{try{const u=new URL(String(v||''));return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}};
-function mount(){if(document.getElementById('gp-breaking'))return;const el=document.createElement('section');el.id='gp-breaking';el.className='gp-breaking';el.innerHTML='<div class="gp-breaking-head"><strong>⚡ BREAKING / RAPID INTELLIGENCE</strong><span id="gp-breaking-status">checking open-data feeds…</span></div><div id="gp-breaking-list" class="gp-breaking-list"></div><div class="gp-breaking-note">Rapid alerts are unconfirmed until corroborated. Confirmed/high-confidence reporting is incorporated into the next Global Pulse intelligence calculation cycle.</div>';const anchor=document.querySelector('main .wrap')||document.querySelector('.wrap')||document.body;anchor.prepend(el);return el}
+function mount(){if(document.getElementById('gp-breaking'))return;const el=document.createElement('section');el.id='gp-breaking';el.className='gp-breaking';el.innerHTML='<div class="gp-breaking-head"><strong>⚡ BREAKING / RAPID INTELLIGENCE</strong><span id="gp-breaking-status">checking open-data feeds…</span></div><div id="gp-breaking-list" class="gp-breaking-list"></div><div class="gp-breaking-note">Rapid alerts are unconfirmed until corroborated. Confirmed/high-confidence reporting is incorporated into the next Global Pulse intelligence calculation cycle.</div>';const anchor=document.querySelector('main.wrap')||document.querySelector('.wrap')||document.body;anchor.prepend(el);return el}
 function render(rows){const list=document.getElementById('gp-breaking-list'),status=document.getElementById('gp-breaking-status');if(!list)return;const seen=new Set(),items=(Array.isArray(rows)?rows:[]).filter(r=>r&&r.url&&r.title).filter(r=>{if(seen.has(r.url))return false;seen.add(r.url);return true}).slice(0,8);status.textContent=items.length?items.length+' rapid reports · refreshed '+new Date().toLocaleTimeString():'no rapid reports in the last 15 minutes';list.innerHTML=items.length?items.map(r=>{const href=url(r.url);return '<article><span>OPEN-DATA DISCOVERY</span><a href="'+esc(href)+'" target="_blank" rel="noopener noreferrer">'+esc(r.title)+'</a><small>'+esc(r.domain||r.sourcecountry||'GDELT')+'</small></article>'}).join(''):'<div class="gp-breaking-empty">No rapid-impact reports detected in the current 15-minute window.</div>'}
 async function poll(){try{const r=await fetch(API+'&_='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();render(d.articles||d.results||[])}catch(e){const s=document.getElementById('gp-breaking-status');if(s)s.textContent='live open-data feed unavailable · using scheduled snapshot';try{const r=await fetch('data/breaking_news.json?v='+Date.now(),{cache:'no-store'});const d=await r.json();render(d.articles||[])}catch{}}}
-function sectionText(el){return ((el.id||'')+' '+(el.className||'')+' '+(el.querySelector('h1,h2,h3')?.textContent||'')).toLowerCase()}
-function sectionOrder(el){const s=sectionText(el);if(el.id==='gp-breaking'||s.includes('breaking / rapid'))return 0;if(s.includes('what changed')||s.includes('material changes'))return 1;if(el.id==='top'||s.includes('global index')||s.includes('global tension'))return 2;if(el.id==='conflictsection'||s.includes('active conflict')||s.includes('conflict watch'))return 3;if(s.includes('investigate')||s.includes('event intelligence')||s.includes('claims')||s.includes('evidence'))return 4;if(el.id==='mapsection'||s.includes('situation map')||s.includes('global map'))return 5;if(s.includes('regional intelligence')||s.includes('regional watch'))return 6;if(el.id==='newssection'||el.id==='reporting'||s.includes('latest reporting'))return 7;if(s.includes('event history')||s.includes('historical trends')||s.includes('history'))return 8;if(s.includes('market context')||s.includes('markets'))return 9;if(s.includes('intelligence web')||s.includes('3d'))return 10;if(s.includes('watchlist'))return 11;if(s.includes('source health')||s.includes('data health')||s.includes('system status'))return 12;return 20}
-function reorder(){const main=document.querySelector('main.wrap');if(!main)return;const children=[...main.children];children.forEach((el,i)=>{if(!el.dataset.gpOriginalOrder)el.dataset.gpOriginalOrder=String(i)});children.sort((a,b)=>sectionOrder(a)-sectionOrder(b)||Number(a.dataset.gpOriginalOrder)-Number(b.dataset.gpOriginalOrder));const frag=document.createDocumentFragment();children.forEach(el=>frag.appendChild(el));main.appendChild(frag)}
-function installLayout(){if(document.getElementById('gp-intel-order-css'))return;const st=document.createElement('style');st.id='gp-intel-order-css';st.textContent='.gp-breaking{order:0}.gp-intel-order-note{font-size:9px;color:var(--muted);margin:0 0 8px}.gp-intel-section-label{display:flex;align-items:center;gap:8px;margin:3px 0 -5px;color:var(--muted);font-size:9px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.gp-intel-section-label:before{content:"";height:1px;flex:1;background:var(--line)}';document.head.appendChild(st)}
-const style=document.createElement('style');style.textContent='.gp-breaking{margin:12px 0;padding:12px 14px;border:1px solid rgba(255,102,120,.45);border-left:4px solid #ff6678;border-radius:13px;background:linear-gradient(180deg,rgba(75,15,24,.28),rgba(10,16,24,.96));box-shadow:0 10px 35px rgba(0,0,0,.16)}.gp-breaking-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.gp-breaking-head strong{color:#ff6678;font-size:11px;letter-spacing:.09em}.gp-breaking-head span{color:#91a4b8;font-size:9px}.gp-breaking-list{display:grid;gap:7px;margin-top:9px}.gp-breaking article{padding:8px 9px;border:1px solid #34202a;border-radius:9px;background:#090f17}.gp-breaking article span{display:block;color:#ffc857;font-size:7px;font-weight:900;letter-spacing:.08em}.gp-breaking article a{display:block;margin-top:3px;color:#eef5ff;font-size:11px;font-weight:800;line-height:1.35}.gp-breaking article small{display:block;margin-top:3px;color:#91a4b8;font-size:8px}.gp-breaking-empty,.gp-breaking-note{color:#91a4b8;font-size:9px;line-height:1.45}.gp-breaking-note{margin-top:8px}.gp-breaking-empty{padding:7px 0}@media(max-width:720px){.gp-breaking{margin:8px 0}.gp-breaking-head{align-items:flex-start;flex-direction:column;gap:3px}}';document.head.appendChild(style);
-mount();installLayout();reorder();poll();setInterval(poll,60000);
-if(window.MutationObserver){let pending=false;new MutationObserver(()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;reorder()})}).observe(document.querySelector('main.wrap')||document.body,{childList:true,subtree:false})}
+
+/* Stable intelligence reading order.
+   Use CSS grid order instead of moving/reparenting DOM nodes. This prevents
+   dynamic modules from breaking each other and keeps injected sections inside main. */
+function classify(el){
+ const id=String(el.id||'').toLowerCase();
+ const cls=String(el.className||'').toLowerCase();
+ const heading=String(el.querySelector?.('h1,h2,h3')?.textContent||'').toLowerCase().replace(/\s+/g,' ');
+ const s=id+' '+cls+' '+heading;
+ if(id==='gp-breaking'||s.includes('breaking / rapid')||s.includes('rapid intelligence'))return 0;
+ if(s.includes('what changed')||s.includes('material changes')||id.includes('whatchanged'))return 1;
+ if(id==='top'||s.includes('global index')||s.includes('global tension')||s.includes('current assessment'))return 2;
+ if(id==='conflictsection'||s.includes('active conflict')||s.includes('conflict watch'))return 3;
+ if(id==='evidencecenter'||id==='analysiscenter'||s.includes('event intelligence')||s.includes('priority intelligence')||s.includes('investigation')||s.includes('evidence center'))return 4;
+ if(id==='mapsection'||s.includes('global situation map')||s.includes('global map'))return 5;
+ if(s.includes('regional intelligence')||s.includes('regional watch')||id.includes('regional'))return 6;
+ if(id==='newssection'||id==='reporting'||s.includes('latest reporting')||s.includes('live reporting'))return 7;
+ if(s.includes('event history')||s.includes('historical trends')||s.includes('history'))return 8;
+ if(s.includes('market context')||s.includes('market impact')||s.includes('markets'))return 9;
+ if(s.includes('intelligence web')||s.includes('3d intelligence')||id.includes('globalgraph'))return 10;
+ if(s.includes('watchlist')||id.includes('watchlist'))return 11;
+ if(s.includes('source health')||s.includes('data health')||s.includes('system status')||id.includes('sourcehealth'))return 12;
+ return 20;
+}
+function applyOrder(){
+ const main=document.querySelector('main.wrap');if(!main)return;
+ if(!document.getElementById('gp-intel-order-css')){
+  const st=document.createElement('style');st.id='gp-intel-order-css';
+  st.textContent='.wrap{grid-auto-flow:row}.wrap>*{order:20}.wrap>#gp-breaking{order:0}.wrap>#top{order:2}.wrap>#conflictSection{order:3}.wrap>#mapSection{order:5}.wrap>#newsSection{order:7}.wrap>#reporting{order:7}.wrap>#evidenceCenter{order:4}.wrap>#analysisCenter{order:4}.wrap>#globalGraph{order:10}.wrap>*[data-gp-order]{order:var(--gp-order,20)}.gp-breaking{margin:0}.gp-breaking-note{max-width:100%}';
+  document.head.appendChild(st);
+ }
+ [...main.children].forEach(el=>{
+   if(el.tagName==='SCRIPT'||el.tagName==='STYLE')return;
+   const n=classify(el);
+   el.style.setProperty('--gp-order',String(n));
+   el.dataset.gpOrder=String(n);
+   el.style.order=String(n);
+ });
+}
+function install(){mount();applyOrder();poll();setInterval(poll,60000);if(window.MutationObserver){let pending=false;new MutationObserver(()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;applyOrder()})}).observe(document.querySelector('main.wrap')||document.body,{childList:true,subtree:false})}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
