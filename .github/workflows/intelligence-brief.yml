@@ -1,0 +1,70 @@
+name: Global Pulse — Intelligence Brief
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: global-pulse-intelligence-brief
+  cancel-in-progress: false
+
+jobs:
+  build-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build intelligence brief
+        run: python build_intelligence_brief.py
+
+      - name: Validate intelligence brief
+        run: |
+          set -euo pipefail
+          python -m py_compile build_intelligence_brief.py
+          test -s data/intelligence_brief.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/intelligence_brief.json')
+          d = json.loads(p.read_text())
+          assert d.get('version') == 1
+          assert d.get('updatedAt')
+          assert isinstance(d.get('topDevelopments'), list)
+          assert isinstance(d.get('watchlist'), list)
+          assert d.get('methodology', {}).get('caution')
+          print('INTELLIGENCE BRIEF VALIDATION PASSED')
+          print('Developments:', len(d['topDevelopments']))
+          print('Watchlist:', len(d['watchlist']))
+          PY
+
+      - name: Commit brief artifact
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/intelligence_brief.json
+          if git diff --staged --quiet; then
+            echo 'No brief changes'
+            exit 0
+          fi
+          git commit -m 'chore: refresh intelligence brief'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main && git push origin HEAD:main && exit 0 || true
+            git rebase --abort || true
+            sleep $((attempt*2))
+          done
+          exit 1
