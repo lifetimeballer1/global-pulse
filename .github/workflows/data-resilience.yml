@@ -1,88 +1,64 @@
-name: Global Pulse — Data Resilience
+name: Global Pulse — Data Resilience Checks
 
+# IMPORTANT: production refresh/deploy is owned by update-snapshot.yml.
+# A second scheduled deployment was able to race the production pipeline and
+# publish an older/incomplete site build. Keep this workflow manual-only so it
+# can be used for isolated diagnostics without ever replacing the live site.
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
-  group: global-pulse-production
-  cancel-in-progress: false
+  group: global-pulse-resilience-check
+  cancel-in-progress: true
 
 env:
   PYTHONUNBUFFERED: '1'
 
 jobs:
-  resilience:
+  resilience-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 8
     steps:
-      - name: Checkout
+      - name: Checkout current main
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Replace failed news sources with no-key fallbacks
-        run: python source_failover.py
-
-      - name: Refresh near-real-time global market quotes
-        run: python update_market_data.py
-
-      - name: Validate resilience outputs
+      - name: Validate resilience scripts
         run: |
           set -euo pipefail
           python -m py_compile source_failover.py update_market_data.py
+          test -s data/snapshot.json
+          test -s data/sources.json
           python - <<'PY'
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           m=d.get('marketData',{})
+          assert isinstance(d,dict)
+          assert isinstance(m,dict)
           assert m.get('noApiKey') is True
-          assert len(m.get('indicators',[])) >= 10
-          assert all(x.get('symbol') and x.get('price') is not None for x in m['indicators'])
-          assert isinstance(d.get('sourceFailover',{}).get('replacements',[]), list)
-          print('RESILIENCE OK:', len(m['indicators']), 'market indicators')
-          print('LIVE:', m.get('liveCount'), 'STALE:', m.get('staleCount'))
-          print('FAILOVER:', len(d.get('sourceFailover',{}).get('replacements',[])))
+          print('Committed snapshot is valid JSON.')
+          print('Market indicators:', len(m.get('indicators',[])))
+          print('Snapshot updatedAt:', d.get('updatedAt'))
+          print('Source failover replacements:', len(d.get('sourceFailover',{}).get('replacements',[])))
           PY
 
-      - name: Publish resilient data
+      - name: Confirm production scheduler contract
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/snapshot.json data/sources.json
-          if git diff --staged --quiet; then echo "No resilience changes"; exit 0; fi
-          git commit -m "chore: refresh resilient market and source data"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            if git rebase -X theirs origin/main; then
-              if git push origin HEAD:main; then echo "Published resilience data"; exit 0; fi
-              git rebase --abort || true
-            else git rebase --abort || true; fi
-            sleep $((attempt * 2))
-          done
-          exit 1
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy resilient site
-        id: deployment
-        uses: actions/deploy-pages@v4
+          grep -q "2-59/5 \* \* \* \*" .github/workflows/update-snapshot.yml
+          grep -q "actions/deploy-pages@v4" .github/workflows/update-snapshot.yml
+          if grep -q "actions/deploy-pages@v4" .github/workflows/data-resilience.yml; then
+            echo 'ERROR: resilience workflow must never deploy Pages'
+            exit 1
+          fi
+          echo 'Production scheduler owns Pages deployment; resilience workflow is diagnostics-only.'
