@@ -1,0 +1,42 @@
+name: Global Pulse — Final 10 Phase Validation
+on:
+  workflow_run:
+    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 1}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Compile every new Python phase tool
+        run: |
+          python -m py_compile build_source_health.py build_source_evidence.py build_event_intelligence.py build_what_changed.py build_regional_intelligence.py link_events_to_map.py build_event_market_impact.py build_historical_trends.py
+      - name: Validate all phase artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          required=['data/source_health.json','data/source_evidence.json','data/event_intelligence.json','data/what_changed.json','data/regional_intelligence.json','data/event_market_impact.json','data/historical_trends.json']
+          for f in required:
+              p=Path(f); assert p.exists(),f
+              json.loads(p.read_text())
+          h=json.loads(Path('data/source_health.json').read_text()); assert len(h['sources'])>=20 and h['summary']['total']>=20
+          ei=json.loads(Path('data/event_intelligence.json').read_text()); assert isinstance(ei['events'],list)
+          wc=json.loads(Path('data/what_changed.json').read_text()); assert wc['version']==1
+          rg=json.loads(Path('data/regional_intelligence.json').read_text()); assert len(rg['regions'])>=8
+          mi=json.loads(Path('data/event_market_impact.json').read_text()); assert isinstance(mi['events'],list)
+          ht=json.loads(Path('data/historical_trends.json').read_text()); assert all(x in ht['windows'] for x in ('6h','24h','7d','30d'))
+          assert Path('global_pulse_watchlist.js').exists()
+          print('ALL 10 PHASE ARTIFACT VALIDATION PASSED')
+          print('sources:',h['summary'])
+          print('events:',len(ei['events']),'what changed:',wc['summary'])
+          print('regions:',len(rg['regions']),'market mappings:',len(mi['events']))
+          print('history samples:',ht['availableSamples'],'available hours:',ht['availableHours'])
+          PY
