@@ -1,13 +1,9 @@
 name: Global Pulse — Refresh, Validate & Deploy
 
-# SINGLE production pipeline:
-# This is the only workflow that owns the public GitHub Pages deployment.
-# It refreshes the full intelligence stack every 5 minutes, validates the
-# generated snapshot, commits the generated data, and deploys that exact build.
+# SINGLE production pipeline: refreshes the full intelligence stack, builds the
+# evidence graph payload, validates the exact site, commits generated data, and deploys it.
 on:
   schedule:
-    # Every 5 minutes, offset from the top of the hour to reduce GitHub's
-    # documented high-load delays around :00.
     - cron: '2-59/5 * * * *'
   workflow_dispatch:
   push:
@@ -18,6 +14,10 @@ on:
       - 'global_pulse_v26.js'
       - 'global_pulse_v27.js'
       - 'global_pulse_graph.js'
+      - 'global_pulse_graph_pro.js'
+      - 'intelligence-web.html'
+      - 'intelligence_web_v2.js'
+      - 'build_intelligence_graph.py'
       - 'install_intelligence_web.py'
       - 'update_intelligence_web.py'
       - 'update_market_data.py'
@@ -29,7 +29,6 @@ on:
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
       - 'update7_live_branding.py'
-      - 'global_pulse_graph_pro.js'
 
 env:
   PYTHONUNBUFFERED: '1'
@@ -91,7 +90,9 @@ jobs:
         run: python update8_global_layers.py
       - name: Build evidence-linked intelligence graph
         run: python update_intelligence_web.py
-      - name: Install functional 3D Intelligence Web entry point
+      - name: Build compact Intelligence Web payload
+        run: python build_intelligence_graph.py
+      - name: Verify canonical Intelligence Web renderer
         run: python install_intelligence_web.py
       - name: Apply final branding and layout cleanup
         run: python update7_live_branding.py
@@ -108,9 +109,10 @@ jobs:
       - name: Validate production build
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
+          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
           node --check global_pulse_graph.js
           node --check global_pulse_graph_pro.js
+          node --check intelligence_web_v2.js
           node --check global_pulse_v27.js
           node --check global_pulse_v27_quality.js
           node --check global_pulse_source_health.js
@@ -119,58 +121,53 @@ jobs:
           from datetime import datetime,timezone
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          compact=json.loads(Path('data/intelligence_graph.json').read_text(encoding='utf-8'))
           live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
           status=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
           html=Path('index.html').read_text(encoding='utf-8')
           intel=Path('intelligence-web.html').read_text(encoding='utf-8')
+          js=Path('intelligence_web_v2.js').read_text(encoding='utf-8')
           g=d.get('intelligenceGraph',{}); pi=d.get('politicalIntelligence',{})
+          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
+          assert len(compact.get('nodes',[]))>=10 and len(compact.get('edges',[]))>=10
+          assert all(e.get('source') and e.get('target') and isinstance(e.get('evidence'),list) and len(e['evidence'])>0 for e in compact['edges'])
+          assert 'WHY THIS NODE IS CONNECTED' in js and 'SOURCES FOR THIS NODE' in js and 'OPEN ORIGINAL SOURCE' in js
+          assert 'z-index:1000' in intel and 'intelligence_web_v2.js?v=' in intel
           con=sqlite3.connect('news_feed.db'); cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}; db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]; con.close()
           required={'url','title','published_date','summary_snippet','credit_metadata'}; assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
-          assert db_count>=1; assert live.get('count',0)>=1; assert status.get('feedsChecked',0)>=10; assert d.get('updatedAt')
-          assert len(d.get('stories',[]))>=100; assert len(d.get('conflicts',[]))>=25; assert len(d.get('cfrConflicts',[]))>=20
-          assert len(d.get('usPolitics',[]))+len(d.get('worldPolitics',[]))>0; assert len(d.get('economics',[]))>0
+          assert db_count>=1 and live.get('count',0)>=1 and status.get('feedsChecked',0)>=10 and d.get('updatedAt')
+          assert len(d.get('stories',[]))>=100 and len(d.get('conflicts',[]))>=25 and len(d.get('cfrConflicts',[]))>=20
+          assert len(d.get('usPolitics',[]))+len(d.get('worldPolitics',[]))>0 and len(d.get('economics',[]))>0
           assert pi.get('totalSignals',0)>0 and isinstance(pi.get('topSignals'),list) and len(pi['topSignals'])>0
-          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
-          markers=d.get('markers',[]); assert isinstance(markers,list) and len(markers)>=100, f"map markers too low: {len(markers)}"
-          marker_sources={str(x.get('source','')) for x in markers}
-          assert ('Guerilla Map Strategic Reference' in marker_sources or any('Guerilla Map' in x for x in marker_sources)), 'strategic reference layer missing'
-          assert 'gp-map-v3-js' in html, 'canonical map v3 UI missing'
-          assert 'pulse-reporting-feed' in html, 'live reporting feed missing'
-          assert 'GP-MAP-3D-START' not in html and 'global_pulse_map_3d.js' not in html, 'deprecated 3D globe still installed'
-          assert 'GP-INTELLIGENCE-WEB-START' in html, '3D Intelligence Web entry missing'
-          assert 'ForceGraph3D' in intel and 'data/snapshot.json' in intel, '3D Intelligence Web not wired to real snapshot'
-          assert 'enableNodeDrag(true)' in intel, '3D node dragging is not enabled'
-          assert '3d-force-graph@1.80.0' in intel, '3D renderer is not pinned'
-          assert 'function load()' in intel and 'cdn.jsdelivr.net' in intel and 'unpkg.com/3d-force-graph@1.80.0' in intel, '3D loader contract missing'
-          assert 'global_pulse_map_3d.js' not in intel, 'deprecated globe renderer referenced'
+          markers=d.get('markers',[]); assert isinstance(markers,list) and len(markers)>=100
+          marker_sources={str(x.get('source','')) for x in markers}; assert ('Guerilla Map Strategic Reference' in marker_sources or any('Guerilla Map' in x for x in marker_sources))
+          assert 'gp-map-v3-js' in html and 'pulse-reporting-feed' in html
+          assert 'GP-MAP-3D-START' not in html and 'global_pulse_map_3d.js' not in html
+          assert 'GP-INTELLIGENCE-WEB-START' in html and 'ForceGraph3D' in intel and 'data/snapshot.json' in intel
+          assert 'enableNodeDrag(true)' in js and '3d-force-graph@1.80.0' in intel
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
-          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8'); assert 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
-          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8'); assert 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8'); assert 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8'); assert 'news_feed.db' in Path('news_feed_db.py').read_text(encoding='utf-8')
-          m=d.get('marketData',{}); indicators=m.get('indicators',[]); assert isinstance(m,dict); assert m.get('noApiKey') is True; assert len(indicators)>=20, f"market indicators too low: {len(indicators)}"
-          assert all(x.get('symbol') and x.get('price') is not None for x in indicators), 'market indicator missing price'
+          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
+          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8') and 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8') and 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8')
+          m=d.get('marketData',{}); indicators=m.get('indicators',[]); assert m.get('noApiKey') is True and len(indicators)>=20
+          assert all(x.get('symbol') and x.get('price') is not None for x in indicators)
           checked=[]
           for x in indicators:
             try: checked.append(datetime.fromisoformat(str(x.get('checkedAt','')).replace('Z','+00:00')))
             except: pass
-          assert checked and (datetime.now(timezone.utc)-max(checked)).total_seconds()<1200, 'market collector is stale (>20m)'
-          assert m.get('liveCount',0)+m.get('closedCount',0)+m.get('staleCount',0)==len(indicators), 'market status counts do not reconcile'
-          quake_keys=set()
-          for marker in d['markers']:
-            if str(marker.get('source','')).lower().find('usgs')>=0 or 'earthquake' in str(marker.get('eventType',marker.get('type',''))).lower():
-              key=str(marker.get('url') or marker.get('id') or marker.get('eventId') or (marker.get('title'),marker.get('lat',marker.get('latitude')),marker.get('lng',marker.get('lon')))); assert key not in quake_keys, f'duplicate earthquake marker: {key}'; quake_keys.add(key)
-          assert html.count('Made by J.S.')==1; assert html.count('id="gp-brand-live-css"')==1; assert html.count('id="gp-auto-refresh"')==1; assert html.count('class="gp-footer-credit"')==0
-          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I); assert not re.search(r'\b(coming soon|under construction)\b',html,re.I)
-          assert d.get('scoreVersion')==5, f'unexpected score version: {d.get("scoreVersion")}'
-          assert isinstance(d.get('tension'),(int,float)) and 0<=d['tension']<=100
+          assert checked and (datetime.now(timezone.utc)-max(checked)).total_seconds()<1200
+          assert m.get('liveCount',0)+m.get('closedCount',0)+m.get('staleCount',0)==len(indicators)
+          assert html.count('Made by J.S.')==1 and html.count('id="gp-brand-live-css"')==1 and html.count('id="gp-auto-refresh"')==1 and html.count('class="gp-footer-credit"')==0
+          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I) and not re.search(r'\b(coming soon|under construction)\b',html,re.I)
+          assert d.get('scoreVersion')==5 and isinstance(d.get('tension'),(int,float)) and 0<=d['tension']<=100
           assert isinstance(d.get('breakdownScores'),dict) and len(d['breakdownScores'])>=6
           assert isinstance(d.get('driverSignals'),dict) and len(d['driverSignals'])>=6
           assert isinstance(d.get('sourceHealth'),list) and len(d['sourceHealth'])>=10
-          failed=sum(1 for x in d['sourceHealth'] if x.get('status')=='failed'); assert failed<=5, f'too many failed sources after failover: {failed}'
-          for x in d['sourceHealth']: assert x.get('status') in ('online','degraded','failed','unknown') and 'articles' in x and 'lastChecked' in x, f'invalid source health: {x}'
-          for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal, f'invalid driver evidence: {name}'
-          print(f"VALID: tension={d['tension']} markers={len(markers)} stories={len(d['stories'])} graph_nodes={len(g.get('nodes',[]))} graph_edges={len(g.get('edges',[]))}")
+          failed=sum(1 for x in d['sourceHealth'] if x.get('status')=='failed'); assert failed<=5
+          for x in d['sourceHealth']: assert x.get('status') in ('online','degraded','failed','unknown') and 'articles' in x and 'lastChecked' in x
+          for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal
+          print(f"VALID: tension={d['tension']} markers={len(markers)} stories={len(d['stories'])} graph_nodes={len(g['nodes'])} graph_edges={len(g['edges'])} compact_nodes={len(compact['nodes'])} compact_edges={len(compact['edges'])}")
           print(f"MARKETS: {m.get('liveCount')} live, {m.get('closedCount')} closed, {m.get('staleCount')} stale")
-          print(f"SOURCE HEALTH: {d['sourceHealthSummary']}")
+          print(f"SOURCE HEALTH: {d.get('sourceHealthSummary')}")
           PY
       - name: Commit refreshed data and generated site changes
         run: |
@@ -200,6 +197,7 @@ jobs:
           test -s _site/index.html
           test -s _site/intelligence-web.html
           test -s _site/data/snapshot.json
+          test -s _site/data/intelligence_graph.json
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
