@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Build transparent corroboration metrics from current public reporting.
-No API key required. Domain diversity is preferred; source IDs are used only
-when a report does not expose a URL, and shared-wire duplication is discounted.
+"""Build transparent source-quality and corroboration metrics.
+No API key required. Domain diversity is treated as a proxy, not proof of
+independence. Syndication, aggregators, social feeds and primary sources are
+separated so raw article volume cannot masquerade as corroboration.
 """
 from __future__ import annotations
 import hashlib,json,re
@@ -44,8 +45,48 @@ def title_key(r):
 
 def text(r):return ' '.join(str(r.get(k) or '') for k in ('title','name','summary','description')).strip()
 
+# Conservative source classes. Unknown domains remain unknown rather than
+# being granted trust automatically.
+PRIMARY_DOMAINS={
+    'un.org','nato.int','iaea.org','who.int','imf.org','worldbank.org',
+    'state.gov','defense.gov','whitehouse.gov','congress.gov','europa.eu',
+    'gov.uk','gov.uk','gov.ua','kremlin.ru','president.gov.ua',
+    'mod.gov.uk','mod.gov.ua','canada.ca','australia.gov.au','gov.au',
+    'gov.in','mofa.gov.sa','mofa.gov.ae','gov.il','gov.ir','gov.ng','gov.ke'
+}
+MAJOR_NEWS_DOMAINS={
+    'reuters.com','apnews.com','bbc.com','bbc.co.uk','aljazeera.com','france24.com',
+    'dw.com','ft.com','bloomberg.com','wsj.com','nytimes.com','washingtonpost.com',
+    'theguardian.com','cnn.com','npr.org','pbs.org','cnbc.com','politico.com',
+    'economist.com','abcnews.go.com','cbsnews.com','nbcnews.com','foxnews.com',
+    'skynews.com','tass.com','xinhua.net','kyivindependent.com'
+}
+SPECIALIST_DOMAINS={
+    'crisisgroup.org','acleddata.com','cfr.org','csis.org','iiss.org','sipri.org',
+    'reliefweb.int','unhcr.org','ohchr.org','ecfr.eu','rusi.org','bellingcat.com'
+}
+AGGREGATOR_DOMAINS={
+    'news.google.com','news.yahoo.com','yahoo.com','msn.com','aol.com','apple.news'
+}
+SOCIAL_DOMAINS={'x.com','twitter.com','facebook.com','instagram.com','tiktok.com','youtube.com','reddit.com','t.me'}
+WIRE_HINTS={'reuters','associated press','ap news','afp','agency france presse','tass','xinhua'}
+
+def source_class(d):
+    if not d:return 'unknown'
+    if d in PRIMARY_DOMAINS or d.endswith('.gov') or d.endswith('.gov.uk') or d.endswith('.mil'):
+        return 'primary'
+    if d in MAJOR_NEWS_DOMAINS:return 'major-news'
+    if d in SPECIALIST_DOMAINS:return 'specialist'
+    if d in AGGREGATOR_DOMAINS:return 'aggregator'
+    if d in SOCIAL_DOMAINS:return 'social'
+    return 'other'
+
+def source_quality(d):
+    c=source_class(d)
+    return {'primary':100,'major-news':90,'specialist':82,'other':55,'aggregator':35,'social':20,'unknown':25}[c]
+
 def independent_groups(reports):
-    """Cluster near-identical headlines so copies do not count as separate corroboration."""
+    """Cluster near-identical headlines so copies do not count as corroboration."""
     groups=[]
     for r in reports:
         tokens=set(re.findall(r'[a-z0-9]{4,}',title_key(r)))
@@ -69,24 +110,48 @@ def main():
     for r in reports:
         ident=identity(r)
         if ident:counts[ident]+=1;by_identity[ident].append(r)
-    top=[{'source':d,'reportCount':n} for d,n in counts.most_common(40)]
+    top=[]
+    for ident,n in counts.most_common(40):
+        d=ident.removeprefix('domain:') if ident.startswith('domain:') else ''
+        top.append({'source':ident,'reportCount':n,'class':source_class(d),'quality':source_quality(d)})
     event_metrics=[]
     for e in (events.get('events') or [])[:80]:
         rs=[r for r in e.get('reports') or [] if isinstance(r,dict)]
-        ids=[]
+        ids=[]; domains=[]; qualities=[]
         for r in rs:
             ident=identity(r)
+            d=domain(report_url(r))
             if ident and ident not in ids:ids.append(ident)
-        groups=independent_groups(rs)
-        independent=len(groups)
-        unique_domains=sorted({i.removeprefix('domain:') for i in ids if i.startswith('domain:')})
-        domain_count=len(unique_domains)
-        if domain_count>=4 and independent>=3:independence='high'
-        elif domain_count>=2 or independent>=2:independence='moderate'
-        else:independence='low'
-        event_metrics.append({'eventId':e.get('id'),'title':e.get('title'),'reportCount':len(rs),'uniqueDomains':domain_count,'sourceIdentities':ids[:10],'independentReportingGroups':independent,'domains':unique_domains[:10],'independence':independence,'note':'Near-identical headlines are grouped; domain diversity is a proxy, not proof of independent reporting.'})
-    out={'updatedAt':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'method':'URL/domain diversity with source-ID fallback and near-identical headline grouping. Shared wire stories are discounted as one reporting group.','uniqueReportCount':len(reports),'uniqueSourceDomains':len({x.removeprefix('domain:') for x in counts if x.startswith('domain:')}),'topSources':top,'eventSourceEvidence':event_metrics}
+            if d:domains.append(d);qualities.append(source_quality(d))
+        groups=independent_groups(rs); independent=len(groups)
+        unique_domains=sorted(set(domains)); domain_count=len(unique_domains)
+        classes=Counter(source_class(d) for d in unique_domains)
+        non_aggregating_domains=[d for d in unique_domains if source_class(d) not in {'aggregator','social'}]
+        quality_avg=round(sum(qualities)/len(qualities)) if qualities else 0
+        primary_count=classes.get('primary',0); major_count=classes.get('major-news',0)
+        # Independence requires multiple reporting groups, not merely multiple URLs.
+        if independent>=4 and len(non_aggregating_domains)>=4: independence='high'
+        elif independent>=3 and len(non_aggregating_domains)>=3: independence='moderate-high'
+        elif independent>=2 and len(non_aggregating_domains)>=2: independence='moderate'
+        else: independence='low'
+        concentration=max(Counter(domains).values(),default=0)/max(1,len(domains))
+        wire_like=sum(1 for d in unique_domains if d.split('.')[0] in WIRE_HINTS or any(h in d for h in WIRE_HINTS))
+        event_metrics.append({
+            'eventId':e.get('id'),'title':e.get('title'),'reportCount':len(rs),
+            'uniqueDomains':domain_count,'sourceIdentities':ids[:12],
+            'independentReportingGroups':independent,'domains':unique_domains[:12],
+            'domainClasses':dict(classes),'nonAggregatingDomains':len(non_aggregating_domains),
+            'primarySourceDomains':primary_count,'majorNewsDomains':major_count,
+            'wireLikeDomains':wire_like,'averageSourceQuality':quality_avg,
+            'domainConcentration':round(concentration,3),'independence':independence,
+            'note':'Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof.'
+        })
+    out={'updatedAt':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),
+         'method':'URL/domain diversity, conservative source classes, near-identical headline grouping and concentration controls. Source class is a monitoring aid, not a truth judgment.',
+         'uniqueReportCount':len(reports),'uniqueSourceDomains':len({x.removeprefix('domain:') for x in counts if x.startswith('domain:')}),
+         'sourceClassDefinitions':{'primary':'Government/institutional first-party domain. Does not make the claim true.','major-news':'Established news organization domain.','specialist':'Recognized research/humanitarian specialist.','other':'Unclassified publisher.','aggregator':'Republishing/aggregation surface; weak independence signal.','social':'Social platform; useful for leads, weak corroboration alone.','unknown':'No usable domain/source identity.'},
+         'topSources':top,'eventSourceEvidence':event_metrics}
     (DATA/'source_evidence.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print(f'SOURCE EVIDENCE: {len(reports)} reports / {out["uniqueSourceDomains"]} domains / corroboration groups calculated')
+    print(f'SOURCE EVIDENCE: {len(reports)} reports / {out["uniqueSourceDomains"]} domains / quality metrics calculated')
 
 if __name__=='__main__':main()
