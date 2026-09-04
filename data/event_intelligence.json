@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T20:04:23.294500Z",
+  "updatedAt": "2026-09-04T20:21:25.705616Z",
   "method": "rule-based event enrichment with source-domain diversity, near-identical headline grouping, and corroboration scoring",
   "disclaimer": "Corroboration scores are monitoring aids, not truth probabilities. Domain diversity is not proof of independence.",
   "events": [
@@ -661,6 +661,74 @@
       ]
     },
     {
+      "eventId": "3ecfa774763d3999",
+      "title": "Schiess installed as Space Force’s highest-ranking officer",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T17:17:20+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "c20a7c7a7c398c3c",
+      "title": "Alabama airman’s widow ‘grateful’ after Pentagon confirms benefits",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "subscribe.stripes.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T17:08:51+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
       "eventId": "ec89e2949ec9bcb7",
       "title": "5 EU countries aim to send rejected migrants to 'return hub' by 2027",
       "category": "general",
@@ -797,6 +865,59 @@
       ]
     },
     {
+      "eventId": "3d4ff456bba6cfdb",
+      "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "ukraine",
+        "russia"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "russia",
+            "ukraine"
+          ]
+        }
+      ],
+      "spilloverCandidates": [
+        "belarus",
+        "france",
+        "germany",
+        "poland",
+        "ukraine",
+        "united kingdom",
+        "russia"
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-04T15:44:14+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
       "eventId": "9c85db3442b0a7a3",
       "title": "Russia strikes Ukraine intelligence HQ in ‘major escalation’",
       "category": "general",
@@ -886,6 +1007,40 @@
       ]
     },
     {
+      "eventId": "c82f89b8ef045be6",
+      "title": "UN raises ‘ethnic cleansing’ concerns over Israeli West Bank operation",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "spilloverCandidates": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T15:31:54+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
       "eventId": "66cca8bcebd85a3b",
       "title": "British army halts some training exercises to save money, reports say",
       "category": "general",
@@ -912,6 +1067,58 @@
       },
       "evidenceUrls": [
         "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
+      "caveats": [
+        "Limited source diversity",
+        "One domain supplies most observed reports",
+        "Entity and spillover links are rule-based candidates, not verified causal relationships"
+      ]
+    },
+    {
+      "eventId": "133ca82a12740528",
+      "title": "Diesel price hits all-time high in US amid Iran war woes",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "independentReportingGroups": 1,
+      "corroborationScore": 62,
+      "sourceIndependence": "limited",
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "iran"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "iran"
+          ]
+        }
+      ],
+      "spilloverCandidates": [
+        "iraq",
+        "israel",
+        "jordan",
+        "lebanon",
+        "qatar",
+        "saudi arabia",
+        "syria",
+        "united arab emirates"
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-04T15:28:28+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
       ],
       "caveats": [
         "Limited source diversity",
@@ -2580,8 +2787,8 @@
         "aljazeera.com"
       ],
       "entityCandidates": [
-        "china",
-        "egypt"
+        "egypt",
+        "china"
       ],
       "regionalContext": [
         {
@@ -2926,196 +3133,6 @@
       "timeline": [
         {
           "time": "2026-09-04T11:33:04+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "france24.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.france24.com/en/rss"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "6198df3ceccd2938",
-      "title": "Iran war: Why US midterms could be a pivotal moment",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [
-        "iran"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "iran"
-          ]
-        }
-      ],
-      "spilloverCandidates": [
-        "iraq",
-        "israel",
-        "jordan",
-        "lebanon",
-        "qatar",
-        "saudi arabia",
-        "syria",
-        "united arab emirates"
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T11:12:51+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "f0436dc0d2785233",
-      "title": "Serbia: How the funeral of Ratko Mladic is dividing a nation",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "rss.dw.com"
-      ],
-      "entityCandidates": [
-        "serbia"
-      ],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T11:03:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "rss.dw.com": 1
-      },
-      "evidenceUrls": [
-        "https://rss.dw.com/xml/rss-en-world"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "541be9f7729fb437",
-      "title": "ICE bans hugging inside California’s largest detention center. Families are fighting back",
-      "category": "conflict",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "theguardian.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T11:00:06+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "theguardian.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.theguardian.com/world/rss"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "932b69af9b7ccec4",
-      "title": "JD Vance accused of ‘gaslighting’ after saying he is ‘skeptical’ US struck Iranian wedding | First Thing",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "theguardian.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:59:55+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "theguardian.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.theguardian.com/world/rss"
-      ],
-      "caveats": [
-        "Limited source diversity",
-        "One domain supplies most observed reports",
-        "Entity and spillover links are rule-based candidates, not verified causal relationships"
-      ]
-    },
-    {
-      "eventId": "b32ea68f78857128",
-      "title": "Stability or fiasco? Giorgia Meloni becomes longest-serving Italian PM",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "independentReportingGroups": 1,
-      "corroborationScore": 62,
-      "sourceIndependence": "limited",
-      "sourceDomains": [
-        "france24.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "spilloverCandidates": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T10:29:00+00:00",
           "type": "report"
         }
       ],

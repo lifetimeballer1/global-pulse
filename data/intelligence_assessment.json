@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T20:04:30.659005Z",
+  "updatedAt": "2026-09-04T20:21:33.837813Z",
   "method": "Explainable indicator layer using current public reporting, clustered events and evidence-backed network data. Scores are not forecasts and market relationships are not treated as causal.",
   "assessments": [
     {
@@ -26,7 +26,7 @@
           "delta": -2
         }
       ],
-      "evidenceCount": 24,
+      "evidenceCount": 25,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -76,6 +76,29 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
+      "entity": "Ukraine",
+      "score": 45,
+      "level": "ELEVATED",
+      "delta": 7,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 22
+        },
+        {
+          "label": "Live event activity",
+          "delta": 12
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 9,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
       "entity": "Global Economy",
       "score": 44,
       "level": "WATCH",
@@ -96,6 +119,29 @@
         }
       ],
       "evidenceCount": 10,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
+      "entity": "Russia",
+      "score": 43,
+      "level": "WATCH",
+      "delta": 8,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 20
+        },
+        {
+          "label": "Live event activity",
+          "delta": 12
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ],
+      "evidenceCount": 7,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -141,56 +187,10 @@
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
-      "entity": "Ukraine",
-      "score": 38,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 20
-        },
-        {
-          "label": "Live event activity",
-          "delta": 8
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 8,
-      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
-    },
-    {
-      "entity": "Russia",
+      "entity": "Israel",
       "score": 35,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 18
-        },
-        {
-          "label": "Live event activity",
-          "delta": 8
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 6,
-      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
-    },
-    {
-      "entity": "Israel",
-      "score": 34,
-      "level": "WATCH",
-      "delta": 0,
+      "delta": 1,
       "trend": "STABLE",
       "factors": [
         {
@@ -206,7 +206,7 @@
           "delta": 4
         }
       ],
-      "evidenceCount": 16,
+      "evidenceCount": 17,
       "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
     },
     {
@@ -592,7 +592,7 @@
       "confidence": "low",
       "reportCount": 2,
       "sourceCount": 0,
-      "sourceIndependence": "moderate",
+      "sourceIndependence": "low",
       "uniqueDomains": 1,
       "whyThisMatters": {
         "immediate": "political stability monitoring",
@@ -624,7 +624,7 @@
       "confidence": "low",
       "reportCount": 2,
       "sourceCount": 0,
-      "sourceIndependence": "moderate",
+      "sourceIndependence": "low",
       "uniqueDomains": 2,
       "whyThisMatters": {
         "immediate": "regional spillover monitoring",
@@ -778,6 +778,38 @@
       "urls": []
     },
     {
+      "eventId": "3ecfa774763d3999",
+      "title": "Schiess installed as Space Force’s highest-ranking officer",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "sourceIndependence": "low",
+      "uniqueDomains": 1,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
+      "eventId": "c20a7c7a7c398c3c",
+      "title": "Alabama airman’s widow ‘grateful’ after Pentagon confirms benefits",
+      "category": "general",
+      "confidence": "low",
+      "reportCount": 1,
+      "sourceCount": 0,
+      "sourceIndependence": "low",
+      "uniqueDomains": 1,
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": []
+    },
+    {
       "eventId": "ec89e2949ec9bcb7",
       "title": "5 EU countries aim to send rejected migrants to 'return hub' by 2027",
       "category": "general",
@@ -824,41 +856,56 @@
         "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": []
-    },
-    {
-      "eventId": "729d4ead7ec9208b",
-      "title": "Reports emerge of Fort Carson soldiers sleeping in cars amid AC failures",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "sourceIndependence": "low",
-      "uniqueDomains": 1,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
-    },
-    {
-      "eventId": "9c85db3442b0a7a3",
-      "title": "Russia strikes Ukraine intelligence HQ in ‘major escalation’",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "sourceCount": 0,
-      "sourceIndependence": "low",
-      "uniqueDomains": 1,
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": []
     }
   ],
-  "whatChanged": [],
+  "whatChanged": [
+    {
+      "entity": "Russia",
+      "score": 43,
+      "level": "WATCH",
+      "delta": 8,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 20
+        },
+        {
+          "label": "Live event activity",
+          "delta": 12
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ],
+      "evidenceCount": 7,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    },
+    {
+      "entity": "Ukraine",
+      "score": 45,
+      "level": "ELEVATED",
+      "delta": 7,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 22
+        },
+        {
+          "label": "Live event activity",
+          "delta": 12
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 9,
+      "method": "Volume, live-event activity, network exposure, economic signals and de-escalation signals from current public reporting. Indicator only; not a causal forecast."
+    }
+  ],
   "sourceSummary": {
     "uniqueReportCount": 10,
     "uniqueSourceDomains": 10
