@@ -1,7 +1,14 @@
 name: Global Pulse — Refresh, Validate & Deploy
+
+# SINGLE production pipeline:
+# This is the only workflow that owns the public GitHub Pages deployment.
+# It refreshes the full intelligence stack every 5 minutes, validates the
+# generated snapshot, commits the generated data, and deploys that exact build.
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    # Every 5 minutes, offset from the top of the hour to reduce GitHub's
+    # documented high-load delays around :00.
+    - cron: '2-59/5 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -21,7 +28,9 @@ on:
       - 'install_map_v3.py'
       - 'finalize_intelligence_health.py'
       - 'install_health_finalizer.py'
-# Recovery note: a workflow-only push intentionally retriggers the full production build/deploy.
+      - 'update7_live_branding.py'
+      - 'global_pulse_graph_pro.js'
+
 env:
   PYTHONUNBUFFERED: '1'
 concurrency:
@@ -101,6 +110,7 @@ jobs:
           set -euo pipefail
           python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
           node --check global_pulse_graph.js
+          node --check global_pulse_graph_pro.js
           node --check global_pulse_v27.js
           node --check global_pulse_v27_quality.js
           node --check global_pulse_source_health.js
@@ -131,9 +141,6 @@ jobs:
           assert 'ForceGraph3D' in intel and 'data/snapshot.json' in intel, '3D Intelligence Web not wired to real snapshot'
           assert 'enableNodeDrag(true)' in intel, '3D node dragging is not enabled'
           assert '3d-force-graph@1.80.0' in intel, '3D renderer is not pinned'
-          # The current deterministic 3D page uses an internal Promise-based CDN
-          # loader rather than the older gpLoad3D callback. Validate the actual
-          # loader contract instead of requiring a removed legacy symbol.
           assert 'function load()' in intel and 'cdn.jsdelivr.net' in intel and 'unpkg.com/3d-force-graph@1.80.0' in intel, '3D loader contract missing'
           assert 'global_pulse_map_3d.js' not in intel, 'deprecated globe renderer referenced'
           assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
@@ -153,7 +160,7 @@ jobs:
               key=str(marker.get('url') or marker.get('id') or marker.get('eventId') or (marker.get('title'),marker.get('lat',marker.get('latitude')),marker.get('lng',marker.get('lon')))); assert key not in quake_keys, f'duplicate earthquake marker: {key}'; quake_keys.add(key)
           assert html.count('Made by J.S.')==1; assert html.count('id="gp-brand-live-css"')==1; assert html.count('id="gp-auto-refresh"')==1; assert html.count('class="gp-footer-credit"')==0
           assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I); assert not re.search(r'\b(coming soon|under construction)\b',html,re.I)
-          assert d.get('scoreVersion')==5, f"unexpected score version: {d.get('scoreVersion')}"
+          assert d.get('scoreVersion')==5, f'unexpected score version: {d.get("scoreVersion")}'
           assert isinstance(d.get('tension'),(int,float)) and 0<=d['tension']<=100
           assert isinstance(d.get('breakdownScores'),dict) and len(d['breakdownScores'])>=6
           assert isinstance(d.get('driverSignals'),dict) and len(d['driverSignals'])>=6
@@ -195,6 +202,8 @@ jobs:
           test -s _site/data/snapshot.json
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
