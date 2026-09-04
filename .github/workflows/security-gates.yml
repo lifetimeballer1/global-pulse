@@ -32,6 +32,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Normalize generated index before validation
+        run: python clean_index.py
+
       - name: Compile all Python modules
         run: python -m compileall -q -f .
 
@@ -45,11 +48,14 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for p in [Path('site.webmanifest'), Path('data/claims.json'), Path('data/intelligence_graph.json'), Path('data/snapshot.json')]:
+          for p in [Path('site.webmanifest'), *sorted(Path('data').glob('*.json'))]:
               if p.exists():
                   json.loads(p.read_text(encoding='utf-8'))
                   print('OK', p)
           PY
+
+      - name: Validate repository integrity
+        run: python validate_repository.py
 
       - name: Run privacy and workflow safety checks
         run: python validate_security.py
