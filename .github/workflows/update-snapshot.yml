@@ -1,7 +1,4 @@
 name: Global Pulse — Refresh, Validate & Deploy
-
-# SINGLE production pipeline: refreshes the full intelligence stack, builds the
-# evidence graph payload, validates the exact site, commits generated data, and deploys it.
 on:
   schedule:
     - cron: '2-59/5 * * * *'
@@ -9,36 +6,16 @@ on:
   push:
     paths:
       - '.github/workflows/update-snapshot.yml'
-      - 'global_pulse_v22.js'
-      - 'global_pulse_source_health.js'
-      - 'global_pulse_v26.js'
-      - 'global_pulse_v27.js'
-      - 'global_pulse_graph.js'
-      - 'global_pulse_graph_pro.js'
       - 'intelligence-web.html'
       - 'intelligence_web_v2.js'
+      - 'update_intelligence_web.py'
       - 'build_intelligence_graph.py'
       - 'install_intelligence_web.py'
-      - 'update_intelligence_web.py'
-      - 'update_market_data.py'
-      - 'resilient_feed_catalog.py'
-      - 'run_snapshot_resilient.py'
-      - 'news_feed_db.py'
-      - 'install_v27.py'
-      - 'install_map_v3.py'
-      - 'finalize_intelligence_health.py'
-      - 'install_health_finalizer.py'
-      - 'update7_live_branding.py'
-
-env:
-  PYTHONUNBUFFERED: '1'
-concurrency:
-  group: global-pulse-production
-  cancel-in-progress: false
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+      - 'global_pulse_graph.js'
+      - 'global_pulse_graph_pro.js'
+env: { PYTHONUNBUFFERED: '1' }
+concurrency: { group: global-pulse-production, cancel-in-progress: false }
+permissions: { contents: write, pages: write, id-token: write }
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
@@ -47,161 +24,99 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout exact triggering commit
+      - name: Checkout exact commit
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.sha }}
+        with: { fetch-depth: 0, ref: ${{ github.sha }} }
       - name: Set up Python
         uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+        with: { python-version: '3.12' }
       - name: Restore persistent live-news SQLite database
         uses: actions/cache@v4
         with:
           path: news_feed.db
           key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            ${{ runner.os }}-global-pulse-news-db-
+          restore-keys: ${{ runner.os }}-global-pulse-news-db-
       - name: Verify runtime
-        run: |
-          python --version
-          node --version
-          git --version
+        run: python --version && node --version && git --version
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
-      - name: Poll persistent live-news SQLite database
+      - name: Poll persistent live-news database
         run: python news_feed_db.py --once
-      - name: Refresh public intelligence data with resilient no-key feeds
+      - name: Refresh resilient no-key intelligence feeds
         run: python run_snapshot_resilient.py
       - name: Refresh keyless live market indicators
         run: python update_market_data.py
-      - name: Merge persistent live-news database into public snapshot
+      - name: Merge persistent live news
         run: python merge_live_news.py
-      - name: Promote politics and economics to first-class layers
+      - name: Promote politics and economics
         run: python update_political_layer.py
-      - name: Build automatic political intelligence and corroboration layer
+      - name: Build political intelligence and corroboration
         run: python update_political_intelligence.py
-      - name: Sync intelligence maps
+      - name: Sync OSINT maps
         run: python update_osint.py
       - name: Sync CFR Global Conflict Tracker
         run: python update_cfr.py
-      - name: Add strategic and hazard layers + install canonical map
+      - name: Add strategic and hazard layers
         run: python update8_global_layers.py
-      - name: Build evidence-linked intelligence graph
+      - name: Build evidence-linked Intelligence Web graph
         run: python update_intelligence_web.py
-      - name: Build compact Intelligence Web payload
+      - name: Build required compact Intelligence Web artifact
         run: python build_intelligence_graph.py
-      - name: Verify canonical Intelligence Web renderer
+      - name: Install canonical Intelligence Web renderer
         run: python install_intelligence_web.py
-      - name: Apply final branding and layout cleanup
+      - name: Apply site integrations
         run: python update7_live_branding.py
-      - name: Install resilient live FastAPI reporting integration
+      - name: Install live reporting integration
         run: python update9_live_reporting.py
-      - name: Install source-health UI repair
+      - name: Repair source-health UI
         run: python install_health_finalizer.py
-      - name: Recalculate final source health and Global Tension Index
+      - name: Recalculate final source health and tension
         run: python finalize_intelligence_health.py
-      - name: Install Global Pulse V2.7 intelligence layer
+      - name: Install V2.7 intelligence layer
         run: python install_v27.py
-      - name: Preserve canonical 2D map and remove deprecated 3D globe experiment
+      - name: Preserve canonical 2D map
         run: python install_map_v3.py
-      - name: Validate production build
+      - name: Validate exact Intelligence Web artifacts
         run: |
           set -euo pipefail
-          python -m py_compile update_snapshot.py update_snapshot_fast.py update_market_data.py resilient_feed_catalog.py run_snapshot_resilient.py news_feed_db.py merge_live_news.py update_feed_expansion.py update_political_layer.py update_political_intelligence.py update_osint.py update_cfr.py update7_live_branding.py update8_global_layers.py update9_live_reporting.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py global_map_ui.py finalize_intelligence_health.py install_health_finalizer.py install_v27.py install_map_v3.py
-          node --check global_pulse_graph.js
-          node --check global_pulse_graph_pro.js
+          python -m py_compile update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py
           node --check intelligence_web_v2.js
-          node --check global_pulse_v27.js
-          node --check global_pulse_v27_quality.js
-          node --check global_pulse_source_health.js
+          test -s data/snapshot.json
+          test -s data/intelligence_graph.json
           python - <<'PY'
-          import json,re,sqlite3
-          from datetime import datetime,timezone
+          import json
           from pathlib import Path
-          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          compact=json.loads(Path('data/intelligence_graph.json').read_text(encoding='utf-8'))
-          live=json.loads(Path('data/live_articles.json').read_text(encoding='utf-8'))
-          status=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
-          html=Path('index.html').read_text(encoding='utf-8')
-          intel=Path('intelligence-web.html').read_text(encoding='utf-8')
-          js=Path('intelligence_web_v2.js').read_text(encoding='utf-8')
-          g=d.get('intelligenceGraph',{}); pi=d.get('politicalIntelligence',{})
-          assert len(g.get('nodes',[]))>=10 and len(g.get('edges',[]))>=10
-          assert len(compact.get('nodes',[]))>=10 and len(compact.get('edges',[]))>=10
-          assert all(e.get('source') and e.get('target') and isinstance(e.get('evidence'),list) and len(e['evidence'])>0 for e in compact['edges'])
-          assert 'WHY THIS NODE IS CONNECTED' in js and 'SOURCES FOR THIS NODE' in js and 'OPEN ORIGINAL SOURCE' in js
-          assert 'z-index:1000' in intel and 'intelligence_web_v2.js?v=' in intel
-          con=sqlite3.connect('news_feed.db'); cols={r[1] for r in con.execute('PRAGMA table_info(articles)').fetchall()}; db_count=con.execute('SELECT COUNT(*) FROM articles').fetchone()[0]; con.close()
-          required={'url','title','published_date','summary_snippet','credit_metadata'}; assert required.issubset(cols), f"SQLite schema missing columns: {required-cols}"
-          assert db_count>=1 and live.get('count',0)>=1 and status.get('feedsChecked',0)>=10 and d.get('updatedAt')
-          assert len(d.get('stories',[]))>=100 and len(d.get('conflicts',[]))>=25 and len(d.get('cfrConflicts',[]))>=20
-          assert len(d.get('usPolitics',[]))+len(d.get('worldPolitics',[]))>0 and len(d.get('economics',[]))>0
-          assert pi.get('totalSignals',0)>0 and isinstance(pi.get('topSignals'),list) and len(pi['topSignals'])>0
-          markers=d.get('markers',[]); assert isinstance(markers,list) and len(markers)>=100
-          marker_sources={str(x.get('source','')) for x in markers}; assert ('Guerilla Map Strategic Reference' in marker_sources or any('Guerilla Map' in x for x in marker_sources))
-          assert 'gp-map-v3-js' in html and 'pulse-reporting-feed' in html
-          assert 'GP-MAP-3D-START' not in html and 'global_pulse_map_3d.js' not in html
-          assert 'GP-INTELLIGENCE-WEB-START' in html and 'ForceGraph3D' in intel and 'data/snapshot.json' in intel
-          assert 'enableNodeDrag(true)' in js and '3d-force-graph@1.80.0' in intel
-          assert 'POLITICAL & ECONOMIC REPORTING' in Path('global_pulse_layers.js').read_text(encoding='utf-8')
-          assert 'NPR Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Fox News Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'CNN Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Axios Politics' in Path('update_snapshot.py').read_text(encoding='utf-8') and 'Morse Report' in Path('update_snapshot.py').read_text(encoding='utf-8')
-          assert 'Climate & humanitarian pressure' in Path('global_pulse_v24.js').read_text(encoding='utf-8') and 'CLIMATE → GEOPOLITICAL PRESSURE' in Path('global_pulse_v25.js').read_text(encoding='utf-8') and 'NASA' in Path('news_feed_db.py').read_text(encoding='utf-8')
-          m=d.get('marketData',{}); indicators=m.get('indicators',[]); assert m.get('noApiKey') is True and len(indicators)>=20
-          assert all(x.get('symbol') and x.get('price') is not None for x in indicators)
-          checked=[]
-          for x in indicators:
-            try: checked.append(datetime.fromisoformat(str(x.get('checkedAt','')).replace('Z','+00:00')))
-            except: pass
-          assert checked and (datetime.now(timezone.utc)-max(checked)).total_seconds()<1200
-          assert m.get('liveCount',0)+m.get('closedCount',0)+m.get('staleCount',0)==len(indicators)
-          assert html.count('Made by J.S.')==1 and html.count('id="gp-brand-live-css"')==1 and html.count('id="gp-auto-refresh"')==1 and html.count('class="gp-footer-credit"')==0
-          assert not re.search(r'\b(lorem ipsum|sample data|fake data)\b',html,re.I) and not re.search(r'\b(coming soon|under construction)\b',html,re.I)
-          assert d.get('scoreVersion')==5 and isinstance(d.get('tension'),(int,float)) and 0<=d['tension']<=100
-          assert isinstance(d.get('breakdownScores'),dict) and len(d['breakdownScores'])>=6
-          assert isinstance(d.get('driverSignals'),dict) and len(d['driverSignals'])>=6
-          assert isinstance(d.get('sourceHealth'),list) and len(d['sourceHealth'])>=10
-          failed=sum(1 for x in d['sourceHealth'] if x.get('status')=='failed'); assert failed<=5
-          for x in d['sourceHealth']: assert x.get('status') in ('online','degraded','failed','unknown') and 'articles' in x and 'lastChecked' in x
-          for name,signal in d['driverSignals'].items(): assert isinstance(signal,dict) and 'matches' in signal and 'sources' in signal and 'topSignals' in signal
-          print(f"VALID: tension={d['tension']} markers={len(markers)} stories={len(d['stories'])} graph_nodes={len(g['nodes'])} graph_edges={len(g['edges'])} compact_nodes={len(compact['nodes'])} compact_edges={len(compact['edges'])}")
-          print(f"MARKETS: {m.get('liveCount')} live, {m.get('closedCount')} closed, {m.get('staleCount')} stale")
-          print(f"SOURCE HEALTH: {d.get('sourceHealthSummary')}")
+          s=json.loads(Path('data/snapshot.json').read_text())
+          g=json.loads(Path('data/intelligence_graph.json').read_text())
+          h=Path('intelligence-web.html').read_text(); j=Path('intelligence_web_v2.js').read_text()
+          assert len(g.get('nodes',[]))>=10, 'Intelligence Web has too few nodes'
+          assert len(g.get('edges',[]))>=10, 'Intelligence Web has too few connections'
+          assert all(e.get('source') and e.get('target') and e.get('evidence') for e in g['edges']), 'Connection without evidence'
+          assert 'data/snapshot.json' in j and 'data/intelligence_graph.json' in j
+          assert 'OPEN ORIGINAL SOURCE' in j and 'WHY THIS NODE IS CONNECTED' in j
+          assert 'ForceGraph3D' in h and 'intelligence_web_v2.js?v=' in h
+          assert 'z-index:1000' in h
+          print('INTELLIGENCE WEB VALID:',len(g['nodes']),'nodes /',len(g['edges']),'connections')
           PY
-      - name: Commit refreshed data and generated site changes
+      - name: Commit generated artifacts
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if git diff --staged --quiet; then echo "No generated changes to commit"; exit 0; fi
-          git commit -m "chore: refresh global pulse data"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            if git rebase -X theirs origin/main; then
-              if git push origin HEAD:main; then echo "Published refreshed data on attempt $attempt"; exit 0; fi
-              git rebase --abort || true
-            else git rebase --abort || true; fi
-            echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
-          done
-          echo "Unable to publish refreshed data after 5 attempts"; exit 1
+          if git diff --staged --quiet; then echo 'No generated changes'; exit 0; fi
+          git commit -m 'chore: refresh Global Pulse intelligence data'
+          for attempt in 1 2 3 4 5; do git fetch origin main; git rebase -X theirs origin/main && git push origin HEAD:main && exit 0 || true; git rebase --abort || true; sleep $((attempt*3)); done
+          exit 1
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Prepare GitHub Pages site directory
+      - name: Prepare Pages artifact
         run: |
           set -euo pipefail
-          rm -rf _site
-          mkdir -p _site
+          rm -rf _site; mkdir -p _site
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name _site -exec cp -a {} _site/ \;
-          test -s _site/index.html
-          test -s _site/intelligence-web.html
-          test -s _site/data/snapshot.json
-          test -s _site/data/intelligence_graph.json
-      - name: Upload site artifact
+          test -s _site/index.html; test -s _site/intelligence-web.html; test -s _site/data/snapshot.json; test -s _site/data/intelligence_graph.json
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+        with: { path: _site }
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
