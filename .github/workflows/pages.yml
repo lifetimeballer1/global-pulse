@@ -46,10 +46,22 @@ jobs:
           print(f'Total markers: {len(markers)}')
           print(f'Committed regional OSINT markers: {len(regional)}')
           print('Regional counts:', counts)
+          # Regional collection is asynchronous. Do not take the public site
+          # down merely because the last collector run has not committed yet.
+          # If regional markers are present, validate every present marker.
           for m in regional:
               assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
               assert m.get('source') and m.get('observedAt')
               assert m.get('url') or m.get('sourceUrl')
+          if counts:
+              required={'Africa','South America','South Asia'}
+              missing=required-set(counts)
+              if missing:
+                  raise SystemExit(f'Incomplete regional count schema: {sorted(missing)}')
+              if sum(int(v or 0) for v in counts.values()) < 0:
+                  raise SystemExit('Regional counts cannot be negative')
+          else:
+              print('Regional OSINT is awaiting its next collector commit; deploying existing committed map data.')
           html=Path('index.html').read_text(encoding='utf-8')
           required_assets=(
               'global_pulse_coverage_ui.js',
