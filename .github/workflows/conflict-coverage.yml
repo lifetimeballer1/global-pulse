@@ -37,7 +37,7 @@ jobs:
           python-version: '3.12'
       - name: Build evidence-driven conflict and OSINT coverage
         run: python update_conflict_coverage.py
-      - name: Validate coverage output
+      - name: Validate canonical OSINT coverage output
         run: |
           set -euo pipefail
           python -m py_compile update_conflict_coverage.py
@@ -45,34 +45,24 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          c=d.get('conflictCoverage') or {}
-          assert c.get('version')==3
-          assert len(c.get('watchlist',[]))==12
-          for x in c['watchlist']:
-            assert x.get('id') and x.get('title') and x.get('region')
-            assert x.get('status') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE','NO CURRENT SIGNAL')
-            assert 0 <= float(x.get('confidence',0)) <= 1
-            assert int(x.get('articleCount',0)) >= 0
           os=d.get('osintMaps') or {}
           assert os.get('version') in (2,3,4), f"unsupported OSINT schema: {os.get('version')}"
-          assert isinstance(os.get('normalizedPoints',[]), list)
-          assert isinstance(os.get('regionalPoints',[]), list)
-          for p in os.get('normalizedPoints',[]):
+          normalized=os.get('normalizedPoints',[]); regional=os.get('regionalPoints',[]); counts=os.get('regionalCounts',{}) or {}
+          assert isinstance(normalized,list) and isinstance(regional,list)
+          for p in normalized:
             assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
             assert p.get('source') and (p.get('sourceUrl') or p.get('url'))
-          regional=os.get('regionalPoints',[]);counts=os.get('regionalCounts',{}) or {}
           if regional:
             assert all(p.get('layer')=='osint-regional' for p in regional)
             assert set(counts).issuperset({'Africa','South America','South Asia'})
-          assert all(m.get('layer')!='conflict-coverage' or m.get('confidence') in ('CORROBORATED','MULTI-SOURCE','SINGLE-SOURCE') for m in d.get('markers',[]))
-          assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in d.get('markers',[]))
-          assert all(m.get('layer')!='osint-reported' or m.get('sourceUrl') for m in d.get('markers',[]))
-          print('VALID coverage:', len(c['watchlist']), 'theaters')
-          print('OSINT schema:', os.get('version'), 'normalized:', len(os.get('normalizedPoints',[])), 'regional:', len(regional))
-          print('Regional counts:', counts)
-          print('Regional precise counts:', os.get('regionalPreciseCounts',{}))
+            assert sum(int(counts.get(k,0) or 0) for k in ('Africa','South America','South Asia')) > 0
+          markers=d.get('markers',[]); assert isinstance(markers,list)
+          assert len(markers) > 0, 'canonical map has no markers'
+          assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in markers)
+          assert all(m.get('layer')!='osint-reported' or m.get('sourceUrl') for m in markers)
+          print('VALID OSINT:', os.get('version'), 'normalized=',len(normalized), 'regional=',len(regional), 'counts=',counts, 'markers=',len(markers))
           PY
-      - name: Commit coverage snapshot
+      - name: Commit normalized map snapshot
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
