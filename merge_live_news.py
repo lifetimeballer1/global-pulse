@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Merge the persistent live-news database export into the public snapshot."""
 from __future__ import annotations
-
 import hashlib
 import json
 from datetime import datetime, timezone
@@ -64,13 +63,21 @@ def main():
 
     stories = sorted(existing.values(), key=lambda s: parse_time(s.get("time")), reverse=True)[:300]
     snapshot["stories"] = stories
-    # Re-score conflict activity against the expanded live story set.
+
+    # Re-score conflict activity against the expanded live story set. Use the
+    # same counter-cartel-aware matcher as the canonical snapshot builder so
+    # source-specific SOUTHCOM/Southern Spear feeds cannot be erased back to 0
+    # simply because the live-news merge runs in a separate process.
     try:
-        from update_snapshot import make_conflicts
+        import update_snapshot as base
+        import update_snapshot_fast as builder
+        from counter_cartel_runtime import install
+        install(base, builder)
         previous = {"conflicts": snapshot.get("conflicts", [])}
-        snapshot["conflicts"] = make_conflicts(stories, previous)
+        snapshot["conflicts"] = base.make_conflicts(stories, previous)
     except Exception as exc:
         print(f"conflict re-score skipped: {type(exc).__name__}: {exc}")
+
     snapshot["updatedAt"] = datetime.now(timezone.utc).isoformat()
     snapshot["liveDatabase"] = {
         "enabled": True,
