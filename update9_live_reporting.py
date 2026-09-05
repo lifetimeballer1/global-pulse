@@ -44,7 +44,7 @@ def link_for(article: dict) -> str:
     return html.escape(raw, quote=True) if re.match(r"^https?://[^\s<>\"']+$", raw, re.I) else ""
 
 
-def initial_cards(limit: int = 30) -> str:
+def initial_cards(limit: int = 5) -> str:
     try:
         payload = json.loads(LIVE_JSON.read_text(encoding="utf-8"))
         articles = payload.get("articles", []) if isinstance(payload, dict) else payload
@@ -69,11 +69,9 @@ def initial_cards(limit: int = 30) -> str:
 
 def patch_index():
     s = INDEX.read_text(encoding="utf-8")
-    # Remove every prior marker, regardless of whether it was executable or
-    # type="text/plain". Repeated workflow passes must remain idempotent.
     s = re.sub(r'<script\b[^>]*\bid=["\']gp-auto-refresh["\'][^>]*>.*?</script\s*>', '', s, flags=re.S | re.I)
     s = re.sub(r'<style id="gp-live-reporting-css">.*?</style>', '', s, flags=re.S)
-    s = re.sub(r'<script id="gp-live-reporting-config">.*?</script>', '', s, flags=re.S)
+    s = re.sub(r'<script id="gp-live-reporting-config">.*?</script>', '', s)
     s = re.sub(r'<script src="global_pulse_reporting\.js" defer></script>', '', s)
     reporting_html = REPORTING_START + "\n" + initial_cards() + "\n" + REPORTING_END
     s, count = re.subn(r'<section[^>]*id=["\']reporting["\'][\s\S]*?</section>', reporting_html, s, count=1, flags=re.I)
@@ -83,12 +81,7 @@ def patch_index():
     config = '<script id="gp-live-reporting-config">window.GLOBAL_PULSE_API="";</script>'
     s = s.replace('</head>', CSS + '\n' + config + '\n</head>', 1)
     s = s.replace('</body>', '<script src="global_pulse_reporting.js" defer></script>\n</body>', 1)
-
-    # Keep exactly one inert historical marker for the existing validator.
     s = s.replace('</head>', '<script id="gp-auto-refresh" type="text/plain"></script>\n</head>', 1)
-
-    # The canonical map renderer requires Leaflet's JavaScript runtime. The CSS
-    # was present, but the library itself had been removed by an earlier cleanup.
     if 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js' not in s:
         s = s.replace('</head>', '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>\n</head>', 1)
     if 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js' not in s:
@@ -98,4 +91,4 @@ def patch_index():
 
 if __name__ == "__main__":
     patch_index()
-    print("Update 9 applied: static-first reporting, idempotent no-reload marker, and Leaflet runtime restored.")
+    print("Update 9 applied: static-first reporting, five-card initial view, idempotent marker, and Leaflet runtime restored.")
