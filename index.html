@@ -35,9 +35,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(5,10,16,.94);backdrop-fi
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-
-
-
 <!-- GP-MAP-V3-ENHANCEMENTS -->
 <style id="gp-map-v3-css">.gp-map-v3{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:-2px 0 9px}.gp-map-v3 button{font-size:10px;min-height:34px;padding:7px 9px}.gp-map-v3 button.active{border-color:var(--amber);color:var(--amber);background:rgba(255,200,87,.1)}.gp-region-stats{display:flex;gap:7px;overflow:auto;margin:0 0 9px;padding-bottom:2px}.gp-region-stat{min-width:110px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#08131e}.gp-region-stat b{display:block;font-size:16px}.gp-region-stat span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.gp-heat-legend{font-size:9px;color:var(--muted);margin:0 0 8px}.gp-map-media{display:block;width:100%;max-height:170px;object-fit:cover;border-radius:8px;margin:7px 0 8px;border:1px solid #1b2b3d;background:#07101a}.gp-map-media-credit{font-size:9px;color:#91a4b8;margin-top:-4px;margin-bottom:6px}.gp-map-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.gp-map-action{display:inline-block;padding:6px 8px;border:1px solid #1b2b3d;border-radius:7px;background:#09121c;color:#62a0ff;font-size:10px;font-weight:800}.gp-map-action:hover{background:#102033}.gp-map-photo-note{font-size:9px;color:#91a4b8;margin-top:6px;line-height:1.35}</style>
 <script id="gp-map-v3-js">(function(){"use strict";let installed=false,heat=null,heatOn=false;const esc=v=>String(v??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]||m));const regionOf=m=>String(m?.region||m?.country||"Other").trim()||"Other";const valid=m=>Number.isFinite(Number(m?.lat??m?.latitude))&&Number.isFinite(Number(m?.lng??m?.lon??m?.longitude));const validUrl=v=>{try{const u=new URL(String(v||""));return /^https?:$/.test(u.protocol)}catch(_){return false}};const photoOf=m=>{for(const k of ["imageUrl","image_url","image","thumbnailUrl","thumbnail","photoUrl","photo_url","mediaUrl","media_url"]){if(validUrl(m?.[k]))return String(m[k])}if(Array.isArray(m?.images))for(const v of m.images)if(validUrl(v))return String(v);return ""};const mapsUrl=(m,lat,lng)=>{for(const k of ["googleMapsUrl","google_maps_url","mapsUrl","maps_url"]){if(validUrl(m?.[k]))return String(m[k])}return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(lat+","+lng)};const markerFor=(lat,lng)=>{const ms=Array.isArray(window.DATA?.markers)?window.DATA.markers:[];let best=null,dist=Infinity;for(const m of ms){const a=Number(m?.lat??m?.latitude),b=Number(m?.lng??m?.lon??m?.longitude);if(!Number.isFinite(a)||!Number.isFinite(b))continue;const d=Math.abs(a-lat)+Math.abs(b-lng);if(d<dist){dist=d;best=m}}return best&&dist<0.0001?best:null};
@@ -161,103 +158,20 @@ setInterval(load,60000);
 
 <script src="global_pulse_breaking.js?v=20260904a" defer></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="global_pulse_assessment.js?v=20260904a"></script>
-
-
-
-
-
-
 
 <script src="claim_intelligence.js?v=1"></script>
 
-
-
-
-
-
-
 <script src="global_pulse_event_intelligence.js?v=1"></script>
-
-
-
 
 <script src="global_pulse_event_consistency.js?v=1"></script>
 <link rel="stylesheet" href="global_pulse_list_density.css">
 <script src="global_pulse_list_density.js"></script>
 
-
-
-
-
-
 <script src="global_pulse_event_resolution.js?v=1"></script>
 
 
 <script src="global_pulse_event_history.js?v=1"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script id="gp-map-rescue-js">
 (function(){
   "use strict";
