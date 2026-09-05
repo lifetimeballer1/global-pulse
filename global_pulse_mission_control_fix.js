@@ -2,7 +2,7 @@
 (function(){
   'use strict';
   const esc=v=>String(v??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
-  const targets=[['Overview','#top'],['War Map','#mapSection'],['Intelligence Web','#intelligenceWebSection'],['Conflicts','#conflictSection'],['Live Reporting','#reporting'],['What Changed','#what-changed'],['Event Intelligence','#event-intelligence']];
+  const targets=[['Overview','#top'],['War Map','#mapSection'],['Intelligence Web','#intelligenceWebSection'],['Conflicts','#conflictSection'],['Live Reporting','#reporting'],['What Changed','#what-changed'],['Event Intelligence','#event-intelligence'],['Markets','#marketSection']];
 
   function cleanCommander(){
     const all=[...document.querySelectorAll('#commanderCenter')],first=all[0];
@@ -14,9 +14,6 @@
     nav.querySelectorAll('a').forEach(a=>a.onclick=e=>{const el=document.querySelector(a.getAttribute('href'));if(!el)return;e.preventDefault();const h=document.querySelector('header'),c=document.getElementById('commanderCenter'),off=(h?.offsetHeight||0)+(c?.offsetHeight||0)+14;window.scrollTo({top:Math.max(0,el.getBoundingClientRect().top+window.scrollY-off),behavior:'smooth'});history.replaceState(null,'',a.getAttribute('href'))});
   }
 
-  // The main page must show the configured active conflict theaters even when
-  // today's RSS window contains no matching headline. Current evidence is
-  // displayed separately as signalCount/status instead of hiding the theater.
   function records(d){
     if(Array.isArray(d?.conflicts)&&d.conflicts.length)return d.conflicts;
     const w=d?.conflictCoverage?.watchlist;if(Array.isArray(w)&&w.length)return w;
@@ -46,9 +43,7 @@
       const d=await r.json();
       window.gpActiveConflictData=d;
       paint(records(d));
-    }catch(e){
-      paint(records(window.DATA||window.data||{}));
-    }
+    }catch(e){paint(records(window.DATA||window.data||{}));}
   }
 
   function boot(){cleanCommander();load()}
