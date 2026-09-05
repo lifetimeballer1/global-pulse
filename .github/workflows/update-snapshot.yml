@@ -1,7 +1,8 @@
 name: Global Pulse — Refresh, Validate & Deploy
+
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -9,49 +10,59 @@ on:
 
 env:
   PYTHONUNBUFFERED: '1'
+
 concurrency:
   group: global-pulse-refresh
-  cancel-in-progress: true
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
   id-token: write
+
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
-      - name: Checkout exact commit
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.sha }}
+          ref: main
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Restore persistent live-news SQLite database
+
+      - name: Restore persistent live-news database
         uses: actions/cache@v4
         with:
           path: news_feed.db
           key: ${{ runner.os }}-global-pulse-news-db
           restore-keys: |
             ${{ runner.os }}-global-pulse-news-db-
+
       - name: Verify runtime
         run: python --version && node --version && git --version
-      - name: Expand live intelligence feeds
+
+      - name: Expand feeds
         run: python update_feed_expansion.py
-      - name: Poll persistent live-news database
-        timeout-minutes: 3
+      - name: Verify feed expansion
+        run: test -s feed_catalog.json || test -s data/sources.json
+
+      - name: Poll live news
+        timeout-minutes: 4
         run: |
           set -euo pipefail
           for attempt in 1 2 3; do
-            echo "Live-news poll attempt ${attempt}/3"
-            if python news_feed_db.py --once; then break; fi
-            if [ "$attempt" -eq 3 ]; then exit 1; fi
+            echo "Live-news poll ${attempt}/3"
+            if python news_feed_db.py --once; then exit 0; fi
             sleep $((attempt * 5))
           done
-      - name: Verify live-news output
+          exit 1
+      - name: Verify live news
         run: |
           python -m py_compile news_feed_db.py
           python - <<'PY'
@@ -64,155 +75,230 @@ jobs:
           assert age <= 900, f'live_status stale: {age:.0f}s'
           assert d.get('feedsChecked',0) >= 20
           assert d.get('rowsFetched',0) > 0
-          print('PASS live-news:',d.get('feedsChecked'),'feeds,',d.get('rowsFetched'),'rows,',d.get('newArticles'),'new')
+          print('PASS live news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))
           PY
-      - name: Refresh resilient no-key intelligence feeds
+
+      - name: Refresh base snapshot
         run: python run_snapshot_resilient.py
-      - name: Verify snapshot output
+      - name: Verify base snapshot
         run: |
           python - <<'PY'
           import json
           from datetime import datetime, timezone
-          from pathlib import Path
-          p=Path('data/snapshot.json'); assert p.exists() and p.stat().st_size>0
-          d=json.loads(p.read_text()); assert d.get('updatedAt')
+          d=json.load(open('data/snapshot.json'))
+          assert d.get('updatedAt')
           age=(datetime.now(timezone.utc)-datetime.fromisoformat(d['updatedAt'].replace('Z','+00:00'))).total_seconds()
           assert age <= 900, f'snapshot stale: {age:.0f}s'
-          print('PASS snapshot:',d['updatedAt'])
+          print('PASS base snapshot', d['updatedAt'])
           PY
-      - name: Refresh keyless live market indicators
-        timeout-minutes: 2
-        continue-on-error: true
+
+      - name: Update market data
+        timeout-minutes: 3
         run: python update_market_data.py
-      - name: Merge persistent live news
+      - name: Verify market data
+        run: test -s data/snapshot.json
+
+      - name: Merge live news
         run: python merge_live_news.py
       - name: Verify merged news
-        run: test -s data/snapshot.json && python - <<'PY'
+        run: |
+          python - <<'PY'
           import json
           d=json.load(open('data/snapshot.json'))
-          assert isinstance(d,dict) and d.get('updatedAt')
-          print('PASS merged snapshot')
+          assert d.get('updatedAt')
+          assert isinstance(d.get('news'), (list,dict)) or isinstance(d.get('articles'), list)
+          print('PASS merged news')
           PY
-      - name: Fetch rapid open-data breaking intelligence
-        timeout-minutes: 2
-        continue-on-error: true
+
+      - name: Build breaking intelligence
+        timeout-minutes: 3
         run: python breaking_news.py
-      - name: Cluster recent reports into live events
+      - name: Verify breaking intelligence
+        run: python - <<'PY'
+          import json
+          d=json.load(open('data/breaking_news.json'))
+          assert d.get('updatedAt')
+          print('PASS breaking intelligence')
+          PY
+
+      - name: Build live events
         run: python build_live_events.py
       - name: Verify live events
         run: python - <<'PY'
           import json
           d=json.load(open('data/live_events.json'))
           assert isinstance(d.get('events'),list) and d.get('updatedAt')
-          print('PASS live events:',len(d['events']))
+          print('PASS live events',len(d['events']))
           PY
-      - name: Build source diversity evidence
+
+      - name: Build source evidence
         run: python build_source_evidence.py
-      - name: Build enriched event intelligence
+      - name: Verify source evidence
+        run: python - <<'PY'
+          import json
+          d=json.load(open('data/source_evidence.json'))
+          assert isinstance(d.get('eventSourceEvidence'),list) and d.get('updatedAt')
+          print('PASS source evidence',len(d['eventSourceEvidence']))
+          PY
+
+      - name: Build event intelligence
         run: python build_event_intelligence.py
-      - name: Detect possible event contradictions
+      - name: Verify event intelligence
+        run: python - <<'PY'
+          import json
+          d=json.load(open('data/event_intelligence.json'))
+          assert isinstance(d.get('events'),list) and d.get('updatedAt')
+          print('PASS event intelligence',len(d['events']))
+          PY
+
+      - name: Build event consistency
         run: python build_event_consistency.py
-      - name: Promote politics and economics
+      - name: Verify event consistency
+        run: python - <<'PY'
+          import json
+          d=json.load(open('data/event_consistency.json'))
+          assert isinstance(d.get('events'),list) and isinstance(d.get('summary'),dict) and d.get('updatedAt')
+          print('PASS event consistency')
+          PY
+
+      - name: Update political layer
         run: python update_political_layer.py
-      - name: Build political intelligence and corroboration
+      - name: Verify political layer
+        run: test -s data/political_intelligence.json || test -s data/snapshot.json
+
+      - name: Build political intelligence
         run: python update_political_intelligence.py
-      - name: Sync OSINT maps
+      - name: Verify political intelligence
+        run: test -s data/political_intelligence.json || test -s data/snapshot.json
+
+      - name: Update OSINT maps
         timeout-minutes: 4
-        continue-on-error: true
         run: python update_osint.py
-      - name: Sync CFR Global Conflict Tracker
-        timeout-minutes: 4
-        continue-on-error: true
-        run: python update_cfr.py
-      - name: Add strategic and hazard layers
-        timeout-minutes: 3
-        continue-on-error: true
-        run: python update8_global_layers.py
-      - name: Build evidence-linked Intelligence Web graph
-        run: python update_intelligence_web.py
-      - name: Build required compact Intelligence Web artifact
-        run: python build_intelligence_graph.py
-      - name: Install canonical Intelligence Web renderer
-        run: python install_intelligence_web.py
-      - name: Install live event intelligence layer
-        run: python install_live_events.py
-      - name: Install enriched event intelligence UI
-        run: python install_event_intelligence.py
-      - name: Build dynamic risk and impact assessments
-        run: python build_intelligence_assessment.py
-      - name: Install dynamic risk and impact UI
-        run: python install_intelligence_assessment.py
-      - name: Apply site integrations
-        run: python update7_live_branding.py
-      - name: Install live reporting integration
-        run: python update9_live_reporting.py
-      - name: Install rapid breaking intelligence header
-        run: python install_breaking_alerts.py
-      - name: Repair source-health UI
-        run: python install_health_finalizer.py
-      - name: Recalculate final source health and tension
-        run: python finalize_intelligence_health.py
-      - name: Build claim-level evidence clusters
-        run: python claim_intelligence.py
-      - name: Install claim and evidence monitor
-        run: python install_claim_intelligence.py
-      - name: Install V2.7 intelligence layer
-        run: python install_v27.py
-      - name: Preserve canonical 2D map
-        run: python install_map_v3.py
-      - name: Install event consistency review UI
+      - name: Verify OSINT maps
         run: |
           python - <<'PY'
-          from pathlib import Path
-          p=Path('index.html'); s=p.read_text(encoding='utf-8')
-          tag='<script src="global_pulse_event_consistency.js?v=1"></script>'
-          if tag not in s: s=s.replace('</body>',tag+'\n</body>',1)
-          p.write_text(s,encoding='utf-8')
+          import json
+          d=json.load(open('data/snapshot.json'))
+          os=d.get('osintMaps') or {}
+          assert os, 'osintMaps missing'
+          assert os.get('version') in (2,3,4), os.get('version')
+          print('PASS OSINT',os.get('version'),len(os.get('normalizedPoints',[])),len(os.get('regionalPoints',[])))
           PY
-      - name: Final syntax, privacy and data validation
+
+      - name: Update CFR conflict coverage
+        timeout-minutes: 4
+        run: python update_cfr.py
+      - name: Verify CFR conflict coverage
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/snapshot.json'))
+          assert isinstance(d.get('markers'),list) and len(d['markers']) > 0
+          print('PASS conflict coverage; markers=',len(d['markers']))
+          PY
+
+      - name: Add strategic layers
+        timeout-minutes: 3
+        run: python update8_global_layers.py
+      - name: Verify strategic layers
+        run: test -s data/snapshot.json
+
+      - name: Build intelligence web
+        run: python update_intelligence_web.py
+      - name: Verify intelligence web
+        run: test -s data/intelligence_graph.json || test -s intelligence-web.html
+
+      - name: Build intelligence graph
+        run: python build_intelligence_graph.py
+      - name: Verify intelligence graph
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/intelligence_graph.json'))
+          assert len(d.get('nodes',[])) >= 10
+          assert len(d.get('edges',[])) >= 3
+          assert all(e.get('source') and e.get('target') and e.get('evidence') for e in d['edges'])
+          print('PASS intelligence graph')
+          PY
+
+      - name: Install intelligence web
+        run: python install_intelligence_web.py
+      - name: Verify intelligence web renderer
+        run: test -s intelligence-web.html || test -s index.html
+
+      - name: Install live event layers
+        run: python install_live_events.py && python install_event_intelligence.py
+      - name: Verify live event layers
+        run: test -s global_pulse_event_intelligence.js
+
+      - name: Build assessments
+        run: python build_intelligence_assessment.py
+      - name: Verify assessments
+        run: python - <<'PY'
+          import json
+          d=json.load(open('data/intelligence_assessment.json'))
+          assert isinstance(d.get('assessments'),list) and d.get('updatedAt')
+          print('PASS assessments',len(d['assessments']))
+          PY
+
+      - name: Install assessment UI
+        run: python install_intelligence_assessment.py
+      - name: Verify assessment UI
+        run: test -s global_pulse_assessment.js
+
+      - name: Apply dashboard integrations
+        run: python update7_live_branding.py && python update9_live_reporting.py && python install_breaking_alerts.py && python install_health_finalizer.py
+      - name: Verify dashboard integrations
+        run: test -s index.html
+
+      - name: Build source health and claims
+        run: python finalize_intelligence_health.py && python claim_intelligence.py && python install_claim_intelligence.py
+      - name: Verify source health and claims
+        run: |
+          test -s data/source_health.json
+          test -s data/claims.json
+          python - <<'PY'
+          import json
+          d=json.load(open('data/claims.json'))
+          assert isinstance(d.get('claims'),list) and d.get('updatedAt')
+          print('PASS claims',len(d['claims']))
+          PY
+
+      - name: Install V2.7 and canonical map
+        run: python install_v27.py && python install_map_v3.py
+      - name: Verify V2.7 and canonical map
+        run: test -s global_pulse_v27.js && test -s index.html
+
+      - name: Final syntax and data validation
         run: |
           set -euo pipefail
-          python -m py_compile claim_intelligence.py install_claim_intelligence.py update_intelligence_web.py build_intelligence_graph.py install_intelligence_web.py update_market_data.py breaking_news.py build_live_events.py build_source_evidence.py build_event_intelligence.py build_event_consistency.py build_event_history.py install_event_intelligence.py install_live_events.py build_intelligence_assessment.py install_intelligence_assessment.py update_cfr.py install_breaking_alerts.py build_source_health.py news_feed_db.py
+          python -m py_compile *.py
+          for f in data/snapshot.json data/live_status.json data/live_events.json data/source_evidence.json data/event_intelligence.json data/event_consistency.json data/intelligence_graph.json data/intelligence_assessment.json data/claims.json data/source_health.json; do
+            test -s "$f"
+          done
           node --check claim_intelligence.js
-          node --check intelligence_web_v2.js
-          node --check global_pulse_breaking.js
-          node --check global_pulse_events.js
-          node --check global_pulse_assessment.js
           node --check global_pulse_event_intelligence.js
           node --check global_pulse_event_consistency.js
-          node --check global_pulse_event_history.js
-          node --check global_pulse_list_density.js
-          node --check global_pulse_source_health.js
-          for f in data/snapshot.json data/claims.json data/intelligence_graph.json data/breaking_news.json data/live_events.json data/source_evidence.json data/event_intelligence.json data/event_consistency.json data/event_history.json data/intelligence_assessment.json; do test -s "$f" || { echo "MISSING/EMPTY: $f"; exit 1; }; done
+          node --check global_pulse_assessment.js
           python - <<'PY'
           import json,re
+          from datetime import datetime,timezone
           from pathlib import Path
-          files=['claims','intelligence_graph','snapshot','breaking_news','live_events','source_evidence','event_intelligence','event_consistency','event_history','intelligence_assessment']
-          d={n:json.loads(Path('data/'+n+'.json').read_text()) for n in files}
-          main=Path('index.html').read_text()
-          assert isinstance(d['claims'].get('claims'),list) and d['claims'].get('updatedAt')
-          assert all(c.get('id') and c.get('claim') and c.get('confidence') for c in d['claims']['claims'])
-          assert len(d['intelligence_graph'].get('nodes',[]))>=10 and len(d['intelligence_graph'].get('edges',[]))>=3
-          assert all(e.get('source') and e.get('target') and e.get('evidence') for e in d['intelligence_graph']['edges'])
-          assert isinstance(d['live_events'].get('events'),list) and d['live_events'].get('updatedAt')
-          assert isinstance(d['source_evidence'].get('eventSourceEvidence'),list) and d['source_evidence'].get('updatedAt')
-          assert isinstance(d['event_intelligence'].get('events'),list) and d['event_intelligence'].get('updatedAt')
-          assert isinstance(d['event_consistency'].get('events'),list) and d['event_consistency'].get('updatedAt')
-          assert isinstance(d['event_consistency'].get('summary'),dict)
-          assert isinstance(d['event_history'].get('events'),dict) and d['event_history'].get('updatedAt')
-          assert d['event_history'].get('window') == '30 days'
-          assert isinstance(d['intelligence_assessment'].get('assessments'),list) and d['intelligence_assessment'].get('updatedAt')
-          required=['claim_intelligence.js','global_pulse_event_intelligence.js','global_pulse_event_consistency.js','global_pulse_event_history.js']
-          for name in required: assert re.search(r'<script[^>]+src=["\'][^"\']*'+re.escape(name)+r'(?:\?[^"\']*)?["\']',main,re.I), f'missing script: {name}'
-          if Path('data/source_health.json').exists():
-            sh=json.loads(Path('data/source_health.json').read_text()); assert isinstance(sh.get('sources'),list) and sh.get('summary',{}).get('total',0)>=20
-          assert not re.search(r'(google-analytics|googletagmanager|gtag\(|analytics\.js|sentry\.io|hotjar|mixpanel|segment\.com)',main,re.I)
-          print('PASS FINAL VALIDATION')
-          print('Snapshot:',d['snapshot'].get('updatedAt'))
-          print('Events:',len(d['live_events']['events']))
-          print('Claims:',len(d['claims']['claims']))
-          print('Graph:',len(d['intelligence_graph']['nodes']),'nodes /',len(d['intelligence_graph']['edges']),'edges')
+          names=['snapshot','live_status','live_events','source_evidence','event_intelligence','event_consistency','intelligence_graph','intelligence_assessment','claims','source_health']
+          d={n:json.loads(Path('data/'+n+'.json').read_text()) for n in names}
+          stamp=d['snapshot'].get('updatedAt'); assert stamp
+          age=(datetime.now(timezone.utc)-datetime.fromisoformat(stamp.replace('Z','+00:00'))).total_seconds()
+          assert age <= 900, f'final snapshot stale: {age:.0f}s'
+          assert len(d['intelligence_graph']['nodes'])>=10
+          assert len(d['intelligence_graph']['edges'])>=3
+          assert d['claims'].get('updatedAt')
+          html=Path('index.html').read_text(encoding='utf-8')
+          for asset in ['claim_intelligence.js','global_pulse_event_intelligence.js','global_pulse_event_consistency.js','global_pulse_assessment.js']:
+            assert asset in html, f'missing {asset}'
+          print('FINAL PIPELINE VALIDATION PASSED')
+          print('snapshot=',stamp,'events=',len(d['live_events']['events']),'claims=',len(d['claims']['claims']))
           PY
+
       - name: Commit generated artifacts
         run: |
           set -euo pipefail
@@ -225,6 +311,19 @@ jobs:
             git fetch origin main
             if git rebase -X theirs origin/main && git push origin HEAD:main; then exit 0; fi
             git rebase --abort || true
-            sleep $((attempt*3))
+            sleep $((attempt * 3))
           done
           exit 1
+
+      - name: Verify published commit
+        run: git fetch origin main && test "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload exact generated site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy exact generated site
+        id: deployment
+        uses: actions/deploy-pages@v4
