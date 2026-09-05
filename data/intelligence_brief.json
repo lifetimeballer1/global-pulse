@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T04:46:50.565282Z",
+  "updatedAt": "2026-09-05T08:39:40.803590Z",
   "method": "Deterministic prioritization of existing public Global Pulse artifacts; not a forecast or causal model.",
   "freshness": {
-    "snapshotUpdatedAt": "2026-09-05T03:04:25.783301+00:00",
-    "eventsUpdatedAt": "2026-09-05T03:04:19.424948Z",
-    "assessmentsUpdatedAt": "2026-09-05T03:04:24.329180Z"
+    "snapshotUpdatedAt": "2026-09-05T05:40:38.977960+00:00",
+    "eventsUpdatedAt": "2026-09-05T05:40:23.406119Z",
+    "assessmentsUpdatedAt": "2026-09-05T05:40:30.164662Z"
   },
   "headline": {
     "title": "Global Intelligence Brief",
@@ -13,13 +13,15 @@
   },
   "topDevelopments": [
     {
-      "id": "a1a33bf64a8ab1e6",
-      "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
+      "id": "890accde589e56cf",
+      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
       "category": "general",
       "confidence": "low",
-      "reportCount": 4,
-      "independentSourceCount": 3,
+      "reportCount": 7,
+      "independentSourceCount": 5,
       "sources": [
+        "cna_world",
+        "google_news_iran_israel",
         "google_news_ukraine_war",
         "al_jazeera",
         "google_news_south_asia_security"
@@ -29,43 +31,44 @@
       "lastSeen": null
     },
     {
-      "id": "5b2c48d78978f28d",
-      "title": "At least 100 killed as Yemen’s Houthis push towards key strait",
+      "id": "24888a4f511f5788",
+      "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation - Al Jazeera",
+      "category": "conflict",
+      "confidence": "low",
+      "reportCount": 2,
+      "independentSourceCount": 2,
+      "sources": [
+        "google_news_iran_israel",
+        "al_jazeera"
+      ],
+      "breaking": true,
+      "firstSeen": null,
+      "lastSeen": null
+    },
+    {
+      "id": "38cf8b9ed9042113",
+      "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens - Al Jazeera",
       "category": "general",
       "confidence": "low",
       "reportCount": 2,
       "independentSourceCount": 2,
       "sources": [
-        "al_jazeera",
-        "cna_world"
+        "google_news_ukraine_war",
+        "al_jazeera"
       ],
       "breaking": true,
       "firstSeen": null,
       "lastSeen": null
     },
     {
-      "id": "cc3bc67f455b7645",
-      "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
+      "id": "e74b55d24be964da",
+      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
       "category": "general",
       "confidence": "low",
-      "reportCount": 1,
+      "reportCount": 2,
       "independentSourceCount": 1,
       "sources": [
-        "Al Jazeera"
-      ],
-      "breaking": true,
-      "firstSeen": null,
-      "lastSeen": null
-    },
-    {
-      "id": "7f50a25b4d12843a",
-      "title": "Trump downplays war with Iran, in which 18 US service members have been killed so far, as ‘small potatoes’ – as it happened",
-      "category": "general",
-      "confidence": "low",
-      "reportCount": 1,
-      "independentSourceCount": 1,
-      "sources": [
-        "Guardian US"
+        "google_news_ukraine_war"
       ],
       "breaking": true,
       "firstSeen": null,
@@ -128,8 +131,8 @@
       "lastSeen": null
     },
     {
-      "id": "1cd56ec137d23cc4",
-      "title": "US-Israel-Iran War Latest News: US Approves $5 Billion Arms Sale to Saudi Arabia Amid Rising Missile, Drone Threats; Deal Awaits US Congress Approval for Final Clearance! - sundayguardianlive.com",
+      "id": "06f41ad4036dd5aa",
+      "title": "Between Attrition And Adaptation: Assessing Iran’s Missile- And Drone-Warfare Capabilities - Analysis - Eurasia Review",
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
@@ -142,14 +145,14 @@
       "lastSeen": null
     },
     {
-      "id": "5c3d9eaaadb85f2e",
-      "title": "Houthis Launch Missile And Drone Attacks In Taiz, Forcing New Displacement In Maqbanah: 21 outlets compared - NewsCord",
+      "id": "1cd56ec137d23cc4",
+      "title": "US-Israel-Iran War Latest News: US Approves $5 Billion Arms Sale to Saudi Arabia Amid Rising Missile, Drone Threats; Deal Awaits US Congress Approval for Final Clearance! - sundayguardianlive.com",
       "category": "conflict",
       "confidence": "low",
       "reportCount": 1,
       "independentSourceCount": 1,
       "sources": [
-        "google_news_yemen_red_sea"
+        "google_news_iran_israel"
       ],
       "breaking": true,
       "firstSeen": null,
@@ -158,44 +161,48 @@
   ],
   "watchlist": [
     {
-      "entity": "Global Trade",
-      "score": 32,
+      "entity": "Ukraine",
+      "score": 30,
       "level": "WATCH",
-      "delta": 14,
-      "evidenceCount": 8,
+      "delta": 4,
+      "evidenceCount": 19,
       "topFactors": [
         {
           "label": "Conflict / military activity",
-          "delta": 13
+          "delta": 20
         },
         {
-          "label": "Economic / energy signals",
-          "delta": 8
+          "label": "Live event activity",
+          "delta": 10
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
         }
       ]
     },
     {
       "entity": "Iran",
-      "score": 30,
+      "score": 29,
       "level": "WATCH",
-      "delta": 0,
-      "evidenceCount": 31,
+      "delta": -1,
+      "evidenceCount": 24,
       "topFactors": [
         {
           "label": "Conflict / military activity",
-          "delta": 28
+          "delta": 20
         },
         {
           "label": "Live event activity",
-          "delta": 9
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 2
+          "delta": 11
         },
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -1
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 0
         }
       ]
     },
@@ -211,8 +218,8 @@
       "entity": "Israel",
       "score": 27,
       "level": "WATCH",
-      "delta": 2,
-      "evidenceCount": 14,
+      "delta": 0,
+      "evidenceCount": 12,
       "topFactors": [
         {
           "label": "Conflict / military activity",
@@ -221,69 +228,10 @@
         {
           "label": "Live event activity",
           "delta": 6
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -2
-        }
-      ]
-    },
-    {
-      "entity": "Ukraine",
-      "score": 26,
-      "level": "WATCH",
-      "delta": 1,
-      "evidenceCount": 16,
-      "topFactors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 13
-        },
-        {
-          "label": "Live event activity",
-          "delta": 5
         },
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -1
-        }
-      ]
-    },
-    {
-      "entity": "Global Economy",
-      "score": 25,
-      "level": "WATCH",
-      "delta": 0,
-      "evidenceCount": 6,
-      "topFactors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 11
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 6
-        }
-      ]
-    },
-    {
-      "entity": "Mexican Cartel Conflict",
-      "score": 21,
-      "level": "WATCH",
-      "delta": 1,
-      "evidenceCount": 11,
-      "topFactors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 14
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
         }
       ]
     },
@@ -301,52 +249,95 @@
         {
           "label": "Live event activity",
           "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 0
         }
       ]
     },
     {
       "entity": "Russia",
-      "score": 18,
+      "score": 20,
       "level": "WATCH",
-      "delta": 0,
-      "evidenceCount": 9,
+      "delta": 2,
+      "evidenceCount": 8,
       "topFactors": [
         {
           "label": "Conflict / military activity",
-          "delta": 8
+          "delta": 9
         },
         {
           "label": "Live event activity",
-          "delta": 4
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 0
-        }
-      ]
-    },
-    {
-      "entity": "United States",
-      "score": 17,
-      "level": "WATCH",
-      "delta": -2,
-      "evidenceCount": 7,
-      "topFactors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 4
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 4
+          "delta": 8
         },
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -1
+        }
+      ]
+    },
+    {
+      "entity": "Democratic Republic of Congo",
+      "score": 19,
+      "level": "WATCH",
+      "delta": 5,
+      "evidenceCount": 12,
+      "topFactors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        }
+      ]
+    },
+    {
+      "entity": "Strait of Hormuz",
+      "score": 17,
+      "level": "WATCH",
+      "delta": 3,
+      "evidenceCount": 5,
+      "topFactors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 9
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ]
+    },
+    {
+      "entity": "Global Trade",
+      "score": 14,
+      "level": "WATCH",
+      "delta": -18,
+      "evidenceCount": 8,
+      "topFactors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 5
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 2
+        }
+      ]
+    },
+    {
+      "entity": "Yemen",
+      "score": 13,
+      "level": "WATCH",
+      "delta": -1,
+      "evidenceCount": 10,
+      "topFactors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 5
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
         }
       ]
     }
