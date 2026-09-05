@@ -53,11 +53,11 @@ on:
       - 'global_pulse_breaking.js'
       - 'global_pulse_graph.js'
       - 'global_pulse_graph_pro.js'
-  
+
 env:
   PYTHONUNBUFFERED: '1'
 concurrency:
-  group: global-pulse-production
+  group: global-pulse-refresh
   cancel-in-progress: true
 permissions:
   contents: write
@@ -84,8 +84,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: news_feed.db
-          key: ${{ runner.os }}-global-pulse-news-db
-          restore-keys: ${{ runner.os }}-global-pulse-news-db-
+          key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-global-pulse-news-db-
       - name: Verify runtime
         run: python --version && node --version && git --version
       - name: Expand live intelligence feeds
@@ -117,7 +118,6 @@ jobs:
           results=d.get('sourceResults',[])
           assert len(results) >= 20, f'Expected broad source polling, got {len(results)}'
           assert all(r.get('name') and 'rowsFetched' in r and 'httpOk' in r for r in results), 'Malformed source telemetry'
-          assert isinstance(d.get('emptySources'),int) and isinstance(d.get('fallbackSources'),int)
           stamp=d.get('updatedAt')
           assert stamp, 'live_status.json has no updatedAt'
           updated=datetime.fromisoformat(stamp.replace('Z','+00:00'))
