@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T21:58:57.050555Z",
+  "updatedAt": "2026-09-05T22:01:45.930831Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -10,64 +10,6 @@
   },
   "disclaimer": "Domain reputation is a heuristic. A reputable source can be wrong, and multiple outlets can repeat the same underlying report. Primary-source status does not make a claim true.",
   "events": [
-    {
-      "eventId": "a9b69c7213ce317c",
-      "title": "Putin Meets With Us Envoys At The Kremlin For Renewed Talks On Ending The War In Ukraine",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 52,
-      "reportCount": 2,
-      "uniqueSourceDomains": 2,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 2,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 45,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 0.5,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "api.gdeltproject.org",
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T19:05:33+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T21:15:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "api.gdeltproject.org": 1,
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h",
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
     {
       "eventId": "3c330215fe83dcd1",
       "title": "US-IRAN WAR | U.S. Strikes 3 Iranian Oil Tankers After Navy Warships Targeted - WION",
@@ -209,6 +151,65 @@
       ]
     },
     {
+      "eventId": "a9b69c7213ce317c",
+      "title": "Putin Meets With Us Envoys At The Kremlin For Renewed Talks On Ending The War In Ukraine",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 42,
+      "reportCount": 2,
+      "uniqueSourceDomains": 2,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 45,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 0.5,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "api.gdeltproject.org",
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T16:46:24+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T21:15:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "api.gdeltproject.org": 1,
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h",
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "f332861d045a1821",
       "title": "Trump PAC wades into midterms with $10 million ad buy to boost Ken Paxton",
       "category": "general",
@@ -225,7 +226,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 0.5,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org",
@@ -337,7 +338,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -537,6 +538,62 @@
       ]
     },
     {
+      "eventId": "552091fb8e868e61",
+      "title": "Russian drone strikes Ukraine’s security service HQ, escalating air war - 95 KQDS",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 27,
+      "reportCount": 2,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 2,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T05:46:28+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T09:23:07+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 2
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "74168854530ab877",
       "title": "El Niño strengthens into 2027 , raising risks for food prices , power and trade",
       "category": "economic",
@@ -553,7 +610,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -597,7 +654,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -641,7 +698,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -685,7 +742,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -729,7 +786,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -773,7 +830,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -817,7 +874,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -861,7 +918,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -905,7 +962,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -949,7 +1006,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -993,7 +1050,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1037,7 +1094,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1081,7 +1138,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1125,7 +1182,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1169,7 +1226,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1216,7 +1273,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1260,7 +1317,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1304,7 +1361,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1348,7 +1405,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1392,7 +1449,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1436,7 +1493,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1480,7 +1537,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1524,7 +1581,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1568,7 +1625,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1612,7 +1669,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1656,7 +1713,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1709,7 +1766,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1753,7 +1810,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1797,7 +1854,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1841,7 +1898,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1885,7 +1942,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1929,7 +1986,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -1975,7 +2032,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2019,7 +2076,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2065,7 +2122,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2109,7 +2166,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2153,7 +2210,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2197,7 +2254,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2250,7 +2307,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2294,7 +2351,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2338,7 +2395,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2382,7 +2439,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2426,7 +2483,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2470,7 +2527,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2514,7 +2571,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2558,7 +2615,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2602,7 +2659,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2648,7 +2705,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2692,7 +2749,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2736,7 +2793,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2780,7 +2837,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2824,51 +2881,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "api.gdeltproject.org"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T21:15:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "api.gdeltproject.org": 1
-      },
-      "evidenceUrls": [
-        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "92f4c8a9c5c9caa6",
-      "title": "Holguín Rural Water Crisis Eased by Rainwater Harvesting Initiative",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 55,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -2971,7 +2984,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3015,7 +3028,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3059,7 +3072,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3103,7 +3116,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3147,7 +3160,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3191,7 +3204,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3235,7 +3248,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3279,7 +3292,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3323,7 +3336,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3367,7 +3380,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3411,7 +3424,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3455,7 +3468,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3499,7 +3512,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3543,7 +3556,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3587,7 +3600,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
@@ -3631,7 +3644,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "api.gdeltproject.org"
