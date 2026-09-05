@@ -7,7 +7,7 @@
   'use strict';
   const modalId='gp-event-modal';
   let lastFocus=null;
-  function modal(){return document.getElementById(modalId)}
+  function modal(){return document.getElementById('gp-event-modal')}
   function isOpen(){const m=modal();return !!m&&m.classList.contains('open')}
   function lock(){
     document.documentElement.classList.add('gp-dialog-open');
