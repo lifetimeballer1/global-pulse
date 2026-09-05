@@ -42,10 +42,10 @@ def fresh(obj: dict, field: str = "updatedAt", max_age: int = 900) -> None:
         raise RuntimeError(f"artifact timestamp invalid/stale: age={age:.0f}s")
 
 
-def verify_json(name: str, *, min_list: tuple[str, int] | None = None, fresh_required: bool = True) -> dict:
+def verify_json(name: str, *, min_list: tuple[str, int] | None = None, fresh_required: bool = True, max_age: int = 900) -> dict:
     d = load(name)
     if fresh_required:
-        fresh(d)
+        fresh(d, max_age=max_age)
     if min_list:
         key, minimum = min_list
         value = d.get(key)
@@ -79,13 +79,17 @@ def main() -> int:
         raise RuntimeError("live news gate failed: insufficient feeds/rows")
     print(f"PASS: live news feeds={live.get('feedsChecked')} rows={live.get('rowsFetched')} new={live.get('newArticles')}", flush=True)
 
+    # Phase 1 reliability gate: do not publish merely because 20 feeds returned
+    # something. Require broad source health and fallback coverage.
+    run("Validate source health", sys.executable, "validate_source_health.py")
+
     run("Refresh base snapshot", sys.executable, "run_snapshot_resilient.py")
     snap = verify_json("snapshot.json")
 
     run("Update market data", sys.executable, "update_market_data.py")
     snap = verify_json("snapshot.json")
     market = snap.get("marketData") or {}
-    fresh(market)
+    fresh(market, max_age=900)
     indicators = market.get("indicators") or []
     if len(indicators) < 20:
         raise RuntimeError(f"market data gate failed: only {len(indicators)} indicators")
@@ -182,7 +186,7 @@ def main() -> int:
 
     final = verify_json("snapshot.json")
     market = final.get("marketData") or {}
-    fresh(market)
+    fresh(market, max_age=900)
     if len(market.get("indicators") or []) < 20:
         raise RuntimeError("final market-data gate failed")
     if not isinstance(final.get("markers"), list) or not final["markers"]:
