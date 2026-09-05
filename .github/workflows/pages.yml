@@ -1,9 +1,12 @@
 name: Deploy Global Pulse to GitHub Pages
 
-# The main refresh workflow owns scheduled collection and production deploys.
-# Keep this workflow manual-only so a plain push cannot deploy an older snapshot
-# in parallel with the data refresh pipeline.
+# Deploy only after the canonical refresh pipeline succeeds, so Pages always
+# receives the exact snapshot produced by that refresh. Manual dispatch remains
+# available for recovery/testing.
 on:
+  workflow_run:
+    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -12,17 +15,21 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: global-pulse-pages
   cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: '1'
 
 jobs:
   build:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact workflow commit
+      - name: Checkout exact refreshed commit
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.sha || github.event.workflow_run.head_sha }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -32,44 +39,38 @@ jobs:
       - name: Install map precision and photo layer
         run: python map_precision_photos.py
 
-      - name: Validate committed map data
+      - name: Validate refreshed snapshot
         run: |
           set -euo pipefail
           python -m py_compile update_conflict_coverage.py map_precision_photos.py
           python - <<'PY'
           import json
+          from datetime import datetime, timezone
           from pathlib import Path
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          markers=d.get('markers', [])
-          regional=[m for m in markers if m.get('layer')=='osint-regional']
-          o=d.get('osintMaps') or {}
-          counts=o.get('regionalCounts') or {}
-          print(f'Total markers: {len(markers)}')
-          print(f'Committed regional OSINT markers: {len(regional)}')
-          print('Regional counts:', counts)
-          for m in regional:
-              assert -90 <= float(m['lat']) <= 90 and -180 <= float(m['lng']) <= 180
-          if counts:
-              required={'Africa','South America','South Asia'}
-              missing=required-set(counts)
-              if missing:
-                  raise SystemExit(f'Incomplete regional count schema: {sorted(missing)}')
-              if any(int(v or 0) < 0 for v in counts.values()):
-                  raise SystemExit('Regional counts cannot be negative')
-          html=Path('index.html').read_text(encoding='utf-8')
-          required_assets=('global_pulse_coverage_ui.js','global_pulse_intelligence.js','global_pulse_intelligence.css','GP-MAP-PRECISION-PHOTOS')
-          for asset in required_assets:
-              if asset not in html:
-                  raise SystemExit(f'{asset} was not integrated')
-          print('Committed map data and dashboard assets validated.')
+          stamp=d.get('updatedAt')
+          assert stamp, 'snapshot.json has no updatedAt'
+          updated=datetime.fromisoformat(stamp.replace('Z','+00:00'))
+          age=(datetime.now(timezone.utc)-updated).total_seconds()
+          assert age <= 900, f'Pages received stale snapshot: {age:.0f}s old'
+          assert isinstance(d.get('markers'),list), 'Snapshot markers missing'
+          print('PAGES SNAPSHOT VALIDATION PASSED')
+          print('Snapshot updated:',stamp,'AgeSeconds:',round(age),'Markers:',len(d.get('markers',[])))
           PY
 
       - name: Inject dashboard enhancements
         run: |
           python - <<'PY'
           from pathlib import Path
-          p=Path('index.html'); text=p.read_text(encoding='utf-8')
-          tags=['<link rel="stylesheet" href="global_pulse_intelligence.css">','<script src="global_pulse_coverage_ui.js"></script>','<script src="global_pulse_intelligence.js"></script>','<link rel="stylesheet" href="global_pulse_list_density.css">','<script src="global_pulse_list_density.js"></script>']
+          p=Path('index.html')
+          text=p.read_text(encoding='utf-8')
+          tags=[
+              '<link rel="stylesheet" href="global_pulse_intelligence.css">',
+              '<script src="global_pulse_coverage_ui.js"></script>',
+              '<script src="global_pulse_intelligence.js"></script>',
+              '<link rel="stylesheet" href="global_pulse_list_density.css">',
+              '<script src="global_pulse_list_density.js"></script>'
+          ]
           for tag in tags:
               if tag not in text:
                   marker='</body>'
@@ -93,9 +94,8 @@ jobs:
           for asset in ('global_pulse_list_density.js','global_pulse_list_density.css'):
               if asset not in html:
                   raise SystemExit(f'{asset} was not integrated into Pages artifact')
-          print('Compact list UX assets validated.')
+          print('Pages artifact inputs are present.')
           PY
-          echo 'Pages artifact inputs are present.'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -107,11 +107,12 @@ jobs:
 
   deploy:
     needs: build
+    if: ${{ needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy exact refreshed artifact to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
