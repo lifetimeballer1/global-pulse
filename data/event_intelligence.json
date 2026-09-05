@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T22:01:45.930831Z",
+  "updatedAt": "2026-09-05T22:09:10.615345Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -554,7 +554,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -588,6 +588,50 @@
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "13b6c4dde29b532b",
+      "title": "Commentary: The pushback against AI songs is music to my ears",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 26,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 55,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T22:00:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
         "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
@@ -1232,8 +1276,8 @@
         "api.gdeltproject.org"
       ],
       "entityCandidates": [
-        "india",
-        "nepal"
+        "nepal",
+        "india"
       ],
       "regionalContext": [],
       "timeline": [
@@ -2823,50 +2867,6 @@
     {
       "eventId": "9dd03824b13d0e01",
       "title": "Atac cibernetic de amploare în Berlin : Documente sensibile ale autorităților au ajuns pe dark web",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 55,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "api.gdeltproject.org"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T21:15:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "api.gdeltproject.org": 1
-      },
-      "evidenceUrls": [
-        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "a3d0d0bf6763b126",
-      "title": "Congo - Brazzaville : Crise à la Fécohand - La Dynamique demande larbitrage du Premier ministre",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
