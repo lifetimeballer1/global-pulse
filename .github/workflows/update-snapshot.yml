@@ -1,6 +1,7 @@
 name: Global Pulse — Canonical Live Refresh
 
 # Reporting deduplication fix: rebuild the page with one canonical Latest Reporting feed.
+# Force-refresh trigger: touching this workflow intentionally starts a full live-data rebuild.
 on:
   schedule:
     - cron: '*/10 * * * *'
