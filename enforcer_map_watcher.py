@@ -15,7 +15,9 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "data" / "enforcer_maps.json"
 FEED = "https://www.youtube.com/feeds/videos.xml?channel_id=UCM-eRxEc_TutiPIbOS1YYbw"
 NS = {"a": "http://www.w3.org/2005/Atom", "m": "http://search.yahoo.com/mrss/"}
-MAP_RE = re.compile(r"https?://(?:www\.)?google\.com/maps/d/(?:edit|viewer)\?[^\s<>'\"]+", re.I)
+# Google My Maps commonly appears as /maps/d/viewer, /maps/d/edit, or
+# /maps/d/u/0/viewer (and similar user-profile paths). Accept all of them.
+MAP_RE = re.compile(r"https?://(?:www\.)?google\.com/maps/d/(?:[^\s<>'\"]*?/)?(?:edit|viewer)(?:\?[^\s<>'\"]+)?", re.I)
 
 def clean_url(u):
     return u.rstrip(".,;:)]}")
@@ -27,6 +29,7 @@ def main():
     existing = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {"source":"The Enforcer","channel":"@enforcerofficial","maps":[]}
     by_url = {x.get("url"): x for x in existing.get("maps", []) if x.get("url")}
     videos = []
+    new_links = 0
     for entry in root.findall("a:entry", NS):
         vid = entry.findtext("a:id", "", NS).split(":")[-1]
         title = entry.findtext("a:title", "", NS)
@@ -39,13 +42,19 @@ def main():
         found = []
         for u in MAP_RE.findall(desc):
             u = clean_url(u)
-            if u not in found: found.append(u)
-            by_url.setdefault(u, {"url":u,"title":title,"videoUrl":link,"published":published,"source":"The Enforcer YouTube description","confidence":"SOURCE LINK / UNVERIFIED"})
+            if u not in found:
+                found.append(u)
+            if u not in by_url:
+                new_links += 1
+                by_url[u] = {"url":u,"title":title,"videoUrl":link,"published":published,"source":"The Enforcer YouTube description","confidence":"SOURCE LINK / UNVERIFIED"}
+            else:
+                # Keep metadata current if the same URL is reposted.
+                by_url[u].update({"title":title,"videoUrl":link,"published":published})
         videos.append({"videoId":vid,"title":title,"published":published,"videoUrl":link,"mapCount":len(found)})
     maps = sorted(by_url.values(), key=lambda x: x.get("published", ""), reverse=True)[:100]
-    existing.update({"updatedAt":datetime.now(timezone.utc).isoformat(),"feedUrl":FEED,"maps":maps,"recentVideos":videos[:20],"note":"Public YouTube RSS only; map links are extracted from descriptions and remain source references."})
+    existing.update({"updatedAt":datetime.now(timezone.utc).isoformat(),"feedUrl":FEED,"maps":maps,"recentVideos":videos[:20],"newMapLinks":new_links,"note":"Public YouTube RSS only; map links are extracted from descriptions and remain source references."})
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Enforcer watcher: {len(videos)} feed videos, {len(maps)} unique map links")
+    print(f"Enforcer watcher: {len(videos)} feed videos, {len(maps)} unique map links, {new_links} new links")
 
 if __name__ == "__main__": main()
