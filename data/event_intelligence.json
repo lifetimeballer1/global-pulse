@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T14:06:16.135966Z",
+  "updatedAt": "2026-09-05T14:07:33.097563Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -15,22 +15,21 @@
       "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
       "category": "general",
       "reportedConfidence": "low",
-      "evidenceGrade": "C",
-      "evidenceStatus": "limited corroboration",
-      "corroborationScore": 74,
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 55,
       "reportCount": 4,
-      "uniqueSourceDomains": 3,
-      "nonAggregatorDomains": 2,
+      "uniqueSourceDomains": 2,
+      "nonAggregatorDomains": 1,
       "independentReportingGroups": 4,
-      "sourceIndependence": "moderate",
-      "averageSourceQuality": 54,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 40,
       "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 0.5,
+      "majorNewsDomains": 0,
+      "domainConcentration": 0.75,
       "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
-        "aljazeera.com",
         "channelnewsasia.com",
         "news.google.com"
       ],
@@ -49,11 +48,11 @@
       ],
       "timeline": [
         {
-          "time": "2026-09-04T16:03:41+00:00",
+          "time": "2026-09-04T16:35:32+00:00",
           "type": "report"
         },
         {
-          "time": "2026-09-04T16:35:32+00:00",
+          "time": "2026-09-04T16:35:57+00:00",
           "type": "report"
         },
         {
@@ -66,18 +65,17 @@
         }
       ],
       "sourceBreakdown": {
-        "news.google.com": 2,
-        "channelnewsasia.com": 1,
-        "aljazeera.com": 1
+        "news.google.com": 3,
+        "channelnewsasia.com": 1
       },
       "evidenceUrls": [
         "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
         "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://www.aljazeera.com/xml/rss/all.xml"
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
+        "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
       ]
@@ -200,81 +198,17 @@
       ]
     },
     {
-      "eventId": "d09896d0cb48e32e",
-      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
+      "eventId": "130596e7c5c74df0",
+      "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
       "corroborationScore": 39,
-      "reportCount": 4,
+      "reportCount": 5,
       "uniqueSourceDomains": 1,
       "nonAggregatorDomains": 0,
-      "independentReportingGroups": 4,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T09:23:14+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T10:19:00+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T10:25:09+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T10:37:20+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 4
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "d596679b541c8adf",
-      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 37,
-      "reportCount": 3,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 3,
+      "independentReportingGroups": 5,
       "sourceIndependence": "low",
       "averageSourceQuality": 35,
       "primarySourceDomains": 0,
@@ -286,36 +220,45 @@
         "news.google.com"
       ],
       "entityCandidates": [
-        "ukraine"
+        "ukraine",
+        "russia"
       ],
       "regionalContext": [
         {
           "region": "europe",
           "entities": [
+            "russia",
             "ukraine"
           ]
         }
       ],
       "timeline": [
         {
-          "time": "2026-09-05T10:05:20+00:00",
+          "time": "2026-09-05T06:02:24+00:00",
           "type": "report"
         },
         {
-          "time": "2026-09-05T10:10:43+00:00",
+          "time": "2026-09-05T09:23:14+00:00",
           "type": "report"
         },
         {
-          "time": "Sat, 05 Sep 2026 13:27:39 GMT",
+          "time": "2026-09-05T10:25:09+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T10:37:20+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T10:55:34+00:00",
           "type": "report"
         }
       ],
       "sourceBreakdown": {
-        "news.google.com": 3
+        "news.google.com": 5
       },
       "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://news.google.com/rss/articles/CBMilgFBVV95cUxNM0lET2xpbWZJNzVab2tvQkRQMVNaUjltbXI5b055dVBvSGdNbFRtZ0IwSW9jeE9pWHpEcWw2MWRkU0RhYi1SNFFJOW0wVFlVZ0t1bVd4OUVFbEhVZGpYM2ZubU9UWTVOWnZXanBVcUtBd2k3NnYtWUg4X2Z6dF9hcEpyWndyTloyMzJKdm9TcFVpV1FJRFE?oc=5"
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -341,7 +284,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "bbc.co.uk"
@@ -369,6 +312,147 @@
       ]
     },
     {
+      "eventId": "f88f2c287b476bb5",
+      "title": "Steve Witkoff and Jared Kushner land in Moscow aiming to revive Ukraine talks",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T14:04:29+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "6c5628884cd99271",
+      "title": "‘The chancellor is in a bind’: is No 11 at odds with Burnham’s big vision?",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T14:00:38+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "5ccff275c736c1a3",
+      "title": "Cut the cameras: Flock surveillance cameras spur rare bipartisan backlash",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T14:00:37+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "ef7462cb777be0be",
       "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
       "category": "conflict",
@@ -385,7 +469,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -847,7 +931,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -891,7 +975,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -979,7 +1063,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -1562,73 +1646,6 @@
       ]
     },
     {
-      "eventId": "f37a9f0048770976",
-      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 29,
-      "reportCount": 3,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 3,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "moderate",
-      "consistencyFlags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "yemen"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "yemen"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T17:20:00+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T17:49:23+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T07:06:38+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 3
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Yemen+Houthis+Red+Sea+shipping+missile+drone+conflict+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Reports contain materially different details that require review",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "ad5721f5105cf857",
       "title": "Putin orders 72-hour pause in strikes on Kyiv as US envoys visit Russia, Ukraine - DT Next",
       "category": "general",
@@ -1687,8 +1704,8 @@
       ]
     },
     {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+      "eventId": "e74b55d24be964da",
+      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
@@ -1703,7 +1720,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "none",
+      "consistency": "unknown",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -1723,11 +1740,11 @@
       ],
       "timeline": [
         {
-          "time": "2026-09-05T10:55:34+00:00",
+          "time": "2026-09-04T19:40:19+00:00",
           "type": "report"
         },
         {
-          "time": "2026-09-05T11:54:00+00:00",
+          "time": "2026-09-04T19:46:59+00:00",
           "type": "report"
         }
       ],
@@ -1761,7 +1778,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "feeds.npr.org"
@@ -2024,46 +2041,128 @@
       ]
     },
     {
-      "eventId": "f8c94b28d0aef9a7",
-      "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
-      "category": "general",
+      "eventId": "d596679b541c8adf",
+      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
+      "category": "diplomatic",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportCount": 1,
+      "corroborationScore": 19,
+      "reportCount": 2,
       "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 2,
       "sourceIndependence": "low",
-      "averageSourceQuality": 55,
+      "averageSourceQuality": 35,
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "channelnewsasia.com"
+      "consistency": "moderate",
+      "consistencyFlags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
       ],
-      "entityCandidates": [],
-      "regionalContext": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
       "timeline": [
         {
-          "time": "2026-09-05T04:06:14+00:00",
+          "time": "2026-09-05T10:05:20+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T10:10:43+00:00",
           "type": "report"
         }
       ],
       "sourceBreakdown": {
-        "channelnewsasia.com": 1
+        "news.google.com": 2
       },
       "evidenceUrls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
         "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
+        "Reports contain materially different details that require review",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "f37a9f0048770976",
+      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 19,
+      "reportCount": 2,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 2,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "moderate",
+      "consistencyFlags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "yemen"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "yemen"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-04T17:20:00+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T07:06:38+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 2
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Yemen+Houthis+Red+Sea+shipping+missile+drone+conflict+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Reports contain materially different details that require review",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
       ]
     },
@@ -2143,7 +2242,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -2187,7 +2286,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -2215,8 +2314,8 @@
       ]
     },
     {
-      "eventId": "07e4e0e82d63448f",
-      "title": "What Nepal’s devastating floods teach us about climate vulnerability - thedailystar.net",
+      "eventId": "dbbcbf6b6599cd27",
+      "title": "What Nepal’s devastating floods teach us about climate vulnerability - The Daily Star",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
@@ -2321,7 +2420,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -2851,6 +2950,59 @@
       ]
     },
     {
+      "eventId": "6979133d77eef7d5",
+      "title": "Russian strikes kill at least five people in Ukraine overnight as Moscow and Kiev await the arrival of U.S. envoys as Mo - fakti.bg",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T10:19:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "4ffd619cccbf8933",
       "title": "Iranian tanker hit by four US missiles near Kharg Island - The Siasat Daily",
       "category": "general",
@@ -2948,105 +3100,6 @@
       ]
     },
     {
-      "eventId": "046a0c2ef9cbaa3d",
-      "title": "Budanov says Ukraine conveyed ceasefire proposal to Putin, received no response from Russia - Головне в Україні",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine",
-        "russia"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "russia",
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T09:26:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "8e79672035ae795c",
-      "title": "Guide to NY's high-stakes elections | House control and key state races - Times Herald-Record",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T09:09:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "16daa234438d3e0f",
       "title": "ChatGPT bans campaigns from using AI to make ads. They’re doing it anyway. - The Washington Post",
       "category": "general",
@@ -3063,7 +3116,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -3213,7 +3266,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -3393,6 +3446,50 @@
       ]
     },
     {
+      "eventId": "3ee4bfdcd6a61975",
+      "title": "Missile strikes Iranian oil tanker near Kharg Island: Report - Türkiye Today",
+      "category": "conflict",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T07:01:31+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "32d432140a83df4c",
       "title": "Just In: Peter Obi, Kwankwaso Visit Rotimi Amaechi in Port Harcourt, Details Emerge - Legit News",
       "category": "general",
@@ -3481,6 +3578,59 @@
       ]
     },
     {
+      "eventId": "4227210375628563",
+      "title": "Yemen Houthi offensive leaves 129 dead over Bab al-Mandab - samaa tv",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "yemen"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "yemen"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T06:32:38+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Yemen+Houthis+Red+Sea+shipping+missile+drone+conflict+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "e53e00c65e25f84c",
       "title": "CLARITY Act News: Why 4 CFTC Seats Key to September 15 Senate Vote? - coingabbar.com",
       "category": "general",
@@ -3525,61 +3675,6 @@
       ]
     },
     {
-      "eventId": "a3cd39de2e626b94",
-      "title": "Ukraine-Russia war latest: Moscow violates Zelensky’s air truce as Trump envoys head abroad for peace talks - inkl",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine",
-        "russia"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "russia",
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T06:15:16+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "122b07d20e39da83",
       "title": "Amgen (NASDAQ:AMGN) Shares Sold Off Sen. Sheldon Whitehouse - MarketBeat",
       "category": "general",
@@ -3614,113 +3709,6 @@
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "804a0d3c9bfa041d",
-      "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T06:02:24+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "4c713a79ea61b035",
-      "title": "ASX 200 Sheds Nearly 1% For The Week As Rate Hike Fears, Iran Conflict Rattle Markets Amid Volatile Trading - International Business Times Australia",
-      "category": "economic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "australia",
-        "iran"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "iran"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T05:40:16+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=oil+inflation+tariff+trade+interest+rate+central+bank+stocks+bonds+currency+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",

@@ -1,16 +1,27 @@
 {
-  "updatedAt": "2026-09-05T14:06:16.176828Z",
+  "updatedAt": "2026-09-05T14:07:33.140079Z",
   "method": "heuristic contradiction signals from report titles; flags require human review and are not truth judgments",
   "events": [
     {
-      "eventId": "d09896d0cb48e32e",
-      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
+      "eventId": "130596e7c5c74df0",
+      "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
       "sourceDomains": [],
       "reports": [
+        {
+          "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
+          "url": "",
+          "domain": ""
+        },
         {
           "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
           "url": "",
@@ -22,12 +33,12 @@
           "domain": ""
         },
         {
-          "title": "Russian strikes kill at least five people in Ukraine overnight as Moscow and Kiev await the arrival of U.S. envoys as Mo - fakti.bg",
+          "title": "Russian attacks kill 4 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - bostonglobe.com",
           "url": "",
           "domain": ""
         },
         {
-          "title": "Russian attacks kill 4 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - bostonglobe.com",
+          "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
           "url": "",
           "domain": ""
         }
@@ -53,78 +64,12 @@
           "domain": ""
         },
         {
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - devdiscourse.com",
+          "url": "",
+          "domain": ""
+        },
+        {
           "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "Russian drone strikes Ukraine’s security service headquarters",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "d596679b541c8adf",
-      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
-      "consistency": "moderate",
-      "flagCount": 1,
-      "flags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "reviewRecommended": true,
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "reports": [
-        {
-          "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "Trump Envoys Arrive in Moscow for Talks on Ukraine War - The New York Times",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "US envoys arrive in Moscow for talks on peace in Ukraine - SABC News",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNM0lET2xpbWZJNzVab2tvQkRQMVNaUjltbXI5b055dVBvSGdNbFRtZ0IwSW9jeE9pWHpEcWw2MWRkU0RhYi1SNFFJOW0wVFlVZ0t1bVd4OUVFbEhVZGpYM2ZubU9UWTVOWnZXanBVcUtBd2k3NnYtWUg4X2Z6dF9hcEpyWndyTloyMzJKdm9TcFVpV1FJRFE?oc=5",
-          "domain": "news.google.com"
-        }
-      ]
-    },
-    {
-      "eventId": "f37a9f0048770976",
-      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
-      "consistency": "moderate",
-      "flagCount": 1,
-      "flags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "reviewRecommended": true,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - breitbart.com",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - The Australian",
           "url": "",
           "domain": ""
         }
@@ -179,27 +124,6 @@
       ]
     },
     {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
       "eventId": "15f55aa43ae86ad6",
       "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
       "consistency": "none",
@@ -215,6 +139,54 @@
         },
         {
           "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - english.mathrubhumi.com",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "d596679b541c8adf",
+      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Trump Envoys Arrive in Moscow for Talks on Ukraine War - The New York Times",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "f37a9f0048770976",
+      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - The Australian",
           "url": "",
           "domain": ""
         }
@@ -257,6 +229,27 @@
         },
         {
           "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "e74b55d24be964da",
+      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Putin intensified strikes on Ukraine after secret meeting with CIA chief, WP reports - RBC-Ukraine",
           "url": "",
           "domain": ""
         }
@@ -317,8 +310,8 @@
       ]
     },
     {
-      "eventId": "07e4e0e82d63448f",
-      "title": "What Nepal’s devastating floods teach us about climate vulnerability - thedailystar.net",
+      "eventId": "dbbcbf6b6599cd27",
+      "title": "What Nepal’s devastating floods teach us about climate vulnerability - The Daily Star",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
@@ -328,7 +321,7 @@
       ],
       "reports": [
         {
-          "title": "What Nepal’s devastating floods teach us about climate vulnerability - thedailystar.net",
+          "title": "What Nepal’s devastating floods teach us about climate vulnerability - The Daily Star",
           "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSW5GVTVwRVpSTkw1RjFuMER5WVBRUHJGN0twZTNNUGxwdjlrbG5sWERDSllnOFZ1bVFWNEFoUExsY0V5c2xadnUxcVQyT01LQVVkY3RYMENQUXUyZlFBbFRWdloxS0tyS2dfczl2WjRZbEQtRGhPSm9IOXpUcGJ3TmhMZE81aG9ZQ3lFbWtiS0duZVFjUmNQQWNTNkkzeDBSeDZZRE9iWFdoUkhNaE9VbnFobXpWQjNaUFdJWjNwYlA?oc=5",
           "domain": "news.google.com"
         }
@@ -367,6 +360,54 @@
           "title": "Iran rebuilding its axis for attack on Israel, Israeli assessment says - The Jerusalem Post",
           "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9tbjJBU0JLWHMtWjBZOEZGcGVDUHcwZVgzbFlxb3RPZVJYM3Z6S2ttOGhBZDNwT0Vpc2lxRkRGYUd1bWluWFJlNGtoWVQ0aTB0NTBBRDhuT0Fva3ZX?oc=5",
           "domain": "news.google.com"
+        }
+      ]
+    },
+    {
+      "eventId": "f88f2c287b476bb5",
+      "title": "Steve Witkoff and Jared Kushner land in Moscow aiming to revive Ukraine talks",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Steve Witkoff and Jared Kushner land in Moscow aiming to revive Ukraine talks",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "6c5628884cd99271",
+      "title": "‘The chancellor is in a bind’: is No 11 at odds with Burnham’s big vision?",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "‘The chancellor is in a bind’: is No 11 at odds with Burnham’s big vision?",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "5ccff275c736c1a3",
+      "title": "Cut the cameras: Flock surveillance cameras spur rare bipartisan backlash",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Cut the cameras: Flock surveillance cameras spur rare bipartisan backlash",
+          "url": "",
+          "domain": ""
         }
       ]
     },
@@ -675,6 +716,22 @@
       ]
     },
     {
+      "eventId": "6979133d77eef7d5",
+      "title": "Russian strikes kill at least five people in Ukraine overnight as Moscow and Kiev await the arrival of U.S. envoys as Mo - fakti.bg",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Russian strikes kill at least five people in Ukraine overnight as Moscow and Kiev await the arrival of U.S. envoys as Mo - fakti.bg",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "4ffd619cccbf8933",
       "title": "Iranian tanker hit by four US missiles near Kharg Island - The Siasat Daily",
       "consistency": "none",
@@ -739,22 +796,6 @@
       ]
     },
     {
-      "eventId": "046a0c2ef9cbaa3d",
-      "title": "Budanov says Ukraine conveyed ceasefire proposal to Putin, received no response from Russia - Головне в Україні",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Budanov says Ukraine conveyed ceasefire proposal to Putin, received no response from Russia - Головне в Україні",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
       "eventId": "50a48c29360fd24c",
       "title": "Sweden confirms 458 Britons deported or forcibly removed since Brexit",
       "consistency": "none",
@@ -781,22 +822,6 @@
       "reports": [
         {
           "title": "How might Lindsay Clancy’s case have unfolded in another country?",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "8e79672035ae795c",
-      "title": "Guide to NY's high-stakes elections | House control and key state races - Times Herald-Record",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Guide to NY's high-stakes elections | House control and key state races - Times Herald-Record",
           "url": "",
           "domain": ""
         }
@@ -1075,6 +1100,22 @@
       ]
     },
     {
+      "eventId": "3ee4bfdcd6a61975",
+      "title": "Missile strikes Iranian oil tanker near Kharg Island: Report - Türkiye Today",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Missile strikes Iranian oil tanker near Kharg Island: Report - Türkiye Today",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "32d432140a83df4c",
       "title": "Just In: Peter Obi, Kwankwaso Visit Rotimi Amaechi in Port Harcourt, Details Emerge - Legit News",
       "consistency": "none",
@@ -1139,6 +1180,22 @@
       ]
     },
     {
+      "eventId": "4227210375628563",
+      "title": "Yemen Houthi offensive leaves 129 dead over Bab al-Mandab - samaa tv",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Yemen Houthi offensive leaves 129 dead over Bab al-Mandab - samaa tv",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "e53e00c65e25f84c",
       "title": "CLARITY Act News: Why 4 CFTC Seats Key to September 15 Senate Vote? - coingabbar.com",
       "consistency": "none",
@@ -1149,22 +1206,6 @@
       "reports": [
         {
           "title": "CLARITY Act News: Why 4 CFTC Seats Key to September 15 Senate Vote? - coingabbar.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "a3cd39de2e626b94",
-      "title": "Ukraine-Russia war latest: Moscow violates Zelensky’s air truce as Trump envoys head abroad for peace talks - inkl",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Ukraine-Russia war latest: Moscow violates Zelensky’s air truce as Trump envoys head abroad for peace talks - inkl",
           "url": "",
           "domain": ""
         }
@@ -1197,38 +1238,6 @@
       "reports": [
         {
           "title": "Amgen (NASDAQ:AMGN) Shares Sold Off Sen. Sheldon Whitehouse - MarketBeat",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "804a0d3c9bfa041d",
-      "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "4c713a79ea61b035",
-      "title": "ASX 200 Sheds Nearly 1% For The Week As Rate Hike Fears, Iran Conflict Rattle Markets Amid Volatile Trading - International Business Times Australia",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "ASX 200 Sheds Nearly 1% For The Week As Rate Hike Fears, Iran Conflict Rattle Markets Amid Volatile Trading - International Business Times Australia",
           "url": "",
           "domain": ""
         }
@@ -1377,62 +1386,12 @@
           "domain": ""
         }
       ]
-    },
-    {
-      "eventId": "f8c94b28d0aef9a7",
-      "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
-          "url": "",
-          "domain": ""
-        }
-      ]
     }
   ],
   "flaggedEvents": [
     {
-      "eventId": "d596679b541c8adf",
-      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
-      "consistency": "moderate",
-      "flagCount": 1,
-      "flags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "reviewRecommended": true,
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "reports": [
-        {
-          "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "Trump Envoys Arrive in Moscow for Talks on Ukraine War - The New York Times",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "US envoys arrive in Moscow for talks on peace in Ukraine - SABC News",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNM0lET2xpbWZJNzVab2tvQkRQMVNaUjltbXI5b055dVBvSGdNbFRtZ0IwSW9jeE9pWHpEcWw2MWRkU0RhYi1SNFFJOW0wVFlVZ0t1bVd4OUVFbEhVZGpYM2ZubU9UWTVOWnZXanBVcUtBd2k3NnYtWUg4X2Z6dF9hcEpyWndyTloyMzJKdm9TcFVpV1FJRFE?oc=5",
-          "domain": "news.google.com"
-        }
-      ]
-    },
-    {
-      "eventId": "f37a9f0048770976",
-      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+      "eventId": "130596e7c5c74df0",
+      "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
       "consistency": "moderate",
       "flagCount": 1,
       "flags": [
@@ -1446,17 +1405,27 @@
       "sourceDomains": [],
       "reports": [
         {
-          "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+          "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
           "url": "",
           "domain": ""
         },
         {
-          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - breitbart.com",
+          "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
           "url": "",
           "domain": ""
         },
         {
-          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - The Australian",
+          "title": "Russian Attacks Kill 4 in Ukraine as US Envoys Prepare for Moscow, Kyiv Visits - thenationalbulletin.in",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian attacks kill 4 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - bostonglobe.com",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
           "url": "",
           "domain": ""
         }
@@ -1484,6 +1453,33 @@
         },
         {
           "title": "Putin orders 3-day halt in Kyiv strikes as Trump envoys arrive in Moscow - Mathrubhumi English",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "f37a9f0048770976",
+      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "More than 120 killed in Yemen’s worst clashes in years: sources - The Australian",
           "url": "",
           "domain": ""
         }
