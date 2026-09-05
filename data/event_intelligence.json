@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T20:20:53.483613Z",
+  "updatedAt": "2026-09-05T20:21:51.640368Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -11,13 +11,71 @@
   "disclaimer": "Domain reputation is a heuristic. A reputable source can be wrong, and multiple outlets can repeat the same underlying report. Primary-source status does not make a claim true.",
   "events": [
     {
+      "eventId": "3c330215fe83dcd1",
+      "title": "US-IRAN WAR | U.S. Strikes 3 Iranian Oil Tankers After Navy Warships Targeted - WION",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 52,
+      "reportCount": 2,
+      "uniqueSourceDomains": 2,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 2,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 45,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 0.5,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com",
+        "subscribe.stripes.com"
+      ],
+      "entityCandidates": [
+        "iran"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "iran"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T14:17:54+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T15:05:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1,
+        "subscribe.stripes.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "https://subscribe.stripes.com/rss/top-news.xml"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "d09896d0cb48e32e",
       "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 53,
+      "corroborationScore": 45,
       "reportCount": 7,
       "uniqueSourceDomains": 2,
       "nonAggregatorDomains": 1,
@@ -27,8 +85,14 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 0.857,
-      "consistency": "unknown",
-      "consistencyFlags": [],
+      "consistency": "moderate",
+      "consistencyFlags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
       "sourceDomains": [
         "aljazeera.com",
         "news.google.com"
@@ -86,183 +150,7 @@
         "Fewer than three non-aggregator domains observed",
         "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "3c330215fe83dcd1",
-      "title": "US-IRAN WAR | U.S. Strikes 3 Iranian Oil Tankers After Navy Warships Targeted - WION",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 52,
-      "reportCount": 2,
-      "uniqueSourceDomains": 2,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 2,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 45,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 0.5,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com",
-        "subscribe.stripes.com"
-      ],
-      "entityCandidates": [
-        "iran"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "iran"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T14:17:54+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T15:05:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1,
-        "subscribe.stripes.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://subscribe.stripes.com/rss/top-news.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "890accde589e56cf",
-      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 52,
-      "reportCount": 2,
-      "uniqueSourceDomains": 2,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 2,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 45,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 0.5,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "channelnewsasia.com",
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine",
-        "russia"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "russia",
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T20:01:33+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T20:22:55+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "channelnewsasia.com": 1,
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
-        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "24888a4f511f5788",
-      "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation - Al Jazeera",
-      "category": "conflict",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 44,
-      "reportCount": 2,
-      "uniqueSourceDomains": 2,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 62,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 0.5,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com",
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "lebanon"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "lebanon"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-04T19:48:25+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-04T22:35:35+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1,
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "No first-party institutional source identified in the observed reports",
+        "Reports contain materially different details that require review",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
       ]
     },
@@ -320,147 +208,6 @@
       ]
     },
     {
-      "eventId": "56e6ba22ff077775",
-      "title": "Why is Argentina reigniting the Falklands dispute?",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [
-        "argentina"
-      ],
-      "regionalContext": [
-        {
-          "region": "latin america",
-          "entities": [
-            "argentina"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 20:14:55 +0000",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/video/inside-story/2026/9/5/why-is-argentina-reigniting-the-falklands-dispute?traffic_source=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "680e1913f56ae083",
-      "title": "Everton vs Manchester United: Premier League – prediction, teams, lineups",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 20:04:30 +0000",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/sports/2026/9/5/everton-vs-manchester-united-premier-league-prediction-teams-lineups?traffic_source=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "3663b8dbf6c280a3",
-      "title": "Colombian government reports three killed in rebel attack on military post",
-      "category": "conflict",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 20:03:29 +0000",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/news/2026/9/5/colombian-government-reports-three-killed-in-rebel-attack-on-military-post?traffic_source=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "e1dd4a2af929c674",
       "title": "Possums in the roof, koalas in bed: study shows how animals resort to Australian homes after habitat loss",
       "category": "general",
@@ -477,7 +224,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -521,7 +268,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -549,8 +296,68 @@
       ]
     },
     {
-      "eventId": "c8f74532e2b489bc",
-      "title": "Al Jazeera reporter challenges Huckabee over Israeli settler pogroms",
+      "eventId": "2d8bb20734d3c8e6",
+      "title": "France denies inciting failed Niger mutiny, calls accusation ‘pure fantasy’",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "france",
+        "niger"
+      ],
+      "regionalContext": [
+        {
+          "region": "sahel",
+          "entities": [
+            "niger"
+          ]
+        },
+        {
+          "region": "europe",
+          "entities": [
+            "france"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 19:45:39 +0000",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/news/2026/9/5/france-denies-inciting-failed-niger-mutiny-calls-accusation-pure-fantasy?traffic_source=rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "c79d067873f5ddd3",
+      "title": "Jerusalem Daily: raids, settlers & sieges",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
@@ -574,7 +381,7 @@
       "regionalContext": [],
       "timeline": [
         {
-          "time": "Sat, 05 Sep 2026 20:00:05 +0000",
+          "time": "Sat, 05 Sep 2026 19:37:10 +0000",
           "type": "report"
         }
       ],
@@ -582,7 +389,236 @@
         "aljazeera.com": 1
       },
       "evidenceUrls": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/5/al-jazeera-reporter-challenges-huckabee-over-israeli-settler-pogroms?traffic_source=rss"
+        "https://www.aljazeera.com/video/newsfeed/2026/9/5/jerusalem-daily-raids-settlers-sieges?traffic_source=rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "3763076f2e57f4b6",
+      "title": "Cuban and Afghan immigrants deported from US under Trump arrive in Guyana",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 19:19:52 +0000",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/news/2026/9/5/cuban-and-afghan-immigrants-deported-from-us-under-trump-arrive-in-guyana?traffic_source=rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "56e6ba22ff077775",
+      "title": "Why is Argentina reigniting the Falklands dispute?",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "argentina"
+      ],
+      "regionalContext": [
+        {
+          "region": "latin america",
+          "entities": [
+            "argentina"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T20:14:55+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "680e1913f56ae083",
+      "title": "Everton vs Manchester United: Premier League – prediction, teams, lineups",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T20:04:30+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "3663b8dbf6c280a3",
+      "title": "Colombian government reports three killed in rebel attack on military post",
+      "category": "conflict",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T20:03:29+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "c8f74532e2b489bc",
+      "title": "Al Jazeera reporter challenges Huckabee over Israeli settler pogroms",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T20:00:05+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -609,7 +645,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -769,94 +805,6 @@
       ]
     },
     {
-      "eventId": "4e5c12db834e8b9e",
-      "title": "Israeli campaign of West Bank destruction moves on to region’s food basket",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T15:37:12+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "fe75a04df6c3672e",
-      "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive",
-      "category": "disaster",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T15:33:02+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "ce161526701c7886",
       "title": "US Open tennis: Fritz, Anisimova and Keys in action on day seven – live",
       "category": "general",
@@ -891,103 +839,6 @@
       },
       "evidenceUrls": [
         "https://www.theguardian.com/us-news/rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "a4fb6d74cef864cb",
-      "title": "Multipolarity gives middle powers more choices, but fewer guarantees",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T14:51:08+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "b26c33729ea170ec",
-      "title": "US says it hit Iran oil tankers helping finance ‘regional proxies’",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [
-        "iran"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "iran"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T14:49:36+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -1058,7 +909,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -1104,7 +955,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -1236,7 +1087,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "aljazeera.com"
@@ -1925,50 +1776,6 @@
       ]
     },
     {
-      "eventId": "cf4b716177a1b724",
-      "title": "Pickleball and dining: Why courts are the new food destinations",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T11:48:16+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "2b678607b410e963",
       "title": "US-Israel-Iran War Latest Live News: US Faces Record-High Petrol Prices to Top $4 Per Gallon as War on Iran Continues to Raise Energy Costs - The Sunday Guardian",
       "category": "general",
@@ -2141,8 +1948,8 @@
       ]
     },
     {
-      "eventId": "e74b55d24be964da",
-      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
+      "eventId": "4f1a02eb887cdcbb",
+      "title": "Russian drone strikes Ukraine’s security service HQ, escalating air war - sightmagazine.com.au",
       "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
@@ -2157,31 +1964,29 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "none",
+      "consistency": "unknown",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
       ],
       "entityCandidates": [
-        "ukraine",
-        "russia"
+        "ukraine"
       ],
       "regionalContext": [
         {
           "region": "europe",
           "entities": [
-            "russia",
             "ukraine"
           ]
         }
       ],
       "timeline": [
         {
-          "time": "2026-09-04T19:40:19+00:00",
+          "time": "2026-09-04T20:01:33+00:00",
           "type": "report"
         },
         {
-          "time": "2026-09-04T19:46:59+00:00",
+          "time": "2026-09-04T23:06:11+00:00",
           "type": "report"
         }
       ],
@@ -2189,7 +1994,8 @@
         "news.google.com": 2
       },
       "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -2215,7 +2021,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "subscribe.stripes.com"
@@ -2259,7 +2065,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "gdacs.org"
@@ -2729,6 +2535,193 @@
       ]
     },
     {
+      "eventId": "5c9d8f8719d9c690",
+      "title": "Live Updates: Latest from Israel, Iran, and the Middle East - The Jerusalem Post",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "israel",
+        "iran"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "iran",
+            "israel"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 19:58:26 GMT",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE00QjFIVHk4YTVxRXJLYVJMUjVRcHRsVk1vMEtpUXJ2V2pDSEZ5NUpURmZnRmp0UGN2dFJfaUNBYkw4dm9xS0ZMQUl0S1pCQlMtLW5MUW1mRTFWNEc1RV8ySVkwTHZqWm1QbXgzcThrVGl5MmRON0NFcVlnZi15UFE?oc=5"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "a888a3cc4a0b50f5",
+      "title": "Republicans Face New Midterm Warning as Democrats Gain Party Edge - Newsweek",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 19:50:00 GMT",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTGVOZnBqbTVxNmZmNHp4eEFaUnExRXV1SWJqbmJXMVZ5NUV6aTJkQnpnbnZSWDRsek1NOW9MNTE3OTRUU2t3UWUwVTR3UU5oZ0xFbHJsNmFJVVE0QTY3SG1tcVIxX1NubU41SmdNdnVoQkRhY1dUY1JVTmNTaktfRVBHREZsNzlpV2dmdDFldFN1ejlTQWJGTEFjcVpXdnhD?oc=5"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "4184c05b69034ee7",
+      "title": "Trump begins major midterm spending with $10 million ad buy in Texas - The Washington Post",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 19:44:50 GMT",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/articles/CBMiugFBVV95cUxPM1MzdEFQb0pNVE41TXRvclVwc29MXzlDS2lla2RjZ2V4LUNIa1JraE5rb2lGSl9XZE9iVmctYzRMeE9EQUE4N0NSV0NaNHBWMFBEZzZDQTBGa2U3WmtiRm91bThtd0EySUdDa2xNeXliMXdOWDVfUFRMeWkweVZjY0VIOHhhcTFQR1AxVGlRTlRBMU5KRk42bFNBTGhmTDZBaHRTUC1IR1F3RlZYd1pQejVlb3hBWmVJQVE?oc=5"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "fc308c715682e1ed",
+      "title": "Trump’s first major midterm money move: A $10M Texas Senate ad blitz - SRN News",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T19:08:34+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "80ce0834f00bb88c",
       "title": "Trump’s PAC wades into midterms with $10 million ad buy to boost Ken Paxton - CNN",
       "category": "general",
@@ -2763,6 +2756,94 @@
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=site%3Acnn.com+politics+Trump+Congress+Senate+White+House+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "17e9af957fe4dbdc",
+      "title": "Trump’s first major midterm money move: A $10M Texas Senate ad blitz - myMotherLode.com",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T18:48:01+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "f8ebd4285bc5ad87",
+      "title": "Trump’s MAGA Inc. makes first major 2026 midterm move with $10 million Texas Senate ad blitz - The Economic Times",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T18:40:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -2835,7 +2916,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -2951,6 +3032,61 @@
       "timeline": [
         {
           "time": "2026-09-05T16:45:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "e8b7d932879a8feb",
+      "title": "Live Updates: War returns to Iran with Israel, US strikes - Dawn",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "israel",
+        "iran"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "iran",
+            "israel"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T16:24:05+00:00",
           "type": "report"
         }
       ],
@@ -3234,7 +3370,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -3305,50 +3441,6 @@
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "353dc0ce1f628685",
-      "title": "Are Stocks Going to Plunge if Congress Is Split Under President Donald Trump? Here's What History Says About Stock Market Returns in This Scenario. - The Motley Fool",
-      "category": "economic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "unknown",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T13:16:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -3463,7 +3555,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -3655,6 +3747,59 @@
       ]
     },
     {
+      "eventId": "aa26575eaa22323a",
+      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T11:54:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "32718a16c6a01946",
       "title": "Putin orders three-day pause on Kyiv strikes amid US delegation visit - Crypto Briefing",
       "category": "general",
@@ -3681,103 +3826,6 @@
       "timeline": [
         {
           "time": "2026-09-05T11:50:34+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "514d5eb9b0a3bd67",
-      "title": "Yemeni forces reportedly advance toward Jabal Ras from Hays in western Yemen - Business Upturn",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "yemen"
-      ],
-      "regionalContext": [
-        {
-          "region": "middle east",
-          "entities": [
-            "yemen"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T11:45:57+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "e62be95ac1a998cc",
-      "title": "Life gets very tough for Kyiv residents as Russian drone attacks intensify - Gulf Today",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-05T11:43:59+00:00",
           "type": "report"
         }
       ],
@@ -3837,66 +3885,6 @@
       ],
       "sourceBreakdown": {
         "news.google.com": 2
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Reports contain materially different details that require review",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 9,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "moderate",
-      "consistencyFlags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T11:54:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 1
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
