@@ -1,7 +1,7 @@
 name: Global Pulse — Canonical Live Refresh
 
-# Reporting deduplication fix: rebuild the page with one canonical Latest Reporting feed.
-# Force-refresh trigger: touching this workflow intentionally starts a full live-data rebuild.
+# Canonical live-data refresh. The pipeline is intentionally allowed to finish;
+# a 10-minute schedule must never cancel a longer refresh before it publishes.
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -16,9 +16,11 @@ on:
       - 'install_commander_center.py'
       - 'data/enforcer_maps.json'
 
+# Do not cancel an active refresh when the next 10-minute tick arrives.
+# Queuing is preferable to starvation: every started refresh gets a chance to publish.
 concurrency:
   group: global-pulse-canonical-refresh
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write
