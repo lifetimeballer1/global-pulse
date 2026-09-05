@@ -20,7 +20,9 @@ JS = r'''
   "use strict";
   const ID="gp-source-age-filter";
   let maxAge="all";
-  const ageFields=["publishedAt","published_at","sourcePublishedAt","source_published_at","published","pubDate","pub_date","timestamp","date","sourceDate","source_date","createdAt","created_at"];
+  // Prefer the time the source published/observed the signal. Do not use the
+  // Global Pulse snapshot updatedAt value because that is not source age.
+  const ageFields=["publishedAt","published_at","sourcePublishedAt","source_published_at","published","published_date","pubDate","pub_date","observedAt","observed_at","timestamp","time","date","sourceDate","source_date","createdAt","created_at","lastUpdated","last_updated"];
   function timestamp(m){for(const k of ageFields){const v=m&&m[k];if(v===null||v===undefined||v==="")continue;const n=Date.parse(String(v));if(Number.isFinite(n))return n}return NaN}
   function ageMs(m){const t=timestamp(m);return Number.isFinite(t)?Date.now()-t:NaN}
   function label(ms){if(!Number.isFinite(ms))return "Source age unknown";if(ms<0)return "Source time in future";const min=Math.floor(ms/60000),h=Math.floor(min/60),d=Math.floor(h/24);if(min<1)return "Source posted just now";if(min<60)return "Source posted "+min+"m ago";if(h<24)return "Source posted "+h+"h "+(min%60)+"m ago";return "Source posted "+d+"d "+(h%24)+"h ago"}
@@ -48,7 +50,7 @@ JS = r'''
     let wrap=document.getElementById(ID);
     if(!wrap){
       const parent=map.parentElement;wrap=document.createElement("div");wrap.id=ID;wrap.className="gp-age-filter";
-      wrap.innerHTML='<label for="gpSourceAge">Source age</label><select id="gpSourceAge"><option value="all">All sources</option><option value="1">Last 1 hour</option><option value="6">Last 6 hours</option><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168">Last 7 days</option><option value="older">Older than 7 days</option><option value="unknown">Unknown source time</option></select><span class="gp-age-note">Filters by the source post time, not Global Pulse update time.</span>';
+      wrap.innerHTML='<label for="gpSourceAge">Source age</label><select id="gpSourceAge"><option value="all">All sources</option><option value="1">Last 1 hour</option><option value="6">Last 6 hours</option><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168">Last 7 days</option><option value="older">Older than 7 days</option><option value="unknown">Unknown source time</option></select><span class="gp-age-note">Uses the source publication/observation time.</span>';
       parent.insertBefore(wrap,map);
       wrap.querySelector("#gpSourceAge").addEventListener("change",e=>{maxAge=e.target.value;decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
     }
