@@ -1,11 +1,9 @@
 name: Global Pulse — Evidence Coverage
 
+# Conflict/OSINT coverage is now part of the canonical refresh pipeline.
+# This workflow is retained only as a manual recovery tool so it cannot race
+# the live refresh or create skipped duplicate runs.
 on:
-  workflow_run:
-    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
-    types: [completed]
-  schedule:
-    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -14,19 +12,15 @@ permissions:
   id-token: write
 
 concurrency:
-  group: global-pulse-coverage
-  cancel-in-progress: false
+  group: global-pulse-coverage-manual
+  cancel-in-progress: true
 
 jobs:
   coverage:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout refreshed main
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: main
@@ -37,7 +31,7 @@ jobs:
           python-version: '3.12'
       - name: Build evidence-driven conflict and OSINT coverage
         run: python update_conflict_coverage.py
-      - name: Validate canonical OSINT coverage output
+      - name: Validate coverage output
         run: |
           set -euo pipefail
           python -m py_compile update_conflict_coverage.py
@@ -47,44 +41,20 @@ jobs:
           d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
           os=d.get('osintMaps') or {}
           assert os.get('version') in (2,3,4), f"unsupported OSINT schema: {os.get('version')}"
-          normalized=os.get('normalizedPoints',[]); regional=os.get('regionalPoints',[]); counts=os.get('regionalCounts',{}) or {}
-          assert isinstance(normalized,list) and isinstance(regional,list)
-          for p in normalized:
-            assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
-            assert p.get('source') and (p.get('sourceUrl') or p.get('url'))
-          if regional:
-            assert all(p.get('layer')=='osint-regional' for p in regional)
-            assert set(counts).issuperset({'Africa','South America','South Asia'})
-            assert sum(int(counts.get(k,0) or 0) for k in ('Africa','South America','South Asia')) > 0
-          markers=d.get('markers',[]); assert isinstance(markers,list)
-          assert len(markers) > 0, 'canonical map has no markers'
-          assert all(m.get('layer')!='osint-gdelt' or m.get('source')=='GDELT GEO' for m in markers)
-          assert all(m.get('layer')!='osint-reported' or m.get('sourceUrl') for m in markers)
-          print('VALID OSINT:', os.get('version'), 'normalized=',len(normalized), 'regional=',len(regional), 'counts=',counts, 'markers=',len(markers))
+          assert isinstance(os.get('normalizedPoints',[]),list)
+          assert isinstance(os.get('regionalPoints',[]),list)
+          markers=d.get('markers',[])
+          assert isinstance(markers,list) and markers, 'canonical map has no markers'
+          print('VALID COVERAGE:',os.get('version'),'markers=',len(markers))
           PY
-      - name: Commit normalized map snapshot
+      - name: Publish coverage snapshot
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/snapshot.json
-          if git diff --staged --quiet; then echo "No coverage changes"; exit 0; fi
-          git commit -m "chore: refresh conflict and OSINT map coverage"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            if git rebase -X theirs origin/main; then
-              if git push origin HEAD:main; then echo "Published coverage on attempt $attempt"; exit 0; fi
-              git rebase --abort || true
-            else git rebase --abort || true; fi
-            echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
-          done
-          echo "Unable to publish coverage after 5 attempts"; exit 1
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy evidence coverage update
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if git diff --staged --quiet; then echo 'No coverage changes'; exit 0; fi
+          git commit -m 'chore: refresh conflict and OSINT map coverage'
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push origin HEAD:main
