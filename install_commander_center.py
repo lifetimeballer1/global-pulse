@@ -41,6 +41,12 @@ s = re.sub(r'\n<style id="'+re.escape(STYLE_ID)+r'">.*?</style>\n?', '\n', s, fl
 s = re.sub(r'\n<section id="'+re.escape(SECTION_ID)+r'"[^>]*>.*?</section>\n?', '\n', s, flags=re.S)
 s = re.sub(r'\n<div id="'+re.escape(NAV_ID)+r'"[^>]*>.*?</div>\n?', '\n', s, flags=re.S)
 
+# The canonical live reporting module is the single source of truth.
+# Remove the older static news section so the page cannot show two
+# "Latest Reporting" panels. This is intentionally idempotent because
+# refresh runs this installer repeatedly.
+s = re.sub(r'\n<section id=["\']newsSection["\'][^>]*>.*?</section>\n?', '\n', s, count=1, flags=re.S | re.I)
+
 if '</head>' not in s or '<main id="main"' not in s:
     raise SystemExit('index.html does not have the expected main document structure')
 
@@ -53,8 +59,7 @@ nav = '''<div id="commanderCenter" aria-label="Commander Center">
     <a href="#mapSection">War Map</a>
     <a href="#intelligenceWebSection">Intelligence Web</a>
     <a href="#conflictSection">Conflicts</a>
-    <a href="#newsSection">Latest Reporting</a>
-    <a href="#reporting">Live Reporting</a>
+    <a href="#reporting">Latest Reporting</a>
     <a href="#analysisCenter">Analysis</a>
     <a href="#evidenceCenter">Evidence</a>
   </nav>
@@ -74,4 +79,4 @@ if pos < 0:
 s = s[:pos] + section + '\n' + s[pos:]
 
 INDEX.write_text(s, encoding='utf-8')
-print('PASS: Commander Center responsive overflow fix installed')
+print('PASS: Commander Center installed; duplicate static Latest Reporting removed')
