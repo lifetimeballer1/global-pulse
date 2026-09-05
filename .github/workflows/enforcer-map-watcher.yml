@@ -7,6 +7,7 @@ on:
     paths:
       - 'enforcer_map_watcher.py'
       - 'data/enforcer_maps.json'
+      - '.github/workflows/enforcer-map-watcher.yml'
 permissions:
   contents: write
 jobs:
@@ -22,24 +23,32 @@ jobs:
           python-version: '3.12'
       - name: Extract public map links from The Enforcer RSS descriptions
         run: python enforcer_map_watcher.py
-      - name: Validate watcher output
+      - name: Validate watcher output and freshness
         run: |
           python -m py_compile enforcer_map_watcher.py
           python - <<'PY'
           import json
+          from datetime import datetime, timezone
           from pathlib import Path
           d=json.loads(Path('data/enforcer_maps.json').read_text())
           assert d.get('source') == 'The Enforcer'
           assert isinstance(d.get('maps'), list)
           assert all(x.get('url','').startswith('https://www.google.com/maps/d/') for x in d['maps'])
-          print(f"VALID: {len(d['maps'])} Enforcer map links tracked")
+          ts=datetime.fromisoformat(d['updatedAt'].replace('Z','+00:00'))
+          age=(datetime.now(timezone.utc)-ts).total_seconds()
+          assert -120 <= age <= 300, f'watcher output too old: {age:.0f}s'
+          print(f"VALID: {len(d['maps'])} Enforcer map links; {d.get('newMapLinks',0)} new links; age={age:.0f}s")
           PY
       - name: Publish changed map references
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/enforcer_maps.json
-          if git diff --staged --quiet; then exit 0; fi
+          if git diff --staged --quiet; then
+            echo 'No changed Enforcer map references; verification still passed.'
+            exit 0
+          fi
           git commit -m "chore: refresh Enforcer map references"
           git pull --rebase origin main
           git push origin HEAD:main
