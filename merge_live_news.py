@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 SNAP = DATA / "snapshot.json"
 LIVE = DATA / "live_articles.json"
+STATUS = DATA / "live_status.json"
 
 
 def parse_time(value):
@@ -21,6 +22,40 @@ def parse_time(value):
         return datetime.min.replace(tzinfo=timezone.utc)
 
 
+def normalize_article(item):
+    """Return the canonical story shape consumed by the browser renderers."""
+    url = item.get("url") or item.get("link") or item.get("sourceUrl")
+    if not url:
+        return None
+    source = item.get("source") or item.get("source_name") or item.get("sourceLabel") or "Live source"
+    published = item.get("published_date") or item.get("publishedDate") or item.get("time")
+    title = item.get("title") or (f"Tweet by @{item.get('username')}" if item.get("username") else f"Update from {source}")
+    summary = item.get("summary_snippet") or item.get("summary") or ""
+    breaking_terms = ("strike", "attack", "killed", "drone", "missile", "blockade", "escalat", "invasion", "ceasefire", "bomb", "shell", "offensive", "coup", "clash", "shooting", "airstrike")
+    blob = f"{title} {summary}".lower()
+    breaking = bool(item.get("breaking")) or any(term in blob for term in breaking_terms)
+    credit = item.get("credit") or item.get("credit_metadata") or {}
+    return {
+        "id": hashlib.sha1(str(url).encode("utf-8")).hexdigest()[:12],
+        "sourceLabel": source,
+        "sourceName": source,
+        "sourceType": item.get("sourceType") or item.get("source_type") or "live-rss",
+        "title": str(title)[:240],
+        "summary": str(summary)[:420],
+        "summary_snippet": str(summary)[:420],
+        "source": url,
+        "url": url,
+        "time": published,
+        "published_date": published,
+        "publishedDate": published,
+        "tag": "Breaking" if breaking else "World",
+        "confidence": "DEVELOPING",
+        "breaking": breaking,
+        "liveDatabase": True,
+        "credit": credit,
+    }
+
+
 def main():
     if not SNAP.exists() or not LIVE.exists():
         print("live merge skipped: snapshot or live export missing")
@@ -29,45 +64,21 @@ def main():
     live = json.loads(LIVE.read_text(encoding="utf-8"))
     existing = {}
     for story in snapshot.get("stories", []):
-        url = story.get("source") or story.get("url")
-        if url:
-            existing[url] = story
+        normalized = normalize_article(story)
+        if normalized:
+            existing[normalized["url"]] = {**story, **normalized}
 
     added = 0
     for item in live.get("articles", []):
-        url = item.get("url")
-        if not url or url in existing:
+        story = normalize_article(item)
+        if not story or story["url"] in existing:
             continue
-        source = item.get("source", "Live source")
-        title = item.get("title") or (f"Tweet by @{item.get('username')}" if item.get("username") else f"Update from {source}")
-        summary = item.get("summary_snippet", "")
-        breaking_terms = ("strike", "attack", "killed", "drone", "missile", "blockade", "escalat", "invasion", "ceasefire", "bomb", "shell", "offensive", "coup", "clash", "shooting", "airstrike")
-        blob = f"{title} {summary}".lower()
-        breaking = any(term in blob for term in breaking_terms)
-        story = {
-            "id": hashlib.sha1(url.encode("utf-8")).hexdigest()[:12],
-            "sourceLabel": source,
-            "sourceType": item.get("sourceType", "live-rss"),
-            "title": title[:240],
-            "summary": summary[:420],
-            "source": url,
-            "time": item.get("published_date"),
-            "tag": "Breaking" if breaking else "World",
-            "confidence": "DEVELOPING",
-            "breaking": breaking,
-            "liveDatabase": True,
-            "credit": item.get("credit", {}),
-        }
-        existing[url] = story
+        existing[story["url"]] = story
         added += 1
 
-    stories = sorted(existing.values(), key=lambda s: parse_time(s.get("time")), reverse=True)[:300]
+    stories = sorted(existing.values(), key=lambda s: parse_time(s.get("time") or s.get("published_date")), reverse=True)[:300]
     snapshot["stories"] = stories
 
-    # Re-score conflict activity against the expanded live story set. Use the
-    # same counter-cartel-aware matcher as the canonical snapshot builder so
-    # source-specific SOUTHCOM/Southern Spear feeds cannot be erased back to 0
-    # simply because the live-news merge runs in a separate process.
     try:
         import update_snapshot as base
         import update_snapshot_fast as builder
@@ -78,13 +89,30 @@ def main():
     except Exception as exc:
         print(f"conflict re-score skipped: {type(exc).__name__}: {exc}")
 
-    snapshot["updatedAt"] = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(timezone.utc).isoformat()
+    snapshot["updatedAt"] = now
+    snapshot["lastSuccessfulRefresh"] = now
+    live_status = {}
+    if STATUS.exists():
+        try:
+            live_status = json.loads(STATUS.read_text(encoding="utf-8"))
+        except Exception:
+            live_status = {}
     snapshot["liveDatabase"] = {
         "enabled": True,
         "articleCount": int(live.get("count", 0)),
         "lastExport": live.get("updatedAt"),
         "retentionDays": live.get("retentionDays", 7),
         "newMergedThisRun": added,
+    }
+    feeds_checked = int(live_status.get("feedsChecked", 0))
+    failed = len(live_status.get("failedSources", []))
+    snapshot["failoverState"] = {
+        "updatedAt": now,
+        "total": feeds_checked,
+        "down": failed,
+        "healthy": max(0, feeds_checked - failed),
+        "fallbacks": int(live_status.get("fallbackSources", 0)),
     }
     snapshot["sourceStatus"] = f"{len(stories)} stories · {added} live-db merged · persistent 7-day SQLite collector active"
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
