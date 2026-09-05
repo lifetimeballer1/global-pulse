@@ -58,7 +58,7 @@ env:
   PYTHONUNBUFFERED: '1'
 concurrency:
   group: global-pulse-production
-  cancel-in-progress: false
+  cancel-in-progress: true
 permissions:
   contents: write
   pages: write
@@ -84,33 +84,69 @@ jobs:
         uses: actions/cache@v4
         with:
           path: news_feed.db
-          key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ runner.os }}-global-pulse-news-db
           restore-keys: ${{ runner.os }}-global-pulse-news-db-
       - name: Verify runtime
         run: python --version && node --version && git --version
       - name: Expand live intelligence feeds
         run: python update_feed_expansion.py
       - name: Poll persistent live-news database
-        timeout-minutes: 2
-        continue-on-error: true
-        run: python news_feed_db.py --once
-      - name: Validate live source collection
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "Live-news poll attempt ${attempt}/3"
+            if python news_feed_db.py --once; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo 'Live-news polling failed after 3 attempts.' >&2
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
+      - name: Validate live source collection and freshness
         run: |
           set -euo pipefail
           python -m py_compile news_feed_db.py build_source_health.py
           python - <<'PY'
           import json
+          from datetime import datetime, timezone
           from pathlib import Path
           d=json.loads(Path('data/live_status.json').read_text(encoding='utf-8'))
           results=d.get('sourceResults',[])
-          assert len(results) >= 20, f"Expected broad source polling, got {len(results)}"
+          assert len(results) >= 20, f'Expected broad source polling, got {len(results)}'
           assert all(r.get('name') and 'rowsFetched' in r and 'httpOk' in r for r in results), 'Malformed source telemetry'
           assert isinstance(d.get('emptySources'),int) and isinstance(d.get('fallbackSources'),int)
+          stamp=d.get('updatedAt')
+          assert stamp, 'live_status.json has no updatedAt'
+          updated=datetime.fromisoformat(stamp.replace('Z','+00:00'))
+          age=(datetime.now(timezone.utc)-updated).total_seconds()
+          assert age <= 900, f'Live source telemetry is stale: {age:.0f}s old'
           print('LIVE SOURCE COLLECTION VALIDATION PASSED')
+          print('Updated:',stamp,'AgeSeconds:',round(age))
           print('Feeds:',d.get('feedsChecked'),'Rows:',d.get('rowsFetched'),'New:',d.get('newArticles'),'Empty:',d.get('emptySources'),'Recovered:',d.get('fallbackSources'),'Failures:',len(d.get('failedSources',[])))
           PY
       - name: Refresh resilient no-key intelligence feeds
         run: python run_snapshot_resilient.py
+      - name: Verify snapshot freshness
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          p=Path('data/snapshot.json')
+          assert p.exists() and p.stat().st_size > 0, 'Missing snapshot.json'
+          d=json.loads(p.read_text(encoding='utf-8'))
+          stamp=d.get('updatedAt')
+          assert stamp, 'snapshot.json has no updatedAt'
+          updated=datetime.fromisoformat(stamp.replace('Z','+00:00'))
+          age=(datetime.now(timezone.utc)-updated).total_seconds()
+          assert age <= 900, f'Snapshot is stale: {age:.0f}s old'
+          print('SNAPSHOT FRESHNESS PASSED')
+          print('Snapshot updated:',stamp,'AgeSeconds:',round(age))
+          PY
       - name: Refresh keyless live market indicators
         timeout-minutes: 2
         continue-on-error: true
