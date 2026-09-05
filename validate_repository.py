@@ -8,49 +8,62 @@ from __future__ import annotations
 
 import json
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 
 
+class IdParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.ids: list[str] = []
+        self.script_srcs: list[str] = []
+        self.refs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        amap = {k.lower(): v for k, v in attrs}
+        value = amap.get("id")
+        if value:
+            self.ids.append(value)
+        for key in ("src", "href"):
+            value = amap.get(key)
+            if value:
+                self.refs.append(value)
+        if tag.lower() == "script" and amap.get("src"):
+            self.script_srcs.append(amap["src"] or "")
+
+
 def main() -> None:
     html = INDEX.read_text(encoding="utf-8")
+    parser = IdParser()
+    parser.feed(html)
+    parser.close()
 
-    # Every locally referenced script/style/image/manifest must exist.
-    refs = re.findall(r'(?:src|href)=["\']([^"\']+)["\']', html, flags=re.I)
     missing: list[str] = []
-    for ref in refs:
+    for ref in parser.refs:
         if ref.startswith(("http://", "https://", "//", "data:", "#")):
             continue
         local = ref.split("?", 1)[0].split("#", 1)[0]
-        if not local:
-            continue
-        if not (ROOT / local).exists():
+        if local and not (ROOT / local).exists():
             missing.append(local)
     if missing:
         raise SystemExit("Missing local browser assets: " + ", ".join(sorted(set(missing))))
 
-    ids = re.findall(r'\bid=["\']([^"\']+)["\']', html, flags=re.I)
-    duplicates = sorted({x for x in ids if ids.count(x) > 1})
+    duplicates = sorted({x for x in parser.ids if parser.ids.count(x) > 1})
     if duplicates:
         raise SystemExit("Duplicate HTML ids: " + ", ".join(duplicates))
 
-    scripts = re.findall(r'<script\b[^>]*\bsrc=["\']([^"\']+)["\']', html, flags=re.I)
-    normalized = [x.split("?", 1)[0] for x in scripts]
+    normalized = [x.split("?", 1)[0] for x in parser.script_srcs]
     duplicate_scripts = sorted({x for x in normalized if normalized.count(x) > 1})
     if duplicate_scripts:
         raise SystemExit("Duplicate script inclusions: " + ", ".join(duplicate_scripts))
 
-    json_paths = [
-        Path("site.webmanifest"),
-        *sorted((ROOT / "data").glob("*.json")),
-    ]
+    json_paths = [Path("site.webmanifest"), *sorted((ROOT / "data").glob("*.json"))]
     for path in json_paths:
         json.loads(path.read_text(encoding="utf-8"))
 
-    # These are intentionally retired renderers. Keeping them around invites
-    # future installers to accidentally revive an older implementation.
     retired = [
         "global_pulse_graph_stable.js",
         "global_pulse_graph_v3.js",
@@ -62,9 +75,9 @@ def main() -> None:
         raise SystemExit("Retired renderer files remain: " + ", ".join(leftovers))
 
     print("REPOSITORY INTEGRITY PASSED")
-    print(f"Local browser references checked: {len([r for r in refs if not r.startswith(('http://','https://','//','data:','#'))])}")
+    print(f"Local browser references checked: {len([r for r in parser.refs if not r.startswith(('http://','https://','//','data:','#'))])}")
     print(f"JSON artifacts checked: {len(json_paths)}")
-    print("No duplicate HTML ids or browser script inclusions detected.")
+    print("No duplicate real HTML ids or browser script inclusions detected.")
 
 
 if __name__ == "__main__":
