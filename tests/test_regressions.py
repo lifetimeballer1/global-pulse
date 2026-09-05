@@ -1,5 +1,4 @@
 from pathlib import Path
-import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,8 +24,9 @@ def test_live_news_feed_schema_normalizes_to_browser_story_shape():
     }
     story = merger.normalize_article(item)
     assert story['url'] == item['url']
-    assert story['source'] == 'Example News'
+    assert story['source'] == item['url']
     assert story['sourceLabel'] == 'Example News'
+    assert story['sourceName'] == 'Example News'
     assert story['sourceType'] == 'news'
     assert story['published_date'] == item['published_date']
     assert story['time'] == item['published_date']
