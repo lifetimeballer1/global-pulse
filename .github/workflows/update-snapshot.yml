@@ -1,10 +1,5 @@
 name: Global Pulse — Canonical Live Refresh
 
-# Canonical live-data refresh. The pipeline is intentionally allowed to finish;
-# a 10-minute schedule must never cancel a longer refresh before it publishes.
-# Western Hemisphere counter-cartel intelligence feed expansion is included in the canonical refresh.
-# Feed registry publication is verified before the collector runs so new sources cannot be silently skipped.
-# Optional feed failures are tolerated when core coverage remains healthy.
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -24,6 +19,7 @@ on:
       - 'install_map_age_filter.py'
       - 'install_map_v3.py'
       - 'install_commander_center.py'
+      - 'global_pulse_mission_control_fix.js'
       - 'data/enforcer_maps.json'
 
 concurrency:
@@ -74,7 +70,7 @@ jobs:
           python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
           python -c "import json; d=json.load(open('data/enforcer_maps.json')); assert d.get('source')=='The Enforcer'; assert d.get('recentVideos'); print('PASS Enforcer check', len(d['recentVideos']), 'videos', len(d.get('maps',[])), 'maps')"
           python -c "import json; d=json.load(open('data/snapshot.json')); o=d.get('osintMaps',{}); assert o.get('version') in (2,3,4); assert o.get('updatedAt'); assert o.get('totalPoints',0)>0; print('PASS OSINT', o.get('version'), o.get('totalPoints'), 'points')"
-          python -c "from pathlib import Path; s=Path('index.html').read_text(); assert 'id=\"commanderCenter\"' in s; assert 'id=\"intelligenceWebSection\"' in s; assert 'src=\"intelligence-web.html?v=1\"' in s; print('PASS Intelligence Web main-page integration')"
+          python -c "from pathlib import Path; s=Path('index.html').read_text(); assert 'id=\"commanderCenter\"' in s; assert 'id=\"intelligenceWebSection\"' in s; assert 'src=\"intelligence-web.html?v=1\"' in s; assert 'global_pulse_mission_control_fix.js' in s; print('PASS main-page integration')"
       - name: Commit generated data and UI
         run: |
           set -euo pipefail
