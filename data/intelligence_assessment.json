@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-09-05T21:41:12.479409Z",
+  "updatedAt": "2026-09-05T21:46:16.247919Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
     {
       "entity": "Iran",
-      "score": 35,
+      "score": 34,
       "level": "WATCH",
-      "delta": 0,
+      "delta": -1,
       "trend": "STABLE",
       "factors": [
         {
@@ -16,11 +16,11 @@
         },
         {
           "label": "Live event activity",
-          "delta": 18
+          "delta": 22
         },
         {
           "label": "Economic / energy signals",
-          "delta": 6
+          "delta": 5
         }
       ],
       "evidenceCount": 39,
@@ -30,8 +30,8 @@
       "entity": "South Sudan",
       "score": 32,
       "level": "WATCH",
-      "delta": 16,
-      "trend": "UP",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -46,6 +46,29 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
+      "entity": "Ukraine",
+      "score": 27,
+      "level": "WATCH",
+      "delta": 1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 24
+        },
+        {
+          "label": "Live event activity",
+          "delta": 16
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -6
+        }
+      ],
+      "evidenceCount": 32,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
       "entity": "Israel",
       "score": 27,
       "level": "WATCH",
@@ -54,11 +77,11 @@
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 16
+          "delta": 17
         },
         {
           "label": "Live event activity",
-          "delta": 11
+          "delta": 13
         },
         {
           "label": "Economic / energy signals",
@@ -70,29 +93,6 @@
         }
       ],
       "evidenceCount": 18,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Ukraine",
-      "score": 26,
-      "level": "WATCH",
-      "delta": 2,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 24
-        },
-        {
-          "label": "Live event activity",
-          "delta": 17
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -6
-        }
-      ],
-      "evidenceCount": 34,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -118,7 +118,7 @@
       "entity": "Russia",
       "score": 22,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -127,7 +127,7 @@
         },
         {
           "label": "Live event activity",
-          "delta": 7
+          "delta": 9
         },
         {
           "label": "Diplomatic / de-escalation signals",
@@ -141,8 +141,8 @@
       "entity": "Central African Republic",
       "score": 20,
       "level": "WATCH",
-      "delta": 5,
-      "trend": "UP",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -179,7 +179,7 @@
       "entity": "Saudi Arabia",
       "score": 13,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -198,8 +198,8 @@
       "entity": "European Union",
       "score": 11,
       "level": "WATCH",
-      "delta": 4,
-      "trend": "UP",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -210,11 +210,45 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Strait of Hormuz",
-      "score": 10,
+      "entity": "Sudan",
+      "score": 8,
       "level": "WATCH",
       "delta": 0,
       "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 5
+        }
+      ],
+      "evidenceCount": 3,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Canada",
+      "score": 7,
+      "level": "WATCH",
+      "delta": 0,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Strait of Hormuz",
+      "score": 7,
+      "level": "WATCH",
+      "delta": -3,
+      "trend": "DOWN",
       "factors": [
         {
           "label": "Live event activity",
@@ -222,26 +256,7 @@
         },
         {
           "label": "Conflict / military activity",
-          "delta": 3
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Sudan",
-      "score": 8,
-      "level": "WATCH",
-      "delta": 1,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 5
+          "delta": 2
         }
       ],
       "evidenceCount": 3,
@@ -271,25 +286,6 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Canada",
-      "score": 7,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "NATO",
       "score": 7,
       "level": "WATCH",
@@ -312,7 +308,7 @@
       "entity": "Mexican Cartel Conflict",
       "score": 7,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -351,33 +347,10 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "United States",
-      "score": 5,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "U.S. Politics",
       "score": 5,
       "level": "WATCH",
-      "delta": -2,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -408,45 +381,18 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "United Kingdom",
+      "entity": "India",
       "score": 5,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Lebanon",
-      "score": 4,
-      "level": "WATCH",
-      "delta": -2,
+      "delta": 2,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
+          "delta": 4
         }
       ],
-      "evidenceCount": 4,
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -485,18 +431,56 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "India",
+      "entity": "United States",
       "score": 3,
       "level": "WATCH",
-      "delta": 0,
+      "delta": -2,
       "trend": "STABLE",
       "factors": [
         {
-          "label": "Live event activity",
-          "delta": 2
+          "label": "Economic / energy signals",
+          "delta": 1
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
         }
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "United Kingdom",
+      "score": 3,
+      "level": "WATCH",
+      "delta": -2,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 3,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Lebanon",
+      "score": 2,
+      "level": "WATCH",
+      "delta": -2,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -543,7 +527,7 @@
       "entity": "North Korea",
       "score": 2,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [],
       "evidenceCount": 2,
@@ -552,14 +536,14 @@
   ],
   "eventImpacts": [
     {
-      "eventId": "d09896d0cb48e32e",
-      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
+      "eventId": "aa26575eaa22323a",
+      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
       "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 45,
+      "corroborationScore": 54,
       "reportedConfidence": "low",
-      "reportCount": 7,
+      "reportCount": 6,
       "sourceCount": 2,
       "sourceIndependence": "low",
       "consistency": "moderate",
@@ -578,6 +562,36 @@
       "urls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
         "https://www.aljazeera.com/xml/rss/all.xml"
+      ]
+    },
+    {
+      "eventId": "0dfe3e7a3c0607de",
+      "title": "US envoys Witkoff, Kushner meet Putin for talks on Ukraine war",
+      "category": "diplomatic",
+      "evidenceGrade": "B",
+      "evidenceStatus": "moderately corroborated",
+      "corroborationScore": 78,
+      "reportedConfidence": "low",
+      "reportCount": 3,
+      "sourceCount": 3,
+      "sourceIndependence": "moderate-high",
+      "consistency": "moderate",
+      "consistencyFlags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "whyThisMatters": {
+        "immediate": "negotiation / escalation monitoring",
+        "shortTerm": "sanctions and policy exposure",
+        "mediumTerm": "alliance-response monitoring"
+      },
+      "urls": [
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
+        "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss"
       ]
     },
     {
@@ -600,29 +614,6 @@
       },
       "urls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ]
-    },
-    {
-      "eventId": "95adf3c7d38ec6de",
-      "title": "US envoys meet Putin in Moscow for Ukraine talks",
-      "category": "diplomatic",
-      "evidenceGrade": "C",
-      "evidenceStatus": "limited corroboration",
-      "corroborationScore": 62,
-      "reportedConfidence": "moderate",
-      "reportCount": 2,
-      "sourceCount": 2,
-      "sourceIndependence": "moderate",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "negotiation / escalation monitoring",
-        "shortTerm": "sanctions and policy exposure",
-        "mediumTerm": "alliance-response monitoring"
-      },
-      "urls": [
-        "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss",
-        "https://www.aljazeera.com/video/newsfeed/2026/9/5/us-envoys-witkoff-kushner-meet-putin-for-talks-on-ukraine-war?traffic_source=rss"
       ]
     },
     {
@@ -699,28 +690,6 @@
       ]
     },
     {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 27,
-      "reportedConfidence": "low",
-      "reportCount": 2,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ]
-    },
-    {
       "eventId": "15f55aa43ae86ad6",
       "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
       "category": "diplomatic",
@@ -762,6 +731,28 @@
       },
       "urls": [
         "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ]
+    },
+    {
+      "eventId": "c07a6cc85e687f0b",
+      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Edp24",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 27,
+      "reportedConfidence": "low",
+      "reportCount": 2,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ]
     },
     {
@@ -809,6 +800,28 @@
       ]
     },
     {
+      "eventId": "5c9d8f8719d9c690",
+      "title": "Live Updates: Latest from Israel, Iran, and the Middle East - The Jerusalem Post",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE00QjFIVHk4YTVxRXJLYVJMUjVRcHRsVk1vMEtpUXJ2V2pDSEZ5NUpURmZnRmp0UGN2dFJfaUNBYkw4dm9xS0ZMQUl0S1pCQlMtLW5MUW1mRTFWNEc1RV8ySVkwTHZqWm1QbXgzcThrVGl5MmRON0NFcVlnZi15UFE?oc=5"
+      ]
+    },
+    {
       "eventId": "4184c05b69034ee7",
       "title": "Trump begins major midterm spending with $10 million ad buy in Texas - The Washington Post",
       "category": "general",
@@ -850,72 +863,6 @@
       },
       "urls": [
         "https://www.aljazeera.com/video/newsfeed/2026/9/5/09-05-sv-india-building-collapse-mp4?traffic_source=rss"
-      ]
-    },
-    {
-      "eventId": "f6ed878c3e104366",
-      "title": "U.S. strikes three Iranian oil tankers in renewal of hostilities",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.npr.org/2026/09/05/nx-s1-5959181/u-s-strikes-three-iranian-oil-tankers-in-renewal-of-hostilities"
-      ]
-    },
-    {
-      "eventId": "5efa1fec43a4a37c",
-      "title": "This is the work of our lifetime: Ayana Elizabeth Johnson urges action after new UN climate report",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.npr.org/2026/09/05/nx-s1-5954264/this-is-the-work-of-our-lifetime-ayana-elizabeth-johnson-urges-action-after-new-un-climate-report"
-      ]
-    },
-    {
-      "eventId": "f6212e823a17c0e6",
-      "title": "Prince William to attend King Harald's funeral in Norway",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
       ]
     },
     {
@@ -1005,70 +952,80 @@
       "urls": [
         "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
       ]
+    },
+    {
+      "eventId": "8ec40a26bc6d2d5c",
+      "title": "US Security Agencies Deeply Concerned Over Expansion of War with Iran - ABNA English",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ]
+    },
+    {
+      "eventId": "2c3c4d70b85e74ad",
+      "title": "Masked men block traffic to UK's port of Dover, site of past anti-immigrant protests",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 26,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ]
     }
   ],
   "whatChanged": [
     {
-      "entity": "South Sudan",
-      "score": 32,
+      "entity": "Strait of Hormuz",
+      "score": 7,
       "level": "WATCH",
-      "delta": 16,
-      "trend": "UP",
+      "delta": -3,
+      "trend": "DOWN",
       "factors": [
         {
-          "label": "Conflict / military activity",
-          "delta": 22
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 8,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Central African Republic",
-      "score": 20,
-      "level": "WATCH",
-      "delta": 5,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 11
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 6,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "European Union",
-      "score": 11,
-      "level": "WATCH",
-      "delta": 4,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
+          "label": "Live event activity",
           "delta": 4
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
         }
       ],
-      "evidenceCount": 5,
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
   "sourceSummary": {
-    "uniqueReportCount": 29,
-    "uniqueSourceDomains": 11,
+    "uniqueReportCount": 26,
+    "uniqueSourceDomains": 10,
     "evidenceGrades": {
       "A": 0,
-      "B": 0,
-      "C": 1,
+      "B": 1,
+      "C": 0,
       "D": 79
     }
   }
