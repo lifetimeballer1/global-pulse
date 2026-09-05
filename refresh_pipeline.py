@@ -68,6 +68,7 @@ def main():
  run('Claims',sys.executable,'claim_intelligence.py');verify_json('claims.json')
  run('Historical trends',sys.executable,'build_historical_trends.py');trends=verify_json('historical_trends.json',max_age=3600)
  if 'windows' not in trends:raise RuntimeError('historical trends windows missing')
+ run('Canonical index cleanup',sys.executable,'clean_index.py')
  run('Repository validation',sys.executable,'validate_repository.py')
  final=verify_json('snapshot.json');final['lastSuccessfulRefresh']=datetime.now(timezone.utc).isoformat();DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if not isinstance(final.get('markers'),list) or not final['markers']:raise RuntimeError('final conflict-data gate failed')
