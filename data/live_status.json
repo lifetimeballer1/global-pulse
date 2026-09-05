@@ -1,49 +1,73 @@
 {
-  "updatedAt": "2026-09-05T22:29:36.713324+00:00",
+  "updatedAt": "2026-09-05T22:47:06.168406+00:00",
   "feedsChecked": 50,
-  "rowsFetched": 1143,
-  "newArticles": 540,
-  "purged": 51,
-  "databaseArticles": 2382,
-  "healthySources": 34,
-  "emptySources": 3,
+  "rowsFetched": 643,
+  "newArticles": 52,
+  "purged": 524,
+  "databaseArticles": 1910,
+  "healthySources": 28,
+  "emptySources": 2,
   "fallbackSources": 0,
   "failedSources": [
     {
       "source": "SOUTHCOM Official Reporting — GDELT Mirror",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT — Western Hemisphere Counter-Cartel",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT Climate & Disaster Watch",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT Climate Security Watch",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "FAO GIEWS",
       "error": "ParseError: undefined entity: line 49, column 82"
     },
     {
+      "source": "CNN Politics — GDELT Mirror",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "Axios Politics — GDELT Mirror",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
       "source": "Morse Report — GDELT Mirror",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT Live — U.S. Politics",
-      "error": "ParseError: not well-formed (invalid token): line 2, column 28568"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "GDELT Live — World Politics",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT Live — Global Economics",
-      "error": "ParseError: not well-formed (invalid token): line 2, column 20764"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "GDELT Live — Global",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "GDELT Live — Africa",
-      "error": "ParseError: not well-formed (invalid token): line 2, column 29223"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "GDELT Live — Americas",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "GDELT Live — Middle East",
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "ReliefWeb",
@@ -84,7 +108,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "google_news_southcom",
@@ -172,7 +196,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdacs_global_disaster_alerts",
@@ -194,7 +218,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_climate_security_watch",
@@ -205,7 +229,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "fao_giews",
@@ -245,11 +269,11 @@
       "name": "CNN Politics — GDELT Mirror",
       "type": "us-politics",
       "category": "us-politics",
-      "rowsFetched": 100,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "axios_politics_gdelt_mirror",
@@ -257,10 +281,10 @@
       "type": "us-politics",
       "category": "us-politics",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "morse_report_gdelt_mirror",
@@ -271,7 +295,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_u_s_politics",
@@ -282,18 +306,18 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "ParseError: not well-formed (invalid token): line 2, column 28568"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_world_politics",
       "name": "GDELT Live — World Politics",
       "type": "world-politics",
       "category": "world-politics",
-      "rowsFetched": 100,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_global_economics",
@@ -304,18 +328,18 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "ParseError: not well-formed (invalid token): line 2, column 20764"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_global",
       "name": "GDELT Live — Global",
       "type": "live",
       "category": "live",
-      "rowsFetched": 100,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_africa",
@@ -326,29 +350,29 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "ParseError: not well-formed (invalid token): line 2, column 29223"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_americas",
       "name": "GDELT Live — Americas",
       "type": "americas",
       "category": "americas",
-      "rowsFetched": 100,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "gdelt_live_middle_east",
       "name": "GDELT Live — Middle East",
       "type": "middle-east",
       "category": "middle-east",
-      "rowsFetched": 100,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "sourceId": "bbc_world",
