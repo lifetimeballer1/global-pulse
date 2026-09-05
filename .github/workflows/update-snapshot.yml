@@ -9,6 +9,7 @@ on:
       - 'refresh_pipeline.py'
       - 'build_event_pipeline.py'
       - 'global_pulse_core.js'
+      - 'global_pulse_event_pipeline.js'
       - 'global_pulse_tokens.css'
       - 'global_pulse_enhancements.js'
       - 'global_pulse_breaking.js'
@@ -81,7 +82,7 @@ jobs:
           assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
           print('PASS news',live.get('feedsChecked'),live.get('rowsFetched'))
           html=Path('index.html').read_text()
-          assert 'global_pulse_core.js' in html and 'global_pulse_tokens.css' in html
+          assert 'global_pulse_core.js' in html and 'global_pulse_event_pipeline.js' in html and 'global_pulse_tokens.css' in html
           print('PASS canonical UI integration')
           PY
       - name: Commit generated data and UI
