@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T02:43:43.983593Z",
+  "updatedAt": "2026-09-05T03:04:19.561738Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -133,16 +133,16 @@
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 60,
-      "reportCount": 3,
+      "corroborationScore": 58,
+      "reportCount": 4,
       "uniqueSourceDomains": 2,
       "nonAggregatorDomains": 1,
-      "independentReportingGroups": 3,
+      "independentReportingGroups": 4,
       "sourceIndependence": "low",
-      "averageSourceQuality": 53,
+      "averageSourceQuality": 49,
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
-      "domainConcentration": 0.667,
+      "domainConcentration": 0.75,
       "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
@@ -166,6 +166,10 @@
           "type": "report"
         },
         {
+          "time": "2026-09-04T15:10:28+00:00",
+          "type": "report"
+        },
+        {
           "time": "2026-09-04T16:03:41+00:00",
           "type": "report"
         },
@@ -175,12 +179,13 @@
         }
       ],
       "sourceBreakdown": {
-        "news.google.com": 2,
+        "news.google.com": 3,
         "aljazeera.com": 1
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://www.aljazeera.com/xml/rss/all.xml"
+        "https://www.aljazeera.com/xml/rss/all.xml",
+        "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -313,6 +318,50 @@
         "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
         "Reports contain materially different details that require review",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "cc3bc67f455b7645",
+      "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "Sat, 05 Sep 2026 02:43:23 +0000",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/news/2026/9/5/to-challenge-deadly-blockade-new-flotilla-mission-sets-sail-for-gaza?traffic_source=rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
       ]
     },
@@ -592,182 +641,6 @@
       ]
     },
     {
-      "eventId": "f768140bd2d8a160",
-      "title": "Flock says its cameras make US safer - so why are they being sabotaged?",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "bbc.co.uk"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 01:16:27 GMT",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "bbc.co.uk": 1
-      },
-      "evidenceUrls": [
-        "https://www.bbc.co.uk/news/articles/cew9kz1kxpvo?at_medium=RSS&at_campaign=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "86ff51229e608c19",
-      "title": "Judge declares mistrial in Lindsay Clancy children’s murder case",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 01:02:18 +0000",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "aljazeera.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/5/judge-declares-mistrial-in-lindsay-clancy-childrens-murder-case?traffic_source=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "b7f7f86e44c3ccdd",
-      "title": "US judge extends block on Trump order to restrict mail-in voting",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "theguardian.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 00:59:38 GMT",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "theguardian.com": 1
-      },
-      "evidenceUrls": [
-        "https://www.theguardian.com/us-news/2026/sep/04/us-judge-trump-mail-in-voting"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "f40703c98c51aba0",
-      "title": "UN votes to adopt new world map to reflect Africa's true size",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportCount": 1,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 90,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "bbc.co.uk"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "Sat, 05 Sep 2026 00:53:11 GMT",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "bbc.co.uk": 1
-      },
-      "evidenceUrls": [
-        "https://www.bbc.co.uk/news/articles/ce30vp55dnlo?at_medium=RSS&at_campaign=rss"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "896398900e29e844",
       "title": "Ben Simmons handed NBA lifeline in one-year deal with Sacramento Kings",
       "category": "general",
@@ -1022,6 +895,59 @@
       },
       "evidenceUrls": [
         "https://www.theguardian.com/us-news/rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "64d8a1f3586eb6a6",
+      "title": "Mexico seizes 17 tonnes of meth in $347 million drug bust",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "entityCandidates": [
+        "mexico"
+      ],
+      "regionalContext": [
+        {
+          "region": "latin america",
+          "entities": [
+            "mexico"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-04T20:28:40+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "aljazeera.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -1778,42 +1704,84 @@
       ]
     },
     {
-      "eventId": "b533b2004d4e538a",
-      "title": "DOJ ordered to freeze antitrust work with Canada as trade tensions intensify",
-      "category": "economic",
+      "eventId": "62ff3c60d1baf255",
+      "title": "‘I can’t be bought,’ says Nige – just when it rather looks as if he can | John Crace",
+      "category": "general",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 28,
+      "corroborationScore": 33,
       "reportCount": 1,
       "uniqueSourceDomains": 1,
       "nonAggregatorDomains": 1,
       "independentReportingGroups": 1,
       "sourceIndependence": "low",
-      "averageSourceQuality": 55,
+      "averageSourceQuality": 90,
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "none",
+      "consistency": "unknown",
       "consistencyFlags": [],
       "sourceDomains": [
-        "foxnews.com"
+        "theguardian.com"
       ],
-      "entityCandidates": [
-        "canada"
-      ],
+      "entityCandidates": [],
       "regionalContext": [],
       "timeline": [
         {
-          "time": "Fri, 04 Sep 2026 21:09:14 -0400",
+          "time": "2026-09-04T17:50:45+00:00",
           "type": "report"
         }
       ],
       "sourceBreakdown": {
-        "foxnews.com": 1
+        "theguardian.com": 1
       },
       "evidenceUrls": [
-        "https://www.foxnews.com/politics/doj-ordered-freeze-antitrust-work-canada-trade-tensions-intensify"
+        "https://www.theguardian.com/world/rss"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "64c1832cb9a9e9e1",
+      "title": "Cambridge University probing conduct of academic suspended by Reform UK",
+      "category": "general",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 90,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "theguardian.com"
+      ],
+      "entityCandidates": [],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-04T17:48:34+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "theguardian.com": 1
+      },
+      "evidenceUrls": [
+        "https://www.theguardian.com/world/rss"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -1868,6 +1836,52 @@
       ],
       "sourceBreakdown": {
         "channelnewsasia.com": 2
+      },
+      "evidenceUrls": [
+        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "b7001ba32dafa442",
+      "title": "US embassy issues health alert for Cuba amid oil blockade, sanctions",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 26,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 55,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "channelnewsasia.com"
+      ],
+      "entityCandidates": [
+        "cuba"
+      ],
+      "regionalContext": [],
+      "timeline": [
+        {
+          "time": "2026-09-05T02:44:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "channelnewsasia.com": 1
       },
       "evidenceUrls": [
         "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
@@ -2486,55 +2500,6 @@
       ]
     },
     {
-      "eventId": "2900a6102acd7215",
-      "title": "Bond yields are soaring to multi-decade highs. What does that mean for Canadian consumers? - CBC",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportCount": 2,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [],
-      "regionalContext": [],
-      "timeline": [
-        {
-          "time": "2026-09-04T15:34:20+00:00",
-          "type": "report"
-        },
-        {
-          "time": "Sat, 05 Sep 2026 01:03:11 GMT",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 2
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=oil+inflation+tariff+trade+interest+rate+central+bank+stocks+bonds+currency+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5GRzRzb0Z3U2NMLW9BMEFQLUxDVW41cGZZRjA5R1hnS01TTVl5M21tbWFWVFlTWHJ5U1ZuZnE4TXFuU2dyT3E4WlFWWlY3RTUw?oc=5"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "0fdbad278436a3b0",
       "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
       "category": "general",
@@ -2667,9 +2632,9 @@
       ]
     },
     {
-      "eventId": "ba2e90a7af40ed62",
-      "title": "After CIA director visit to Moscow, Putin pushes harder for military win - The Washington Post",
-      "category": "conflict",
+      "eventId": "74620ec24c3fcafb",
+      "title": "Government Shutdown Odds: Is December Next? | Kalshi - OddsShopper",
+      "category": "political",
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
@@ -2692,7 +2657,7 @@
       "regionalContext": [],
       "timeline": [
         {
-          "time": "Sat, 05 Sep 2026 00:55:44 GMT",
+          "time": "2026-09-05T01:24:26+00:00",
           "type": "report"
         }
       ],
@@ -2700,7 +2665,61 @@
         "news.google.com": 1
       },
       "evidenceUrls": [
-        "https://news.google.com/rss/articles/CBMisgFBVV95cUxQd3JnaGs0amptOW1DSk9BTXBXc0hwZkl5N0ltU3FIeVRRRzJVb0VVTVh3dnhhakRlVURBaVZQNUtkbk1yT0hjNndDTkE1WUdRa1FWVHhMaUNuTndMc2hFeXZqYVBtMXllc2hwYVFuajRiUTN0MUJQejQ2b1luSmM2TnpucTcwQXNKUmo3UnF3d3ROWmdxQjlUeXRUTkFpbXF1YUkxcXY2WllpZ1JaeUdIYi1B?oc=5"
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "075eec62eceab18f",
+      "title": "US approves $5 billion sale of bombs to Saudi Arabia to enhance security of 'major non-NATO ally' - The Economic Times",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 1,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "saudi arabia",
+        "nato"
+      ],
+      "regionalContext": [
+        {
+          "region": "middle east",
+          "entities": [
+            "saudi arabia"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T01:09:43+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
@@ -3242,8 +3261,8 @@
       ],
       "entityCandidates": [
         "lebanon",
-        "jordan",
         "israel",
+        "jordan",
         "iran"
       ],
       "regionalContext": [
@@ -3338,7 +3357,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"
@@ -3481,7 +3500,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "news.google.com"

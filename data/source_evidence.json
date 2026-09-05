@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-09-05T02:43:43.895488Z",
+  "updatedAt": "2026-09-05T03:04:19.474317Z",
   "method": "URL/domain diversity, conservative source classes, near-identical headline grouping and concentration controls. Source class is a monitoring aid, not a truth judgment.",
-  "uniqueReportCount": 34,
-  "uniqueSourceDomains": 12,
+  "uniqueReportCount": 29,
+  "uniqueSourceDomains": 11,
   "sourceClassDefinitions": {
     "primary": "Government/institutional first-party domain. Does not make the claim true.",
     "major-news": "Established news organization domain.",
@@ -15,25 +15,19 @@
   "topSources": [
     {
       "source": "domain:news.google.com",
-      "reportCount": 12,
+      "reportCount": 11,
       "class": "aggregator",
       "quality": 35
     },
     {
       "source": "domain:theguardian.com",
-      "reportCount": 6,
+      "reportCount": 5,
       "class": "major-news",
       "quality": 90
     },
     {
       "source": "domain:aljazeera.com",
       "reportCount": 4,
-      "class": "major-news",
-      "quality": 90
-    },
-    {
-      "source": "domain:bbc.co.uk",
-      "reportCount": 3,
       "class": "major-news",
       "quality": 90
     },
@@ -80,13 +74,40 @@
       "quality": 90
     },
     {
-      "source": "domain:foxnews.com",
+      "source": "domain:bbc.co.uk",
       "reportCount": 1,
       "class": "major-news",
       "quality": 90
     }
   ],
   "eventSourceEvidence": [
+    {
+      "eventId": "a1a33bf64a8ab1e6",
+      "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
+      "reportCount": 4,
+      "uniqueDomains": 2,
+      "sourceIdentities": [
+        "domain:news.google.com",
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 4,
+      "domains": [
+        "aljazeera.com",
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "major-news": 1,
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 49,
+      "domainConcentration": 0.75,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
     {
       "eventId": "5c2b3411ca17ad91",
       "title": "Yemen: Fighting Intensifies Amid Houthi Push in the West - Tempo.co English",
@@ -111,57 +132,6 @@
       "wireLikeDomains": 0,
       "averageSourceQuality": 42,
       "domainConcentration": 0.667,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "a1a33bf64a8ab1e6",
-      "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
-      "reportCount": 3,
-      "uniqueDomains": 2,
-      "sourceIdentities": [
-        "domain:news.google.com",
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 3,
-      "domains": [
-        "aljazeera.com",
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "major-news": 1,
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 53,
-      "domainConcentration": 0.667,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "2900a6102acd7215",
-      "title": "Bond yields are soaring to multi-decade highs. What does that mean for Canadian consumers? - CBC",
-      "reportCount": 2,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
@@ -251,6 +221,30 @@
         "domain:aljazeera.com"
       ],
       "independentReportingGroups": 2,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "cc3bc67f455b7645",
+      "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
       "domains": [
         "aljazeera.com"
       ],
@@ -483,145 +477,25 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "f768140bd2d8a160",
-      "title": "Flock says its cameras make US safer - so why are they being sabotaged?",
+      "eventId": "b7001ba32dafa442",
+      "title": "US embassy issues health alert for Cuba amid oil blockade, sanctions",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:bbc.co.uk"
+        "domain:channelnewsasia.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "bbc.co.uk"
+        "channelnewsasia.com"
       ],
       "domainClasses": {
-        "major-news": 1
+        "other": 1
       },
       "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b533b2004d4e538a",
-      "title": "DOJ ordered to freeze antitrust work with Canada as trade tensions intensify",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:foxnews.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "foxnews.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "86ff51229e608c19",
-      "title": "Judge declares mistrial in Lindsay Clancy children’s murder case",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b7f7f86e44c3ccdd",
-      "title": "US judge extends block on Trump order to restrict mail-in voting",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "ba2e90a7af40ed62",
-      "title": "After CIA director visit to Moscow, Putin pushes harder for military win - The Washington Post",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "f40703c98c51aba0",
-      "title": "UN votes to adopt new world map to reflect Africa's true size",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:bbc.co.uk"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "bbc.co.uk"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
+      "averageSourceQuality": 55,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -694,6 +568,54 @@
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
       "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "74620ec24c3fcafb",
+      "title": "Government Shutdown Odds: Is December Next? | Kalshi - OddsShopper",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "075eec62eceab18f",
+      "title": "US approves $5 billion sale of bombs to Saudi Arabia to enhance security of 'major non-NATO ally' - The Economic Times",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -1174,6 +1096,30 @@
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
       "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "64d8a1f3586eb6a6",
+      "title": "Mexico seizes 17 tonnes of meth in $347 million drug bust",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -1997,6 +1943,54 @@
     {
       "eventId": "25496be6114b2e62",
       "title": "Maria Bartiromo’s lawyer denies she was fired from Fox News anchor role",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "62ff3c60d1baf255",
+      "title": "‘I can’t be bought,’ says Nige – just when it rather looks as if he can | John Crace",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "64c1832cb9a9e9e1",
+      "title": "Cambridge University probing conduct of academic suspended by Reform UK",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
