@@ -5,7 +5,21 @@ Global Pulse is a public, evidence-oriented global intelligence monitor. It is d
 
 ## Canonical data flow
 
-`public reports -> normalization -> candidate claims -> evidence linkage -> corroboration/contradiction -> events -> entities/relationships -> assessments -> UI`
+`public reports -> normalization -> candidate claims -> evidence linkage -> corroboration/contradiction -> events -> entities/relationships -> assessments -> cross-domain Intelligence Brain -> UI`
+
+### Intelligence Brain
+
+The Intelligence Brain is the cross-domain relationship layer. Each refresh rebuilds `data/intelligence_brain.json` from the current public intelligence artifacts rather than maintaining a separate hidden database. It connects, where supported by the available evidence/context:
+
+- live news and source records
+- conflicts and corroboration layers
+- geographic/map signals
+- event intelligence and historical context
+- claims and assessments
+- market indicators and macro context
+- the evidence-linked Intelligence Web
+
+The brain is time-aware at the artifact level and preserves evidence links when available. Market relationships are explicitly contextual relevance mappings and are never presented as causal proof. The browser can select a node and trace its connected signals and supporting source.
 
 ### Evidence rules
 
@@ -32,13 +46,13 @@ The system distinguishes:
 
 ## Current canonical refresh
 
-`refresh_pipeline.py` is the production orchestrator. It refreshes live news, the market layer, political/OSINT/conflict/hazard layers, UCDP corroboration, World Bank macro context, event artifacts, the evidence-linked Intelligence Web, assessments, claims, What Changed, and historical trends. It then cleans the generated index, applies browser security hardening, installs the browser QA layer, validates the repository, and writes `data/refresh_manifest.json` with SHA-256 hashes and freshness timestamps for critical generated artifacts.
+`refresh_pipeline.py` is the production orchestrator. It refreshes live news, the market layer, political/OSINT/conflict/hazard layers, UCDP corroboration, World Bank macro context, event artifacts, the evidence-linked Intelligence Web, assessments, claims, What Changed, historical trends, and the cross-domain Intelligence Brain. It then cleans the generated index, applies browser security hardening, installs the browser QA layer, validates the repository, and writes `data/refresh_manifest.json` with SHA-256 hashes and freshness timestamps for critical generated artifacts.
 
-Required public artifacts include `snapshot.json`, `history.json`, `sources.json`, `live_articles.json`, and `intelligence_graph.json`. The pipeline treats stale/missing required data as a validation failure rather than manufacturing replacement values.
+Required public artifacts include `snapshot.json`, `history.json`, `sources.json`, `live_articles.json`, `intelligence_graph.json`, and `intelligence_brain.json`. The pipeline treats stale/missing required data as a validation failure rather than manufacturing replacement values.
 
 ## Market and external-data model
 
-The market layer uses public Yahoo Finance chart data without a user API key. A refresh is accepted only when the market artifact is fresh, contains at least the expected indicator count, and includes positive real prices. Event-to-market relationships are contextual relevance mappings; they do not claim causation.
+The market layer uses public Yahoo Finance chart data without a user API key. A refresh is accepted only when the market artifact is fresh, contains at least the expected indicator count, and includes positive real prices. Event-to-market relationships are contextual relevance mappings; they do not claim causation. The main dashboard exposes a compact market pulse so market context is visible without leaving the main page.
 
 Open hazard, conflict-corroboration, and macro layers use keyless public sources such as GDACS/USGS, UCDP Candidate Events, and World Bank data. Source availability is recorded rather than treated as guaranteed.
 
@@ -46,7 +60,7 @@ Open hazard, conflict-corroboration, and macro layers use keyless public sources
 
 The dashboard labels stale data, surfaces source failover health, shows a distinct snapshot-fetch failure state, and isolates map/graph rendering errors. Map markers expose keyboard/assistive labels, long evidence text is collapsible, and confidence is represented independently from signal color.
 
-The first-use guide explains signal colors and confidence tiers. Event/node cards can be deep-linked with URL hashes. Watchlists remain local to the browser.
+The Intelligence Brain and market pulse load their generated artifacts with cache-busting and fail safely if those artifacts are unavailable. The first-use guide explains signal colors and confidence tiers. Event/node cards can be deep-linked with URL hashes. Watchlists remain local to the browser.
 
 ## Security model
 
