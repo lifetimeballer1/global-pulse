@@ -1,12 +1,9 @@
 name: Deploy Global Pulse to GitHub Pages
 
-# Deploy only after the canonical refresh pipeline succeeds, so Pages always
-# receives the exact snapshot produced by that refresh. Manual dispatch remains
-# available for recovery/testing.
+# The canonical refresh workflow now builds, validates, commits, and deploys the
+# exact same generated working tree. Keeping this workflow manual-only prevents
+# duplicate deployments and stale workflow_run checkouts.
 on:
-  workflow_run:
-    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
-    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -15,104 +12,52 @@ permissions:
   id-token: write
 
 concurrency:
-  group: global-pulse-pages
+  group: global-pulse-pages-manual
   cancel-in-progress: true
-
-env:
-  PYTHONUNBUFFERED: '1'
 
 jobs:
   build:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact refreshed commit
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.sha || github.event.workflow_run.head_sha }}
-
+          ref: main
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Install map precision and photo layer
-        run: python map_precision_photos.py
-
-      - name: Validate refreshed snapshot
+      - name: Validate current snapshot
         run: |
-          set -euo pipefail
-          python -m py_compile update_conflict_coverage.py map_precision_photos.py
           python - <<'PY'
           import json
           from datetime import datetime, timezone
           from pathlib import Path
-          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          stamp=d.get('updatedAt')
-          assert stamp, 'snapshot.json has no updatedAt'
-          updated=datetime.fromisoformat(stamp.replace('Z','+00:00'))
-          age=(datetime.now(timezone.utc)-updated).total_seconds()
-          assert age <= 900, f'Pages received stale snapshot: {age:.0f}s old'
-          assert isinstance(d.get('markers'),list), 'Snapshot markers missing'
-          print('PAGES SNAPSHOT VALIDATION PASSED')
-          print('Snapshot updated:',stamp,'AgeSeconds:',round(age),'Markers:',len(d.get('markers',[])))
+          d=json.loads(Path('data/snapshot.json').read_text())
+          stamp=d.get('updatedAt'); assert stamp
+          age=(datetime.now(timezone.utc)-datetime.fromisoformat(stamp.replace('Z','+00:00'))).total_seconds()
+          assert age <= 900, f'snapshot stale: {age:.0f}s'
+          assert isinstance(d.get('markers'),list) and d['markers']
+          print('MANUAL PAGES VALIDATION PASSED',stamp)
           PY
-
-      - name: Inject dashboard enhancements
+      - name: Install map precision layer
+        run: python map_precision_photos.py
+      - name: Verify site inputs
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('index.html')
-          text=p.read_text(encoding='utf-8')
-          tags=[
-              '<link rel="stylesheet" href="global_pulse_intelligence.css">',
-              '<script src="global_pulse_coverage_ui.js"></script>',
-              '<script src="global_pulse_intelligence.js"></script>',
-              '<link rel="stylesheet" href="global_pulse_list_density.css">',
-              '<script src="global_pulse_list_density.js"></script>'
-          ]
-          for tag in tags:
-              if tag not in text:
-                  marker='</body>'
-                  text=text.replace(marker,tag+'\n'+marker,1) if marker in text else text+'\n'+tag+'\n'
-          p.write_text(text,encoding='utf-8')
-          PY
-
-      - name: Validate Pages artifact inputs
-        run: |
-          set -euo pipefail
           test -s index.html
+          test -s data/snapshot.json
           test -s global_pulse_coverage_ui.js
           test -s global_pulse_intelligence.js
-          test -s global_pulse_intelligence.css
           test -s global_pulse_list_density.js
           test -s global_pulse_list_density.css
-          test -s data/snapshot.json
-          python - <<'PY'
-          from pathlib import Path
-          html=Path('index.html').read_text(encoding='utf-8')
-          for asset in ('global_pulse_list_density.js','global_pulse_list_density.css'):
-              if asset not in html:
-                  raise SystemExit(f'{asset} was not integrated into Pages artifact')
-          print('Pages artifact inputs are present.')
-          PY
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
-  deploy:
-    needs: build
-    if: ${{ needs.build.result == 'success' }}
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy exact refreshed artifact to GitHub Pages
+      - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
