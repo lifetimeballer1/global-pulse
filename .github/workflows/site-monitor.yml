@@ -1,0 +1,49 @@
+name: Global Pulse — Live Site Monitor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: global-pulse-live-monitor
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check published site and critical data
+        env:
+          SITE_URL: https://lifetimeballer1.github.io/global-pulse/
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, urllib.request
+          from datetime import datetime, timezone
+          base=os.environ['SITE_URL'].rstrip('/')+'/'
+          def get(path):
+              req=urllib.request.Request(base+path,headers={'User-Agent':'GlobalPulse-Monitor/1.0','Cache-Control':'no-cache'})
+              with urllib.request.urlopen(req,timeout=20) as r:
+                  if r.status != 200: raise RuntimeError(f'{path}: HTTP {r.status}')
+                  return r.read()
+          html=get('')
+          text=html.decode('utf-8','replace')
+          assert 'Global Pulse' in text, 'site title/content missing'
+          assert 'global_pulse_core.js' in text, 'canonical core missing from published site'
+          files=['data/snapshot.json','data/history.json','data/sources.json','data/live_articles.json','data/intelligence_graph.json']
+          for path in files:
+              obj=json.loads(get(path).decode('utf-8'))
+              assert isinstance(obj,dict), f'{path} is not a JSON object'
+              print('OK',path)
+          snap=json.loads(get('data/snapshot.json').decode('utf-8'))
+          assert snap.get('lastSuccessfulRefresh') or snap.get('updatedAt'), 'snapshot has no freshness timestamp'
+          market=(snap.get('marketData') or {}).get('indicators') or []
+          assert len(market)>=20, f'market indicators unexpectedly low: {len(market)}'
+          assert any(float(x.get('price',0) or 0)>0 for x in market if isinstance(x,dict)), 'market data contains no positive prices'
+          print('MONITOR PASS',datetime.now(timezone.utc).isoformat(),'market=',len(market))
+          PY
