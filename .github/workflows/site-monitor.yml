@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/site-monitor.yml'
 
 permissions:
   contents: read
@@ -38,8 +41,10 @@ jobs:
           files=['data/snapshot.json','data/history.json','data/sources.json','data/live_articles.json','data/intelligence_graph.json']
           for path in files:
               obj=json.loads(get(path).decode('utf-8'))
-              assert isinstance(obj,dict), f'{path} is not a JSON object'
-              print('OK',path)
+              assert isinstance(obj,(dict,list)), f'{path} is not valid JSON object/list'
+              if isinstance(obj,dict): assert obj, f'{path} is empty'
+              else: assert obj, f'{path} is empty'
+              print('OK',path,type(obj).__name__)
           snap=json.loads(get('data/snapshot.json').decode('utf-8'))
           assert snap.get('lastSuccessfulRefresh') or snap.get('updatedAt'), 'snapshot has no freshness timestamp'
           market=(snap.get('marketData') or {}).get('indicators') or []
