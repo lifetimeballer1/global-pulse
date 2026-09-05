@@ -3,6 +3,7 @@ name: Global Pulse — Canonical Live Refresh
 # Canonical live-data refresh. The pipeline is intentionally allowed to finish;
 # a 10-minute schedule must never cancel a longer refresh before it publishes.
 # Western Hemisphere counter-cartel intelligence feed expansion is included in the canonical refresh.
+# UI cleanup: Commander Center is rebuilt idempotently and orphaned nav links are removed.
 on:
   schedule:
     - cron: '*/10 * * * *'
