@@ -5,7 +5,7 @@ import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data'
-REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json')
+REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json')
 def run(label,*cmd):
  print(f'\n=== {label} ===',flush=True);print('$',' '.join(cmd),flush=True);subprocess.run(cmd,cwd=ROOT,check=True);print(f'PASS: {label}',flush=True)
 def load(name):
@@ -41,7 +41,7 @@ def write_refresh_manifest():
   raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'))
   stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
   artifacts[name]={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'generatedAt':stamp}
- manifest={'version':1,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
+ manifest={'version':2,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('PASS: refresh manifest',','.join(REQUIRED_ARTIFACTS),flush=True)
 def main():
  run('Expand feeds',sys.executable,'update_feed_expansion.py');sources=DATA/'sources.json'
@@ -78,6 +78,9 @@ def main():
  if len(graph.get('nodes',[]))<10 or len(graph.get('edges',[]))<3:raise RuntimeError('intelligence graph verification failed')
  for edge in graph['edges']:
   if not edge.get('source') or not edge.get('target') or not edge.get('evidence'):raise RuntimeError('intelligence graph contains unevidenced edge')
+ run('Build cross-domain Intelligence Brain',sys.executable,'build_intelligence_brain.py');brain=verify_json('intelligence_brain.json')
+ if len(brain.get('nodes',[]))<10 or len(brain.get('edges',[]))<5:raise RuntimeError('intelligence brain verification failed')
+ if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
  run('Build assessments',sys.executable,'build_intelligence_assessment.py');verify_json('intelligence_assessment.json')
  run('Claims',sys.executable,'claim_intelligence.py');verify_json('claims.json')
  run('What changed',sys.executable,'build_what_changed.py');verify_json('what_changed.json')
@@ -90,5 +93,5 @@ def main():
  final=verify_json('snapshot.json');final['lastSuccessfulRefresh']=datetime.now(timezone.utc).isoformat();DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if not isinstance(final.get('markers'),list) or not final['markers']:raise RuntimeError('final conflict-data gate failed')
  write_refresh_manifest()
- print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);return 0
+ print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('brain=',len(brain.get('nodes') or []),'nodes /',len(brain.get('edges') or []),'edges',flush=True);return 0
 if __name__=='__main__':raise SystemExit(main())
