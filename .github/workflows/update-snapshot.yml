@@ -1,5 +1,4 @@
 name: Global Pulse — Canonical Live Refresh
-
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -8,32 +7,30 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
-      - 'run_snapshot_counter_cartel.py'
-      - 'counter_cartel_runtime.py'
-      - 'resilient_feed_catalog.py'
-      - 'update_feed_expansion.py'
+      - 'build_event_pipeline.py'
+      - 'global_pulse_core.js'
+      - 'global_pulse_tokens.css'
+      - 'global_pulse_enhancements.js'
+      - 'global_pulse_breaking.js'
+      - 'global_map_ui.py'
       - 'news_feed_db.py'
       - 'merge_live_news.py'
-      - 'validate_source_health.py'
-      - 'update_osint.py'
-      - 'install_map_age_filter.py'
-      - 'install_map_v3.py'
-      - 'install_commander_center.py'
-      - 'global_pulse_mission_control_fix.js'
+      - 'source_failover.py'
+      - 'update8_global_layers.py'
+      - 'update_conflict_dataset.py'
+      - 'update_macro_data.py'
+      - 'clean_index.py'
+      - 'tests/test_regressions.py'
       - 'data/enforcer_maps.json'
-
 concurrency:
   group: global-pulse-canonical-refresh
   cancel-in-progress: false
-
 permissions:
   contents: write
   pages: write
   id-token: write
-
 env:
   PYTHONUNBUFFERED: '1'
-
 jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
@@ -62,15 +59,31 @@ jobs:
         run: python --version && node --version && git --version
       - name: Run canonical refresh with per-stage verification
         run: python refresh_pipeline.py
-      - name: Install Commander Center and full-page Intelligence Web
-        run: python install_commander_center.py
+      - name: Run regression tests
+        run: python -m pytest -q tests/test_regressions.py
       - name: Verify critical published inputs
         run: |
-          python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); s=d.get('stories',[]); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); assert isinstance(s,list) and len(s)>0; print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']), 'stories', len(s))"
-          python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
-          python -c "import json; d=json.load(open('data/enforcer_maps.json')); assert d.get('source')=='The Enforcer'; assert d.get('recentVideos'); print('PASS Enforcer check', len(d['recentVideos']), 'videos', len(d.get('maps',[])), 'maps')"
-          python -c "import json; d=json.load(open('data/snapshot.json')); o=d.get('osintMaps',{}); assert o.get('version') in (2,3,4); assert o.get('updatedAt'); assert o.get('totalPoints',0)>0; print('PASS OSINT', o.get('version'), o.get('totalPoints'), 'points')"
-          python -c "from pathlib import Path; s=Path('index.html').read_text(); assert 'id=\"commanderCenter\"' in s; assert 'id=\"intelligenceWebSection\"' in s; assert 'src=\"intelligence-web.html?v=1\"' in s; assert 'global_pulse_mission_control_fix.js' in s; print('PASS main-page integration')"
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text())
+          m=d.get('marketData',{})
+          s=d.get('stories',[])
+          assert len(m.get('indicators',[])) >= 20
+          assert d.get('updatedAt') and d.get('lastSuccessfulRefresh')
+          assert isinstance(s,list) and len(s)>0
+          assert isinstance(d.get('failoverState'),dict)
+          assert (d.get('conflictDataset') or {}).get('provider')
+          assert (d.get('macroData') or {}).get('provider')
+          print('PASS snapshot',d['updatedAt'],'market',len(m['indicators']),'stories',len(s),'failover',d['failoverState'])
+          live=json.loads(Path('data/live_status.json').read_text())
+          assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
+          print('PASS news',live.get('feedsChecked'),live.get('rowsFetched'))
+          html=Path('index.html').read_text()
+          assert 'global_pulse_core.js' in html and 'global_pulse_tokens.css' in html
+          print('PASS canonical UI integration')
+          PY
       - name: Commit generated data and UI
         run: |
           set -euo pipefail
