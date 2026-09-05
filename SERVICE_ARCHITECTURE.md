@@ -4,9 +4,9 @@ Global Pulse is a public-source intelligence service, not a private intelligence
 
 ## Core pipeline
 
-`source -> report -> normalized claim -> evidence lineage -> corroboration/contradiction -> event -> entity -> relationship -> assessment -> user-facing brief`
+`source -> report -> normalized claim -> evidence lineage -> corroboration/contradiction -> event -> entity -> relationship -> assessment -> cross-domain brain -> user-facing brief`
 
-The production implementation is orchestrated by `refresh_pipeline.py`. It runs keyless public-data ingestion, market and macro context, conflict/hazard corroboration, event processing, evidence-linked graph generation, assessments, claims, historical trends, index cleanup, browser hardening, and final validation before the GitHub Pages deployment gate.
+The production implementation is orchestrated by `refresh_pipeline.py`. It runs keyless public-data ingestion, market and macro context, conflict/hazard corroboration, event processing, evidence-linked graph generation, assessments, claims, historical trends, the cross-domain Intelligence Brain, index cleanup, browser hardening, and final validation before the GitHub Pages deployment gate.
 
 ## Product surfaces
 
@@ -14,6 +14,8 @@ The production implementation is orchestrated by `refresh_pipeline.py`. It runs 
 - **Investigate:** claim/event evidence, source lineage, contradictions and confidence factors.
 - **World:** map and event context.
 - **Intelligence Web:** time-aware entity and relationship context.
+- **Intelligence Brain:** a cross-domain network connecting current news, conflicts, map signals, events, claims, assessments, markets and macro context.
+- **Markets:** compact main-page market/economic pulse plus market context inside the intelligence graph.
 - **Watchlist:** locally stored topics/entities chosen by the visitor; no server-side visitor profile.
 - **Brief:** concise global/regional intelligence summaries.
 - **Data Health:** freshness, source availability, feed failover and pipeline status.
@@ -28,10 +30,11 @@ The production implementation is orchestrated by `refresh_pipeline.py`. It runs 
 6. Confidence describes the evidence available at the time, not absolute truth.
 7. Every high-impact assessment should retain a path back to source material.
 8. Market relationships are contextual relevance, not causal attribution.
+9. Brain relationships must not be presented as proof of causation, coordination, intent, or responsibility.
 
 ## Generated-data contract
 
-The canonical refresh verifies and publishes `data/snapshot.json`, `data/history.json`, `data/sources.json`, `data/live_articles.json`, and `data/intelligence_graph.json`. `data/refresh_manifest.json` records hashes and generation timestamps for these critical artifacts. Stale or missing required artifacts fail the pipeline rather than silently disappearing from the product.
+The canonical refresh verifies and publishes `data/snapshot.json`, `data/history.json`, `data/sources.json`, `data/live_articles.json`, `data/intelligence_graph.json`, and `data/intelligence_brain.json`. `data/refresh_manifest.json` records hashes and generation timestamps for these critical artifacts. Stale or missing required artifacts fail the pipeline rather than silently disappearing from the product.
 
 Market data is accepted only when fresh and populated with real positive prices. Live news must contain recent articles and a healthy feed count. Feed failover state is surfaced to the browser, and the last successful refresh timestamp is retained in the snapshot.
 
@@ -58,3 +61,4 @@ Global Pulse should describe public events and evidence without providing operat
 - Automated updates must be idempotent.
 - Changes should be small, testable and reversible.
 - Scheduled live-site monitoring validates the published HTML and critical JSON artifacts independently of the build workflow.
+- The Intelligence Brain must rebuild from the latest generated artifacts on every canonical refresh; it must not become a manually maintained second source of truth.
