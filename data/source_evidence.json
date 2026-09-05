@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-05T15:36:38.304487Z",
+  "updatedAt": "2026-09-05T19:17:19.167944Z",
   "method": "URL/domain diversity, conservative source classes, near-identical headline grouping and concentration controls. Source class is a monitoring aid, not a truth judgment.",
-  "uniqueReportCount": 34,
+  "uniqueReportCount": 33,
   "uniqueSourceDomains": 11,
   "sourceClassDefinitions": {
     "primary": "Government/institutional first-party domain. Does not make the claim true.",
@@ -15,13 +15,19 @@
   "topSources": [
     {
       "source": "domain:news.google.com",
-      "reportCount": 13,
+      "reportCount": 14,
       "class": "aggregator",
       "quality": 35
     },
     {
-      "source": "domain:france24.com",
-      "reportCount": 6,
+      "source": "domain:gdacs.org",
+      "reportCount": 4,
+      "class": "other",
+      "quality": 55
+    },
+    {
+      "source": "domain:aljazeera.com",
+      "reportCount": 4,
       "class": "major-news",
       "quality": 90
     },
@@ -32,26 +38,8 @@
       "quality": 90
     },
     {
-      "source": "domain:gdacs.org",
-      "reportCount": 3,
-      "class": "other",
-      "quality": 55
-    },
-    {
       "source": "domain:bbc.co.uk",
-      "reportCount": 3,
-      "class": "major-news",
-      "quality": 90
-    },
-    {
-      "source": "domain:feeds.npr.org",
-      "reportCount": 1,
-      "class": "other",
-      "quality": 55
-    },
-    {
-      "source": "domain:aljazeera.com",
-      "reportCount": 1,
+      "reportCount": 2,
       "class": "major-news",
       "quality": 90
     },
@@ -62,13 +50,25 @@
       "quality": 55
     },
     {
-      "source": "domain:feeds.bbci.co.uk",
+      "source": "domain:subscribe.stripes.com",
       "reportCount": 1,
       "class": "other",
       "quality": 55
     },
     {
-      "source": "domain:subscribe.stripes.com",
+      "source": "domain:france24.com",
+      "reportCount": 1,
+      "class": "major-news",
+      "quality": 90
+    },
+    {
+      "source": "domain:feeds.npr.org",
+      "reportCount": 1,
+      "class": "other",
+      "quality": 55
+    },
+    {
+      "source": "domain:feeds.bbci.co.uk",
       "reportCount": 1,
       "class": "other",
       "quality": 55
@@ -82,80 +82,35 @@
   ],
   "eventSourceEvidence": [
     {
-      "eventId": "d09896d0cb48e32e",
-      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Belfast Telegraph",
-      "reportCount": 4,
-      "uniqueDomains": 1,
+      "eventId": "aa26575eaa22323a",
+      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+      "reportCount": 6,
+      "uniqueDomains": 2,
       "sourceIdentities": [
-        "domain:news.google.com"
+        "domain:news.google.com",
+        "domain:aljazeera.com"
       ],
-      "independentReportingGroups": 4,
+      "independentReportingGroups": 6,
       "domains": [
+        "aljazeera.com",
         "news.google.com"
       ],
       "domainClasses": {
+        "major-news": 1,
         "aggregator": 1
       },
-      "nonAggregatingDomains": 0,
+      "nonAggregatingDomains": 1,
       "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
+      "majorNewsDomains": 1,
       "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
+      "averageSourceQuality": 44,
+      "domainConcentration": 0.833,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "15f55aa43ae86ad6",
-      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
-      "reportCount": 3,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 2,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "f37a9f0048770976",
-      "title": "More than 120 Killed in Yemen's Worst Clashes in Years: Sources - RTV News",
-      "reportCount": 3,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 3,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "f4bef1a266999855",
-      "title": "Green forest fire notification in Australia",
+      "eventId": "82783b4a7de15beb",
+      "title": "Green forest fire notification in Zambia",
       "reportCount": 2,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -173,6 +128,78 @@
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
       "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "2f976e3368b51239",
+      "title": "Green forest fire notification in Angola",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:gdacs.org"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "gdacs.org"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "6edbe55ad05b0d10",
+      "title": "Green forest fire notification in Namibia",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:gdacs.org"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "gdacs.org"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "2b678607b410e963",
+      "title": "US-Israel-Iran War Latest Live News: US Faces Record-High Petrol Prices to Top $4 Per Gallon as War on Iran Continues to Raise Energy Costs - The Sunday Guardian",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 2,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -210,6 +237,78 @@
         "domain:news.google.com"
       ],
       "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "15f55aa43ae86ad6",
+      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "d596679b541c8adf",
+      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 2,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "c07a6cc85e687f0b",
+      "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Edp24",
+      "reportCount": 2,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 2,
       "domains": [
         "news.google.com"
       ],
@@ -280,26 +379,29 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "1f520cd82ea211c4",
-      "title": "UPDATE - Qatar rejects Iran’s claim that strikes only targeted US military sites - usmuslims.com",
+      "eventId": "890accde589e56cf",
+      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
       "reportCount": 2,
-      "uniqueDomains": 1,
+      "uniqueDomains": 2,
       "sourceIdentities": [
+        "domain:channelnewsasia.com",
         "domain:news.google.com"
       ],
       "independentReportingGroups": 2,
       "domains": [
+        "channelnewsasia.com",
         "news.google.com"
       ],
       "domainClasses": {
+        "other": 1,
         "aggregator": 1
       },
-      "nonAggregatingDomains": 0,
+      "nonAggregatingDomains": 1,
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
+      "averageSourceQuality": 45,
+      "domainConcentration": 0.5,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
@@ -328,8 +430,56 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "6ed8782f8d649212",
-      "title": "At least two dead in blast at Bolivia military barracks",
+      "eventId": "80ce0834f00bb88c",
+      "title": "Trump’s PAC wades into midterms with $10 million ad buy to boost Ken Paxton - CNN",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "2ff49c6538764c36",
+      "title": "Putin begins talks with Steve Witkoff and Jared Kushner on ending war with Ukraine",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "95adf3c7d38ec6de",
+      "title": "US envoys meet Putin in Moscow for Ukraine talks",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -352,88 +502,16 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "b7da90ab439d2907",
-      "title": "Paris hosts African Diaspora International Film Festival",
+      "eventId": "2c250c3d5af1d550",
+      "title": "Shoppers interact with Hong Kong’s first robot shopkeeper",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:france24.com"
+        "domain:aljazeera.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "france24.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "05de8d95e0ffb481",
-      "title": "Uber announces immediate withdrawal from Nigeria and Uganda",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:france24.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "france24.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "db8421facab37b73",
-      "title": "UN experts urge Sudan-wide arms embargo",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:france24.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "france24.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "acf993eb4598cf88",
-      "title": "Judge orders Trump administration to reveal who set up $1.8bn ‘anti-weaponization fund’",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
+        "aljazeera.com"
       ],
       "domainClasses": {
         "major-news": 1
@@ -472,8 +550,80 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "d6e410b2cd8b942b",
-      "title": "Volcanic eruption is on going for Krakatau in Indonesia",
+      "eventId": "17e9af957fe4dbdc",
+      "title": "Trump’s first major midterm money move: A $10M Texas Senate ad blitz - myMotherLode.com",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "d4b66e08b443ac01",
+      "title": "Two pilots killed after Greek fighter jet crashes during an air show",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "c234bd66dae96ea9",
+      "title": "Thousands protest in Croatia to demand government clean up toxic waste",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "3bde1e8e9aa8197c",
+      "title": "Green forest fire notification in Botswana",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -496,16 +646,40 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "f9df31eb7af6e45a",
-      "title": "Nepal: Two more people rescued alive",
+      "eventId": "5207b2140deaaa97",
+      "title": "Tens of thousands rally in Zagreb over Croatia waste cleanup delays",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:france24.com"
+        "domain:channelnewsasia.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "france24.com"
+        "channelnewsasia.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "623a05f9c8b40935",
+      "title": "London Paddington fire causes rail chaos as Heathrow trains cancelled",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
       ],
       "domainClasses": {
         "major-news": 1
@@ -520,16 +694,136 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "a3ec882844d7f0fa",
-      "title": "Witkoff and Kushner are in Moscow in a new push for peace between Russia and Ukraine",
+      "eventId": "e77e7064e7345b74",
+      "title": "NATO will not tolerate hybrid actions against members, US envoy says",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:france24.com"
+        "domain:channelnewsasia.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "france24.com"
+        "channelnewsasia.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "c836e9f725e958f2",
+      "title": "Iran Escalation Warning: US Intelligence Assessment 2024 - JFeed",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "662455e8bd9fa27b",
+      "title": "Putin says US-Russia contacts beneficial as talks begin with Witkoff and Kushner",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:channelnewsasia.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "channelnewsasia.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "5e272334999d73dd",
+      "title": "US-Iran Strait of Hormuz Conflict: Military Escalation - JFeed",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "834825f09fa20417",
+      "title": "Greek military aircraft crashes during airshow, pilots killed",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:channelnewsasia.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "channelnewsasia.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "5bfa0fe9a0998230",
+      "title": "‘I wasn’t even listening,’ Farage says of donations scandal meeting",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
       ],
       "domainClasses": {
         "major-news": 1
@@ -544,16 +838,88 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "d24aa883c448288f",
-      "title": "US envoys arrive in Moscow ahead of Ukraine talks",
+      "eventId": "2a7c0a9f71e97233",
+      "title": "Russia and Ukraine agree not to strike capitals during talks with US envoys - Vanguard News",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:bbc.co.uk"
+        "domain:news.google.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "bbc.co.uk"
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "b7e5195fb99c022b",
+      "title": "Altus Air Force Base marks 70 years of KC-135 Stratotanker",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:subscribe.stripes.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "subscribe.stripes.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "4ef5d4813d3c257f",
+      "title": "US warns citizens in Qatar of potential escalation, flight disruptions amid Middle East tensions - The Business Standard",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "ec64b198a3ebf394",
+      "title": "US military says it struck three Iranian tankers after American warships came under missile attack",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:theguardian.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "theguardian.com"
       ],
       "domainClasses": {
         "major-news": 1
@@ -563,6 +929,30 @@
       "majorNewsDomains": 1,
       "wireLikeDomains": 0,
       "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "a5f7ede52d7b2874",
+      "title": "US and Iran trade strikes in a dangerous escalation - Rolling Out",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -616,25 +1006,25 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "47605a72d5a339ed",
-      "title": "Green forest fire notification in Kenya",
+      "eventId": "32525f8999cd711b",
+      "title": "Putin Orders 72 Hour Ceasefire On Kyiv As US Envoys Visit Moscow - zoomnews.in",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:gdacs.org"
+        "domain:news.google.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "gdacs.org"
+        "news.google.com"
       ],
       "domainClasses": {
-        "other": 1
+        "aggregator": 1
       },
-      "nonAggregatingDomains": 1,
+      "nonAggregatingDomains": 0,
       "primarySourceDomains": 0,
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
-      "averageSourceQuality": 55,
+      "averageSourceQuality": 35,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -659,6 +1049,30 @@
       "majorNewsDomains": 1,
       "wireLikeDomains": 0,
       "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "08fd0c26f1ab8e4c",
+      "title": "US strikes 3 Iranian oil tankers after Navy warships evaded missiles, CENTCOM says",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:subscribe.stripes.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "subscribe.stripes.com"
+      ],
+      "domainClasses": {
+        "other": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 55,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -712,6 +1126,30 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
+      "eventId": "8f054bf6415cc7b4",
+      "title": "Putin and Zelenskyy agree to pause strikes on Kyiv and Moscow during talks with US envoys - CHAT News Today",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
       "eventId": "ef7462cb777be0be",
       "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
       "reportCount": 1,
@@ -736,8 +1174,80 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "da2e73428da69db0",
-      "title": "\"We're stuck:\" GOP accepts Trump's all-about-me midterms - Axios",
+      "eventId": "8621c8a212401420",
+      "title": "Arsenal vs Chelsea: Premier League – prediction, teams, lineups",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "7dffb44967cd1b6f",
+      "title": "‘Stop the boats’ masked protesters block England’s Port of Dover",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "54a7f655c63f82ff",
+      "title": "Iran President Pezeshkian calls for unity as US ramps up economic pressure",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "1e6c002943750020",
+      "title": "Putin orders 72-hour halt to strikes on Kyiv as US envoys arrive - Daily Sabah",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -760,32 +1270,80 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "e7733da678efeb66",
-      "title": "Election 2026: Your guide to Massachusetts’ November elections - MassLive",
+      "eventId": "8fe343f2d319aea4",
+      "title": "At least four civilians killed in Houthi missile strike near Yemen’s Taiz",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
-        "domain:news.google.com"
+        "domain:aljazeera.com"
       ],
       "independentReportingGroups": 1,
       "domains": [
-        "news.google.com"
+        "aljazeera.com"
       ],
       "domainClasses": {
-        "aggregator": 1
+        "major-news": 1
       },
-      "nonAggregatingDomains": 0,
+      "nonAggregatingDomains": 1,
       "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
+      "majorNewsDomains": 1,
       "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
+      "averageSourceQuality": 90,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "a076242a5a8cca3b",
-      "title": "US-Israel-Iran War Latest Live News: IRGC Says It Killed Two Suspects Linked to US and Israel Aiming to Carry Out Attacks in Sistan and Baluchestan Province - The Sunday Guardian",
+      "eventId": "21f202fba451a23d",
+      "title": "How big is Africa really? Why the UN voted to change the world map",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "4239ecee0eff7f55",
+      "title": "Yemen government launches own air attacks on Houthis: What that means",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "921d1ba26f389833",
+      "title": "Putin Orders Pause on Kyiv Strikes as Kushner and Witkoff Land in Moscow for Peace Talks - breitbart.com",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -832,8 +1390,80 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "84677530ea25bf42",
-      "title": "Putin orders 3-day pause in strikes against Kyiv as US delegation arrives in Russia - The Times of India",
+      "eventId": "cb9b44d6489d149e",
+      "title": "US ambassador to Israel visits Palestinian town hit by West Bank settler violence",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:france24.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "france24.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "7e49cce882698dc6",
+      "title": "Bangladesh measles toll nears grim 1,000-child mark",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:france24.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "france24.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "60edbaa23b27921c",
+      "title": "Costa Rica’s president says US ground forces would boost national security",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "4ef1cc324002ed0f",
+      "title": "Netanyahu says Iran will face severe response if Tehran attacks Israel - Business Upturn",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -851,6 +1481,30 @@
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
       "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "847e8749a9f227b3",
+      "title": "Israel must protect West Bank’s Palestinians amid settler pogroms: US envoy",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
@@ -904,6 +1558,30 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
+      "eventId": "8bf5112bdc6ca4c9",
+      "title": "Prepare for a Uniquely Cursed Week in American Politics - Talking Points Memo",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
       "eventId": "f0a51c475b31673a",
       "title": "US-Israel-Iran War Live News: 4 Civilians Killed, 9 Injured in Houthi Missile Attack on Heijah Al-Abd Road South of Taiz - The Sunday Guardian",
       "reportCount": 1,
@@ -928,8 +1606,8 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+      "eventId": "32718a16c6a01946",
+      "title": "Putin orders three-day pause on Kyiv strikes amid US delegation visit - Crypto Briefing",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -952,8 +1630,32 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
-      "eventId": "32718a16c6a01946",
-      "title": "Putin orders three-day pause on Kyiv strikes amid US delegation visit - Crypto Briefing",
+      "eventId": "cf4b716177a1b724",
+      "title": "Pickleball and dining: Why courts are the new food destinations",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "514d5eb9b0a3bd67",
+      "title": "Yemeni forces reportedly advance toward Jabal Ras from Hays in western Yemen - Business Upturn",
       "reportCount": 1,
       "uniqueDomains": 1,
       "sourceIdentities": [
@@ -1024,6 +1726,30 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
+      "eventId": "70c7fcc46dab76ea",
+      "title": "Video Does Not Show Iranian Cluster Missiles Targeting U.S. Bases in Jordan - موقع مسبار",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
       "eventId": "6344cfe9db9ed721",
       "title": "Alzheimer’s trial to test drug on people without symptoms to see if it can be prevented",
       "reportCount": 1,
@@ -1034,6 +1760,30 @@
       "independentReportingGroups": 1,
       "domains": [
         "theguardian.com"
+      ],
+      "domainClasses": {
+        "major-news": 1
+      },
+      "nonAggregatingDomains": 1,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 1,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 90,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
+      "eventId": "a857829a3f0c1469",
+      "title": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:aljazeera.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "aljazeera.com"
       ],
       "domainClasses": {
         "major-news": 1
@@ -1168,6 +1918,30 @@
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
     },
     {
+      "eventId": "24feb6d208b49781",
+      "title": "EU rejects forced displacement of Gazans, backs unified Palestinian administration - Business Upturn",
+      "reportCount": 1,
+      "uniqueDomains": 1,
+      "sourceIdentities": [
+        "domain:news.google.com"
+      ],
+      "independentReportingGroups": 1,
+      "domains": [
+        "news.google.com"
+      ],
+      "domainClasses": {
+        "aggregator": 1
+      },
+      "nonAggregatingDomains": 0,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "wireLikeDomains": 0,
+      "averageSourceQuality": 35,
+      "domainConcentration": 1.0,
+      "independence": "low",
+      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
+    },
+    {
       "eventId": "3f7a1eab3f17608f",
       "title": "Europe would not be able to sustain war of attrition with Russia, defence officials say",
       "reportCount": 1,
@@ -1235,774 +2009,6 @@
       "majorNewsDomains": 0,
       "wireLikeDomains": 0,
       "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "f7d09e55ea2ab094",
-      "title": "Trump’s ‘Catch-Me-If-You-Can’ presidency keeps finding ways around the law - CNN",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "4ffd619cccbf8933",
-      "title": "Iranian tanker hit by four US missiles near Kharg Island - The Siasat Daily",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "3e8515b7161fe911",
-      "title": "Gaza refugee says sister-in-law ‘would be alive’ if Home Office had let her come to UK",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "491d1a56abf92d24",
-      "title": "Why is Trump threatening to strike Iran’s Pickaxe Mountain again, now?",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "0603950bc982f774",
-      "title": "Iranian tanker hit by US attack near Iran's Kharg Island: Report",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:channelnewsasia.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "channelnewsasia.com"
-      ],
-      "domainClasses": {
-        "other": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 55,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "ff5c7b1a0a2776a7",
-      "title": "US ambassador to Israel meets Palestinian-Americans in occupied West Bank",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b43bd12b33b94132",
-      "title": "Qatar removed from Fitch’s negative watch list as risks to LNG sites ease",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "88799217f044ec38",
-      "title": "Fenerbahce’s Greenwood, Guendouzi handed fines and bans after brawl at Lyon",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "50a48c29360fd24c",
-      "title": "Sweden confirms 458 Britons deported or forcibly removed since Brexit",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "e7f303ffc9ba0a57",
-      "title": "How might Lindsay Clancy’s case have unfolded in another country?",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:feeds.bbci.co.uk"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "feeds.bbci.co.uk"
-      ],
-      "domainClasses": {
-        "other": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 55,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "a1814fc05163bdff",
-      "title": "Oil and politics: What Trump’s ‘historic’ deal means for Venezuela",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b86ac4228d5b1069",
-      "title": "Black-clad protesters in balaclavas block road at port of Dover in Kent",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "10d90bc8eed457f3",
-      "title": "Orangutan mother and infant rescued from wildfire-hit forest in Indonesia",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "68fed9d19151d677",
-      "title": "Day 187 | Trump says latest strikes on Iran are 'justified,' warns Tehran against retaliation - Roya News",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "4979c11b9aa19748",
-      "title": "Mansour Abbas is betting on a Zionist to make Palestinian votes count",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "3ed924772b4ea671",
-      "title": "Pentagon polygraphs dozens of US military staff over media leaks: Report",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b7f96c8cab0b0baa",
-      "title": "Cartels across Mexico turning to explosives - The Arkansas Democrat-Gazette",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b9b67762bef2374f",
-      "title": "How escalating attacks are upending daily life in Kyiv - The Economic Times",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "5b92d55164ede165",
-      "title": "Andy Ruiz Jr’s comeback bid in tatters after sobering defeat to Damian Knyba",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:theguardian.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "theguardian.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "1f8d7332963eee7f",
-      "title": "UAE pardons Egyptian dissident-poet al-Qaradawi facing 10 years in prison",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "04b326a2279d0835",
-      "title": "UK art show explores Muslim life, Europe’s Islamic history and Islamophobia",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "317bed6c3d618095",
-      "title": "Ukraine Invasion Day 1,654: More attacks on Kyiv. Rather than a ‘concept of a plan’, Trump says “We have an idea for Peace” - Daily Kos",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "2b02e70bb3a40021",
-      "title": "Niger accuses France of orchestrating failed military mutiny",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "a2c93d178003de2d",
-      "title": "Green flood alert in Haiti",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:gdacs.org"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "gdacs.org"
-      ],
-      "domainClasses": {
-        "other": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 55,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "0e61fb5dc91e08d3",
-      "title": "Explosions heard near Kharg Island after US missile targets Iranian tanker: Report - indiatoday.in",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "bd0eb7bf01d753e5",
-      "title": "Ukrainian troops get four-day ‘silence’ order as US envoys visit Moscow and Kyiv - TVP World",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "2518049cac788f82",
-      "title": "Alcaraz, Sabalenka into US Open last 16 as Williams sisters lose on return",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "00c612db0b7780db",
-      "title": "Have scientists discovered a dark matter particle?",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:aljazeera.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "aljazeera.com"
-      ],
-      "domainClasses": {
-        "major-news": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 1,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 90,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "b9219ddc7e0d4322",
-      "title": "Air Defense Forces down 128 drones used by Russia to attack Ukraine overnight - Ukrinform",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "3ee4bfdcd6a61975",
-      "title": "Missile strikes Iranian oil tanker near Kharg Island: Report - Türkiye Today",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "32d432140a83df4c",
-      "title": "Just In: Peter Obi, Kwankwaso Visit Rotimi Amaechi in Port Harcourt, Details Emerge - Legit News",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:news.google.com"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "news.google.com"
-      ],
-      "domainClasses": {
-        "aggregator": 1
-      },
-      "nonAggregatingDomains": 0,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 35,
-      "domainConcentration": 1.0,
-      "independence": "low",
-      "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
-    },
-    {
-      "eventId": "4cb8142bc26a3cd1",
-      "title": "Why did USS Lincoln turn up in Thailand looking so rusty?",
-      "reportCount": 1,
-      "uniqueDomains": 1,
-      "sourceIdentities": [
-        "domain:feeds.bbci.co.uk"
-      ],
-      "independentReportingGroups": 1,
-      "domains": [
-        "feeds.bbci.co.uk"
-      ],
-      "domainClasses": {
-        "other": 1
-      },
-      "nonAggregatingDomains": 1,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "wireLikeDomains": 0,
-      "averageSourceQuality": 55,
       "domainConcentration": 1.0,
       "independence": "low",
       "note": "Near-identical headlines are grouped. Aggregators/social feeds are visible but do not count as strong independent corroboration. Domain diversity is a proxy, not proof."
