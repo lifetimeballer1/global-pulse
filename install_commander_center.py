@@ -39,7 +39,12 @@ css = '''<style id="gp-commander-intel-css">
 # Remove/rebuild our own injected pieces so reruns are safe.
 s = re.sub(r'\n<style id="'+re.escape(STYLE_ID)+r'">.*?</style>\n?', '\n', s, flags=re.S)
 s = re.sub(r'\n<section id="'+re.escape(SECTION_ID)+r'"[^>]*>.*?</section>\n?', '\n', s, flags=re.S)
-s = re.sub(r'\n<div id="'+re.escape(NAV_ID)+r'"[^>]*>.*?</div>\n?', '\n', s, flags=re.S)
+# IMPORTANT: match the complete Commander Center block through its closing nav.
+# The previous pattern stopped at the first inner </div>, leaving orphaned navs
+# behind every time the installer ran.
+s = re.sub(r'\n<div id="'+re.escape(NAV_ID)+r'"[^>]*>.*?</nav>\s*</div>\n?', '\n', s, flags=re.S)
+# Clean orphaned navigation blocks left by older broken installer runs.
+s = re.sub(r'\n<nav class="cc-nav"[^>]*>.*?</nav>\s*', '\n', s, flags=re.S)
 
 # The canonical live reporting module is the single source of truth.
 # Remove the older static news section so the page cannot show two
@@ -79,4 +84,4 @@ if pos < 0:
 s = s[:pos] + section + '\n' + s[pos:]
 
 INDEX.write_text(s, encoding='utf-8')
-print('PASS: Commander Center installed; duplicate static Latest Reporting removed')
+print('PASS: Commander Center installed cleanly; orphan navigation removed; duplicate static Latest Reporting removed')
