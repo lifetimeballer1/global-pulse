@@ -6,6 +6,8 @@ Global Pulse is a public-source intelligence service, not a private intelligence
 
 `source -> report -> normalized claim -> evidence lineage -> corroboration/contradiction -> event -> entity -> relationship -> assessment -> user-facing brief`
 
+The production implementation is orchestrated by `refresh_pipeline.py`. It runs keyless public-data ingestion, market and macro context, conflict/hazard corroboration, event processing, evidence-linked graph generation, assessments, claims, historical trends, index cleanup, browser hardening, and final validation before the GitHub Pages deployment gate.
+
 ## Product surfaces
 
 - **Pulse:** what changed recently, prioritized by recency, significance and evidence quality.
@@ -14,7 +16,7 @@ Global Pulse is a public-source intelligence service, not a private intelligence
 - **Intelligence Web:** time-aware entity and relationship context.
 - **Watchlist:** locally stored topics/entities chosen by the visitor; no server-side visitor profile.
 - **Brief:** concise global/regional intelligence summaries.
-- **Data Health:** freshness, source availability and pipeline status.
+- **Data Health:** freshness, source availability, feed failover and pipeline status.
 
 ## Evidence rules
 
@@ -22,9 +24,16 @@ Global Pulse is a public-source intelligence service, not a private intelligence
 2. Syndicated, mirrored or copied reporting should inherit the origin when detectable.
 3. Source diversity increases confidence only when the underlying reporting is materially independent.
 4. Official statements are evidence, not automatic truth.
-5. Contradictory credible reporting must remain visible.
+5. Contradictory credible reporting must remain visible and is explicitly flagged in the browser where detected.
 6. Confidence describes the evidence available at the time, not absolute truth.
 7. Every high-impact assessment should retain a path back to source material.
+8. Market relationships are contextual relevance, not causal attribution.
+
+## Generated-data contract
+
+The canonical refresh verifies and publishes `data/snapshot.json`, `data/history.json`, `data/sources.json`, `data/live_articles.json`, and `data/intelligence_graph.json`. `data/refresh_manifest.json` records hashes and generation timestamps for these critical artifacts. Stale or missing required artifacts fail the pipeline rather than silently disappearing from the product.
+
+Market data is accepted only when fresh and populated with real positive prices. Live news must contain recent articles and a healthy feed count. Feed failover state is surfaced to the browser, and the last successful refresh timestamp is retained in the snapshot.
 
 ## Privacy model
 
@@ -48,3 +57,4 @@ Global Pulse should describe public events and evidence without providing operat
 - UI rendering must tolerate malformed or missing records.
 - Automated updates must be idempotent.
 - Changes should be small, testable and reversible.
+- Scheduled live-site monitoring validates the published HTML and critical JSON artifacts independently of the build workflow.
