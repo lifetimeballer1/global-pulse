@@ -106,26 +106,17 @@ function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("
 <header><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
 <main id="main" class="wrap">
 <div id="commanderCenter" aria-label="Commander Center">
-  <div class="cc-title"><strong>COMMANDER CENTER</strong><span>Jump to any intelligence layer</span></div>
-  <nav class="cc-nav">
+  <div class="cc-title"><strong>COMMANDER CENTER</strong><span>Mission Control · jump to any intelligence layer</span></div>
+  <nav class="cc-nav" aria-label="Mission Control navigation">
     <a href="#top">Overview</a>
     <a href="#mapSection">War Map</a>
     <a href="#intelligenceWebSection">Intelligence Web</a>
     <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
+    <a href="#reporting">Live Reporting</a>
+    <a href="#what-changed">What Changed</a>
+    <a href="#event-intelligence">Event Intelligence</a>
   </nav>
 </div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
 </div>
   <nav class="cc-nav">
     <a href="#top">Overview</a>
@@ -409,5 +400,6 @@ setInterval(load,60000);
 })();
 </script>
 
+<script src="global_pulse_mission_control_fix.js?v=1" defer></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-05T22:09:17.127438+00:00",
+  "updatedAt": "2026-09-05T22:21:32.217396+00:00",
   "scoreVersion": 5,
-  "sourceStatus": "300 stories · 315 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 239 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
+  "sourceStatus": "300 stories · 317 live-db merged · persistent 7-day SQLite collector active; Global War News Map: 250 points | Cartel Intelligence Map: 239 points; Strategic reference layer: 33 nodes | USGS earthquakes: live",
   "dataNote": "Global Tension is a weighted monitoring index built from six distinct current signal pools. Driver evidence exposes matching stories and independent source domains; headline volume alone does not determine the score. Cartel Intelligence Map points are source-map reports and unverified until independently corroborated. Strategic reference nodes mirror public Guerilla Map categories but are not Guerilla Map incident records. USGS earthquake points are live public hazard data.",
   "tension": 76,
-  "tensionDelta": 36.0,
+  "tensionDelta": 35.0,
   "breakdownScores": {
     "Conflict activity": 100,
     "Diplomatic strain": 60,
@@ -15,11 +15,11 @@
   },
   "driverSignals": {
     "Conflict activity": {
-      "poolSize": 158,
-      "matches": 18,
+      "poolSize": 159,
+      "matches": 19,
       "sources": 6,
       "recentMatches": 16,
-      "signalRatio": 0.121,
+      "signalRatio": 0.123,
       "topSignals": [
         {
           "title": "US envoys Witkoff, Kushner meet Putin for talks on Ukraine war",
@@ -54,7 +54,7 @@
       ]
     },
     "Diplomatic strain": {
-      "poolSize": 49,
+      "poolSize": 50,
       "matches": 1,
       "sources": 1,
       "recentMatches": 0,
@@ -69,7 +69,7 @@
       ]
     },
     "Economic pressure": {
-      "poolSize": 145,
+      "poolSize": 146,
       "matches": 24,
       "sources": 5,
       "recentMatches": 16,
@@ -108,7 +108,7 @@
       ]
     },
     "Market volatility": {
-      "poolSize": 145,
+      "poolSize": 146,
       "matches": 3,
       "sources": 2,
       "recentMatches": 1,
@@ -135,11 +135,11 @@
       ]
     },
     "Military posture": {
-      "poolSize": 158,
-      "matches": 25,
+      "poolSize": 159,
+      "matches": 26,
       "sources": 6,
       "recentMatches": 17,
-      "signalRatio": 0.158,
+      "signalRatio": 0.162,
       "topSignals": [
         {
           "title": "Colombian government reports three killed in rebel attack on military post",
@@ -174,11 +174,11 @@
       ]
     },
     "Climate & humanitarian pressure": {
-      "poolSize": 161,
+      "poolSize": 162,
       "matches": 25,
       "sources": 5,
       "recentMatches": 19,
-      "signalRatio": 0.159,
+      "signalRatio": 0.158,
       "topSignals": [
         {
           "title": "Alarming AI ads are flooding social media in the lead-up to Victoria’s election. But who is behind them?",
@@ -215,7 +215,7 @@
   },
   "climatePressure": {
     "Drought & water": 25,
-    "Floods & storms": 30,
+    "Floods & storms": 29,
     "Heat & fire": 29,
     "Food security": 25,
     "Health outbreaks": 26
@@ -224,7 +224,7 @@
     "level": "HIGH",
     "score": 76,
     "direction": "rising",
-    "momentum": 36.0,
+    "momentum": 35.0,
     "strongestDriver": "Conflict activity",
     "strongestDriverScore": 100,
     "method": "Current V5 tension snapshot compared with the previous V5 snapshot."
@@ -422,7 +422,7 @@
       "escalation": "CRITICAL",
       "activityScore": 100,
       "delta": 0,
-      "signalCount": 30,
+      "signalCount": 32,
       "sourceCount": 2,
       "confidence": "MULTI-SOURCE",
       "eventType": "MONITORING",
@@ -473,7 +473,7 @@
           "signal": 17.4
         }
       ],
-      "facts": "30 conflict-specific signal(s) from 2 source(s) in the current feed window.",
+      "facts": "32 conflict-specific signal(s) from 2 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -674,46 +674,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "ecuador",
-      "name": "Ecuador Organized Crime Conflict",
-      "region": "Latin America",
-      "category": "CRIMINAL CONFLICT",
-      "status": "Active signal",
-      "recent": "Families of missing Ecuadorian fishermen allege US involvement",
-      "escalation": "MODERATE",
-      "activityScore": 51,
-      "delta": -33,
-      "signalCount": 2,
-      "sourceCount": 2,
-      "confidence": "MULTI-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "2026-09-05T05:08:15+00:00",
-      "signals": [
-        {
-          "title": "Families of missing Ecuadorian fishermen allege US involvement",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/video/newsfeed/2026/9/5/families-of-missing-ecuadorian-fishermen-allege-us-involvement?traffic_source=rss",
-          "time": "2026-09-05T05:08:15+00:00",
-          "match": [
-            "ecuadorian"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "US sinks third Ecuador drug gang boat in a week - 24 News HD",
-          "source": "Google News — SOUTHCOM",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWkVfZ2RzTTY5VlBacDlna0NwTEV0YVdsbnRkaVhUcDVwNldhelhvWTJUb0tYcEZyQ0Z3YURzV001cDBObl9SVzdKUFQ1NGN5WTFXN2lDcXFJTGZyUGNJaW9mS1F0TTN3OGd0VTJDQm1uMTJSZHRacEFUMmZENWtMWWwwSGrSAZQBQVVfeXFMTnVTbkdlWmxERl80YkxrZVVGMGhlNGR5OFFhNU5BdnM3UmhXRFhKc3J2NkMyaktQYndMeGRmUWhLN1VQcHZPWWJVMHdBR2dFZTB5N05TTkpabDhxZXhPdWtQSm9QWUZLR0pOQ3pEVnpFbEljdDdpQjZrT2hLcnNIb2czZ1RwTGZGUUt2YjNQQmFZOUNOVQ?oc=5",
-          "time": "2026-09-05T04:34:51+00:00",
-          "match": [
-            "ecuador"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 2 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "haiti",
       "name": "Haiti Gang Conflict",
       "region": "Caribbean",
@@ -722,7 +682,7 @@
       "recent": "Green flood alert in Haiti",
       "escalation": "MODERATE",
       "activityScore": 50,
-      "delta": -3,
+      "delta": 0,
       "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
@@ -774,46 +734,6 @@
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
-      "id": "pakistan",
-      "name": "Pakistan Militancy / Border Risk",
-      "region": "Asia",
-      "category": "INSURGENCY",
-      "status": "Active signal",
-      "recent": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
-      "escalation": "LOW",
-      "activityScore": 46,
-      "delta": 5,
-      "signalCount": 2,
-      "sourceCount": 1,
-      "confidence": "SINGLE-SOURCE",
-      "eventType": "MONITORING",
-      "lastSignal": "2026-09-05T11:32:07+00:00",
-      "signals": [
-        {
-          "title": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/sports/liveblog/2026/9/5/live-india-vs-pakistan-womens-t20-asia-cup?traffic_source=rss",
-          "time": "2026-09-05T11:32:07+00:00",
-          "match": [
-            "pakistan"
-          ],
-          "signal": 6.0
-        },
-        {
-          "title": "‘I could not save the rest’: Hero nurse remembers Pakistan’s nursery fire",
-          "source": "Al Jazeera",
-          "url": "https://www.aljazeera.com/features/2026/9/5/i-could-not-save-the-rest-hero-nurse-remembers-pakistans-nursery-fire?traffic_source=rss",
-          "time": "2026-09-05T04:29:33+00:00",
-          "match": [
-            "pakistan"
-          ],
-          "signal": 6.0
-        }
-      ],
-      "facts": "2 conflict-specific signal(s) from 1 source(s) in the current feed window.",
-      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
-    },
-    {
       "id": "western-hemisphere-cartel",
       "name": "Western Hemisphere Counter-Cartel Campaign",
       "region": "Western Hemisphere",
@@ -821,9 +741,9 @@
       "status": "Active signal",
       "recent": "DW News. . The US military has released footage of forces stopping and boarding a vessel that it says served as a floating gas station for drug traffickers operating in the Eastern",
       "escalation": "LOW",
-      "activityScore": 45,
-      "delta": -55,
-      "signalCount": 2,
+      "activityScore": 43,
+      "delta": -57,
+      "signalCount": 1,
       "sourceCount": 1,
       "confidence": "SINGLE-SOURCE",
       "eventType": "MILITARY POSTURE",
@@ -838,19 +758,69 @@
             "southcom"
           ],
           "signal": 7.7
-        },
-        {
-          "title": "US sinks third Ecuador drug gang boat in a week - 24 News HD",
-          "source": "Google News — SOUTHCOM",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWkVfZ2RzTTY5VlBacDlna0NwTEV0YVdsbnRkaVhUcDVwNldhelhvWTJUb0tYcEZyQ0Z3YURzV001cDBObl9SVzdKUFQ1NGN5WTFXN2lDcXFJTGZyUGNJaW9mS1F0TTN3OGd0VTJDQm1uMTJSZHRacEFUMmZENWtMWWwwSGrSAZQBQVVfeXFMTnVTbkdlWmxERl80YkxrZVVGMGhlNGR5OFFhNU5BdnM3UmhXRFhKc3J2NkMyaktQYndMeGRmUWhLN1VQcHZPWWJVMHdBR2dFZTB5N05TTkpabDhxZXhPdWtQSm9QWUZLR0pOQ3pEVnpFbEljdDdpQjZrT2hLcnNIb2czZ1RwTGZGUUt2YjNQQmFZOUNOVQ?oc=5",
-          "time": "2026-09-05T04:34:51+00:00",
-          "match": [
-            "southcom"
-          ],
-          "signal": 4.0
         }
       ],
-      "facts": "2 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "pakistan",
+      "name": "Pakistan Militancy / Border Risk",
+      "region": "Asia",
+      "category": "INSURGENCY",
+      "status": "Active signal",
+      "recent": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
+      "escalation": "LOW",
+      "activityScore": 41,
+      "delta": 0,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "2026-09-05T11:32:07+00:00",
+      "signals": [
+        {
+          "title": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/sports/liveblog/2026/9/5/live-india-vs-pakistan-womens-t20-asia-cup?traffic_source=rss",
+          "time": "2026-09-05T11:32:07+00:00",
+          "match": [
+            "pakistan"
+          ],
+          "signal": 6.0
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
+      "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador Organized Crime Conflict",
+      "region": "Latin America",
+      "category": "CRIMINAL CONFLICT",
+      "status": "Active signal",
+      "recent": "Families of missing Ecuadorian fishermen allege US involvement",
+      "escalation": "LOW",
+      "activityScore": 41,
+      "delta": -43,
+      "signalCount": 1,
+      "sourceCount": 1,
+      "confidence": "SINGLE-SOURCE",
+      "eventType": "MONITORING",
+      "lastSignal": "2026-09-05T05:08:15+00:00",
+      "signals": [
+        {
+          "title": "Families of missing Ecuadorian fishermen allege US involvement",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/video/newsfeed/2026/9/5/families-of-missing-ecuadorian-fishermen-allege-us-involvement?traffic_source=rss",
+          "time": "2026-09-05T05:08:15+00:00",
+          "match": [
+            "ecuadorian"
+          ],
+          "signal": 6.0
+        }
+      ],
+      "facts": "1 conflict-specific signal(s) from 1 source(s) in the current feed window.",
       "analysis": "Score combines theater-specific identifiers, event severity, source breadth, and recency. It measures reporting activity, not battlefield truth, casualties, or probability of war."
     },
     {
@@ -12988,6 +12958,141 @@
       "confidence": "PUBLIC LIVE FEED"
     },
     {
+      "lat": 18.22,
+      "lng": -66.59,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Operation Southern Spear — Puerto Rico / Caribbean staging region",
+      "detail": "Regional reference node: SOUTHCOM documents Southern Spear maritime activity and Marine/Sailor forces operating in the Caribbean theater. Not an exact incident coordinate.",
+      "url": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
+      "sourceUrl": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Puerto Rico / Caribbean",
+      "eventType": "COUNTER-CARTEL THEATER",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 14.0,
+      "lng": -70.0,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Operation Southern Spear — Caribbean maritime theater",
+      "detail": "Regional reference node for documented Southern Spear maritime interdiction and lethal-strike activity. Not an exact incident coordinate.",
+      "url": "https://www.southcom.mil/News/PressReleases/Article/4583027/lethal-kinetic-strike-august-25-2026/",
+      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4583027/lethal-kinetic-strike-august-25-2026/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Caribbean Sea",
+      "eventType": "COUNTER-CARTEL THEATER",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 0.0,
+      "lng": -92.0,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Operation Southern Spear — Eastern Pacific maritime theater",
+      "detail": "Regional reference node for documented Aug. 23 and Sept. 2–3 operations on narco-trafficking routes. Not an exact incident coordinate.",
+      "url": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
+      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Eastern Pacific",
+      "eventType": "COUNTER-CARTEL THEATER",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": -0.95,
+      "lng": -80.7,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Ecuador — Los Choneros / U.S. counter-cartel link",
+      "detail": "SOUTHCOM reports U.S.-Ecuador coordination and an Eastern Pacific interdiction of a refueling vessel supporting Los Choneros.",
+      "url": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
+      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Ecuador",
+      "eventType": "COUNTER-CARTEL NODE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 1.4,
+      "lng": -78.9,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Colombia-Ecuador border — A3C corridor",
+      "detail": "SOUTHCOM documents a trilateral A3C meeting and joint strategy in a cocaine-trafficking corridor.",
+      "url": "https://www.southcom.mil/News/PressReleases/Article/4585871/gen-donovan-visits-colombia/",
+      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4585871/gen-donovan-visits-colombia/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Colombia / Ecuador",
+      "eventType": "COUNTER-CARTEL NODE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 19.43,
+      "lng": -99.13,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Mexico — major cartel network node",
+      "detail": "Reference node for Southern Spear reporting on Mexico-based organizations including Sinaloa and CJNG and their U.S. reach. Not an incident coordinate.",
+      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Mexico",
+      "eventType": "CARTEL NETWORK NODE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 6.24,
+      "lng": -75.58,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Colombia — Clan del Golfo / trafficking network node",
+      "detail": "Reference node for Southern Spear reporting on Colombia-based Clan del Golfo and cocaine routes toward Central America, Mexico and the United States.",
+      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Colombia",
+      "eventType": "CARTEL NETWORK NODE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 10.48,
+      "lng": -66.9,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "Venezuela — trafficking / maritime pressure node",
+      "detail": "Reference node for Southern Spear reporting on Venezuela-based trafficking organizations and Caribbean maritime activity. Not an incident coordinate.",
+      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "Venezuela",
+      "eventType": "COUNTER-CARTEL NODE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
+      "lat": 39.0,
+      "lng": -98.5,
+      "type": "strategic",
+      "layer": "counter-cartel",
+      "importance": 3,
+      "title": "United States — homeland exposure / destination",
+      "detail": "Reference node: Southern Spear reporting frames the campaign around protecting the U.S. homeland and disrupting trafficking routes reaching American communities. Not an incident coordinate.",
+      "url": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
+      "sourceUrl": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
+      "source": "Operation Southern Spear / SOUTHCOM",
+      "region": "United States",
+      "eventType": "HOMELAND EXPOSURE",
+      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
+    },
+    {
       "lat": 50.55428,
       "lng": 36.47101,
       "type": "conflict",
@@ -17657,8 +17762,8 @@
       "importance": 3,
       "title": "Cabo 27",
       "detail": "Allegedly, on the 12/18/2025 el Cabo 27 (considered by many Cabezón 27's ex right hand) has switched sides to join los Chapitos, CJNG and CAF.",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4yKcyzxjkrYPPtGAn78SFar6aSFSFXKLy1zZF3rFHly-DApW4RGkaaw8Ir0e7yzNf7BG0GXm5TmPittzaprizxd1ZFfUlhIVkA51IzkK6BHAXbdSNGVLDB6dpfm1SQ_Fn3UvedUZZ87kw_HiY2Ls_zOVjQWT2h6BtKpthG5Mn5McqRikS7IG40NigC6pmKJ0FiyMo_6a9i1NsEmUF6cFEy44KSQ8v0Lwqwdpskb30ZBo50BheI2QZPU1Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4yKcyzxjkrYPPtGAn78SFar6aSFSFXKLy1zZF3rFHly-DApW4RGkaaw8Ir0e7yzNf7BG0GXm5TmPittzaprizxd1ZFfUlhIVkA51IzkK6BHAXbdSNGVLDB6dpfm1SQ_Fn3UvedUZZ87kw_HiY2Ls_zOVjQWT2h6BtKpthG5Mn5McqRikS7IG40NigC6pmKJ0FiyMo_6a9i1NsEmUF6cFEy44KSQ8v0Lwqwdpskb30ZBo50BheI2QZPU1Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6GMMwTHURBtSWMRkqoTQ9RyhSaZHXb6lFjEUI4dS0zp8iYAvJzXsX7eeSB-FDkpso53HVOR5QSDaAPLv-C5hmWZCoE4-f2Uhe4jpBVn6D_Ua551fono5cXu_tyYJM9Vf8iHHnvVXaIaVmLqGMRu59WWCVXZE8BZDMzEeOFedbQnMJwJcBPZ04XqZJibL_8fiqKpGGzOT_IBLmFDa9Kax5ONyM5C7O2J6qLpW01XrgJrv7oca5MGpTOT88?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6GMMwTHURBtSWMRkqoTQ9RyhSaZHXb6lFjEUI4dS0zp8iYAvJzXsX7eeSB-FDkpso53HVOR5QSDaAPLv-C5hmWZCoE4-f2Uhe4jpBVn6D_Ua551fono5cXu_tyYJM9Vf8iHHnvVXaIaVmLqGMRu59WWCVXZE8BZDMzEeOFedbQnMJwJcBPZ04XqZJibL_8fiqKpGGzOT_IBLmFDa9Kax5ONyM5C7O2J6qLpW01XrgJrv7oca5MGpTOT88?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -17693,8 +17798,8 @@
       "importance": 1,
       "title": "Víctor Manuel Barraza Pablos “El 40”",
       "detail": "Víctor Manuel Barraza Pablos is a Mexican individual identified by authorities as a high-ranking member of organized crime, specifically linked to the Sinaloa Cartel. Born: 17 July 1990, Culiacán, Sinaloa, Mexico Authorities (notably the U.S. Treasury’s Office of Foreign Assets Control, OFAC) have sanctioned and identified him as a “plaza boss” in Mazatlán for the faction of the Sinaloa Cartel known as Los Chapitos (led by the sons of Joaquín “El Chapo” Guzmán). Ever since Óscar Noé Medina Gonzá",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4SY7HLdvIgnaGkXNH8vJyW90hGKa15vfER---fudMnDE3Ba-CjUEbDxh46-WR_l_EB0W-QvlO_H7cFobybSCoCvGLszHunMw64ydLhU1Vl9bzGvpAZJfVyx2kU76Q-9Z3VugO3xFpIFY8pvD7-p3I0svqA7wiFAr6b5BuLQYhLUyhuHqYnRdxKvikOy2_wifO1FO-p-njz5yhxGLkWJOFyjsgY5w1UXc36AFmuG44kJ2hjmPPExVMsfis?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4SY7HLdvIgnaGkXNH8vJyW90hGKa15vfER---fudMnDE3Ba-CjUEbDxh46-WR_l_EB0W-QvlO_H7cFobybSCoCvGLszHunMw64ydLhU1Vl9bzGvpAZJfVyx2kU76Q-9Z3VugO3xFpIFY8pvD7-p3I0svqA7wiFAr6b5BuLQYhLUyhuHqYnRdxKvikOy2_wifO1FO-p-njz5yhxGLkWJOFyjsgY5w1UXc36AFmuG44kJ2hjmPPExVMsfis?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4U2l7YajO7ToeoEKoifmwMa55SQOCmIsQq3n6OJ6KR6-jJMb1iuaMOLNXrY7TN0fbDn7QrDzdHRQsPGeKUq7bRdkkwkW-Rq8hFFFNKx2VaTQ692p3JxaOPtSpcXCQ24vJpV8GxYvry9QBrAiA3GvJcwrFYV84LsAqZVzntD4kBIiw7TX7fuKLfptfyUWyU02ykNxZGhA3pcKZqM1J4OgozWFC_HgHJMEJnpkULWDYJdRGAejva0Rng0qk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4U2l7YajO7ToeoEKoifmwMa55SQOCmIsQq3n6OJ6KR6-jJMb1iuaMOLNXrY7TN0fbDn7QrDzdHRQsPGeKUq7bRdkkwkW-Rq8hFFFNKx2VaTQ692p3JxaOPtSpcXCQ24vJpV8GxYvry9QBrAiA3GvJcwrFYV84LsAqZVzntD4kBIiw7TX7fuKLfptfyUWyU02ykNxZGhA3pcKZqM1J4OgozWFC_HgHJMEJnpkULWDYJdRGAejva0Rng0qk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -17747,8 +17852,8 @@
       "importance": 3,
       "title": "Criminal structure of La Plaza",
       "detail": "DANGEROUS PEOPLE FROM SONORA... 💥The individuals highlighted in this organizational chart have been identified as alleged generators of violence in the state of Sonora, with a particularly high incidence in cities like Hermosillo and Ciudad Obregón. According to the available information, these individuals are attributed with the escalation of violent acts that have directly impacted the civilian population, including alarming cases such as the illegal deprivation of liberty of women and minors,",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6CU1gGnio4_2UJd1ZEkhPHjVoI6n26ydWmWW6-wWeMVYYCyv69FF3ixgioExEu57vebBzUV1oPTzsySluRE29wwO48Ea-7hCbO-_2jPH01EH5OFX42iH2TsuRrXH6f1mTZSJUxEBQU7T0TzNlpx33gTvvyNIJDcRLO08niIqpRISUnqlXcpJhHfQwaw6sLROaD8nQcp9-JN_69tV5NWOQiVJLBfsuZPcAtyhJzFqocx5B7Xyv5NzzQxtg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6CU1gGnio4_2UJd1ZEkhPHjVoI6n26ydWmWW6-wWeMVYYCyv69FF3ixgioExEu57vebBzUV1oPTzsySluRE29wwO48Ea-7hCbO-_2jPH01EH5OFX42iH2TsuRrXH6f1mTZSJUxEBQU7T0TzNlpx33gTvvyNIJDcRLO08niIqpRISUnqlXcpJhHfQwaw6sLROaD8nQcp9-JN_69tV5NWOQiVJLBfsuZPcAtyhJzFqocx5B7Xyv5NzzQxtg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64MpDJNK_gimzXhpwwPh37UjSIAsKbsImbKNDHV5ulrkAuT-9Ea2dsWNGtOiWHnxfFOWTsgWi6MnTxHD7oQPcbjYNYCxm9FMRZUMGvUs_N6SzGjbFBaz_uQt9O4xhvHM7vI7xl7MayecncMAHn-Xg87ijuDOySrE6EneTCRPHakXDj3Le0--lKQvua7SMX6X0nsd1B-Aj59S6854vtVDyarZeZMnWsVgEu-qUdkwDk1Hf7Suvor-MGhwA?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR64MpDJNK_gimzXhpwwPh37UjSIAsKbsImbKNDHV5ulrkAuT-9Ea2dsWNGtOiWHnxfFOWTsgWi6MnTxHD7oQPcbjYNYCxm9FMRZUMGvUs_N6SzGjbFBaz_uQt9O4xhvHM7vI7xl7MayecncMAHn-Xg87ijuDOySrE6EneTCRPHakXDj3Le0--lKQvua7SMX6X0nsd1B-Aj59S6854vtVDyarZeZMnWsVgEu-qUdkwDk1Hf7Suvor-MGhwA?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -19763,8 +19868,8 @@
       "importance": 3,
       "title": "It's official, tomorrow 02/20/2025, the State Department will designate the following as international terrorist organizations:",
       "detail": "- Sinaloa Cartel (Both Sides) - Cartel Jalisco Nueva Generación - Carteles Unidos - Cartel del Noreste - Cartel Del Golfo (Both Sides) - La Nueva Familia Michoacana - Los Viagras (07/2026) - La Línea/NCDJ (07/2026)",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7BPZIngPW-nCw2zFZfoqxKxFyma9-4O8Sr_ghAHba1aY5dCVrfN1qQAok_22nIrjBHZYfkH48bU43fX-OJrE7s34D-nJW-4HzWwqopiQy8XOy0fNoufm0l0H6hj0KdxbMdqEPWKLRO73NbBOlMKfQy7JIg5Z6DO0j-hGOGK4fuAQCd-jYni_NVIgSlu7ogAwbYiGEbZKqzqpJlm993ERqU0RFwcWbCAZOUcegI_rNx9-7AXFmwZVQXdnY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7BPZIngPW-nCw2zFZfoqxKxFyma9-4O8Sr_ghAHba1aY5dCVrfN1qQAok_22nIrjBHZYfkH48bU43fX-OJrE7s34D-nJW-4HzWwqopiQy8XOy0fNoufm0l0H6hj0KdxbMdqEPWKLRO73NbBOlMKfQy7JIg5Z6DO0j-hGOGK4fuAQCd-jYni_NVIgSlu7ogAwbYiGEbZKqzqpJlm993ERqU0RFwcWbCAZOUcegI_rNx9-7AXFmwZVQXdnY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UPptZVimWlOjKYz2usCodMq183Em9APycQnz6nY4M9rc8s345bUaRWXGKGgiX-MYr6xiUFd6h6ctahL5azp_isYE4mjkzd06ASRO3l3satXbgKKZXckk2dGnb0_3ZRL7LArGjNXxtmYbSPGTyEK7mIz52SuIpnHSqhMltgK42oxjhhpbs4GXUSUU3H9biYLRU-orhdvL8F_vqwB3KGKMTz_X_MnDVkqFWrN2H7TXJofGIKOVDjl-smIg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4UPptZVimWlOjKYz2usCodMq183Em9APycQnz6nY4M9rc8s345bUaRWXGKGgiX-MYr6xiUFd6h6ctahL5azp_isYE4mjkzd06ASRO3l3satXbgKKZXckk2dGnb0_3ZRL7LArGjNXxtmYbSPGTyEK7mIz52SuIpnHSqhMltgK42oxjhhpbs4GXUSUU3H9biYLRU-orhdvL8F_vqwB3KGKMTz_X_MnDVkqFWrN2H7TXJofGIKOVDjl-smIg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21005,8 +21110,8 @@
       "importance": 1,
       "title": "Cártel De Guasave / Beltrán-Leyva Organization (BLO) / FEDI / Los Músicos / Meza Flores Faction (CONSIDERED FOREIGN TERRORIST ORGANIZATION UNDER SINAL",
       "detail": "Fausto Isidro Meza Flores, commonly known as \"El Chapo Isidro\", is a high-ranking figure in the Mexican drug trade and leader of a faction of the Beltrán-Leyva Organization (BLO). He rose to prominence following the fragmentation of the BLO after the death of Arturo Beltrán Leyva in 2009. \"Chapo Isidro\" became a significant player in the organization's power struggle, carving out his own faction and establishing himself as a rival to other cartel leaders, including Joaquín \"El Chapo\" Guzmán of t",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7EfHlkRQdlMP5iL5ABBK25pSF82NkEO8x0u1_SkHA5W_r5AIpJk0iXVIXwFed_O-CzIIA56oQJJDjyP4CnwmSPwmCp5m9YkotNE8xFSzIJVDYu9zRUTm1LbDjjpu6eCzUP2yaBUgJD0ZtsB9ga3WqHvWStJbe_AAV29w-ka50LTM8A-tAH3qlEDtTvjP5UaaRJf7pIWliW2RvZeo41zSN_7d5tmK7fMyATMUujBxmX9WFGCPhmWKCCLKU?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7EfHlkRQdlMP5iL5ABBK25pSF82NkEO8x0u1_SkHA5W_r5AIpJk0iXVIXwFed_O-CzIIA56oQJJDjyP4CnwmSPwmCp5m9YkotNE8xFSzIJVDYu9zRUTm1LbDjjpu6eCzUP2yaBUgJD0ZtsB9ga3WqHvWStJbe_AAV29w-ka50LTM8A-tAH3qlEDtTvjP5UaaRJf7pIWliW2RvZeo41zSN_7d5tmK7fMyATMUujBxmX9WFGCPhmWKCCLKU?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JATNJaad5vf0cHUf6fxVMymJxPSxJW5jVcKrxELkSrE7r-zCLbWfHn5IVgqQg0qMEHDK8WFwD_dK4tuwf0ef2yLSYGn9Vci-0NBuTuTcjRqG8Qpx2xwGCb74arq-RPuqp4MhlL_oJDrUGRKOlg-CSJ2H8tthix6XvIffH1D-xCavBSoMhlx7s4BxdCX0Aa9o5LqHPDP5jumfL2B7RBZw1PmewGJ1hN4kbjSr5Owkm4h4sio9rrL8IDVc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5JATNJaad5vf0cHUf6fxVMymJxPSxJW5jVcKrxELkSrE7r-zCLbWfHn5IVgqQg0qMEHDK8WFwD_dK4tuwf0ef2yLSYGn9Vci-0NBuTuTcjRqG8Qpx2xwGCb74arq-RPuqp4MhlL_oJDrUGRKOlg-CSJ2H8tthix6XvIffH1D-xCavBSoMhlx7s4BxdCX0Aa9o5LqHPDP5jumfL2B7RBZw1PmewGJ1hN4kbjSr5Owkm4h4sio9rrL8IDVc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21023,8 +21128,8 @@
       "importance": 1,
       "title": "Cártel De Caborca / Caborca Cartel / Caro Quintero Organization",
       "detail": "The cartel is widely reported to have been founded around 2017-2019 under the influence of Rafael Caro Quintero. Its name comes from the municipality of Caborca in the state of Sonora, Mexico, which serves as a key territorial stronghold. Post Caro Quintero’s arrest (and challenges to his freedom/status), leadership appears to have passed to relatives/nephews, including a figure known as “El 03”. Territory & Presence The primary territory is Sonora (especially northern and border zones) but the ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Md1fN4tFisBmArYNz2wC15C7_OhfiI5oMDeqTpg4btgqezWOKIdHHe-XiITCpWvIPYkmPjMGN9j4D9SsgYuaYTIvxyo6kjr-ITMWD1WX2osF5QtTQYPXINjMbVAb3GcvSqbqzv1TbaiEYnezPtgmMBdy43LvkPQdAC8aOPBKYan51KbyuXILgjHd6qD5UThR59dV1UmgA0r64wCJvtGDUdgqrRB9TAG4SbRc9Iz9ib-Hf6SslAAehvN4?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Md1fN4tFisBmArYNz2wC15C7_OhfiI5oMDeqTpg4btgqezWOKIdHHe-XiITCpWvIPYkmPjMGN9j4D9SsgYuaYTIvxyo6kjr-ITMWD1WX2osF5QtTQYPXINjMbVAb3GcvSqbqzv1TbaiEYnezPtgmMBdy43LvkPQdAC8aOPBKYan51KbyuXILgjHd6qD5UThR59dV1UmgA0r64wCJvtGDUdgqrRB9TAG4SbRc9Iz9ib-Hf6SslAAehvN4?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5yxd3gDVKH-0yIS0FsCabXJnaEFZKHTiHaFiSLXLxEfaaCVWjGn2k3yR74ZSHN_R24tI3wUoflhgUvhVVRCCT7HDWuVHjG4Jw0Uhm6NN2CDbjsCPLjK1J8X0hzDx7S37tube2tD_suLerpDV9v-Eb1t9KcMMPgDB4656yAGLY9D4JBj8aPD5j3Hv53hxsTpsrei-I4bbiOLFmcxy5Xrxacb1EVBksuZlSSh5SBXM9StIwO7jxduWiBr1c?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5yxd3gDVKH-0yIS0FsCabXJnaEFZKHTiHaFiSLXLxEfaaCVWjGn2k3yR74ZSHN_R24tI3wUoflhgUvhVVRCCT7HDWuVHjG4Jw0Uhm6NN2CDbjsCPLjK1J8X0hzDx7S37tube2tD_suLerpDV9v-Eb1t9KcMMPgDB4656yAGLY9D4JBj8aPD5j3Hv53hxsTpsrei-I4bbiOLFmcxy5Xrxacb1EVBksuZlSSh5SBXM9StIwO7jxduWiBr1c?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21041,8 +21146,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Matamoros Faction / Gulf Cartel / Los Escorpiones / Los Ciclones / Las Panteras / Grupo Sombra / Mafia Veracruzana (Veracruz and Hi",
       "detail": "The Matamoros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is one of the oldest and most prominent groups within the cartel, with its base of operations in Matamoros, Tamaulipas, a key border city adjacent to Brownsville, Texas. This faction, like the Gulf Cartel as a whole, has been deeply involved in drug trafficking, human smuggling, and other criminal activities along the U.S.-Mexico border for decades. Origins and Background The Matamoros Faction traces its origins to the founding of ",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5t-_IZskbeJoKIKItupYLqms3saxyDuIWJ0jEDEns3Enhu9kJ4vOdhUKDj9RvHEqRnJpWjLqF9BaygTtnvryO7FVBGWveZux2JiIic3S7kP_1D7iUN6CpRIqjFsI6sDV77Jn3xt4uO2ijXKBB-tDxVqapa83KB9x3bQmh_6ZJwAr5H-XQmDlE53jTniSxYdB1V-PxsJIygH6I-v3A4-80KmvwbS-UxIlE-9v39Wjmktgwyf4xkcCaE0u8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5t-_IZskbeJoKIKItupYLqms3saxyDuIWJ0jEDEns3Enhu9kJ4vOdhUKDj9RvHEqRnJpWjLqF9BaygTtnvryO7FVBGWveZux2JiIic3S7kP_1D7iUN6CpRIqjFsI6sDV77Jn3xt4uO2ijXKBB-tDxVqapa83KB9x3bQmh_6ZJwAr5H-XQmDlE53jTniSxYdB1V-PxsJIygH6I-v3A4-80KmvwbS-UxIlE-9v39Wjmktgwyf4xkcCaE0u8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR63o1gTq_Jbyi9WSjvX67-_Cndf5DHB20oW8zIW9S-0CMvd7gL4NmEwZOm0mdVa-iH6Zx0GHeJu5MD161GkC0dt_leINEUHLnx9aO6hSQ1JqNM2GlE1nf4wa_0vmyaq8uvEf8s7oya0ejakilVTcdlpx-F0tDgw3vnxQltb25MDEqT09UuWY8EVX7kof3ZpnRO3lRuGtjSrfATAb3b2_At7AB4pIBN7KDvKeQJyw36RGnwSlIC-w35dCQ8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR63o1gTq_Jbyi9WSjvX67-_Cndf5DHB20oW8zIW9S-0CMvd7gL4NmEwZOm0mdVa-iH6Zx0GHeJu5MD161GkC0dt_leINEUHLnx9aO6hSQ1JqNM2GlE1nf4wa_0vmyaq8uvEf8s7oya0ejakilVTcdlpx-F0tDgw3vnxQltb25MDEqT09UuWY8EVX7kof3ZpnRO3lRuGtjSrfATAb3b2_At7AB4pIBN7KDvKeQJyw36RGnwSlIC-w35dCQ8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21059,8 +21164,8 @@
       "importance": 1,
       "title": "Cártel del Golfo - Los Metros Faction / Gulf Cartel / Metros Nueva Generación (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Metros Faction of the Gulf Cartel (Cartel del Golfo, CDG) is a powerful and violent group that emerged as one of the key factions within the fragmented Gulf Cartel. It operates primarily in Reynosa, Tamaulipas, and surrounding areas, which are strategic for drug trafficking and other illicit activities due to their proximity to the U.S.-Mexico border. Origins and Background The Metros faction originated as part of the Gulf Cartel’s internal structure, established to control specific territor",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6XJZkmV252IRXCPlNeZk-1W5Ynik-f8_wa6e4qxPv1kN8ADG5g1Shrs1PdwdkwoAIi-0a45QLVfANdjqET4pSCnUu63mc69L9CCKXbnWJOjn35gKLRaC_Jb9oTAJ517RQw_VZ2YhBBwwR3nMrCq2QUZjkW4WrQKKmAgq8n50jtGPGEyvQONrg-th1czvqhDK5SwiGJsosUYEi3EZ1ky14rakPyFumqqXIojaK37fuseVbaQARTmkpxBK8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6XJZkmV252IRXCPlNeZk-1W5Ynik-f8_wa6e4qxPv1kN8ADG5g1Shrs1PdwdkwoAIi-0a45QLVfANdjqET4pSCnUu63mc69L9CCKXbnWJOjn35gKLRaC_Jb9oTAJ517RQw_VZ2YhBBwwR3nMrCq2QUZjkW4WrQKKmAgq8n50jtGPGEyvQONrg-th1czvqhDK5SwiGJsosUYEi3EZ1ky14rakPyFumqqXIojaK37fuseVbaQARTmkpxBK8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MhDaDt1ulrfia2qV-BLAkaEc3Ugqr4HbJL6fj670E3d1TEgi-7bonXw4P1HaIlMAZ1lmfC_WZxnshJS8-7pe2UyQ4GGpfsX_35sxCazxkybiqZULyGp1nQVo0pUvUmZDdEQAR1M3Mbk0RDzGwpQuM16SzsOpd1038_ZLBH2na_5xttYG0ImPF8navmJq1phwUX8mKtY24nI70U4AoC67uLSzahEmjY4ySnnugp1ckuAHEGWpIUHt_XdY?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4MhDaDt1ulrfia2qV-BLAkaEc3Ugqr4HbJL6fj670E3d1TEgi-7bonXw4P1HaIlMAZ1lmfC_WZxnshJS8-7pe2UyQ4GGpfsX_35sxCazxkybiqZULyGp1nQVo0pUvUmZDdEQAR1M3Mbk0RDzGwpQuM16SzsOpd1038_ZLBH2na_5xttYG0ImPF8navmJq1phwUX8mKtY24nI70U4AoC67uLSzahEmjY4ySnnugp1ckuAHEGWpIUHt_XdY?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21077,8 +21182,8 @@
       "importance": 1,
       "title": "Cártel Del Golfo - Los Rojos Faction",
       "detail": "The U.S. Department of State announced on the morning of December 4 that it had increased the reward offered for information leading to the whereabouts of Nemesio Rubén Oseguera Cervantes, alias “El Mencho”, top leader of the Jalisco New Generation Cartel (CJNG). With the increase from 10 million to 15 million dollars, this cartel chief became the second most‑wanted Mexican cartel leader by the U.S., only behind Rafael Caro Quintero, co‑founder of the Guadalajara Cartel and founder of the Caborc",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4oFewckbeMT3v91-kK50w7gA3TTbH5D7iG67U1FXE3C72N3HHamUITYSTLq2rARfpvupZ1ljdtb883TRNjV4cKATWzC9z-jkc6dnKMWMaiN9cIK1LYywf9jL78tzf-NKUO2uFoFg3mcRJRpo5A1oTbf561fQ6BuJxcK9XFJMzgPo0Abbijfcnk6tHyungmMWtf2zq7ZaIPUnVdbW3dyUXvMiZVnsCPJUHfClKXxsLRSpdLCKl-rL4yH64?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4oFewckbeMT3v91-kK50w7gA3TTbH5D7iG67U1FXE3C72N3HHamUITYSTLq2rARfpvupZ1ljdtb883TRNjV4cKATWzC9z-jkc6dnKMWMaiN9cIK1LYywf9jL78tzf-NKUO2uFoFg3mcRJRpo5A1oTbf561fQ6BuJxcK9XFJMzgPo0Abbijfcnk6tHyungmMWtf2zq7ZaIPUnVdbW3dyUXvMiZVnsCPJUHfClKXxsLRSpdLCKl-rL4yH64?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5dWn-wjw1So6dULoOM9d8957c6v5_tD5deOkzjjzZ445G_sLKIThINwJNKvqeVQhrq-1bNQ2mSXOd6-al7xOIBEbpa6XAE0-t4dNStgD1WVMjt2xOyh8NyExgQ3IsnwI4sTsOBo8z2IepMCCsj4JJzLnz0vRNo774apVly-1v8c1-tTOp8Osgn-TyyGwAFPjhu7xLcS1XirNPKO_34p-j4zon9B9eXIuvEQQ81SAiitPICkijNXGRGmmk?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5dWn-wjw1So6dULoOM9d8957c6v5_tD5deOkzjjzZ445G_sLKIThINwJNKvqeVQhrq-1bNQ2mSXOd6-al7xOIBEbpa6XAE0-t4dNStgD1WVMjt2xOyh8NyExgQ3IsnwI4sTsOBo8z2IepMCCsj4JJzLnz0vRNo774apVly-1v8c1-tTOp8Osgn-TyyGwAFPjhu7xLcS1XirNPKO_34p-j4zon9B9eXIuvEQQ81SAiitPICkijNXGRGmmk?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21095,8 +21200,8 @@
       "importance": 1,
       "title": "Cártel del Noreste / Northeast Cartel / CDN / Los Zetas (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel del Noreste emerged from a splintering of the notorious Los Zetas criminal organisation. It adopted many of the tactical and structural features of the Zetas—military-style hierarchy, use of extreme violence, and operations spanning multiple states. Their name, “del Noreste”, points to the northeast of Mexico, particularly the border region in the states of Tamaulipas/Coahuila/Nuevo León. One of their key strongholds is the city of Nuevo Laredo in Tamaulipas. They have been officially",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Ncsrp8KwEk6iLHjJPqosLWXf1w6lfQ6ujRrTP4iCOUWK05ezZaYPn608xqeUshMtUUXg3nn-7y7YLooJahlvA4qVnUABgXeqZnWV-symMRpnz2BNZOcwLQbZPoImmCsPdw7M1v0LoPli5OXGOOzJd3L58ehgi4_IjJ9YzbiGQGEK0LERDc9NuOml7x3XkhI7wJ2Rt9eq7C6X5qJ_ftOj9Mg4TO9QtbalMKJ4nYMmY3ONH7FYKpNAQ_BI?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7Ncsrp8KwEk6iLHjJPqosLWXf1w6lfQ6ujRrTP4iCOUWK05ezZaYPn608xqeUshMtUUXg3nn-7y7YLooJahlvA4qVnUABgXeqZnWV-symMRpnz2BNZOcwLQbZPoImmCsPdw7M1v0LoPli5OXGOOzJd3L58ehgi4_IjJ9YzbiGQGEK0LERDc9NuOml7x3XkhI7wJ2Rt9eq7C6X5qJ_ftOj9Mg4TO9QtbalMKJ4nYMmY3ONH7FYKpNAQ_BI?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Upp0YN9pM4SHqffCMEoB6NyhAN-0_W6d5gCWan7BiqHCJBVD_meCbJEeLkmuRijFuIviY7oggAjsrh7ZF9l3-gidg7Tbi8mmSTZXh77pHiuFlPudYP18Yw9BZktSV2pNgCHrDBHadOIDY526KrF8lzXTT5K-JW4HpnhWnzyHg_8m2JlATl7UDOFlhRFlObUapJgMInWf1XSSv8SOsd53uqREcwIm3RSyXxSk10wG_1ViQAzXqr5oofUw?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Upp0YN9pM4SHqffCMEoB6NyhAN-0_W6d5gCWan7BiqHCJBVD_meCbJEeLkmuRijFuIviY7oggAjsrh7ZF9l3-gidg7Tbi8mmSTZXh77pHiuFlPudYP18Yw9BZktSV2pNgCHrDBHadOIDY526KrF8lzXTT5K-JW4HpnhWnzyHg_8m2JlATl7UDOFlhRFlObUapJgMInWf1XSSv8SOsd53uqREcwIm3RSyXxSk10wG_1ViQAzXqr5oofUw?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21113,8 +21218,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Mayiza / MZ / MF / Los Mayitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "La Mayiza is the informal name for the faction of the Sinaloa Cartel loyal to the Zambada family, historically associated with Ismael “El Mayo” Zambada, one of the cartel’s co-founders. The term distinguishes this group from rival factions such as Los Chapitos, which is aligned with the sons of Joaquín “El Chapo” Guzmán. While La Mayiza was once relatively low-profile and pragmatic compared with other organized crime groups, recent events have transformed it into a central actor in a violent int",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6RioTGR9Cc2pJksv2Yk7jvlqXHgRtxBwByI2bR3McFMD5rHu4_Xpes0TiUatb6rys2U6EtrXxoTKiRvxSHqNNruQnCKZ-Cty5LBCzEi2SP4tngGvZ94y323HqjZ956Hsxc4jDfMbl1cwjXgdhfotsKzE1XKina_Vi8TRIYryhGeiRYUOB7VfX3wp1Myg09QFXN-fISOT0iX0AdV0qLFyOX2FDJFuyXku_zgslT5GBmo_n6HLjnJn7kcz8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6RioTGR9Cc2pJksv2Yk7jvlqXHgRtxBwByI2bR3McFMD5rHu4_Xpes0TiUatb6rys2U6EtrXxoTKiRvxSHqNNruQnCKZ-Cty5LBCzEi2SP4tngGvZ94y323HqjZ956Hsxc4jDfMbl1cwjXgdhfotsKzE1XKina_Vi8TRIYryhGeiRYUOB7VfX3wp1Myg09QFXN-fISOT0iX0AdV0qLFyOX2FDJFuyXku_zgslT5GBmo_n6HLjnJn7kcz8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7S66fHTj-uPcobXrHvRY811geTeE_ZGbNC63YOkc4tnyuJU_EsvW9dlKGkjm6nCl4uusj28V4qOSVH_VaHfciE3X5eWa3yPW5XS3CYl_LVX6Ei7AU-yfRCBNr6Si8E0YjXH6SpOgn7GBUzI2X6h2CwFmuxlSI3DHmNu6x_O53fn-fRgXSVd3vmKe6Po7Ff70UUbPl3AAGVMRY7ylVFrHTARlvZ6uh2HmjSCvt92kSHLLyKKR-vLX8rWeg?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7S66fHTj-uPcobXrHvRY811geTeE_ZGbNC63YOkc4tnyuJU_EsvW9dlKGkjm6nCl4uusj28V4qOSVH_VaHfciE3X5eWa3yPW5XS3CYl_LVX6Ei7AU-yfRCBNr6Si8E0YjXH6SpOgn7GBUzI2X6h2CwFmuxlSI3DHmNu6x_O53fn-fRgXSVd3vmKe6Po7Ff70UUbPl3AAGVMRY7ylVFrHTARlvZ6uh2HmjSCvt92kSHLLyKKR-vLX8rWeg?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21131,8 +21236,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / Gente Del Guano / La Guaniza / GDG / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "Gente del Guano is the faction of the Sinaloa Cartel led by Aureliano Guzmán Loera, “El Guano,” and historically based in the mountainous areas of Badiraguato, Sinaloa, particularly around La Tuna and El Durazno. The group has traditionally relied on its strong family and community connections in the Sierra Madre and has been involved in drug production, trafficking and the protection of clandestine routes and production sites. As of 2026, however, Gente del Guano no longer maintains a clearly i",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4m2Qm1LKxt5SVqICMxlXAlpHK_zS0lpX5ipVujoaib-Ozd_IDVoRIFIFe7SfcwH_QizFLwFkY6UvUDe1IimUupkqbQbccvBVrG1M3Cb2Y-Q1-nxSEw-i9e6qgkR8Gg9u-ux3lxiRm6jI4ATww0YO7eU36TOESDsL_zI7vGMpH4i2K587JaNGcDy609ugbiAqLsexwXBS0jRK7pXLa3xOaTsCpzNdjAvBmPlZsxyqHtJZVbKRu8p41j1DY?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4m2Qm1LKxt5SVqICMxlXAlpHK_zS0lpX5ipVujoaib-Ozd_IDVoRIFIFe7SfcwH_QizFLwFkY6UvUDe1IimUupkqbQbccvBVrG1M3Cb2Y-Q1-nxSEw-i9e6qgkR8Gg9u-ux3lxiRm6jI4ATww0YO7eU36TOESDsL_zI7vGMpH4i2K587JaNGcDy609ugbiAqLsexwXBS0jRK7pXLa3xOaTsCpzNdjAvBmPlZsxyqHtJZVbKRu8p41j1DY?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6p6_JHsqhvG1XTmkFIzeKHDIltAyXCJB_0iERgPqvi7pIrUM6VuR6o2qf6XscOdi1irrkjexDnITWy8CUpDAGSy6Rm8au-KdSSv9GiywcQnwT8MTY1MHKFuklSngHfIjs93cCQQITXGqpvhFnQ6_ipJcW29L66JeiRdYnrO35XVmo1tVFDr9LBKk7q21RIO98PlL4m0gs5vsMwQXdKWh1o-HBA4mSJ3UR2s9phc39o2BGII6s6jOjPwV8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6p6_JHsqhvG1XTmkFIzeKHDIltAyXCJB_0iERgPqvi7pIrUM6VuR6o2qf6XscOdi1irrkjexDnITWy8CUpDAGSy6Rm8au-KdSSv9GiywcQnwT8MTY1MHKFuklSngHfIjs93cCQQITXGqpvhFnQ6_ipJcW29L66JeiRdYnrO35XVmo1tVFDr9LBKk7q21RIO98PlL4m0gs5vsMwQXdKWh1o-HBA4mSJ3UR2s9phc39o2BGII6s6jOjPwV8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21149,8 +21254,8 @@
       "importance": 1,
       "title": "Cártel De Sinaloa / La Chapiza / Los Chapitos (FOREIGN TERRORIST ORGANIZATION)",
       "detail": "The Cártel de Sinaloa (CDS), particularly the Los Chapitos faction, is one of the most prominent and violent groups within Mexico's organized crime landscape. Los Chapitos, also known as La Gente Nueva, represents the faction led by the sons of Joaquín \"El Chapo\" Guzmán, who was once the top leader of the Sinaloa Cartel. This faction has gained notoriety for its expansionist strategies, brutal enforcement tactics, and ongoing rivalries with other cartels, including internal disputes within the S",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4iezIguvCkRrnmuZ9ZM77e4bgeFN_0QnPPXTeHDhvJ4_7GvB7b7OUc_xbcIVlQZ1SRlrL_LJzkLBYBa5j8mi-a07w7yovFXoWqI-qYhNqX7dx_zPWt5oRz5HiEcA-FuGLc4-z4c-YV5YK1QyvUcZbHzvvbZQWttORZQ7qG3QCVE81ZpU_DRASjuNmpilPv6FF97umGshALFIMcFVPtNYXpYh_Vq_TzvvrImL7O7OME-ZCNS7Ae7Jn1FB8?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4iezIguvCkRrnmuZ9ZM77e4bgeFN_0QnPPXTeHDhvJ4_7GvB7b7OUc_xbcIVlQZ1SRlrL_LJzkLBYBa5j8mi-a07w7yovFXoWqI-qYhNqX7dx_zPWt5oRz5HiEcA-FuGLc4-z4c-YV5YK1QyvUcZbHzvvbZQWttORZQ7qG3QCVE81ZpU_DRASjuNmpilPv6FF97umGshALFIMcFVPtNYXpYh_Vq_TzvvrImL7O7OME-ZCNS7Ae7Jn1FB8?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aEFcFaRhdz4NABpeKk6_N0uRd3Cy0aniPOLQ95ps0fSkkPX9qXWpGdHf7PSylx7Y9b8cC0GjCIdooObBYrUgYAPDDgKWm6CqwlchFyFj1eB2KgB1ZkfHv9WBwSVfr9eeYKq72hsnqoSNrrq4Wj6BDD3577cKY2Bu_-Lxtk5VZ1_V9YEHn3oXZbqnNwjzwEVoEhBfdKY6bcxCUkcacFU3r0tmJoiOtpkFtbTKMZ4n5Lgp0XM4D7qEY70Q?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5aEFcFaRhdz4NABpeKk6_N0uRd3Cy0aniPOLQ95ps0fSkkPX9qXWpGdHf7PSylx7Y9b8cC0GjCIdooObBYrUgYAPDDgKWm6CqwlchFyFj1eB2KgB1ZkfHv9WBwSVfr9eeYKq72hsnqoSNrrq4Wj6BDD3577cKY2Bu_-Lxtk5VZ1_V9YEHn3oXZbqnNwjzwEVoEhBfdKY6bcxCUkcacFU3r0tmJoiOtpkFtbTKMZ4n5Lgp0XM4D7qEY70Q?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21203,8 +21308,8 @@
       "importance": 1,
       "title": "Grupo Sombra / Mafia Veracruzana /\nFuerzas Especiales Grupo Sombra (FEGS) / Fuerza Especial Grupo Sombra /Grupo Operativo Sombra (GOS) /Grupo de Reacc",
       "detail": "Most reporting indicates Grupo Sombra formed around 2017 (although some precursor armed cells existed earlier). It expanded rapidly after taking advantage of instability among Gulf Cartel factions and the decline of Los Zetas in northern Veracruz. Its leadership has often been linked to Francisco Mendiola Cisneros, also known as \"Comandante Miranda\" or \"El Mirinda\", though public reporting has occasionally identified different individuals as operational leaders, reflecting the opaque nature of c",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6sv4DX2MhyNtGZuBaWb0dJJOV5kGBFEXV5oxugACKBUFgxuYIcRqfJOEEfOOl6iaalH3BFS5dIpaNCGm_kUhz_VdsO3Aq6m76lxHs3tiZauKwWHUuy2QR7fufNUllkYy-Td1VzGFcy_VlZp0l6mdl5bRPFA2pfoiqI6oXbIoME7OED8BP0yHqzuQgNZYoJuKzTB6iAASOz5DbWo8AjA5S6pT24jFzl1q8Vy46bcvY5-kyzJiSi_VQefjo?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6sv4DX2MhyNtGZuBaWb0dJJOV5kGBFEXV5oxugACKBUFgxuYIcRqfJOEEfOOl6iaalH3BFS5dIpaNCGm_kUhz_VdsO3Aq6m76lxHs3tiZauKwWHUuy2QR7fufNUllkYy-Td1VzGFcy_VlZp0l6mdl5bRPFA2pfoiqI6oXbIoME7OED8BP0yHqzuQgNZYoJuKzTB6iAASOz5DbWo8AjA5S6pT24jFzl1q8Vy46bcvY5-kyzJiSi_VQefjo?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4sSVynHOyHMacDUf1bCTQqRSiOgcTBgZJkR8mEIddwBKtdtYIrxNawgdqbgwOBmDdPjcUTgstzzUi_CY2RkH4HNkEW2iOhGRorYSxGd-rt2ugbfUHNudxG3cr0wph7mU385EAs_JLj5e4dGo8JgnAS2qgvdy0lJyRbYhdwmvJ32x2oh_mnE_F4IhacYnllKr43aYLfhRaNgCqhghDAv6hQXS8Cu0Iu-tn8xSQi5NPna7keFani8G-6voU?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4sSVynHOyHMacDUf1bCTQqRSiOgcTBgZJkR8mEIddwBKtdtYIrxNawgdqbgwOBmDdPjcUTgstzzUi_CY2RkH4HNkEW2iOhGRorYSxGd-rt2ugbfUHNudxG3cr0wph7mU385EAs_JLj5e4dGo8JgnAS2qgvdy0lJyRbYhdwmvJ32x2oh_mnE_F4IhacYnllKr43aYLfhRaNgCqhghDAv6hQXS8Cu0Iu-tn8xSQi5NPna7keFani8G-6voU?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21221,8 +21326,8 @@
       "importance": 1,
       "title": "Cártel Santa Rosa De Lima / CSRL / La Marriza / Los Triangulos “5.7”/ Grupo Eco / Grupo Sombra / Los Talibanes",
       "detail": "The Cártel Santa Rosa de Lima (CSRL) is a criminal organization based in Guanajuato, Mexico. It was founded around 2014 and rose to prominence under the leadership of José Antonio Yépez Ortiz, known as El Marro. The cartel is primarily known for its involvement in fuel theft (huachicol) but has expanded into other criminal activities over the years. Origins and Development Foundation: The CSRL originated in the small community of Santa Rosa de Lima, located in the municipality of Villagrán, Guan",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qGRO6k9eKIHHcZ8p22yQMBXbTzInkLhuQ5icufMF_v03RseCVHfiyaXX9J1xUrkTKZApywPxodiNlsdSBeIlTNH7iszNr-QcWDsLI3T4PXYTZkgpTJbSFRXrRwS_cW31vS7d1G9ezNSxjm6E-LEGPGqsgYxS-d0bqhnN2grsBuGe128vkRdzCzb6PxOocLpCGTnGmgkcwEomhEWNS-GNuoRd03ePlFTYpTa1C6GR1Xjv9-FbP-NiTmYg?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4qGRO6k9eKIHHcZ8p22yQMBXbTzInkLhuQ5icufMF_v03RseCVHfiyaXX9J1xUrkTKZApywPxodiNlsdSBeIlTNH7iszNr-QcWDsLI3T4PXYTZkgpTJbSFRXrRwS_cW31vS7d1G9ezNSxjm6E-LEGPGqsgYxS-d0bqhnN2grsBuGe128vkRdzCzb6PxOocLpCGTnGmgkcwEomhEWNS-GNuoRd03ePlFTYpTa1C6GR1Xjv9-FbP-NiTmYg?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7fRRYpVIcWLwMcapm6U1OBl42T3r4jUzfdQaHZF5rcbiBAPGopvYPAOjrvfYiVMOb1Av7p_dnWRanUI_pgfv6gkniGGqTBmaDnRJc9F8O66UVuBgUq_ac_ssQFxEDX4to-wFH2MJkqSqJFUmj78MvvBSaajEBmn8dt6V07STFpWK2ohIJZmPycGkgukTErmCRpZQWYbvBoNYEpkwLkEesyzlRXmYj2xISMfuwX_KM3lcK8yJO-BP_Pvi4?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7fRRYpVIcWLwMcapm6U1OBl42T3r4jUzfdQaHZF5rcbiBAPGopvYPAOjrvfYiVMOb1Av7p_dnWRanUI_pgfv6gkniGGqTBmaDnRJc9F8O66UVuBgUq_ac_ssQFxEDX4to-wFH2MJkqSqJFUmj78MvvBSaajEBmn8dt6V07STFpWK2ohIJZmPycGkgukTErmCRpZQWYbvBoNYEpkwLkEesyzlRXmYj2xISMfuwX_KM3lcK8yJO-BP_Pvi4?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21275,8 +21380,8 @@
       "importance": 1,
       "title": "La Línea / La Empresa (Independant from La Línea) / Nuevo Cártel de Juárez / New Juárez Cartel",
       "detail": "La Línea is a criminal organization based in northern Mexico, primarily operating as the armed wing of the Juárez Cartel. Known for its extreme violence and control over key drug trafficking routes, La Línea plays a significant role in the ongoing conflict between Mexican cartels for territorial dominance, particularly in the state of Chihuahua. Origins and Relationship with the Juárez Cartel La Línea was originally formed as the enforcement and paramilitary arm of the Juárez Cartel, tasked with",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR59JHjnsRjBaT0K30L0_64ntmqQECoNmN3Pjl8YPZYf_OMfOkIHpQODIDaJyeSjuO7DBvLaQrFfdJc8i0vlWfxyGqS0OW8bxAVrPgPj9770ugB-pGj6tMjah2iSpHdSh2JveJVEhyVaMeJdKoCIKwOb_UQSOOIIg4d0mKBZy2UxDtaIdDFjKXvFjH3OkE4kP5zp-aZIxLe9nyYrl4pLOs3w2UaPr_rG40N7jTIoZSCVkEpH6-m7GkSDMRw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR59JHjnsRjBaT0K30L0_64ntmqQECoNmN3Pjl8YPZYf_OMfOkIHpQODIDaJyeSjuO7DBvLaQrFfdJc8i0vlWfxyGqS0OW8bxAVrPgPj9770ugB-pGj6tMjah2iSpHdSh2JveJVEhyVaMeJdKoCIKwOb_UQSOOIIg4d0mKBZy2UxDtaIdDFjKXvFjH3OkE4kP5zp-aZIxLe9nyYrl4pLOs3w2UaPr_rG40N7jTIoZSCVkEpH6-m7GkSDMRw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5W7fsnxiRZqa89VO6OD-uIzQQcaeRiJwD8jVOTfDpeV3HZUHdEJ6-tIIJcmW_d8a6tpAg3vCFBGproYWL2NDKczfEUZORLP1kp3IGuE-VIvFepkM-2V6RtKyZnTFfzJzu6Lxi4KlaRV_w8muJ20qyjp9bU_W4e1cTPvCPlMz4v-PIkmqOM0OBWSFzdSl4DZeZwfDuKaNEJpW-9RbYaKg6yNNJRiU01NCSuiwT28jqRubydd2uoIVD8Vfc?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5W7fsnxiRZqa89VO6OD-uIzQQcaeRiJwD8jVOTfDpeV3HZUHdEJ6-tIIJcmW_d8a6tpAg3vCFBGproYWL2NDKczfEUZORLP1kp3IGuE-VIvFepkM-2V6RtKyZnTFfzJzu6Lxi4KlaRV_w8muJ20qyjp9bU_W4e1cTPvCPlMz4v-PIkmqOM0OBWSFzdSl4DZeZwfDuKaNEJpW-9RbYaKg6yNNJRiU01NCSuiwT28jqRubydd2uoIVD8Vfc?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21347,8 +21452,8 @@
       "importance": 1,
       "title": "Zetas Vieja Escuela / Old School Zetas / Zetas Vieja Guardia / Comando Armado Zetas / Operativa Sierra Fox",
       "detail": "Zetas Vieja Escuela (Old School Zetas) refers to a faction or group within the Zetas organization that adheres to the traditional methods and leadership style of the original Los Zetas cartel. This faction is known for its violent and ruthless approach to criminal enterprises, particularly in northern Mexico and along the U.S.-Mexico border. Background on Los Zetas Los Zetas was founded in the late 1990s by former Mexican military personnel, many of whom were trained in elite units such as the G",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Acmq3Bw6jUspGPcdvBq_MIN03hn2x1zxFawKN-8hm6SW7LIRkWh4-VlbEAHwX3VnqWkMygwraCtMiipKkzz-H5H4NluqLZ_UJGj9FLd4uNqnGpg8YXqf_-Gni5rV0CN58TPVQhIqCuDsAF1sYnQ9tGKv9DCo-BLoQ5RBx7RMZRpNDfwDbaRi_zJjxAdrWsz7JPUWZqv3Vy4EBtXPOKMTj6h78f_utDoo55oUdQMrDv28U5rjsyF9Wcqw?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5Acmq3Bw6jUspGPcdvBq_MIN03hn2x1zxFawKN-8hm6SW7LIRkWh4-VlbEAHwX3VnqWkMygwraCtMiipKkzz-H5H4NluqLZ_UJGj9FLd4uNqnGpg8YXqf_-Gni5rV0CN58TPVQhIqCuDsAF1sYnQ9tGKv9DCo-BLoQ5RBx7RMZRpNDfwDbaRi_zJjxAdrWsz7JPUWZqv3Vy4EBtXPOKMTj6h78f_utDoo55oUdQMrDv28U5rjsyF9Wcqw?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7APC71NNW16wjztP_zzMQ1dXJXvncab4zn5FCQAeykAOT0myhSzrxMCZWoR06TeOeG6Vo2xGepvVpPnx0J8DhGukRYnrcIQoYHVxd_V-voN7riZZfWLecJUJj2EHxTQeDerul_VJiCaYWUlphqBz_XFTGKD0_4mu2bxvIJCvGgreiJr0FgJQpw6p4z6edEJJxBdtNvN2DwKJe41exfcazSQQmh7PQGe0Y7RAv8iv5xTsRwqUzQaCW9tH8?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7APC71NNW16wjztP_zzMQ1dXJXvncab4zn5FCQAeykAOT0myhSzrxMCZWoR06TeOeG6Vo2xGepvVpPnx0J8DhGukRYnrcIQoYHVxd_V-voN7riZZfWLecJUJj2EHxTQeDerul_VJiCaYWUlphqBz_XFTGKD0_4mu2bxvIJCvGgreiJr0FgJQpw6p4z6edEJJxBdtNvN2DwKJe41exfcazSQQmh7PQGe0Y7RAv8iv5xTsRwqUzQaCW9tH8?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21473,8 +21578,8 @@
       "importance": 1,
       "title": "Los Veneados (CDS MF/MZ) Presence",
       "detail": "This report details the escalating conflict between rival criminal factions in Bahía Tortugas, Mulegé, Baja California Sur, highlighting a violent attack that signals the intensifying battle for control of the region. Key Events: Attack on \"El Chichi\": On February 21 at 12:10 AM, the criminal group “Los Venados” entered El Refugio de Rogelio bar, firing AK-47 rounds at Rogelio Antonio Arce Carrillo, alias “El Chichi”, a municipal employee. A narco-message was left over his body, warning those al",
-      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6jWnfB079bJmOay7bQD67h9OxXndYHsymKClXKc_3-V_iepbHRrjRT4P1Ia_lWy0Iv3k903e92Ac0pg8MAmwr9x5Fk-4kz3mRFEN_2PvQUNsWuODeywgO-Gfz0gc91gYXsr2TOUYGOd3EXNSJQ0hv8cC8-tJd5DaH5Ax7SiCx8-UD6dkX9ouRleSQ18yNk-VePcTbsDc8LK68yEeBmV9-LmB-GtI2HZoHa_b7DmsnJQmOM10WQFk-M10Q?fife=s16383",
-      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6jWnfB079bJmOay7bQD67h9OxXndYHsymKClXKc_3-V_iepbHRrjRT4P1Ia_lWy0Iv3k903e92Ac0pg8MAmwr9x5Fk-4kz3mRFEN_2PvQUNsWuODeywgO-Gfz0gc91gYXsr2TOUYGOd3EXNSJQ0hv8cC8-tJd5DaH5Ax7SiCx8-UD6dkX9ouRleSQ18yNk-VePcTbsDc8LK68yEeBmV9-LmB-GtI2HZoHa_b7DmsnJQmOM10WQFk-M10Q?fife=s16383",
+      "url": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OKcLJiKRD8ScMCjLoHTzpNcMXGjiYhpf0NjfEf3jaL49yMbCYDpdhX1eWrMvQ5GIJHaOM7DongeT4OyiUpmJPf16jdW5HyY80EJ0qn9MMzXh64v39-kGo0xY9EBva_v3Yu-kP1Q9GMiDhjQmkFlEAStnjyQWzV0obGjsjGDb2OQFkhogZHE4_KEt0Ct8ljB5iJePmXj8vR-GWKN4w4SdCg2qhe-lBsIUD9XDnbJymTCpoUluwlKFLA0s?fife=s16383",
+      "sourceUrl": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7OKcLJiKRD8ScMCjLoHTzpNcMXGjiYhpf0NjfEf3jaL49yMbCYDpdhX1eWrMvQ5GIJHaOM7DongeT4OyiUpmJPf16jdW5HyY80EJ0qn9MMzXh64v39-kGo0xY9EBva_v3Yu-kP1Q9GMiDhjQmkFlEAStnjyQWzV0obGjsjGDb2OQFkhogZHE4_KEt0Ct8ljB5iJePmXj8vR-GWKN4w4SdCg2qhe-lBsIUD9XDnbJymTCpoUluwlKFLA0s?fife=s16383",
       "sourceMapUrl": "https://www.google.com/maps/d/viewer?mid=1fssgCzO1J6TnXS2SqlbutbaxbPQFo3I",
       "confidence": "SOURCE MAP REPORT / UNVERIFIED",
       "source": "Cartel Intelligence Map",
@@ -21790,15 +21895,15 @@
       "eventType": "Organized Crime"
     },
     {
-      "lat": 21.9162,
-      "lng": 95.956,
+      "lat": 33.7,
+      "lng": 70,
       "type": "strategic",
       "layer": "cfr",
       "importance": 3,
-      "title": "CFR: Civil War in Myanmar",
-      "detail": "CFR status: Unchanging A protester makes a three-finger salute in front  | U.S. impact: Limited | Type: Civil War | Updated: August 27, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
+      "title": "CFR: Conflict Between Afghanistan and Pakistan",
+      "detail": "CFR status: Unchanging Taliban security personnel stand over a military  | U.S. impact: Limited | Type: Interstate War Terrorism | Updated: August 26, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -21818,29 +21923,15 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
-      "lat": 8,
-      "lng": -66,
+      "lat": 21.9162,
+      "lng": 95.956,
       "type": "strategic",
       "layer": "cfr",
       "importance": 3,
-      "title": "CFR: Instability in Venezuela",
-      "detail": "CFR status: Unchanging A firefighter walks past a destroyed anti-aircraf | U.S. impact: Significant | Type: Interstate War Political Instability | Updated: August 26, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 33.7,
-      "lng": 70,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Conflict Between Afghanistan and Pakistan",
-      "detail": "CFR status: Unchanging Taliban security personnel stand over a military  | U.S. impact: Limited | Type: Interstate War Terrorism | Updated: August 26, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
+      "title": "CFR: Civil War in Myanmar",
+      "detail": "CFR status: Unchanging A protester makes a three-finger salute in front  | U.S. impact: Limited | Type: Civil War | Updated: August 27, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -21860,15 +21951,15 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
-      "lat": 39,
-      "lng": 127,
+      "lat": 23.6345,
+      "lng": -102.5528,
       "type": "strategic",
       "layer": "cfr",
       "importance": 3,
-      "title": "CFR: Confrontation With North Korea",
-      "detail": "CFR status: Unchanging North Korean leader Kim Jong-un speaks during the | U.S. impact: Critical | Type: Interstate War | Updated: August 27, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
+      "title": "CFR: Criminal Violence in Mexico",
+      "detail": "CFR status: Unchanging Smoke billows amid a wave of violence, with torch | U.S. impact: Significant | Type: Criminal Violence | Updated: August 3, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -21888,6 +21979,20 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
+      "lat": 8,
+      "lng": -66,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Instability in Venezuela",
+      "detail": "CFR status: Unchanging A firefighter walks past a destroyed anti-aircraf | U.S. impact: Significant | Type: Interstate War Political Instability | Updated: August 26, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
       "lat": 14.1,
       "lng": -88.9,
       "type": "strategic",
@@ -21897,48 +22002,6 @@
       "detail": "CFR status: Unchanging Soldiers patrol during an anti-drug operation at  | U.S. impact: Significant | Type: Criminal Violence Political Instability | Updated: July 29, 2026",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/violent-instability-northern-triangle",
       "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/violent-instability-northern-triangle",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 23.6345,
-      "lng": -102.5528,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Criminal Violence in Mexico",
-      "detail": "CFR status: Unchanging Smoke billows amid a wave of violence, with torch | U.S. impact: Significant | Type: Criminal Violence | Updated: August 3, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 12,
-      "lng": 114,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Territorial Disputes in the South China Sea",
-      "detail": "CFR status: Unchanging U.S. Navy aircraft carrier USS Theodore Roosevelt | U.S. impact: Critical | Type: Territorial Dispute | Updated: August 27, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 40.3,
-      "lng": 46,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Tensions Between Armenia and Azerbaijan",
-      "detail": "CFR status: Improving Russian service members attend a base closing cere | U.S. impact: Limited | Type: Territorial Dispute | Updated: September 1, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -21986,43 +22049,15 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
-      "lat": 15.5,
-      "lng": 44.2,
+      "lat": 40.3,
+      "lng": 46,
       "type": "strategic",
       "layer": "cfr",
       "importance": 3,
-      "title": "CFR: Conflict in Yemen and the Red Sea",
-      "detail": "CFR status: Worsening Houthi military spokesman Yahya Sarea delivers a s | U.S. impact: Significant | Type: Civil War Terrorism | Updated: August 3, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 33.85,
-      "lng": 35.85,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Conflict With Hezbollah in Lebanon",
-      "detail": "CFR status: Unchanging A woman walks on the rubble of a damaged site in  | U.S. impact: Significant | Type: Interstate War Terrorism | Updated: August 3, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 33.2232,
-      "lng": 43.6793,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Instability in Iraq",
-      "detail": "CFR status: Unchanging A member loyal to the Islamic State waves an Isla | U.S. impact: Limited | Type: Political Instability Terrorism | Updated: August 3, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
+      "title": "CFR: Tensions Between Armenia and Azerbaijan",
+      "detail": "CFR status: Improving Russian service members attend a base closing cere | U.S. impact: Limited | Type: Territorial Dispute | Updated: September 1, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -22042,6 +22077,62 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
+      "lat": 39,
+      "lng": 127,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Confrontation With North Korea",
+      "detail": "CFR status: Unchanging North Korean leader Kim Jong-un speaks during the | U.S. impact: Critical | Type: Interstate War | Updated: August 27, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": 12,
+      "lng": 114,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Territorial Disputes in the South China Sea",
+      "detail": "CFR status: Unchanging U.S. Navy aircraft carrier USS Theodore Roosevelt | U.S. impact: Critical | Type: Territorial Dispute | Updated: August 27, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": 33.85,
+      "lng": 35.85,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Conflict With Hezbollah in Lebanon",
+      "detail": "CFR status: Unchanging A woman walks on the rubble of a damaged site in  | U.S. impact: Significant | Type: Interstate War Terrorism | Updated: August 3, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": 15.5,
+      "lng": 44.2,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Conflict in Yemen and the Red Sea",
+      "detail": "CFR status: Worsening Houthi military spokesman Yahya Sarea delivers a s | U.S. impact: Significant | Type: Civil War Terrorism | Updated: August 3, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
       "lat": 15.5,
       "lng": 32.5,
       "type": "strategic",
@@ -22051,6 +22142,20 @@
       "detail": "CFR status: Worsening A Sudanese Armed Forces soldier walking on the Sha | U.S. impact: Limited | Type: Civil War | Updated: August 17, 2026",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/power-struggle-sudan",
       "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/power-struggle-sudan",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": 33.2232,
+      "lng": 43.6793,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Instability in Iraq",
+      "detail": "CFR status: Unchanging A member loyal to the Islamic State waves an Isla | U.S. impact: Limited | Type: Political Instability Terrorism | Updated: August 3, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -22084,48 +22189,6 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
-      "lat": -2.9,
-      "lng": 23.7,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Conflict in the Democratic Republic of Congo",
-      "detail": "CFR status: Worsening M23 soldiers are seen at the Stade de l’Unite’ in  | U.S. impact: Limited | Type: Political Instability | Updated: August 3, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 2,
-      "lng": 45.3,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Conflict With Al-Shabaab in Somalia",
-      "detail": "CFR status: Unchanging Women walk next to a destroyed house and the wrec | U.S. impact: Limited | Type: Political Instability Terrorism | Updated: July 30, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
-      "lat": 6.9,
-      "lng": 31.3,
-      "type": "strategic",
-      "layer": "cfr",
-      "importance": 3,
-      "title": "CFR: Instability in South Sudan",
-      "detail": "CFR status: Worsening South Sudan’s suspended First Vice President Riek  | U.S. impact: Limited | Type: Political Instability | Updated: July 29, 2026",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
-      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
-      "source": "Council on Foreign Relations — Global Conflict Tracker",
-      "eventType": "CONFLICT ASSESSMENT",
-      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
-    },
-    {
       "lat": 9.1,
       "lng": 40.5,
       "type": "strategic",
@@ -22135,6 +22198,20 @@
       "detail": "CFR status: Worsening A man carries a mattress into the Tsehaye primary  | U.S. impact: Limited | Type: Political Instability | Updated: August 3, 2026",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ethiopia",
       "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ethiopia",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": -2.9,
+      "lng": 23.7,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Conflict in the Democratic Republic of Congo",
+      "detail": "CFR status: Worsening M23 soldiers are seen at the Stade de l’Unite’ in  | U.S. impact: Limited | Type: Political Instability | Updated: August 3, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -22154,6 +22231,20 @@
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
     },
     {
+      "lat": 2,
+      "lng": 45.3,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Conflict With Al-Shabaab in Somalia",
+      "detail": "CFR status: Unchanging Women walk next to a destroyed house and the wrec | U.S. impact: Limited | Type: Political Instability Terrorism | Updated: July 30, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
       "lat": 15,
       "lng": 0,
       "type": "strategic",
@@ -22163,6 +22254,20 @@
       "detail": "CFR status: Worsening A framed portrait and the coffin of Malian Defence | U.S. impact: Limited | Type: Political Instability Terrorism | Updated: July 29, 2026",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/violent-extremism-sahel",
       "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/violent-extremism-sahel",
+      "source": "Council on Foreign Relations — Global Conflict Tracker",
+      "eventType": "CONFLICT ASSESSMENT",
+      "confidence": "CFR ASSESSMENT / REFERENCE POINT"
+    },
+    {
+      "lat": 6.9,
+      "lng": 31.3,
+      "type": "strategic",
+      "layer": "cfr",
+      "importance": 3,
+      "title": "CFR: Instability in South Sudan",
+      "detail": "CFR status: Worsening South Sudan’s suspended First Vice President Riek  | U.S. impact: Limited | Type: Political Instability | Updated: July 29, 2026",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
+      "sourceUrl": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
       "source": "Council on Foreign Relations — Global Conflict Tracker",
       "eventType": "CONFLICT ASSESSMENT",
       "confidence": "CFR ASSESSMENT / REFERENCE POINT"
@@ -22661,141 +22766,6 @@
       "region": "Haiti",
       "eventType": "ORGANIZED CRIME NODE",
       "confidence": "REFERENCE NODE / NOT AN INCIDENT"
-    },
-    {
-      "lat": 18.22,
-      "lng": -66.59,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Operation Southern Spear — Puerto Rico / Caribbean staging region",
-      "detail": "Regional reference node: SOUTHCOM documents Southern Spear maritime activity and Marine/Sailor forces operating in the Caribbean theater. Not an exact incident coordinate.",
-      "url": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
-      "sourceUrl": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Puerto Rico / Caribbean",
-      "eventType": "COUNTER-CARTEL THEATER",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 14.0,
-      "lng": -70.0,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Operation Southern Spear — Caribbean maritime theater",
-      "detail": "Regional reference node for documented Southern Spear maritime interdiction and lethal-strike activity. Not an exact incident coordinate.",
-      "url": "https://www.southcom.mil/News/PressReleases/Article/4583027/lethal-kinetic-strike-august-25-2026/",
-      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4583027/lethal-kinetic-strike-august-25-2026/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Caribbean Sea",
-      "eventType": "COUNTER-CARTEL THEATER",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 0.0,
-      "lng": -92.0,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Operation Southern Spear — Eastern Pacific maritime theater",
-      "detail": "Regional reference node for documented Aug. 23 and Sept. 2–3 operations on narco-trafficking routes. Not an exact incident coordinate.",
-      "url": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
-      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Eastern Pacific",
-      "eventType": "COUNTER-CARTEL THEATER",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": -0.95,
-      "lng": -80.7,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Ecuador — Los Choneros / U.S. counter-cartel link",
-      "detail": "SOUTHCOM reports U.S.-Ecuador coordination and an Eastern Pacific interdiction of a refueling vessel supporting Los Choneros.",
-      "url": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
-      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4591068/interdiction-of-narco-terrorist-refueling-vessel-sept-3-2026/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Ecuador",
-      "eventType": "COUNTER-CARTEL NODE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 1.4,
-      "lng": -78.9,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Colombia-Ecuador border — A3C corridor",
-      "detail": "SOUTHCOM documents a trilateral A3C meeting and joint strategy in a cocaine-trafficking corridor.",
-      "url": "https://www.southcom.mil/News/PressReleases/Article/4585871/gen-donovan-visits-colombia/",
-      "sourceUrl": "https://www.southcom.mil/News/PressReleases/Article/4585871/gen-donovan-visits-colombia/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Colombia / Ecuador",
-      "eventType": "COUNTER-CARTEL NODE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 19.43,
-      "lng": -99.13,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Mexico — major cartel network node",
-      "detail": "Reference node for Southern Spear reporting on Mexico-based organizations including Sinaloa and CJNG and their U.S. reach. Not an incident coordinate.",
-      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Mexico",
-      "eventType": "CARTEL NETWORK NODE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 6.24,
-      "lng": -75.58,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Colombia — Clan del Golfo / trafficking network node",
-      "detail": "Reference node for Southern Spear reporting on Colombia-based Clan del Golfo and cocaine routes toward Central America, Mexico and the United States.",
-      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Colombia",
-      "eventType": "CARTEL NETWORK NODE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 10.48,
-      "lng": -66.9,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "Venezuela — trafficking / maritime pressure node",
-      "detail": "Reference node for Southern Spear reporting on Venezuela-based trafficking organizations and Caribbean maritime activity. Not an incident coordinate.",
-      "url": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "sourceUrl": "https://media.defense.gov/2026/May/21/2003935694/-1/-1/1/OSS_Q2_MAR2026_FINAL_508.pdf",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "Venezuela",
-      "eventType": "COUNTER-CARTEL NODE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
-    },
-    {
-      "lat": 39.0,
-      "lng": -98.5,
-      "type": "strategic",
-      "layer": "counter-cartel",
-      "importance": 3,
-      "title": "United States — homeland exposure / destination",
-      "detail": "Reference node: Southern Spear reporting frames the campaign around protecting the U.S. homeland and disrupting trafficking routes reaching American communities. Not an incident coordinate.",
-      "url": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
-      "sourceUrl": "https://www.southcom.mil/MEDIA/NEWS-ARTICLES/Article/4589266/officials-provide-progress-update-on-major-operation-1-year-after-its-launch/",
-      "source": "Operation Southern Spear / SOUTHCOM",
-      "region": "United States",
-      "eventType": "HOMELAND EXPOSURE",
-      "confidence": "DOCUMENTED THEATER / NOT AN EXACT INCIDENT COORDINATE"
     }
   ],
   "social": [
@@ -23357,7 +23327,7 @@
       "sourceDomain": "nepalnational.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.4
+      "politicalSignalScore": 46.2
     },
     {
       "id": "318a0b6aa7e1",
@@ -23652,7 +23622,7 @@
       "sourceDomain": "ksl.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 61.4
+      "politicalSignalScore": 61.2
     },
     {
       "id": "f4ff5802b589",
@@ -24173,7 +24143,7 @@
       "sourceDomain": "radaronline.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "2661806a2883",
@@ -24354,7 +24324,7 @@
       "sourceDomain": "newindianexpress.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "516ca2521ec2",
@@ -24438,7 +24408,7 @@
       "sourceDomain": "operamundi.uol.com.br",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "6eade81744a2",
@@ -24539,7 +24509,7 @@
       "sourceDomain": "en.apa.az",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "523f8507ca92",
@@ -24716,7 +24686,7 @@
       "sourceDomain": "cubaheadlines.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "9f6dd418c78b",
@@ -24879,7 +24849,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.1
+      "politicalSignalScore": 47.9
     },
     {
       "id": "3cf34f44e938",
@@ -25020,7 +24990,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.7
+      "politicalSignalScore": 42.6
     },
     {
       "id": "15ce336f5a0b",
@@ -25127,7 +25097,7 @@
       "corroboratingSources": [
         "edition.cnn.com"
       ],
-      "politicalSignalScore": 59.3
+      "politicalSignalScore": 59.1
     },
     {
       "id": "523c02787578",
@@ -25158,7 +25128,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 59.3
+      "politicalSignalScore": 59.1
     },
     {
       "id": "aed74e24849c",
@@ -25246,7 +25216,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "a9bfe8d42465",
@@ -25311,7 +25281,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.9
     },
     {
       "id": "9e170dad3c57",
@@ -25380,7 +25350,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.9
+      "politicalSignalScore": 45.7
     },
     {
       "id": "1bc15769cbe8",
@@ -25430,7 +25400,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.7
+      "politicalSignalScore": 45.5
     },
     {
       "id": "76c7b83aa754",
@@ -25631,7 +25601,7 @@
       "sourceDomain": "calcuttanews.net",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.9
+      "politicalSignalScore": 43.7
     },
     {
       "id": "950c7cdb83e6",
@@ -25889,7 +25859,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.8
+      "politicalSignalScore": 42.6
     },
     {
       "id": "93a852763d39",
@@ -26051,7 +26021,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "a6f3541920d4",
@@ -26078,7 +26048,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.1
+      "politicalSignalScore": 37.9
     },
     {
       "id": "a4ffbda2799e",
@@ -26181,7 +26151,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "0bda41ca8cf7",
@@ -26208,7 +26178,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "a2db6e5ae77c",
@@ -26258,7 +26228,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.3
+      "politicalSignalScore": 43.1
     },
     {
       "id": "efbcb6c9699b",
@@ -26385,7 +26355,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.7
+      "politicalSignalScore": 42.5
     },
     {
       "id": "716cecde0e69",
@@ -26433,7 +26403,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.5
+      "politicalSignalScore": 38.3
     },
     {
       "id": "b8b22eb40a3b",
@@ -26500,7 +26470,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "54920728e0d0",
@@ -26529,7 +26499,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "fa0aeb30aa94",
@@ -26689,7 +26659,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.8
+      "politicalSignalScore": 35.6
     },
     {
       "id": "de32b93c3708",
@@ -26735,7 +26705,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "6358bc9c2f6b",
@@ -26745,6 +26715,25 @@
       "summary": "Netanyahu says Iran will face severe response if Tehran attacks Israel Business Upturn",
       "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORlZSWnRob2ZlMXkwY2tZRUIwSld6NVJVdUxvNlZUQ1JkdktWRE0yMlBaTDdjMWZSRU1fUnozd29GUUtIN01BZVJpX2JEQnp6WUkzNlBTdjYtMHUzZjl1b1NGNnhOMlIxX3JfVFJteHNwb3g5bm5hM2lfN1kxWE9ubENwSVdDSzllb0FuUmU2bnVCUEc0M2Y5c2hCX2FENVI0YjNxM1BCMWtNZ0E0NzZZN2syandVSkhWYkZtcFU5Sm55OC11ZzVZSzFwdw?oc=5",
       "time": "2026-09-05T12:06:27+00:00",
+      "tag": "Breaking",
+      "confidence": "DEVELOPING",
+      "breaking": true,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "google_news_south_asia_security",
+        "sourceUrl": "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "general"
+    },
+    {
+      "id": "96701ff68ad6",
+      "sourceLabel": "Google News — South Asia Security",
+      "sourceType": "south-asia",
+      "title": "Israeli PM Netanyahu says Iran will face severe response if Tehran attacks Israel - Business Upturn",
+      "summary": "Israeli PM Netanyahu says Iran will face severe response if Tehran attacks Israel Business Upturn",
+      "source": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOVHU2M2RQXzhOMjFySDJNUGFKUE9iUnNIRUo1dHN1V3dXZEM4bmxGZ3duTjFhaFhkdkh2VzN4TFlfQVdlRE82QURGdXZOOS0xUTYzVlVZQ21aY1Ywd2NjZWJ3NUp5dXNYZ1BhRXpwblJOSDhtUmNOWkdqNk9WM3l0Q2tOeGJwQ2x4azVVc2FfWFVabUhpMkhNZy1ZS0Q1MG9ib3BNOUVIeHlyeDBjU0lyVVd2QW82cENoYXk3YTBqTnl4d3VqTVE?oc=5",
+      "time": "2026-09-05T12:06:02+00:00",
       "tag": "Breaking",
       "confidence": "DEVELOPING",
       "breaking": true,
@@ -26783,7 +26772,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "fe5d76043ac4",
@@ -27023,7 +27012,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "b9be78348d92",
@@ -27071,7 +27060,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.2
+      "politicalSignalScore": 35.0
     },
     {
       "id": "4dd59d8fd0de",
@@ -27100,7 +27089,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.2
+      "politicalSignalScore": 35.0
     },
     {
       "id": "12b88b5f2d53",
@@ -27205,7 +27194,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.0
+      "politicalSignalScore": 36.8
     },
     {
       "id": "276f08e2c85c",
@@ -27441,7 +27430,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.1
+      "politicalSignalScore": 33.9
     },
     {
       "id": "7527636d0a56",
@@ -27659,7 +27648,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "94dd0886c6bd",
@@ -27689,7 +27678,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 50.6
+      "politicalSignalScore": 50.4
     },
     {
       "id": "f515b07c322d",
@@ -28004,7 +27993,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "e3e4d614dc64",
@@ -28184,7 +28173,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 47.4
+      "politicalSignalScore": 47.2
     },
     {
       "id": "153960471704",
@@ -28211,7 +28200,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.4
+      "politicalSignalScore": 32.2
     },
     {
       "id": "f5c24c2d7f32",
@@ -28290,6 +28279,35 @@
       "intelligenceLayer": "general"
     },
     {
+      "id": "82a56ba078ac",
+      "sourceLabel": "Google News — Iran Israel",
+      "sourceType": "middle-east-conflict",
+      "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+      "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times",
+      "source": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQY3R6dl9GYU14VHBwZ0hLS0hiZ3lKTGh1cGhOdmdZNkFvVk1nT3RJcDkwNHNPcEJRc0I1UUhEcU9lUGZkS3BhQXp3SXdXcTdaQ05Lc2hocU9seTcxQ1FrZ09VRG1pVldBYVRXdWo5Z0QtN2hYYVowdUJ2ZVZmYWJRbFNDNHlPQnZlYm1NWExKWHNyX1RkNmZ0RUVBdEI?oc=5",
+      "time": "2026-09-05T08:11:42+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "google_news_iran_israel",
+        "sourceUrl": "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [
+        "Iran"
+      ],
+      "politicalTopics": [
+        "Foreign Policy"
+      ],
+      "sourceDomain": "news.google.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 33.7
+    },
+    {
       "id": "6b83d22d0166",
       "sourceLabel": "Al Jazeera",
       "sourceType": "international",
@@ -28334,7 +28352,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.7
+      "politicalSignalScore": 46.5
     },
     {
       "id": "4b5f5cefe77f",
@@ -28667,7 +28685,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.3
+      "politicalSignalScore": 32.1
     },
     {
       "id": "fc404b940103",
@@ -28696,7 +28714,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.2
+      "politicalSignalScore": 32.0
     },
     {
       "id": "6bc180934c01",
@@ -28858,7 +28876,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.2
+      "politicalSignalScore": 31.0
     },
     {
       "id": "c7f28a4e4008",
@@ -28954,44 +28972,6 @@
         "feedFormat": "rss"
       },
       "intelligenceLayer": "general"
-    },
-    {
-      "id": "8536527568c8",
-      "sourceLabel": "Google News — SOUTHCOM",
-      "sourceType": "southcom-news",
-      "title": "US sinks third Ecuador drug gang boat in a week - 24 News HD",
-      "summary": "US sinks third Ecuador drug gang boat in a week 24 News HD",
-      "source": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWkVfZ2RzTTY5VlBacDlna0NwTEV0YVdsbnRkaVhUcDVwNldhelhvWTJUb0tYcEZyQ0Z3YURzV001cDBObl9SVzdKUFQ1NGN5WTFXN2lDcXFJTGZyUGNJaW9mS1F0TTN3OGd0VTJDQm1uMTJSZHRacEFUMmZENWtMWWwwSGrSAZQBQVVfeXFMTnVTbkdlWmxERl80YkxrZVVGMGhlNGR5OFFhNU5BdnM3UmhXRFhKc3J2NkMyaktQYndMeGRmUWhLN1VQcHZPWWJVMHdBR2dFZTB5N05TTkpabDhxZXhPdWtQSm9QWUZLR0pOQ3pEVnpFbEljdDdpQjZrT2hLcnNIb2czZ1RwTGZGUUt2YjNQQmFZOUNOVQ?oc=5",
-      "time": "2026-09-05T04:34:51+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "google_news_southcom",
-        "sourceUrl": "https://news.google.com/rss/search?q=SOUTHCOM+US+Southern+Command+military+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
-    },
-    {
-      "id": "3662412ace3d",
-      "sourceLabel": "Al Jazeera",
-      "sourceType": "international",
-      "title": "‘I could not save the rest’: Hero nurse remembers Pakistan’s nursery fire",
-      "summary": "The PIMS nurse who saved one newborn recalls the fire, the screams and the 14 babies she could not save.",
-      "source": "https://www.aljazeera.com/features/2026/9/5/i-could-not-save-the-rest-hero-nurse-remembers-pakistans-nursery-fire?traffic_source=rss",
-      "time": "2026-09-05T04:29:33+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "al_jazeera",
-        "sourceUrl": "https://www.aljazeera.com/xml/rss/all.xml",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "general"
     }
   ],
   "sourceHealth": [
@@ -29000,9 +28980,9 @@
       "type": "international",
       "status": "online",
       "label": "ONLINE",
-      "articles": 40,
+      "articles": 39,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29012,7 +28992,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29022,7 +29002,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29032,7 +29012,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29042,7 +29022,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29052,7 +29032,7 @@
       "label": "ONLINE",
       "articles": 3,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29062,7 +29042,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29072,7 +29052,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29082,7 +29062,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29092,7 +29072,7 @@
       "label": "ONLINE",
       "articles": 9,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29102,7 +29082,7 @@
       "label": "ONLINE",
       "articles": 17,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29112,7 +29092,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29122,7 +29102,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29132,7 +29112,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29142,7 +29122,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29152,7 +29132,7 @@
       "label": "ONLINE",
       "articles": 2,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29162,7 +29142,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29172,7 +29152,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29182,7 +29162,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29192,7 +29172,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29202,7 +29182,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29212,7 +29192,7 @@
       "label": "ONLINE",
       "articles": 1,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29222,7 +29202,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29232,7 +29212,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29240,9 +29220,9 @@
       "type": "middle-east-conflict",
       "status": "online",
       "label": "ONLINE",
-      "articles": 29,
+      "articles": 30,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29252,7 +29232,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29262,7 +29242,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29272,7 +29252,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29282,7 +29262,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29292,7 +29272,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29302,7 +29282,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29312,7 +29292,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29320,9 +29300,9 @@
       "type": "southcom-news",
       "status": "online",
       "label": "ONLINE",
-      "articles": 2,
+      "articles": 1,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29332,7 +29312,7 @@
       "label": "ONLINE",
       "articles": 1,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29342,7 +29322,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29352,7 +29332,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29362,7 +29342,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29370,9 +29350,9 @@
       "type": "south-asia",
       "status": "online",
       "label": "ONLINE",
-      "articles": 6,
+      "articles": 7,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29382,7 +29362,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29392,7 +29372,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29402,7 +29382,7 @@
       "label": "ONLINE",
       "articles": 14,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29412,7 +29392,7 @@
       "label": "ONLINE",
       "articles": 35,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29422,7 +29402,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29432,7 +29412,7 @@
       "label": "ONLINE",
       "articles": 1,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29442,7 +29422,7 @@
       "label": "ONLINE",
       "articles": 5,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29452,7 +29432,7 @@
       "label": "ONLINE",
       "articles": 16,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29462,7 +29442,7 @@
       "label": "ONLINE",
       "articles": 1,
       "domains": 1,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29472,7 +29452,7 @@
       "label": "ONLINE",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29482,7 +29462,7 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29492,7 +29472,7 @@
       "label": "UNKNOWN",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     },
     {
@@ -29502,13 +29482,13 @@
       "label": "FAILED",
       "articles": 0,
       "domains": 0,
-      "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+      "lastChecked": "2026-09-05T22:21:32.217396+00:00",
       "error": ""
     }
   ],
   "osintMaps": {
     "version": 4,
-    "updatedAt": "2026-09-05T22:09:12.714291+00:00",
+    "updatedAt": "2026-09-05T22:21:27.897264+00:00",
     "sources": [
       {
         "name": "Global War News Map",
@@ -29528,7 +29508,7 @@
     "verification": "SOURCE MAP REPORT / UNVERIFIED"
   },
   "marketData": {
-    "updatedAt": "2026-09-05T22:08:56.930958+00:00",
+    "updatedAt": "2026-09-05T22:21:12.657066+00:00",
     "source": "Yahoo Finance public chart (1m)",
     "provider": "Yahoo Finance",
     "noApiKey": true,
@@ -29550,7 +29530,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.663822+00:00",
+        "checkedAt": "2026-09-05T22:21:12.435361+00:00",
         "name": "S&P 500",
         "symbol": "^GSPC",
         "type": "index",
@@ -29572,7 +29552,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.664631+00:00",
+        "checkedAt": "2026-09-05T22:21:12.410131+00:00",
         "name": "Dow Jones",
         "symbol": "^DJI",
         "type": "index",
@@ -29594,7 +29574,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.667756+00:00",
+        "checkedAt": "2026-09-05T22:21:12.378643+00:00",
         "name": "Nasdaq Composite",
         "symbol": "^IXIC",
         "type": "index",
@@ -29616,7 +29596,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.800964+00:00",
+        "checkedAt": "2026-09-05T22:21:12.437290+00:00",
         "name": "Nasdaq 100",
         "symbol": "^NDX",
         "type": "index",
@@ -29638,7 +29618,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.664262+00:00",
+        "checkedAt": "2026-09-05T22:21:12.420302+00:00",
         "name": "Russell 2000",
         "symbol": "^RUT",
         "type": "index",
@@ -29660,7 +29640,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.700716+00:00",
+        "checkedAt": "2026-09-05T22:21:12.510622+00:00",
         "name": "VIX",
         "symbol": "^VIX",
         "type": "volatility",
@@ -29682,7 +29662,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.663375+00:00",
+        "checkedAt": "2026-09-05T22:21:12.472259+00:00",
         "name": "WTI Crude",
         "symbol": "CL=F",
         "type": "commodity",
@@ -29704,7 +29684,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.680639+00:00",
+        "checkedAt": "2026-09-05T22:21:12.439894+00:00",
         "name": "Gold",
         "symbol": "GC=F",
         "type": "commodity",
@@ -29713,11 +29693,11 @@
         "status": "closed"
       },
       {
-        "price": 79886.2421875,
+        "price": 79856.6328125,
         "previousClose": 79676.33,
-        "change": 209.91218749999825,
-        "changePercent": 0.26345614500567266,
-        "marketTime": "2026-09-05T22:08:51+00:00",
+        "change": 180.30281249999825,
+        "changePercent": 0.2262940731582369,
+        "marketTime": "2026-09-05T22:21:07+00:00",
         "marketState": "",
         "sessionStatus": "live",
         "currency": "USD",
@@ -29726,7 +29706,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.766268+00:00",
+        "checkedAt": "2026-09-05T22:21:12.498238+00:00",
         "name": "Bitcoin",
         "symbol": "BTC-USD",
         "type": "crypto",
@@ -29748,7 +29728,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.751406+00:00",
+        "checkedAt": "2026-09-05T22:21:12.538299+00:00",
         "name": "EUR / USD",
         "symbol": "EURUSD=X",
         "type": "fx",
@@ -29770,7 +29750,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.748521+00:00",
+        "checkedAt": "2026-09-05T22:21:12.514337+00:00",
         "name": "USD / JPY",
         "symbol": "JPY=X",
         "type": "fx",
@@ -29792,7 +29772,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.736642+00:00",
+        "checkedAt": "2026-09-05T22:21:12.508416+00:00",
         "name": "U.S. 10Y Yield",
         "symbol": "^TNX",
         "type": "rates",
@@ -29814,7 +29794,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.752137+00:00",
+        "checkedAt": "2026-09-05T22:21:12.519912+00:00",
         "name": "FTSE 100",
         "symbol": "^FTSE",
         "type": "index",
@@ -29836,7 +29816,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.744763+00:00",
+        "checkedAt": "2026-09-05T22:21:12.518833+00:00",
         "name": "DAX",
         "symbol": "^GDAXI",
         "type": "index",
@@ -29858,7 +29838,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.786800+00:00",
+        "checkedAt": "2026-09-05T22:21:12.521530+00:00",
         "name": "Nikkei 225",
         "symbol": "^N225",
         "type": "index",
@@ -29880,7 +29860,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.828199+00:00",
+        "checkedAt": "2026-09-05T22:21:12.555338+00:00",
         "name": "Shanghai Composite",
         "symbol": "000001.SS",
         "type": "index",
@@ -29902,7 +29882,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.849049+00:00",
+        "checkedAt": "2026-09-05T22:21:12.593047+00:00",
         "name": "Hang Seng",
         "symbol": "^HSI",
         "type": "index",
@@ -29924,7 +29904,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.806547+00:00",
+        "checkedAt": "2026-09-05T22:21:12.567212+00:00",
         "name": "Nifty 50",
         "symbol": "^NSEI",
         "type": "index",
@@ -29946,7 +29926,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.806855+00:00",
+        "checkedAt": "2026-09-05T22:21:12.568030+00:00",
         "name": "Sensex",
         "symbol": "^BSESN",
         "type": "index",
@@ -29968,7 +29948,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.855951+00:00",
+        "checkedAt": "2026-09-05T22:21:12.597123+00:00",
         "name": "Apple",
         "symbol": "AAPL",
         "type": "equity",
@@ -29990,7 +29970,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.845848+00:00",
+        "checkedAt": "2026-09-05T22:21:12.577117+00:00",
         "name": "Microsoft",
         "symbol": "MSFT",
         "type": "equity",
@@ -30012,7 +29992,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.891944+00:00",
+        "checkedAt": "2026-09-05T22:21:12.579214+00:00",
         "name": "NVIDIA",
         "symbol": "NVDA",
         "type": "equity",
@@ -30034,7 +30014,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.862635+00:00",
+        "checkedAt": "2026-09-05T22:21:12.594621+00:00",
         "name": "Amazon",
         "symbol": "AMZN",
         "type": "equity",
@@ -30056,7 +30036,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.864023+00:00",
+        "checkedAt": "2026-09-05T22:21:12.656415+00:00",
         "name": "Alphabet",
         "symbol": "GOOGL",
         "type": "equity",
@@ -30078,7 +30058,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.859239+00:00",
+        "checkedAt": "2026-09-05T22:21:12.645553+00:00",
         "name": "Meta",
         "symbol": "META",
         "type": "equity",
@@ -30100,7 +30080,7 @@
         "interval": "1m",
         "provider": "Yahoo Finance",
         "quoteSource": "latest intraday candle",
-        "checkedAt": "2026-09-05T22:08:56.930201+00:00",
+        "checkedAt": "2026-09-05T22:21:12.648925+00:00",
         "name": "Tesla",
         "symbol": "TSLA",
         "type": "equity",
@@ -30117,20 +30097,20 @@
   "liveDatabase": {
     "enabled": true,
     "articleCount": 500,
-    "lastExport": "2026-09-05T22:08:43.650840+00:00",
+    "lastExport": "2026-09-05T22:20:57.791258+00:00",
     "retentionDays": 7,
-    "newMergedThisRun": 315
+    "newMergedThisRun": 317
   },
   "breakingNews": {
-    "updatedAt": "2026-09-05T22:09:09.251644Z",
+    "updatedAt": "2026-09-05T22:21:24.461443Z",
     "window": "15min",
     "provider": "GDELT DOC 2.0",
     "sourceType": "open-data",
     "articles": [],
     "errors": [
       "HTTPError: HTTP Error 429: Too Many Requests",
-      "ParseError: syntax error: line 1, column 0",
-      "ParseError: syntax error: line 1, column 0",
+      "HTTPError: HTTP Error 429: Too Many Requests",
+      "HTTPError: HTTP Error 429: Too Many Requests",
       "HTTPError: HTTP Error 429: Too Many Requests"
     ]
   },
@@ -30877,6 +30857,25 @@
       "intelligenceLayer": "world-politics"
     },
     {
+      "id": "82a56ba078ac",
+      "sourceLabel": "Google News — Iran Israel",
+      "sourceType": "middle-east-conflict",
+      "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+      "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times",
+      "source": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQY3R6dl9GYU14VHBwZ0hLS0hiZ3lKTGh1cGhOdmdZNkFvVk1nT3RJcDkwNHNPcEJRc0I1UUhEcU9lUGZkS3BhQXp3SXdXcTdaQ05Lc2hocU9seTcxQ1FrZ09VRG1pVldBYVRXdWo5Z0QtN2hYYVowdUJ2ZVZmYWJRbFNDNHlPQnZlYm1NWExKWHNyX1RkNmZ0RUVBdEI?oc=5",
+      "time": "2026-09-05T08:11:42+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "google_news_iran_israel",
+        "sourceUrl": "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics"
+    },
+    {
       "id": "89e9fa1c0031",
       "sourceLabel": "Google News — Ukraine War",
       "sourceType": "europe-conflict",
@@ -30983,7 +30982,7 @@
       "corroboratingSources": [
         "edition.cnn.com"
       ],
-      "politicalSignalScore": 59.3
+      "politicalSignalScore": 59.1
     },
     {
       "id": "523c02787578",
@@ -31014,7 +31013,7 @@
       "corroboratingSources": [
         "cnn.com"
       ],
-      "politicalSignalScore": 59.3
+      "politicalSignalScore": 59.1
     },
     {
       "id": "b21f639ae3d5",
@@ -31043,7 +31042,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "54920728e0d0",
@@ -31072,7 +31071,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 51.3
+      "politicalSignalScore": 51.1
     },
     {
       "id": "94dd0886c6bd",
@@ -31102,7 +31101,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 50.6
+      "politicalSignalScore": 50.4
     },
     {
       "id": "9f6eb39126b0",
@@ -31132,7 +31131,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 48.1
+      "politicalSignalScore": 47.9
     },
     {
       "id": "939a6dce2b3a",
@@ -31160,7 +31159,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 47.4
+      "politicalSignalScore": 47.2
     },
     {
       "id": "89e9fa1c0031",
@@ -31188,7 +31187,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.7
+      "politicalSignalScore": 46.5
     },
     {
       "id": "86ae524fe80c",
@@ -31217,7 +31216,7 @@
       "sourceDomain": "newindianexpress.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "303732c27dfd",
@@ -31248,7 +31247,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.2
+      "politicalSignalScore": 46.0
     },
     {
       "id": "fd49c32d22e0",
@@ -31279,7 +31278,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.9
+      "politicalSignalScore": 45.7
     },
     {
       "id": "7e2852afa2d2",
@@ -31310,7 +31309,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 45.7
+      "politicalSignalScore": 45.5
     },
     {
       "id": "4de7b0e09242",
@@ -31337,7 +31336,7 @@
       "sourceDomain": "radaronline.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "028ad33b91b4",
@@ -31364,7 +31363,7 @@
       "sourceDomain": "operamundi.uol.com.br",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "f177a743580a",
@@ -31394,7 +31393,7 @@
       "sourceDomain": "calcuttanews.net",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.9
+      "politicalSignalScore": 43.7
     },
     {
       "id": "b01b9cd2ecd7",
@@ -31425,7 +31424,34 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 43.3
+      "politicalSignalScore": 43.1
+    },
+    {
+      "id": "b20f4efe1a8c",
+      "sourceLabel": "CNN Politics — GDELT Mirror",
+      "sourceType": "us-politics",
+      "title": "Trump PAC wades into midterms with $10 million ad buy to boost Ken Paxton",
+      "summary": "",
+      "source": "https://us.cnn.com/2026/09/05/politics/maga-inc-ken-paxton-trump",
+      "time": "2026-09-05T19:45:00+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "cnn_politics_gdelt_mirror",
+        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20Senate%20OR%20election%20OR%20White%20House)&mode=ArtList&format=rss&maxrecords=200&timespan=15m",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "us-politics",
+      "politicalEntities": [
+        "Donald Trump"
+      ],
+      "politicalTopics": [],
+      "sourceDomain": "us.cnn.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 42.6
     },
     {
       "id": "b9266cebcd35",
@@ -31455,34 +31481,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.8
-    },
-    {
-      "id": "b20f4efe1a8c",
-      "sourceLabel": "CNN Politics — GDELT Mirror",
-      "sourceType": "us-politics",
-      "title": "Trump PAC wades into midterms with $10 million ad buy to boost Ken Paxton",
-      "summary": "",
-      "source": "https://us.cnn.com/2026/09/05/politics/maga-inc-ken-paxton-trump",
-      "time": "2026-09-05T19:45:00+00:00",
-      "tag": "World",
-      "confidence": "DEVELOPING",
-      "breaking": false,
-      "liveDatabase": true,
-      "credit": {
-        "sourceId": "cnn_politics_gdelt_mirror",
-        "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20Senate%20OR%20election%20OR%20White%20House)&mode=ArtList&format=rss&maxrecords=200&timespan=15m",
-        "feedFormat": "rss"
-      },
-      "intelligenceLayer": "us-politics",
-      "politicalEntities": [
-        "Donald Trump"
-      ],
-      "politicalTopics": [],
-      "sourceDomain": "us.cnn.com",
-      "evidenceLevel": "SINGLE-SOURCE",
-      "corroboratingSources": [],
-      "politicalSignalScore": 42.7
+      "politicalSignalScore": 42.6
     },
     {
       "id": "334826ce1663",
@@ -31514,7 +31513,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.7
+      "politicalSignalScore": 42.5
     },
     {
       "id": "92ef8adc7899",
@@ -31541,7 +31540,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 42.1
+      "politicalSignalScore": 41.9
     },
     {
       "id": "b653ec4c08da",
@@ -31572,7 +31571,7 @@
       "sourceDomain": "npr.org",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 41.2
+      "politicalSignalScore": 41.0
     },
     {
       "id": "28bb30f1256e",
@@ -31601,7 +31600,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 40.1
+      "politicalSignalScore": 39.9
     },
     {
       "id": "0bda41ca8cf7",
@@ -31628,7 +31627,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "6c672dc200ee",
@@ -31657,7 +31656,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.5
+      "politicalSignalScore": 38.3
     },
     {
       "id": "a6f3541920d4",
@@ -31684,7 +31683,7 @@
       "sourceDomain": "us.cnn.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 38.1
+      "politicalSignalScore": 37.9
     },
     {
       "id": "0e30978e2270",
@@ -31711,7 +31710,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "f8f72abe9c3d",
@@ -31739,7 +31738,7 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "ddb7efd34f1f",
@@ -31768,7 +31767,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.0
+      "politicalSignalScore": 36.8
     },
     {
       "id": "7fe806e57812",
@@ -31798,7 +31797,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 36.9
+      "politicalSignalScore": 36.7
     },
     {
       "id": "32484f96a0b7",
@@ -31827,7 +31826,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.2
+      "politicalSignalScore": 35.0
     },
     {
       "id": "4dd59d8fd0de",
@@ -31856,7 +31855,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.2
+      "politicalSignalScore": 35.0
     },
     {
       "id": "bd1538173f8a",
@@ -31883,7 +31882,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 34.1
+      "politicalSignalScore": 33.9
     },
     {
       "id": "35f447faecfd",
@@ -31912,7 +31911,7 @@
       "sourceDomain": "news.google.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.3
+      "politicalSignalScore": 32.1
     },
     {
       "id": "fc404b940103",
@@ -31941,7 +31940,7 @@
       "sourceDomain": "bbc.co.uk",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.2
+      "politicalSignalScore": 32.0
     }
   ],
   "worldPolitics": [
@@ -31972,7 +31971,7 @@
       "sourceDomain": "ksl.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 61.4
+      "politicalSignalScore": 61.2
     },
     {
       "id": "32eb5418bf06",
@@ -31999,7 +31998,7 @@
       "sourceDomain": "nepalnational.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 46.4
+      "politicalSignalScore": 46.2
     },
     {
       "id": "7f7261737df3",
@@ -32024,7 +32023,7 @@
       "sourceDomain": "en.apa.az",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "45120a8cd07d",
@@ -32049,7 +32048,7 @@
       "sourceDomain": "cubaheadlines.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 44.2
+      "politicalSignalScore": 44.0
     },
     {
       "id": "f5296c6ee31a",
@@ -32076,7 +32075,7 @@
       "sourceDomain": "theguardian.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 39.4
+      "politicalSignalScore": 39.2
     },
     {
       "id": "7175b6f5bcd9",
@@ -32105,7 +32104,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 37.6
+      "politicalSignalScore": 37.4
     },
     {
       "id": "4bf27b721bfa",
@@ -32132,7 +32131,36 @@
       "sourceDomain": "france24.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 35.8
+      "politicalSignalScore": 35.6
+    },
+    {
+      "id": "82a56ba078ac",
+      "sourceLabel": "Google News — Iran Israel",
+      "sourceType": "middle-east-conflict",
+      "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+      "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times",
+      "source": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQY3R6dl9GYU14VHBwZ0hLS0hiZ3lKTGh1cGhOdmdZNkFvVk1nT3RJcDkwNHNPcEJRc0I1UUhEcU9lUGZkS3BhQXp3SXdXcTdaQ05Lc2hocU9seTcxQ1FrZ09VRG1pVldBYVRXdWo5Z0QtN2hYYVowdUJ2ZVZmYWJRbFNDNHlPQnZlYm1NWExKWHNyX1RkNmZ0RUVBdEI?oc=5",
+      "time": "2026-09-05T08:11:42+00:00",
+      "tag": "World",
+      "confidence": "DEVELOPING",
+      "breaking": false,
+      "liveDatabase": true,
+      "credit": {
+        "sourceId": "google_news_iran_israel",
+        "sourceUrl": "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "feedFormat": "rss"
+      },
+      "intelligenceLayer": "world-politics",
+      "politicalEntities": [
+        "Iran"
+      ],
+      "politicalTopics": [
+        "Foreign Policy"
+      ],
+      "sourceDomain": "news.google.com",
+      "evidenceLevel": "SINGLE-SOURCE",
+      "corroboratingSources": [],
+      "politicalSignalScore": 33.7
     },
     {
       "id": "153960471704",
@@ -32159,7 +32187,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 32.4
+      "politicalSignalScore": 32.2
     },
     {
       "id": "8bd6cc58c00d",
@@ -32188,7 +32216,7 @@
       "sourceDomain": "aljazeera.com",
       "evidenceLevel": "SINGLE-SOURCE",
       "corroboratingSources": [],
-      "politicalSignalScore": 31.2
+      "politicalSignalScore": 31.0
     }
   ],
   "economics": [
@@ -32404,22 +32432,22 @@
   ],
   "layerCounts": {
     "us-politics": 34,
-    "world-politics": 9,
+    "world-politics": 10,
     "economics": 11,
-    "general": 246
+    "general": 245
   },
   "layerNote": "Political and economic layers use explicit feed provenance first, then conservative headline/summary classification. General stories remain independent unless evidence supports a relationship.",
   "politicalIntelligence": {
-    "updatedAt": "2026-09-05T22:09:11.414539+00:00",
+    "updatedAt": "2026-09-05T22:21:26.628933+00:00",
     "method": "Deterministic event clustering using entity/topic overlap, time proximity, and independent source domains.",
     "caveat": "Corroboration means independent public reports describe a sufficiently similar event; it is not proof that every claim in those reports is true.",
-    "totalSignals": 43,
+    "totalSignals": 44,
     "usPoliticsSignals": 34,
-    "worldPoliticsSignals": 9,
+    "worldPoliticsSignals": 10,
     "corroboratedSignals": 2,
-    "singleSourceSignals": 41,
+    "singleSourceSignals": 42,
     "sourceCounts": {
-      "news.google.com": 16,
+      "news.google.com": 17,
       "aljazeera.com": 8,
       "us.cnn.com": 3,
       "france24.com": 2,
@@ -32465,7 +32493,7 @@
         "sourceDomain": "ksl.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 61.4
+        "politicalSignalScore": 61.2
       },
       {
         "id": "a90f7e691d7f",
@@ -32496,7 +32524,7 @@
         "corroboratingSources": [
           "edition.cnn.com"
         ],
-        "politicalSignalScore": 59.3
+        "politicalSignalScore": 59.1
       },
       {
         "id": "523c02787578",
@@ -32527,7 +32555,7 @@
         "corroboratingSources": [
           "cnn.com"
         ],
-        "politicalSignalScore": 59.3
+        "politicalSignalScore": 59.1
       },
       {
         "id": "b21f639ae3d5",
@@ -32556,7 +32584,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 51.3
+        "politicalSignalScore": 51.1
       },
       {
         "id": "54920728e0d0",
@@ -32585,7 +32613,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 51.3
+        "politicalSignalScore": 51.1
       },
       {
         "id": "94dd0886c6bd",
@@ -32615,7 +32643,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 50.6
+        "politicalSignalScore": 50.4
       },
       {
         "id": "9f6eb39126b0",
@@ -32645,7 +32673,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 48.1
+        "politicalSignalScore": 47.9
       },
       {
         "id": "939a6dce2b3a",
@@ -32673,7 +32701,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 47.4
+        "politicalSignalScore": 47.2
       },
       {
         "id": "89e9fa1c0031",
@@ -32701,7 +32729,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.7
+        "politicalSignalScore": 46.5
       },
       {
         "id": "32eb5418bf06",
@@ -32728,7 +32756,7 @@
         "sourceDomain": "nepalnational.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.4
+        "politicalSignalScore": 46.2
       },
       {
         "id": "86ae524fe80c",
@@ -32757,7 +32785,7 @@
         "sourceDomain": "newindianexpress.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.2
+        "politicalSignalScore": 46.0
       },
       {
         "id": "303732c27dfd",
@@ -32788,7 +32816,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 46.2
+        "politicalSignalScore": 46.0
       },
       {
         "id": "fd49c32d22e0",
@@ -32819,7 +32847,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.9
+        "politicalSignalScore": 45.7
       },
       {
         "id": "7e2852afa2d2",
@@ -32850,7 +32878,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 45.7
+        "politicalSignalScore": 45.5
       },
       {
         "id": "4de7b0e09242",
@@ -32877,7 +32905,7 @@
         "sourceDomain": "radaronline.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.2
+        "politicalSignalScore": 44.0
       },
       {
         "id": "028ad33b91b4",
@@ -32904,7 +32932,7 @@
         "sourceDomain": "operamundi.uol.com.br",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.2
+        "politicalSignalScore": 44.0
       },
       {
         "id": "7f7261737df3",
@@ -32929,7 +32957,7 @@
         "sourceDomain": "en.apa.az",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.2
+        "politicalSignalScore": 44.0
       },
       {
         "id": "45120a8cd07d",
@@ -32954,7 +32982,7 @@
         "sourceDomain": "cubaheadlines.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 44.2
+        "politicalSignalScore": 44.0
       },
       {
         "id": "f177a743580a",
@@ -32984,7 +33012,7 @@
         "sourceDomain": "calcuttanews.net",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.9
+        "politicalSignalScore": 43.7
       },
       {
         "id": "b01b9cd2ecd7",
@@ -33015,7 +33043,34 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 43.3
+        "politicalSignalScore": 43.1
+      },
+      {
+        "id": "b20f4efe1a8c",
+        "sourceLabel": "CNN Politics — GDELT Mirror",
+        "sourceType": "us-politics",
+        "title": "Trump PAC wades into midterms with $10 million ad buy to boost Ken Paxton",
+        "summary": "",
+        "source": "https://us.cnn.com/2026/09/05/politics/maga-inc-ken-paxton-trump",
+        "time": "2026-09-05T19:45:00+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "cnn_politics_gdelt_mirror",
+          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20Senate%20OR%20election%20OR%20White%20House)&mode=ArtList&format=rss&maxrecords=200&timespan=15m",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "us-politics",
+        "politicalEntities": [
+          "Donald Trump"
+        ],
+        "politicalTopics": [],
+        "sourceDomain": "us.cnn.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 42.6
       },
       {
         "id": "b9266cebcd35",
@@ -33045,34 +33100,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.8
-      },
-      {
-        "id": "b20f4efe1a8c",
-        "sourceLabel": "CNN Politics — GDELT Mirror",
-        "sourceType": "us-politics",
-        "title": "Trump PAC wades into midterms with $10 million ad buy to boost Ken Paxton",
-        "summary": "",
-        "source": "https://us.cnn.com/2026/09/05/politics/maga-inc-ken-paxton-trump",
-        "time": "2026-09-05T19:45:00+00:00",
-        "tag": "World",
-        "confidence": "DEVELOPING",
-        "breaking": false,
-        "liveDatabase": true,
-        "credit": {
-          "sourceId": "cnn_politics_gdelt_mirror",
-          "sourceUrl": "https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Acnn.com%20AND%20(politics%20OR%20Trump%20OR%20Congress%20OR%20Senate%20OR%20election%20OR%20White%20House)&mode=ArtList&format=rss&maxrecords=200&timespan=15m",
-          "feedFormat": "rss"
-        },
-        "intelligenceLayer": "us-politics",
-        "politicalEntities": [
-          "Donald Trump"
-        ],
-        "politicalTopics": [],
-        "sourceDomain": "us.cnn.com",
-        "evidenceLevel": "SINGLE-SOURCE",
-        "corroboratingSources": [],
-        "politicalSignalScore": 42.7
+        "politicalSignalScore": 42.6
       },
       {
         "id": "334826ce1663",
@@ -33104,7 +33132,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.7
+        "politicalSignalScore": 42.5
       },
       {
         "id": "92ef8adc7899",
@@ -33131,7 +33159,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 42.1
+        "politicalSignalScore": 41.9
       },
       {
         "id": "b653ec4c08da",
@@ -33162,7 +33190,7 @@
         "sourceDomain": "npr.org",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 41.2
+        "politicalSignalScore": 41.0
       },
       {
         "id": "28bb30f1256e",
@@ -33191,7 +33219,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 40.1
+        "politicalSignalScore": 39.9
       },
       {
         "id": "f5296c6ee31a",
@@ -33218,7 +33246,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.4
+        "politicalSignalScore": 39.2
       },
       {
         "id": "0bda41ca8cf7",
@@ -33245,7 +33273,7 @@
         "sourceDomain": "theguardian.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 39.4
+        "politicalSignalScore": 39.2
       },
       {
         "id": "6c672dc200ee",
@@ -33274,7 +33302,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.5
+        "politicalSignalScore": 38.3
       },
       {
         "id": "a6f3541920d4",
@@ -33301,7 +33329,7 @@
         "sourceDomain": "us.cnn.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 38.1
+        "politicalSignalScore": 37.9
       },
       {
         "id": "0e30978e2270",
@@ -33328,7 +33356,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.4
       },
       {
         "id": "7175b6f5bcd9",
@@ -33357,7 +33385,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.4
       },
       {
         "id": "f8f72abe9c3d",
@@ -33385,7 +33413,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.6
+        "politicalSignalScore": 37.4
       },
       {
         "id": "ddb7efd34f1f",
@@ -33414,7 +33442,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 37.0
+        "politicalSignalScore": 36.8
       },
       {
         "id": "7fe806e57812",
@@ -33444,7 +33472,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 36.9
+        "politicalSignalScore": 36.7
       },
       {
         "id": "4bf27b721bfa",
@@ -33471,7 +33499,7 @@
         "sourceDomain": "france24.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.8
+        "politicalSignalScore": 35.6
       },
       {
         "id": "32484f96a0b7",
@@ -33500,7 +33528,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.2
+        "politicalSignalScore": 35.0
       },
       {
         "id": "4dd59d8fd0de",
@@ -33529,7 +33557,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 35.2
+        "politicalSignalScore": 35.0
       },
       {
         "id": "bd1538173f8a",
@@ -33556,7 +33584,36 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 34.1
+        "politicalSignalScore": 33.9
+      },
+      {
+        "id": "82a56ba078ac",
+        "sourceLabel": "Google News — Iran Israel",
+        "sourceType": "middle-east-conflict",
+        "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+        "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times",
+        "source": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQY3R6dl9GYU14VHBwZ0hLS0hiZ3lKTGh1cGhOdmdZNkFvVk1nT3RJcDkwNHNPcEJRc0I1UUhEcU9lUGZkS3BhQXp3SXdXcTdaQ05Lc2hocU9seTcxQ1FrZ09VRG1pVldBYVRXdWo5Z0QtN2hYYVowdUJ2ZVZmYWJRbFNDNHlPQnZlYm1NWExKWHNyX1RkNmZ0RUVBdEI?oc=5",
+        "time": "2026-09-05T08:11:42+00:00",
+        "tag": "World",
+        "confidence": "DEVELOPING",
+        "breaking": false,
+        "liveDatabase": true,
+        "credit": {
+          "sourceId": "google_news_iran_israel",
+          "sourceUrl": "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+          "feedFormat": "rss"
+        },
+        "intelligenceLayer": "world-politics",
+        "politicalEntities": [
+          "Iran"
+        ],
+        "politicalTopics": [
+          "Foreign Policy"
+        ],
+        "sourceDomain": "news.google.com",
+        "evidenceLevel": "SINGLE-SOURCE",
+        "corroboratingSources": [],
+        "politicalSignalScore": 33.7
       },
       {
         "id": "153960471704",
@@ -33583,7 +33640,7 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.4
+        "politicalSignalScore": 32.2
       },
       {
         "id": "35f447faecfd",
@@ -33612,7 +33669,7 @@
         "sourceDomain": "news.google.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.3
+        "politicalSignalScore": 32.1
       },
       {
         "id": "fc404b940103",
@@ -33641,7 +33698,7 @@
         "sourceDomain": "bbc.co.uk",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 32.2
+        "politicalSignalScore": 32.0
       },
       {
         "id": "8bd6cc58c00d",
@@ -33670,20 +33727,20 @@
         "sourceDomain": "aljazeera.com",
         "evidenceLevel": "SINGLE-SOURCE",
         "corroboratingSources": [],
-        "politicalSignalScore": 31.2
+        "politicalSignalScore": 31.0
       }
     ]
   },
   "cfrConflicts": [
     {
-      "title": "Civil War in Myanmar",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
-      "type": "Civil War",
+      "title": "Conflict Between Afghanistan and Pakistan",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
+      "type": "Interstate War Terrorism",
       "impactOnUS": "Limited",
-      "status": "Unchanging A protester makes a three-finger salute in front ",
-      "updated": "August 27, 2026",
-      "lat": 21.9162,
-      "lng": 95.956,
+      "status": "Unchanging Taliban security personnel stand over a military ",
+      "updated": "August 26, 2026",
+      "lat": 33.7,
+      "lng": 70,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33698,25 +33755,14 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
-      "title": "Instability in Venezuela",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
-      "type": "Interstate War Political Instability",
-      "impactOnUS": "Significant",
-      "status": "Unchanging A firefighter walks past a destroyed anti-aircraf",
-      "updated": "August 26, 2026",
-      "lat": 8,
-      "lng": -66,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Conflict Between Afghanistan and Pakistan",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
-      "type": "Interstate War Terrorism",
+      "title": "Civil War in Myanmar",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
+      "type": "Civil War",
       "impactOnUS": "Limited",
-      "status": "Unchanging Taliban security personnel stand over a military ",
-      "updated": "August 26, 2026",
-      "lat": 33.7,
-      "lng": 70,
+      "status": "Unchanging A protester makes a three-finger salute in front ",
+      "updated": "August 27, 2026",
+      "lat": 21.9162,
+      "lng": 95.956,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33731,14 +33777,14 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
-      "title": "Confrontation With North Korea",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
-      "type": "Interstate War",
-      "impactOnUS": "Critical",
-      "status": "Unchanging North Korean leader Kim Jong-un speaks during the",
-      "updated": "August 27, 2026",
-      "lat": 39,
-      "lng": 127,
+      "title": "Criminal Violence in Mexico",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
+      "type": "Criminal Violence",
+      "impactOnUS": "Significant",
+      "status": "Unchanging Smoke billows amid a wave of violence, with torch",
+      "updated": "August 3, 2026",
+      "lat": 23.6345,
+      "lng": -102.5528,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33753,6 +33799,17 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
+      "title": "Instability in Venezuela",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
+      "type": "Interstate War Political Instability",
+      "impactOnUS": "Significant",
+      "status": "Unchanging A firefighter walks past a destroyed anti-aircraf",
+      "updated": "August 26, 2026",
+      "lat": 8,
+      "lng": -66,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
       "title": "Instability in the Northern Triangle",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/violent-instability-northern-triangle",
       "type": "Criminal Violence Political Instability",
@@ -33761,39 +33818,6 @@
       "updated": "July 29, 2026",
       "lat": 14.1,
       "lng": -88.9,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Criminal Violence in Mexico",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/criminal-violence-mexico",
-      "type": "Criminal Violence",
-      "impactOnUS": "Significant",
-      "status": "Unchanging Smoke billows amid a wave of violence, with torch",
-      "updated": "August 3, 2026",
-      "lat": 23.6345,
-      "lng": -102.5528,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Territorial Disputes in the South China Sea",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
-      "type": "Territorial Dispute",
-      "impactOnUS": "Critical",
-      "status": "Unchanging U.S. Navy aircraft carrier USS Theodore Roosevelt",
-      "updated": "August 27, 2026",
-      "lat": 12,
-      "lng": 114,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Tensions Between Armenia and Azerbaijan",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
-      "type": "Territorial Dispute",
-      "impactOnUS": "Limited",
-      "status": "Improving Russian service members attend a base closing cere",
-      "updated": "September 1, 2026",
-      "lat": 40.3,
-      "lng": 46,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33830,36 +33854,14 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
-      "title": "Conflict in Yemen and the Red Sea",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
-      "type": "Civil War Terrorism",
-      "impactOnUS": "Significant",
-      "status": "Worsening Houthi military spokesman Yahya Sarea delivers a s",
-      "updated": "August 3, 2026",
-      "lat": 15.5,
-      "lng": 44.2,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Conflict With Hezbollah in Lebanon",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
-      "type": "Interstate War Terrorism",
-      "impactOnUS": "Significant",
-      "status": "Unchanging A woman walks on the rubble of a damaged site in ",
-      "updated": "August 3, 2026",
-      "lat": 33.85,
-      "lng": 35.85,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Instability in Iraq",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
-      "type": "Political Instability Terrorism",
+      "title": "Tensions Between Armenia and Azerbaijan",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/nagorno-karabakh-conflict",
+      "type": "Territorial Dispute",
       "impactOnUS": "Limited",
-      "status": "Unchanging A member loyal to the Islamic State waves an Isla",
-      "updated": "August 3, 2026",
-      "lat": 33.2232,
-      "lng": 43.6793,
+      "status": "Improving Russian service members attend a base closing cere",
+      "updated": "September 1, 2026",
+      "lat": 40.3,
+      "lng": 46,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33874,6 +33876,50 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
+      "title": "Confrontation With North Korea",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/north-korea-crisis",
+      "type": "Interstate War",
+      "impactOnUS": "Critical",
+      "status": "Unchanging North Korean leader Kim Jong-un speaks during the",
+      "updated": "August 27, 2026",
+      "lat": 39,
+      "lng": 127,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Territorial Disputes in the South China Sea",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/territorial-disputes-south-china-sea",
+      "type": "Territorial Dispute",
+      "impactOnUS": "Critical",
+      "status": "Unchanging U.S. Navy aircraft carrier USS Theodore Roosevelt",
+      "updated": "August 27, 2026",
+      "lat": 12,
+      "lng": 114,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Conflict With Hezbollah in Lebanon",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-lebanon",
+      "type": "Interstate War Terrorism",
+      "impactOnUS": "Significant",
+      "status": "Unchanging A woman walks on the rubble of a damaged site in ",
+      "updated": "August 3, 2026",
+      "lat": 33.85,
+      "lng": 35.85,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Conflict in Yemen and the Red Sea",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen",
+      "type": "Civil War Terrorism",
+      "impactOnUS": "Significant",
+      "status": "Worsening Houthi military spokesman Yahya Sarea delivers a s",
+      "updated": "August 3, 2026",
+      "lat": 15.5,
+      "lng": 44.2,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
       "title": "Civil War in Sudan",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/power-struggle-sudan",
       "type": "Civil War",
@@ -33882,6 +33928,17 @@
       "updated": "August 17, 2026",
       "lat": 15.5,
       "lng": 32.5,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Instability in Iraq",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/political-instability-iraq",
+      "type": "Political Instability Terrorism",
+      "impactOnUS": "Limited",
+      "status": "Unchanging A member loyal to the Islamic State waves an Isla",
+      "updated": "August 3, 2026",
+      "lat": 33.2232,
+      "lng": 43.6793,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33907,39 +33964,6 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
-      "title": "Conflict in the Democratic Republic of Congo",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
-      "type": "Political Instability",
-      "impactOnUS": "Limited",
-      "status": "Worsening M23 soldiers are seen at the Stade de l’Unite’ in ",
-      "updated": "August 3, 2026",
-      "lat": -2.9,
-      "lng": 23.7,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Conflict With Al-Shabaab in Somalia",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
-      "type": "Political Instability Terrorism",
-      "impactOnUS": "Limited",
-      "status": "Unchanging Women walk next to a destroyed house and the wrec",
-      "updated": "July 30, 2026",
-      "lat": 2,
-      "lng": 45.3,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
-      "title": "Instability in South Sudan",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
-      "type": "Political Instability",
-      "impactOnUS": "Limited",
-      "status": "Worsening South Sudan’s suspended First Vice President Riek ",
-      "updated": "July 29, 2026",
-      "lat": 6.9,
-      "lng": 31.3,
-      "source": "Council on Foreign Relations — Global Conflict Tracker"
-    },
-    {
       "title": "Conflict in Ethiopia",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ethiopia",
       "type": "Political Instability",
@@ -33948,6 +33972,17 @@
       "updated": "August 3, 2026",
       "lat": 9.1,
       "lng": 40.5,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Conflict in the Democratic Republic of Congo",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/violence-democratic-republic-congo",
+      "type": "Political Instability",
+      "impactOnUS": "Limited",
+      "status": "Worsening M23 soldiers are seen at the Stade de l’Unite’ in ",
+      "updated": "August 3, 2026",
+      "lat": -2.9,
+      "lng": 23.7,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
@@ -33962,6 +33997,17 @@
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     },
     {
+      "title": "Conflict With Al-Shabaab in Somalia",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/al-shabab-somalia",
+      "type": "Political Instability Terrorism",
+      "impactOnUS": "Limited",
+      "status": "Unchanging Women walk next to a destroyed house and the wrec",
+      "updated": "July 30, 2026",
+      "lat": 2,
+      "lng": 45.3,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
       "title": "Violent Extremism in the Sahel",
       "url": "https://www.cfr.org/global-conflict-tracker/conflict/violent-extremism-sahel",
       "type": "Political Instability Terrorism",
@@ -33970,6 +34016,17 @@
       "updated": "July 29, 2026",
       "lat": 15,
       "lng": 0,
+      "source": "Council on Foreign Relations — Global Conflict Tracker"
+    },
+    {
+      "title": "Instability in South Sudan",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/civil-war-south-sudan",
+      "type": "Political Instability",
+      "impactOnUS": "Limited",
+      "status": "Worsening South Sudan’s suspended First Vice President Riek ",
+      "updated": "July 29, 2026",
+      "lat": 6.9,
+      "lng": 31.3,
       "source": "Council on Foreign Relations — Global Conflict Tracker"
     }
   ],
@@ -33982,7 +34039,7 @@
     }
   },
   "intelligenceGraph": {
-    "updatedAt": "2026-09-05T22:09:15.255000Z",
+    "updatedAt": "2026-09-05T22:21:30.406375Z",
     "method": "Evidence-backed public reporting graph plus curated government-documented Southern Spear relationships",
     "caution": "Curated connections are limited to relationships explicitly described by public government/SOUTHCOM reporting. A connection does not by itself prove causation, coordination, alliance, or responsibility. Map theater nodes are regional references unless an exact incident location is documented.",
     "nodes": [
@@ -34189,7 +34246,7 @@
         "id": "iran",
         "label": "Iran",
         "kind": "actor",
-        "mentions": 41,
+        "mentions": 43,
         "evidence": [
           {
             "title": "US pressure on Iran starting to tell , as sanctions and blockade bite",
@@ -34253,7 +34310,7 @@
         "id": "israel",
         "label": "Israel",
         "kind": "actor",
-        "mentions": 20,
+        "mentions": 21,
         "evidence": [
           {
             "title": "US ambassador visits Palestinian town amid rise in West Bank settler violence",
@@ -34492,6 +34549,42 @@
         ]
       },
       {
+        "id": "saudi-arabia",
+        "label": "Saudi Arabia",
+        "kind": "actor",
+        "mentions": 5,
+        "evidence": [
+          {
+            "title": "FULL Q&A: Karoline Grilled By Reporters Over Saudi Nuclear Deal, Abraham Accords, Israel & AI | AC1N Man U (OqR96NjqNS) - Mshale",
+            "url": "",
+            "source": "Google News — U.S. Politics",
+            "time": "2026-09-05T14:16:58+00:00",
+            "summary": "FULL Q&A: Karoline Grilled By Reporters Over Saudi Nuclear Deal, Abraham Accords, Israel & AI | AC1N Man U (OqR96NjqNS) Mshale"
+          },
+          {
+            "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
+            "url": "",
+            "source": "Guardian World",
+            "time": "2026-09-05T13:47:19+00:00",
+            "summary": "Houthi rebel offensive against government forces on west coast leads to some of deadliest clashes in years Clashes between Yemen’s Saudi-backed government forces and the Iran-aligned Houthi rebel movement killed more than 60 people, including civilians, as the Houthis pushed forward with a military offensive on Yemen’s western coast. Twenty-six government troops and 31 Houthi fighters were killed during several hours"
+          },
+          {
+            "title": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War - NDTV Profit",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:58:16+00:00",
+            "summary": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War NDTV Profit"
+          },
+          {
+            "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:11:42+00:00",
+            "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times"
+          }
+        ]
+      },
+      {
         "id": "yemen",
         "label": "Yemen",
         "kind": "actor",
@@ -34609,35 +34702,6 @@
             "source": "Google News — U.S. Politics",
             "time": "2026-09-05T13:16:00+00:00",
             "summary": "Are Stocks Going to Plunge if Congress Is Split Under President Donald Trump? Here's What History Says About Stock Market Returns in This Scenario. The Motley Fool"
-          }
-        ]
-      },
-      {
-        "id": "saudi-arabia",
-        "label": "Saudi Arabia",
-        "kind": "actor",
-        "mentions": 4,
-        "evidence": [
-          {
-            "title": "FULL Q&A: Karoline Grilled By Reporters Over Saudi Nuclear Deal, Abraham Accords, Israel & AI | AC1N Man U (OqR96NjqNS) - Mshale",
-            "url": "",
-            "source": "Google News — U.S. Politics",
-            "time": "2026-09-05T14:16:58+00:00",
-            "summary": "FULL Q&A: Karoline Grilled By Reporters Over Saudi Nuclear Deal, Abraham Accords, Israel & AI | AC1N Man U (OqR96NjqNS) Mshale"
-          },
-          {
-            "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
-            "url": "",
-            "source": "Guardian World",
-            "time": "2026-09-05T13:47:19+00:00",
-            "summary": "Houthi rebel offensive against government forces on west coast leads to some of deadliest clashes in years Clashes between Yemen’s Saudi-backed government forces and the Iran-aligned Houthi rebel movement killed more than 60 people, including civilians, as the Houthis pushed forward with a military offensive on Yemen’s western coast. Twenty-six government troops and 31 Houthi fighters were killed during several hours"
-          },
-          {
-            "title": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War - NDTV Profit",
-            "url": "",
-            "source": "Google News — Iran Israel",
-            "time": "2026-09-05T08:58:16+00:00",
-            "summary": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War NDTV Profit"
           }
         ]
       },
@@ -34866,6 +34930,21 @@
         ]
       },
       {
+        "id": "japan",
+        "label": "Japan",
+        "kind": "actor",
+        "mentions": 1,
+        "evidence": [
+          {
+            "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:11:42+00:00",
+            "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times"
+          }
+        ]
+      },
+      {
         "id": "china",
         "label": "China",
         "kind": "actor",
@@ -34952,35 +35031,6 @@
         ]
       },
       {
-        "id": "pakistan",
-        "label": "Pakistan",
-        "kind": "actor",
-        "mentions": 3,
-        "evidence": [
-          {
-            "title": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "2026-09-05T11:32:07+00:00",
-            "summary": "Follow the updates from our live build-up to our text commentary stream coverage of the Group A match in Dubai."
-          },
-          {
-            "title": "‘I could not save the rest’: Hero nurse remembers Pakistan’s nursery fire",
-            "url": "",
-            "source": "Al Jazeera",
-            "time": "2026-09-05T04:29:33+00:00",
-            "summary": "The PIMS nurse who saved one newborn recalls the fire, the screams and the 14 babies she could not save."
-          },
-          {
-            "title": "Pakistan Militancy / Border Risk",
-            "url": "",
-            "source": "Public source",
-            "time": "",
-            "summary": ""
-          }
-        ]
-      },
-      {
         "id": "turkey",
         "label": "Turkey",
         "kind": "actor",
@@ -34999,6 +35049,28 @@
             "source": "Al Jazeera",
             "time": "2026-09-05T05:19:05+00:00",
             "summary": "US sanctions Turkish bank over alleged IRGC ties, accusing it of facilitating millions in transactions for Iran."
+          }
+        ]
+      },
+      {
+        "id": "pakistan",
+        "label": "Pakistan",
+        "kind": "actor",
+        "mentions": 2,
+        "evidence": [
+          {
+            "title": "LIVE: India vs Pakistan – Women’s T20 Asia Cup",
+            "url": "",
+            "source": "Al Jazeera",
+            "time": "2026-09-05T11:32:07+00:00",
+            "summary": "Follow the updates from our live build-up to our text commentary stream coverage of the Group A match in Dubai."
+          },
+          {
+            "title": "Pakistan Militancy / Border Risk",
+            "url": "",
+            "source": "Public source",
+            "time": "",
+            "summary": ""
           }
         ]
       },
@@ -35421,13 +35493,6 @@
       {
         "id": "north-korea",
         "label": "North Korea",
-        "kind": "actor",
-        "mentions": 0,
-        "evidence": []
-      },
-      {
-        "id": "japan",
-        "label": "Japan",
         "kind": "actor",
         "mentions": 0,
         "evidence": []
@@ -35911,7 +35976,7 @@
       {
         "source": "Iran",
         "target": "Israel",
-        "weight": 9,
+        "weight": 10,
         "types": [
           "conflict",
           "story"
@@ -35946,6 +36011,13 @@
             "summary": "Netanyahu says Iran will face severe response if Tehran attacks Israel Business Upturn"
           },
           {
+            "title": "Israeli PM Netanyahu says Iran will face severe response if Tehran attacks Israel - Business Upturn",
+            "url": "",
+            "source": "Google News — South Asia Security",
+            "time": "2026-09-05T12:06:02+00:00",
+            "summary": "Israeli PM Netanyahu says Iran will face severe response if Tehran attacks Israel Business Upturn"
+          },
+          {
             "title": "US-Israel-Iran War Live News: 4 Civilians Killed, 9 Injured in Houthi Missile Attack on Heijah Al-Abd Road South of Taiz - The Sunday Guardian",
             "url": "",
             "source": "Google News — Iran Israel",
@@ -35968,7 +36040,7 @@
           }
         ],
         "relationship": "Both entities are referenced in the same conflict record.",
-        "evidenceCount": 7
+        "evidenceCount": 8
       },
       {
         "source": "Israel",
@@ -36222,6 +36294,39 @@
         "evidenceCount": 4
       },
       {
+        "source": "Iran",
+        "target": "Saudi Arabia",
+        "weight": 4,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
+            "url": "",
+            "source": "Guardian World",
+            "time": "2026-09-05T13:47:19+00:00",
+            "summary": "Houthi rebel offensive against government forces on west coast leads to some of deadliest clashes in years Clashes between Yemen’s Saudi-backed government forces and the Iran-aligned Houthi rebel movement killed more than 60 people, including civilians, as the Houthis pushed forward with a military offensive on Yemen’s western coast. Twenty-six government troops and 31 Houthi fighters were killed during several hours"
+          },
+          {
+            "title": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War - NDTV Profit",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:58:16+00:00",
+            "summary": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War NDTV Profit"
+          },
+          {
+            "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:11:42+00:00",
+            "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times"
+          }
+        ],
+        "relationship": "Both entities are referenced in the same public reporting record.",
+        "evidenceCount": 3
+      },
+      {
         "source": "Israel",
         "target": "Lebanon",
         "weight": 3,
@@ -36287,32 +36392,6 @@
         ],
         "relationship": "Both entities are referenced in the same conflict record.",
         "evidenceCount": 3
-      },
-      {
-        "source": "Iran",
-        "target": "Saudi Arabia",
-        "weight": 3,
-        "types": [
-          "story"
-        ],
-        "evidence": [
-          {
-            "title": "Civilians among at least 60 killed in Yemen as ground fighting escalates",
-            "url": "",
-            "source": "Guardian World",
-            "time": "2026-09-05T13:47:19+00:00",
-            "summary": "Houthi rebel offensive against government forces on west coast leads to some of deadliest clashes in years Clashes between Yemen’s Saudi-backed government forces and the Iran-aligned Houthi rebel movement killed more than 60 people, including civilians, as the Houthis pushed forward with a military offensive on Yemen’s western coast. Twenty-six government troops and 31 Houthi fighters were killed during several hours"
-          },
-          {
-            "title": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War - NDTV Profit",
-            "url": "",
-            "source": "Google News — Iran Israel",
-            "time": "2026-09-05T08:58:16+00:00",
-            "summary": "US Clears $5 Billion Sale Of JDAM Bombs To Saudi Arabia Amid Iran War NDTV Profit"
-          }
-        ],
-        "relationship": "Both entities are referenced in the same public reporting record.",
-        "evidenceCount": 2
       },
       {
         "source": "Iran",
@@ -36627,6 +36706,44 @@
             "source": "Google News — Ukraine War",
             "time": "2026-09-05T09:09:55+00:00",
             "summary": "How escalating attacks are upending everyday life in Kyiv South China Morning Post"
+          }
+        ],
+        "relationship": "Both entities are referenced in the same public reporting record.",
+        "evidenceCount": 1
+      },
+      {
+        "source": "Iran",
+        "target": "Japan",
+        "weight": 1,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:11:42+00:00",
+            "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times"
+          }
+        ],
+        "relationship": "Both entities are referenced in the same public reporting record.",
+        "evidenceCount": 1
+      },
+      {
+        "source": "Saudi Arabia",
+        "target": "Japan",
+        "weight": 1,
+        "types": [
+          "story"
+        ],
+        "evidence": [
+          {
+            "title": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused - Modern Tokyo Times",
+            "url": "",
+            "source": "Google News — Iran Israel",
+            "time": "2026-09-05T08:11:42+00:00",
+            "summary": "Saudi Arabia and Distrust of Iran despite Diplomacy being Espoused Modern Tokyo Times"
           }
         ],
         "relationship": "Both entities are referenced in the same public reporting record.",
@@ -37266,7 +37383,7 @@
   },
   "counterCartelLayer": {
     "campaign": "Operation Southern Spear",
-    "updatedAt": "2026-09-05T22:09:15.255000Z",
+    "updatedAt": "2026-09-05T22:21:30.406375Z",
     "coverage": [
       "SOUTHCOM",
       "JTF-WHEM",
@@ -37287,7 +37404,7 @@
     "online": 48,
     "degraded": 0,
     "failed": 2,
-    "lastChecked": "2026-09-05T22:09:17.127438+00:00",
+    "lastChecked": "2026-09-05T22:21:32.217396+00:00",
     "method": "Feed collector status plus articles returned in the current snapshot."
   },
   "tensionMethod": "V5: evidence-weighted six-driver index with bounded event-intensity and active-conflict pressure floors. Duplicate headlines are not counted as independent events."

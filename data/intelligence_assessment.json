@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T22:09:15.725966Z",
+  "updatedAt": "2026-09-05T22:21:30.866851Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
@@ -12,18 +12,18 @@
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 32
+          "delta": 33
         },
         {
           "label": "Live event activity",
-          "delta": 5
+          "delta": 7
         },
         {
           "label": "Economic / energy signals",
           "delta": 5
         }
       ],
-      "evidenceCount": 29,
+      "evidenceCount": 31,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -65,6 +65,33 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
+      "entity": "Israel",
+      "score": 25,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 16
+        },
+        {
+          "label": "Live event activity",
+          "delta": 4
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 16,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
       "entity": "Yemen",
       "score": 25,
       "level": "WATCH",
@@ -103,33 +130,6 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Israel",
-      "score": 22,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 15
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 15,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "Joint Task Force Western Hemisphere",
       "score": 19,
       "level": "WATCH",
@@ -142,6 +142,21 @@
         }
       ],
       "evidenceCount": 6,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Saudi Arabia",
+      "score": 18,
+      "level": "WATCH",
+      "delta": 6,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 11
+        }
+      ],
+      "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -165,21 +180,6 @@
         }
       ],
       "evidenceCount": 14,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Saudi Arabia",
-      "score": 12,
-      "level": "WATCH",
-      "delta": -6,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 8
-        }
-      ],
-      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -378,20 +378,10 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Pakistan",
-      "score": 2,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [],
-      "evidenceCount": 2,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "Democratic Republic of Congo",
       "score": 2,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [],
       "evidenceCount": 2,
@@ -597,6 +587,28 @@
       },
       "urls": [
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ]
+    },
+    {
+      "eventId": "4ef1cc324002ed0f",
+      "title": "Netanyahu says Iran will face severe response if Tehran attacks Israel - Business Upturn",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportedConfidence": "low",
+      "reportCount": 2,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ]
     },
     {
@@ -862,44 +874,49 @@
       "urls": [
         "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h"
       ]
-    },
-    {
-      "eventId": "8cfd8cdc6f7f0f50",
-      "title": "Letter : National debt has increased under current administration",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h"
-      ]
     }
   ],
   "whatChanged": [
     {
       "entity": "Saudi Arabia",
-      "score": 12,
+      "score": 18,
       "level": "WATCH",
-      "delta": -6,
-      "trend": "DOWN",
+      "delta": 6,
+      "trend": "UP",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 8
+          "delta": 11
         }
       ],
-      "evidenceCount": 4,
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Israel",
+      "score": 25,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 16
+        },
+        {
+          "label": "Live event activity",
+          "delta": 4
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 16,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
