@@ -4,6 +4,7 @@ name: Global Pulse — Canonical Live Refresh
 # a 10-minute schedule must never cancel a longer refresh before it publishes.
 # Western Hemisphere counter-cartel intelligence feed expansion is included in the canonical refresh.
 # Feed registry publication is verified before the collector runs so new sources cannot be silently skipped.
+# Optional feed failures are tolerated when core coverage remains healthy.
 on:
   schedule:
     - cron: '*/10 * * * *'
