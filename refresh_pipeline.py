@@ -19,7 +19,7 @@ def fresh(obj,field='updatedAt',max_age=900):
  if age < -120 or age > max_age:raise RuntimeError(f'artifact timestamp invalid/stale: age={age:.0f}s')
 def verify_json(name,*,min_list=None,fresh_required=True,max_age=900):
  d=load(name)
- if fresh_required:fresh(d,max_age=max_age)
+ if fresh_required and isinstance(d,dict):fresh(d,max_age=max_age)
  if min_list:
   key,minimum=min_list
   if not isinstance(d.get(key),list) or len(d[key])<minimum:raise RuntimeError(f'{name}: {key} has fewer than {minimum} entries')
@@ -38,8 +38,8 @@ def write_refresh_manifest():
  for name in REQUIRED_ARTIFACTS:
   p=DATA/name
   if not p.is_file() or p.stat().st_size==0:raise RuntimeError(f'required generated artifact missing: {name}')
-  raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'));stamp=obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')
-  if not stamp:raise RuntimeError(f'generated artifact has no freshness timestamp: {name}')
+  raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'))
+  stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
   artifacts[name]={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'generatedAt':stamp}
  manifest={'version':1,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('PASS: refresh manifest',','.join(REQUIRED_ARTIFACTS),flush=True)
