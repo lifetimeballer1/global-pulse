@@ -11,7 +11,7 @@ on:
 
 concurrency:
   group: global-pulse-canonical-refresh
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -25,18 +25,19 @@ jobs:
   refresh-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - name: Restore latest news database
         uses: actions/cache@v4
         with:
@@ -44,53 +45,38 @@ jobs:
           key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-global-pulse-news-db-
-
       - name: Verify runtime
         run: python --version && node --version && git --version
-
       - name: Run canonical refresh with per-stage verification
         run: python refresh_pipeline.py
-
       - name: Verify critical published inputs
         run: |
           python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']))"
           python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
-
       - name: Commit generated data
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated changes to commit'
-            exit 0
-          fi
+          if git diff --cached --quiet; then echo 'No generated changes to commit'; exit 0; fi
           git commit -m 'chore: refresh Global Pulse live data'
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             git rebase -X theirs origin/main
-            if git push origin HEAD:main; then
-              exit 0
-            fi
+            if git push origin HEAD:main; then exit 0; fi
             git rebase --abort || true
             sleep $((attempt * 3))
           done
           exit 1
-
       - name: Verify main contains generated commit
-        run: |
-          git fetch origin main
-          git merge-base --is-ancestor HEAD origin/main
-
+        run: git fetch origin main && git merge-base --is-ancestor HEAD origin/main
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload exact generated site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
       - name: Deploy exact generated site
         id: deployment
         uses: actions/deploy-pages@v4
