@@ -55,7 +55,6 @@ def verify_json(name: str, *, min_list: tuple[str, int] | None = None, fresh_req
 
 
 def main() -> int:
-    # Source expansion and live news are the first hard gate.
     run("Expand feeds", sys.executable, "update_feed_expansion.py")
     sources = ROOT / "data" / "sources.json"
     if not sources.is_file() or sources.stat().st_size == 0:
@@ -83,7 +82,6 @@ def main() -> int:
     run("Refresh base snapshot", sys.executable, "run_snapshot_resilient.py")
     snap = verify_json("snapshot.json")
 
-    # Market data is explicitly validated; merely having snapshot.json is not enough.
     run("Update market data", sys.executable, "update_market_data.py")
     snap = verify_json("snapshot.json")
     market = snap.get("marketData") or {}
@@ -171,13 +169,17 @@ def main() -> int:
 
     run("V2.7 install", sys.executable, "install_v27.py")
     run("Canonical map install", sys.executable, "install_map_v3.py")
+    run("Install source-age filter", sys.executable, "install_map_age_filter.py")
     if not (ROOT / "global_pulse_v27.js").is_file():
         raise RuntimeError("V2.7 renderer missing")
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    if "gp-source-age-filter-css" not in html or "gp-source-age-filter-js" not in html or "gpSourceAge" not in html:
+        raise RuntimeError("source-age map filter was not installed")
+    print("PASS: source-age map filter installed", flush=True)
 
     run("Normalize generated HTML", sys.executable, "clean_index.py")
     run("Repository validation", sys.executable, "validate_repository.py")
 
-    # Final gate: this is the only point at which publishing is allowed.
     final = verify_json("snapshot.json")
     market = final.get("marketData") or {}
     fresh(market)
