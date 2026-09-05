@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Put the Intelligence Web directly on the main Global Pulse page and add a top Commander Center jump bar."""
+"""Put the Intelligence Web directly on the main Global Pulse page and add a responsive top Commander Center jump bar."""
 from pathlib import Path
 import re
 
@@ -14,17 +14,26 @@ NAV_ID = 'commanderCenter'
 SECTION_ID = 'intelligenceWebSection'
 
 css = '''<style id="gp-commander-intel-css">
-#commanderCenter{position:sticky;top:58px;z-index:45;background:rgba(8,16,25,.96);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;padding:10px 11px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
-#commanderCenter .cc-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
-#commanderCenter .cc-title strong{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-#commanderCenter .cc-title span{font-size:9px;color:var(--muted)}
-#commanderCenter .cc-nav{display:flex;gap:7px;overflow:auto;padding-bottom:2px;scrollbar-width:thin}
-#commanderCenter .cc-nav a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:34px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#09121c;color:var(--text);font-size:10px;font-weight:800;white-space:nowrap}
+#commanderCenter{position:sticky;top:58px;z-index:45;width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;background:rgba(8,16,25,.96);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;padding:10px 11px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+#commanderCenter .cc-title{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;margin-bottom:8px}
+#commanderCenter .cc-title strong{font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+#commanderCenter .cc-title span{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#commanderCenter .cc-nav{display:flex;gap:7px;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;padding:1px 1px 4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+#commanderCenter .cc-nav a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#09121c;color:var(--text);font-size:10px;font-weight:800;white-space:nowrap}
 #commanderCenter .cc-nav a:hover,#commanderCenter .cc-nav a:focus{border-color:var(--blue);color:var(--blue);outline:none}
-#intelligenceWebSection{scroll-margin-top:112px}
-.gp-intel-frame{width:100%;height:900px;border:1px solid var(--line);border-radius:12px;background:#03070b;display:block}
+#intelligenceWebSection{scroll-margin-top:112px;min-width:0;max-width:100%;overflow:hidden}
+.gp-intel-frame{display:block;width:100%;max-width:100%;min-width:0;height:900px;border:1px solid var(--line);border-radius:12px;background:#03070b;box-sizing:border-box}
 .gp-intel-note{font-size:10px;color:var(--muted);margin-top:7px}
-@media(max-width:720px){#commanderCenter{top:51px;padding:8px}.gp-intel-frame{height:820px}#commanderCenter .cc-title span{display:none}}
+@media(max-width:720px){
+  body{overflow-x:hidden}
+  #commanderCenter{top:51px;width:100%;max-width:100%;padding:8px;border-radius:12px}
+  #commanderCenter .cc-title{gap:6px;margin-bottom:7px}
+  #commanderCenter .cc-title strong{font-size:10px;letter-spacing:.11em}
+  #commanderCenter .cc-title span{display:none}
+  #commanderCenter .cc-nav{gap:6px;padding-bottom:3px}
+  #commanderCenter .cc-nav a{min-height:36px;padding:8px 11px;font-size:10px}
+  .gp-intel-frame{height:820px;border-radius:10px}
+}
 </style>'''
 
 # Remove/rebuild our own injected pieces so reruns are safe.
@@ -65,4 +74,4 @@ if pos < 0:
 s = s[:pos] + section + '\n' + s[pos:]
 
 INDEX.write_text(s, encoding='utf-8')
-print('PASS: Commander Center and full-page Intelligence Web installed')
+print('PASS: Commander Center responsive overflow fix installed')
