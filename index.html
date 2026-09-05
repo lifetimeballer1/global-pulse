@@ -60,20 +60,6 @@ function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("
 
 <!-- GP-MARKER-CLUSTER-END -->
 
-
-
-
-
-
-
-<style id="gp-map-rescue-css">
-#map{height:540px;min-height:320px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#07101a}
-.gp-mapbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:0 0 9px}.gp-mapbar button{font-size:10px;min-height:34px;padding:7px 9px}.gp-mapbar button.active{border-color:var(--blue);color:var(--blue);background:rgba(98,160,255,.13)}.gp-map-search{flex:1;min-width:170px}.gp-map-count{font-size:10px;color:var(--muted);margin-left:auto}.gp-map-legend{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0;color:var(--muted);font-size:10px}.gp-map-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.gp-map-legend .c{background:#ff6678}.gp-map-legend .o{background:#ffc857}.gp-map-legend .s{background:#62a0ff}.gp-map-legend .h{background:#48df83}.gp-map-legend .x{background:#aa8df7}
-.gp-popup-title{font-weight:850;font-size:13px;margin-bottom:5px}.gp-popup-meta{font-size:10px;color:#91a4b8;margin-bottom:6px}.gp-popup-detail{font-size:11px;line-height:1.4}.gp-popup-link{display:inline-block;margin-top:8px;color:#62a0ff;font-weight:750}
-.gp-map-loading{position:absolute;z-index:500;padding:8px 10px;margin:10px;border:1px solid var(--line);border-radius:8px;background:rgba(5,10,16,.88);color:#91a4b8;font-size:10px;pointer-events:none}.gp-map-ready #map{background:#07101a}
-@media(max-width:720px){#map{height:390px}.gp-mapbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.gp-mapbar button{white-space:nowrap}.gp-map-search{min-width:150px}.gp-map-count{width:100%;margin-left:0}}
-</style>
-
 <style id="gp-brand-live-css">.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}#top{grid-auto-rows:max-content!important;align-items:start!important;min-height:0!important;height:auto!important;margin:0!important}#top>.panel{height:auto!important;min-height:0!important;margin:0!important}#top .bars{height:auto!important;min-height:0!important;margin:0!important;padding:0!important}.wrap{grid-auto-rows:max-content!important}.wrap>section{height:auto!important;min-height:0!important}.gp-web{height:440px;border:1px solid var(--line);border-radius:12px;background:#06101a;overflow:auto;color:var(--cyan);touch-action:pan-x pan-y}.gp-web svg{width:100%;height:100%;display:block;min-width:560px}.gp-web text{fill:var(--muted);font-size:9px;font-weight:700}.gp-node{cursor:pointer;outline:none}.gp-node circle{fill:#62a0ff;stroke:#eef5ff;stroke-width:1.2}.gp-node-political circle{fill:#aa8df7}.gp-node-economic circle{fill:#ffc857}.gp-node-strategic circle{fill:#3fc5ff}.gp-node:focus circle,.gp-node:hover circle{stroke:#48df83;stroke-width:2.5}.gp-web-controls{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}.gp-web-controls input{flex:1;min-width:170px}.gp-web-controls select{min-width:155px;max-width:230px}.gp-web-count{font-size:10px;color:var(--muted);white-space:nowrap}.gp-web-detail{margin-top:9px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#08131e;font-size:11px;color:var(--muted)}.gp-web-detail strong{color:var(--text)}.gp-web-links{display:grid;gap:6px;margin-top:7px}.gp-link-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;padding:7px 8px;border:1px solid var(--line);border-radius:7px}.gp-link-row span{color:var(--text)}.gp-link-row b{color:var(--blue)}.gp-link-row a{font-size:10px;font-weight:800}.gp-link-row small{grid-column:1/-1;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gp-web-note{font-size:9px;color:var(--muted);margin-top:7px}.gp-layer-controls{display:grid;gap:8px;margin:0 0 11px}.gp-layer-tabs{display:flex;gap:6px;flex-wrap:wrap}.gp-layer-filters{display:flex;gap:7px;align-items:center}.gp-layer-filters input{flex:1;min-width:0}.gp-layer-filters select{border:1px solid var(--line);background:#09121c;color:var(--text);border-radius:9px;padding:8px 10px;min-height:36px}.gp-layer-count{font-size:10px;color:var(--muted);white-space:nowrap}.gp-layer-note{font-size:9px;color:var(--muted);line-height:1.45}.gp-layer-tabs .filter.active{border-color:var(--blue);background:rgba(98,160,255,.13);color:var(--blue)}@media(max-width:720px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}.gp-web{height:390px}.gp-web-controls select{flex:1;min-width:130px;max-width:none}.gp-web svg{min-width:620px}.gp-layer-filters{align-items:stretch}.gp-layer-filters select{width:125px}.gp-layer-count{align-self:center}}</style><style id="gp-live-reporting-css">
 .gp-reporting-feed{display:grid;gap:10px}.gp-reporting-card{position:relative;padding:13px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;transition:border-color .16s ease,transform .16s ease,background .16s ease}.gp-reporting-card:hover{border-color:#315274;background:#09131e;transform:translateY(-1px)}.gp-reporting-source{display:inline-flex;align-items:center;gap:5px;margin-bottom:7px;padding:4px 7px;border:1px solid rgba(98,160,255,.3);border-radius:6px;background:rgba(98,160,255,.08);color:var(--blue);font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}.gp-reporting-title{display:block;margin:2px 0 6px;color:var(--text);font-size:15px;font-weight:850;line-height:1.35}.gp-reporting-title:hover{color:var(--blue)}.gp-reporting-time{display:block;margin-bottom:8px;color:var(--muted);font-size:10px}.gp-reporting-summary{margin:0;color:var(--muted);font-size:11px;line-height:1.55}.gp-reporting-source-name{margin-top:8px;color:var(--muted);font-size:9px}.gp-reporting-action{display:inline-block;margin-top:10px;padding:7px 10px;border:1px solid rgba(98,160,255,.35);border-radius:7px;background:rgba(98,160,255,.08);color:var(--blue);font-size:10px;font-weight:800}.gp-reporting-alert{padding:13px;border:1px solid rgba(255,102,120,.35);border-left:3px solid var(--red);border-radius:11px;background:rgba(255,102,120,.07)}.gp-reporting-alert strong{display:block;margin-bottom:3px;color:var(--red);font-size:11px;letter-spacing:.05em;text-transform:uppercase}.gp-reporting-alert span{color:var(--muted);font-size:10px}.gp-reporting-empty{padding:18px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:11px}.gp-reporting-count{color:var(--muted);font-size:10px;white-space:nowrap}.gp-reporting-fallback .gp-reporting-card{border-color:rgba(255,200,87,.22)}@media(max-width:720px){.gp-reporting-card{padding:12px}.gp-reporting-title{font-size:14px}.gp-reporting-summary{font-size:11px}}
 </style>
@@ -107,6 +93,16 @@ function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("
   .gp-intel-frame{height:820px;border-radius:10px}
 }
 </style>
+
+<style id="gp-map-rescue-css">
+#map{height:540px;min-height:320px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#07101a}
+.gp-mapbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:0 0 9px}.gp-mapbar button{font-size:10px;min-height:34px;padding:7px 9px}.gp-mapbar button.active{border-color:var(--blue);color:var(--blue);background:rgba(98,160,255,.13)}.gp-map-search{flex:1;min-width:170px}.gp-map-count{font-size:10px;color:var(--muted);margin-left:auto}.gp-map-legend{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0;color:var(--muted);font-size:10px}.gp-map-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.gp-map-legend .c{background:#ff6678}.gp-map-legend .o{background:#ffc857}.gp-map-legend .s{background:#62a0ff}.gp-map-legend .h{background:#48df83}.gp-map-legend .x{background:#aa8df7}
+.gp-popup-title{font-weight:850;font-size:13px;margin-bottom:5px}.gp-popup-meta{font-size:10px;color:#91a4b8;margin-bottom:6px}.gp-popup-detail{font-size:11px;line-height:1.4}.gp-popup-link{display:inline-block;margin-top:8px;color:#62a0ff;font-weight:750}
+.gp-map-loading{position:absolute;z-index:500;padding:8px 10px;margin:10px;border:1px solid var(--line);border-radius:8px;background:rgba(5,10,16,.88);color:#91a4b8;font-size:10px;pointer-events:none}.gp-map-ready #map{background:#07101a}
+@media(max-width:720px){#map{height:390px}.gp-mapbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.gp-mapbar button{white-space:nowrap}.gp-map-search{min-width:150px}.gp-map-count{width:100%;margin-left:0}}
+</style>
+
+<link rel="stylesheet" href="global_pulse_tokens.css?v=1">
 </head>
 <body>
 <header><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
@@ -281,21 +277,64 @@ setInterval(load,60000);
 <script src="global_pulse_assessment.js?v=20260904a"></script>
 
 <script src="claim_intelligence.js?v=1"></script>
-
-<script src="global_pulse_event_intelligence.js?v=1"></script>
-
-<script src="global_pulse_event_consistency.js?v=1"></script>
-<link rel="stylesheet" href="global_pulse_list_density.css">
 <script src="global_pulse_list_density.js"></script>
-
-<script src="global_pulse_event_resolution.js?v=1"></script>
-
-
-<script src="global_pulse_event_history.js?v=1"></script>
-
-<link rel="stylesheet" href="global_pulse_phase3.css?v=1">
 <script src="global_pulse_ux_hardening.js?v=1"></script>
 
+<script src="global_pulse_events.js?v=690cabcf77b3"></script><script src="global_pulse_enhancements.js" defer></script><script src="global_pulse_graph.js?v=20260904c" defer></script><script src="global_pulse_layers.js" defer></script><script src="global_pulse_tension.js" defer></script><script src="global_pulse_reporting.js" defer></script>
+<!-- GP-BREAKING-INTEL -->
+
+<script src="global_pulse_source_health.js?v=6494ec78310e" defer></script>
+
+<script id="gp-source-age-filter-js">
+(function(){
+  "use strict";
+  const ID="gp-source-age-filter";
+  let maxAge="all";
+  // Prefer the time the source published/observed the signal. Do not use the
+  // Global Pulse snapshot updatedAt value because that is not source age.
+  const ageFields=["publishedAt","published_at","sourcePublishedAt","source_published_at","published","published_date","pubDate","pub_date","observedAt","observed_at","timestamp","time","date","sourceDate","source_date","createdAt","created_at","lastUpdated","last_updated"];
+  function timestamp(m){for(const k of ageFields){const v=m&&m[k];if(v===null||v===undefined||v==="")continue;const n=Date.parse(String(v));if(Number.isFinite(n))return n}return NaN}
+  function ageMs(m){const t=timestamp(m);return Number.isFinite(t)?Date.now()-t:NaN}
+  function label(ms){if(!Number.isFinite(ms))return "Source age unknown";if(ms<0)return "Source time in future";const min=Math.floor(ms/60000),h=Math.floor(min/60),d=Math.floor(h/24);if(min<1)return "Source posted just now";if(min<60)return "Source posted "+min+"m ago";if(h<24)return "Source posted "+h+"h "+(min%60)+"m ago";return "Source posted "+d+"d "+(h%24)+"h ago"}
+  function matches(m){if(maxAge==="all")return true;const ms=ageMs(m);if(maxAge==="unknown")return !Number.isFinite(ms);if(!Number.isFinite(ms))return false;if(maxAge==="older")return ms>604800000;return ms>=0&&ms<=Number(maxAge)*3600000}
+  function decorate(){const markers=Array.isArray(window.DATA?.markers)?window.DATA.markers:[];for(const m of markers)m.__gpSourceAge=label(ageMs(m))}
+  function wrapRender(){
+    if(typeof window.renderMap!=="function"||window.renderMap.__gpSourceAgeWrapped)return false;
+    const original=window.renderMap;
+    function wrapped(){
+      const data=window.DATA;
+      const markers=data&&Array.isArray(data.markers)?data.markers:null;
+      if(!markers||maxAge==="all")return original.apply(this,arguments);
+      const keep=markers.filter(matches);
+      data.markers=keep;
+      try{return original.apply(this,arguments)}finally{data.markers=markers}
+    }
+    wrapped.__gpSourceAgeWrapped=true;
+    wrapped.__gpSourceAgeOriginal=original;
+    window.renderMap=wrapped;
+    return true;
+  }
+  function install(){
+    const map=document.getElementById("map");
+    if(!map||!map.parentElement)return false;
+    let wrap=document.getElementById(ID);
+    if(!wrap){
+      const parent=map.parentElement;wrap=document.createElement("div");wrap.id=ID;wrap.className="gp-age-filter";
+      wrap.innerHTML='<label for="gpSourceAge">Source age</label><select id="gpSourceAge"><option value="all">All sources</option><option value="1">Last 1 hour</option><option value="6">Last 6 hours</option><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168">Last 7 days</option><option value="older">Older than 7 days</option><option value="unknown">Unknown source time</option></select><span class="gp-age-note">Uses the source publication/observation time.</span>';
+      parent.insertBefore(wrap,map);
+      wrap.querySelector("#gpSourceAge").addEventListener("change",e=>{maxAge=e.target.value;decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
+    }
+    decorate();
+    return wrapRender()||typeof window.renderMap==="function";
+  }
+  window.gpSourceAge={ageMs,label,matches,decorate,wrapRender};
+  document.addEventListener("globalpulse:dataready",()=>{decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
+  const t=setInterval(install,100);
+  setTimeout(()=>clearInterval(t),30000);
+})();
+</script>
+
+<script src="global_pulse_mission_control_fix.js?v=1" defer></script>
 
 <script id="gp-map-rescue-js">
 (function(){
@@ -357,66 +396,13 @@ setInterval(load,60000);
     render();
     return true;
   }
-  const wait=()=>{let n=0;const t=setInterval(()=>{if(boot()||++n>200)clearInterval(t)},100)};
+  const wait=()=>{const target=document.getElementById("map");if(!target)return;let started=false;const start=()=>{if(started)return;started=true;let n=0;const t=setInterval(()=>{if(boot()||++n>200)clearInterval(t)},100)};if("IntersectionObserver" in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();start()}},{rootMargin:"300px"});o.observe(target)}else start()};
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",wait);else wait();
 })();
 </script>
 
-<script src="global_pulse_events.js?v=690cabcf77b3"></script><script src="global_pulse_enhancements.js" defer></script><script src="global_pulse_graph.js?v=20260904c" defer></script><script src="global_pulse_layers.js" defer></script><script src="global_pulse_v22.js?v=ef1331dc4afe" defer></script><script src="global_pulse_v23.js" defer></script><script src="global_pulse_v24.js?v=20260904b" defer></script><script src="global_pulse_v25.js" defer></script><script src="global_pulse_tension.js" defer></script><script src="global_pulse_reporting.js" defer></script>
-<!-- GP-BREAKING-INTEL -->
-
-<script src="global_pulse_source_health.js?v=6494ec78310e" defer></script><script src="global_pulse_v26.js?v=a98dad9492f5" defer></script><script src="global_pulse_v27.js?v=8ae293e71170" defer></script>
-<script src="global_pulse_v27_quality.js?v=b4528fc09ca1" defer></script>
-
-<script id="gp-source-age-filter-js">
-(function(){
-  "use strict";
-  const ID="gp-source-age-filter";
-  let maxAge="all";
-  // Prefer the time the source published/observed the signal. Do not use the
-  // Global Pulse snapshot updatedAt value because that is not source age.
-  const ageFields=["publishedAt","published_at","sourcePublishedAt","source_published_at","published","published_date","pubDate","pub_date","observedAt","observed_at","timestamp","time","date","sourceDate","source_date","createdAt","created_at","lastUpdated","last_updated"];
-  function timestamp(m){for(const k of ageFields){const v=m&&m[k];if(v===null||v===undefined||v==="")continue;const n=Date.parse(String(v));if(Number.isFinite(n))return n}return NaN}
-  function ageMs(m){const t=timestamp(m);return Number.isFinite(t)?Date.now()-t:NaN}
-  function label(ms){if(!Number.isFinite(ms))return "Source age unknown";if(ms<0)return "Source time in future";const min=Math.floor(ms/60000),h=Math.floor(min/60),d=Math.floor(h/24);if(min<1)return "Source posted just now";if(min<60)return "Source posted "+min+"m ago";if(h<24)return "Source posted "+h+"h "+(min%60)+"m ago";return "Source posted "+d+"d "+(h%24)+"h ago"}
-  function matches(m){if(maxAge==="all")return true;const ms=ageMs(m);if(maxAge==="unknown")return !Number.isFinite(ms);if(!Number.isFinite(ms))return false;if(maxAge==="older")return ms>604800000;return ms>=0&&ms<=Number(maxAge)*3600000}
-  function decorate(){const markers=Array.isArray(window.DATA?.markers)?window.DATA.markers:[];for(const m of markers)m.__gpSourceAge=label(ageMs(m))}
-  function wrapRender(){
-    if(typeof window.renderMap!=="function"||window.renderMap.__gpSourceAgeWrapped)return false;
-    const original=window.renderMap;
-    function wrapped(){
-      const data=window.DATA;
-      const markers=data&&Array.isArray(data.markers)?data.markers:null;
-      if(!markers||maxAge==="all")return original.apply(this,arguments);
-      const keep=markers.filter(matches);
-      data.markers=keep;
-      try{return original.apply(this,arguments)}finally{data.markers=markers}
-    }
-    wrapped.__gpSourceAgeWrapped=true;
-    wrapped.__gpSourceAgeOriginal=original;
-    window.renderMap=wrapped;
-    return true;
-  }
-  function install(){
-    const map=document.getElementById("map");
-    if(!map||!map.parentElement)return false;
-    let wrap=document.getElementById(ID);
-    if(!wrap){
-      const parent=map.parentElement;wrap=document.createElement("div");wrap.id=ID;wrap.className="gp-age-filter";
-      wrap.innerHTML='<label for="gpSourceAge">Source age</label><select id="gpSourceAge"><option value="all">All sources</option><option value="1">Last 1 hour</option><option value="6">Last 6 hours</option><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168">Last 7 days</option><option value="older">Older than 7 days</option><option value="unknown">Unknown source time</option></select><span class="gp-age-note">Uses the source publication/observation time.</span>';
-      parent.insertBefore(wrap,map);
-      wrap.querySelector("#gpSourceAge").addEventListener("change",e=>{maxAge=e.target.value;decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
-    }
-    decorate();
-    return wrapRender()||typeof window.renderMap==="function";
-  }
-  window.gpSourceAge={ageMs,label,matches,decorate,wrapRender};
-  document.addEventListener("globalpulse:dataready",()=>{decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
-  const t=setInterval(install,100);
-  setTimeout(()=>clearInterval(t),30000);
-})();
-</script>
-
-<script src="global_pulse_mission_control_fix.js?v=1" defer></script>
+<script src="global_pulse_core.js?v=1" defer></script>
+<script src="global_pulse_event_pipeline.js?v=1" defer></script>
+<script src="global_pulse_qa.js?v=1" defer></script>
 </body>
 </html>
