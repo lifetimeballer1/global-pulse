@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T12:47:56.351010Z",
+  "updatedAt": "2026-09-05T13:04:56.307892Z",
   "method": "heuristic contradiction signals from report titles; flags require human review and are not truth judgments",
   "events": [
     {
@@ -35,11 +35,6 @@
           "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - devdiscourse.com",
           "url": "",
           "domain": ""
-        },
-        {
-          "title": "On the ground: Russian drone strikes Ukraine security service headquarters in Kyiv",
-          "url": "",
-          "domain": ""
         }
       ]
     },
@@ -64,6 +59,72 @@
         },
         {
           "title": "Russian attacks kill 5 in Ukraine as Moscow and Kyiv prepare for visit by US envoys - ABC27",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "85e56816d0111067",
+      "title": "Yemen government launches own air attacks on Houthis: What that means - Al Jazeera",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [
+        "aljazeera.com",
+        "news.google.com"
+      ],
+      "reports": [
+        {
+          "title": "Yemen government launches own air attacks on Houthis: What that means - Al Jazeera",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPRV9BRl9DejN6ckpPUVZabTRRbkF1S08wekVya0Y4UFV0Q3MwMnE5aGhXWTM3Q0Jta3o5SzRhX1lxSGc1T0lESEFGUzc1Y0xCcEF6SzQ2cUl5WFJLTkxMN0JCZWFUWjNvSUxFNzVvRHNFSVdWczZKVGxVZ1p0cEdfSE1KeDNLSUc3aVFvNE9VbVVHWWw1X0w3WGFrT1ZPQ1JxNmt6MTVYN2dpVHVl0gGyAUFVX3lxTE1oU2hxQ2Q3b3lwV1dESUh0R0FCNmlTR3J2Zmc5aFU4RU9zWHVBUEVoMXhYNHVROTlfaTZFQkZIeTlHdmpvbW5xdk5qa0E0Qm1BbVZGV1J6QldzY0RHRFpBQjRCeEFhWFNBMms3UVI1ZWVGaHNueWszdmJ4d3oxTzdCaGx4d0V5R0VNQkJNVGFYYXRLekFwZnpNUmZYWEwxaDd1U1NtN1k5ZDFWaXcwNE1SZVE?oc=5",
+          "domain": "news.google.com"
+        },
+        {
+          "title": "Yemen government launches own air attacks on Houthis: What that means",
+          "url": "https://www.aljazeera.com/news/2026/9/5/yemen-government-launches-own-air-attacks-on-houthis-what-that-means?traffic_source=rss",
+          "domain": "aljazeera.com"
+        }
+      ]
+    },
+    {
+      "eventId": "aa26575eaa22323a",
+      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "US envoys in Moscow in new push for peace between Russia and Ukraine - Belfast Telegraph",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "15f55aa43ae86ad6",
+      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Trump Envoys Arrive in Moscow for Talks on Ukraine War - The New York Times",
           "url": "",
           "domain": ""
         }
@@ -139,27 +200,6 @@
       ]
     },
     {
-      "eventId": "1f520cd82ea211c4",
-      "title": "UPDATE - Qatar rejects Iran’s claim that strikes only targeted US military sites - usmuslims.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "UPDATE - Qatar rejects Iran’s claim that strikes only targeted US military sites - usmuslims.com",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "Qatar rejects Iran claim strikes only targeted US military sites - Anadolu Ajansı",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
       "eventId": "214d3e5f64c2c31b",
       "title": "Witkoff and Kushner will travel to ‘end’ Russia’s war in Ukraine: Trump",
       "consistency": "none",
@@ -223,6 +263,66 @@
       ]
     },
     {
+      "eventId": "8fe343f2d319aea4",
+      "title": "At least four civilians killed in Houthi missile strike near Yemen’s Taiz",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "reports": [
+        {
+          "title": "At least four civilians killed in Houthi missile strike near Yemen’s Taiz",
+          "url": "https://www.aljazeera.com/news/2026/9/5/at-least-four-killed-in-houthi-missile-strike-near-yemens-taiz?traffic_source=rss",
+          "domain": "aljazeera.com"
+        }
+      ]
+    },
+    {
+      "eventId": "21f202fba451a23d",
+      "title": "How big is Africa really? Why the UN voted to change the world map",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "reports": [
+        {
+          "title": "How big is Africa really? Why the UN voted to change the world map",
+          "url": "https://www.aljazeera.com/news/2026/9/5/how-big-is-africa-really-why-the-un-voted-to-change-the-world-map?traffic_source=rss",
+          "domain": "aljazeera.com"
+        }
+      ]
+    },
+    {
+      "eventId": "e69d385cecabf776",
+      "title": "NJ mayor demands sanctuary policy rollback after baby killed in crash allegedly involving illegal immigrant",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [
+        "foxnews.com"
+      ],
+      "reports": [
+        {
+          "title": "NJ mayor demands sanctuary policy rollback after baby killed in crash allegedly involving illegal immigrant",
+          "url": "https://www.foxnews.com/politics/nj-mayor-demands-sanctuary-policy-rollback-baby-killed-crash-illegal-immigrant",
+          "domain": "foxnews.com"
+        }
+      ]
+    },
+    {
       "eventId": "e7e5b57075452b28",
       "title": "Iran says security forces dismantled terrorist cells in Sistan and Baluchestan - Business Upturn",
       "consistency": "none",
@@ -277,56 +377,34 @@
       ]
     },
     {
-      "eventId": "d24aa883c448288f",
-      "title": "US envoys arrive in Moscow ahead of Ukraine talks",
+      "eventId": "ad5721f5105cf857",
+      "title": "Putin orders 72-hour pause in strikes on Kyiv as US envoys visit Russia, Ukraine - DT Next",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "bbc.co.uk"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "US envoys arrive in Moscow ahead of Ukraine talks",
-          "url": "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss",
-          "domain": "bbc.co.uk"
+          "title": "Putin orders 72-hour pause in strikes on Kyiv as US envoys visit Russia, Ukraine - DT Next",
+          "url": "",
+          "domain": ""
         }
       ]
     },
     {
-      "eventId": "cb9b44d6489d149e",
-      "title": "US ambassador to Israel visits Palestinian town hit by West Bank settler violence",
+      "eventId": "a076242a5a8cca3b",
+      "title": "US-Israel-Iran War Latest Live News: IRGC Says It Killed Two Suspects Linked to US and Israel Aiming to Carry Out Attacks in Sistan and Baluchestan Province - The Sunday Guardian",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "france24.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "US ambassador to Israel visits Palestinian town hit by West Bank settler violence",
-          "url": "https://www.france24.com/en/middle-east/20260905-us-ambassador-to-israel-visits-palestinian-town-hit-by-west-bank-settler-violence",
-          "domain": "france24.com"
-        }
-      ]
-    },
-    {
-      "eventId": "7e49cce882698dc6",
-      "title": "Bangladesh measles toll nears grim 1,000-child mark",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "france24.com"
-      ],
-      "reports": [
-        {
-          "title": "Bangladesh measles toll nears grim 1,000-child mark",
-          "url": "https://www.france24.com/en/video/20260905-bangladesh-measles-toll-nears-grim-1-000-child-mark",
-          "domain": "france24.com"
+          "title": "US-Israel-Iran War Latest Live News: IRGC Says It Killed Two Suspects Linked to US and Israel Aiming to Carry Out Attacks in Sistan and Baluchestan Province - The Sunday Guardian",
+          "url": "",
+          "domain": ""
         }
       ]
     },
@@ -395,22 +473,6 @@
       ]
     },
     {
-      "eventId": "aa26575eaa22323a",
-      "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Trump envoys Witkoff, Kushner arrive in Moscow with proposal to end war - The New Voice of Ukraine",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
       "eventId": "32718a16c6a01946",
       "title": "Putin orders three-day pause on Kyiv strikes amid US delegation visit - Crypto Briefing",
       "consistency": "none",
@@ -437,22 +499,6 @@
       "reports": [
         {
           "title": "Life gets very tough for Kyiv residents as Russian drone attacks intensify - Gulf Today",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "15f55aa43ae86ad6",
-      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
           "url": "",
           "domain": ""
         }
@@ -517,6 +563,22 @@
       "reports": [
         {
           "title": "Ripple CEO Makes Statement Ahead of September 15 Senate Vote - Bitget",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "863da35c77742940",
+      "title": "Zelenskyy offers pause in airstrikes during US envoys’ Moscow trip - WTKR",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Zelenskyy offers pause in airstrikes during US envoys’ Moscow trip - WTKR",
           "url": "",
           "domain": ""
         }
@@ -747,6 +809,22 @@
       ]
     },
     {
+      "eventId": "04b326a2279d0835",
+      "title": "UK art show explores Muslim life, Europe’s Islamic history and Islamophobia",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "UK art show explores Muslim life, Europe’s Islamic history and Islamophobia",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "317bed6c3d618095",
       "title": "Ukraine Invasion Day 1,654: More attacks on Kyiv. Rather than a ‘concept of a plan’, Trump says “We have an idea for Peace” - Daily Kos",
       "consistency": "none",
@@ -757,6 +835,22 @@
       "reports": [
         {
           "title": "Ukraine Invasion Day 1,654: More attacks on Kyiv. Rather than a ‘concept of a plan’, Trump says “We have an idea for Peace” - Daily Kos",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "2b02e70bb3a40021",
+      "title": "Niger accuses France of orchestrating failed military mutiny",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Niger accuses France of orchestrating failed military mutiny",
           "url": "",
           "domain": ""
         }
@@ -805,6 +899,22 @@
       "reports": [
         {
           "title": "Ukrainian troops get four-day ‘silence’ order as US envoys visit Moscow and Kyiv - TVP World",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "2518049cac788f82",
+      "title": "Alcaraz, Sabalenka into US Open last 16 as Williams sisters lose on return",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Alcaraz, Sabalenka into US Open last 16 as Williams sisters lose on return",
           "url": "",
           "domain": ""
         }
@@ -1163,6 +1273,22 @@
       ]
     },
     {
+      "eventId": "40765e42bfc3fc24",
+      "title": "European shares log weekly losses on inflation worries; Volkswagen jumps - The Economic Times",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "European shares log weekly losses on inflation worries; Volkswagen jumps - The Economic Times",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "d5f90b135c14b37e",
       "title": "US midterms begin with chaos over mail-voting crackdown",
       "consistency": "none",
@@ -1257,118 +1383,6 @@
           "domain": ""
         }
       ]
-    },
-    {
-      "eventId": "27d5b877fac6e13e",
-      "title": "After Pretoria peace deal, old enemies in Ethiopia’s Tigray find new ground",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "After Pretoria peace deal, old enemies in Ethiopia’s Tigray find new ground",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "b7001ba32dafa442",
-      "title": "US embassy issues health alert for Cuba amid oil blockade, sanctions",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "US embassy issues health alert for Cuba amid oil blockade, sanctions",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "cc3bc67f455b7645",
-      "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "896398900e29e844",
-      "title": "Ben Simmons handed NBA lifeline in one-year deal with Sacramento Kings",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Ben Simmons handed NBA lifeline in one-year deal with Sacramento Kings",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "d76d215638bc76b8",
-      "title": "Explosion at Bolivia military base kills at least 10, dozens injured",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Explosion at Bolivia military base kills at least 10, dozens injured",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "03d3202023d13cd5",
-      "title": "How much can Canada fight back in its trade war with the US?",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "How much can Canada fight back in its trade war with the US?",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "814916b09c96deb5",
-      "title": "Panama Canal begins reducing crossings due to El Nino",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Panama Canal begins reducing crossings due to El Nino",
-          "url": "",
-          "domain": ""
-        }
-      ]
     }
   ],
   "flaggedEvents": [
@@ -1398,11 +1412,35 @@
           "domain": ""
         }
       ]
+    },
+    {
+      "eventId": "8fe343f2d319aea4",
+      "title": "At least four civilians killed in Houthi missile strike near Yemen’s Taiz",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
+      "sourceDomains": [
+        "aljazeera.com"
+      ],
+      "reports": [
+        {
+          "title": "At least four civilians killed in Houthi missile strike near Yemen’s Taiz",
+          "url": "https://www.aljazeera.com/news/2026/9/5/at-least-four-killed-in-houthi-missile-strike-near-yemens-taiz?traffic_source=rss",
+          "domain": "aljazeera.com"
+        }
+      ]
     }
   ],
   "summary": {
     "eventsAnalyzed": 80,
-    "eventsFlagged": 1,
+    "eventsFlagged": 2,
     "highSeverity": 0
   }
 }
