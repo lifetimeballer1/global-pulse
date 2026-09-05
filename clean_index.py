@@ -11,6 +11,7 @@ def main():
  for css in ('global_pulse_intelligence.css','global_pulse_list_density.css','global_pulse_phase3.css'):s=re.sub(rf'\s*<link\b[^>]*href=["\']{re.escape(css)}(?:\?[^"\']*)?["\'][^>]*>','',s,flags=re.I)
  if 'global_pulse_core.js' not in s:s=s.replace('</body>','<script src="global_pulse_core.js?v=1" defer></script>\n</body>',1)
  if 'global_pulse_event_pipeline.js' not in s:s=s.replace('</body>','<script src="global_pulse_event_pipeline.js?v=1" defer></script>\n</body>',1)
+ if 'global_pulse_brain_ui.js' not in s:s=s.replace('</body>','<script src="global_pulse_brain_ui.js?v=1" defer></script>\n</body>',1)
  if 'global_pulse_tokens.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="global_pulse_tokens.css?v=1">\n</head>',1)
  script_re=re.compile(r'<script\b[^>]*\bsrc=["\']([^"\']+)["\'][^>]*>\s*</script\s*>',re.I);seen=set()
  def dedupe(m):
