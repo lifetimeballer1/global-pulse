@@ -1,4 +1,4 @@
-/* Global Pulse — stable dashboard helpers. The full 3D Intelligence Web lives in intelligence-web.html. */
+/* Global Pulse — stable dashboard helpers + Commander Center navigation. */
 (function(){
   'use strict';
   if(window.__GP_STABLE_LOADER__) return;
@@ -56,17 +56,72 @@
     if(document.getElementById('gp-command-center')) return;
     var wrap=document.querySelector('.wrap'),top=document.getElementById('top');
     if(!wrap||!top) return;
+
     var style=document.createElement('style');
     style.id='gp-command-center-css';
-    style.textContent='html,body{max-width:100%;overflow-x:hidden}#gp-command-center{display:grid;gap:10px;margin:0 0 14px;padding:13px 14px;border:1px solid rgba(98,160,255,.28);border-radius:15px;background:linear-gradient(135deg,rgba(10,24,38,.98),rgba(6,15,24,.98));box-shadow:0 12px 38px rgba(0,0,0,.22)}.gp-command-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.gp-command-kicker{font-size:9px;font-weight:900;letter-spacing:.16em;color:#62a0ff;text-transform:uppercase}.gp-command-title{font-size:18px;font-weight:950;line-height:1.1;margin-top:3px}.gp-command-sub{font-size:10px;color:#91a4b8;margin-top:4px;line-height:1.45}.gp-command-live{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid rgba(72,223,131,.22);background:rgba(72,223,131,.06);color:#48df83;font-size:8px;font-weight:900;letter-spacing:.08em;white-space:nowrap}.gp-command-live i{width:6px;height:6px;border-radius:50%;background:#48df83}.gp-command-grid{display:grid;grid-template-columns:minmax(0,1.35fr) repeat(4,minmax(90px,1fr));gap:7px}.gp-command-link{display:flex;align-items:center;justify-content:space-between;gap:7px;min-height:42px;padding:8px 10px;border:1px solid #1b2b3d;border-radius:9px;background:#08131e;color:#eef5ff;font-size:10px;font-weight:850;min-width:0}.gp-command-link.primary{border-color:rgba(57,255,136,.35);background:linear-gradient(135deg,rgba(57,255,136,.09),rgba(8,19,30,.96));color:#39ff88}.gp-command-link small{display:block;color:#91a4b8;font-size:8px;font-weight:650;margin-top:2px}.gp-command-arrow{font-size:14px;color:#62a0ff}.gp-intel-web-entry{display:flex!important}@media(max-width:900px){.gp-command-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gp-command-link.primary{grid-column:span 2}}@media(max-width:620px){#gp-command-center{padding:11px}.gp-command-title{font-size:16px}.gp-command-live{display:none}.gp-command-grid{grid-template-columns:1fr 1fr}.gp-command-link.primary{grid-column:span 2}.gp-command-link{min-height:40px;font-size:9px}.gp-command-link small{display:none}}';
+    style.textContent=`html,body{max-width:100%;overflow-x:hidden}
+#gp-command-center{position:relative;display:grid;gap:12px;margin:0 0 14px;padding:14px;border:1px solid rgba(98,160,255,.28);border-radius:16px;background:linear-gradient(145deg,rgba(10,24,38,.99),rgba(6,14,23,.98));box-shadow:0 14px 42px rgba(0,0,0,.24);overflow:hidden}
+#gp-command-center:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,#39ff88,#62a0ff,#aa8df7,#ffc857);opacity:.9}
+.gp-command-head{display:flex;align-items:center;justify-content:space-between;gap:14px}.gp-command-kicker{font-size:8px;font-weight:950;letter-spacing:.18em;color:#62a0ff;text-transform:uppercase}.gp-command-title{font-size:19px;font-weight:950;line-height:1.08;margin-top:3px}.gp-command-sub{font-size:10px;color:#91a4b8;margin-top:4px;line-height:1.45;max-width:720px}.gp-command-live{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;border:1px solid rgba(72,223,131,.24);background:rgba(72,223,131,.06);color:#48df83;font-size:8px;font-weight:950;letter-spacing:.08em;white-space:nowrap}.gp-command-live i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 8px #48df83}
+.gp-command-label{font-size:8px;font-weight:900;letter-spacing:.13em;color:#91a4b8;text-transform:uppercase;margin:1px 0 0}.gp-command-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}.gp-command-link{display:flex;align-items:center;justify-content:space-between;gap:7px;min-height:45px;padding:8px 9px;border:1px solid #1b2b3d;border-radius:10px;background:#08131e;color:#eef5ff;font-size:9px;font-weight:900;min-width:0;transition:transform .16s ease,border-color .16s ease,background .16s ease}.gp-command-link:hover{transform:translateY(-1px);border-color:rgba(98,160,255,.55);background:#0b1825}.gp-command-link.active{border-color:#62a0ff;background:rgba(98,160,255,.13);box-shadow:inset 0 0 0 1px rgba(98,160,255,.08)}.gp-command-link.primary{border-color:rgba(57,255,136,.38);background:linear-gradient(135deg,rgba(57,255,136,.10),rgba(8,19,30,.96));color:#39ff88}.gp-command-link span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gp-command-link small{display:block;color:#91a4b8;font-size:7px;font-weight:650;margin-top:2px;overflow:hidden;text-overflow:ellipsis}.gp-command-arrow{font-size:12px;color:#62a0ff;flex:none}.gp-command-link.primary .gp-command-arrow{color:#39ff88}.gp-command-more{display:none}
+@media(max-width:1050px){.gp-command-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:720px){#gp-command-center{padding:11px;margin-bottom:10px}.gp-command-title{font-size:16px}.gp-command-live{display:none}.gp-command-label{margin-top:0}.gp-command-grid{display:flex;overflow-x:auto;gap:7px;padding:1px 1px 4px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.gp-command-link{flex:0 0 132px;min-height:43px;scroll-snap-align:start}.gp-command-link.primary{flex-basis:158px}.gp-command-more{display:block;font-size:8px;color:#91a4b8;text-align:right;margin-top:-3px}}
+`;
     document.head.appendChild(style);
-    var intel=document.querySelector('.gp-intel-web-entry');
-    if(intel) intel.style.removeProperty('display');
+
     var nav=document.createElement('section');
     nav.id='gp-command-center';
-    nav.setAttribute('aria-label','Global Pulse priority navigation');
-    nav.innerHTML='<div class="gp-command-head"><div><div class="gp-command-kicker">COMMAND CENTER</div><div class="gp-command-title">What matters now</div><div class="gp-command-sub">Move from the intelligence network to global pressure, the situation map, conflicts and reporting.</div></div><span class="gp-command-live"><i></i>LIVE SNAPSHOT</span></div><div class="gp-command-grid"><a class="gp-command-link primary" href="intelligence-web.html"><span>◈ Intelligence Web<small>Relationships &amp; evidence</small></span><b class="gp-command-arrow">→</b></a><a class="gp-command-link" href="#top"><span>Global Index<small>World pressure</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#mapSection"><span>Situation Map<small>Geospatial signals</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#conflictSection"><span>Conflicts<small>Active watch</small></span><b class="gp-command-arrow">↗</b></a><a class="gp-command-link" href="#newsSection"><span>Reporting<small>Current signals</small></span><b class="gp-command-arrow">↗</b></a></div>';
+    nav.setAttribute('aria-label','Global Pulse Commander Center');
+    nav.innerHTML='<div class="gp-command-head"><div><div class="gp-command-kicker">GLOBAL PULSE / COMMAND CENTER</div><div class="gp-command-title">Mission Control</div><div class="gp-command-sub">Jump directly to every intelligence layer, monitor the live picture, and move through the page without hunting for sections.</div></div><span class="gp-command-live"><i></i>LIVE SNAPSHOT</span></div><div class="gp-command-label">Jump to intelligence layer</div><nav class="gp-command-grid" aria-label="Page sections"></nav><div class="gp-command-more">Swipe horizontally for more sections →</div>';
+
+    var defs=[
+      ['assessment','Overview','Global pressure','#top','↗','primary'],
+      ['breaking','Breaking','Immediate signals','#breaking-intelligence,#breaking-news,[data-section="breaking"]','↗',''],
+      ['changed','What Changed','Latest shifts','#what-changed,[data-section="what-changed"]','↗',''],
+      ['conflicts','Conflicts','Active watch','#conflictSection,#active-conflicts,#conflict-watch,[data-section="conflicts"]','↗',''],
+      ['evidence','Evidence','Claims & proof','#event-intelligence,#investigation,[data-section="evidence"]','↗',''],
+      ['map','War Map','Geospatial picture','#mapSection,#global-map,#situation-map,[data-section="map"]','↗',''],
+      ['regional','Regional','Regional intelligence','#regional-intelligence,[data-section="regional"]','↗',''],
+      ['reporting','Reporting','Current reporting','#newsSection,#latest-reporting,#news-feed,[data-section="reporting"]','↗',''],
+      ['history','History','Trends & timeline','#event-history,#historical-trends,[data-section="history"]','↗',''],
+      ['markets','Markets','Economic pressure','#market-context,#markets,[data-section="markets"]','↗',''],
+      ['graph','Intelligence Web','Network & relationships','.gp-intel-web-entry,#intelligence-web,#intelligence-graph,[data-section="graph"]','↗','primary'],
+      ['watchlist','Watchlist','Priority targets','#gp-watchlist,#watchlist,[data-section="watchlist"]','↗',''],
+      ['sources','Sources','Source health','#source-health,#sources-health,[data-section="source-health"]','↗','']
+    ];
+
+    var grid=nav.querySelector('.gp-command-grid');
+    defs.forEach(function(d){
+      var a=document.createElement('a');
+      a.className='gp-command-link '+(d[5]||'');
+      a.dataset.commandKey=d[0];
+      a.innerHTML='<span>'+d[1]+'<small>'+d[2]+'</small></span><b class="gp-command-arrow">'+d[4]+'</b>';
+      a.dataset.selectors=d[3];
+      a.addEventListener('click',function(ev){
+        var selectors=a.dataset.selectors.split(',');
+        var target=null;
+        for(var i=0;i<selectors.length;i++){try{target=document.querySelector(selectors[i]);}catch(_){target=null}if(target)break}
+        if(target){ev.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+(target.id||d[0]));}
+      });
+      grid.appendChild(a);
+    });
+
     wrap.insertBefore(nav,wrap.firstElementChild===top?top:wrap.firstElementChild);
+
+    function markActive(){
+      var links=[].slice.call(grid.querySelectorAll('.gp-command-link'));
+      var best=null,bestDist=Infinity;
+      links.forEach(function(a){
+        var selectors=a.dataset.selectors.split(','),el=null;
+        for(var i=0;i<selectors.length;i++){try{el=document.querySelector(selectors[i]);}catch(_){el=null}if(el)break}
+        if(!el)return;
+        var r=el.getBoundingClientRect(),dist=Math.abs(r.top-95);
+        if(r.top<=150&&dist<bestDist){best=a;bestDist=dist}
+      });
+      links.forEach(function(a){a.classList.toggle('active',a===best)});
+    }
+    window.addEventListener('scroll',markActive,{passive:true});
+    setTimeout(markActive,300);
   }
 
   function run(){loadWatchlist();installRefresh();installCommandCenter();}
