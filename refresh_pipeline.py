@@ -70,7 +70,16 @@ def main():
  run('CFR conflict coverage',sys.executable,'update_cfr.py');snap=verify_json('snapshot.json')
  if not isinstance(snap.get('markers'),list) or not snap['markers']:raise RuntimeError('conflict coverage verification failed')
  run('Strategic layers',sys.executable,'update8_global_layers.py');verify_json('snapshot.json')
- run('Intelligence web',sys.executable,'update_intelligence_web.py');run('Intelligence graph',sys.executable,'build_intelligence_graph.py');graph=verify_json('intelligence_graph.json')
+ run('Intelligence web',sys.executable,'update_intelligence_web.py')
+ run('Southern Spear relationship + map layer',sys.executable,'enhance_counter_cartel_intelligence.py')
+ snap=verify_json('snapshot.json')
+ campaign=snap.get('counterCartelLayer') or {}
+ if campaign.get('campaign')!='Operation Southern Spear':raise RuntimeError('Southern Spear campaign layer missing')
+ if len(snap.get('markers') or [])<10:raise RuntimeError('Southern Spear map layer verification failed')
+ graph_data=snap.get('intelligenceGraph') or {}
+ if len(graph_data.get('edges') or [])<10:raise RuntimeError('Southern Spear relationship layer verification failed')
+ print(f"PASS: Southern Spear layer markers={len(snap.get('markers') or [])} edges={len(graph_data.get('edges') or [])}",flush=True)
+ run('Intelligence graph',sys.executable,'build_intelligence_graph.py');graph=verify_json('intelligence_graph.json')
  if len(graph.get('nodes',[]))<10 or len(graph.get('edges',[]))<3:raise RuntimeError('intelligence graph verification failed')
  for edge in graph['edges']:
   if not edge.get('source') or not edge.get('target') or not edge.get('evidence'):raise RuntimeError('intelligence graph contains unevidenced edge')
