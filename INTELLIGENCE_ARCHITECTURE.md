@@ -30,15 +30,33 @@ The system distinguishes:
 - **Entity** — a country, organization, person, place, infrastructure item, or other durable object.
 - **Assessment** — an explicitly qualified interpretation based on evidence.
 
+## Current canonical refresh
+
+`refresh_pipeline.py` is the production orchestrator. It refreshes live news, the market layer, political/OSINT/conflict/hazard layers, UCDP corroboration, World Bank macro context, event artifacts, the evidence-linked Intelligence Web, assessments, claims, What Changed, and historical trends. It then cleans the generated index, applies browser security hardening, installs the browser QA layer, validates the repository, and writes `data/refresh_manifest.json` with SHA-256 hashes and freshness timestamps for critical generated artifacts.
+
+Required public artifacts include `snapshot.json`, `history.json`, `sources.json`, `live_articles.json`, and `intelligence_graph.json`. The pipeline treats stale/missing required data as a validation failure rather than manufacturing replacement values.
+
+## Market and external-data model
+
+The market layer uses public Yahoo Finance chart data without a user API key. A refresh is accepted only when the market artifact is fresh, contains at least the expected indicator count, and includes positive real prices. Event-to-market relationships are contextual relevance mappings; they do not claim causation.
+
+Open hazard, conflict-corroboration, and macro layers use keyless public sources such as GDACS/USGS, UCDP Candidate Events, and World Bank data. Source availability is recorded rather than treated as guaranteed.
+
+## Browser resilience
+
+The dashboard labels stale data, surfaces source failover health, shows a distinct snapshot-fetch failure state, and isolates map/graph rendering errors. Map markers expose keyboard/assistive labels, long evidence text is collapsible, and confidence is represented independently from signal color.
+
+The first-use guide explains signal colors and confidence tiers. Event/node cards can be deep-linked with URL hashes. Watchlists remain local to the browser.
+
 ## Security model
 
 - Least-privilege GitHub Actions permissions.
 - No secrets or API keys in browser code.
-- No analytics, advertising trackers, fingerprinting, or intentional visitor IDs.
 - No `pull_request_target` workflows.
 - Automated privacy/security checks run before deployment.
 - Third-party Actions should be reviewed and pinned to immutable commit SHAs where practical.
-- GitHub Pages should use HTTPS enforcement; the repository cannot itself control GitHub's HTTP response headers.
+- Browser-facing HTML receives a defense-in-depth CSP; GitHub Pages itself controls the final HTTP response headers.
+- External source content is escaped before insertion into the DOM.
 
 ## Maintenance rule
 
