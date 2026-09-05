@@ -2,14 +2,12 @@ name: Global Pulse — Evidence Coverage
 
 # Conflict/OSINT coverage is now part of the canonical refresh pipeline.
 # This workflow is retained only as a manual recovery tool so it cannot race
-# the live refresh or create skipped duplicate runs.
+a# the live refresh or create skipped duplicate runs.
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: global-pulse-coverage-manual
