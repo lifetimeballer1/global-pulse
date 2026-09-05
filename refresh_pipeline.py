@@ -60,7 +60,9 @@ def main():
  if not (snap.get('macroData') or {}).get('provider'):raise RuntimeError('macro layer missing')
  run('Canonical event pipeline',sys.executable,'build_event_pipeline.py')
  for artifact,key in [('event_history.json',None),('event_intelligence.json','events'),('event_consistency.json','events'),('event_resolution.json','events'),('event_market_impact.json','events')]:verify_json(artifact,min_list=(key,0) if key else None)
- run('Intelligence graph',sys.executable,'build_intelligence_graph.py');graph=verify_json('intelligence_graph.json')
+ run('Intelligence graph enrichment',sys.executable,'enhance_counter_cartel_intelligence.py');snap=verify_json('snapshot.json');graph_data=snap.get('intelligenceGraph') or {}
+ if len(graph_data.get('nodes',[]))<10 or len(graph_data.get('edges',[]))<3:raise RuntimeError('intelligence graph source enrichment failed')
+ run('Intelligence graph publish',sys.executable,'build_intelligence_graph.py');graph=verify_json('intelligence_graph.json')
  if len(graph.get('nodes',[]))<10 or len(graph.get('edges',[]))<3:raise RuntimeError('intelligence graph verification failed')
  for edge in graph['edges']:
   if not edge.get('source') or not edge.get('target') or not edge.get('evidence'):raise RuntimeError('intelligence graph contains unevidenced edge')
