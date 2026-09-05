@@ -1,41 +1,18 @@
 {
-  "updatedAt": "2026-09-05T05:40:30.164662Z",
+  "updatedAt": "2026-09-05T09:20:12.705483Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
     {
-      "entity": "Ukraine",
-      "score": 30,
-      "level": "WATCH",
-      "delta": 4,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 20
-        },
-        {
-          "label": "Live event activity",
-          "delta": 10
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 19,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "Iran",
       "score": 29,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 20
+          "delta": 18
         },
         {
           "label": "Live event activity",
@@ -50,7 +27,30 @@
           "delta": 0
         }
       ],
-      "evidenceCount": 24,
+      "evidenceCount": 23,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Ukraine",
+      "score": 29,
+      "level": "WATCH",
+      "delta": -1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 20
+        },
+        {
+          "label": "Live event activity",
+          "delta": 14
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 19,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -65,32 +65,51 @@
     },
     {
       "entity": "Israel",
-      "score": 27,
+      "score": 23,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
+      "delta": -4,
+      "trend": "DOWN",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 13
+          "delta": 11
         },
         {
           "label": "Live event activity",
-          "delta": 6
+          "delta": 5
         },
         {
           "label": "Diplomatic / de-escalation signals",
-          "delta": -1
+          "delta": -2
         }
       ],
       "evidenceCount": 12,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
+      "entity": "Central African Republic",
+      "score": 21,
+      "level": "WATCH",
+      "delta": 1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 5
+        },
+        {
+          "label": "Live event activity",
+          "delta": 4
+        }
+      ],
+      "evidenceCount": 19,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
       "entity": "Russia",
       "score": 20,
       "level": "WATCH",
-      "delta": 2,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -110,8 +129,41 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Central African Republic",
-      "score": 20,
+      "entity": "Democratic Republic of Congo",
+      "score": 18,
+      "level": "WATCH",
+      "delta": -1,
+      "trend": "STABLE",
+      "factors": [],
+      "evidenceCount": 13,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Mexican Cartel Conflict",
+      "score": 14,
+      "level": "WATCH",
+      "delta": 5,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 7
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 0
+        }
+      ],
+      "evidenceCount": 7,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Global Trade",
+      "score": 14,
       "level": "WATCH",
       "delta": 0,
       "trend": "STABLE",
@@ -123,100 +175,47 @@
         {
           "label": "Live event activity",
           "delta": 2
-        }
-      ],
-      "evidenceCount": 19,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Democratic Republic of Congo",
-      "score": 19,
-      "level": "WATCH",
-      "delta": 5,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 12,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Strait of Hormuz",
-      "score": 17,
-      "level": "WATCH",
-      "delta": 3,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 9
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Global Trade",
-      "score": 14,
-      "level": "WATCH",
-      "delta": -18,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 5
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
         },
         {
           "label": "Economic / energy signals",
           "delta": 2
         }
       ],
-      "evidenceCount": 8,
+      "evidenceCount": 6,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Yemen",
+      "entity": "Global Economy",
       "score": 13,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 2,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 5
+          "delta": 8
         },
         {
-          "label": "Live event activity",
+          "label": "Economic / energy signals",
           "delta": 2
         }
       ],
-      "evidenceCount": 10,
+      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
       "entity": "Lebanon",
-      "score": 12,
+      "score": 10,
       "level": "WATCH",
-      "delta": 0,
+      "delta": -2,
       "trend": "STABLE",
       "factors": [
         {
-          "label": "Live event activity",
-          "delta": 7
+          "label": "Conflict / military activity",
+          "delta": 4
         },
         {
-          "label": "Conflict / military activity",
+          "label": "Live event activity",
           "delta": 4
         },
         {
@@ -228,34 +227,11 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Global Economy",
-      "score": 11,
-      "level": "WATCH",
-      "delta": -14,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 5
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "United States",
       "score": 9,
       "level": "WATCH",
-      "delta": -8,
-      "trend": "DOWN",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -268,25 +244,6 @@
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Mexican Cartel Conflict",
-      "score": 9,
-      "level": "WATCH",
-      "delta": -12,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 4
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
         }
       ],
       "evidenceCount": 5,
@@ -296,8 +253,8 @@
       "entity": "United Kingdom",
       "score": 9,
       "level": "WATCH",
-      "delta": -8,
-      "trend": "DOWN",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -310,6 +267,44 @@
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -1
+        }
+      ],
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "U.S. Politics",
+      "score": 8,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
+        }
+      ],
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "South Sudan",
+      "score": 8,
+      "level": "WATCH",
+      "delta": 2,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 3
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
         }
       ],
       "evidenceCount": 5,
@@ -335,44 +330,33 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Haiti",
+      "entity": "Oil Markets",
       "score": 6,
       "level": "WATCH",
-      "delta": 0,
+      "delta": 1,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Live event activity",
-          "delta": 4
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "South Sudan",
-      "score": 6,
-      "level": "WATCH",
-      "delta": -1,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
           "delta": 2
         },
         {
-          "label": "Live event activity",
-          "delta": 2
+          "label": "Conflict / military activity",
+          "delta": 1
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
         }
       ],
-      "evidenceCount": 4,
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "U.S. Politics",
-      "score": 5,
+      "entity": "Strait of Hormuz",
+      "score": 6,
       "level": "WATCH",
-      "delta": -3,
+      "delta": -11,
       "trend": "DOWN",
       "factors": [
         {
@@ -380,46 +364,35 @@
           "delta": 2
         },
         {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
+          "label": "Live event activity",
+          "delta": 2
         }
       ],
       "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Oil Markets",
-      "score": 5,
+      "entity": "Yemen",
+      "score": 6,
       "level": "WATCH",
-      "delta": -1,
-      "trend": "STABLE",
+      "delta": -7,
+      "trend": "DOWN",
       "factors": [
         {
-          "label": "Economic / energy signals",
+          "label": "Live event activity",
           "delta": 2
-        }
-      ],
-      "evidenceCount": 3,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Sahel",
-      "score": 5,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
+        },
         {
           "label": "Conflict / military activity",
-          "delta": 3
+          "delta": 1
         }
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Sudan",
-      "score": 4,
+      "entity": "European Union",
+      "score": 6,
       "level": "WATCH",
       "delta": 0,
       "trend": "STABLE",
@@ -430,6 +403,33 @@
         },
         {
           "label": "Conflict / military activity",
+          "delta": 1
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 0
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Canada",
+      "score": 5,
+      "level": "WATCH",
+      "delta": 0,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 2
+        },
+        {
+          "label": "Conflict / military activity",
+          "delta": 1
+        },
+        {
+          "label": "Economic / energy signals",
           "delta": 1
         }
       ],
@@ -438,9 +438,9 @@
     },
     {
       "entity": "China",
-      "score": 4,
+      "score": 5,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 1,
       "trend": "STABLE",
       "factors": [
         {
@@ -452,18 +452,22 @@
           "delta": 1
         }
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "South Korea",
-      "score": 4,
+      "entity": "Sudan",
+      "score": 5,
       "level": "WATCH",
-      "delta": -3,
-      "trend": "DOWN",
+      "delta": 1,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Live event activity",
           "delta": 2
         }
       ],
@@ -471,11 +475,51 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
+      "entity": "Haiti",
+      "score": 5,
+      "level": "WATCH",
+      "delta": -1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Live event activity",
+          "delta": 4
+        }
+      ],
+      "evidenceCount": 2,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
       "entity": "Palestinians",
+      "score": 4,
+      "level": "WATCH",
+      "delta": 1,
+      "trend": "STABLE",
+      "factors": [],
+      "evidenceCount": 4,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "South Korea",
+      "score": 4,
+      "level": "WATCH",
+      "delta": 0,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 3,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "North Korea",
       "score": 3,
       "level": "WATCH",
-      "delta": -6,
-      "trend": "DOWN",
+      "delta": 1,
+      "trend": "STABLE",
       "factors": [],
       "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
@@ -484,14 +528,14 @@
       "entity": "Brazil",
       "score": 2,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [],
       "evidenceCount": 2,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "North Korea",
+      "entity": "India",
       "score": 2,
       "level": "WATCH",
       "delta": 0,
@@ -508,19 +552,13 @@
       "category": "general",
       "evidenceGrade": "C",
       "evidenceStatus": "limited corroboration",
-      "corroborationScore": 65,
+      "corroborationScore": 66,
       "reportedConfidence": "low",
-      "reportCount": 7,
+      "reportCount": 4,
       "sourceCount": 3,
       "sourceIndependence": "moderate",
-      "consistency": "moderate",
-      "consistencyFlags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
+      "consistency": "none",
+      "consistencyFlags": [],
       "whyThisMatters": {
         "immediate": "regional spillover monitoring",
         "shortTerm": "market and policy sensitivity",
@@ -530,8 +568,7 @@
         "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311",
         "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en",
         "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://www.aljazeera.com/xml/rss/all.xml",
-        "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+        "https://www.aljazeera.com/xml/rss/all.xml"
       ]
     },
     {
@@ -603,29 +640,6 @@
       ]
     },
     {
-      "eventId": "38cf8b9ed9042113",
-      "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens - Al Jazeera",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 44,
-      "reportedConfidence": "low",
-      "reportCount": 2,
-      "sourceCount": 2,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://www.aljazeera.com/xml/rss/all.xml"
-      ]
-    },
-    {
       "eventId": "413ba9e79df7c815",
       "title": "China's Xi to bring large CEO delegation on US visit: Sources",
       "category": "general",
@@ -645,6 +659,29 @@
       },
       "urls": [
         "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+      ]
+    },
+    {
+      "eventId": "922fb57b5b18bb3d",
+      "title": "Russian drone ‘aimed directly’ at Ukraine security service HQ, Zelensky says",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 57,
+      "reportedConfidence": "low",
+      "reportCount": 2,
+      "sourceCount": 2,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://www.france24.com/en/rss",
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ]
     },
     {
@@ -671,8 +708,124 @@
       ]
     },
     {
-      "eventId": "caa8e2f25e0063ff",
-      "title": "Beekeepers warn of Asian hornet threat and call for UK awareness campaign",
+      "eventId": "7fdb4bf62cef620f",
+      "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
+      "category": "political",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 43,
+      "reportedConfidence": "low",
+      "reportCount": 2,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "moderate",
+      "consistencyFlags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "whyThisMatters": {
+        "immediate": "political stability monitoring",
+        "shortTerm": "policy and alliance exposure",
+        "mediumTerm": "protest / governance risk monitoring"
+      },
+      "urls": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ]
+    },
+    {
+      "eventId": "25b23c0534b386c9",
+      "title": "Monaco rally to edge winless PSG and reclaim top spot",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://www.france24.com/en/tv-shows/sports/20260905-monaco-rally-to-edge-winless-psg-and-reclaim-top-spot"
+      ]
+    },
+    {
+      "eventId": "371d4acbf86db19c",
+      "title": "Trump sends envoys to Moscow, Kyiv with new plan to 'end war'",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://www.france24.com/en/video/20260905-trump-sends-envoys-to-moscow-kyiv-with-new-plan-to-end-war"
+      ]
+    },
+    {
+      "eventId": "e7f303ffc9ba0a57",
+      "title": "How might Lindsay Clancy’s case have unfolded in another country?",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 26,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://feeds.bbci.co.uk/news/world/rss.xml"
+      ]
+    },
+    {
+      "eventId": "16daa234438d3e0f",
+      "title": "ChatGPT bans campaigns from using AI to make ads. They’re doing it anyway. - The Washington Post",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ]
+    },
+    {
+      "eventId": "b86ac4228d5b1069",
+      "title": "Black-clad protesters in balaclavas block road at port of Dover in Kent",
       "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
@@ -693,8 +846,8 @@
       ]
     },
     {
-      "eventId": "a70e143845bcf27d",
-      "title": "Williams sisters’ US Open return ends in heartbreak with third-set tie-break defeat",
+      "eventId": "5b92d55164ede165",
+      "title": "Andy Ruiz Jr’s comeback bid in tatters after sobering defeat to Damian Knyba",
       "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
@@ -715,9 +868,9 @@
       ]
     },
     {
-      "eventId": "f8c94b28d0aef9a7",
-      "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
-      "category": "general",
+      "eventId": "a2c93d178003de2d",
+      "title": "Green flood alert in Haiti",
+      "category": "disaster",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
       "corroborationScore": 26,
@@ -728,131 +881,21 @@
       "consistency": "none",
       "consistencyFlags": [],
       "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
+        "immediate": "humanitarian and infrastructure pressure",
+        "shortTerm": "transport / supply-chain disruption",
+        "mediumTerm": "emergency response monitoring"
       },
       "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+        "https://www.gdacs.org/xml/rss.xml"
       ]
     },
     {
-      "eventId": "49d62d0815f5be7b",
-      "title": "‘Every girl now wants to be a boxer’: excitement in Katie Taylor’s home town for her valedictory bout",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.theguardian.com/world/rss"
-      ]
-    },
-    {
-      "eventId": "d5f90b135c14b37e",
-      "title": "US midterms begin with chaos over mail-voting crackdown",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
-      ]
-    },
-    {
-      "eventId": "aad182f7474ae5bf",
-      "title": "White House reviews candidates to replace Hegseth deputy Feinberg, sources say",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
-      ]
-    },
-    {
-      "eventId": "b7001ba32dafa442",
-      "title": "US embassy issues health alert for Cuba amid oil blockade, sanctions",
-      "category": "diplomatic",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "negotiation / escalation monitoring",
-        "shortTerm": "sanctions and policy exposure",
-        "mediumTerm": "alliance-response monitoring"
-      },
-      "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
-      ]
-    },
-    {
-      "eventId": "896398900e29e844",
-      "title": "Ben Simmons handed NBA lifeline in one-year deal with Sacramento Kings",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.theguardian.com/us-news/rss"
-      ]
-    },
-    {
-      "eventId": "d76d215638bc76b8",
-      "title": "Explosion at Bolivia military base kills at least 10, dozens injured",
+      "eventId": "0e61fb5dc91e08d3",
+      "title": "Explosions heard near Kharg Island after US missile targets Iranian tanker: Report - indiatoday.in",
       "category": "conflict",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 26,
+      "corroborationScore": 17,
       "reportedConfidence": "low",
       "reportCount": 1,
       "sourceCount": 1,
@@ -865,12 +908,34 @@
         "mediumTerm": "NATO / alliance-response monitoring"
       },
       "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ]
     },
     {
-      "eventId": "814916b09c96deb5",
-      "title": "Panama Canal begins reducing crossings due to El Nino",
+      "eventId": "32d432140a83df4c",
+      "title": "Just In: Peter Obi, Kwankwaso Visit Rotimi Amaechi in Port Harcourt, Details Emerge - Legit News",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ]
+    },
+    {
+      "eventId": "4cb8142bc26a3cd1",
+      "title": "Why did USS Lincoln turn up in Thailand looking so rusty?",
       "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
@@ -887,12 +952,12 @@
         "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": [
-        "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"
+        "https://feeds.bbci.co.uk/news/world/rss.xml"
       ]
     },
     {
-      "eventId": "0fdbad278436a3b0",
-      "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
+      "eventId": "7f989ec071b5ce9d",
+      "title": "Iranian strikes on Kuwait disrupt flights across Gulf hubs - thetraveler.org",
       "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
@@ -909,13 +974,13 @@
         "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": [
-        "https://news.google.com/rss/search?q=humanitarian+crisis+disaster+displacement+food+insecurity+emergency+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ]
     },
     {
-      "eventId": "67c9363b55f3ac12",
-      "title": "The Bond Market Always Gets the Final Vote - whowhatwhy.org",
-      "category": "economic",
+      "eventId": "122b07d20e39da83",
+      "title": "Amgen (NASDAQ:AMGN) Shares Sold Off Sen. Sheldon Whitehouse - MarketBeat",
+      "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
       "corroborationScore": 17,
@@ -926,31 +991,9 @@
       "consistency": "none",
       "consistencyFlags": [],
       "whyThisMatters": {
-        "immediate": "market and supply-chain sensitivity",
-        "shortTerm": "energy / trade exposure",
-        "mediumTerm": "inflation and logistics monitoring"
-      },
-      "urls": [
-        "https://news.google.com/rss/search?q=oil+inflation+tariff+trade+interest+rate+central+bank+stocks+bonds+currency+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ]
-    },
-    {
-      "eventId": "74620ec24c3fcafb",
-      "title": "Government Shutdown Odds: Is December Next? | Kalshi - OddsShopper",
-      "category": "political",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "political stability monitoring",
-        "shortTerm": "policy and alliance exposure",
-        "mediumTerm": "protest / governance risk monitoring"
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": [
         "https://news.google.com/rss/search?q=US+politics+Congress+Senate+White+House+election+when%3A1d&hl=en-US&gl=US&ceid=US:en"
@@ -959,45 +1002,37 @@
   ],
   "whatChanged": [
     {
-      "entity": "Global Trade",
-      "score": 14,
+      "entity": "Strait of Hormuz",
+      "score": 6,
       "level": "WATCH",
-      "delta": -18,
+      "delta": -11,
       "trend": "DOWN",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 5
-        },
-        {
-          "label": "Live event activity",
           "delta": 2
         },
         {
-          "label": "Economic / energy signals",
+          "label": "Live event activity",
           "delta": 2
         }
       ],
-      "evidenceCount": 8,
+      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Global Economy",
-      "score": 11,
+      "entity": "Yemen",
+      "score": 6,
       "level": "WATCH",
-      "delta": -14,
+      "delta": -7,
       "trend": "DOWN",
       "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 5
-        },
         {
           "label": "Live event activity",
           "delta": 2
         },
         {
-          "label": "Economic / energy signals",
+          "label": "Conflict / military activity",
           "delta": 1
         }
       ],
@@ -1006,145 +1041,59 @@
     },
     {
       "entity": "Mexican Cartel Conflict",
-      "score": 9,
-      "level": "WATCH",
-      "delta": -12,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 4
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "United States",
-      "score": 9,
-      "level": "WATCH",
-      "delta": -8,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "United Kingdom",
-      "score": 9,
-      "level": "WATCH",
-      "delta": -8,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Palestinians",
-      "score": 3,
-      "level": "WATCH",
-      "delta": -6,
-      "trend": "DOWN",
-      "factors": [],
-      "evidenceCount": 3,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Democratic Republic of Congo",
-      "score": 19,
+      "score": 14,
       "level": "WATCH",
       "delta": 5,
       "trend": "UP",
       "factors": [
         {
           "label": "Conflict / military activity",
+          "delta": 7
+        },
+        {
+          "label": "Live event activity",
           "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 0
+        }
+      ],
+      "evidenceCount": 7,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Israel",
+      "score": 23,
+      "level": "WATCH",
+      "delta": -4,
+      "trend": "DOWN",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 11
+        },
+        {
+          "label": "Live event activity",
+          "delta": 5
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -2
         }
       ],
       "evidenceCount": 12,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Ukraine",
-      "score": 30,
-      "level": "WATCH",
-      "delta": 4,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 20
-        },
-        {
-          "label": "Live event activity",
-          "delta": 10
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 19,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Strait of Hormuz",
-      "score": 17,
+      "entity": "U.S. Politics",
+      "score": 8,
       "level": "WATCH",
       "delta": 3,
       "trend": "UP",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 9
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 5,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "U.S. Politics",
-      "score": 5,
-      "level": "WATCH",
-      "delta": -3,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
           "delta": 2
         },
         {
@@ -1152,27 +1101,12 @@
           "delta": -1
         }
       ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "South Korea",
-      "score": 4,
-      "level": "WATCH",
-      "delta": -3,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 2,
+      "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
   "sourceSummary": {
-    "uniqueReportCount": 25,
+    "uniqueReportCount": 22,
     "uniqueSourceDomains": 10,
     "evidenceGrades": {
       "A": 0,
