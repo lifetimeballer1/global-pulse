@@ -53,7 +53,7 @@ def main():
  verify_live_content(live if 'articles' in live else load('live_articles.json'))
  print(f"PASS: live news feeds={live.get('feedsChecked')} rows={live.get('rowsFetched')} new={live.get('newArticles')}",flush=True)
  run('Validate source health',sys.executable,'validate_source_health.py')
- run('Refresh base snapshot',sys.executable,'run_snapshot_resilient.py');snap=verify_json('snapshot.json')
+ run('Refresh base snapshot',sys.executable,'run_snapshot_counter_cartel.py');snap=verify_json('snapshot.json')
  run('Update market data',sys.executable,'update_market_data.py');snap=verify_json('snapshot.json');market=snap.get('marketData') or {};fresh(market,max_age=900);indicators=market.get('indicators') or []
  if len(indicators)<20:raise RuntimeError(f'market data gate failed: only {len(indicators)} indicators')
  if not market.get('provider') or not market.get('source'):raise RuntimeError('market data gate failed: provider/source missing')
