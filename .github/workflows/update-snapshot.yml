@@ -54,7 +54,7 @@ jobs:
         run: python refresh_pipeline.py
       - name: Verify critical published inputs
         run: |
-          python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']))"
+          python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); s=d.get('stories',[]); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); assert isinstance(s,list) and len(s)>0; print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']), 'stories', len(s))"
           python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
           python -c "import json; d=json.load(open('data/enforcer_maps.json')); assert d.get('source')=='The Enforcer'; assert d.get('recentVideos'); print('PASS Enforcer check', len(d['recentVideos']), 'videos', len(d.get('maps',[])), 'maps')"
       - name: Commit generated data
