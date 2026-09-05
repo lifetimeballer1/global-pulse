@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T02:27:23.076301Z",
+  "updatedAt": "2026-09-05T02:41:22.758486Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
@@ -12,15 +12,15 @@
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 26
+          "delta": 25
         },
         {
           "label": "Live event activity",
-          "delta": 11
+          "delta": 9
         },
         {
           "label": "Economic / energy signals",
-          "delta": 1
+          "delta": 2
         },
         {
           "label": "Diplomatic / de-escalation signals",
@@ -72,18 +72,14 @@
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 13
+          "delta": 11
         },
         {
           "label": "Live event activity",
           "delta": 5
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
         }
       ],
-      "evidenceCount": 15,
+      "evidenceCount": 14,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -106,23 +102,23 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Russia",
+      "entity": "Mexican Cartel Conflict",
       "score": 20,
       "level": "WATCH",
-      "delta": 0,
+      "delta": 1,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 8
+          "delta": 14
         },
         {
           "label": "Live event activity",
-          "delta": 5
+          "delta": 2
         },
         {
           "label": "Economic / energy signals",
-          "delta": 0
+          "delta": 1
         }
       ],
       "evidenceCount": 10,
@@ -132,8 +128,8 @@
       "entity": "Central African Republic",
       "score": 20,
       "level": "WATCH",
-      "delta": 3,
-      "trend": "UP",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -175,19 +171,19 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Mexican Cartel Conflict",
-      "score": 19,
+      "entity": "Russia",
+      "score": 18,
       "level": "WATCH",
-      "delta": -1,
+      "delta": -2,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 13
+          "delta": 8
         },
         {
           "label": "Live event activity",
-          "delta": 2
+          "delta": 4
         },
         {
           "label": "Economic / energy signals",
@@ -201,7 +197,7 @@
       "entity": "Global Trade",
       "score": 18,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -296,29 +292,6 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "U.S. Politics",
-      "score": 12,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        },
-        {
-          "label": "Diplomatic / de-escalation signals",
-          "delta": -1
-        }
-      ],
-      "evidenceCount": 7,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "Lebanon",
       "score": 12,
       "level": "WATCH",
@@ -336,6 +309,29 @@
         {
           "label": "Diplomatic / de-escalation signals",
           "delta": -2
+        }
+      ],
+      "evidenceCount": 6,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "U.S. Politics",
+      "score": 10,
+      "level": "WATCH",
+      "delta": -2,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        },
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -1
         }
       ],
       "evidenceCount": 6,
@@ -475,21 +471,6 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "European Union",
-      "score": 4,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        }
-      ],
-      "evidenceCount": 2,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
       "entity": "North Korea",
       "score": 4,
       "level": "WATCH",
@@ -547,6 +528,30 @@
   ],
   "eventImpacts": [
     {
+      "eventId": "5c2b3411ca17ad91",
+      "title": "Yemen: Fighting Intensifies Amid Houthi Push in the West - Tempo.co English",
+      "category": "conflict",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 46,
+      "reportedConfidence": "low",
+      "reportCount": 3,
+      "sourceCount": 2,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional military escalation risk",
+        "shortTerm": "energy and shipping exposure",
+        "mediumTerm": "NATO / alliance-response monitoring"
+      },
+      "urls": [
+        "https://news.google.com/rss/search?q=Yemen+Houthis+Red+Sea+shipping+missile+drone+conflict+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "https://rss.dw.com/xml/rss-en-world",
+        "https://news.google.com/rss/articles/CBMikAFBVV95cUxOZXFfc093Ti16LUhRQ09lWDVPbFpkZ2YyRy15WmhVRFlxN0ZjcVFxNXdrU2lmY09vYU4yMkxHTEVuQ1VnMFUzenBzZVZveUtqY2FIaVlNVVo3NlZCaE0xWVVLZms0dDFDM2hjd2diNXMzcTREMWNiY3FXTHVWUlRrYXlnVXg2SGhwOGxfQnBPSDY?oc=5"
+      ]
+    },
+    {
       "eventId": "a1a33bf64a8ab1e6",
       "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
       "category": "general",
@@ -570,26 +575,26 @@
       ]
     },
     {
-      "eventId": "530bf3a0cf66e922",
-      "title": "Yemen: Fighting intensifies amid Houthi push in the west",
-      "category": "conflict",
+      "eventId": "2900a6102acd7215",
+      "title": "Bond yields are soaring to multi-decade highs. What does that mean for Canadian consumers? - CBC",
+      "category": "general",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 52,
+      "corroborationScore": 17,
       "reportedConfidence": "low",
       "reportCount": 2,
-      "sourceCount": 2,
+      "sourceCount": 1,
       "sourceIndependence": "low",
       "consistency": "none",
       "consistencyFlags": [],
       "whyThisMatters": {
-        "immediate": "regional military escalation risk",
-        "shortTerm": "energy and shipping exposure",
-        "mediumTerm": "NATO / alliance-response monitoring"
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
       },
       "urls": [
-        "https://rss.dw.com/xml/rss-en-world",
-        "https://news.google.com/rss/articles/CBMikgFBVV95cUxNck5IRXlXa1BvcmxWMUU1RzVCVm5EUHBhOGJJZ1F6VFQyU1gwNHowYTZQQWp0cERfS0RBaGFROTFsbU9iSnRZMmxWMzBJNWIzLXc2RFZJeWc3YTlSUml3eV9Ka09INTFWZkhidUJyMThvSzBaWjJ1Sk5WT0xEWGo2bGd4MThjLWV1dVMySHNZOHlOdw?oc=5"
+        "https://news.google.com/rss/search?q=oil+inflation+tariff+trade+interest+rate+central+bank+stocks+bonds+currency+when%3A1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5GRzRzb0Z3U2NMLW9BMEFQLUxDVW41cGZZRjA5R1hnS01TTVl5M21tbWFWVFlTWHJ5U1ZuZnE4TXFuU2dyT3E4WlFWWlY3RTUw?oc=5"
       ]
     },
     {
@@ -686,6 +691,28 @@
       },
       "urls": [
         "https://www.aljazeera.com/xml/rss/all.xml"
+      ]
+    },
+    {
+      "eventId": "91297f2371f41631",
+      "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
+      "category": "general",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 33,
+      "reportedConfidence": "low",
+      "reportCount": 1,
+      "sourceCount": 1,
+      "sourceIndependence": "low",
+      "consistency": "none",
+      "consistencyFlags": [],
+      "whyThisMatters": {
+        "immediate": "regional spillover monitoring",
+        "shortTerm": "market and policy sensitivity",
+        "mediumTerm": "humanitarian / infrastructure exposure"
+      },
+      "urls": [
+        "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
       ]
     },
     {
@@ -951,79 +978,11 @@
       "urls": [
         "https://www.theguardian.com/us-news/2026/sep/04/us-judge-trump-mail-in-voting"
       ]
-    },
-    {
-      "eventId": "ba2e90a7af40ed62",
-      "title": "After CIA director visit to Moscow, Putin pushes harder for military win - The Washington Post",
-      "category": "conflict",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 17,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional military escalation risk",
-        "shortTerm": "energy and shipping exposure",
-        "mediumTerm": "NATO / alliance-response monitoring"
-      },
-      "urls": [
-        "https://news.google.com/rss/articles/CBMisgFBVV95cUxQd3JnaGs0amptOW1DSk9BTXBXc0hwZkl5N0ltU3FIeVRRRzJVb0VVTVh3dnhhakRlVURBaVZQNUtkbk1yT0hjNndDTkE1WUdRa1FWVHhMaUNuTndMc2hFeXZqYVBtMXllc2hwYVFuajRiUTN0MUJQejQ2b1luSmM2TnpucTcwQXNKUmo3UnF3d3ROWmdxQjlUeXRUTkFpbXF1YUkxcXY2WllpZ1JaeUdIYi1B?oc=5"
-      ]
-    },
-    {
-      "eventId": "f40703c98c51aba0",
-      "title": "UN votes to adopt new world map to reflect Africa's true size",
-      "category": "general",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 33,
-      "reportedConfidence": "low",
-      "reportCount": 1,
-      "sourceCount": 1,
-      "sourceIndependence": "low",
-      "consistency": "none",
-      "consistencyFlags": [],
-      "whyThisMatters": {
-        "immediate": "regional spillover monitoring",
-        "shortTerm": "market and policy sensitivity",
-        "mediumTerm": "humanitarian / infrastructure exposure"
-      },
-      "urls": [
-        "https://www.bbc.co.uk/news/articles/ce30vp55dnlo?at_medium=RSS&at_campaign=rss"
-      ]
     }
   ],
-  "whatChanged": [
-    {
-      "entity": "Central African Republic",
-      "score": 20,
-      "level": "WATCH",
-      "delta": 3,
-      "trend": "UP",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 6
-        },
-        {
-          "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 0
-        }
-      ],
-      "evidenceCount": 18,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    }
-  ],
+  "whatChanged": [],
   "sourceSummary": {
-    "uniqueReportCount": 38,
+    "uniqueReportCount": 35,
     "uniqueSourceDomains": 12,
     "evidenceGrades": {
       "A": 0,
