@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T22:25:48.829309Z",
+  "updatedAt": "2026-09-05T22:30:00.261170Z",
   "version": 2,
   "method": "Conservative evidence grading using independent headline groups, non-aggregator domains, source-class quality, concentration and contradiction signals. Scores are monitoring aids, not truth probabilities.",
   "gradeScale": {
@@ -10,6 +10,64 @@
   },
   "disclaimer": "Domain reputation is a heuristic. A reputable source can be wrong, and multiple outlets can repeat the same underlying report. Primary-source status does not make a claim true.",
   "events": [
+    {
+      "eventId": "a9b69c7213ce317c",
+      "title": "Putin Meets With Us Envoys At The Kremlin For Renewed Talks On Ending The War In Ukraine",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 52,
+      "reportCount": 2,
+      "uniqueSourceDomains": 2,
+      "nonAggregatorDomains": 1,
+      "independentReportingGroups": 2,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 45,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 0.5,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "api.gdeltproject.org",
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T19:05:33+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T21:15:00+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "api.gdeltproject.org": 1,
+        "news.google.com": 1
+      },
+      "evidenceUrls": [
+        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h",
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
     {
       "eventId": "3c330215fe83dcd1",
       "title": "US-IRAN WAR | U.S. Strikes 3 Iranian Oil Tankers After Navy Warships Targeted - WION",
@@ -75,16 +133,16 @@
       "reportedConfidence": "low",
       "evidenceGrade": "D",
       "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 46,
-      "reportCount": 6,
+      "corroborationScore": 48,
+      "reportCount": 5,
       "uniqueSourceDomains": 2,
       "nonAggregatorDomains": 1,
-      "independentReportingGroups": 6,
+      "independentReportingGroups": 5,
       "sourceIndependence": "low",
-      "averageSourceQuality": 44,
+      "averageSourceQuality": 46,
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
-      "domainConcentration": 0.833,
+      "domainConcentration": 0.8,
       "consistency": "moderate",
       "consistencyFlags": [
         {
@@ -110,10 +168,6 @@
       ],
       "timeline": [
         {
-          "time": "2026-09-05T06:02:24+00:00",
-          "type": "report"
-        },
-        {
           "time": "2026-09-05T09:23:14+00:00",
           "type": "report"
         },
@@ -135,7 +189,7 @@
         }
       ],
       "sourceBreakdown": {
-        "news.google.com": 5,
+        "news.google.com": 4,
         "aljazeera.com": 1
       },
       "evidenceUrls": [
@@ -147,65 +201,6 @@
         "Reporting is concentrated in one domain",
         "No first-party institutional source identified in the observed reports",
         "Reports contain materially different details that require review",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "a9b69c7213ce317c",
-      "title": "Putin Meets With Us Envoys At The Kremlin For Renewed Talks On Ending The War In Ukraine",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 42,
-      "reportCount": 2,
-      "uniqueSourceDomains": 2,
-      "nonAggregatorDomains": 1,
-      "independentReportingGroups": 1,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 45,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 0.5,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "api.gdeltproject.org",
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T16:46:24+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T21:15:00+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "api.gdeltproject.org": 1,
-        "news.google.com": 1
-      },
-      "evidenceUrls": [
-        "https://api.gdeltproject.org/api/v2/doc/doc?query=(drought%20OR%20flood%20OR%20famine%20OR%20water%20shortage%20OR%20food%20crisis%20OR%20disease%20OR%20epidemic)%20AND%20(country%20OR%20government%20OR%20security%20OR%20migration)&mode=ArtList&format=rss&maxrecords=150&timespan=1h",
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Only one independent reporting group detected",
-        "No first-party institutional source identified in the observed reports",
         "Source class and domain diversity are proxies; they do not establish truth or source independence"
       ]
     },
@@ -338,7 +333,7 @@
       "primarySourceDomains": 0,
       "majorNewsDomains": 1,
       "domainConcentration": 1.0,
-      "consistency": "unknown",
+      "consistency": "none",
       "consistencyFlags": [],
       "sourceDomains": [
         "theguardian.com"
@@ -412,69 +407,6 @@
       ]
     },
     {
-      "eventId": "15f55aa43ae86ad6",
-      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
-      "category": "diplomatic",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 27,
-      "reportCount": 3,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 2,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine",
-        "russia"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "russia",
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T10:05:20+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T11:38:59+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T11:38:59+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 3
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en",
-        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
       "eventId": "2b678607b410e963",
       "title": "US-Israel-Iran War Latest Live News: US Faces Record-High Petrol Prices to Top $4 Per Gallon as War on Iran Continues to Raise Energy Costs - The Sunday Guardian",
       "category": "general",
@@ -533,6 +465,62 @@
       ]
     },
     {
+      "eventId": "d596679b541c8adf",
+      "title": "Here Is Where Ukraine Peace Talks Stand, as a New Round Approaches - The New York Times",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 27,
+      "reportCount": 2,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 2,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "unknown",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T10:05:20+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T10:10:43+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 2
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Iran+Israel+conflict+missile+drone+strike+escalation+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
       "eventId": "c07a6cc85e687f0b",
       "title": "More deadly Russian attacks in Ukraine ahead of US envoys’ visit - Edp24",
       "category": "general",
@@ -574,62 +562,6 @@
         },
         {
           "time": "2026-09-05T09:42:11+00:00",
-          "type": "report"
-        }
-      ],
-      "sourceBreakdown": {
-        "news.google.com": 2
-      },
-      "evidenceUrls": [
-        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
-      ],
-      "caveats": [
-        "Fewer than three non-aggregator domains observed",
-        "Reporting is concentrated in one domain",
-        "No first-party institutional source identified in the observed reports",
-        "Source class and domain diversity are proxies; they do not establish truth or source independence"
-      ]
-    },
-    {
-      "eventId": "552091fb8e868e61",
-      "title": "Russian drone strikes Ukraine’s security service HQ, escalating air war - 95 KQDS",
-      "category": "general",
-      "reportedConfidence": "low",
-      "evidenceGrade": "D",
-      "evidenceStatus": "insufficient / conflicting evidence",
-      "corroborationScore": 27,
-      "reportCount": 2,
-      "uniqueSourceDomains": 1,
-      "nonAggregatorDomains": 0,
-      "independentReportingGroups": 2,
-      "sourceIndependence": "low",
-      "averageSourceQuality": 35,
-      "primarySourceDomains": 0,
-      "majorNewsDomains": 0,
-      "domainConcentration": 1.0,
-      "consistency": "none",
-      "consistencyFlags": [],
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "entityCandidates": [
-        "ukraine"
-      ],
-      "regionalContext": [
-        {
-          "region": "europe",
-          "entities": [
-            "ukraine"
-          ]
-        }
-      ],
-      "timeline": [
-        {
-          "time": "2026-09-05T05:46:28+00:00",
-          "type": "report"
-        },
-        {
-          "time": "2026-09-05T09:23:07+00:00",
           "type": "report"
         }
       ],
@@ -3011,6 +2943,65 @@
       },
       "evidenceUrls": [
         "https://news.google.com/rss/search?q=India+Pakistan+Afghanistan+Bangladesh+Nepal+Sri+Lanka+conflict+security+when%3A1d&hl=en-US&gl=US&ceid=US:en"
+      ],
+      "caveats": [
+        "Fewer than three non-aggregator domains observed",
+        "Only one independent reporting group detected",
+        "Reporting is concentrated in one domain",
+        "No first-party institutional source identified in the observed reports",
+        "Source class and domain diversity are proxies; they do not establish truth or source independence"
+      ]
+    },
+    {
+      "eventId": "15f55aa43ae86ad6",
+      "title": "Trump’s peace push under fire? Russia hits Ukraine airports as US envoys arrive for peace talks - Mathrubhumi English",
+      "category": "diplomatic",
+      "reportedConfidence": "low",
+      "evidenceGrade": "D",
+      "evidenceStatus": "insufficient / conflicting evidence",
+      "corroborationScore": 17,
+      "reportCount": 2,
+      "uniqueSourceDomains": 1,
+      "nonAggregatorDomains": 0,
+      "independentReportingGroups": 1,
+      "sourceIndependence": "low",
+      "averageSourceQuality": 35,
+      "primarySourceDomains": 0,
+      "majorNewsDomains": 0,
+      "domainConcentration": 1.0,
+      "consistency": "none",
+      "consistencyFlags": [],
+      "sourceDomains": [
+        "news.google.com"
+      ],
+      "entityCandidates": [
+        "ukraine",
+        "russia"
+      ],
+      "regionalContext": [
+        {
+          "region": "europe",
+          "entities": [
+            "russia",
+            "ukraine"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2026-09-05T11:38:59+00:00",
+          "type": "report"
+        },
+        {
+          "time": "2026-09-05T11:38:59+00:00",
+          "type": "report"
+        }
+      ],
+      "sourceBreakdown": {
+        "news.google.com": 2
+      },
+      "evidenceUrls": [
+        "https://news.google.com/rss/search?q=Ukraine+Russia+war+frontline+missile+drone+strike+when%3A1d&hl=en-US&gl=US&ceid=US:en"
       ],
       "caveats": [
         "Fewer than three non-aggregator domains observed",
