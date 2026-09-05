@@ -1,16 +1,37 @@
 {
-  "updatedAt": "2026-09-05T03:04:19.604871Z",
+  "updatedAt": "2026-09-05T05:40:23.583544Z",
   "method": "heuristic contradiction signals from report titles; flags require human review and are not truth judgments",
   "events": [
     {
-      "eventId": "a1a33bf64a8ab1e6",
-      "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
+      "eventId": "890accde589e56cf",
+      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
+      "consistency": "moderate",
+      "flagCount": 1,
+      "flags": [
+        {
+          "type": "location",
+          "severity": "moderate",
+          "reason": "Reports name different locations."
+        }
+      ],
+      "reviewRecommended": true,
       "sourceDomains": [],
       "reports": [
+        {
+          "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Reuters",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian attack hits Ukraine's security service headquarters - CBC",
+          "url": "",
+          "domain": ""
+        },
         {
           "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
           "url": "",
@@ -22,12 +43,12 @@
           "domain": ""
         },
         {
-          "title": "Russian Drone Hits Ukraine’s SBU Headquarters in Central Kyiv, Zelenskyy Says - businessupturn.com",
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - devdiscourse.com",
           "url": "",
           "domain": ""
         },
         {
-          "title": "Russian drone strikes Ukraine’s security service HQ, escalating air war - Internazionale",
+          "title": "Russian Drone Hits Ukraine’s SBU Headquarters in Central Kyiv, Zelenskyy Says - businessupturn.com",
           "url": "",
           "domain": ""
         }
@@ -40,9 +61,7 @@
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "news.google.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
           "title": "Yemen: Fighting Intensifies Amid Houthi Push in the West - Tempo.co English",
@@ -53,11 +72,69 @@
           "title": "Yemen: Fighting intensifies amid Houthi push in the west",
           "url": "",
           "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "24888a4f511f5788",
+      "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation - Al Jazeera",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation - Al Jazeera",
+          "url": "",
+          "domain": ""
         },
         {
-          "title": "Yemen: Fighting Intensifies Amid Houthi Push in the West - Tempo.co English",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOZXFfc093Ti16LUhRQ09lWDVPbFpkZ2YyRy15WmhVRFlxN0ZjcVFxNXdrU2lmY09vYU4yMkxHTEVuQ1VnMFUzenBzZVZveUtqY2FIaVlNVVo3NlZCaE0xWVVLZms0dDFDM2hjd2diNXMzcTREMWNiY3FXTHVWUlRrYXlnVXg2SGhwOGxfQnBPSDY?oc=5",
-          "domain": "news.google.com"
+          "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "e74b55d24be964da",
+      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Putin intensified strikes on Ukraine after secret meeting with CIA chief, WP reports - RBC-Ukraine",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "38cf8b9ed9042113",
+      "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens - Al Jazeera",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens - Al Jazeera",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russia’s jet-powered drones overwhelm Ukraine, killing dozens",
+          "url": "",
+          "domain": ""
         }
       ]
     },
@@ -77,27 +154,6 @@
         },
         {
           "title": "China's Xi seeks to bring large CEO delegation on US visit, sources say",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "5b2c48d78978f28d",
-      "title": "At least 100 killed as Yemen’s Houthis push towards key strait",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "At least 100 killed as Yemen’s Houthis push towards key strait",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "81 dead as Yemen's Houthis push towards key strait: Sources",
           "url": "",
           "domain": ""
         }
@@ -125,209 +181,98 @@
       ]
     },
     {
-      "eventId": "7fdb4bf62cef620f",
-      "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
-      "consistency": "moderate",
-      "flagCount": 1,
-      "flags": [
-        {
-          "type": "location",
-          "severity": "moderate",
-          "reason": "Reports name different locations."
-        }
-      ],
-      "reviewRecommended": true,
+      "eventId": "caa8e2f25e0063ff",
+      "title": "Beekeepers warn of Asian hornet threat and call for UK awareness campaign",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
       "sourceDomains": [],
       "reports": [
         {
-          "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
-          "url": "",
-          "domain": ""
-        },
-        {
-          "title": "Germany’s far right AfD eyes election breakthrough in Saxony-Anhalt",
+          "title": "Beekeepers warn of Asian hornet threat and call for UK awareness campaign",
           "url": "",
           "domain": ""
         }
       ]
     },
     {
-      "eventId": "cc3bc67f455b7645",
-      "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
+      "eventId": "a70e143845bcf27d",
+      "title": "Williams sisters’ US Open return ends in heartbreak with third-set tie-break defeat",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "‘To challenge deadly blockade’: New flotilla mission sets sail for Gaza",
-          "url": "https://www.aljazeera.com/news/2026/9/5/to-challenge-deadly-blockade-new-flotilla-mission-sets-sail-for-gaza?traffic_source=rss",
-          "domain": "aljazeera.com"
+          "title": "Williams sisters’ US Open return ends in heartbreak with third-set tie-break defeat",
+          "url": "",
+          "domain": ""
         }
       ]
     },
     {
-      "eventId": "91297f2371f41631",
-      "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
+      "eventId": "f8c94b28d0aef9a7",
+      "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "bbc.co.uk"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
-          "url": "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss",
-          "domain": "bbc.co.uk"
+          "title": "Sydney sweats in spring hot spell, faces 'extreme' bushfire risk",
+          "url": "",
+          "domain": ""
         }
       ]
     },
     {
-      "eventId": "7f50a25b4d12843a",
-      "title": "Trump downplays war with Iran, in which 18 US service members have been killed so far, as ‘small potatoes’ – as it happened",
+      "eventId": "49d62d0815f5be7b",
+      "title": "‘Every girl now wants to be a boxer’: excitement in Katie Taylor’s home town for her valedictory bout",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "theguardian.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "Trump downplays war with Iran, in which 18 US service members have been killed so far, as ‘small potatoes’ – as it happened",
-          "url": "https://www.theguardian.com/us-news/live/2026/sep/04/missouri-supreme-court-congressional-district-map-mail-in-voting-us-canada-trade-war-executive-orders-latest-news-updates",
-          "domain": "theguardian.com"
+          "title": "‘Every girl now wants to be a boxer’: excitement in Katie Taylor’s home town for her valedictory bout",
+          "url": "",
+          "domain": ""
         }
       ]
     },
     {
-      "eventId": "aa1a93d1c57ada6e",
-      "title": "Sydney set to hit 33C in warmest start to spring since mid-1800s, while snow forecast in southern NSW",
+      "eventId": "d5f90b135c14b37e",
+      "title": "US midterms begin with chaos over mail-voting crackdown",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "theguardian.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "Sydney set to hit 33C in warmest start to spring since mid-1800s, while snow forecast in southern NSW",
-          "url": "https://www.theguardian.com/australia-news/2026/sep/05/sydney-set-to-hit-33c-in-warmest-start-to-spring-since-mid-1800s-while-snow-forecast-in-southern-nsw",
-          "domain": "theguardian.com"
+          "title": "US midterms begin with chaos over mail-voting crackdown",
+          "url": "",
+          "domain": ""
         }
       ]
     },
     {
-      "eventId": "1c2130bc73afc7c0",
-      "title": "Judge refuses to block Pentagon from firing Stars and Stripes journalists",
+      "eventId": "aad182f7474ae5bf",
+      "title": "White House reviews candidates to replace Hegseth deputy Feinberg, sources say",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
       "reviewRecommended": false,
-      "sourceDomains": [
-        "theguardian.com"
-      ],
+      "sourceDomains": [],
       "reports": [
         {
-          "title": "Judge refuses to block Pentagon from firing Stars and Stripes journalists",
-          "url": "https://www.theguardian.com/us-news/2026/sep/04/judge-pentagon-stars-and-stripes",
-          "domain": "theguardian.com"
-        }
-      ]
-    },
-    {
-      "eventId": "2f6c66e17164da90",
-      "title": "Ecuador defends US sinking of vessels as joint anti-drug operation",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "reports": [
-        {
-          "title": "Ecuador defends US sinking of vessels as joint anti-drug operation",
-          "url": "https://www.aljazeera.com/news/2026/9/5/ecuador-defends-us-sinking-of-vessels-as-joint-anti-drug-operation?traffic_source=rss",
-          "domain": "aljazeera.com"
-        }
-      ]
-    },
-    {
-      "eventId": "0fdbad278436a3b0",
-      "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "reports": [
-        {
-          "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORWd6U0JBS05PQUhsdVdlN1hPbmpuNkRDUWZGODAwUGxSVkpiQW5uM2tXOFRvN1lSLVFBTDJCNGpxcG5RRzZraVZTdEpOMTlzSXBHN2VFVnlWbmhiV0F0TTdNaExqQlRBQnpURERaSVRWTHRHUVVfVW5UY3F1cFZaSjNqOE93Q2tUTE1iUlVzbjJlLUlacDZORGxaRk5DN3hPXzRVdHNkeWdGcXdWZnYxb2NfQUN1cV8zVi1wYXNn?oc=5",
-          "domain": "news.google.com"
-        }
-      ]
-    },
-    {
-      "eventId": "72acc4608534e7ec",
-      "title": "Back in DC, Wisconsin lawmakers prep for election season - Milwaukee Journal Sentinel",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "reports": [
-        {
-          "title": "Back in DC, Wisconsin lawmakers prep for election season - Milwaukee Journal Sentinel",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPWjJZaVpUTEFLeXJpSVJvSWt4MWdkQ1hqbHE0M2FLZHczYzBWZ0pnZllwSnEzTkFZa3hfTjlBcmNteFZ5NkNNcXljRG5NOElZdmJwejRrYmFNWHdBTUthZnMwLWFzU0V2TFZXYWNzald4R2k2REdrbzZpcHRYdDc2dElQNThES2didDYtMHJlQnViV3RNU1ZWQkdPU3VpZzN3MWR5MUxFZ0U3enI4Qm4ySjhLamxWdTdXSk9OOTdQWkdnZw?oc=5",
-          "domain": "news.google.com"
-        }
-      ]
-    },
-    {
-      "eventId": "67c9363b55f3ac12",
-      "title": "The Bond Market Always Gets the Final Vote - whowhatwhy.org",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "news.google.com"
-      ],
-      "reports": [
-        {
-          "title": "The Bond Market Always Gets the Final Vote - whowhatwhy.org",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1CNVZlUUh1VW95NVcyS3UzTXc1SVhyOExET1NmWjh6d0ZCdUozX3pib20tZktmOFZwTDctLVdCRlYxWU9fOU45ZXpmYzExVV9HQWVfX3JrTDJNM3BQSXZ4ZkozRVNpdFY3TVpIV1J1QU1CSm5KMmJKeUZBQWdjUFU?oc=5",
-          "domain": "news.google.com"
-        }
-      ]
-    },
-    {
-      "eventId": "0eeb7ae9c89be4af",
-      "title": "Asylum seekers caught in US immigration crackdown",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [
-        "aljazeera.com"
-      ],
-      "reports": [
-        {
-          "title": "Asylum seekers caught in US immigration crackdown",
-          "url": "https://www.aljazeera.com/video/newsfeed/2026/9/5/asylum-seekers-caught-in-us-immigration-crackdown?traffic_source=rss",
-          "domain": "aljazeera.com"
+          "title": "White House reviews candidates to replace Hegseth deputy Feinberg, sources say",
+          "url": "",
+          "domain": ""
         }
       ]
     },
@@ -390,6 +335,38 @@
       "reports": [
         {
           "title": "Panama Canal begins reducing crossings due to El Nino",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "0fdbad278436a3b0",
+      "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "In food crises, emergency agricultural assistance can help turn the tide - The Jakarta Post",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "67c9363b55f3ac12",
+      "title": "The Bond Market Always Gets the Final Vote - whowhatwhy.org",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "The Bond Market Always Gets the Final Vote - whowhatwhy.org",
           "url": "",
           "domain": ""
         }
@@ -476,6 +453,38 @@
       ]
     },
     {
+      "eventId": "06f41ad4036dd5aa",
+      "title": "Between Attrition And Adaptation: Assessing Iran’s Missile- And Drone-Warfare Capabilities - Analysis - Eurasia Review",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Between Attrition And Adaptation: Assessing Iran’s Missile- And Drone-Warfare Capabilities - Analysis - Eurasia Review",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "8148a831514b353a",
+      "title": "Midterm mail ballots start to go to voters as litigation over Trump's order creates uncertainty - The Washington Post",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Midterm mail ballots start to go to voters as litigation over Trump's order creates uncertainty - The Washington Post",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "67aa39fe4a61fc79",
       "title": "President Trump plans to fly to Ireland next week on the Boeing luxury jet donated by the Qataris, despite questions about its safety capabilities. Read more: https://nyti.ms/4ynbktH - facebook.com",
       "consistency": "none",
@@ -518,6 +527,22 @@
       "reports": [
         {
           "title": "‘This Is My Money’: Trump Says He Will Spend Some of His War Chest on Republicans - The New York Times",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "bc5a8fb4cff4c75f",
+      "title": "OAS is seeking to help Haiti elections, governance, secretary general says - Miami Herald",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "OAS is seeking to help Haiti elections, governance, secretary general says - Miami Herald",
           "url": "",
           "domain": ""
         }
@@ -604,6 +629,54 @@
       ]
     },
     {
+      "eventId": "1c7b901283fcdce3",
+      "title": "Costa Rican president signals openness to domestic US military operations",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Costa Rican president signals openness to domestic US military operations",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "7cbb2d5ca6331599",
+      "title": "Public Health Emergency After Flood - Nepali Patro",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Public Health Emergency After Flood - Nepali Patro",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "a2e82bb17fba6ef0",
+      "title": "Betis beat Real Madrid as Mbappe misses penalty in first La Liga defeat",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Betis beat Real Madrid as Mbappe misses penalty in first La Liga defeat",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "06e22ca4b0bdf062",
       "title": "USL and players ratify new CBA, raising salaries and introducing 12-month deals",
       "consistency": "none",
@@ -614,6 +687,22 @@
       "reports": [
         {
           "title": "USL and players ratify new CBA, raising salaries and introducing 12-month deals",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "54a59be416b62b09",
+      "title": "Sudan drone war is erasing the front line, UN finds - People Daily",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Sudan drone war is erasing the front line, UN finds - People Daily",
           "url": "",
           "domain": ""
         }
@@ -636,6 +725,54 @@
       ]
     },
     {
+      "eventId": "a541a39c672098fa",
+      "title": "Pa. election 2026: Voter guides, key races and more - WHYY",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Pa. election 2026: Voter guides, key races and more - WHYY",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "1e5c7b82bbcd04ad",
+      "title": "US regulator opens safety investigation as Tesla launches driverless taxis",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "US regulator opens safety investigation as Tesla launches driverless taxis",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "214d3e5f64c2c31b",
+      "title": "Witkoff and Kushner will travel to ‘end’ Russia’s war in Ukraine: Trump",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Witkoff and Kushner will travel to ‘end’ Russia’s war in Ukraine: Trump",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "5c3d9eaaadb85f2e",
       "title": "Houthis Launch Missile And Drone Attacks In Taiz, Forcing New Displacement In Maqbanah: 21 outlets compared - NewsCord",
       "consistency": "none",
@@ -652,6 +789,38 @@
       ]
     },
     {
+      "eventId": "c169db63c28b7695",
+      "title": "How a Houthi Blockade in the Red Sea Tightens Iran’s Grip on Global Energy Supplies - EnergyNow.com",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "How a Houthi Blockade in the Red Sea Tightens Iran’s Grip on Global Energy Supplies - EnergyNow.com",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "155cdaf7707be0bf",
+      "title": "Sabalenka interrupts US Open match against Rakhimova over cannabis smell",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Sabalenka interrupts US Open match against Rakhimova over cannabis smell",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "86e28866589e17de",
       "title": "A look inside the courtroom during the Lindsay Clancy murder trial – video",
       "consistency": "none",
@@ -662,6 +831,70 @@
       "reports": [
         {
           "title": "A look inside the courtroom during the Lindsay Clancy murder trial – video",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "337545b9529b004c",
+      "title": "Republicans, Democrats Both Prepping for First-Ever Midterm Political Convention - The Well News",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Republicans, Democrats Both Prepping for First-Ever Midterm Political Convention - The Well News",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "be53139dc5f79bf0",
+      "title": "Liverpool beat Ipswich as Isak goals hand Iraola first Premier League win",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Liverpool beat Ipswich as Isak goals hand Iraola first Premier League win",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "2befb3afe88c79c4",
+      "title": "Nigel Farage heckled as he denies Reform UK took illegal funding",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Nigel Farage heckled as he denies Reform UK took illegal funding",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "fa11c053e7838aef",
+      "title": "Will Europe pay the US to provide military aid to Ukraine?",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Will Europe pay the US to provide military aid to Ukraine?",
           "url": "",
           "domain": ""
         }
@@ -694,6 +927,22 @@
       "reports": [
         {
           "title": "Army green lights first production drone-killer laser weapon",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "99721b6f51359f0e",
+      "title": "‘Make it painful:’ Why Iran is turning to sea mines - Iran International",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "‘Make it painful:’ Why Iran is turning to sea mines - Iran International",
           "url": "",
           "domain": ""
         }
@@ -796,8 +1045,8 @@
       ]
     },
     {
-      "eventId": "890accde589e56cf",
-      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
+      "eventId": "0434474c530b5926",
+      "title": "CNN This Morning - CNN",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
@@ -805,7 +1054,7 @@
       "sourceDomains": [],
       "reports": [
         {
-          "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
+          "title": "CNN This Morning - CNN",
           "url": "",
           "domain": ""
         }
@@ -876,6 +1125,54 @@
       ]
     },
     {
+      "eventId": "72acc4608534e7ec",
+      "title": "Back in DC, Wisconsin lawmakers prep for election season - Milwaukee Journal Sentinel",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Back in DC, Wisconsin lawmakers prep for election season - Milwaukee Journal Sentinel",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "aae32894ec6f292e",
+      "title": "Supreme Court backs Republican request to lower TV ad rates - CNN",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Supreme Court backs Republican request to lower TV ad rates - CNN",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
+      "eventId": "61c2fe1f239e25f5",
+      "title": "President William Samoei Ruto- Thank you for standing shoulder to shoulder with one another to protect the people of Haiti. Congratulations and welcome back home - facebook.com",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "President William Samoei Ruto- Thank you for standing shoulder to shoulder with one another to protect the people of Haiti. Congratulations and welcome back home - facebook.com",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "b8d1f3c57a95a3b0",
       "title": "US Supreme Court preserves parties’ access to cheap ads, siding with Republicans - WTVB",
       "consistency": "none",
@@ -908,6 +1205,22 @@
       ]
     },
     {
+      "eventId": "c17371c89fc7ce79",
+      "title": "SES Rescuers Help Kharkiv Families Flee Frontline Shelling - Kyiv Post",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "SES Rescuers Help Kharkiv Families Flee Frontline Shelling - Kyiv Post",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "45ee32ee07a9e2cd",
       "title": "Advisers to Reform UK's Farage step down after allegations of electoral law breach",
       "consistency": "none",
@@ -918,38 +1231,6 @@
       "reports": [
         {
           "title": "Advisers to Reform UK's Farage step down after allegations of electoral law breach",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "6b08315ab344aea8",
-      "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Israeli strike kills two in southern Lebanon amid ongoing escalation",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "e74b55d24be964da",
-      "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Russia Intensified Airstrikes on Ukraine After CIA Director’s Secret Moscow Visit, Sources Say - Межа. Новини України.",
           "url": "",
           "domain": ""
         }
@@ -1020,6 +1301,22 @@
       ]
     },
     {
+      "eventId": "7d13f2eda9c761c0",
+      "title": "Here are the key issues, initiatives in Colorado's 2026 election - coloradoan.com",
+      "consistency": "none",
+      "flagCount": 0,
+      "flags": [],
+      "reviewRecommended": false,
+      "sourceDomains": [],
+      "reports": [
+        {
+          "title": "Here are the key issues, initiatives in Colorado's 2026 election - coloradoan.com",
+          "url": "",
+          "domain": ""
+        }
+      ]
+    },
+    {
       "eventId": "5e48752d78514088",
       "title": "Green forest fire notification in Bolivia",
       "consistency": "none",
@@ -1036,8 +1333,8 @@
       ]
     },
     {
-      "eventId": "74204115e37952ad",
-      "title": "Trump to take gifted Qatar jet to Ireland despite questions about its security",
+      "eventId": "33cec06a188708ce",
+      "title": "Cairo affirms ongoing efforts to secure swift release of Egyptian sailors detained off Somalia - Hiiraan Online",
       "consistency": "none",
       "flagCount": 0,
       "flags": [],
@@ -1045,311 +1342,7 @@
       "sourceDomains": [],
       "reports": [
         {
-          "title": "Trump to take gifted Qatar jet to Ireland despite questions about its security",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "6edbe55ad05b0d10",
-      "title": "Green forest fire notification in Namibia",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Green forest fire notification in Namibia",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "db037c2987eba324",
-      "title": "Green forest fire notification in Brazil",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Green forest fire notification in Brazil",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "256e76f2272bc06e",
-      "title": "Missouri 1st Congressional District 2026: Latest Polls - The New York Times",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Missouri 1st Congressional District 2026: Latest Polls - The New York Times",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "a466bf68d5b7427f",
-      "title": "Kentucky 4th Congressional District 2026: Latest Polls - The New York Times",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Kentucky 4th Congressional District 2026: Latest Polls - The New York Times",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "ffe592d68597234a",
-      "title": "Delegation for 9.4.26: October recess — travel agents — Space Academy — ballot cutoff — scolding socialism - floridapolitics.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Delegation for 9.4.26: October recess — travel agents — Space Academy — ballot cutoff — scolding socialism - floridapolitics.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "1a49f6de8593b05a",
-      "title": "Illinois 7th Congressional District 2026: Latest Polls - nytimes.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Illinois 7th Congressional District 2026: Latest Polls - nytimes.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "672ccf0ce2efb248",
-      "title": "Five EU nations inch towards deal on migrant ‘return hubs’ by 2027",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Five EU nations inch towards deal on migrant ‘return hubs’ by 2027",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "7f2e11aa3792402e",
-      "title": "Lindsay Clancy: five key moments from ‘America’s saddest murder trial’",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Lindsay Clancy: five key moments from ‘America’s saddest murder trial’",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "41f36e43dc829ed7",
-      "title": "Brazilian Supreme Court roiled by dispute between justices",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Brazilian Supreme Court roiled by dispute between justices",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "93f33af7304e643c",
-      "title": "Lindsay Clancy judge declares mistrial – what happens next?",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Lindsay Clancy judge declares mistrial – what happens next?",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "73870b165e199837",
-      "title": "‘‘Never Forget’ is not a slogan’: Mamdani designates 9/11 as a Day of Remembrance and Service",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "‘‘Never Forget’ is not a slogan’: Mamdani designates 9/11 as a Day of Remembrance and Service",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "ee5a86a31dd4475b",
-      "title": "Villagers vow to rebuild despite devastating mass demolition in West Bank",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Villagers vow to rebuild despite devastating mass demolition in West Bank",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "e09eefc01961de06",
-      "title": "Iran’s reported Qasem Basir missile launches raise new threat near Strait of Hormuz - businessupturn.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Iran’s reported Qasem Basir missile launches raise new threat near Strait of Hormuz - businessupturn.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "59a1a3619084c106",
-      "title": "Garlinghouse Urges Congress to Seal U.S. Crypto Ambitions as CLARITY Act Faces Crunch - finance.biggo.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Garlinghouse Urges Congress to Seal U.S. Crypto Ambitions as CLARITY Act Faces Crunch - finance.biggo.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "e0ac18a94d13c964",
-      "title": "Texas Elections: Who’s Leading In Prediction Markets? - forbes.com",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Texas Elections: Who’s Leading In Prediction Markets? - forbes.com",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "27891d6bac6b0f16",
-      "title": "Moment two workers are pulled alive from Nepal tunnel",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Moment two workers are pulled alive from Nepal tunnel",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "25496be6114b2e62",
-      "title": "Maria Bartiromo’s lawyer denies she was fired from Fox News anchor role",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Maria Bartiromo’s lawyer denies she was fired from Fox News anchor role",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "62ff3c60d1baf255",
-      "title": "‘I can’t be bought,’ says Nige – just when it rather looks as if he can | John Crace",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "‘I can’t be bought,’ says Nige – just when it rather looks as if he can | John Crace",
-          "url": "",
-          "domain": ""
-        }
-      ]
-    },
-    {
-      "eventId": "64c1832cb9a9e9e1",
-      "title": "Cambridge University probing conduct of academic suspended by Reform UK",
-      "consistency": "none",
-      "flagCount": 0,
-      "flags": [],
-      "reviewRecommended": false,
-      "sourceDomains": [],
-      "reports": [
-        {
-          "title": "Cambridge University probing conduct of academic suspended by Reform UK",
+          "title": "Cairo affirms ongoing efforts to secure swift release of Egyptian sailors detained off Somalia - Hiiraan Online",
           "url": "",
           "domain": ""
         }
@@ -1358,8 +1351,8 @@
   ],
   "flaggedEvents": [
     {
-      "eventId": "7fdb4bf62cef620f",
-      "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
+      "eventId": "890accde589e56cf",
+      "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
       "consistency": "moderate",
       "flagCount": 1,
       "flags": [
@@ -1373,12 +1366,37 @@
       "sourceDomains": [],
       "reports": [
         {
-          "title": "Germany’s far right eyes election breakthrough as AfD surges in Saxony",
+          "title": "Russia hits Ukraine's security service headquarters in Kyiv, Zelenskyy says",
           "url": "",
           "domain": ""
         },
         {
-          "title": "Germany’s far right AfD eyes election breakthrough in Saxony-Anhalt",
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Reuters",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian attack hits Ukraine's security service headquarters - CBC",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - Yahoo News UK",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian drone strikes Ukraine’s security service headquarters",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian drone strikes Ukraine's security service HQ, escalating air war - devdiscourse.com",
+          "url": "",
+          "domain": ""
+        },
+        {
+          "title": "Russian Drone Hits Ukraine’s SBU Headquarters in Central Kyiv, Zelenskyy Says - businessupturn.com",
           "url": "",
           "domain": ""
         }

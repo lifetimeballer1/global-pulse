@@ -1,14 +1,118 @@
 {
-  "updatedAt": "2026-09-05T03:04:03.800911+00:00",
+  "updatedAt": "2026-09-05T05:39:44.047049+00:00",
   "feedsChecked": 52,
-  "rowsFetched": 775,
-  "newArticles": 60,
+  "rowsFetched": 573,
+  "newArticles": 73,
   "purged": 52,
-  "databaseArticles": 1293,
-  "healthySources": 46,
-  "emptySources": 8,
+  "databaseArticles": 1314,
+  "healthySources": 20,
+  "emptySources": 2,
   "fallbackSources": 0,
   "failedSources": [
+    {
+      "source": "Google News — Climate & Disaster",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Climate Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Humanitarian",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — U.S. Politics",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — CNN Politics",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Axios Politics",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Morse Report",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — World Politics",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Global Economics",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Global Conflict",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — Africa Security",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — Sudan Conflict",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — DRC / M23",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — Sahel Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Somalia Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Haiti Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Mexico Cartel Conflict",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Ecuador Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Myanmar Civil War",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Afghanistan Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Yemen / Red Sea",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — Iran Israel",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — Ukraine War",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — South America Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News — Middle East Security",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "source": "Google News — South Asia Security",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    },
     {
       "source": "CNN",
       "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
@@ -73,7 +177,7 @@
       "name": "BBC World",
       "type": "international",
       "category": "international",
-      "rowsFetched": 23,
+      "rowsFetched": 24,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -206,10 +310,10 @@
       "type": "climate-hazard",
       "category": "climate-hazard",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_climate_security",
@@ -217,54 +321,54 @@
       "type": "climate-hazard",
       "category": "climate-hazard",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_humanitarian",
       "name": "Google News — Humanitarian",
       "type": "humanitarian",
       "category": "humanitarian",
-      "rowsFetched": 8,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_u_s_politics",
       "name": "Google News — U.S. Politics",
       "type": "us-politics",
       "category": "us-politics",
-      "rowsFetched": 46,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_cnn_politics",
       "name": "Google News — CNN Politics",
       "type": "us-politics",
       "category": "us-politics",
-      "rowsFetched": 6,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_axios_politics",
       "name": "Google News — Axios Politics",
       "type": "us-politics",
       "category": "us-politics",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_morse_report",
@@ -272,10 +376,10 @@
       "type": "us-politics",
       "category": "us-politics",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_world_politics",
@@ -283,32 +387,32 @@
       "type": "world-politics",
       "category": "world-politics",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_global_economics",
       "name": "Google News — Global Economics",
       "type": "economics",
       "category": "economics",
-      "rowsFetched": 26,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_global_conflict",
       "name": "Google News — Global Conflict",
       "type": "live",
       "category": "live",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_africa_security",
@@ -316,21 +420,21 @@
       "type": "africa",
       "category": "africa",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_sudan_conflict",
       "name": "Google News — Sudan Conflict",
       "type": "africa-conflict",
       "category": "africa-conflict",
-      "rowsFetched": 8,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_drc_m23",
@@ -338,153 +442,153 @@
       "type": "africa-conflict",
       "category": "africa-conflict",
       "rowsFetched": 0,
-      "httpOk": true,
-      "mode": "online-empty",
-      "emptyFeed": true,
-      "error": ""
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_sahel_security",
       "name": "Google News — Sahel Security",
       "type": "africa-conflict",
       "category": "africa-conflict",
-      "rowsFetched": 2,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_somalia_security",
       "name": "Google News — Somalia Security",
       "type": "africa-conflict",
       "category": "africa-conflict",
-      "rowsFetched": 2,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_haiti_security",
       "name": "Google News — Haiti Security",
       "type": "americas-conflict",
       "category": "americas-conflict",
-      "rowsFetched": 8,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_mexico_cartel_conflict",
       "name": "Google News — Mexico Cartel Conflict",
       "type": "americas-conflict",
       "category": "americas-conflict",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_ecuador_security",
       "name": "Google News — Ecuador Security",
       "type": "americas-conflict",
       "category": "americas-conflict",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_myanmar_civil_war",
       "name": "Google News — Myanmar Civil War",
       "type": "asia-conflict",
       "category": "asia-conflict",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_afghanistan_security",
       "name": "Google News — Afghanistan Security",
       "type": "south-asia-conflict",
       "category": "south-asia-conflict",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_yemen_red_sea",
       "name": "Google News — Yemen / Red Sea",
       "type": "middle-east-conflict",
       "category": "middle-east-conflict",
-      "rowsFetched": 22,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_iran_israel",
       "name": "Google News — Iran Israel",
       "type": "middle-east-conflict",
       "category": "middle-east-conflict",
-      "rowsFetched": 45,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_ukraine_war",
       "name": "Google News — Ukraine War",
       "type": "europe-conflict",
       "category": "europe-conflict",
-      "rowsFetched": 19,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_south_america_security",
       "name": "Google News — South America Security",
       "type": "americas",
       "category": "americas",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "google_news_middle_east_security",
       "name": "Google News — Middle East Security",
       "type": "middle-east",
       "category": "middle-east",
-      "rowsFetched": 3,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "TimeoutError: The read operation timed out"
     },
     {
       "sourceId": "google_news_south_asia_security",
       "name": "Google News — South Asia Security",
       "type": "south-asia",
       "category": "south-asia",
-      "rowsFetched": 1,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 503: Service Unavailable"
     },
     {
       "sourceId": "cnn",
