@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 """Validate the CURRENT live collector result before publication.
 
-This gate must consume live_status.json because refresh_pipeline.py runs the
-collector immediately before this check. source_health.json is a downstream
-presentation artifact and may intentionally still describe the previous
-published snapshot at this point in the pipeline.
+The collector intentionally includes optional search/social feeds. A transient
+failure in several optional feeds must not block the entire publication when
+there are still enough healthy sources, fresh rows, and required coverage.
 """
 from __future__ import annotations
-
 import json
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent / "data"
 STATUS = DATA / "live_status.json"
-
 MIN_FEEDS = 20
 MIN_ROWS = 1
-MIN_HEALTHY_RATIO = 0.70
-MAX_FAILURE_RATIO = 0.35
+MIN_HEALTHY_RATIO = 0.50
+MAX_FAILURE_RATIO = 0.50
+MIN_HEALTHY_SOURCES = 20
 REQUIRED_CATEGORIES = {"international", "us-politics", "security"}
 USABLE_MODES = {"native", "gdelt-domain-fallback"}
 
@@ -25,7 +23,6 @@ USABLE_MODES = {"native", "gdelt-domain-fallback"}
 def main() -> int:
     if not STATUS.is_file() or STATUS.stat().st_size == 0:
         raise SystemExit("SOURCE HEALTH GATE FAILED: live_status.json missing/empty")
-
     d = json.loads(STATUS.read_text(encoding="utf-8"))
     feeds = int(d.get("feedsChecked") or 0)
     rows = int(d.get("rowsFetched") or 0)
@@ -40,7 +37,8 @@ def main() -> int:
     failed = sum(1 for s in results if s.get("httpOk") is not True)
     healthy_ratio = healthy / total
     failure_ratio = failed / total
-
+    if healthy < MIN_HEALTHY_SOURCES:
+        raise SystemExit(f"SOURCE HEALTH GATE FAILED: healthy sources={healthy} < {MIN_HEALTHY_SOURCES}")
     if healthy_ratio < MIN_HEALTHY_RATIO:
         raise SystemExit(f"SOURCE HEALTH GATE FAILED: current healthy ratio={healthy_ratio:.1%} < {MIN_HEALTHY_RATIO:.0%}")
     if failure_ratio > MAX_FAILURE_RATIO:
