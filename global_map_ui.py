@@ -59,7 +59,18 @@ def install() -> None:
   let layer=null;
   let filter="all",query="";
   const esc=v=>String(v??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]));
-  const kind=m=>{const t=String(m?.eventType||m?.type||m?.layer||"conflict").toLowerCase();if(/organized|crime|cartel|gang/.test(t))return"organized";if(/strategic|chokepoint|flashpoint|node/.test(t))return"strategic";if(/hazard|earthquake|environment|natural/.test(t))return"hazard";if(/osint|source map|social|report/.test(t))return"osint";return"conflict"};
+  const kind=m=>{
+    const layer=String(m?.layer||"").toLowerCase();
+    const eventType=String(m?.eventType||"").toLowerCase();
+    const type=String(m?.type||"").toLowerCase();
+    const all=[eventType,type,layer,String(m?.signal||""),String(m?.category||""),String(m?.sourceType||"")].join(" ").toLowerCase();
+    if(/cfr|conflict|military|war|attack|strike|armed|insurgent|battle|clash|coup/.test(layer+" "+all))return"conflict";
+    if(/organized|crime|cartel|gang|narco/.test(all))return"organized";
+    if(/hazard|earthquake|environment|natural|gdacs|usgs/.test(all))return"hazard";
+    if(/strategic|chokepoint|flashpoint|node|reference/.test(all))return"strategic";
+    if(/osint|source map|social|report/.test(all))return"osint";
+    return"conflict";
+  };
   const latOf=m=>Number(m?.lat??m?.latitude),lngOf=m=>Number(m?.lng??m?.lon??m?.longitude);
   const color=k=>({conflict:"#ff6678",osint:"#ffc857",strategic:"#62a0ff",hazard:"#48df83",organized:"#aa8df7"}[k]||"#62a0ff");
   const valid=m=>{const a=latOf(m),b=lngOf(m);return Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a)<=90&&Math.abs(b)<=180};
@@ -67,7 +78,7 @@ def install() -> None:
     if(!map||!layer||!window.DATA)return;
     layer.clearLayers();
     const all=Array.isArray(window.DATA.markers)?window.DATA.markers:[];
-    const filtered=all.filter(m=>{if(!valid(m))return false;const k=kind(m);if(filter!=="all"&&k!==filter)return false;const hay=[m.title,m.detail,m.source,m.region,m.eventType,m.type,m.layer].map(x=>String(x??"").toLowerCase()).join(" ");return !query||hay.includes(query)});
+    const filtered=all.filter(m=>{if(!valid(m))return false;const k=kind(m);if(filter!=="all"&&k!==filter)return false;const hay=[m.title,m.detail,m.source,m.region,m.eventType,m.type,m.layer,m.signal,m.category].map(x=>String(x??"").toLowerCase()).join(" ");return !query||hay.includes(query)});
     filtered.forEach(m=>{
       const k=kind(m),c=color(k),url=String(m.url||m.sourceUrl||"");
       const icon=L.divIcon({className:"",html:'<span style="display:block;width:12px;height:12px;border-radius:50%;background:'+c+';border:2px solid rgba(255,255,255,.75);box-shadow:0 0 0 3px '+c+'33"></span>',iconSize:[12,12],iconAnchor:[6,6]});
@@ -93,9 +104,9 @@ def install() -> None:
     map=L.map(fresh,{worldCopyJump:true,preferCanvas:true,zoomControl:true,attributionControl:true}).setView([20,0],2);
     L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
     layer=window.L.markerClusterGroup?window.L.markerClusterGroup({showCoverageOnHover:false,removeOutsideVisibleBounds:true}):L.layerGroup();layer.addTo(map);
-    bar.querySelectorAll("button[data-f]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));window.gpMapBooted=false;render()}));
-    const search=document.getElementById("gpMapSearch");if(search)search.addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();window.gpMapBooted=false;render()});
-    window.gpGlobalMap=map;window.renderMap=render;
+    bar.querySelectorAll("button[data-f]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()}));
+    const search=document.getElementById("gpMapSearch");if(search)search.addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()});
+    window.gpGlobalMap=map;window.renderMap=render;window.gpMapSetFilter=f=>{filter=String(f||"all");window.gpMapBooted=false;render()};
     document.addEventListener("globalpulse:dataready",()=>{window.gpMapBooted=false;render();setTimeout(()=>map.invalidateSize(),50)});
     render();
     return true;
