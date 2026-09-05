@@ -13,7 +13,7 @@ permissions:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 7
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,7 +21,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Extract public map links from The Enforcer RSS descriptions
+      - name: Install public YouTube extractor
+        run: python -m pip install --disable-pip-version-check --no-input yt-dlp
+      - name: Force-check The Enforcer public channel
         run: python enforcer_map_watcher.py
       - name: Validate watcher output and freshness
         run: |
@@ -34,10 +36,11 @@ jobs:
           assert d.get('source') == 'The Enforcer'
           assert isinstance(d.get('maps'), list)
           assert all(x.get('url','').startswith('https://www.google.com/maps/d/') for x in d['maps'])
+          assert isinstance(d.get('recentVideos'), list) and len(d['recentVideos']) > 0
           ts=datetime.fromisoformat(d['updatedAt'].replace('Z','+00:00'))
           age=(datetime.now(timezone.utc)-ts).total_seconds()
           assert -120 <= age <= 300, f'watcher output too old: {age:.0f}s'
-          print(f"VALID: {len(d['maps'])} Enforcer map links; {d.get('newMapLinks',0)} new links; age={age:.0f}s")
+          print(f"VALID: {len(d['recentVideos'])} videos checked; {len(d['maps'])} Enforcer map links; {d.get('newMapLinks',0)} new links; age={age:.0f}s; method={d.get('collectionMethod')}")
           PY
       - name: Publish changed map references
         run: |
