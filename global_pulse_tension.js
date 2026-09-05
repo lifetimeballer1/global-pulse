@@ -1,6 +1,5 @@
 /* Global Pulse — live tension-driver renderer
-   Uses backend-calculated driver scores when available and safely falls back to
-   transparent story/conflict signals. Never depends on a hard-coded DOM shape.
+   Uses backend-calculated driver scores and active-conflict activity scores.
 */
 (function(){
   'use strict';
@@ -19,47 +18,63 @@
   function derive(d,name){
     var m=META[name], pool=stories(d), total=0, hit=0, sources={};
     pool.forEach(function(s){
-      var text=[s.title,s.summary,s.tag,s.sourceLabel,s.sourceType].join(' ');
-      var w=1;
+      var text=[s.title,s.summary,s.tag,s.sourceLabel,s.sourceType].join(' '),w=1;
       if(s.time){var t=Date.parse(s.time);if(Number.isFinite(t)){var age=(Date.now()-t)/3600000;if(age<6)w=1.35;else if(age<24)w=1.15;else if(age>72)w=.7}}
-      total+=w;
-      if(m.keys.test(text)){hit+=w;sources[s.sourceLabel||s.sourceType||'Public source']=1}
+      total+=w;if(m.keys.test(text)){hit+=w;sources[s.sourceLabel||s.sourceType||'Public source']=1}
     });
     if(!pool.length)return {score:35,matches:0,sources:0,confidence:'LOW'};
-    var share=hit/Math.max(total,.01), score=Math.round(30+Math.min(70,share*100));
+    var share=hit/Math.max(total,.01),score=Math.round(30+Math.min(70,share*100));
     return {score:Math.max(0,Math.min(100,score)),matches:Math.round(hit),sources:Object.keys(sources).length,confidence:share>.35?'HIGH':share>.15?'MEDIUM':'LOW'};
   }
   function render(d){
     d=d||{};
     var box=document.getElementById('breakdown');
-    if(!box)return false;
-    var raw=d.breakdownScores||{};
-    var meta=d.driverSignals||{};
-    box.classList.add('gp-tension-drivers');
-    box.innerHTML='';
-    IDS.forEach(function(name){
-      var fallback=derive(d,name), score=num(raw[name],fallback.score), info=meta[name]||{};
-      var matches=Number.isFinite(Number(info.matches))?Number(info.matches):fallback.matches;
-      var sourceCount=Number.isFinite(Number(info.sources))?Number(info.sources):fallback.sources;
-      var label=score>=75?'HIGH':score>=55?'ELEVATED':score>=40?'WATCH':'LOW';
-      var row=document.createElement('div');row.className='gp-driver';
-      row.innerHTML='<div class="gp-driver-head"><div><b>'+esc(name)+'</b><span>'+esc(META[name].desc)+'</span></div><strong>'+score+'</strong></div>'+
-        '<div class="gp-driver-track"><i style="width:'+score+'%"></i></div>'+
-        '<div class="gp-driver-foot"><span class="gp-driver-state">'+label+'</span><span>'+matches+' matching signals · '+sourceCount+' sources</span></div>';
-      box.appendChild(row);
-    });
-    var scoreEl=document.getElementById('globalScore');
-    if(scoreEl && Number.isFinite(Number(d.tension))) scoreEl.textContent=Math.round(Number(d.tension));
-    var deltaEl=document.getElementById('globalDelta');
-    if(deltaEl && Number.isFinite(Number(d.tension))) deltaEl.textContent=Number(d.tension)>=70?'Elevated global pressure':Number(d.tension)>=45?'Moderate global pressure':'Lower global pressure';
-    var note=document.getElementById('gp-tension-note');
-    if(!note){note=document.createElement('div');note.id='gp-tension-note';box.parentNode.appendChild(note)}
-    note.textContent='Live driver model · scores use current public reporting signals, recency and source diversity. A headline count alone does not raise tension.';
+    if(box){
+      var raw=d.breakdownScores||{},meta=d.driverSignals||{};
+      box.classList.add('gp-tension-drivers');box.innerHTML='';
+      IDS.forEach(function(name){
+        var fallback=derive(d,name),score=num(raw[name],fallback.score),info=meta[name]||{},matches=Number.isFinite(Number(info.matches))?Number(info.matches):fallback.matches,sourceCount=Number.isFinite(Number(info.sources))?Number(info.sources):fallback.sources,label=score>=75?'HIGH':score>=55?'ELEVATED':score>=40?'WATCH':'LOW';
+        var row=document.createElement('div');row.className='gp-driver';
+        row.innerHTML='<div class="gp-driver-head"><div><b>'+esc(name)+'</b><span>'+esc(META[name].desc)+'</span></div><strong>'+score+'</strong></div><div class="gp-driver-track"><i style="width:'+score+'%"></i></div><div class="gp-driver-foot"><span class="gp-driver-state">'+label+'</span><span>'+matches+' matching signals · '+sourceCount+' sources</span></div>';
+        box.appendChild(row);
+      });
+    }
+    var scoreEl=document.getElementById('globalScore');if(scoreEl&&Number.isFinite(Number(d.tension)))scoreEl.textContent=Math.round(Number(d.tension));
+    var deltaEl=document.getElementById('globalDelta');if(deltaEl&&Number.isFinite(Number(d.tension)))deltaEl.textContent=Number(d.tension)>=70?'Elevated global pressure':Number(d.tension)>=45?'Moderate global pressure':'Lower global pressure';
+    var note=document.getElementById('gp-tension-note');if(!note&&box){note=document.createElement('div');note.id='gp-tension-note';box.parentNode.appendChild(note)}if(note)note.textContent='Live driver model · scores use current public reporting signals, recency and source diversity. A headline count alone does not raise tension.';
+    renderActiveConflicts(d);
     return true;
+  }
+  function conflictScore(c){
+    /* Backend make_conflicts() calls this activityScore. The old UI looked for
+       score/tension/priority, so valid activity scores were displayed as 0. */
+    var s=c&&c.activityScore;
+    if(s==null)s=c&&c.tension_score;
+    if(s==null)s=c&&c.tension;
+    if(s==null)s=c&&c.score;
+    return num(s,0);
+  }
+  function conflictLevel(s){return s>=80?'CRITICAL':s>=60?'HIGH':s>=35?'ELEVATED':'LOW'}
+  function conflictTrend(c){var d=Number(c&&c.delta);if(Number.isFinite(d)){if(d>2)return 'RISING';if(d<-2)return 'FALLING'}return 'STABLE'}
+  function renderActiveConflicts(d){
+    var list=document.querySelector('.conflict-list'),items=Array.isArray(d.conflicts)?d.conflicts:[];
+    if(!list||!items.length)return;
+    var cards=list.querySelectorAll('.ccard');
+    items.slice(0,cards.length).forEach(function(c,i){
+      var card=cards[i],s=conflictScore(c),line=card.querySelector('.scoreline'),b=line&&line.querySelector('b'),track=card.querySelector('.track'),fill=track&&track.querySelector('.fill');
+      if(b)b.textContent=String(s);
+      if(fill)fill.style.width=s+'%';
+      if(line){
+        var old=line.querySelector('.gp-conflict-meta');if(old)old.remove();
+        var meta=document.createElement('span');meta.className='gp-conflict-meta';meta.textContent=conflictLevel(s)+' · '+conflictTrend(c);line.appendChild(meta);
+      }
+      card.setAttribute('data-tension',String(s));
+      card.setAttribute('aria-label',String(c.name||'Conflict')+' tension '+s+' out of 100, '+conflictLevel(s)+', '+conflictTrend(c));
+    });
   }
   function ensureStyle(){
     if(document.getElementById('gp-tension-css'))return;
-    var s=document.createElement('style');s.id='gp-tension-css';s.textContent='.gp-tension-drivers{display:grid!important;gap:12px!important;height:auto!important;min-height:0!important}.gp-driver{padding:10px 0;border-bottom:1px solid var(--line)}.gp-driver:last-child{border-bottom:0}.gp-driver-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}.gp-driver-head b{display:block;font-size:12px}.gp-driver-head span{display:block;margin-top:3px;color:var(--muted);font-size:9px;line-height:1.35}.gp-driver-head strong{font-size:19px;line-height:1;font-variant-numeric:tabular-nums;color:var(--amber)}.gp-driver-track{height:8px;margin-top:8px;background:#06101a;border:1px solid #142334;border-radius:99px;overflow:hidden}.gp-driver-track i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));transition:width .35s ease}.gp-driver-foot{display:flex;justify-content:space-between;gap:8px;margin-top:5px;color:var(--muted);font-size:9px}.gp-driver-state{font-weight:900;letter-spacing:.08em}.gp-tension-drivers .gp-driver:hover{background:rgba(98,160,255,.035)}#gp-tension-note{margin-top:8px;color:var(--muted);font-size:9px;line-height:1.4}@media(max-width:720px){.gp-driver-head span{font-size:8px}.gp-driver-foot{font-size:8px}}';document.head.appendChild(s)
+    var s=document.createElement('style');s.id='gp-tension-css';s.textContent='.gp-tension-drivers{display:grid!important;gap:12px!important;height:auto!important;min-height:0!important}.gp-driver{padding:10px 0;border-bottom:1px solid var(--line)}.gp-driver:last-child{border-bottom:0}.gp-driver-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}.gp-driver-head b{display:block;font-size:12px}.gp-driver-head span{display:block;margin-top:3px;color:var(--muted);font-size:9px;line-height:1.35}.gp-driver-head strong{font-size:19px;line-height:1;font-variant-numeric:tabular-nums;color:var(--amber)}.gp-driver-track{height:8px;margin-top:8px;background:#06101a;border:1px solid #142334;border-radius:99px;overflow:hidden}.gp-driver-track i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));transition:width .35s ease}.gp-driver-foot{display:flex;justify-content:space-between;gap:8px;margin-top:5px;color:var(--muted);font-size:9px}.gp-driver-state{font-weight:900;letter-spacing:.08em}.gp-tension-drivers .gp-driver:hover{background:rgba(98,160,255,.035)}#gp-tension-note{margin-top:8px;color:var(--muted);font-size:9px;line-height:1.4}.gp-conflict-meta{margin-left:8px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.04em}@media(max-width:720px){.gp-driver-head span{font-size:8px}.gp-driver-foot{font-size:8px}.gp-conflict-meta{font-size:8px}}';document.head.appendChild(s)
   }
   function run(){ensureStyle();var d=window.DATA;if(d)render(d)}
   document.addEventListener('DOMContentLoaded',run);
