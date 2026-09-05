@@ -12,6 +12,7 @@ tags=[
  '<script src="global_pulse_event_intelligence.js?v=1"></script>',
  '<script src="global_pulse_event_consistency.js?v=1"></script>',
  '<link rel="stylesheet" href="global_pulse_list_density.css">',
+ '<link rel="stylesheet" href="global_pulse_phase3.css?v=1">',
  '<script src="global_pulse_list_density.js"></script>',
  '<script src="global_pulse_event_history.js?v=1"></script>',
  '<script src="global_pulse_ux_hardening.js?v=1"></script>'
@@ -24,4 +25,4 @@ for tag in tags:
     else:
         s=s.replace('</body>', tag+'\n</body>', 1)
 p.write_text(s,encoding='utf-8')
-print('Event intelligence, consistency review, historical timeline, compact list UX and mobile interaction hardening installed')
+print('Event intelligence, consistency review, historical timeline, compact list UX and Phase 3 mobile interaction hardening installed')
