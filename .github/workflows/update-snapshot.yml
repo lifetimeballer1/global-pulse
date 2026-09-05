@@ -3,7 +3,7 @@ name: Global Pulse — Canonical Live Refresh
 # Canonical live-data refresh. The pipeline is intentionally allowed to finish;
 # a 10-minute schedule must never cancel a longer refresh before it publishes.
 # Western Hemisphere counter-cartel intelligence feed expansion is included in the canonical refresh.
-# UI cleanup: Commander Center is rebuilt idempotently and orphaned nav links are removed.
+# Feed registry publication is verified before the collector runs so new sources cannot be silently skipped.
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -18,8 +18,6 @@ on:
       - 'install_commander_center.py'
       - 'data/enforcer_maps.json'
 
-# Do not cancel an active refresh when the next 10-minute tick arrives.
-# Queuing is preferable to starvation: every started refresh gets a chance to publish.
 concurrency:
   group: global-pulse-canonical-refresh
   cancel-in-progress: false
