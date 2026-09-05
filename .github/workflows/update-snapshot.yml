@@ -8,6 +8,9 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
+      - 'install_map_age_filter.py'
+      - 'install_map_v3.py'
+      - 'data/enforcer_maps.json'
 
 concurrency:
   group: global-pulse-canonical-refresh
@@ -53,6 +56,7 @@ jobs:
         run: |
           python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']))"
           python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
+          python -c "import json; d=json.load(open('data/enforcer_maps.json')); assert d.get('source')=='The Enforcer'; assert d.get('recentVideos'); print('PASS Enforcer check', len(d['recentVideos']), 'videos', len(d.get('maps',[])), 'maps')"
       - name: Commit generated data
         run: |
           set -euo pipefail
