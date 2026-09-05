@@ -11,6 +11,7 @@ on:
       - 'update_osint.py'
       - 'install_map_age_filter.py'
       - 'install_map_v3.py'
+      - 'install_commander_center.py'
       - 'data/enforcer_maps.json'
 
 concurrency:
@@ -53,13 +54,16 @@ jobs:
         run: python --version && node --version && git --version
       - name: Run canonical refresh with per-stage verification
         run: python refresh_pipeline.py
+      - name: Install Commander Center and full-page Intelligence Web
+        run: python install_commander_center.py
       - name: Verify critical published inputs
         run: |
           python -c "import json; from pathlib import Path; d=json.loads(Path('data/snapshot.json').read_text()); m=d.get('marketData',{}); s=d.get('stories',[]); assert len(m.get('indicators',[])) >= 20; assert d.get('updatedAt'); assert isinstance(s,list) and len(s)>0; print('PASS snapshot', d['updatedAt'], 'market indicators', len(m['indicators']), 'stories', len(s))"
           python -c "import json; d=json.load(open('data/live_status.json')); assert d.get('rowsFetched',0)>0; assert d.get('feedsChecked',0)>=20; print('PASS news', d.get('feedsChecked'), d.get('rowsFetched'), d.get('newArticles'))"
           python -c "import json; d=json.load(open('data/enforcer_maps.json')); assert d.get('source')=='The Enforcer'; assert d.get('recentVideos'); print('PASS Enforcer check', len(d['recentVideos']), 'videos', len(d.get('maps',[])), 'maps')"
           python -c "import json; d=json.load(open('data/snapshot.json')); o=d.get('osintMaps',{}); assert o.get('version') in (2,3,4); assert o.get('updatedAt'); assert o.get('totalPoints',0)>0; print('PASS OSINT', o.get('version'), o.get('totalPoints'), 'points')"
-      - name: Commit generated data
+          python -c "from pathlib import Path; s=Path('index.html').read_text(); assert 'id=\"commanderCenter\"' in s; assert 'id=\"intelligenceWebSection\"' in s; assert 'src=\"intelligence-web.html?v=1\"' in s; print('PASS Intelligence Web main-page integration')"
+      - name: Commit generated data and UI
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
