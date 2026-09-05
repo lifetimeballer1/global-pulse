@@ -16,7 +16,7 @@ def fetch(query):
  with urlopen(req,timeout=15) as r:root=ET.fromstring(r.read())
  return [{'title':clean(i.findtext('title')),'url':clean(i.findtext('link')),'source':clean(i.find('source').text if i.find('source') is not None else 'Google News'),'published_date':clean(i.findtext('pubDate'))} for i in root.findall('./channel/item') if clean(i.findtext('title')) and clean(i.findtext('link'))][:30]
 def main():
- data=json.loads(SNAP.read_text(encoding='utf-8')) if SNAP.exists() else {};sources=json.loads(SOURCES.read_text(encoding='utf-8')) if SOURCES.exists() else {};live=json.loads(STATUS.read_text(encoding='utf-8')) if STATUS.exists() else {};failed_sources={str(x) for x in (live.get('failedSources') or [])};feeds=sources.get('feeds',[]);total=int(live.get('feedsChecked') or len(feeds));stories=list(data.get('stories',[]));existing={str(x.get('url') or x.get('title')) for x in stories};replacements=[]
+ data=json.loads(SNAP.read_text(encoding='utf-8')) if SNAP.exists() else {};sources=json.loads(SOURCES.read_text(encoding='utf-8')) if SOURCES.exists() else {};live=json.loads(STATUS.read_text(encoding='utf-8')) if STATUS.exists() else {};failed_sources={str(x.get('source') if isinstance(x,dict) else x) for x in (live.get('failedSources') or [])};feeds=sources.get('feeds',[]);total=int(live.get('feedsChecked') or len(feeds));stories=list(data.get('stories',[]));existing={str(x.get('url') or x.get('title')) for x in stories};replacements=[]
  for name,query in FALLBACKS.items():
   if failed_sources and name not in failed_sources:continue
   if not failed_sources and not any(name==f.get('name') for f in feeds):continue
