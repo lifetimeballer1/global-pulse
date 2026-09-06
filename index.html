@@ -27,10 +27,9 @@
     .gp-map-tools{display:flex;gap:6px;flex-wrap:wrap}
     .gp-map-filter-panel{display:none;padding:8px;margin:8px 0 0;border:1px solid var(--line);border-radius:9px;background:var(--panel2)}
     .gp-map-filter-panel.open{display:flex;gap:6px;flex-wrap:wrap}
-    .gp-intelweb-3d{height:500px;min-height:360px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#020805}
-    .gp-intelweb-detail{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);font-size:12px}
-    @media (max-width:720px){.gp-intelweb-3d{height:430px}}
-    @media (max-width:520px){.gp-brain-grid{grid-template-columns:1fr}}
+    .gp-intelweb-frame{display:block;width:100%;max-width:100%;min-width:0;height:900px;border:1px solid var(--line);border-radius:12px;background:#03070b;box-sizing:border-box}
+    @media(max-width:720px){.gp-intelweb-frame{height:620px}}
+    @media(max-width:520px){.gp-brain-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -39,13 +38,12 @@
       <div class="gp-logo">Global <span>Pulse</span></div>
       <div class="gp-header-meta"><span class="gp-status-dot" id="statusDot" title="System status"></span><span class="gp-last-updated" id="globalLastUpdated">Loading…</span></div>
     </header>
-
     <main class="gp-main" id="mainContent">
       <section class="gp-section" id="section-overview" data-section="overview"><div class="gp-section-header"><h2 class="gp-section-title"><span>◉</span> Global Situation Overview</h2><span class="gp-time" id="overviewUpdated">—</span></div><div class="gp-section-body" id="overviewBody"><div class="gp-state"><div class="gp-spinner"></div><div class="gp-state-title">Loading live data</div><div>Fetching public intelligence snapshot…</div></div></div></section>
       <section class="gp-section" id="section-breaking" data-section="breaking"><div class="gp-section-header"><h2 class="gp-section-title"><span>⚡</span> Breaking & Latest Reporting</h2><span class="gp-time" id="breakingUpdated">—</span></div><div class="gp-section-body" id="breakingBody"><div class="gp-state"><div class="gp-spinner"></div><div>Loading reports…</div></div></div></section>
       <section class="gp-section" id="section-conflicts" data-section="conflicts"><div class="gp-section-header"><h2 class="gp-section-title"><span>⚔️</span> Active Conflict Watch</h2><span class="gp-time" id="conflictsUpdated">—</span></div><div class="gp-section-body" id="conflictsBody"><div class="gp-state"><div class="gp-spinner"></div><div>Loading conflict signals…</div></div></div></section>
       <section class="gp-section" id="section-brain" data-section="brain"><div class="gp-section-header"><h2 class="gp-section-title"><span>🧠</span> Intelligence Brain</h2><span class="gp-time" id="brainUpdated">—</span></div><div class="gp-section-body" id="brainBody"><div class="gp-state"><div class="gp-spinner"></div><div>Connecting cross-domain intelligence…</div></div></div></section>
-      <section class="gp-section" id="section-intelweb" data-section="intelweb"><div class="gp-section-header"><h2 class="gp-section-title"><span>🕸️</span> Intelligence Web</h2><span class="gp-time" id="intelwebUpdated">—</span></div><div class="gp-section-body" id="intelwebBody"><div class="gp-state"><div class="gp-spinner"></div><div>Loading evidence-linked relationships…</div></div></div></section>
+      <section class="gp-section" id="section-intelweb" data-section="intelweb"><div class="gp-section-header"><h2 class="gp-section-title"><span>🕸️</span> Intelligence Web</h2></div><div class="gp-section-body" style="padding:0"><iframe class="gp-intelweb-frame" src="intelligence-web.html?v=20260906" title="Global Pulse Intelligence Web" loading="eager"></iframe></div></section>
       <section class="gp-section" id="section-map" data-section="map">
         <div class="gp-section-header"><h2 class="gp-section-title"><span>🗺️</span> Global Situation Map</h2><div class="gp-map-tools"><button class="gp-btn" id="mapFilterToggle" type="button" aria-expanded="false">Filters ▾</button><button class="gp-btn" data-layer="conflicts" type="button">Conflicts</button><button class="gp-btn" data-layer="hazards" type="button">Hazards</button><button class="gp-btn" data-layer="strategic" type="button">Strategic</button><button class="gp-btn" data-layer="cartel" type="button">Cartel/Crime</button></div></div>
         <div id="mapFilterPanel" class="gp-map-filter-panel" aria-hidden="true"><button class="gp-btn" data-map-filter="all" type="button">All</button><button class="gp-btn" data-map-filter="conflict" type="button">Conflict</button><button class="gp-btn" data-map-filter="hazard" type="button">Hazards</button><button class="gp-btn" data-map-filter="strategic" type="button">Strategic</button><button class="gp-btn" data-map-filter="cartel" type="button">Cartel/Crime</button></div>
