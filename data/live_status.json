@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-06T04:32:37.729181+00:00",
+  "updatedAt": "2026-09-06T04:36:29.290457+00:00",
   "feedsChecked": 50,
-  "rowsFetched": 637,
-  "newArticles": 52,
+  "rowsFetched": 624,
+  "newArticles": 41,
   "purged": 51,
-  "databaseArticles": 1953,
-  "healthySources": 28,
+  "databaseArticles": 1943,
+  "healthySources": 27,
   "emptySources": 3,
   "fallbackSources": 0,
   "failedSources": [
@@ -70,6 +70,10 @@
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
+      "source": "Crisis Group",
+      "error": "HTTPError: HTTP Error 415: Unsupported Media Type"
+    },
+    {
       "source": "ReliefWeb",
       "error": "ParseError: no element found: line 1, column 0"
     },
@@ -115,7 +119,7 @@
       "name": "Google News — SOUTHCOM",
       "type": "southcom-news",
       "category": "southcom-news",
-      "rowsFetched": 9,
+      "rowsFetched": 8,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -159,7 +163,7 @@
       "name": "Google News — U.S. Counter-Cartel Operations",
       "type": "counter-cartel",
       "category": "counter-cartel",
-      "rowsFetched": 3,
+      "rowsFetched": 2,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -170,7 +174,7 @@
       "name": "Google News — Los Choneros",
       "type": "cartel",
       "category": "cartel",
-      "rowsFetched": 6,
+      "rowsFetched": 5,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -511,11 +515,11 @@
       "name": "Crisis Group",
       "type": "analysis",
       "category": "analysis",
-      "rowsFetched": 10,
-      "httpOk": true,
-      "mode": "native",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
       "emptyFeed": false,
-      "error": ""
+      "error": "HTTPError: HTTP Error 415: Unsupported Media Type"
     },
     {
       "sourceId": "reliefweb",
