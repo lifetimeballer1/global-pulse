@@ -5,9 +5,6 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_map_conflict_filter_has_canonical_classifier_and_rerender():
-    # The canonical map renderer now lives in js/modules/map.js.  The legacy
-    # global_map_ui.py installer intentionally removes obsolete map fragments,
-    # so testing that installer for runtime UI strings is incorrect.
     text = (ROOT / 'js/modules/map.js').read_text(encoding='utf-8')
     assert "filter='all'" in text
     assert "filter!=='all'" in text
@@ -117,5 +114,5 @@ def test_phase5_resilience_validator_is_wired_into_refresh_and_workflows():
     assert 'validate_data_resilience.py' in pipeline
     assert 'validate_data_resilience.py' in workflow
     assert 'python validate_data_resilience.py' in diagnostics
-    assert 'actions/deploy-pages@v4' in workflow
-    assert 'actions/deploy-pages@v4' not in diagnostics
+    assert 'uses: actions/deploy-pages@v4' in workflow
+    assert 'uses: actions/deploy-pages@v4' not in diagnostics
