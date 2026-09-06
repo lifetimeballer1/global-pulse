@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-06T00:31:40.514294Z",
+  "updatedAt": "2026-09-06T02:45:36.418732Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
     {
       "entity": "Joint Task Force Western Hemisphere",
-      "score": 30,
+      "score": 31,
       "level": "WATCH",
       "delta": 1,
       "trend": "STABLE",
@@ -15,14 +15,29 @@
           "delta": 13
         }
       ],
-      "evidenceCount": 12,
+      "evidenceCount": 13,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Eastern Pacific Maritime Theater",
+      "score": 13,
+      "level": "WATCH",
+      "delta": -1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 4
+        }
+      ],
+      "evidenceCount": 6,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
       "entity": "Americas Counter Cartel Coalition",
-      "score": 14,
+      "score": 12,
       "level": "WATCH",
-      "delta": 0,
+      "delta": -2,
       "trend": "STABLE",
       "factors": [
         {
@@ -34,40 +49,6 @@
           "delta": 1
         }
       ],
-      "evidenceCount": 6,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Eastern Pacific Maritime Theater",
-      "score": 14,
-      "level": "WATCH",
-      "delta": 1,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 4
-        }
-      ],
-      "evidenceCount": 7,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Venezuela",
-      "score": 11,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 2
-        }
-      ],
       "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
@@ -75,7 +56,7 @@
       "entity": "United States",
       "score": 7,
       "level": "WATCH",
-      "delta": -1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [
         {
@@ -92,9 +73,9 @@
     },
     {
       "entity": "U.S. Southern Command",
-      "score": 7,
+      "score": 6,
       "level": "WATCH",
-      "delta": 1,
+      "delta": -1,
       "trend": "STABLE",
       "factors": [
         {
@@ -106,7 +87,26 @@
           "delta": 1
         }
       ],
-      "evidenceCount": 3,
+      "evidenceCount": 2,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Venezuela",
+      "score": 6,
+      "level": "WATCH",
+      "delta": -5,
+      "trend": "DOWN",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ],
+      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -150,23 +150,23 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Operation Southern Spear",
+      "entity": "Ecuador",
       "score": 3,
       "level": "WATCH",
-      "delta": 1,
+      "delta": 0,
       "trend": "STABLE",
       "factors": [],
       "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Ecuador",
-      "score": 3,
+      "entity": "Operation Southern Spear",
+      "score": 2,
       "level": "WATCH",
-      "delta": 1,
+      "delta": -1,
       "trend": "STABLE",
       "factors": [],
-      "evidenceCount": 3,
+      "evidenceCount": 2,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
@@ -650,7 +650,27 @@
       ]
     }
   ],
-  "whatChanged": [],
+  "whatChanged": [
+    {
+      "entity": "Venezuela",
+      "score": 6,
+      "level": "WATCH",
+      "delta": -5,
+      "trend": "DOWN",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ],
+      "evidenceCount": 4,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    }
+  ],
   "sourceSummary": {
     "uniqueReportCount": 300,
     "uniqueSourceDomains": 93,
