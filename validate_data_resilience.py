@@ -2,6 +2,7 @@
 """Validate the Phase 5 data-resilience contract without inventing data."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -27,7 +28,36 @@ def read_json(name: str):
         raise SystemExit(f"RESILIENCE GATE FAILED: invalid JSON in {name}: {exc}") from exc
 
 
+def validate_manifest(require_manifest: bool) -> None:
+    manifest_path = DATA / "refresh_manifest.json"
+    if not manifest_path.is_file() or manifest_path.stat().st_size == 0:
+        if require_manifest:
+            raise SystemExit("RESILIENCE GATE FAILED: refresh manifest missing")
+        print("PASS: manifest check deferred until final refresh stage")
+        return
+
+    manifest = read_json("refresh_manifest.json")
+    artifacts = manifest.get("artifacts") or {}
+    for name in REQUIRED:
+        meta = artifacts.get(name)
+        path = DATA / name
+        if not meta or not path.is_file() or not meta.get("sha256"):
+            raise SystemExit(f"RESILIENCE GATE FAILED: manifest entry missing for {name}")
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest != meta["sha256"]:
+            raise SystemExit(f"RESILIENCE GATE FAILED: manifest hash mismatch for {name}")
+    print("PASS: refresh manifest hashes")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--require-manifest",
+        action="store_true",
+        help="Require and verify the final refresh manifest; use after the pipeline writes it.",
+    )
+    args = parser.parse_args()
+
     for name in REQUIRED:
         read_json(name)
 
@@ -38,7 +68,11 @@ def main() -> int:
         raise SystemExit("RESILIENCE GATE FAILED: market layer must remain keyless")
     if len(indicators) < 20:
         raise SystemExit(f"RESILIENCE GATE FAILED: market indicators={len(indicators)} < 20")
-    invalid = [x.get("symbol") for x in indicators if not isinstance(x, dict) or not x.get("symbol") or float(x.get("price") or 0) <= 0]
+    invalid = [
+        x.get("symbol")
+        for x in indicators
+        if not isinstance(x, dict) or not x.get("symbol") or float(x.get("price") or 0) <= 0
+    ]
     if invalid:
         raise SystemExit(f"RESILIENCE GATE FAILED: invalid/non-positive market quotes: {invalid[:8]}")
 
@@ -62,22 +96,17 @@ def main() -> int:
     if not isinstance(live.get("articles"), list) or not live.get("articles"):
         raise SystemExit("RESILIENCE GATE FAILED: live article artifact is empty")
 
-    manifest_path = DATA / "refresh_manifest.json"
-    if manifest_path.is_file() and manifest_path.stat().st_size:
-        manifest = read_json("refresh_manifest.json")
-        for name in manifest.get("artifacts", {}):
-            if name not in REQUIRED and name != "map_points.json":
-                continue
-            path = DATA / name
-            meta = manifest["artifacts"][name]
-            if path.is_file() and meta.get("sha256"):
-                digest = hashlib.sha256(path.read_bytes()).hexdigest()
-                if digest != meta["sha256"]:
-                    raise SystemExit(f"RESILIENCE GATE FAILED: manifest hash mismatch for {name}")
+    validate_manifest(args.require_manifest)
 
     print("PASS: Phase 5 data resilience gate")
-    print(f"stories={len(stories)} liveArticles={len(live['articles'])} marketIndicators={len(indicators)} failoverRecords={len(failover['replacements'])}")
-    print(f"failoverHealthy={state.get('healthy')} failoverDown={state.get('down')} fallbackCount={state.get('fallbacks')}")
+    print(
+        f"stories={len(stories)} liveArticles={len(live['articles'])} "
+        f"marketIndicators={len(indicators)} failoverRecords={len(failover['replacements'])}"
+    )
+    print(
+        f"failoverHealthy={state.get('healthy')} failoverDown={state.get('down')} "
+        f"fallbackCount={state.get('fallbacks')}"
+    )
     return 0
 
 
