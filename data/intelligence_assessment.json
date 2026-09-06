@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-06T03:02:06.515750Z",
+  "updatedAt": "2026-09-06T03:03:42.747630Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
@@ -16,21 +16,6 @@
         }
       ],
       "evidenceCount": 13,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Eastern Pacific Maritime Theater",
-      "score": 13,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 4
-        }
-      ],
-      "evidenceCount": 6,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -53,22 +38,56 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "United States",
-      "score": 7,
+      "entity": "Venezuela",
+      "score": 12,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
+      "delta": 6,
+      "trend": "UP",
       "factors": [
         {
-          "label": "Live event activity",
-          "delta": 2
+          "label": "Conflict / military activity",
+          "delta": 4
         },
         {
-          "label": "Conflict / military activity",
+          "label": "Economic / energy signals",
           "delta": 1
         }
       ],
-      "evidenceCount": 7,
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "United States",
+      "score": 10,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 3
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 8,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Eastern Pacific Maritime Theater",
+      "score": 9,
+      "level": "WATCH",
+      "delta": -4,
+      "trend": "DOWN",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -88,25 +107,6 @@
         }
       ],
       "evidenceCount": 2,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Venezuela",
-      "score": 6,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -650,7 +650,61 @@
       ]
     }
   ],
-  "whatChanged": [],
+  "whatChanged": [
+    {
+      "entity": "Venezuela",
+      "score": 12,
+      "level": "WATCH",
+      "delta": 6,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 4
+        },
+        {
+          "label": "Economic / energy signals",
+          "delta": 1
+        }
+      ],
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Eastern Pacific Maritime Theater",
+      "score": 9,
+      "level": "WATCH",
+      "delta": -4,
+      "trend": "DOWN",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "United States",
+      "score": 10,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 3
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 8,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    }
+  ],
   "sourceSummary": {
     "uniqueReportCount": 300,
     "uniqueSourceDomains": 93,
