@@ -44,6 +44,38 @@ The system distinguishes:
 - **Entity** — a country, organization, person, place, infrastructure item, or other durable object.
 - **Assessment** — an explicitly qualified interpretation based on evidence.
 
+## Intelligence Web rendering architecture
+
+`data/intelligence_graph.json` is the canonical source for the Intelligence Web presentation. The browser renderer is a presentation layer and does not create a competing intelligence database.
+
+```text
+data/intelligence_graph.json
+        ↓
+validated normalization
+        ↓
+node + relationship scoring
+        ↓
+3D force-directed layout
+        ↓
+Three.js / WebGL renderer
+        ↓
+interaction + filters + camera
+        ↓
+selected-node intelligence inspector
+```
+
+`intelligence_brain_web.js` owns graph normalization, evidence filtering, domain color mapping, node importance sizing, recency emphasis, force layout, WebGL rendering, hover/selection behavior, camera controls, filtering, and source inspection. The page uses `3d-force-graph` as the rendering engine.
+
+Node size is derived from available real graph properties including degree/connectivity, mentions, importance/significance and confidence. Node color is controlled by the centralized `INTELLIGENCE_NODE_COLORS` mapping. Relationship appearance is based on relationship semantics and weight. Recent records receive greater visual emphasis without altering their source timestamps.
+
+The renderer validates IDs, endpoints, duplicate records, evidence presence and optional fields before rendering. Empty-evidence nodes/edges are rejected. A pathological graph is bounded to 5,000 nodes after prioritizing connectivity/importance; this is a rendering safety limit, not a replacement for the upstream intelligence dataset.
+
+The force simulation warms during layout, cools after stabilization, and is reheated when filters or refreshed graph data require a new layout. Node positions are retained by ID when possible so a refresh evolves the existing network instead of resetting every node.
+
+The visual design is intentionally dark, dense and atmospheric: high-value hubs are larger/brighter, domain colors communicate meaning, relationship lines remain subtle, and labels are shown on demand rather than as a permanent DOM layer for every record.
+
+Mobile behavior relies on the WebGL canvas and graph controls for touch rotation, pan and pinch zoom. The selected-node inspector becomes a bottom-sheet-style compact panel on small screens. If the WebGL dependency cannot load or the canonical artifact is unavailable, the page exposes an explicit failure/data-unavailable state and never generates fake intelligence.
+
 ## Current canonical refresh
 
 `refresh_pipeline.py` is the production orchestrator. It refreshes live news, the market layer, political/OSINT/conflict/hazard layers, UCDP corroboration, World Bank macro context, event artifacts, the evidence-linked Intelligence Web, assessments, claims, What Changed, historical trends, and the cross-domain Intelligence Brain. It then cleans the generated index, applies browser security hardening, installs the browser QA layer, validates the repository, and writes `data/refresh_manifest.json` with SHA-256 hashes and freshness timestamps for critical generated artifacts.
