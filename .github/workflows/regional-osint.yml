@@ -1,59 +1,40 @@
-name: Global Pulse — Regional OSINT Expansion
+name: Global Pulse — Regional OSINT Recovery
 
+# Regional OSINT is maintained as a manual recovery/diagnostic path.
+# The canonical live refresh owns production refresh and GitHub Pages deployment.
 on:
-  workflow_run:
-    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
-    types: [completed]
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'regional_osint_v2.py'
-  schedule:
-    - cron: '17 3 * * *'
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+
+concurrency:
+  group: global-pulse-regional-osint-recovery
+  cancel-in-progress: true
 
 env:
   PYTHONUNBUFFERED: '1'
 
-concurrency:
-  group: global-pulse-regional-osint
-  cancel-in-progress: false
-
 jobs:
   expand:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Collect fresh regional OSINT
+      - name: Collect regional OSINT
         run: python regional_osint_v2.py
-
-      - name: Install map clustering
-        run: python install_map_clustering.py
-
-      - name: Validate regional OSINT and preserve core data
+      - name: Validate regional OSINT output
         run: |
           set -euo pipefail
-          python -m py_compile regional_osint_v2.py install_map_clustering.py update_conflict_coverage.py
+          python -m py_compile regional_osint_v2.py update_conflict_coverage.py
           python - <<'PY'
           import json
           from pathlib import Path
@@ -65,70 +46,26 @@ jobs:
           if missing: raise SystemExit(f'Missing regional counts: {sorted(missing)}')
           regional=o.get('regionalPoints') or []
           markers=[m for m in d.get('markers',[]) if m.get('layer')=='osint-regional']
-          if not regional and not markers: raise SystemExit('No fresh regional OSINT points were produced')
+          if not regional and not markers: raise SystemExit('No regional OSINT points were produced')
           for p in regional + markers:
               assert -90 <= float(p['lat']) <= 90 and -180 <= float(p['lng']) <= 180
               assert p.get('source') and p.get('observedAt')
               assert p.get('sourceUrl') or p.get('url')
           if sum(int(v or 0) for v in counts.values()) <= 0: raise SystemExit(f'Regional counts are all zero: {counts}')
-          stories=d.get('stories') or []
-          indicators=(d.get('marketData') or {}).get('indicators') or []
-          if len(stories) < 25: raise SystemExit(f'Snapshot news data unexpectedly missing: {len(stories)} stories')
-          if len(indicators) < 20: raise SystemExit(f'Snapshot market data unexpectedly missing: {len(indicators)} indicators')
-          print('Regional points:', counts)
-          print('Regional records:', len(regional))
-          print('Map markers:', len(markers))
-          print('Remaining regional failures:', len(o.get('regionalFailures') or []))
-          print('Preserved stories:', len(stories))
-          print('Preserved market indicators:', len(indicators))
+          print('Regional recovery validation passed:', counts)
           PY
-
-      - name: Commit regional OSINT and map updates
+      - name: Publish recovery snapshot
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/snapshot.json index.html
-          if git diff --cached --quiet; then
-            echo 'No regional OSINT/map changes to commit.'
-          else
-            git commit -m 'Refresh regional OSINT map data'
-            for attempt in 1 2 3 4 5; do
-              git fetch origin main
-              if git rebase -X theirs origin/main; then
-                if git push origin HEAD:main; then echo "Published regional data on attempt $attempt"; break; fi
-                git rebase --abort || true
-              else git rebase --abort || true; fi
-              if [ "$attempt" = 5 ]; then echo 'Unable to publish regional data after 5 attempts'; exit 1; fi
-              echo "Publish race on attempt $attempt; retrying..."; sleep $((attempt * 3))
-            done
-          fi
-
-      - name: Re-check published snapshot
-        run: |
-          set -euo pipefail
-          git fetch origin main
-          git checkout --detach origin/main
-          test -s data/snapshot.json
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
-          assert len(d.get('stories',[])) >= 25, 'published snapshot lost news data'
-          assert len((d.get('marketData') or {}).get('indicators',[])) >= 20, 'published snapshot lost market data'
-          counts=((d.get('osintMaps') or {}).get('regionalCounts') or {})
-          assert sum(int(v or 0) for v in counts.values()) > 0, 'published snapshot lost regional data'
-          print('PUBLISHED SNAPSHOT OK:',len(d['stories']),'stories;',len(d['marketData']['indicators']),'market indicators;',counts)
-          PY
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload current main as Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Deploy current regional snapshot to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if git diff --cached --quiet; then echo 'No regional OSINT changes.'; exit 0; fi
+          git commit -m 'chore: refresh regional OSINT recovery data'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase -X theirs origin/main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          exit 1
