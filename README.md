@@ -6,7 +6,7 @@ Global Pulse is a public-source intelligence monitor. It does not claim classifi
 
 ## System overview
 
-Global Pulse continuously turns public data into a set of validated intelligence artifacts and user-facing views:
+Global Pulse continuously turns public data into validated intelligence artifacts and user-facing views:
 
 ```text
 Public sources
@@ -38,35 +38,33 @@ The production refresh entry point is `refresh_pipeline.py`. It is the canonical
 
 The Intelligence Web is the evidence-linked relationship graph. It is built from the current intelligence snapshot rather than from a manually maintained second database.
 
-The graph can represent:
+The browser presentation is now a **WebGL-based 3D force-directed knowledge graph** using the canonical `data/intelligence_graph.json` artifact. It is designed as a living intelligence brain rather than a decorative network: related records attract, unrelated records repel, highly connected records become hubs, and the layout stabilizes instead of being continuously rebuilt.
 
-- entities and actors
-- countries
-- conflicts and events
-- strategic nodes and chokepoints
-- organized-crime/cartel entities
-- economic factors
-- evidence/source relationships
-- contextual relationships between major intelligence entities
+The renderer supports:
 
-Every published relationship is required to retain evidence. A relationship means that the available public evidence connects the records; it is **not** presented as proof of causation, coordination, intent, or responsibility.
+- thousands of validated nodes/relationships with a bounded rendering cap for pathological datasets
+- organic force-directed clustering and spatial hubs
+- 3D rotation, pan, zoom, drag and smooth camera focus
+- evidence-backed node selection and an intelligence inspector
+- hover labels without permanently labeling the entire graph
+- domain-aware node colors and importance/connectivity-based node sizing
+- relationship color, opacity and width based on relationship semantics and weight
+- recency-based visual emphasis
+- search, domain filters and time-window filters
+- relationship visibility, directional activity particles and auto-orbit controls
+- preservation of approximate node positions across refreshes
+- mobile touch interaction and a compact mobile inspector
+- fail-safe loading/error behavior without fabricated intelligence
 
-The browser also exposes relationship context from the Intelligence Brain, allowing a map signal or Brain node to be traced into connected intelligence and source evidence.
+Graph data is normalized before rendering. Duplicate IDs, invalid endpoints, self-links, empty-evidence records, and malformed optional fields are ignored so one bad record cannot crash the visualization. The renderer never creates fake nodes or fake relationships to fill empty space.
+
+Every published relationship is required to retain evidence. A relationship means that available public evidence connects the records; it is **not** presented as proof of causation, coordination, intent, or responsibility.
 
 ## Intelligence Brain
 
 `data/intelligence_brain.json` is the compact cross-domain graph used for the main Brain experience.
 
-The Brain is rebuilt on every canonical refresh from source-backed artifacts including:
-
-- live news and source records
-- conflict corroboration
-- OSINT/map signals
-- event intelligence and historical event data
-- claims and assessments
-- market indicators and market-impact context
-- macro context
-- the evidence-linked Intelligence Web
+The Brain is rebuilt on every canonical refresh from source-backed artifacts including live news, conflict corroboration, OSINT/map signals, event intelligence, claims, assessments, market indicators, macro context, and the evidence-linked Intelligence Web.
 
 The human-facing Brain is intentionally capped at 35 major nodes. Raw records remain upstream. Nodes and relationships without source evidence are rejected by validation.
 
@@ -124,7 +122,7 @@ The refresh pipeline validates and publishes these core artifacts:
 - `data/sources.json` — source registry
 - `data/live_articles.json` — persistent live-news export
 - `data/live_status.json` — current source health and collector telemetry
-- `data/intelligence_graph.json` — Intelligence Web graph
+- `data/intelligence_graph.json` — canonical evidence-linked Intelligence Web graph
 - `data/intelligence_brain.json` — compact cross-domain Brain
 - `data/map_points.json` — validated browser map marker feed
 - `data/refresh_manifest.json` — SHA-256 hashes and generation metadata
@@ -141,21 +139,7 @@ It runs:
 - on manual dispatch
 - when core pipeline/validation/frontend files change
 
-The workflow:
-
-1. restores the persistent news database cache
-2. runs `refresh_pipeline.py`
-3. rebuilds browser map points
-4. repairs/finalizes the map UI and cache busting
-5. runs regression tests
-6. runs performance, operational-health, resilience, security, repository, and artifact checks
-7. verifies hashes and critical browser inputs
-8. commits generated data/UI changes
-9. verifies the generated commit is on `main`
-10. uploads the exact generated working tree to GitHub Pages
-11. deploys that exact site
-
-The repository also contains separate diagnostics/recovery workflows. Writer workflows are serialized with the canonical refresh concurrency group so they do not race with the production refresh when they commit generated artifacts.
+The workflow restores the persistent news database cache, runs `refresh_pipeline.py`, rebuilds browser map points, repairs/finalizes the map UI and cache busting, runs regression/performance/operational/security/repository/artifact checks, verifies hashes and critical browser inputs, commits generated changes, verifies the generated commit is on `main`, and deploys that exact site to GitHub Pages.
 
 ## Validation gates
 
@@ -180,21 +164,7 @@ A successful process exit is not considered sufficient by itself; generated reco
 
 The canonical map is implemented in `js/modules/map.js` and uses Leaflet with OpenStreetMap tiles.
 
-The map supports:
-
-- conflict/military signals
-- hazards/disasters
-- strategic sites
-- cartel/organized crime
-- OSINT/reporting
-- Brain relationship lines
-- clustering
-- search
-- layer toggles
-- fit/reset controls
-- marker detail panels
-- source links
-- Brain-node selection
+The map supports conflict/military signals, hazards/disasters, strategic sites, cartel/organized crime, OSINT/reporting, Brain relationship lines, clustering, search, layer toggles, fit/reset controls, marker detail panels, source links, and Brain-node selection.
 
 Map data is normalized and filtered to valid latitude/longitude ranges before rendering.
 
@@ -211,10 +181,34 @@ Important browser layers include:
 - `global_pulse_brain_ui.js` — Brain presentation
 - `global_pulse_performance.js` — deferred loading and mobile performance behavior
 - `global_pulse_qa.js` — browser QA/failure-state hardening
-- `intelligence_brain_web.js` — Intelligence Web interface
-- `intelligence_web_controls_fix.js` — Intelligence Web controls
+- `intelligence_brain_web.js` — canonical 3D Intelligence Web renderer, normalization, force layout, interaction and inspector
+- `intelligence_web_controls_fix.js` — Intelligence Web filter-panel behavior
 
-The browser is designed to tolerate missing optional records and to expose data-unavailable states instead of fabricating values.
+The Intelligence Web renderer is a presentation layer over the canonical generated graph. It does not replace the ingestion, evidence, relationship, refresh, map, or market systems.
+
+## Intelligence Web architecture
+
+```text
+data/intelligence_graph.json
+        ↓
+validation + normalization
+        ↓
+node/relationship importance + recency scoring
+        ↓
+3D force-directed layout
+        ↓
+WebGL renderer
+        ↓
+hover / selection / filters / camera
+        ↓
+intelligence inspector + evidence sources
+```
+
+The graph uses evidence-backed records from the production intelligence pipeline. Node size combines connectivity with available mentions, importance/significance and confidence. Recency controls opacity/emphasis. Colors are centralized in `INTELLIGENCE_NODE_COLORS` so intelligence domains remain consistent and maintainable.
+
+The renderer is intentionally dark and atmospheric. Minor records remain visually subordinate to major hubs, and labels are generated on demand rather than rendered as thousands of permanent DOM labels. Force simulation is warmed, cooled and reheated only when graph data or filters materially change. Approximate positions are retained by node ID where possible so refreshes evolve the graph instead of resetting it unnecessarily.
+
+At present the canonical web surface is 3D/2.5D through `3d-force-graph`/Three.js/WebGL. The browser remains functional without a custom SVG graph implementation, avoiding a large DOM/SVG element count for dense datasets. If the external WebGL renderer cannot load, the page exposes a clear failure state rather than inventing a replacement graph.
 
 ## Time and freshness rules
 
@@ -240,7 +234,7 @@ last-known-good/preserved records
 explicit degraded/source-health state
 ```
 
-A failed optional source must not erase the last known-good intelligence set. A failed internal processing stage is different: it should stop publication rather than silently publish a partially processed intelligence graph.
+A failed optional source must not erase the last known-good intelligence set. A failed internal processing stage is different: it should stop publication rather than silently publish a partially processed intelligence graph. The browser similarly displays a data-unavailable state rather than fabricating graph content.
 
 ## Security and privacy
 
@@ -252,7 +246,7 @@ Current protections include:
 - no advertising identifiers
 - no first-party analytics requirement
 - no fingerprinting
-- CSP coverage on the browser surfaces
+- CSP coverage on browser surfaces
 - external source text escaped before DOM insertion
 - no `pull_request_target` workflows
 - least-privilege workflow permissions appropriate to the deployment model
@@ -264,19 +258,13 @@ See `SECURITY.md` and `PRIVACY.md` for the project policies.
 
 ## Performance and mobile design
 
-Global Pulse is designed for mobile-first use and large map datasets.
+Global Pulse is designed for mobile-first use and large datasets.
 
-The browser performance layer:
+The browser performance layer lazy-loads the Intelligence Web iframe, defers below-fold rendering work, uses `IntersectionObserver`/idle scheduling where supported, respects `prefers-reduced-motion`, uses marker clustering and chunked marker loading, and avoids unnecessary eager iframe loading.
 
-- lazy-loads the Intelligence Web iframe
-- defers below-fold rendering work
-- uses `IntersectionObserver`/idle scheduling where supported
-- respects `prefers-reduced-motion`
-- uses marker clustering and chunked marker loading
-- avoids unnecessary eager iframe loading
-- protects against horizontal-overflow regressions
+The Intelligence Web itself uses WebGL/Three.js through `3d-force-graph`, bounded graph normalization, force-simulation cooling, persistent node positions during refreshes, low-opacity relationship rendering, on-demand labels, and compact mobile inspector behavior. Touch gestures are delegated to the 3D graph controls so the same canvas supports mobile rotation, pan and pinch zoom.
 
-The CI performance gate validates these implementation invariants without pretending that a GitHub-hosted runner can reproduce every real-device performance metric.
+CI performance checks validate implementation invariants without pretending that a GitHub-hosted runner can reproduce every real-device performance metric.
 
 ## Running locally
 
@@ -288,13 +276,13 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-To run the canonical refresh locally, use:
+To run the canonical refresh locally:
 
 ```bash
 python refresh_pipeline.py
 ```
 
-The refresh requires network access to the public data sources used by the repository. It may also require the same Python runtime available in CI (currently Python 3.12).
+The refresh requires network access to the public data sources used by the repository and may require the same Python runtime available in CI (currently Python 3.12).
 
 Regression tests:
 
