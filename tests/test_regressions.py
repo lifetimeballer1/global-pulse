@@ -93,3 +93,12 @@ def test_phase7_mobile_performance_layer_is_deferred_and_safe():
     assert 'IntersectionObserver' in perf and 'requestIdleCallback' in perf and 'contentVisibility' in perf
     assert 'prefers-reduced-motion' in perf
     assert 'requestAnimationFrame' in qa and 'MutationObserver' in qa
+
+
+def test_phase8_operational_health_gate_is_source_preserving():
+    validator=(ROOT/'validate_operational_health.py').read_text(encoding='utf-8')
+    assert 'sourceBackedOnly' in validator
+    assert 'lastSuccessfulRefresh' in validator
+    assert 'invalid map coordinates' in validator
+    assert 'Brain relationship lacks evidence' in validator
+    assert 'excessive duplicate story identities' in validator
