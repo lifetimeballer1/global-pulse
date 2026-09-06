@@ -34,16 +34,19 @@ def verify_live_content(live,max_age_minutes=90,min_recent=3):
  if len(recent)<min_recent:raise RuntimeError(f'live news freshness gate failed: only {len(recent)} recent articles')
  print(f'PASS: live content freshness recent={len(recent)}',flush=True)
 def verify_brain(brain):
- if brain.get('complete') is not True or brain.get('sourceBackedOnly') is not True:raise RuntimeError('intelligence brain completeness/source gate failed')
+ if brain.get('complete') is not True or brain.get('sourceBackedOnly') is not True or brain.get('consolidated') is not True:raise RuntimeError('intelligence brain completeness/source/consolidation gate failed')
  nodes=brain.get('nodes') or [];edges=brain.get('edges') or []
- if len(nodes)<10 or len(edges)<5:raise RuntimeError('intelligence brain verification failed')
+ if len(nodes)<10 or len(nodes)>60 or brain.get('maxNodes')!=60:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
+ if len(edges)<5:raise RuntimeError('intelligence brain verification failed: too few relationships')
  if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
  if brain['stats'].get('nodes')!=len(nodes) or brain['stats'].get('edges')!=len(edges):raise RuntimeError('intelligence brain stats mismatch')
  ids={str(n.get('id')) for n in nodes}
+ allowed={'country','cartel','group','market'}
  for n in nodes:
   ev=n.get('evidence') or []
   if not any(isinstance(x,dict) and (x.get('url') or x.get('source')) for x in ev):raise RuntimeError(f'unsourced brain node: {n.get("label")}')
-  if n.get('kind') in ('cartel','group','country') and not n.get('canonical') and n.get('kind')!='country':raise RuntimeError(f'noncanonical group/entity node: {n.get("label")}')
+  if n.get('kind') not in allowed:raise RuntimeError(f'noncanonical brain node: {n.get("label")} ({n.get("kind")})')
+  if n.get('kind') in ('cartel','country','group') and not n.get('canonical'):raise RuntimeError(f'noncanonical grouped node: {n.get("label")}')
  for e in edges:
   if str(e.get('source')) not in ids or str(e.get('target')) not in ids:raise RuntimeError('intelligence brain contains invalid relationship endpoint')
   if not e.get('evidence'):raise RuntimeError('intelligence brain contains unevidenced relationship')
