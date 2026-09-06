@@ -1,27 +1,41 @@
 name: Global Pulse — Repair Intelligence Source Links
 on:
   workflow_run:
-    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    workflows: ["Global Pulse — Canonical Live Refresh"]
     types: [completed]
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: global-pulse-production
+  group: global-pulse-intelligence-source-repair
   cancel-in-progress: false
 jobs:
   enrich:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Restore canonical source URLs
         run: python enrich_intelligence_source_urls.py
+      - name: Validate snapshot
+        run: |
+          python -m py_compile enrich_intelligence_source_urls.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/snapshot.json').read_text(encoding='utf-8'))
+          assert isinstance(d,dict) and d.get('intelligenceGraph') is not None
+          print('INTELLIGENCE SOURCE URL REPAIR VALIDATION PASSED')
+          PY
       - name: Commit repaired evidence links
         run: |
           git config user.name 'github-actions[bot]'
@@ -31,5 +45,11 @@ jobs:
             echo 'No source URL changes needed.'
           else
             git commit -m 'fix: restore Intelligence Web source URLs'
-            git push
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort || true
+              sleep $((attempt * 2))
+            done
+            exit 1
           fi
