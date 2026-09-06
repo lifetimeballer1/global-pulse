@@ -127,6 +127,7 @@ def main():
  run('Canonical index cleanup',sys.executable,'clean_index.py')
  run('Browser security hardening',sys.executable,'harden_site.py')
  run('Install browser QA hardening',sys.executable,'install_qa_hardening.py')
+ run('Phase 6 security and privacy gate',sys.executable,'validate_security.py')
  run('Repository validation',sys.executable,'validate_repository.py')
  final=verify_json('snapshot.json')
  now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z');final['updatedAt']=now;final['lastSuccessfulRefresh']=now;final['freshness']={'status':'fresh','generatedAt':now,'maxExpectedAgeSeconds':900}
