@@ -36,6 +36,11 @@ def main():
  keep={n.get('id') for n in nodes};brain['nodes']=nodes
  brain['edges']=[e for e in edges if e.get('source') in keep and e.get('target') in keep and e.get('evidence')]
  stats=brain.setdefault('stats',{});stats.update({'nodes':len(nodes),'edges':len(brain['edges']),'cartelNodes':sum(n.get('kind')=='cartel' for n in nodes),'countryNodes':sum(n.get('kind')=='country' for n in nodes),'economicNodes':sum(n.get('kind')=='economic' for n in nodes),'conflictNodes':sum(n.get('kind')=='conflict' for n in nodes),'chokepointNodes':sum(n.get('kind')=='chokepoint' for n in nodes)})
- brain['updatedAt']=datetime.now(timezone.utc).isoformat().replace('+00:00','Z');BRAIN.write_text(json.dumps(brain,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+ brain['updatedAt']=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
+ BRAIN.write_text(json.dumps(brain,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+ snap['intelligenceBrain']=brain
+ snap['updatedAt']=brain['updatedAt']
+ snap['lastSuccessfulRefresh']=brain['updatedAt']
+ SNAP.write_text(json.dumps(snap,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
  print(f"BRAIN GROUP REPAIR: {len(nodes)} nodes / {len(brain['edges'])} edges / cartels={stats['cartelNodes']} countries={stats['countryNodes']} economic={stats['economicNodes']}")
 if __name__=='__main__':main()
