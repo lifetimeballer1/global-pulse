@@ -38,8 +38,7 @@ def write_refresh_manifest():
  for name in REQUIRED_ARTIFACTS:
   p=DATA/name
   if not p.is_file() or p.stat().st_size==0:raise RuntimeError(f'required generated artifact missing: {name}')
-  raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'))
-  stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
+  raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'));stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
   artifacts[name]={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'generatedAt':stamp}
  manifest={'version':2,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('PASS: refresh manifest',','.join(REQUIRED_ARTIFACTS),flush=True)
@@ -83,15 +82,18 @@ def main():
  run('What changed',sys.executable,'build_what_changed.py');verify_json('what_changed.json')
  run('Historical trends',sys.executable,'build_historical_trends.py');trends=verify_json('historical_trends.json',max_age=3600)
  if 'windows' not in trends:raise RuntimeError('historical trends windows missing')
- run('Build cross-domain Intelligence Brain',sys.executable,'build_intelligence_brain.py');brain=verify_json('intelligence_brain.json')
+ run('Build complete cross-domain Intelligence Brain',sys.executable,'build_intelligence_brain.py');brain=verify_json('intelligence_brain.json')
+ if brain.get('complete') is not True:raise RuntimeError('intelligence brain is not marked complete')
  if len(brain.get('nodes',[]))<10 or len(brain.get('edges',[]))<5:raise RuntimeError('intelligence brain verification failed')
  if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
+ if brain['stats'].get('nodes')!=len(brain.get('nodes',[])) or brain['stats'].get('edges')!=len(brain.get('edges',[])):raise RuntimeError('intelligence brain stats mismatch')
+ for edge in brain.get('edges',[]):
+  if not edge.get('source') or not edge.get('target'):raise RuntimeError('intelligence brain contains invalid relationship')
  run('Canonical index cleanup',sys.executable,'clean_index.py')
  run('Browser security hardening',sys.executable,'harden_site.py')
  run('Install browser QA hardening',sys.executable,'install_qa_hardening.py')
  run('Repository validation',sys.executable,'validate_repository.py')
  final=verify_json('snapshot.json');final['lastSuccessfulRefresh']=datetime.now(timezone.utc).isoformat();DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if not isinstance(final.get('markers'),list) or not final['markers']:raise RuntimeError('final conflict-data gate failed')
- write_refresh_manifest()
- print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('brain=',len(brain.get('nodes') or []),'nodes /',len(brain.get('edges') or []),'edges',flush=True);return 0
+ write_refresh_manifest();print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('brain=',len(brain.get('nodes') or []),'nodes /',len(brain.get('edges') or []),'edges',flush=True);return 0
 if __name__=='__main__':raise SystemExit(main())
