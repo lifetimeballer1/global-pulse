@@ -49,9 +49,31 @@ jobs:
 
           BASE='http://127.0.0.1:4173'
 
+          def dismiss_startup_modal(page):
+              modal = page.locator('#gp-how-to-read')
+              if modal.count() and modal.is_visible():
+                  close_candidates = [
+                      '#gp-how-to-read button[aria-label*="close" i]',
+                      '#gp-how-to-read button[data-close]',
+                      '#gp-how-to-read .gp-modal-close',
+                      '#gp-how-to-read button'
+                  ]
+                  closed = False
+                  for selector in close_candidates:
+                      candidate = page.locator(selector).first
+                      if candidate.count() and candidate.is_visible():
+                          candidate.click(force=True)
+                          closed = True
+                          break
+                  if not closed:
+                      page.keyboard.press('Escape')
+                  page.wait_for_timeout(150)
+              assert not modal.is_visible(), 'startup how-to-read modal remained open'
+
           def smoke(page, name):
               page.goto(BASE + '/index.html', wait_until='domcontentloaded', timeout=30000)
               page.locator('#mapContainer').wait_for(timeout=30000)
+              dismiss_startup_modal(page)
               page.locator('#gpMapLayers').click()
               assert page.locator('#gpMapLayerPanel').evaluate("el => el.classList.contains('open')")
               page.locator('#gpMapSearch').fill('Ukraine')
@@ -67,7 +89,7 @@ jobs:
               frame.locator('#control-toggle').click()
               frame.locator('#clear').click()
               frame.locator('#reset').click()
-              print(f'SMOKE PASS {name}: map filters/search/reset, marker detail/close, lazy Intelligence Web, filter/reset controls')
+              print(f'SMOKE PASS {name}: startup modal, map filters/search/reset, marker detail/close, lazy Intelligence Web, filter/reset controls')
 
           with sync_playwright() as p:
               browser=p.chromium.launch(headless=True)
