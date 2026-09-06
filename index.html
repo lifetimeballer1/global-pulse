@@ -1,415 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050a10">
-<meta name="description" content="Real-time global conflict, geopolitical risk, market context, hazards and evidence-linked open-source intelligence.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Global Pulse — Global Conflict & Intelligence Monitor">
-<meta property="og:description" content="Real-time global conflict, geopolitical risk, market context, hazards and evidence-linked open-source intelligence.">
-<meta property="og:image" content="assets/icons/icon-512.png">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https:; media-src 'self' https:; worker-src 'self' blob:; upgrade-insecure-requests">
-<meta name="application-name" content="Global Pulse">
-<meta name="apple-mobile-web-app-title" content="Global Pulse">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="manifest" href="site.webmanifest?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png?v=2">
-<title>Global Pulse — Global Conflict & Intelligence Monitor</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-<style>
-:root{--bg:#050a10;--panel:#0b131d;--panel2:#081019;--line:#1b2b3d;--text:#eef5ff;--muted:#91a4b8;--blue:#62a0ff;--red:#ff6678;--amber:#ffc857;--green:#48df83;--purple:#aa8df7;--orange:#fb923c;--cyan:#3fc5ff;--safe:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -20%,#10243a 0,#050a10 42%);color:var(--text);font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}button,input{font:inherit}a{color:var(--blue);text-decoration:none}
-header{position:sticky;top:0;z-index:50;background:rgba(5,10,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:11px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:950;letter-spacing:.16em}.brand b{color:var(--blue)}.live{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px}.live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(72,223,131,.12)}
-.wrap{max-width:1450px;margin:auto;padding:14px 14px calc(80px + var(--safe));display:grid;gap:14px}.grid{display:grid;grid-template-columns:1fr 1.45fr 1fr;gap:14px;align-items:start}.panel{background:linear-gradient(180deg,rgba(11,19,29,.98),rgba(8,16,25,.98));border:1px solid var(--line);border-radius:15px;padding:15px;min-width:0;box-shadow:0 10px 35px rgba(0,0,0,.16)}h2{margin:0 0 11px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
-.hero-score{display:flex;align-items:end;justify-content:space-between;gap:10px}.score{font-size:58px;font-weight:950;line-height:.9;color:var(--amber);font-variant-numeric:tabular-nums}.delta{font-size:12px;color:var(--muted);margin-top:8px}.note{font-size:10px;color:var(--muted);margin:10px 0 0}.bars{display:grid;gap:10px}.bar{display:grid;grid-template-columns:135px 1fr 34px;gap:9px;align-items:center;font-size:12px}.track{height:8px;background:#06101a;border-radius:99px;overflow:hidden;border:1px solid #142334}.fill{height:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:99px}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpi{padding:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px}.kpi strong{display:block;font-size:20px}.kpi span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.items,.stories{display:grid;gap:9px}.item,.story,.ccard{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:11px}.item strong,.story h3,.ccard h3{display:block;margin:2px 0 5px;font-size:13px;line-height:1.3}.muted{color:var(--muted);font-size:11px}.tag{display:inline-block;font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;padding:3px 6px;border-radius:5px;margin:0 4px 4px 0;border:1px solid var(--line);color:var(--muted)}.tag.red{color:var(--red);background:rgba(255,102,120,.1)}.tag.green{color:var(--green);background:rgba(72,223,131,.1)}.tag.blue{color:var(--blue);background:rgba(98,160,255,.1)}.tag.amber{color:var(--amber);background:rgba(255,200,87,.1)}
-.section-head{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:10px}.tools{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}button,input{border:1px solid var(--line);background:#09121c;color:var(--text);border-radius:9px;padding:8px 10px;min-height:36px}button{cursor:pointer}.filter.active{border-color:var(--blue);background:rgba(98,160,255,.13);color:var(--blue)}input{min-width:190px;outline:none}
-.conflict-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.ccard{cursor:pointer}.scoreline{display:flex;justify-content:space-between;font-size:11px;margin:8px 0 4px}.list-scroll{max-height:650px;overflow:auto;padding-right:3px}.list-actions{display:flex;justify-content:center;margin-top:11px}.more-btn{min-width:150px}
-.news-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.story h3{font-size:13px}.story .source{font-size:10px;color:var(--muted)}.story-link{color:var(--text)}.open{display:inline-block;margin-top:7px;padding:7px 10px;border:1px solid rgba(98,160,255,.35);background:rgba(98,160,255,.1);border-radius:7px;font-size:11px;font-weight:750}
-#map{height:540px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#07101a}.status{font-size:11px;color:var(--muted);line-height:1.6}.status b{color:var(--text)}.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}.error{color:var(--red)}
-.bottom{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(5,10,16,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:7px 6px calc(7px + var(--safe));justify-content:space-around}.bottom a{font-size:10px;color:var(--muted);padding:7px 10px;text-align:center}.bottom a:first-child{color:var(--blue)}
-@media(max-width:1050px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}.conflict-list{grid-template-columns:1fr}}@media(max-width:720px){header{padding:10px 12px}.wrap{padding:10px 10px calc(82px + var(--safe))}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:12px}.score{font-size:50px}.bar{grid-template-columns:115px 1fr 30px}#map{height:390px}.bottom{display:flex}.kpis{grid-template-columns:repeat(3,1fr)}input{min-width:0;flex:1}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050a10">
+  <meta name="description" content="Real-time global conflict, geopolitical risk, market context and evidence-linked open-source intelligence. No API key required.">
+  <meta name="application-name" content="Global Pulse">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Global Pulse — Global Intelligence Monitor</title>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/map.css">
 
-<!-- GP-MAP-V3-ENHANCEMENTS -->
-<style id="gp-map-v3-css">.gp-map-v3{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:-2px 0 9px}.gp-map-v3 button{font-size:10px;min-height:34px;padding:7px 9px}.gp-map-v3 button.active{border-color:var(--amber);color:var(--amber);background:rgba(255,200,87,.1)}.gp-region-stats{display:flex;gap:7px;overflow:auto;margin:0 0 9px;padding-bottom:2px}.gp-region-stat{min-width:110px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#08131e}.gp-region-stat b{display:block;font-size:16px}.gp-region-stat span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.gp-heat-legend{font-size:9px;color:var(--muted);margin:0 0 8px}.gp-map-media{display:block;width:100%;max-height:170px;object-fit:cover;border-radius:8px;margin:7px 0 8px;border:1px solid #1b2b3d;background:#07101a}.gp-map-media-credit{font-size:9px;color:#91a4b8;margin-top:-4px;margin-bottom:6px}.gp-map-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.gp-map-action{display:inline-block;padding:6px 8px;border:1px solid #1b2b3d;border-radius:7px;background:#09121c;color:#62a0ff;font-size:10px;font-weight:800}.gp-map-action:hover{background:#102033}.gp-map-photo-note{font-size:9px;color:#91a4b8;margin-top:6px;line-height:1.35}</style>
-<script id="gp-map-v3-js">(function(){"use strict";let installed=false,heat=null,heatOn=false;const esc=v=>String(v??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]||m));const regionOf=m=>String(m?.region||m?.country||"Other").trim()||"Other";const valid=m=>Number.isFinite(Number(m?.lat??m?.latitude))&&Number.isFinite(Number(m?.lng??m?.lon??m?.longitude));const validUrl=v=>{try{const u=new URL(String(v||""));return /^https?:$/.test(u.protocol)}catch(_){return false}};const photoOf=m=>{for(const k of ["imageUrl","image_url","image","thumbnailUrl","thumbnail","photoUrl","photo_url","mediaUrl","media_url"]){if(validUrl(m?.[k]))return String(m[k])}if(Array.isArray(m?.images))for(const v of m.images)if(validUrl(v))return String(v);return ""};const mapsUrl=(m,lat,lng)=>{for(const k of ["googleMapsUrl","google_maps_url","mapsUrl","maps_url"]){if(validUrl(m?.[k]))return String(m[k])}return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(lat+","+lng)};const markerFor=(lat,lng)=>{const ms=Array.isArray(window.DATA?.markers)?window.DATA.markers:[];let best=null,dist=Infinity;for(const m of ms){const a=Number(m?.lat??m?.latitude),b=Number(m?.lng??m?.lon??m?.longitude);if(!Number.isFinite(a)||!Number.isFinite(b))continue;const d=Math.abs(a-lat)+Math.abs(b-lng);if(d<dist){dist=d;best=m}}return best&&dist<0.0001?best:null};
-function points(){return(Array.isArray(window.DATA?.markers)?window.DATA.markers:[]).filter(valid).map(m=>[Number(m.lat??m.latitude),Number(m.lng??m.lon??m.longitude),Math.max(.2,Math.min(1.5,Number(m.importance||1))),m])}
-function addBaseSwitch(map){if(!window.L||map.__gpBaseSwitch)return;let dark=null;map.eachLayer(x=>{if(!dark&&x instanceof L.TileLayer)dark=x});if(!dark)return;const street=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"});L.control.layers({"Dark intelligence":dark,"OpenStreetMap":street},null,{collapsed:true,position:"topright"}).addTo(map);map.__gpBaseSwitch=true}
-function drawHeat(){if(!window.gpGlobalMap)return;if(heat){window.gpGlobalMap.removeLayer(heat);heat=null}if(!heatOn)return;const pts=points();if(window.L.heatLayer){heat=L.heatLayer(pts.map(x=>[x[0],x[1],x[2]]),{radius:28,blur:24,maxZoom:7,max:1.5});heat.addTo(window.gpGlobalMap)}else{heat=L.layerGroup();const seen=new Map();pts.forEach(x=>{const k=Math.round(x[0])+","+Math.round(x[1]);seen.set(k,(seen.get(k)||0)+x[2])});seen.forEach((v,k)=>{const[a,b]=k.split(',').map(Number);L.circle([a,b],{radius:Math.min(120000,18000*Math.sqrt(v)),color:'#ffc857',weight:1,fillOpacity:.12}).addTo(heat)});heat.addTo(window.gpGlobalMap)}}
-function regionStats(stats){const counts={};points().forEach(x=>{const r=regionOf(x[3]);counts[r]=(counts[r]||0)+1});const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);stats.innerHTML=top.map(([r,n])=>'<div class="gp-region-stat"><b>'+n+'</b><span>'+esc(r)+'</span></div>').join('');const total=document.getElementById('gpRegionTotal');if(total)total.textContent=Object.values(counts).reduce((a,b)=>a+b,0)+' mapped signals'}
-function installPopupMedia(map){map.on("popupopen",e=>{const src=e.popup&&e.popup._source;if(!src)return;const ll=src.getLatLng(),m=markerFor(ll.lat,ll.lng);if(!m)return;const el=e.popup.getElement();if(!el)return;const content=el.querySelector(".leaflet-popup-content");if(!content||content.querySelector(".gp-map-actions"))return;const photo=photoOf(m),mu=mapsUrl(m,ll.lat,ll.lng),source=String(m.sourceUrl||m.url||"");let html="";if(photo)html+='<a href="'+esc(photo)+'" target="_blank" rel="noopener noreferrer"><img class="gp-map-media" src="'+esc(photo)+'" loading="lazy" referrerpolicy="no-referrer" alt="Source image"></a><div class="gp-map-media-credit">Image supplied by the event/source feed.</div>';html+='<div class="gp-map-actions"><a class="gp-map-action" href="'+esc(mu)+'" target="_blank" rel="noopener noreferrer">Open in Google Maps ↗</a>';if(source&&validUrl(source))html+='<a class="gp-map-action" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Open source ↗</a>';html+='</div>';if(!photo)html+='<div class="gp-map-photo-note">No source image was supplied for this signal. Google Maps may have place imagery available after opening the location.</div>';content.insertAdjacentHTML("beforeend",html)})}
-function boot(){if(installed||!window.L||!window.DATA||!document.querySelector("#map"))return;const bar=document.querySelector(".gp-mapbar");if(!bar||!window.gpGlobalMap)return;installed=true;const row=document.createElement("div");row.className="gp-map-v3";row.innerHTML='<button type="button" id="gpHeatToggle">INTENSITY OFF</button><button type="button" id="gpFitAll">FIT ALL</button><span class="gp-map-count" id="gpRegionTotal"></span>';bar.parentElement.insertBefore(row,bar.nextSibling);const stats=document.createElement("div");stats.className="gp-region-stats";bar.parentElement.insertBefore(stats,row.nextSibling);const legend=document.createElement("div");legend.className="gp-heat-legend";legend.textContent="Intensity = concentration of sourced map signals; not a prediction or casualty measure.";bar.parentElement.insertBefore(legend,stats.nextSibling);addBaseSwitch(window.gpGlobalMap);installPopupMedia(window.gpGlobalMap);document.getElementById("gpHeatToggle").onclick=()=>{heatOn=!heatOn;document.getElementById("gpHeatToggle").textContent=heatOn?"INTENSITY ON":"INTENSITY OFF";document.getElementById("gpHeatToggle").classList.toggle("active",heatOn);drawHeat()};document.getElementById("gpFitAll").onclick=()=>{const p=points();if(p.length&&window.gpGlobalMap)window.gpGlobalMap.fitBounds(L.latLngBounds(p.map(x=>[x[0],x[1]])).pad(.06),{maxZoom:5})};regionStats(stats);const old=window.renderMap;if(typeof old==='function')window.renderMap=function(){old();setTimeout(()=>{regionStats(stats);drawHeat()},20)};setTimeout(drawHeat,50);document.addEventListener("globalpulse:dataready",()=>{if(window.gpGlobalMap){window.gpMapBooted=false;regionStats(stats);drawHeat();setTimeout(()=>window.gpGlobalMap.invalidateSize(),50)}})}const t=setInterval(()=>{if(installed||boot())clearInterval(t)},250);setTimeout(()=>clearInterval(t),30000)})();</script>
-<!-- GP-MAP-V3-ENHANCEMENTS-END -->
-
-<style id="gp-claims-css">.gp-claims-list{display:grid;gap:9px}.gp-claim details{margin-top:8px}.gp-claim summary{cursor:pointer;color:var(--blue);font-size:11px;font-weight:800}.gp-claim-evidence{display:grid;gap:6px;margin-top:7px}.gp-claim-evidence .item{padding:8px}.gp-claim a{font-size:10px}</style>
-
-<!-- GP-MARKER-CLUSTER-START -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="anonymous">
-
-<!-- GP-MARKER-CLUSTER-END -->
-
-<style id="gp-brand-live-css">.gp-brand-wrap{display:flex;align-items:baseline;gap:8px;min-width:0}.gp-brand-credit{font-size:9px;font-weight:650;letter-spacing:.08em;color:#70879c;white-space:nowrap}.gp-live-chip{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 8px;border:1px solid rgba(72,223,131,.22);border-radius:999px;background:rgba(72,223,131,.06);font-size:9px;color:#91a4b8}.gp-live-chip i{width:6px;height:6px;border-radius:50%;background:#48df83;box-shadow:0 0 0 3px rgba(72,223,131,.08)}#top{grid-auto-rows:max-content!important;align-items:start!important;min-height:0!important;height:auto!important;margin:0!important}#top>.panel{height:auto!important;min-height:0!important;margin:0!important}#top .bars{height:auto!important;min-height:0!important;margin:0!important;padding:0!important}.wrap{grid-auto-rows:max-content!important}.wrap>section{height:auto!important;min-height:0!important}.gp-web{height:440px;border:1px solid var(--line);border-radius:12px;background:#06101a;overflow:auto;color:var(--cyan);touch-action:pan-x pan-y}.gp-web svg{width:100%;height:100%;display:block;min-width:560px}.gp-web text{fill:var(--muted);font-size:9px;font-weight:700}.gp-node{cursor:pointer;outline:none}.gp-node circle{fill:#62a0ff;stroke:#eef5ff;stroke-width:1.2}.gp-node-political circle{fill:#aa8df7}.gp-node-economic circle{fill:#ffc857}.gp-node-strategic circle{fill:#3fc5ff}.gp-node:focus circle,.gp-node:hover circle{stroke:#48df83;stroke-width:2.5}.gp-web-controls{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}.gp-web-controls input{flex:1;min-width:170px}.gp-web-controls select{min-width:155px;max-width:230px}.gp-web-count{font-size:10px;color:var(--muted);white-space:nowrap}.gp-web-detail{margin-top:9px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#08131e;font-size:11px;color:var(--muted)}.gp-web-detail strong{color:var(--text)}.gp-web-links{display:grid;gap:6px;margin-top:7px}.gp-link-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;padding:7px 8px;border:1px solid var(--line);border-radius:7px}.gp-link-row span{color:var(--text)}.gp-link-row b{color:var(--blue)}.gp-link-row a{font-size:10px;font-weight:800}.gp-link-row small{grid-column:1/-1;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gp-web-note{font-size:9px;color:var(--muted);margin-top:7px}.gp-layer-controls{display:grid;gap:8px;margin:0 0 11px}.gp-layer-tabs{display:flex;gap:6px;flex-wrap:wrap}.gp-layer-filters{display:flex;gap:7px;align-items:center}.gp-layer-filters input{flex:1;min-width:0}.gp-layer-filters select{border:1px solid var(--line);background:#09121c;color:var(--text);border-radius:9px;padding:8px 10px;min-height:36px}.gp-layer-count{font-size:10px;color:var(--muted);white-space:nowrap}.gp-layer-note{font-size:9px;color:var(--muted);line-height:1.45}.gp-layer-tabs .filter.active{border-color:var(--blue);background:rgba(98,160,255,.13);color:var(--blue)}@media(max-width:720px){.gp-brand-credit{font-size:8px}.gp-live-chip{display:none}.gp-web{height:390px}.gp-web-controls select{flex:1;min-width:130px;max-width:none}.gp-web svg{min-width:620px}.gp-layer-filters{align-items:stretch}.gp-layer-filters select{width:125px}.gp-layer-count{align-self:center}}</style><style id="gp-live-reporting-css">
-.gp-reporting-feed{display:grid;gap:10px}.gp-reporting-card{position:relative;padding:13px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;transition:border-color .16s ease,transform .16s ease,background .16s ease}.gp-reporting-card:hover{border-color:#315274;background:#09131e;transform:translateY(-1px)}.gp-reporting-source{display:inline-flex;align-items:center;gap:5px;margin-bottom:7px;padding:4px 7px;border:1px solid rgba(98,160,255,.3);border-radius:6px;background:rgba(98,160,255,.08);color:var(--blue);font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}.gp-reporting-title{display:block;margin:2px 0 6px;color:var(--text);font-size:15px;font-weight:850;line-height:1.35}.gp-reporting-title:hover{color:var(--blue)}.gp-reporting-time{display:block;margin-bottom:8px;color:var(--muted);font-size:10px}.gp-reporting-summary{margin:0;color:var(--muted);font-size:11px;line-height:1.55}.gp-reporting-source-name{margin-top:8px;color:var(--muted);font-size:9px}.gp-reporting-action{display:inline-block;margin-top:10px;padding:7px 10px;border:1px solid rgba(98,160,255,.35);border-radius:7px;background:rgba(98,160,255,.08);color:var(--blue);font-size:10px;font-weight:800}.gp-reporting-alert{padding:13px;border:1px solid rgba(255,102,120,.35);border-left:3px solid var(--red);border-radius:11px;background:rgba(255,102,120,.07)}.gp-reporting-alert strong{display:block;margin-bottom:3px;color:var(--red);font-size:11px;letter-spacing:.05em;text-transform:uppercase}.gp-reporting-alert span{color:var(--muted);font-size:10px}.gp-reporting-empty{padding:18px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:11px}.gp-reporting-count{color:var(--muted);font-size:10px;white-space:nowrap}.gp-reporting-fallback .gp-reporting-card{border-color:rgba(255,200,87,.22)}@media(max-width:720px){.gp-reporting-card{padding:12px}.gp-reporting-title{font-size:14px}.gp-reporting-summary{font-size:11px}}
-</style>
-<script id="gp-live-reporting-config">window.GLOBAL_PULSE_API="";</script>
-<script id="gp-auto-refresh" type="text/plain"></script>
-
-<style id="gp-source-age-filter-css">
-.gp-age-filter{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:0 0 9px}.gp-age-filter label{font-size:10px;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.06em}.gp-age-filter select{border:1px solid var(--line);background:#09121c;color:var(--text);border-radius:9px;padding:8px 10px;min-height:36px}.gp-age-note{font-size:10px;color:var(--muted);margin-left:auto}.gp-age-badge{display:inline-block;margin-top:5px;font-size:9px;color:#91a4b8}.gp-age-badge.fresh{color:var(--green)}.gp-age-badge.old{color:var(--amber)}
-@media(max-width:720px){.gp-age-filter{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.gp-age-filter select{min-width:180px}.gp-age-note{min-width:max-content;margin-left:0}}
-</style>
-
-<style id="gp-commander-intel-css">
-#commanderCenter{position:sticky;top:58px;z-index:45;width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;background:rgba(8,16,25,.96);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;padding:10px 11px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
-#commanderCenter .cc-title{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;margin-bottom:8px}
-#commanderCenter .cc-title strong{font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
-#commanderCenter .cc-title span{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#commanderCenter .cc-nav{display:flex;gap:7px;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;padding:1px 1px 4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-#commanderCenter .cc-nav a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#09121c;color:var(--text);font-size:10px;font-weight:800;white-space:nowrap}
-#commanderCenter .cc-nav a:hover,#commanderCenter .cc-nav a:focus{border-color:var(--blue);color:var(--blue);outline:none}
-#intelligenceWebSection{scroll-margin-top:112px;min-width:0;max-width:100%;overflow:hidden}
-.gp-intel-frame{display:block;width:100%;max-width:100%;min-width:0;height:900px;border:1px solid var(--line);border-radius:12px;background:#03070b;box-sizing:border-box}
-.gp-intel-note{font-size:10px;color:var(--muted);margin-top:7px}
-@media(max-width:720px){
-  body{overflow-x:hidden}
-  #commanderCenter{top:51px;width:100%;max-width:100%;padding:8px;border-radius:12px}
-  #commanderCenter .cc-title{gap:6px;margin-bottom:7px}
-  #commanderCenter .cc-title strong{font-size:10px;letter-spacing:.11em}
-  #commanderCenter .cc-title span{display:none}
-  #commanderCenter .cc-nav{gap:6px;padding-bottom:3px}
-  #commanderCenter .cc-nav a{min-height:36px;padding:8px 11px;font-size:10px}
-  .gp-intel-frame{height:820px;border-radius:10px}
-}
-</style>
-
-
-<link rel="stylesheet" href="global_pulse_tokens.css?v=1">
-
-<style id="gp-map-rescue-css">
-#map{height:540px;min-height:320px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#07101a}
-.gp-mapbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:0 0 9px}.gp-mapbar button{font-size:10px;min-height:34px;padding:7px 9px}.gp-mapbar button.active{border-color:var(--blue);color:var(--blue);background:rgba(98,160,255,.13)}.gp-map-search{flex:1;min-width:170px}.gp-map-count{font-size:10px;color:var(--muted);margin-left:auto}.gp-map-legend{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0;color:var(--muted);font-size:10px}.gp-map-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.gp-map-legend .c{background:#ff6678}.gp-map-legend .o{background:#ffc857}.gp-map-legend .s{background:#62a0ff}.gp-map-legend .h{background:#48df83}.gp-map-legend .x{background:#aa8df7}
-.gp-popup-title{font-weight:850;font-size:13px;margin-bottom:5px}.gp-popup-meta{font-size:10px;color:#91a4b8;margin-bottom:6px}.gp-popup-detail{font-size:11px;line-height:1.4}.gp-popup-link{display:inline-block;margin-top:8px;color:#62a0ff;font-weight:750}
-.gp-map-loading{position:absolute;z-index:500;padding:8px 10px;margin:10px;border:1px solid var(--line);border-radius:8px;background:rgba(5,10,16,.88);color:#91a4b8;font-size:10px;pointer-events:none}.gp-map-ready #map{background:#07101a}
-@media(max-width:720px){#map{height:390px}.gp-mapbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.gp-mapbar button{white-space:nowrap}.gp-map-search{min-width:150px}.gp-map-count{width:100%;margin-left:0}}
-</style>
-
+  <!-- Leaflet for map (Phase 7) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
-<header><div class="gp-brand-wrap"><div class="brand"><b>GLOBAL</b> PULSE</div><span class="gp-brand-credit">Made by J.S.</span></div><div class="live"><i id="liveDot"></i><span id="liveText">LOADING LIVE DATA</span></div><div class="gp-live-chip"><i></i>NEAR-LIVE OPEN DATA</div></header>
-<main id="main" class="wrap">
-<div id="commanderCenter" aria-label="Commander Center">
-  <div class="cc-title"><strong>COMMANDER CENTER</strong><span>Mission Control · jump to any intelligence layer</span></div>
-  <nav class="cc-nav" aria-label="Mission Control navigation">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Live Reporting</a>
-    <a href="#what-changed">What Changed</a>
-    <a href="#event-intelligence">Event Intelligence</a>
-  </nav>
-</div>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#reporting">Latest Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#newsSection">Latest Reporting</a>
-    <a href="#reporting">Live Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-  <nav class="cc-nav">
-    <a href="#top">Overview</a>
-    <a href="#mapSection">War Map</a>
-    <a href="#intelligenceWebSection">Intelligence Web</a>
-    <a href="#conflictSection">Conflicts</a>
-    <a href="#newsSection">Latest Reporting</a>
-    <a href="#reporting">Live Reporting</a>
-    <a href="#analysisCenter">Analysis</a>
-    <a href="#evidenceCenter">Evidence</a>
-  </nav>
-</div>
-<section id="top" class="grid">
-<div class="panel"><h2>Global Index</h2><div class="hero-score"><div><div id="globalScore" class="score">—</div><div id="globalDelta" class="delta">Loading current signal…</div></div></div><p class="note">Composite open-data tension signal. Higher values indicate greater combined geopolitical, military, diplomatic and economic pressure.</p></div>
-<div class="panel"><h2>Global Tension Drivers</h2><div id="breakdown" class="bars"><div class="bar"><span>Conflict activity</span><div class="track"><div class="fill" style="width:0%"></div></div><b>—</b></div><div class="bar"><span>Diplomatic strain</span><div class="track"><div class="fill" style="width:0%"></div></div><b>—</b></div><div class="bar"><span>Economic pressure</span><div class="track"><div class="fill" style="width:0%"></div></div><b>—</b></div><div class="bar"><span>Market volatility</span><div class="track"><div class="fill" style="width:0%"></div></div><b>—</b></div><div class="bar"><span>Military posture</span><div class="track"><div class="fill" style="width:0%"></div></div><b>—</b></div></div></div>
-<div class="panel"><h2>System Status</h2><div class="kpis"><div class="kpi"><strong id="conflictCount">—</strong><span>Conflicts</span></div><div class="kpi"><strong id="storyCount">—</strong><span>Stories</span></div><div class="kpi"><strong id="markerCount">—</strong><span>Signals</span></div></div><p id="dataStatus" class="note">Waiting for snapshot…</p></div>
-</section>
-<section id="intelligenceWebSection" class="panel wide" aria-labelledby="intelligence-web-title">
-  <div class="section-head"><div><h2 id="intelligence-web-title">Intelligence Web</h2><div class="muted">Evidence-backed relationships between actors, conflicts, political signals, economic pressure and strategic interests.</div></div></div>
-  <iframe class="gp-intel-frame" src="intelligence-web.html?v=1" title="Global Pulse Intelligence Web" loading="eager"></iframe>
-  <div class="gp-intel-note">The Intelligence Web is embedded directly into the main page. Open a node to inspect its connection basis and source evidence.</div>
-</section>
-<section id="mapSection" class="panel wide"><div class="section-head"><div><h2>Global Situation Map</h2><div class="muted">Conflicts, OSINT, organized crime, strategic nodes and public hazard signals.</div></div></div><div id="map"></div></section>
-<section id="conflictSection" class="panel wide"><div class="section-head"><div><h2>Active Conflict Watch</h2><div class="muted">Ranked conflict signals from the current open-data snapshot.</div></div></div><div id="conflictList" class="conflict-list"></div></section>
-<section id="reporting" class="panel wide" aria-labelledby="latest-reporting-title">
-  <div class="section-head">
-    <div>
-      <h2 id="latest-reporting-title">Latest Reporting</h2>
-      <div class="muted">Near-live reporting aggregated from the Global Pulse news pipeline.</div>
-    </div>
-    <span id="pulse-reporting-count" class="gp-reporting-count" aria-live="polite">—</span>
+  <div class="app-shell" id="app">
+    <!-- Header -->
+    <header class="gp-header">
+      <div class="gp-logo">
+        Global <span>Pulse</span>
+      </div>
+      <div class="gp-header-meta">
+        <span class="gp-status-dot" id="statusDot" title="System status"></span>
+        <span class="gp-last-updated" id="globalLastUpdated">Loading…</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="gp-main" id="mainContent">
+
+      <!-- 1. Global Situation Overview -->
+      <section class="gp-section" id="section-overview" data-section="overview">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>◉</span> Global Situation Overview
+          </h2>
+          <span class="gp-time" id="overviewUpdated">—</span>
+        </div>
+        <div class="gp-section-body" id="overviewBody">
+          <div class="gp-state">
+            <div class="gp-spinner"></div>
+            <div class="gp-state-title">Loading live data</div>
+            <div>Fetching public intelligence snapshot…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Breaking News -->
+      <section class="gp-section" id="section-breaking" data-section="breaking">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>⚡</span> Breaking & Latest Reporting
+          </h2>
+          <span class="gp-time" id="breakingUpdated">—</span>
+        </div>
+        <div class="gp-section-body" id="breakingBody">
+          <div class="gp-state">
+            <div class="gp-spinner"></div>
+            <div>Loading reports…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Conflict Tracker -->
+      <section class="gp-section" id="section-conflicts" data-section="conflicts">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>⚔️</span> Active Conflict Watch
+          </h2>
+          <span class="gp-time" id="conflictsUpdated">—</span>
+        </div>
+        <div class="gp-section-body" id="conflictsBody">
+          <div class="gp-state">
+            <div class="gp-spinner"></div>
+            <div>Loading conflict signals…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Intelligence Web -->
+      <section class="gp-section" id="section-intelweb" data-section="intelweb">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>🧠</span> Intelligence Web
+          </h2>
+          <span class="gp-time" id="intelwebUpdated">—</span>
+        </div>
+        <div class="gp-section-body" id="intelwebBody">
+          <div class="gp-state">
+            <div class="gp-spinner"></div>
+            <div>Loading evidence-linked relationships…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Interactive Map -->
+      <section class="gp-section" id="section-map" data-section="map">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>🗺️</span> Global Situation Map
+          </h2>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="gp-btn" data-layer="conflicts" type="button">Conflicts</button>
+            <button class="gp-btn" data-layer="hazards" type="button">Hazards</button>
+            <button class="gp-btn" data-layer="strategic" type="button">Strategic</button>
+          </div>
+        </div>
+        <div class="gp-section-body" style="padding:0">
+          <div id="mapContainer" style="height:420px;width:100%;background:var(--bg-elevated)"></div>
+          <div id="mapSidePanel" class="gp-card" style="display:none;margin:12px;border-radius:0 0 var(--radius) var(--radius)"></div>
+        </div>
+      </section>
+
+      <!-- 6. Markets -->
+      <section class="gp-section" id="section-markets" data-section="markets">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>📈</span> Market Context
+          </h2>
+          <span class="gp-badge delayed">DELAYED</span>
+        </div>
+        <div class="gp-section-body" id="marketsBody">
+          <div class="gp-state">
+            <div class="gp-spinner"></div>
+            <div>Loading market pulse…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. System Status -->
+      <section class="gp-section" id="section-status" data-section="status">
+        <div class="gp-section-header">
+          <h2 class="gp-section-title">
+            <span>📡</span> System & Source Status
+          </h2>
+        </div>
+        <div class="gp-section-body" id="statusBody">
+          <div class="gp-state">
+            <div>Waiting for health data…</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom navigation (mobile) -->
+    <nav class="gp-bottom-nav" aria-label="Primary">
+      <a href="#section-overview" class="gp-nav-item active" data-nav="overview">
+        <span class="gp-nav-icon">◉</span>
+        <span>Overview</span>
+      </a>
+      <a href="#section-breaking" class="gp-nav-item" data-nav="breaking">
+        <span class="gp-nav-icon">⚡</span>
+        <span>News</span>
+      </a>
+      <a href="#section-conflicts" class="gp-nav-item" data-nav="conflicts">
+        <span class="gp-nav-icon">⚔️</span>
+        <span>Conflicts</span>
+      </a>
+      <a href="#section-map" class="gp-nav-item" data-nav="map">
+        <span class="gp-nav-icon">🗺️</span>
+        <span>Map</span>
+      </a>
+      <a href="#section-markets" class="gp-nav-item" data-nav="markets">
+        <span class="gp-nav-icon">📈</span>
+        <span>Markets</span>
+      </a>
+    </nav>
   </div>
-  <div id="pulse-reporting-feed" class="gp-reporting-feed" aria-live="polite" aria-busy="false">
-<article class="gp-reporting-card"><div class="gp-reporting-source">◉ Guardian World</div><a class="gp-reporting-title" href="https://www.theguardian.com/world/2026/sep/05/drone-attack-guerrillas-kills-soldiers-colombia" target="_blank" rel="noopener noreferrer">Drone attack blamed on guerrillas kills at least three soldiers in Colombia</a><time class="gp-reporting-time" datetime="2026-09-05T22:16:55+00:00">Published 2026-09-05T22:16:55+00:00</time><p class="gp-reporting-summary">Officials accuse National Liberation Army of launching strike followed by clash inside military compound An attack involving explosives dropped from drones followed by a clash inside a military compound in north-eastern Colombia has killed at least three soldiers and wounded four, Colombia’s army said Saturday. Local authorities blamed the attack late Friday on the rebel National Liberation Army (ELN). It targeted a military unit in the municipality of Ocaña, in the Norte de Santander department, which borders Venezuela. Two soldiers died at the site and a third after receiving medical attention, Colombia’s military said on X. Continue reading...</p><div class="gp-reporting-source-name">Source: Guardian World</div><a class="gp-reporting-action" href="https://www.theguardian.com/world/2026/sep/05/drone-attack-guerrillas-kills-soldiers-colombia" target="_blank" rel="noopener noreferrer">Read Full Source Report ↗</a></article>
-<article class="gp-reporting-card"><div class="gp-reporting-source">◉ Guardian World</div><a class="gp-reporting-title" href="https://www.theguardian.com/uk-news/2026/sep/05/prince-william-to-represent-king-charles-at-funeral-of-norways-king-harald-v" target="_blank" rel="noopener noreferrer">Prince William to represent King Charles at funeral of Norway’s King Harald V</a><time class="gp-reporting-time" datetime="2026-09-05T22:11:21+00:00">Published 2026-09-05T22:11:21+00:00</time><p class="gp-reporting-summary">Duty falls by precedent to William to attend service of late monarch, alongside Princess Royal, who is godmother to new king Haakon VIII The Prince of Wales is to represent his father at the funeral of King Harald V of Norway next week, Buckingham Palace has announced. William, the heir to the throne, will be joined by his aunt the Princess Royal, who is attending in a private and personal capacity as godmother of the new king, Haakon VIII. Continue reading...</p><div class="gp-reporting-source-name">Source: Guardian World</div><a class="gp-reporting-action" href="https://www.theguardian.com/uk-news/2026/sep/05/prince-william-to-represent-king-charles-at-funeral-of-norways-king-harald-v" target="_blank" rel="noopener noreferrer">Read Full Source Report ↗</a></article>
-<article class="gp-reporting-card"><div class="gp-reporting-source">◉ CNA World</div><a class="gp-reporting-title" href="https://www.channelnewsasia.com/commentary/ai-generated-songs-pushback-spotify-tidal-suno-6362676" target="_blank" rel="noopener noreferrer">Commentary: The pushback against AI songs is music to my ears</a><time class="gp-reporting-time" datetime="2026-09-05T22:00:00+00:00">Published 2026-09-05T22:00:00+00:00</time><p class="gp-reporting-summary">For Bloomberg Opinion&#x27;s Dave Lee, music generated entirely by AI is an abomination and finding it placed by algorithms into a playlist is a “deeply violating experience”.</p><div class="gp-reporting-source-name">Source: CNA World</div><a class="gp-reporting-action" href="https://www.channelnewsasia.com/commentary/ai-generated-songs-pushback-spotify-tidal-suno-6362676" target="_blank" rel="noopener noreferrer">Read Full Source Report ↗</a></article>
-<article class="gp-reporting-card"><div class="gp-reporting-source">◉ Google News — Sinaloa Cartel / CJNG</div><a class="gp-reporting-title" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNLWEzZ1JmOHFrakFzSkF4a0hnSVo2TExJTDU4Ql81T2QzVkpTNjEtYzdFdndFTG9VSVFSNzRLVUJ0R044VlBiTWxRN1FJbWhOSHJMMTVKWlktbnQ2dmV2LTQzYk9uTWxtejVGS3cxME9INFE1NEhIZ3hCQy1meDBvOG4yc0FxaWRFTVBFZlN1a1BCa2FYOTZ1dEprc1lyaTFHWTlPbENlMVFaNDJI0gGyAUFVX3lxTE9wV1VVc29HQ0E1V25NZFdCZTZRT3dLOEVsRGdJOEtzcmtxcGdoV3BXUmdmYnhoNVprM09CWTBoMS1rUllUa2ZwWTZja2Zmb0w2NWNxSTQ0VDdCV2tzaEhsT2Itb2l1QU5pSnVrdWF3Tmo0V2pwSTNfb2Y1NDJNOEFOaS01LWRZU2tOdTEwVXZfQmtzdTZKV2RWa2I5VzBHZUtGUjhvcXpfV3NKbHFQOEV6b0E?oc=5" target="_blank" rel="noopener noreferrer">Why Mexican cartels are increasingly using car bombs and other explosives - PBS</a><time class="gp-reporting-time" datetime="2026-09-05T21:56:52+00:00">Published 2026-09-05T21:56:52+00:00</time><p class="gp-reporting-summary">Why Mexican cartels are increasingly using car bombs and other explosives PBS</p><div class="gp-reporting-source-name">Source: Google News — Sinaloa Cartel / CJNG</div><a class="gp-reporting-action" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNLWEzZ1JmOHFrakFzSkF4a0hnSVo2TExJTDU4Ql81T2QzVkpTNjEtYzdFdndFTG9VSVFSNzRLVUJ0R044VlBiTWxRN1FJbWhOSHJMMTVKWlktbnQ2dmV2LTQzYk9uTWxtejVGS3cxME9INFE1NEhIZ3hCQy1meDBvOG4yc0FxaWRFTVBFZlN1a1BCa2FYOTZ1dEprc1lyaTFHWTlPbENlMVFaNDJI0gGyAUFVX3lxTE9wV1VVc29HQ0E1V25NZFdCZTZRT3dLOEVsRGdJOEtzcmtxcGdoV3BXUmdmYnhoNVprM09CWTBoMS1rUllUa2ZwWTZja2Zmb0w2NWNxSTQ0VDdCV2tzaEhsT2Itb2l1QU5pSnVrdWF3Tmo0V2pwSTNfb2Y1NDJNOEFOaS01LWRZU2tOdTEwVXZfQmtzdTZKV2RWa2I5VzBHZUtGUjhvcXpfV3NKbHFQOEV6b0E?oc=5" target="_blank" rel="noopener noreferrer">Read Full Source Report ↗</a></article>
-<article class="gp-reporting-card"><div class="gp-reporting-source">◉ Guardian World</div><a class="gp-reporting-title" href="https://www.theguardian.com/us-news/2026/sep/05/us-voters-democrats-republicans" target="_blank" rel="noopener noreferrer">More voters identifying as Democrats and not calling themselves Republican</a><time class="gp-reporting-time" datetime="2026-09-05T21:44:19+00:00">Published 2026-09-05T21:44:19+00:00</time><p class="gp-reporting-summary">Latest data from Gallup, showing 49% leaning Democrat and 39% Republican, marks sharp reversal from 2024 More voters are identifying as Democrats and shying away from calling themselves Republican, according to the latest quarterly data published by Gallup . Some 49%of voters surveyed leaned Democrat, including independent voters asked to pick one party or the other. Only 39% of respondents leaned Republican. Continue reading...</p><div class="gp-reporting-source-name">Source: Guardian World</div><a class="gp-reporting-action" href="https://www.theguardian.com/us-news/2026/sep/05/us-voters-democrats-republicans" target="_blank" rel="noopener noreferrer">Read Full Source Report ↗</a></article>
-  </div>
-</section>
-</main>
-<div id="gp-morse-source-card" class="panel" style="margin-top:14px"><div class="section-head"><div><h2>Morse Report</h2><div class="muted">Publisher feed · current reports open directly from Morse Report.</div></div><span class="tag amber">PUBLIC SOURCE</span></div><a class="open" href="https://morsereport.com/" target="_blank" rel="noopener noreferrer">Open Latest Morse Reports ↗</a><div class="gp-v26-note">The collector uses no API key. If the publisher blocks automated requests, the source remains available here rather than being represented as fabricated data.</div></div><nav class="bottom"><a href="#top">Index</a><a href="#mapSection">Map</a><a href="#conflictSection">Conflicts</a><a href="#newsSection">News</a></nav>
-<script>
-(function(){
-"use strict";
-window.DATA={stories:[],conflicts:[],markers:[],breakdown:{}};
-const $=s=>document.querySelector(s), esc=v=>String(v==null?"":v).replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;"}[c]));
-const num=v=>Number.isFinite(Number(v))?Number(v):0;
-function setText(id,v){const e=$(id);if(e)e.textContent=v}
-function scoreOf(d){return num(d.globalIndex??d.tension??d.globalTension??d.score??0)}
-function breakdown(d){return d.breakdown||d.tensionBreakdown||d.drivers||{}}
-function renderCore(d){
- window.DATA=d||{};
- const score=scoreOf(d);setText('#globalScore',Math.round(score));setText('#globalDelta',score>=70?'Elevated global pressure':score>=45?'Moderate global pressure':'Lower global pressure');
- const conflicts=Array.isArray(d.conflicts)?d.conflicts:[];const stories=Array.isArray(d.stories)?d.stories:[];const markers=Array.isArray(d.markers)?d.markers:[];
- setText('#conflictCount',conflicts.length);setText('#storyCount',stories.length);setText('#markerCount',markers.length);setText('#liveText','DATA ONLINE');
- const b=breakdown(d);const labels=[['Conflict activity',['Conflict activity','conflictActivity','conflict_activity']],['Diplomatic strain',['Diplomatic strain','diplomaticStrain','diplomatic_strain']],['Economic pressure',['Economic pressure','economicPressure','economic_pressure']],['Market volatility',['Market volatility','marketVolatility','market_volatility']],['Military posture',['Military posture','militaryPosture','military_posture']]];
- const rows=$('#breakdown')?.querySelectorAll('.bar')||[];rows.forEach((row,i)=>{const keys=labels[i][1];let v=0;for(const k of keys)if(b[k]!=null){v=b[k];break}v=Math.max(0,Math.min(100,num(v)));row.querySelector('.fill').style.width=v+'%';row.querySelector('b').textContent=Math.round(v)});
- const cl=$('#conflictList');cl.innerHTML=conflicts.slice(0,30).map((c,i)=>{const title=esc(c.name||c.title||c.conflict||('Conflict '+(i+1)));const s=Math.round(num(c.score??c.tension??c.priority??0));const region=esc(c.region||c.location||'Global');const status=esc(c.status||c.severity||'MONITOR');return '<article class="ccard"><span class="tag red">'+status+'</span><h3>'+title+'</h3><div class="muted">'+region+'</div><div class="scoreline"><span>Tension</span><b>'+s+'</b></div><div class="track"><div class="fill" style="width:'+Math.max(0,Math.min(100,s))+'%"></div></div></article>'}).join('')||'<div class="empty">No conflict records available.</div>';
- const st=$('#stories');st.innerHTML=stories.slice(0,40).map(a=>{const title=esc(a.title||'Untitled report');const src=esc(a.sourceLabel||a.source||a.source_name||'Open source');const sum=esc(a.summary||a.summary_snippet||a.description||'');const url=String(a.url||a.original_link||a.link||'');const safe=/^https?:\/\//i.test(url);const link=safe?'<a class="open" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Read source ↗</a>':'';const titleLink=safe?'<a class="story-link" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+title+'</a>':title;return '<article class="story"><div class="source">'+src+'</div><h3>'+titleLink+'</h3><div class="muted">'+esc(a.publishedAt||a.published_date||a.time||'')+'</div><p class="muted">'+sum+'</p>'+link+'</article>'}).join('')||'<div class="empty">No current reporting available.</div>';
- setText('#dataStatus','Updated '+String(d.updatedAt||'now'));
- document.dispatchEvent(new CustomEvent('globalpulse:dataready'));
-}
-async function load(){const u='data/snapshot.json?ts='+Date.now();try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw Error('snapshot '+r.status);renderCore(await r.json())}catch(e){setText('#liveText','DATA OFFLINE');setText('#dataStatus','Snapshot unavailable. Retrying…');console.error(e)}}
-window.renderStories=function(){renderCore(window.DATA||{})};window.gpForceRefresh=load;
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
-setInterval(load,60000);
-})();
-</script>
 
-<!-- GP-INTELLIGENCE-WEB-START --><div class="gp-intel-web-entry" style="display:flex;justify-content:center;margin:4px 0"><a href="intelligence-web.html" style="display:inline-block;padding:9px 14px;border:1px solid #39ff88;border-radius:9px;background:rgba(57,255,136,.08);color:#39ff88;font-weight:900;letter-spacing:.08em;font-size:11px">◈ INTELLIGENCE WEB — 3D</a></div><!-- GP-INTELLIGENCE-WEB-END -->
-
-<script src="global_pulse_breaking.js?v=20260904a" defer></script>
-
-<script src="global_pulse_assessment.js?v=20260904a"></script>
-
-<script src="claim_intelligence.js?v=1"></script>
-<script src="global_pulse_list_density.js"></script>
-<script src="global_pulse_ux_hardening.js?v=1"></script>
-
-<script src="global_pulse_events.js?v=690cabcf77b3"></script><script src="global_pulse_enhancements.js" defer></script><script src="global_pulse_graph.js?v=20260904c" defer></script><script src="global_pulse_layers.js" defer></script><script src="global_pulse_tension.js" defer></script><script src="global_pulse_reporting.js" defer></script>
-<!-- GP-BREAKING-INTEL -->
-
-<script src="global_pulse_source_health.js?v=6494ec78310e" defer></script>
-
-<script id="gp-source-age-filter-js">
-(function(){
-  "use strict";
-  const ID="gp-source-age-filter";
-  let maxAge="all";
-  // Prefer the time the source published/observed the signal. Do not use the
-  // Global Pulse snapshot updatedAt value because that is not source age.
-  const ageFields=["publishedAt","published_at","sourcePublishedAt","source_published_at","published","published_date","pubDate","pub_date","observedAt","observed_at","timestamp","time","date","sourceDate","source_date","createdAt","created_at","lastUpdated","last_updated"];
-  function timestamp(m){for(const k of ageFields){const v=m&&m[k];if(v===null||v===undefined||v==="")continue;const n=Date.parse(String(v));if(Number.isFinite(n))return n}return NaN}
-  function ageMs(m){const t=timestamp(m);return Number.isFinite(t)?Date.now()-t:NaN}
-  function label(ms){if(!Number.isFinite(ms))return "Source age unknown";if(ms<0)return "Source time in future";const min=Math.floor(ms/60000),h=Math.floor(min/60),d=Math.floor(h/24);if(min<1)return "Source posted just now";if(min<60)return "Source posted "+min+"m ago";if(h<24)return "Source posted "+h+"h "+(min%60)+"m ago";return "Source posted "+d+"d "+(h%24)+"h ago"}
-  function matches(m){if(maxAge==="all")return true;const ms=ageMs(m);if(maxAge==="unknown")return !Number.isFinite(ms);if(!Number.isFinite(ms))return false;if(maxAge==="older")return ms>604800000;return ms>=0&&ms<=Number(maxAge)*3600000}
-  function decorate(){const markers=Array.isArray(window.DATA?.markers)?window.DATA.markers:[];for(const m of markers)m.__gpSourceAge=label(ageMs(m))}
-  function wrapRender(){
-    if(typeof window.renderMap!=="function"||window.renderMap.__gpSourceAgeWrapped)return false;
-    const original=window.renderMap;
-    function wrapped(){
-      const data=window.DATA;
-      const markers=data&&Array.isArray(data.markers)?data.markers:null;
-      if(!markers||maxAge==="all")return original.apply(this,arguments);
-      const keep=markers.filter(matches);
-      data.markers=keep;
-      try{return original.apply(this,arguments)}finally{data.markers=markers}
-    }
-    wrapped.__gpSourceAgeWrapped=true;
-    wrapped.__gpSourceAgeOriginal=original;
-    window.renderMap=wrapped;
-    return true;
-  }
-  function install(){
-    const map=document.getElementById("map");
-    if(!map||!map.parentElement)return false;
-    let wrap=document.getElementById(ID);
-    if(!wrap){
-      const parent=map.parentElement;wrap=document.createElement("div");wrap.id=ID;wrap.className="gp-age-filter";
-      wrap.innerHTML='<label for="gpSourceAge">Source age</label><select id="gpSourceAge"><option value="all">All sources</option><option value="1">Last 1 hour</option><option value="6">Last 6 hours</option><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168">Last 7 days</option><option value="older">Older than 7 days</option><option value="unknown">Unknown source time</option></select><span class="gp-age-note">Uses the source publication/observation time.</span>';
-      parent.insertBefore(wrap,map);
-      wrap.querySelector("#gpSourceAge").addEventListener("change",e=>{maxAge=e.target.value;decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
-    }
-    decorate();
-    return wrapRender()||typeof window.renderMap==="function";
-  }
-  window.gpSourceAge={ageMs,label,matches,decorate,wrapRender};
-  document.addEventListener("globalpulse:dataready",()=>{decorate();wrapRender();if(typeof window.renderMap==="function")window.renderMap()});
-  const t=setInterval(install,100);
-  setTimeout(()=>clearInterval(t),30000);
-})();
-</script>
-
-<script src="global_pulse_mission_control_fix.js?v=1" defer></script>
-
-
-<script src="global_pulse_core.js?v=1" defer></script>
-<script src="global_pulse_event_pipeline.js?v=1" defer></script>
-
-
-<script src="global_pulse_brain_ui.js?v=1" defer></script>
-
-<script id="gp-map-rescue-js">
-(function(){
-  "use strict";
-  let started=false;
-  let map=null;
-  let layer=null;
-  let filter="all",query="";
-  const esc=v=>String(v??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]));
-  const kind=m=>{
-    const layer=String(m?.layer||"").toLowerCase();
-    const eventType=String(m?.eventType||"").toLowerCase();
-    const type=String(m?.type||"").toLowerCase();
-    const all=[eventType,type,layer,String(m?.signal||""),String(m?.category||""),String(m?.sourceType||"")].join(" ").toLowerCase();
-    if(/cfr|conflict|military|war|attack|strike|armed|insurgent|battle|clash|coup/.test(layer+" "+all))return"conflict";
-    if(/organized|crime|cartel|gang|narco/.test(all))return"organized";
-    if(/hazard|earthquake|environment|natural|gdacs|usgs/.test(all))return"hazard";
-    if(/strategic|chokepoint|flashpoint|node|reference/.test(all))return"strategic";
-    if(/osint|source map|social|report/.test(all))return"osint";
-    return"conflict";
-  };
-  const latOf=m=>Number(m?.lat??m?.latitude),lngOf=m=>Number(m?.lng??m?.lon??m?.longitude);
-  const color=k=>({conflict:"#ff6678",osint:"#ffc857",strategic:"#62a0ff",hazard:"#48df83",organized:"#aa8df7"}[k]||"#62a0ff");
-  const valid=m=>{const a=latOf(m),b=lngOf(m);return Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a)<=90&&Math.abs(b)<=180};
-  function render(){
-    if(!map||!layer||!window.DATA)return;
-    layer.clearLayers();
-    const all=Array.isArray(window.DATA.markers)?window.DATA.markers:[];
-    const filtered=all.filter(m=>{if(!valid(m))return false;const k=kind(m);if(filter!=="all"&&k!==filter)return false;const hay=[m.title,m.detail,m.source,m.region,m.eventType,m.type,m.layer,m.signal,m.category].map(x=>String(x??"").toLowerCase()).join(" ");return !query||hay.includes(query)});
-    filtered.forEach(m=>{
-      const k=kind(m),c=color(k),url=String(m.url||m.sourceUrl||"");
-      const icon=L.divIcon({className:"",html:'<span style="display:block;width:12px;height:12px;border-radius:50%;background:'+c+';border:2px solid rgba(255,255,255,.75);box-shadow:0 0 0 3px '+c+'33"></span>',iconSize:[12,12],iconAnchor:[6,6]});
-      const mk=L.marker([latOf(m),lngOf(m)],{icon});
-      mk.bindPopup('<div class="gp-popup-title">'+esc(m.title||m.name||"Map signal")+'</div><div class="gp-popup-meta">'+esc(m.eventType||m.type||k.toUpperCase())+' · '+esc(m.source||"Public source")+'</div><div class="gp-popup-detail">'+esc(m.detail||m.description||"No additional detail available.")+'</div>'+(url&&/^https?:\/\//i.test(url)?'<a class="gp-popup-link" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Open source ↗</a>':""));
-      layer.addLayer(mk);
-    });
-    const count=document.getElementById("gpMapCount");if(count)count.textContent=filtered.length+" signals";
-    if(filtered.length&&!window.gpMapBooted){map.fitBounds(L.latLngBounds(filtered.map(m=>[latOf(m),lngOf(m)])).pad(0.08),{maxZoom:5});window.gpMapBooted=true}
-    setTimeout(()=>map.invalidateSize(),50);
-  }
-  function boot(){
-    if(started||!window.L)return false;
-    const old=document.getElementById("map");
-    if(!old||!old.parentElement)return false;
-    started=true;
-    const parent=old.parentElement;
-    const fresh=document.createElement("div");fresh.id="map";old.replaceWith(fresh);
-    const bar=document.createElement("div");bar.className="gp-mapbar";
-    bar.innerHTML='<button type="button" class="active" data-f="all">ALL</button><button type="button" data-f="conflict">CONFLICT</button><button type="button" data-f="osint">OSINT</button><button type="button" data-f="organized">ORGANIZED CRIME</button><button type="button" data-f="strategic">STRATEGIC</button><button type="button" data-f="hazard">HAZARDS</button><input class="gp-map-search" id="gpMapSearch" placeholder="Search map signals…" autocomplete="off"><span class="gp-map-count" id="gpMapCount">Waiting for data…</span>';
-    parent.insertBefore(bar,fresh);
-    const legend=document.createElement("div");legend.className="gp-map-legend";legend.innerHTML='<span><i class="c"></i>Conflict</span><span><i class="o"></i>OSINT</span><span><i class="s"></i>Strategic</span><span><i class="h"></i>Hazard</span><span><i class="x"></i>Organized crime</span>';parent.insertBefore(legend,fresh);
-    map=L.map(fresh,{worldCopyJump:true,preferCanvas:true,zoomControl:true,attributionControl:true}).setView([20,0],2);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
-    layer=window.L.markerClusterGroup?window.L.markerClusterGroup({showCoverageOnHover:false,removeOutsideVisibleBounds:true}):L.layerGroup();layer.addTo(map);
-    bar.querySelectorAll("button[data-f]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()}));
-    const search=document.getElementById("gpMapSearch");if(search)search.addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()});
-    window.gpGlobalMap=map;window.renderMap=render;window.gpMapSetFilter=f=>{filter=String(f||"all");window.gpMapBooted=false;render()};
-    document.addEventListener("globalpulse:dataready",()=>{window.gpMapBooted=false;render();setTimeout(()=>map.invalidateSize(),50)});
-    render();
-    return true;
-  }
-  const wait=()=>{const target=document.getElementById("map");if(!target)return;let started=false;const start=()=>{if(started)return;started=true;let n=0;const t=setInterval(()=>{if(boot()||++n>200)clearInterval(t)},100)};if("IntersectionObserver" in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();start()}},{rootMargin:"300px"});o.observe(target)}else start()};
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",wait);else wait();
-})();
-</script>
-
-<script src="global_pulse_qa.js?v=1" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
