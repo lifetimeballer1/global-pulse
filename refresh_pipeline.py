@@ -36,7 +36,7 @@ def verify_live_content(live,max_age_minutes=90,min_recent=3):
 def verify_brain(brain):
  if brain.get('complete') is not True or brain.get('sourceBackedOnly') is not True or brain.get('consolidated') is not True:raise RuntimeError('intelligence brain completeness/source/consolidation gate failed')
  nodes=brain.get('nodes') or [];edges=brain.get('edges') or []
- if len(nodes)<10 or len(nodes)>40 or brain.get('maxNodes')!=40:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
+ if len(nodes)<10 or len(nodes)>35 or brain.get('maxNodes')!=35:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
  if len(edges)<5:raise RuntimeError('intelligence brain verification failed: too few relationships')
  if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
  if brain['stats'].get('nodes')!=len(nodes) or brain['stats'].get('edges')!=len(edges):raise RuntimeError('intelligence brain stats mismatch')
@@ -58,7 +58,7 @@ def write_refresh_manifest():
   if not p.is_file() or p.stat().st_size==0:raise RuntimeError(f'required generated artifact missing: {name}')
   raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'));stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
   artifacts[name]={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'generatedAt':stamp}
- manifest={'version':4,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
+ manifest={'version':5,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('PASS: refresh manifest',','.join(REQUIRED_ARTIFACTS),flush=True)
 def main():
  run('Expand feeds',sys.executable,'update_feed_expansion.py');sources=DATA/'sources.json'
