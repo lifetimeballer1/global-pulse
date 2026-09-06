@@ -16,6 +16,11 @@ def evidence(r):
  source=str(r.get('sourceLabel') or r.get('source') or r.get('publisher') or r.get('provider') or '').strip()
  if title and (url or source): return {'title':title[:300],'url':url,'source':source or 'Public source','time':str(r.get('publishedAt') or r.get('published_date') or r.get('updatedAt') or r.get('time') or '')}
  return None
+def evidence_key(ev):
+ """Stable identity for deduplicating evidence gathered through recursive source walks."""
+ return (str(ev.get('title') or '').strip().lower(),str(ev.get('url') or '').strip().lower(),str(ev.get('source') or '').strip().lower())
+def add_unique(items, ev):
+ if ev and evidence_key(ev) not in {evidence_key(x) for x in items}: items.append(ev)
 def walk(obj):
  if isinstance(obj,dict):
   yield obj
@@ -33,16 +38,19 @@ def main():
   if p.exists():
    try: records += list(walk(json.loads(p.read_text(encoding='utf-8'))))
    except Exception: pass
- for gn in graph.get('nodes') or []:
-  records.append(gn)
+ for gn in graph.get('nodes') or []: records.append(gn)
  for label,country in CARTELS.items():
   if any(n.get('kind')=='cartel' and str(n.get('label'))==label for n in nodes): continue
   hits=[]
+  seen=set()
   for r in records:
    ev=evidence(r)
    if not ev: continue
+   key=evidence_key(ev)
+   if key in seen: continue
    blob=' '.join(str(r.get(k,'')) for k in ('label','name','title','headline','summary','description','detail','actor','actors','organization','organizations','group','category','type','tags','keywords','country','location')).lower()
-   if re.search(r'(?<![a-z])'+re.escape(label.lower())+r'(?![a-z])',blob): hits.append(ev)
+   if re.search(r'(?<![a-z])'+re.escape(label.lower())+r'(?![a-z])',blob):
+    hits.append(ev);seen.add(key)
   if hits:
    lat,lng=COUNTRIES[country];i=slug(label);n={'id':i,'label':label,'kind':'cartel','score':7,'mentions':len(hits),'evidence':hits[:5],'canonical':True,'country':country,'lat':lat,'lng':lng,'group':'Organized Crime'};nodes.append(n);by[i]=n
  if not any(n.get('kind')=='cartel' for n in nodes): raise RuntimeError('unable to retain a source-backed cartel node')
