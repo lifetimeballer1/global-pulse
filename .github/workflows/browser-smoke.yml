@@ -1,0 +1,82 @@
+name: Global Pulse — Browser Smoke Tests
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'intelligence-web.html'
+      - '*.js'
+      - '*.css'
+      - 'js/**'
+      - 'css/**'
+      - 'data/**'
+      - '.github/workflows/browser-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: global-pulse-browser-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install browser test runtime
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Start local production server
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/global-pulse-http.log 2>&1 &
+          echo $! >/tmp/global-pulse-http.pid
+          sleep 2
+      - name: Run desktop and mobile UI smoke tests
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+
+          BASE='http://127.0.0.1:4173'
+
+          def smoke(page, name):
+              page.goto(BASE + '/index.html', wait_until='domcontentloaded', timeout=30000)
+              page.locator('#mapContainer').wait_for(timeout=30000)
+              page.locator('#gpMapLayers').click()
+              assert page.locator('#gpMapLayerPanel').evaluate("el => el.classList.contains('open')")
+              page.locator('#gpMapSearch').fill('Ukraine')
+              page.locator('#gpMapReset').click()
+              page.locator('.leaflet-interactive').first.wait_for(timeout=30000)
+              page.locator('.leaflet-interactive').first.click()
+              page.locator('#gpMapClose').wait_for(timeout=10000)
+              page.locator('#gpMapClose').click()
+              frame_el=page.locator('iframe.gp-intelweb-frame')
+              frame_el.scroll_into_view_if_needed()
+              frame=page.frame_locator('iframe.gp-intelweb-frame')
+              frame.locator('#control-toggle').wait_for(timeout=30000)
+              frame.locator('#control-toggle').click()
+              frame.locator('#clear').click()
+              frame.locator('#reset').click()
+              print(f'SMOKE PASS {name}: map filters/search/reset, marker detail/close, lazy Intelligence Web, filter/reset controls')
+
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              desktop=browser.new_page(viewport={'width':1440,'height':900}, reduced_motion='reduce')
+              smoke(desktop,'desktop')
+              mobile=browser.new_page(viewport={'width':390,'height':844}, reduced_motion='reduce')
+              smoke(mobile,'mobile')
+              browser.close()
+          PY
+      - name: Stop local server
+        if: always()
+        run: kill "$(cat /tmp/global-pulse-http.pid)" 2>/dev/null || true
