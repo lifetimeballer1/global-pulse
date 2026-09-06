@@ -44,6 +44,7 @@ async function loadModules() {
     breaking: './modules/breaking.js',
     conflicts: './modules/conflicts.js',
     brain: './modules/intelligence-brain.js',
+    brainTimeline: './modules/brain-timeline.js',
     intelligenceWeb: './modules/intelligence-web.js',
     markets: './modules/markets.js',
     status: './modules/status.js',
@@ -71,6 +72,7 @@ function renderAll() {
   safeRender('breaking');
   safeRender('conflicts');
   safeRender('brain', 'renderIntelligenceBrain');
+  safeRender('brainTimeline', 'renderBrainTimeline');
   safeRender('intelligenceWeb', 'renderIntelligenceWeb');
   safeRender('markets');
   safeRender('status');
