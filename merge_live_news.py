@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -17,9 +18,25 @@ def parse_time(value):
     if not value:
         return datetime.min.replace(tzinfo=timezone.utc)
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+        dt = parsedate_to_datetime(str(value))
     except Exception:
-        return datetime.min.replace(tzinfo=timezone.utc)
+        try:
+            dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        except Exception:
+            return datetime.min.replace(tzinfo=timezone.utc)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def canonical_time(value):
+    """Return a browser-safe UTC ISO-8601 timestamp, or None if invalid."""
+    if not value:
+        return None
+    dt = parse_time(value)
+    if dt == datetime.min.replace(tzinfo=timezone.utc):
+        return None
+    return dt.isoformat().replace("+00:00", "Z")
 
 
 def normalize_article(item):
@@ -27,8 +44,10 @@ def normalize_article(item):
     url = item.get("url") or item.get("link") or item.get("sourceUrl")
     if not url:
         return None
+    published = canonical_time(item.get("published_date") or item.get("publishedDate") or item.get("time"))
+    if not published:
+        return None
     source = item.get("source") or item.get("source_name") or item.get("sourceLabel") or "Live source"
-    published = item.get("published_date") or item.get("publishedDate") or item.get("time")
     title = item.get("title") or (f"Tweet by @{item.get('username')}" if item.get("username") else f"Update from {source}")
     summary = item.get("summary_snippet") or item.get("summary") or ""
     breaking_terms = ("strike", "attack", "killed", "drone", "missile", "blockade", "escalat", "invasion", "ceasefire", "bomb", "shell", "offensive", "coup", "clash", "shooting", "airstrike")
@@ -58,15 +77,17 @@ def normalize_article(item):
 
 def main():
     if not SNAP.exists() or not LIVE.exists():
-        print("live merge skipped: snapshot or live export missing")
-        return
+        raise RuntimeError("live merge requires snapshot.json and live_articles.json")
     snapshot = json.loads(SNAP.read_text(encoding="utf-8"))
     live = json.loads(LIVE.read_text(encoding="utf-8"))
     existing = {}
+    dropped_invalid_timestamps = 0
     for story in snapshot.get("stories", []):
         normalized = normalize_article(story)
         if normalized:
             existing[normalized["url"]] = {**story, **normalized}
+        else:
+            dropped_invalid_timestamps += 1
 
     added = 0
     for item in live.get("articles", []):
@@ -79,15 +100,12 @@ def main():
     stories = sorted(existing.values(), key=lambda s: parse_time(s.get("time") or s.get("published_date")), reverse=True)[:300]
     snapshot["stories"] = stories
 
-    try:
-        import update_snapshot as base
-        import update_snapshot_fast as builder
-        from counter_cartel_runtime import install
-        install(base, builder)
-        previous = {"conflicts": snapshot.get("conflicts", [])}
-        snapshot["conflicts"] = base.make_conflicts(stories, previous)
-    except Exception as exc:
-        print(f"conflict re-score skipped: {type(exc).__name__}: {exc}")
+    import update_snapshot as base
+    import update_snapshot_fast as builder
+    from counter_cartel_runtime import install
+    install(base, builder)
+    previous = {"conflicts": snapshot.get("conflicts", [])}
+    snapshot["conflicts"] = base.make_conflicts(stories, previous)
 
     now = datetime.now(timezone.utc).isoformat()
     snapshot["updatedAt"] = now
@@ -96,14 +114,15 @@ def main():
     if STATUS.exists():
         try:
             live_status = json.loads(STATUS.read_text(encoding="utf-8"))
-        except Exception:
-            live_status = {}
+        except Exception as exc:
+            print(f"live status parse warning: {type(exc).__name__}: {exc}")
     snapshot["liveDatabase"] = {
         "enabled": True,
         "articleCount": int(live.get("count", 0)),
         "lastExport": live.get("updatedAt"),
         "retentionDays": live.get("retentionDays", 7),
         "newMergedThisRun": added,
+        "droppedInvalidTimestamps": dropped_invalid_timestamps,
     }
     feeds_checked = int(live_status.get("feedsChecked", 0))
     failed = len(live_status.get("failedSources", []))
@@ -116,7 +135,7 @@ def main():
     }
     snapshot["sourceStatus"] = f"{len(stories)} stories · {added} live-db merged · persistent 7-day SQLite collector active"
     SNAP.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"live merge: {added} new rows, {len(stories)} total stories")
+    print(f"live merge: {added} new rows, {len(stories)} total stories, droppedInvalidTimestamps={dropped_invalid_timestamps}")
 
 
 if __name__ == "__main__":
