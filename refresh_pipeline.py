@@ -121,6 +121,7 @@ def main():
  if 'windows' not in trends:raise RuntimeError('historical trends windows missing')
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
  run('Ensure Brain group coverage',sys.executable,'ensure_brain_groups.py')
+ run('Strict Phase 1 Brain validation',sys.executable,'validate_intelligence_brain.py')
  brain=verify_json('intelligence_brain.json');verify_brain(brain)
  run('Canonical index cleanup',sys.executable,'clean_index.py')
  run('Browser security hardening',sys.executable,'harden_site.py')
