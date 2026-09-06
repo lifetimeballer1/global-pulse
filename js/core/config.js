@@ -12,7 +12,8 @@ export const CONFIG = {
     mapEvents: './data/live_events.json',
     mapRegional: './data/regional_intelligence.json',
     mapCartel: './data/enforcer_maps.json',
-    mapLinks: './data/map_event_links.json'
+    mapLinks: './data/map_event_links.json',
+    mapPoints: './data/map_points.json'
   },
   refresh: {
     snapshot: 5 * 60 * 1000,
