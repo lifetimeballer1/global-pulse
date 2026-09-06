@@ -5,7 +5,7 @@ import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data'
-REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json')
+REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json','map_points.json')
 def run(label,*cmd):
  print(f'\n=== {label} ===',flush=True);print('$',' '.join(cmd),flush=True);subprocess.run(cmd,cwd=ROOT,check=True);print(f'PASS: {label}',flush=True)
 def load(name):
@@ -58,7 +58,7 @@ def write_refresh_manifest():
   if not p.is_file() or p.stat().st_size==0:raise RuntimeError(f'required generated artifact missing: {name}')
   raw=p.read_bytes();obj=json.loads(raw.decode('utf-8'));stamp=(obj.get('updatedAt') or obj.get('lastSuccessfulRefresh')) if isinstance(obj,dict) else now
   artifacts[name]={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'generatedAt':stamp}
- manifest={'version':5,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
+ manifest={'version':6,'generatedAt':now,'pipeline':'refresh_pipeline.py','artifacts':artifacts}
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('PASS: refresh manifest',','.join(REQUIRED_ARTIFACTS),flush=True)
 def main():
  run('Expand feeds',sys.executable,'update_feed_expansion.py');sources=DATA/'sources.json'
@@ -87,6 +87,8 @@ def main():
  if not (snap.get('conflictDataset') or {}).get('provider'):raise RuntimeError('UCDP conflict layer missing')
  run('World Bank macro context',sys.executable,'update_macro_data.py');snap=verify_json('snapshot.json')
  if not (snap.get('macroData') or {}).get('provider'):raise RuntimeError('macro layer missing')
+ run('Build canonical map marker feed',sys.executable,'build_map_points.py');map_points=verify_json('map_points.json')
+ if map_points.get('count',0)<10 or not isinstance(map_points.get('markers'),list):raise RuntimeError('map marker feed verification failed')
  run('Canonical event pipeline',sys.executable,'build_event_pipeline.py')
  for artifact,key in [('event_history.json',None),('event_intelligence.json','events'),('event_consistency.json','events'),('event_resolution.json','events'),('event_market_impact.json','events')]:verify_json(artifact,min_list=(key,0) if key else None)
  run('Intelligence graph enrichment',sys.executable,'enhance_counter_cartel_intelligence.py');snap=verify_json('snapshot.json');graph_data=snap.get('intelligenceGraph') or {}
@@ -108,11 +110,8 @@ def main():
  run('Install browser QA hardening',sys.executable,'install_qa_hardening.py')
  run('Repository validation',sys.executable,'validate_repository.py')
  final=verify_json('snapshot.json')
- now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
- final['updatedAt']=now
- final['lastSuccessfulRefresh']=now
- final['freshness']={'status':'fresh','generatedAt':now,'maxExpectedAgeSeconds':900}
+ now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z');final['updatedAt']=now;final['lastSuccessfulRefresh']=now;final['freshness']={'status':'fresh','generatedAt':now,'maxExpectedAgeSeconds':900}
  DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if not isinstance(final.get('markers'),list) or not final['markers']:raise RuntimeError('final conflict-data gate failed')
- write_refresh_manifest();print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('brain=',len(brain.get('nodes') or []),'major nodes /',len(brain.get('edges') or []),'relationships',flush=True);return 0
+ write_refresh_manifest();print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('mapPoints=',map_points.get('count'),flush=True);print('brain=',len(brain.get('nodes') or []),'major nodes /',len(brain.get('edges') or []),'relationships',flush=True);return 0
 if __name__=='__main__':raise SystemExit(main())
