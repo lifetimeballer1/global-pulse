@@ -123,7 +123,7 @@ def main():
         if re.search(r'(?<![a-z])(?:u\\.s\\.?|u\\.s\\.?a\\.?|usa|american)(?![a-z])',t):
             hits.append(add('United States','country',source,5,{'country':'United States','lat':38,'lng':-97,'clusterKey':'country:United States','canonical':True}))
         if any(re.search(r'(?<![a-z])'+re.escape(name.lower())+r'(?![a-z])',t) for name in CARTELS):
-            hits.append(add('Cartels & Organized Crime','cartel',source,8,{'group':'Organized Crime','canonical':True,'description':'Consolidated hub for cartel, gang and organized-crime evidence; individual groups remain in node evidence, not as graph nodes.'}))
+            hits.append(add('Cartels & Organized Crime','cartel',source,8,{'group':'Organized Crime','canonical':True,'lat':23.6,'lng':-102.5,'clusterKey':'cartel:organized-crime','description':'Consolidated hub for cartel, gang and organized-crime evidence; individual groups remain in node evidence, not as graph nodes.'}))
         for label,terms in CONFLICTS.items():
             if any(x in t for x in terms):hits.append(add(label,'conflict',source,5,{'group':'Major Conflict','canonical':True}))
         for label,terms in ECONOMIC.items():
