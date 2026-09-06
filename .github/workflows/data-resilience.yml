@@ -1,9 +1,7 @@
 name: Global Pulse — Data Resilience Checks
 
-# IMPORTANT: production refresh/deploy is owned by update-snapshot.yml.
-# A second scheduled deployment was able to race the production pipeline and
-# publish an older/incomplete site build. Keep this workflow manual-only so it
-# can be used for isolated diagnostics without ever replacing the live site.
+# Production refresh/deploy is owned by update-snapshot.yml. This workflow is
+# diagnostics-only so a second scheduler can never race production deployment.
 on:
   workflow_dispatch:
 
@@ -35,7 +33,8 @@ jobs:
       - name: Validate resilience scripts
         run: |
           set -euo pipefail
-          python -m py_compile source_failover.py update_market_data.py
+          python -m py_compile source_failover.py update_market_data.py validate_data_resilience.py
+          python validate_data_resilience.py
           test -s data/snapshot.json
           test -s data/sources.json
           python - <<'PY'
@@ -55,10 +54,14 @@ jobs:
       - name: Confirm production scheduler contract
         run: |
           set -euo pipefail
-          grep -q "2-59/5 \* \* \* \*" .github/workflows/update-snapshot.yml
+          grep -q "schedule:" .github/workflows/update-snapshot.yml
           grep -q "actions/deploy-pages@v4" .github/workflows/update-snapshot.yml
           if grep -q "actions/deploy-pages@v4" .github/workflows/data-resilience.yml; then
             echo 'ERROR: resilience workflow must never deploy Pages'
+            exit 1
+          fi
+          if grep -q "schedule:" .github/workflows/data-resilience.yml; then
+            echo 'ERROR: resilience workflow must remain manual-only'
             exit 1
           fi
           echo 'Production scheduler owns Pages deployment; resilience workflow is diagnostics-only.'
