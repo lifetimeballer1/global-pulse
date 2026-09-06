@@ -4,6 +4,12 @@ import { escapeHtml, formatRelativeTime } from '../core/utils.js';
 
 let selectedId = null;
 
+function selectBrainNode(id, {scroll=true}={}) {
+  selectedId = id ? String(id) : null;
+  renderIntelligenceBrain();
+  if (scroll) document.getElementById('brainBody')?.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
 export function renderIntelligenceBrain() {
   const el = document.getElementById('brainBody');
   const updatedEl = document.getElementById('brainUpdated');
@@ -34,6 +40,16 @@ export function renderIntelligenceBrain() {
     <div class="gp-brain-grid">${ranked.map(n=>`<button class="gp-card gp-brain-node ${selectedId===String(n.id)?'selected':''}" data-brain-node="${escapeHtml(String(n.id))}" type="button"><div class="gp-card-title">${escapeHtml(n.label||n.name||n.id)}</div><div class="gp-card-meta"><span class="gp-badge category">${escapeHtml(n.kind||n.type||'entity')}</span><span>${degree[n.id]||0} links</span></div></button>`).join('')}</div>
     ${selected ? `<div class="gp-card gp-brain-details"><div class="gp-card-title">${escapeHtml(selected.label||selected.name||selected.id)}</div><div style="font-size:12px;color:var(--text-secondary);margin-top:6px">${escapeHtml(selected.description||selected.summary||'No additional description in the current evidence artifact.')}</div>${selectedEdges.map(e=>{const other=String(e.source)===selectedId?byId.get(String(e.target)):byId.get(String(e.source));return `<div style="margin-top:7px;padding:7px;border:1px solid var(--line);border-radius:8px;font-size:11px"><strong>${escapeHtml(other?.label||other?.name||'Connected signal')}</strong><br>${escapeHtml(e.relationship||e.label||e.type||'contextual relationship')}</div>`}).join('')}<button class="gp-btn" id="brainClearSelection" type="button" style="margin-top:9px">Close node</button></div>` : ''}
     <div style="margin-top:10px;font-size:10px;color:var(--muted-2)">Source-backed only: ${brain.sourceBackedOnly===true?'YES':'NO'} · Consolidated: ${brain.consolidated===true?'YES':'NO'}</div>`;
-  el.querySelectorAll('[data-brain-node]').forEach(btn=>btn.addEventListener('click',()=>{selectedId=btn.dataset.brainNode;renderIntelligenceBrain();}));
-  el.querySelector('#brainClearSelection')?.addEventListener('click',()=>{selectedId=null;renderIntelligenceBrain();});
+  el.querySelectorAll('[data-brain-node]').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=btn.dataset.brainNode;
+    selectBrainNode(id);
+    window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id,source:'brain'}}));
+  }));
+  el.querySelector('#brainClearSelection')?.addEventListener('click',()=>{selectedId=null;window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id:null,source:'brain'}}));renderIntelligenceBrain();});
 }
+
+window.addEventListener('gp:brain-select', event => {
+  const id = event.detail?.id;
+  if (!id || event.detail?.source === 'brain') return;
+  selectBrainNode(String(id), {scroll:false});
+});
