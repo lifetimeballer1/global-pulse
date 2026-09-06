@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build the compact Global Pulse Intelligence Brain from the full data ecosystem.
 
-The UI remains compact (35 major nodes max), but node evidence and relationships
-are consolidated from all canonical intelligence artifacts. Raw records remain
+The UI remains compact (35 major nodes max), while node evidence is a bounded
+representative sample of the full source-backed record set. Raw records remain
 upstream; no unsourced node or relationship is invented here.
 """
 from __future__ import annotations
@@ -10,7 +10,7 @@ import json,re
 from collections import defaultdict
 from datetime import datetime,timezone
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';OUT=DATA/'intelligence_brain.json';MAX_NODES=35
+ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';OUT=DATA/'intelligence_brain.json';MAX_NODES=35;MAX_EVIDENCE_PER_ITEM=100
 COUNTRIES={'United States':(38,-97),'Mexico':(23.6,-102.5),'Canada':(56.1,-106.3),'Colombia':(4.6,-74.1),'Ecuador':(-1.4,-78.4),'Venezuela':(7.1,-66),'Brazil':(-10.8,-52.9),'Peru':(-9.2,-75),'Chile':(-33.4,-70.7),'Argentina':(-38.4,-63.6),'Panama':(8.5,-80.8),'Costa Rica':(9.9,-84.2),'Haiti':(19,-72.3),'Dominican Republic':(18.7,-70.2),'Guatemala':(15.8,-90.2),'Honduras':(14.1,-87.2),'El Salvador':(13.8,-88.9),'Nicaragua':(12.9,-85.2),'Ukraine':(49,32),'Russia':(61.5,105.3),'Belarus':(53.7,27.9),'Poland':(52.1,19.1),'Germany':(51.2,10.5),'France':(46.2,2.2),'United Kingdom':(55.4,-3.4),'Italy':(41.9,12.6),'Spain':(40.5,-3.7),'Turkey':(39,35.2),'Greece':(39.1,21.8),'Romania':(45.9,24.9),'Israel':(31,34.9),'Palestine':(31.9,35.2),'Lebanon':(33.9,35.9),'Syria':(35,38),'Iraq':(33.2,43.7),'Iran':(32.4,53.7),'Saudi Arabia':(23.9,45.1),'Yemen':(15.6,48.5),'Jordan':(31.2,36.5),'Egypt':(26.8,30.8),'Libya':(26.3,17.2),'Sudan':(12.9,30.2),'Somalia':(5.2,46.2),'Ethiopia':(9.1,40.5),'Nigeria':(9.1,8.7),'Mali':(17.6,-4),'Niger':(17.6,8.1),'Burkina Faso':(12.4,-1.6),'Ghana':(7.9,-1),'South Africa':(-30.6,22.9),'Kenya':(.2,37.9),'DR Congo':(-2.9,23.7),'Mozambique':(-18.7,35.5),'China':(35.9,104.2),'India':(22.9,79),'Pakistan':(30.4,69.3),'Afghanistan':(33.9,67.7),'North Korea':(40.3,127.5),'South Korea':(35.9,127.8),'Japan':(36.2,138.3),'Taiwan':(23.7,120.9),'Philippines':(12.9,121.8),'Indonesia':(-2,118),'Australia':(-25.3,133.8),'Myanmar':(21.9,95.9),'Thailand':(15.9,100.9),'Vietnam':(14.1,108.3)}
 CARTELS={'Sinaloa Cartel':'Mexico','CJNG':'Mexico','Jalisco New Generation Cartel':'Mexico','Gulf Cartel':'Mexico','Los Zetas':'Mexico','Northeast Cartel':'Mexico','Santa Rosa de Lima Cartel':'Mexico','La Nueva Familia Michoacana':'Mexico','Juarez Cartel':'Mexico','Beltran Leyva Organization':'Mexico','Clan del Golfo':'Colombia','Tren de Aragua':'Venezuela','PCC':'Brazil','Primeiro Comando da Capital':'Brazil','Comando Vermelho':'Brazil','Los Choneros':'Ecuador','MS-13':'El Salvador','Mara Salvatrucha':'El Salvador'}
 ECONOMIC={'Oil':['oil','crude','brent','wti','petroleum','refinery','pipeline','opec','barrel','lng','natural gas','gas field','gasoline','diesel'],'Food':['food','grain','wheat','corn','maize','rice','soy','soybean','fertilizer','famine','hunger','food security','food supply','cattle','beef'],'Energy':['energy','electricity','power grid','nuclear','uranium','solar','wind power','coal','gas'],'Minerals':['lithium','cobalt','copper','nickel','rare earth','gold','iron ore','mineral','mining'],'Shipping':['shipping','cargo','container','port','maritime','vessel','tanker','strait','canal','red sea','hormuz','suez'],'Markets':['stock','stocks','market','markets','nasdaq','s&p 500','dow jones','bond','yield','currency','forex','bank','financial','vix','bitcoin','crypto'],'Trade':['trade','tariff','export','import','sanction','customs','trade war'],'Inflation':['inflation','consumer prices','cost of living','interest rate','central bank','rate cut','rate hike'],'Supply Chains':['supply chain','logistics','shortage','disruption','manufacturing','semiconductor','chip supply'],'Commodities':['commodity','commodities','raw materials','commodity prices']}
@@ -33,18 +33,20 @@ def ev(r):
 def evkey(x):return (str(x.get('title') or '').strip().lower(),str(x.get('url') or '').strip().lower(),str(x.get('source') or '').strip().lower())
 def text(r):return ' '.join(str(r.get(k,'')) for k in ('title','headline','summary','description','content','detail','name','region','country','location','category','type','tags','keywords','eventType','layer','actor','actors','organization','organizations','group','provider','severity','impact','assessment','claim','text')).lower()
 def slug(x):return re.sub(r'[^a-z0-9]+','-',str(x).lower()).strip('-')
+def append_evidence(bucket,item):
+ if len(bucket)>=MAX_EVIDENCE_PER_ITEM:return
+ if not any(evkey(x)==evkey(item) for x in bucket):bucket.append(item)
 def main():
  snap=load('snapshot.json',{}) or {};nodes={};rels=defaultdict(lambda:{'weight':0,'types':set(),'evidence':[]});reports=[];artifact_counts={}
  def add(label,kind,source,score=1,meta=None):
   if not label or not source:return None
   i=slug(label);n=nodes.setdefault(i,{'id':i,'label':label,'kind':kind,'score':0,'mentions':0,'evidence':[]});n['score']+=score;n['mentions']+=1
   if meta:n.update(meta)
-  if not any(evkey(x)==evkey(source) for x in n['evidence']):n['evidence'].append(source)
+  append_evidence(n['evidence'],source)
   return i
  def link(a,b,reason,source,typ):
   if not a or not b or a==b or not source:return
-  k='|'.join(sorted((a,b)));r=rels[k];r['weight']+=1;r['types'].add(typ);r['relationship']=reason
-  if not any(evkey(x)==evkey(source) for x in r['evidence']):r['evidence'].append(source)
+  k='|'.join(sorted((a,b)));r=rels[k];r['weight']+=1;r['types'].add(typ);r['relationship']=reason;append_evidence(r['evidence'],source)
  for filename in SOURCE_ARTIFACTS:
   obj=load(filename,None)
   if obj is None:continue
@@ -52,11 +54,9 @@ def main():
   for r in rows:
    source=ev(r)
    if source:reports.append((r,filename,source))
- # Market observations are first-class context even when the containing record has no article URL.
  market=snap.get('marketData') or {};market_sources=[]
  for q in market.get('indicators') or []:
-  if isinstance(q,dict) and q.get('price') is not None:
-   market_sources.append({'title':str(q.get('name') or q.get('symbol') or 'Market indicator'),'url':str(q.get('sourceUrl') or q.get('url') or ''),'source':str(q.get('source') or 'Public market feed'),'time':str(q.get('marketTime') or q.get('updatedAt') or '')})
+  if isinstance(q,dict) and q.get('price') is not None:market_sources.append({'title':str(q.get('name') or q.get('symbol') or 'Market indicator'),'url':str(q.get('sourceUrl') or q.get('url') or ''),'source':str(q.get('source') or 'Public market feed'),'time':str(q.get('marketTime') or q.get('updatedAt') or '')})
  for r,typ,source in reports:
   t=text(r);hits=[]
   for c,(lat,lng) in COUNTRIES.items():
@@ -76,17 +76,16 @@ def main():
  if market_sources:
   mid=add('Markets','economic',market_sources[0],4,{'group':'Economic Factor','canonical':True,'marketIndicators':len(market_sources)})
   if mid:
-   for x in market_sources[1:]:
-    if not any(evkey(y)==evkey(x) for y in nodes[mid]['evidence']):nodes[mid]['evidence'].append(x)
+   for x in market_sources[1:]:append_evidence(nodes[mid]['evidence'],x)
  quotas={'cartel':18,'country':8,'economic':6,'conflict':2,'chokepoint':1};chosen=[]
  for kind in ('cartel','country','economic','conflict','chokepoint'):
   pool=[n for n in nodes.values() if n['kind']==kind];pool.sort(key=lambda n:(n['score'],len(n['evidence']),n['mentions']),reverse=True);chosen.extend(pool[:quotas[kind]])
  chosen=chosen[:MAX_NODES];keep={n['id'] for n in chosen};edges=[]
  for k,r in rels.items():
   a,b=k.split('|',1)
-  if a in keep and b in keep and r['evidence']:edges.append({'source':a,'target':b,'weight':r['weight'],'types':sorted(r['types']),'relationship':r['relationship'],'evidence':r['evidence'][:20],'evidenceCount':len(r['evidence'])})
+  if a in keep and b in keep and r['evidence']:edges.append({'source':a,'target':b,'weight':r['weight'],'types':sorted(r['types']),'relationship':r['relationship'],'evidence':r['evidence'][:20],'evidenceCount':len(r['evidence'][:20])})
  edges.sort(key=lambda e:(e['evidenceCount'],e['weight']),reverse=True)
  now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z');stats={'nodes':len(chosen),'edges':len(edges),'recordsScanned':len(reports),'artifactsScanned':len(artifact_counts),'artifactRows':artifact_counts,'marketIndicators':len(market.get('indicators') or []),'sourceBackedCandidates':len(nodes),'cartelNodes':sum(n['kind']=='cartel' for n in chosen),'countryNodes':sum(n['kind']=='country' for n in chosen),'economicNodes':sum(n['kind']=='economic' for n in chosen),'conflictNodes':sum(n['kind']=='conflict' for n in chosen),'chokepointNodes':sum(n['kind']=='chokepoint' for n in chosen)}
- payload={'version':10,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Compact human-facing graph. Nodes aggregate source-backed records across the canonical data ecosystem; raw records remain upstream. No source means no node.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major entity/factor nodes. Recursive records are deduplicated by evidence identity.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
+ payload={'version':10,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Compact human-facing graph. Nodes aggregate source-backed records across the canonical data ecosystem. Node evidence is bounded to 100 representative unique records; raw records remain upstream. No source means no node.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major entity/factor nodes. Recursive records are deduplicated by evidence identity.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
  OUT.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8');print(f'INTELLIGENCE BRAIN: {len(chosen)} major nodes / {len(edges)} relationships / {len(nodes)} sourced candidates / {len(reports)} source-backed records across {len(artifact_counts)} artifacts')
 if __name__=='__main__':main()
