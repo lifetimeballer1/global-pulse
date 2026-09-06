@@ -18,6 +18,21 @@ def test_map_conflict_filter_has_canonical_classifier_and_rerender():
     assert 'window.renderMap' not in text
 
 
+def test_map_and_brain_share_canonical_artifact_and_node_identity():
+    map_text = (ROOT / 'js/modules/map.js').read_text(encoding='utf-8')
+    config_text = (ROOT / 'js/core/config.js').read_text(encoding='utf-8')
+    brain = (ROOT / 'data/intelligence_brain.json').read_text(encoding='utf-8')
+    assert 'intelligenceBrain' in config_text
+    assert "'intelligenceBrain'" in map_text
+    assert 'mapData?.brain' in map_text
+    assert 'sourceBackedOnly===true' in map_text
+    assert 'nodeId:String(n.id)' in map_text
+    assert 'brainEdgesFor' in map_text
+    assert '"complete":true' in brain
+    assert '"sourceBackedOnly":true' in brain
+    assert '"consolidated":true' in brain
+
+
 def test_live_news_feed_schema_normalizes_to_browser_story_shape():
     import merge_live_news as merger
     item = {
