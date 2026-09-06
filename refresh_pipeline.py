@@ -123,6 +123,7 @@ def main():
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
  run('Ensure Brain group coverage',sys.executable,'ensure_brain_groups.py')
  run('Enrich U.S. and China action intelligence',sys.executable,'enrich_brain_actions.py')
+ run('Validate U.S. and China action intelligence',sys.executable,'validate_action_intelligence.py')
  run('Strict Phase 1 Brain validation',sys.executable,'validate_intelligence_brain.py')
  brain=verify_json('intelligence_brain.json');verify_brain(brain)
  run('Canonical index cleanup',sys.executable,'clean_index.py')
