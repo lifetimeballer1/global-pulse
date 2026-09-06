@@ -89,7 +89,7 @@ jobs:
               s=s.replace("'&copy; OpenStreetMap &copy; CARTO'","'&copy; OpenStreetMap contributors'")
               s=s.replace('&copy; OpenStreetMap &copy; CARTO','&copy; OpenStreetMap contributors')
               p.write_text(s,encoding='utf-8')
-              print('Replaced CARTO API-key tile layer with public OpenStreetMap tiles')
+              print('Replaced CARTO tile layer with public OpenStreetMap tiles')
           else:
               print('No CARTO tile URL in generated index; map module owns the tile layer')
           PY
@@ -160,8 +160,20 @@ jobs:
         run: git fetch origin main && git merge-base --is-ancestor HEAD origin/main
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Prepare exact Pages site
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
+          test -f _site/index.html
+          test -f _site/data/map_points.json
+          test -f _site/js/app.js
+          echo "Prepared Pages site: $(find _site -type f | wc -l) files"
       - name: Upload exact generated site
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
       - name: Deploy exact generated site
         id: deployment
         uses: actions/deploy-pages@v4
