@@ -15,6 +15,7 @@ ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data'
 OUT=DATA/'intelligence_brain.json'
 MAX_NODES=35
+MAX_EVIDENCE_PER_ITEM=100
 
 COUNTRIES={
  'United States':(38,-97),'China':(35.9,104.2),'Russia':(61.5,105.3),'Ukraine':(49,32),
@@ -88,7 +89,8 @@ def main():
         n['score']+=score;n['mentions']+=1
         if meta:n.update(meta)
         key=evkey(source)
-        if not any(evkey(x)==key for x in n['evidence']): n['evidence'].append(source)
+        if not any(evkey(x)==key for x in n['evidence']) and len(n['evidence']) < MAX_EVIDENCE_PER_ITEM:
+            n['evidence'].append(source)
         return i
 
     def link(a,b,reason,source,typ):
@@ -96,7 +98,8 @@ def main():
         k='|'.join(sorted((a,b)));r=relationships[k]
         r['weight']+=1;r['types'].add(typ)
         r['relationship']=reason
-        if not any(evkey(x)==evkey(source) for x in r['evidence']):r['evidence'].append(source)
+        if not any(evkey(x)==evkey(source) for x in r['evidence']) and len(r['evidence']) < MAX_EVIDENCE_PER_ITEM:
+            r['evidence'].append(source)
 
     for filename in SOURCE_ARTIFACTS:
         obj=load(filename,None)
@@ -135,7 +138,8 @@ def main():
     if market_sources:
         mid=add('Markets','economic',market_sources[0],4,{'group':'Economic Factor','canonical':True,'marketIndicators':len(market_sources)})
         for e in market_sources[1:]:
-            if not any(evkey(x)==evkey(e) for x in nodes[mid]['evidence']):nodes[mid]['evidence'].append(e)
+            if not any(evkey(x)==evkey(e) for x in nodes[mid]['evidence']) and len(nodes[mid]['evidence']) < MAX_EVIDENCE_PER_ITEM:
+                nodes[mid]['evidence'].append(e)
 
     quotas={'country':8,'conflict':4,'economic':3,'cartel':1,'chokepoint':1}
     chosen=[]
@@ -162,7 +166,7 @@ def main():
 
     now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
     stats={'nodes':len(chosen),'edges':len(edges),'recordsScanned':len(reports),'artifactsScanned':len(artifact_counts),'artifactRows':artifact_counts,'marketIndicators':len(market.get('indicators') or []),'sourceBackedCandidates':len(nodes),'evidenceRecordsRetained':sum(len(n['evidence']) for n in chosen),'countryNodes':sum(n['kind']=='country' for n in chosen),'cartelNodes':sum(n['kind']=='cartel' for n in chosen),'conflictNodes':sum(n['kind']=='conflict' for n in chosen),'economicNodes':sum(n['kind']=='economic' for n in chosen),'chokepointNodes':sum(n['kind']=='chokepoint' for n in chosen)}
-    payload={'version':11,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Major-hub graph. Country, conflict, economic and organized-crime records are consolidated beneath a bounded set of human-readable nodes. Evidence is retained on the hubs; subgroups such as Sinaloa and CJNG are evidence attributes, not separate graph nodes.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate the canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major hubs. Deduplicate evidence by title/url/source identity.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
+    payload={'version':11,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Major-hub graph. Country, conflict, economic and organized-crime records are consolidated beneath a bounded set of human-readable nodes. Evidence is retained on the hubs; subgroups such as Sinaloa and CJNG are evidence attributes, not separate graph nodes.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate the canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major hubs. Deduplicate evidence by title/url/source identity and cap each node/relationship at 100 retained evidence records.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
     OUT.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     print(f'INTELLIGENCE BRAIN: {len(chosen)} hubs / {len(edges)} relationships / {sum(len(n["evidence"]) for n in chosen)} retained evidence records / {len(reports)} source records scanned')
 
