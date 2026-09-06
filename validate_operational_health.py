@@ -97,10 +97,11 @@ def main():
             raise SystemExit("OPERATIONAL HEALTH FAILED: story lacks provenance identity")
         identity_count += 1
         unique_identities.add(key)
-    # Require that at least 90% of records have distinct canonical identities,
-    # while allowing duplicate source records to remain preserved upstream.
+    # Require that at least 90% of records have distinct canonical identities.
+    # This protects against an accidental repeated-ingest storm while allowing
+    # legitimate source-preserving duplicates to remain in the upstream record set.
     if len(unique_identities) < max(1, int(identity_count * 0.9)):
-        raise SystemExit("OPERATIONAL HEALTH FAILED: excessive duplicate canonical story identities")
+        raise SystemExit("OPERATIONAL HEALTH FAILED: excessive duplicate story identities / excessive duplicate canonical story identities")
 
     bad_coords = 0
     for marker in markers:
