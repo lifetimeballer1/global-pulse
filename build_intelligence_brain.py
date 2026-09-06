@@ -61,6 +61,11 @@ def main():
   t=text(r);hits=[]
   for c,(lat,lng) in COUNTRIES.items():
    if re.search(r'(?<![a-z])'+re.escape(c.lower())+r'(?![a-z])',t):hits.append(add(c,'country',source,2,{'country':c,'lat':lat,'lng':lng,'clusterKey':'country:'+c,'canonical':True}))
+  # The United States is a first-class geopolitical hub. Match explicit country
+  # names and unambiguous U.S./USA/American references, but never bare "US"
+  # because that token is common English and would create false connections.
+  if re.search(r'(?<![a-z])(?:united states|u\\.s\\.?a\\.?|usa|american)(?![a-z])',t):
+   hits.append(add('United States','country',source,4,{'country':'United States','lat':38,'lng':-97,'clusterKey':'country:United States','canonical':True}))
   for cartel,country in CARTELS.items():
    if re.search(r'(?<![a-z])'+re.escape(cartel.lower())+r'(?![a-z])',t):
     lat,lng=COUNTRIES[country];hits.append(add(cartel,'cartel',source,7,{'country':country,'lat':lat,'lng':lng,'group':'Organized Crime','canonical':True}))
@@ -80,6 +85,14 @@ def main():
  quotas={'cartel':18,'country':8,'economic':6,'conflict':2,'chokepoint':1};chosen=[]
  for kind in ('cartel','country','economic','conflict','chokepoint'):
   pool=[n for n in nodes.values() if n['kind']==kind];pool.sort(key=lambda n:(n['score'],len(n['evidence']),n['mentions']),reverse=True);chosen.extend(pool[:quotas[kind]])
+ # Keep the United States visible whenever it has real source-backed evidence,
+ # even if another country would otherwise rank into the country quota.
+ us_node=nodes.get('united-states')
+ if us_node and not any(n['id']==us_node['id'] for n in chosen):
+  replace=next((i for i in range(len(chosen)-1,-1,-1) if chosen[i]['kind']=='country'),None)
+  if replace is not None:chosen[replace]=us_node
+  elif len(chosen)>=MAX_NODES:chosen[-1]=us_node
+  else:chosen.append(us_node)
  chosen=chosen[:MAX_NODES];keep={n['id'] for n in chosen};edges=[]
  for k,r in rels.items():
   a,b=k.split('|',1)
