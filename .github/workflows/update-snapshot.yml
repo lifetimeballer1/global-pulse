@@ -126,15 +126,40 @@ jobs:
       - name: Prepare exact Pages site
         run: |
           set -euo pipefail
-          rm -rf _site; mkdir -p _site; rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
-          test -f _site/index.html; test -f _site/data/map_points.json; test -f _site/js/app.js; test -f _site/intelligence-web.html; test -f _site/intelligence_web_controls_fix.js; test -f _site/global_pulse_performance.js; test -f _site/validate_operational_health.py
+          rm -rf _site
+          mkdir -p _site
+          rsync -a \
+            --include='index.html' \
+            --include='intelligence-web.html' \
+            --include='site.webmanifest' \
+            --include='favicon.png' \
+            --include='apple-touch-icon.png' \
+            --include='*.js' \
+            --include='*.css' \
+            --include='js/***' \
+            --include='css/***' \
+            --include='assets/***' \
+            --include='data/***' \
+            --exclude='*' \
+            ./ _site/
+          test -f _site/index.html
+          test -f _site/data/map_points.json
+          test -f _site/js/app.js
+          test -f _site/intelligence-web.html
+          test -f _site/intelligence_web_controls_fix.js
+          test -f _site/global_pulse_performance.js
+          test ! -e _site/news_feed.db
+          test ! -e _site/tests
+          test ! -e _site/.github
+          ! find _site -type f -name '*.py' -print -quit | grep -q .
+          ! find _site -type d -name '__pycache__' -print -quit | grep -q .
           python - <<'PY'
           import json
           from pathlib import Path
           mp=json.loads(Path('_site/data/map_points.json').read_text()); markers=mp.get('markers') or []; assert len(markers)>=10
           assert all(-90<=float(x['lat'])<=90 and -180<=float(x['lng'])<=180 for x in markers)
           brain=json.loads(Path('_site/data/intelligence_brain.json').read_text()); assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True and brain.get('consolidated') is True; assert 10<=len(brain.get('nodes',[]))<=35 and len(brain.get('edges',[]))>=5
-          print(f'PASS exact Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
+          print(f'PASS exact minimal Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
           PY
       - name: Upload exact generated site
         uses: actions/upload-pages-artifact@v3
