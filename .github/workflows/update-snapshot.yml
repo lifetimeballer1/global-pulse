@@ -1,5 +1,5 @@
-name: Global Pulse — Canonical Live Refresh
-run-name: Global Pulse refresh • ${{ github.event_name }} • ${{ github.run_number }}
+name: Aegis Nexus — Canonical Live Refresh
+run-name: Aegis Nexus refresh • ${{ github.event_name }} • ${{ github.run_number }}
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -20,7 +20,7 @@ on:
       - 'intelligence-web.html'
       - 'data/enforcer_maps.json'
 concurrency:
-  group: global-pulse-canonical-refresh
+  group: aegis-nexus-canonical-refresh
   cancel-in-progress: false
 permissions:
   contents: write
@@ -37,21 +37,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: main
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Restore latest news database
         uses: actions/cache@v4
         with:
           path: news_feed.db
-          key: ${{ runner.os }}-global-pulse-news-db-${{ github.run_id }}
+          key: ${{ runner.os }}-aegis-nexus-news-db-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-global-pulse-news-db-
+            ${{ runner.os }}-aegis-nexus-news-db-
       - name: Verify runtime
         run: python --version && node --version && git --version
       - name: Run canonical refresh with per-stage verification
@@ -83,6 +83,7 @@ jobs:
           set -euo pipefail
           python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_intelligence_brain.py validate_intelligence_brain.py validate_data_resilience.py validate_security.py validate_performance.py validate_operational_health.py build_map_points.py finalize_map_ui.py
           python validate_data_resilience.py
+          python validate_intelligence_brain.py
           python validate_performance.py
           python validate_operational_health.py
           node --check intelligence_brain_web.js
@@ -98,7 +99,7 @@ jobs:
           assert isinstance(d.get('failoverState'),dict) and (d.get('conflictDataset') or {}).get('provider') and (d.get('macroData') or {}).get('provider')
           brain=d.get('intelligenceBrain') or {}
           assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True and brain.get('consolidated') is True
-          assert 10 <= len(brain.get('nodes',[])) <= 35 and len(brain.get('edges',brain.get('relationships',[]))) >= 5
+          assert int(brain.get('maxNodes',0)) == 35 and 10 <= len(brain.get('nodes',[])) <= 35 and len(brain.get('edges',brain.get('relationships',[]))) >= 5
           live=json.loads(Path('data/live_status.json').read_text()); assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
           mp=json.loads(Path('data/map_points.json').read_text()); assert isinstance(mp.get('markers'),list) and len(mp['markers'])>0
           assert all(-90<=float(x['lat'])<=90 and -180<=float(x['lng'])<=180 for x in mp['markers'])
@@ -106,7 +107,7 @@ jobs:
           for name in ('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json'):
               meta=manifest['artifacts'][name]; assert hashlib.sha256(Path('data',name).read_bytes()).hexdigest()==meta['sha256']
           html=Path('index.html').read_text(); assert all(x in html for x in ('global_pulse_core.js','global_pulse_event_pipeline.js','global_pulse_brain_ui.js','global_pulse_tokens.css','global_pulse_performance.js'))
-          assert 'section-brain' in html and 'section-markets' in html and 'mapContainer' in html and 'loading="lazy"' in html and 'loading="eager"' not in html
+          assert 'Aegis Nexus' in html and 'section-brain' in html and 'section-markets' in html and 'mapContainer' in html and 'loading="lazy"' in html and 'loading="eager"' not in html
           web=Path('intelligence-web.html').read_text(); assert 'intelligence_brain_web.js?v=20260906-controlsfix1' in web and 'intelligence_web_controls_fix.js?v=20260906-controlsfix1' in web
           print('PASS canonical data, manifest and browser integration')
           PY
@@ -116,7 +117,7 @@ jobs:
           git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if git diff --cached --quiet; then echo 'No generated changes to commit'; exit 0; fi
-          git commit -m 'chore: refresh Global Pulse live data'
+          git commit -m 'chore: refresh Aegis Nexus live data'
           for attempt in 1 2 3 4 5; do git fetch origin main; git rebase -X theirs origin/main; if git push origin HEAD:main; then exit 0; fi; git rebase --abort || true; sleep $((attempt * 3)); done
           exit 1
       - name: Verify main contains generated commit
@@ -158,7 +159,7 @@ jobs:
           from pathlib import Path
           mp=json.loads(Path('_site/data/map_points.json').read_text()); markers=mp.get('markers') or []; assert len(markers)>=10
           assert all(-90<=float(x['lat'])<=90 and -180<=float(x['lng'])<=180 for x in markers)
-          brain=json.loads(Path('_site/data/intelligence_brain.json').read_text()); assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True and brain.get('consolidated') is True; assert 10<=len(brain.get('nodes',[]))<=35 and len(brain.get('edges',[]))>=5
+          brain=json.loads(Path('_site/data/intelligence_brain.json').read_text()); assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True and brain.get('consolidated') is True; assert int(brain.get('maxNodes',0))==35 and 10<=len(brain.get('nodes',[]))<=35 and len(brain.get('edges',[]))>=5
           print(f'PASS exact minimal Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
           PY
       - name: Upload exact generated site
