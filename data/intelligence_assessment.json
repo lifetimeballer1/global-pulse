@@ -1,84 +1,70 @@
 {
-  "updatedAt": "2026-09-06T05:18:19.132674Z",
+  "updatedAt": "2026-09-06T14:41:40.740344Z",
   "version": 2,
   "method": "Explainable indicator layer with evidence-quality gating. Scores are not forecasts; market relationships are not treated as causal.",
   "assessments": [
     {
       "entity": "Joint Task Force Western Hemisphere",
-      "score": 29,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 11
-        }
-      ],
-      "evidenceCount": 13,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Eastern Pacific Maritime Theater",
-      "score": 13,
+      "score": 26,
       "level": "WATCH",
       "delta": -3,
       "trend": "DOWN",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 4
+          "delta": 9
         }
       ],
-      "evidenceCount": 6,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "United States",
-      "score": 8,
-      "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
-      "factors": [
-        {
-          "label": "Live event activity",
-          "delta": 2
-        },
-        {
-          "label": "Conflict / military activity",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 8,
+      "evidenceCount": 12,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
       "entity": "Americas Counter Cartel Coalition",
-      "score": 8,
+      "score": 11,
       "level": "WATCH",
-      "delta": 1,
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 4
+        }
+      ],
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Eastern Pacific Maritime Theater",
+      "score": 11,
+      "level": "WATCH",
+      "delta": -2,
       "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
-          "delta": 3
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
+          "delta": 4
         }
       ],
-      "evidenceCount": 4,
+      "evidenceCount": 5,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Colombia",
-      "score": 7,
+      "entity": "United States",
+      "score": 10,
       "level": "WATCH",
-      "delta": 0,
+      "delta": 2,
       "trend": "STABLE",
-      "factors": [],
-      "evidenceCount": 5,
+      "factors": [
+        {
+          "label": "Conflict / military activity",
+          "delta": 2
+        },
+        {
+          "label": "Live event activity",
+          "delta": 2
+        }
+      ],
+      "evidenceCount": 10,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
@@ -93,19 +79,23 @@
           "delta": 3
         },
         {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -2
+        },
+        {
           "label": "Economic / energy signals",
           "delta": 1
         }
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
       "entity": "Venezuela",
       "score": 6,
       "level": "WATCH",
-      "delta": -5,
-      "trend": "DOWN",
+      "delta": 0,
+      "trend": "STABLE",
       "factors": [
         {
           "label": "Conflict / military activity",
@@ -135,23 +125,38 @@
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Ecuador",
+      "entity": "Colombia",
       "score": 4,
       "level": "WATCH",
-      "delta": 0,
-      "trend": "STABLE",
+      "delta": -3,
+      "trend": "DOWN",
       "factors": [],
       "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     },
     {
-      "entity": "Operation Southern Spear",
-      "score": 2,
+      "entity": "Ecuador",
+      "score": 3,
       "level": "WATCH",
-      "delta": 0,
+      "delta": -1,
       "trend": "STABLE",
       "factors": [],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Operation Southern Spear",
+      "score": 1,
+      "level": "WATCH",
+      "delta": -1,
+      "trend": "STABLE",
+      "factors": [
+        {
+          "label": "Diplomatic / de-escalation signals",
+          "delta": -2
+        }
+      ],
+      "evidenceCount": 3,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
@@ -637,37 +642,43 @@
   ],
   "whatChanged": [
     {
-      "entity": "Venezuela",
-      "score": 6,
-      "level": "WATCH",
-      "delta": -5,
-      "trend": "DOWN",
-      "factors": [
-        {
-          "label": "Conflict / military activity",
-          "delta": 2
-        },
-        {
-          "label": "Economic / energy signals",
-          "delta": 1
-        }
-      ],
-      "evidenceCount": 4,
-      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
-    },
-    {
-      "entity": "Eastern Pacific Maritime Theater",
-      "score": 13,
+      "entity": "Joint Task Force Western Hemisphere",
+      "score": 26,
       "level": "WATCH",
       "delta": -3,
       "trend": "DOWN",
       "factors": [
         {
           "label": "Conflict / military activity",
+          "delta": 9
+        }
+      ],
+      "evidenceCount": 12,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Americas Counter Cartel Coalition",
+      "score": 11,
+      "level": "WATCH",
+      "delta": 3,
+      "trend": "UP",
+      "factors": [
+        {
+          "label": "Conflict / military activity",
           "delta": 4
         }
       ],
-      "evidenceCount": 6,
+      "evidenceCount": 5,
+      "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
+    },
+    {
+      "entity": "Colombia",
+      "score": 4,
+      "level": "WATCH",
+      "delta": -3,
+      "trend": "DOWN",
+      "factors": [],
+      "evidenceCount": 4,
       "method": "Explainable indicator using reporting volume, live-event activity, network exposure, economic signals, de-escalation signals and event evidence quality. Not a forecast or causal probability."
     }
   ],
