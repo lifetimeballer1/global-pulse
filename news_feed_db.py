@@ -82,8 +82,9 @@ def load_sources():
    key=re.sub(r'[^a-z0-9]+','_',str(item['name']).lower()).strip('_') or f'feed_{i}'
    base=key;n=2
    while key in result:key=f'{base}_{n}';n+=1
-   result[key]={'name':str(item['name']),'url':str(item['url']),'type':str(item.get('type') or 'news'),'category':str(item.get('type') or 'general')}
- except Exception:pass
+   result[key]={'name':str(item['name']),'url':str(item['url']),'type':str(item.get('type') or 'news'),'category':str(item.get('category') or item.get('type') or 'general')}
+ except Exception as exc:
+  print(f'SOURCE REGISTRY WARNING: {type(exc).__name__}: {exc}; using built-in safety sources')
  for key,meta in BUILTIN_SOURCES.items():result.setdefault(key,meta)
  return result
 def is_aggregator(url):
