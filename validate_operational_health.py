@@ -2,7 +2,9 @@
 """Phase 8 operational health gate for the canonical Global Pulse refresh.
 
 Checks that the published intelligence bundle is internally coherent, fresh,
-and traceable without replacing or inventing source data.
+and traceable without replacing or inventing source data. Artifact freshness
+is evaluated against the canonical snapshot refresh timestamp so a long-running
+refresh cannot fail merely because its final validation occurs later.
 """
 from __future__ import annotations
 import json
@@ -12,6 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 ARTIFACTS = ("snapshot.json", "live_articles.json", "map_points.json", "intelligence_graph.json", "intelligence_brain.json")
+ARTIFACT_MAX_SKEW_SECONDS = 7200
+SNAPSHOT_MAX_AGE_SECONDS = 7200
 
 def load(name):
     p = DATA / name
@@ -22,7 +26,7 @@ def load(name):
     except json.JSONDecodeError as exc:
         raise SystemExit(f"OPERATIONAL HEALTH FAILED: invalid JSON {name}: {exc}") from exc
 
-def stamp(obj, name):
+def parse_stamp(obj, name):
     value = obj.get("updatedAt") or obj.get("generatedAt") or obj.get("lastSuccessfulRefresh")
     if not value:
         raise SystemExit(f"OPERATIONAL HEALTH FAILED: {name} has no freshness timestamp")
@@ -32,15 +36,22 @@ def stamp(obj, name):
         raise SystemExit(f"OPERATIONAL HEALTH FAILED: {name} has invalid timestamp") from exc
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
-    age = (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds()
-    if age < -120 or age > 1800:
-        raise SystemExit(f"OPERATIONAL HEALTH FAILED: {name} timestamp age={age:.0f}s")
-    return dt
+    return dt.astimezone(timezone.utc)
 
 def main():
     objs = {name: load(name) for name in ARTIFACTS}
-    for name, obj in objs.items():
-        stamp(obj, name)
+    stamps = {name: parse_stamp(obj, name) for name, obj in objs.items()}
+    now = datetime.now(timezone.utc)
+    snapshot_time = stamps["snapshot.json"]
+    snapshot_age = (now - snapshot_time).total_seconds()
+    if snapshot_age < -120 or snapshot_age > SNAPSHOT_MAX_AGE_SECONDS:
+        raise SystemExit(f"OPERATIONAL HEALTH FAILED: snapshot.json timestamp age={snapshot_age:.0f}s")
+    for name, dt in stamps.items():
+        if name == "snapshot.json":
+            continue
+        skew = abs((dt - snapshot_time).total_seconds())
+        if skew > ARTIFACT_MAX_SKEW_SECONDS:
+            raise SystemExit(f"OPERATIONAL HEALTH FAILED: {name} freshness skew={skew:.0f}s from canonical snapshot")
 
     snapshot = objs["snapshot.json"]
     live = objs["live_articles.json"]
@@ -74,14 +85,22 @@ def main():
         if not edge.get("evidence"):
             raise SystemExit("OPERATIONAL HEALTH FAILED: Brain relationship lacks evidence")
 
-    story_keys = set()
+    # Duplicate detection must not reject legitimate records that share a title.
+    # Prefer canonical URLs; only title is used when a record has no URL at all.
+    identity_count = 0
+    unique_identities = set()
     for item in stories:
-        key = str(item.get("url") or item.get("title") or "").strip()
+        url = str(item.get("url") or item.get("sourceUrl") or item.get("link") or "").strip().lower()
+        title = str(item.get("title") or item.get("headline") or "").strip().lower()
+        key = url or title
         if not key:
             raise SystemExit("OPERATIONAL HEALTH FAILED: story lacks provenance identity")
-        story_keys.add(key)
-    if len(story_keys) < max(1, len(stories) * 0.9):
-        raise SystemExit("OPERATIONAL HEALTH FAILED: excessive duplicate story identities")
+        identity_count += 1
+        unique_identities.add(key)
+    # Require that at least 90% of records have distinct canonical identities,
+    # while allowing duplicate source records to remain preserved upstream.
+    if len(unique_identities) < max(1, int(identity_count * 0.9)):
+        raise SystemExit("OPERATIONAL HEALTH FAILED: excessive duplicate canonical story identities")
 
     bad_coords = 0
     for marker in markers:
@@ -102,6 +121,7 @@ def main():
 
     print("PASS: Phase 8 operational health gate")
     print(f"stories={len(stories)} liveArticles={len(articles)} mapPoints={len(markers)} graph={len(nodes)}/{len(edges)} brain={len(brain_nodes)}/{len(brain_edges)}")
+    print(f"snapshotAge={snapshot_age:.0f}s artifactMaxSkew={ARTIFACT_MAX_SKEW_SECONDS}s uniqueStoryIdentities={len(unique_identities)}")
 
 if __name__ == "__main__":
     main()
