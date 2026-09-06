@@ -75,20 +75,18 @@ jobs:
               page.locator('#mapContainer').wait_for(timeout=30000)
               dismiss_startup_modal(page)
 
-              # The map controls are created by the map module after initialization.
               page.locator('#gpMapLayers').wait_for(timeout=30000)
               page.locator('#gpMapLayers').click()
               assert page.locator('#gpMapLayerPanel').evaluate("el => el.classList.contains('open')")
 
               page.locator('#gpMapSearch').fill('Ukraine')
               page.locator('#gpMapReset').click()
-              page.locator('#gpMapCount').wait_for(timeout=30000)
               count_text = page.locator('#gpMapCount').inner_text()
               assert 'signals' in count_text.lower(), f'unexpected map count: {count_text}'
 
-              # Circle markers are rendered as SVG paths. Target an actual signal marker,
-              # not a generic Leaflet path/overlay, so the test exercises the real detail UI.
-              marker = page.locator('#mapContainer .leaflet-overlay-pane svg path.leaflet-interactive').first
+              # Global Pulse circle markers live in the custom gp-signals pane.
+              # Do not target generic Leaflet overlays or Brain relationship lines.
+              marker = page.locator('#mapContainer .leaflet-pane.gp-signals svg path.leaflet-interactive').first
               marker.wait_for(timeout=30000)
               marker.click(force=True)
               page.locator('#mapSidePanel').wait_for(timeout=10000, state='visible')
@@ -103,7 +101,7 @@ jobs:
               frame.locator('#control-toggle').click()
               frame.locator('#clear').click()
               frame.locator('#reset').click()
-              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real marker detail/close, lazy Intelligence Web, filter/reset controls')
+              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real signal marker detail/close, lazy Intelligence Web, filter/reset controls')
 
           with sync_playwright() as p:
               browser=p.chromium.launch(headless=True)
