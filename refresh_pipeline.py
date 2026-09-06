@@ -95,6 +95,7 @@ def main():
  if not any((x.get('price') is not None and float(x.get('price',0))>0) for x in market.get('indicators',[]) if isinstance(x,dict)):raise RuntimeError('market data contains no positive real prices')
  run('Merge live news',sys.executable,'merge_live_news.py');verify_json('snapshot.json')
  run('Source failover',sys.executable,'source_failover.py');verify_json('snapshot.json')
+ run('Phase 5 resilience gate',sys.executable,'validate_data_resilience.py')
  run('Political layer',sys.executable,'update_political_layer.py');verify_json('snapshot.json')
  run('Political intelligence',sys.executable,'update_political_intelligence.py');verify_json('snapshot.json')
  run('OSINT maps',sys.executable,'update_osint.py');snap=verify_json('snapshot.json')
