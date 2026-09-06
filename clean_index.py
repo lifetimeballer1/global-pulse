@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Idempotently clean generated index.html and install canonical UI assets."""
+"""Idempotently clean generated index.html and keep the canonical UI assets."""
 from __future__ import annotations
 import re
 from pathlib import Path
+
 INDEX=Path(__file__).resolve().parent/'index.html'
 OLD_JS=('global_pulse_v22.js','global_pulse_v23.js','global_pulse_v24.js','global_pulse_v25.js','global_pulse_v26.js','global_pulse_v27.js','global_pulse_v27_quality.js','global_pulse_event_history.js','global_pulse_event_intelligence.js','global_pulse_event_consistency.js','global_pulse_event_resolution.js')
+REMOVE_BLOCKS=(r'\n<style id="gp-map-rescue-css">.*?</style>\n?',r'\n<script id="gp-map-rescue-js">.*?</script>\n?',r'\n<style id="gp-own-map-css">.*?</style>\n?',r'\n<script id="gp-own-map-js">.*?</script>\n?',r'\n<style id="gp-map-pro-css">.*?</style>\n?',r'\n<script id="gp-map-pro-js">.*?</script>\n?')
+
 def main():
  s=INDEX.read_text(encoding='utf-8')
- for asset in OLD_JS:s=re.sub(rf'\s*<script\b[^>]*src=["\']{re.escape(asset)}(?:\?[^"\']*)?["\'][^>]*>\s*</script\s*>','',s,flags=re.I)
- for css in ('global_pulse_intelligence.css','global_pulse_list_density.css','global_pulse_phase3.css'):s=re.sub(rf'\s*<link\b[^>]*href=["\']{re.escape(css)}(?:\?[^"\']*)?["\'][^>]*>','',s,flags=re.I)
+ for asset in OLD_JS:
+  s=re.sub(rf'\s*<script\b[^>]*src=["\']{re.escape(asset)}(?:\?[^"\']*)?["\'][^>]*>\s*</script\s*>','',s,flags=re.I)
+ for css in ('global_pulse_intelligence.css','global_pulse_list_density.css','global_pulse_phase3.css'):
+  s=re.sub(rf'\s*<link\b[^>]*href=["\']{re.escape(css)}(?:\?[^"\']*)?["\'][^>]*>','',s,flags=re.I)
+ for pattern in REMOVE_BLOCKS:s=re.sub(pattern,'\n',s,flags=re.S|re.I)
  if 'global_pulse_core.js' not in s:s=s.replace('</body>','<script src="global_pulse_core.js?v=1" defer></script>\n</body>',1)
  if 'global_pulse_event_pipeline.js' not in s:s=s.replace('</body>','<script src="global_pulse_event_pipeline.js?v=1" defer></script>\n</body>',1)
  if 'global_pulse_brain_ui.js' not in s:s=s.replace('</body>','<script src="global_pulse_brain_ui.js?v=1" defer></script>\n</body>',1)
@@ -18,5 +24,9 @@ def main():
   key=m.group(1).split('?',1)[0]
   if key in seen:return ''
   seen.add(key);return m.group(0)
- s=script_re.sub(dedupe,s);s=re.sub(r'\n{4,}','\n\n',s);INDEX.write_text(s,encoding='utf-8');print('INDEX CLEANUP PASSED')
+ s=script_re.sub(dedupe,s)
+ s=re.sub(r'\n{4,}','\n\n',s)
+ INDEX.write_text(s,encoding='utf-8')
+ print('INDEX CLEANUP PASSED: obsolete map rescue removed; canonical map module retained')
+
 if __name__=='__main__':main()
