@@ -105,7 +105,12 @@ def main():
  run('Browser security hardening',sys.executable,'harden_site.py')
  run('Install browser QA hardening',sys.executable,'install_qa_hardening.py')
  run('Repository validation',sys.executable,'validate_repository.py')
- final=verify_json('snapshot.json');final['lastSuccessfulRefresh']=datetime.now(timezone.utc).isoformat();DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ final=verify_json('snapshot.json')
+ now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
+ final['updatedAt']=now
+ final['lastSuccessfulRefresh']=now
+ final['freshness']={'status':'fresh','generatedAt':now,'maxExpectedAgeSeconds':900}
+ DATA.joinpath('snapshot.json').write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if not isinstance(final.get('markers'),list) or not final['markers']:raise RuntimeError('final conflict-data gate failed')
  write_refresh_manifest();print('\n=== FINAL GLOBAL PULSE GATE: PASSED ===',flush=True);print('snapshot=',final.get('updatedAt'),flush=True);print('newsRows=',live.get('rowsFetched'),flush=True);print('markers=',len(final.get('markers') or []),flush=True);print('brain=',len(brain.get('nodes') or []),'major nodes /',len(brain.get('edges') or []),'relationships',flush=True);return 0
 if __name__=='__main__':raise SystemExit(main())
