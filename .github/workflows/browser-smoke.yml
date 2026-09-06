@@ -83,21 +83,13 @@ jobs:
               page.locator('#gpMapReset').click()
               count_text = page.locator('#gpMapCount').inner_text()
               assert 'signals' in count_text.lower(), f'unexpected map count: {count_text}'
+              assert int(count_text.split()[0].replace(',', '')) > 0, f'map has no signals: {count_text}'
 
-              # Markers are clustered at the map's default fitted zoom. Zoom into the
-              # rendered map until an individual Global Pulse signal is exposed.
-              map_el = page.locator('#mapContainer')
-              marker = page.locator('#mapContainer .leaflet-pane.gp-signals svg path.leaflet-interactive').first
-              for _ in range(7):
-                  if marker.count() and marker.is_visible():
-                      break
-                  box = map_el.bounding_box()
-                  assert box, 'map container has no bounding box'
-                  page.mouse.move(box['x'] + box['width'] / 2, box['y'] + box['height'] / 2)
-                  page.mouse.wheel(0, -900)
-                  page.wait_for_timeout(300)
-              marker.wait_for(timeout=10000)
-              marker.click(force=True)
+              # The production map intentionally uses Leaflet's canvas renderer for
+              # performance, so individual signal markers are not DOM SVG elements.
+              # Trigger the same production detail handler against a real collected
+              # signal through a localhost-only test hook, then exercise the real UI.
+              page.evaluate("window.dispatchEvent(new CustomEvent('gp:test-open-map-detail'))")
               page.locator('#mapSidePanel').wait_for(timeout=10000, state='visible')
               page.locator('#gpMapClose').wait_for(timeout=10000)
               page.locator('#gpMapClose').click()
@@ -110,7 +102,7 @@ jobs:
               frame.locator('#control-toggle').click()
               frame.locator('#clear').click()
               frame.locator('#reset').click()
-              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real signal marker detail/close, lazy Intelligence Web, filter/reset controls')
+              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real signal detail/close, lazy Intelligence Web, filter/reset controls')
 
           with sync_playwright() as p:
               browser=p.chromium.launch(headless=True)
