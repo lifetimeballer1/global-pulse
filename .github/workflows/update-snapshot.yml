@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
+      - 'build_map_points.py'
       - 'pipeline/build_snapshot.py'
       - 'build_event_pipeline.py'
       - 'ensure_brain_groups.py'
@@ -72,6 +73,8 @@ jobs:
         run: python --version && node --version && git --version
       - name: Run canonical refresh with per-stage verification
         run: python refresh_pipeline.py
+      - name: Build dedicated browser map points
+        run: python build_map_points.py
       - name: Repair map tile source
         run: |
           python - <<'PY'
@@ -96,7 +99,7 @@ jobs:
       - name: Verify critical published inputs
         run: |
           set -euo pipefail
-          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py
+          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_map_points.py
           python - <<'PY'
           import json, hashlib
           from pathlib import Path
@@ -116,6 +119,10 @@ jobs:
           live=json.loads(Path('data/live_status.json').read_text())
           assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
           print('PASS news',live.get('feedsChecked'),live.get('rowsFetched'))
+          mp=json.loads(Path('data/map_points.json').read_text())
+          assert isinstance(mp.get('markers'),list) and len(mp['markers'])>0
+          assert all(-90<=float(x['lat'])<=90 and -180<=float(x['lng'])<=180 for x in mp['markers'])
+          print('PASS map points',len(mp['markers']))
           manifest=json.loads(Path('data/refresh_manifest.json').read_text())
           required=['snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json']
           for name in required:
