@@ -10,22 +10,14 @@ They have been removed from the runtime and are no longer required by the canoni
 
 ## One-time install/migration scripts
 
-The following 12 `install_*.py` files are migration/installers rather than runtime services:
+The remaining `install_*.py` files are migration/installers rather than runtime services. They should not be added to production automation unless a specific migration is still required.
 
-- `install_breaking_alerts.py`
-- `install_claim_intelligence.py`
-- `install_commander_center.py`
+The following legacy installers have already been removed from the active tree after their runtime behavior was consolidated or superseded:
+
 - `install_event_intelligence.py`
-- `install_health_finalizer.py`
-- `install_intelligence_assessment.py`
-- `install_intelligence_web.py`
-- `install_live_events.py`
-- `install_map_age_filter.py`
-- `install_map_clustering.py`
-- `install_map_v3.py`
-- `install_v27.py` (removed after consolidation)
+- `update7_live_branding.py`
 
-The canonical pipeline no longer invokes these installers. They are safe to archive once any independent workflow that still references them has been migrated. `global_map_ui.py` and `clean_index.py` now own the canonical map/index installation behavior.
+The canonical pipeline no longer invokes these installers. `global_map_ui.py` and `clean_index.py` own the canonical map/index installation behavior.
 
 ## Event build consolidation
 
@@ -36,3 +28,7 @@ The old event renderers have been removed from the runtime.
 ## CSS consolidation
 
 `global_pulse_intelligence.css`, `global_pulse_list_density.css`, and `global_pulse_phase3.css` were audited and their durable layout, mobile-containment, list-density, dialog-lock, and intelligence-panel rules were merged into `global_pulse_tokens.css`. The token file is now the single shared source for spacing, type scale, colors, numeric typography, and these durable UI rules. The old stylesheets are safe to archive after independent installer workflows stop referencing them.
+
+## Validation consolidation
+
+The obsolete Phase 3 validation workflow and its tests were removed because they asserted the presence of superseded installer assets instead of validating the canonical runtime. Current regression coverage belongs in `tests/test_regressions.py` and the canonical refresh/security gates.
