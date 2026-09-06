@@ -31,7 +31,6 @@ def verify_strategic_signals(signals):
   if coverage.get(actor) is not True:raise RuntimeError(f'strategic signal missing for {actor}')
  for signal in signals.get('signals') or []:
   if not signal.get('actor') or not signal.get('signal') or not signal.get('evidence'):raise RuntimeError('strategic signal missing evidence')
- print(f'PASS: strategic signal gate signals={len(signals.get("signals") or [])}',flush=True)
 def verify_brain(brain):
  if brain.get('complete') is not True or brain.get('sourceBackedOnly') is not True or brain.get('consolidated') is not True:raise RuntimeError('intelligence brain completeness/source/consolidation gate failed')
  nodes=brain.get('nodes') or [];edges=brain.get('edges') or []
@@ -40,6 +39,10 @@ def verify_brain(brain):
  stats=brain.get('stats') if isinstance(brain.get('stats'),dict) else {}
  if stats.get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
  ids={str(n.get('id')) for n in nodes};allowed={'country','cartel','economic','conflict','chokepoint'}
+ for actor in ('United States','China'):
+  node=next((n for n in nodes if n.get('label')==actor),None)
+  if not node:raise RuntimeError(f'major strategic actor missing: {actor}')
+  if not node.get('evidence'):raise RuntimeError(f'major strategic actor has no evidence: {actor}')
  for n in nodes:
   if not any(isinstance(x,dict) and (x.get('url') or x.get('source')) for x in (n.get('evidence') or [])):raise RuntimeError(f'unsourced brain node: {n.get("label")}')
   if n.get('kind') not in allowed or not n.get('canonical'):raise RuntimeError(f'noncanonical brain node: {n.get("label")}')
@@ -47,6 +50,7 @@ def verify_brain(brain):
   if str(e.get('source')) not in ids or str(e.get('target')) not in ids or not e.get('evidence'):raise RuntimeError('invalid or unevidenced brain relationship')
 def main():
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
+ run('Guarantee U.S. and China major-power hubs',sys.executable,'ensure_major_power_nodes.py')
  run('Ensure Brain group coverage',sys.executable,'ensure_brain_groups.py')
  run('Enrich U.S. and China action intelligence',sys.executable,'enrich_brain_actions.py')
  run('Validate U.S. and China action intelligence',sys.executable,'validate_action_intelligence.py')
