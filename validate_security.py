@@ -10,14 +10,18 @@ CLIENT_TELEMETRY=re.compile(r"navigator\.sendBeacon|new\s+Image\s*\(|fetch\s*\([
 SECRET_LIKE=re.compile(r"(?:api[_-]?key|secret|token|password)\s*[:=]\s*['\"][A-Za-z0-9_\-]{20,}['\"]",re.I)
 CSP_REQUIRED=("default-src 'self'","base-uri 'self'","object-src 'none'","frame-ancestors 'none'","script-src","style-src","img-src","connect-src","worker-src","upgrade-insecure-requests")
 
+def extract_csp(text:str):
+ m=re.search(r'<meta\s+http-equiv=["\']Content-Security-Policy["\']\s+content="([^"]+)"',text,re.I)
+ if not m:m=re.search(r"<meta\s+http-equiv=['\"]Content-Security-Policy['\"]\s+content='([^']+)'",text,re.I)
+ return m.group(1) if m else None
+
 def check_html(path:Path):
  text=path.read_text(encoding='utf-8')
  assert not TRACKING.search(text),f"Unexpected analytics/tracking code in {path.name}"
  assert not CLIENT_TELEMETRY.search(text),f"Unexpected client telemetry in {path.name}"
- m=re.search(r"Content-Security-Policy[^>]*content=[\"']([^\"']+)",text,re.I)
- assert m,f"CSP missing from {path.name}"
- for directive in CSP_REQUIRED:assert directive in m.group(1),f"{directive} missing from {path.name} CSP"
- assert 'https:' in m.group(1),f"external HTTPS policy missing from {path.name} CSP"
+ csp=extract_csp(text); assert csp,f"CSP missing from {path.name}"
+ for directive in CSP_REQUIRED:assert directive in csp,f"{directive} missing from {path.name} CSP"
+ assert 'https:' in csp,f"external HTTPS policy missing from {path.name} CSP"
  assert 'strict-origin-when-cross-origin' in text,f"referrer policy missing from {path.name}"
  print('PASS browser security contract',path.name)
 
