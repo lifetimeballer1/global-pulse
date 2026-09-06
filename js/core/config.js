@@ -5,6 +5,7 @@ export const CONFIG = {
     snapshot: './data/snapshot.json',
     liveArticles: './data/live_articles.json',
     intelligenceGraph: './data/intelligence_graph.json',
+    intelligenceBrain: './data/intelligence_brain.json',
     sources: './data/sources.json',
     sourceHealth: './data/source_health.json',
     markets: './data/markets.json',
