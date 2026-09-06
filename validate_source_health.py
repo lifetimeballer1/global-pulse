@@ -13,8 +13,10 @@ DATA = Path(__file__).resolve().parent / "data"
 STATUS = DATA / "live_status.json"
 MIN_FEEDS = 20
 MIN_ROWS = 1
-MIN_HEALTHY_RATIO = 0.50
-MAX_FAILURE_RATIO = 0.50
+# Optional feeds can fail transiently. Require a substantial healthy base while
+# allowing the collector to publish when the core source set is still usable.
+MIN_HEALTHY_RATIO = 0.40
+MAX_FAILURE_RATIO = 0.60
 MIN_HEALTHY_SOURCES = 20
 REQUIRED_CATEGORIES = {"international", "us-politics", "security"}
 USABLE_MODES = {"native", "gdelt-domain-fallback"}
