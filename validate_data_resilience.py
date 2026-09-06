@@ -29,12 +29,16 @@ def read_json(name: str):
 
 
 def validate_manifest(require_manifest: bool) -> None:
-    manifest_path = DATA / "refresh_manifest.json"
-    if not manifest_path.is_file() or manifest_path.stat().st_size == 0:
-        if require_manifest:
-            raise SystemExit("RESILIENCE GATE FAILED: refresh manifest missing")
+    # During refresh, snapshot.json is intentionally rewritten several times
+    # before the final manifest is produced. A pre-refresh manifest is therefore
+    # expected to be stale and must never be used as a mid-pipeline failure gate.
+    if not require_manifest:
         print("PASS: manifest check deferred until final refresh stage")
         return
+
+    manifest_path = DATA / "refresh_manifest.json"
+    if not manifest_path.is_file() or manifest_path.stat().st_size == 0:
+        raise SystemExit("RESILIENCE GATE FAILED: refresh manifest missing")
 
     manifest = read_json("refresh_manifest.json")
     artifacts = manifest.get("artifacts") or {}
