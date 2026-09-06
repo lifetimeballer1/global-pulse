@@ -33,6 +33,18 @@ def test_map_and_brain_share_canonical_artifact_and_node_identity():
     assert '"consolidated":true' in brain
 
 
+def test_map_renders_only_geographic_brain_relationships_and_can_toggle_them():
+    text = (ROOT / 'js/modules/map.js').read_text(encoding='utf-8')
+    assert 'renderBrainLinks' in text
+    assert 'L.polyline' in text
+    assert 'byId.get(String(e.source))' in text
+    assert 'byId.get(String(e.target))' in text
+    assert "String(e.source)===String(e.target)" in text
+    assert 'gpMapBrainLinks' in text
+    assert 'gp.mapBrainLinks' in text
+    assert "if(!a||!b" in text
+
+
 def test_live_news_feed_schema_normalizes_to_browser_story_shape():
     import merge_live_news as merger
     item = {
