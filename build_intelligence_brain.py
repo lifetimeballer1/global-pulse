@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data'
 OUT=DATA/'intelligence_brain.json'
-MAX_NODES=18
+MAX_NODES=35
 
 COUNTRIES={
  'United States':(38,-97),'China':(35.9,104.2),'Russia':(61.5,105.3),'Ukraine':(49,32),
@@ -114,16 +114,13 @@ def main():
 
     for r,typ,source in reports:
         t=text(r);hits=[]
-        # Countries are the primary consolidation hubs. All sourced records
-        # mentioning a country live underneath that single country node.
         for country,(lat,lng) in COUNTRIES.items():
             if re.search(r'(?<![a-z])'+re.escape(country.lower())+r'(?![a-z])',t):
                 hits.append(add(country,'country',source,3,{'country':country,'lat':lat,'lng':lng,'clusterKey':'country:'+country,'canonical':True}))
         if re.search(r'(?<![a-z])(?:u\\.s\\.?|u\\.s\\.?a\\.?|usa|american)(?![a-z])',t):
             hits.append(add('United States','country',source,5,{'country':'United States','lat':38,'lng':-97,'clusterKey':'country:United States','canonical':True}))
-        # All cartel/sub-cartel records consolidate into ONE organized-crime hub.
         if any(re.search(r'(?<![a-z])'+re.escape(name.lower())+r'(?![a-z])',t) for name in CARTELS):
-            hits.append(add('Cartels & Organized Crime','crime',source,8,{'group':'Organized Crime','canonical':True,'description':'Consolidated hub for cartel, gang and organized-crime evidence; individual groups remain in node evidence, not as graph nodes.'}))
+            hits.append(add('Cartels & Organized Crime','cartel',source,8,{'group':'Organized Crime','canonical':True,'description':'Consolidated hub for cartel, gang and organized-crime evidence; individual groups remain in node evidence, not as graph nodes.'}))
         for label,terms in CONFLICTS.items():
             if any(x in t for x in terms):hits.append(add(label,'conflict',source,5,{'group':'Major Conflict','canonical':True}))
         for label,terms in ECONOMIC.items():
@@ -140,11 +137,9 @@ def main():
         for e in market_sources[1:]:
             if not any(evkey(x)==evkey(e) for x in nodes[mid]['evidence']):nodes[mid]['evidence'].append(e)
 
-    # Keep a deliberately small set of human-readable hubs. US and China are
-    # always retained when source-backed; they are strategic global hubs.
-    quotas={'country':8,'conflict':4,'economic':3,'crime':1,'chokepoint':1}
+    quotas={'country':8,'conflict':4,'economic':3,'cartel':1,'chokepoint':1}
     chosen=[]
-    for kind in ('country','conflict','economic','crime','chokepoint'):
+    for kind in ('country','conflict','economic','cartel','chokepoint'):
         pool=[n for n in nodes.values() if n['kind']==kind]
         pool.sort(key=lambda n:(n['score'],len(n['evidence']),n['mentions']),reverse=True)
         chosen.extend(pool[:quotas[kind]])
@@ -166,8 +161,8 @@ def main():
     edges.sort(key=lambda e:(e['evidenceCount'],e['weight']),reverse=True)
 
     now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
-    stats={'nodes':len(chosen),'edges':len(edges),'recordsScanned':len(reports),'artifactsScanned':len(artifact_counts),'artifactRows':artifact_counts,'marketIndicators':len(market.get('indicators') or []),'sourceBackedCandidates':len(nodes),'evidenceRecordsRetained':sum(len(n['evidence']) for n in chosen),'countryNodes':sum(n['kind']=='country' for n in chosen),'crimeNodes':sum(n['kind']=='crime' for n in chosen),'conflictNodes':sum(n['kind']=='conflict' for n in chosen),'economicNodes':sum(n['kind']=='economic' for n in chosen),'chokepointNodes':sum(n['kind']=='chokepoint' for n in chosen)}
-    payload={'version':11,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Major-hub graph. Country, conflict, economic and organized-crime records are consolidated beneath a small set of human-readable nodes. Evidence is retained on the hubs; subgroups such as Sinaloa and CJNG are evidence attributes, not separate graph nodes.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate the canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major hubs. Deduplicate evidence by title/url/source identity.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
+    stats={'nodes':len(chosen),'edges':len(edges),'recordsScanned':len(reports),'artifactsScanned':len(artifact_counts),'artifactRows':artifact_counts,'marketIndicators':len(market.get('indicators') or []),'sourceBackedCandidates':len(nodes),'evidenceRecordsRetained':sum(len(n['evidence']) for n in chosen),'countryNodes':sum(n['kind']=='country' for n in chosen),'cartelNodes':sum(n['kind']=='cartel' for n in chosen),'conflictNodes':sum(n['kind']=='conflict' for n in chosen),'economicNodes':sum(n['kind']=='economic' for n in chosen),'chokepointNodes':sum(n['kind']=='chokepoint' for n in chosen)}
+    payload={'version':11,'updatedAt':now,'complete':True,'sourceBackedOnly':True,'consolidated':True,'maxNodes':MAX_NODES,'nodePolicy':'Major-hub graph. Country, conflict, economic and organized-crime records are consolidated beneath a bounded set of human-readable nodes. Evidence is retained on the hubs; subgroups such as Sinaloa and CJNG are evidence attributes, not separate graph nodes.','sourceArtifacts':SOURCE_ARTIFACTS,'method':'Consolidate the canonical news, conflict, OSINT map, event, claim, assessment, market-impact, historical and map-point artifacts into major hubs. Deduplicate evidence by title/url/source identity.','caution':'Relationships are contextual evidence links and do not prove causation, coordination, intent or responsibility. Market links are context only.','nodes':chosen,'edges':edges,'stats':stats}
     OUT.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     print(f'INTELLIGENCE BRAIN: {len(chosen)} hubs / {len(edges)} relationships / {sum(len(n["evidence"]) for n in chosen)} retained evidence records / {len(reports)} source records scanned')
 
