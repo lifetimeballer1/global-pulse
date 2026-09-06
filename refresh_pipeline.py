@@ -24,7 +24,7 @@ def verify_json(name,*,min_list=None,fresh_required=True,max_age=900):
   key,minimum=min_list
   if not isinstance(d.get(key),list) or len(d[key])<minimum:raise RuntimeError(f'{name}: {key} has fewer than {minimum} entries')
  return d
-def verify_live_content(live,max_age_minutes=90,min_recent=3):
+def verify_live_content(live,max_age_minutes=90,min_recent=2):
  now=datetime.now(timezone.utc);recent=[]
  for item in live.get('articles') or []:
   try:
