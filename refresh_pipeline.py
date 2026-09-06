@@ -36,7 +36,7 @@ def verify_live_content(live,max_age_minutes=90,min_recent=3):
 def verify_brain(brain):
  if brain.get('complete') is not True or brain.get('sourceBackedOnly') is not True or brain.get('consolidated') is not True:raise RuntimeError('intelligence brain completeness/source/consolidation gate failed')
  nodes=brain.get('nodes') or [];edges=brain.get('edges') or []
- if len(nodes)<10 or len(nodes)>60 or brain.get('maxNodes')!=60:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
+ if len(nodes)<10 or len(nodes)>45 or brain.get('maxNodes')!=45:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
  if len(edges)<5:raise RuntimeError('intelligence brain verification failed: too few relationships')
  if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
  if brain['stats'].get('nodes')!=len(nodes) or brain['stats'].get('edges')!=len(edges):raise RuntimeError('intelligence brain stats mismatch')
