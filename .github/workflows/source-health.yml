@@ -1,7 +1,7 @@
 name: Global Pulse — Source Health
 on:
   workflow_run:
-    workflows: ["Global Pulse — Refresh, Validate & Deploy"]
+    workflows: ["Global Pulse — Canonical Live Refresh"]
     types: [completed]
   workflow_dispatch:
 permissions:
@@ -47,11 +47,6 @@ jobs:
               assert isinstance(s.get('rowsFetched'), int) and s['rowsFetched'] >= 0
           assert d['summary'].get('onlineWithData',0) + d['summary'].get('onlineEmpty',0) == d['summary'].get('online',0)
           print('SOURCE HEALTH VALIDATION PASSED')
-          print('Summary:', d['summary'])
-          empty=[s['name'] for s in d['sources'] if s.get('contentStatus')=='online_empty']
-          print('Online but empty:', empty)
-          fallback=[s['name'] for s in d['sources'] if s.get('contentStatus')=='fallback_data_available']
-          print('Recovered by fallback:', fallback)
           PY
       - name: Commit source health telemetry
         run: |
