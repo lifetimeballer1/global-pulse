@@ -98,11 +98,18 @@ jobs:
               frame_el=page.locator('iframe.gp-intelweb-frame')
               frame_el.scroll_into_view_if_needed()
               frame=page.frame_locator('iframe.gp-intelweb-frame')
-              frame.locator('#control-toggle').wait_for(timeout=30000)
-              frame.locator('#control-toggle').click()
+              toggle=frame.locator('#control-toggle')
+              toggle.wait_for(timeout=30000)
+
+              # Verify the production filter drawer actually closes, then reopens it
+              # before interacting with controls that are intentionally hidden while closed.
+              toggle.click()
+              assert frame.locator('#controls').evaluate("el => el.classList.contains('collapsed')")
+              toggle.click()
+              assert not frame.locator('#controls').evaluate("el => el.classList.contains('collapsed')")
               frame.locator('#clear').click()
               frame.locator('#reset').click()
-              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real signal detail/close, lazy Intelligence Web, filter/reset controls')
+              print(f'SMOKE PASS {name}: startup modal, map layers/search/reset, real signal detail/close, lazy Intelligence Web, filter toggle/clear/reset controls')
 
           with sync_playwright() as p:
               browser=p.chromium.launch(headless=True)
