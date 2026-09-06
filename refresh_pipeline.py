@@ -38,8 +38,12 @@ def verify_brain(brain):
  nodes=brain.get('nodes') or [];edges=brain.get('edges') or []
  if len(nodes)<10 or len(nodes)>35 or brain.get('maxNodes')!=35:raise RuntimeError(f'intelligence brain size gate failed: {len(nodes)} nodes')
  if len(edges)<5:raise RuntimeError('intelligence brain verification failed: too few relationships')
- if not isinstance(brain.get('stats'),dict) or brain['stats'].get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
- if brain['stats'].get('nodes')!=len(nodes) or brain['stats'].get('edges')!=len(edges):raise RuntimeError('intelligence brain stats mismatch')
+ stats=brain.get('stats') if isinstance(brain.get('stats'),dict) else {}
+ if stats.get('marketIndicators',0)<20:raise RuntimeError('intelligence brain market layer missing')
+ kind_counts={k:sum(n.get('kind')==k for n in nodes) for k in ('cartel','country','economic','conflict','chokepoint')}
+ if kind_counts['cartel']<1 or kind_counts['country']<1 or kind_counts['economic']<1:raise RuntimeError(f'intelligence brain major-node grouping missing: cartels={kind_counts["cartel"]} countries={kind_counts["country"]} economic={kind_counts["economic"]}')
+ if stats and stats.get('nodes') is not None and stats.get('nodes')!=len(nodes):raise RuntimeError('intelligence brain stats mismatch: nodes')
+ if stats and stats.get('edges') is not None and stats.get('edges')!=len(edges):raise RuntimeError('intelligence brain stats mismatch: edges')
  ids={str(n.get('id')) for n in nodes};allowed={'country','cartel','economic','conflict','chokepoint'}
  for n in nodes:
   ev=n.get('evidence') or []
@@ -49,8 +53,22 @@ def verify_brain(brain):
  for e in edges:
   if str(e.get('source')) not in ids or str(e.get('target')) not in ids:raise RuntimeError('intelligence brain contains invalid relationship endpoint')
   if not e.get('evidence'):raise RuntimeError('intelligence brain contains unevidenced relationship')
- if brain['stats'].get('cartelNodes',0)<1 or brain['stats'].get('countryNodes',0)<1 or brain['stats'].get('economicNodes',0)<1:raise RuntimeError('intelligence brain major-node grouping missing')
- print(f'PASS: brain major-node gate nodes={len(nodes)} edges={len(edges)} cartels={brain["stats"].get("cartelNodes")} countries={brain["stats"].get("countryNodes")} economic={brain["stats"].get("economicNodes")}',flush=True)
+ print(f'PASS: brain major-node gate nodes={len(nodes)} edges={len(edges)} cartels={kind_counts["cartel"]} countries={kind_counts["country"]} economic={kind_counts["economic"]}',flush=True)
+def verify_map_points(map_points):
+ markers=map_points.get('markers')
+ if not isinstance(markers,list) or len(markers)<10:raise RuntimeError('map marker feed verification failed: too few markers')
+ valid=[]
+ for m in markers:
+  if not isinstance(m,dict):continue
+  lat=m.get('lat',m.get('latitude'));lng=m.get('lng',m.get('lon',m.get('longitude')))
+  try:
+   lat=float(lat);lng=float(lng)
+   if -90<=lat<=90 and -180<=lng<=180:valid.append(m)
+  except (TypeError,ValueError):continue
+ if len(valid)<10:raise RuntimeError(f'map marker geographic validation failed: only {len(valid)} markers have valid coordinates')
+ declared=map_points.get('count')
+ if declared is not None and int(declared)!=len(markers):raise RuntimeError('map marker count mismatch')
+ print(f'PASS: map geographic validation markers={len(markers)} validCoordinates={len(valid)}',flush=True)
 def write_refresh_manifest():
  now=datetime.now(timezone.utc).isoformat().replace('+00:00','Z');artifacts={}
  for name in REQUIRED_ARTIFACTS:
@@ -87,8 +105,7 @@ def main():
  if not (snap.get('conflictDataset') or {}).get('provider'):raise RuntimeError('UCDP conflict layer missing')
  run('World Bank macro context',sys.executable,'update_macro_data.py');snap=verify_json('snapshot.json')
  if not (snap.get('macroData') or {}).get('provider'):raise RuntimeError('macro layer missing')
- run('Build canonical map marker feed',sys.executable,'build_map_points.py');map_points=verify_json('map_points.json')
- if map_points.get('count',0)<10 or not isinstance(map_points.get('markers'),list):raise RuntimeError('map marker feed verification failed')
+ run('Build canonical map marker feed',sys.executable,'build_map_points.py');map_points=verify_json('map_points.json');verify_map_points(map_points)
  run('Canonical event pipeline',sys.executable,'build_event_pipeline.py')
  for artifact,key in [('event_history.json',None),('event_intelligence.json','events'),('event_consistency.json','events'),('event_resolution.json','events'),('event_market_impact.json','events')]:verify_json(artifact,min_list=(key,0) if key else None)
  run('Intelligence graph enrichment',sys.executable,'enhance_counter_cartel_intelligence.py');snap=verify_json('snapshot.json');graph_data=snap.get('intelligenceGraph') or {}
