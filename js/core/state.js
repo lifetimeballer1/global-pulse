@@ -1,0 +1,39 @@
+/** Simple reactive-ish state store */
+
+const state = {
+  snapshot: null,
+  liveArticles: null,
+  intelligenceGraph: null,
+  sources: null,
+  sourceHealth: null,
+  markets: null,
+  lastSuccessfulFetch: null,
+  status: 'loading', // loading | live | stale | error | offline
+  errors: {}
+};
+
+const listeners = new Set();
+
+export function getState() {
+  return { ...state };
+}
+
+export function setState(partial) {
+  Object.assign(state, partial);
+  listeners.forEach(fn => fn(getState()));
+}
+
+export function subscribe(fn) {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+}
+
+export function setError(key, message) {
+  state.errors[key] = message;
+  setState({ errors: { ...state.errors } });
+}
+
+export function clearError(key) {
+  delete state.errors[key];
+  setState({ errors: { ...state.errors } });
+}
