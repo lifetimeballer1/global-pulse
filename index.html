@@ -133,7 +133,7 @@
     parent.insertBefore(bar,fresh);
     const legend=document.createElement("div");legend.className="gp-map-legend";legend.innerHTML='<span><i class="c"></i>Conflict</span><span><i class="o"></i>OSINT</span><span><i class="s"></i>Strategic</span><span><i class="h"></i>Hazard</span><span><i class="x"></i>Organized crime</span>';parent.insertBefore(legend,fresh);
     map=L.map(fresh,{worldCopyJump:true,preferCanvas:true,zoomControl:true,attributionControl:true}).setView([20,0],2);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
     layer=window.L.markerClusterGroup?window.L.markerClusterGroup({showCoverageOnHover:false,removeOutsideVisibleBounds:true}):L.layerGroup();layer.addTo(map);
     bar.querySelectorAll("button[data-f]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()}));
     const search=document.getElementById("gpMapSearch");if(search)search.addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();window.gpMapBooted=false;if(typeof window.renderMap==="function")window.renderMap();else render()});
