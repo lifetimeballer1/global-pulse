@@ -12,6 +12,7 @@ on:
       - 'validate_intelligence_brain.py'
       - 'validate_data_resilience.py'
       - 'validate_security.py'
+      - 'validate_performance.py'
       - 'build_map_points.py'
       - 'finalize_map_ui.py'
       - 'pipeline/build_snapshot.py'
@@ -20,6 +21,7 @@ on:
       - 'global_pulse_core.js'
       - 'global_pulse_event_pipeline.js'
       - 'global_pulse_brain_ui.js'
+      - 'global_pulse_performance.js'
       - 'global_pulse_tokens.css'
       - 'global_pulse_enhancements.js'
       - 'global_pulse_breaking.js'
@@ -111,10 +113,12 @@ jobs:
       - name: Verify critical published inputs
         run: |
           set -euo pipefail
-          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_intelligence_brain.py validate_intelligence_brain.py validate_data_resilience.py validate_security.py build_map_points.py finalize_map_ui.py
+          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_intelligence_brain.py validate_intelligence_brain.py validate_data_resilience.py validate_security.py validate_performance.py build_map_points.py finalize_map_ui.py
           python validate_data_resilience.py
+          python validate_performance.py
           node --check intelligence_brain_web.js
           node --check intelligence_web_controls_fix.js
+          node --check global_pulse_performance.js
           python - <<'PY'
           import json, hashlib
           from pathlib import Path
@@ -147,12 +151,13 @@ jobs:
               meta=manifest['artifacts'][name];raw=Path('data',name).read_bytes();assert hashlib.sha256(raw).hexdigest()==meta['sha256'],name
           print('PASS refresh manifest')
           html=Path('index.html').read_text()
-          for asset in ('global_pulse_core.js','global_pulse_event_pipeline.js','global_pulse_brain_ui.js','global_pulse_tokens.css'):
+          for asset in ('global_pulse_core.js','global_pulse_event_pipeline.js','global_pulse_brain_ui.js','global_pulse_tokens.css','global_pulse_performance.js'):
               assert asset in html,asset
           assert 'section-brain' in html and 'section-markets' in html and 'mapContainer' in html
           assert 'global_pulse_v22.js' not in html and 'global_pulse_v27.js' not in html
           assert 'gp-map-rescue-js' not in html and 'gp-map-rescue-css' not in html
           assert 'js/app.js?v=20260906-mapfix3' in html
+          assert 'loading="lazy"' in html and 'loading="eager"' not in html
           web=Path('intelligence-web.html').read_text()
           assert 'intelligence_brain_web.js?v=20260906-controlsfix1' in web
           assert 'intelligence_web_controls_fix.js?v=20260906-controlsfix1' in web
@@ -190,6 +195,7 @@ jobs:
           test -f _site/js/app.js
           test -f _site/intelligence-web.html
           test -f _site/intelligence_web_controls_fix.js
+          test -f _site/global_pulse_performance.js
           python - <<'PY'
           import json
           from pathlib import Path
@@ -202,6 +208,8 @@ jobs:
           assert brain.get('consolidated') is True
           assert 10 <= len(brain.get('nodes',[])) <= 35
           assert len(brain.get('edges',brain.get('relationships',[]))) >= 5
+          html=Path('_site/index.html').read_text()
+          assert 'global_pulse_performance.js' in html and 'loading="lazy"' in html
           print(f'PASS exact Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
           PY
           echo "Prepared exact Pages site: $(find _site -type f | wc -l) files"
