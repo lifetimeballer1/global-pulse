@@ -22,7 +22,10 @@ def main():
     assert 'loading="lazy"' in index, "Intelligence Web iframe must not eagerly load on mobile"
     assert 'loading="eager"' not in index, "No below-fold iframe may use eager loading"
     assert "global_pulse_performance.js" in index
-    assert "content-visibility" in perf
+    # CSSOM style properties are exposed in JavaScript as camelCase. Accept
+    # either spelling so the gate verifies the real implementation instead of
+    # rejecting valid browser code because of a text-format mismatch.
+    assert "content-visibility" in perf or "contentVisibility" in perf, "below-fold content visibility optimization missing"
     assert "IntersectionObserver" in perf
     assert "requestIdleCallback" in perf
     assert "prefers-reduced-motion" in perf
