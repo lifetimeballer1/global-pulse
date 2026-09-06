@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-06T03:52:30.650073+00:00",
+  "updatedAt": "2026-09-06T03:58:06.602119+00:00",
   "feedsChecked": 50,
-  "rowsFetched": 544,
+  "rowsFetched": 644,
   "newArticles": 51,
   "purged": 51,
   "databaseArticles": 1947,
-  "healthySources": 27,
+  "healthySources": 28,
   "emptySources": 2,
   "fallbackSources": 0,
   "failedSources": [
@@ -16,10 +16,6 @@
     {
       "source": "GDELT — Western Hemisphere Counter-Cartel",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDACS Global Disaster Alerts",
-      "error": "URLError: <urlopen error timed out>"
     },
     {
       "source": "GDELT Climate & Disaster Watch",
@@ -207,11 +203,11 @@
       "name": "GDACS Global Disaster Alerts",
       "type": "climate-hazard",
       "category": "climate-hazard",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
+      "rowsFetched": 100,
+      "httpOk": true,
+      "mode": "native",
       "emptyFeed": false,
-      "error": "URLError: <urlopen error timed out>"
+      "error": ""
     },
     {
       "sourceId": "gdelt_climate_disaster_watch",
