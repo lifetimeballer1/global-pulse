@@ -1,4 +1,5 @@
 name: Global Pulse — Canonical Live Refresh
+run-name: Global Pulse refresh • ${{ github.event_name }} • ${{ github.run_number }}
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -169,7 +170,20 @@ jobs:
           test -f _site/index.html
           test -f _site/data/map_points.json
           test -f _site/js/app.js
-          echo "Prepared Pages site: $(find _site -type f | wc -l) files"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          mp=json.loads(Path('_site/data/map_points.json').read_text())
+          markers=mp.get('markers') or []
+          assert len(markers) >= 10
+          assert all(-90 <= float(x['lat']) <= 90 and -180 <= float(x['lng']) <= 180 for x in markers)
+          brain=json.loads(Path('_site/data/intelligence_brain.json').read_text())
+          assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True
+          assert 10 <= len(brain.get('nodes',[])) <= 35
+          assert len(brain.get('edges',brain.get('relationships',[]))) >= 5
+          print(f'PASS exact Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
+          PY
+          echo "Prepared exact Pages site: $(find _site -type f | wc -l) files"
       - name: Upload exact generated site
         uses: actions/upload-pages-artifact@v3
         with:
