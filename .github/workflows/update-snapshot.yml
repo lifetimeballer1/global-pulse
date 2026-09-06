@@ -8,6 +8,7 @@ on:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
       - 'build_map_points.py'
+      - 'finalize_map_ui.py'
       - 'pipeline/build_snapshot.py'
       - 'build_event_pipeline.py'
       - 'ensure_brain_groups.py'
@@ -92,6 +93,8 @@ jobs:
           else:
               print('No CARTO tile URL in generated index; map module owns the tile layer')
           PY
+      - name: Finalize map UI and browser cache bust
+        run: python finalize_map_ui.py
       - name: Install regression test runner
         run: python -m pip install --disable-pip-version-check pytest
       - name: Run regression tests
@@ -99,7 +102,7 @@ jobs:
       - name: Verify critical published inputs
         run: |
           set -euo pipefail
-          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_map_points.py
+          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_map_points.py finalize_map_ui.py
           python - <<'PY'
           import json, hashlib
           from pathlib import Path
@@ -133,6 +136,8 @@ jobs:
               assert asset in html,asset
           assert 'section-brain' in html and 'section-markets' in html and 'mapContainer' in html
           assert 'global_pulse_v22.js' not in html and 'global_pulse_v27.js' not in html
+          assert 'gp-map-rescue-js' not in html and 'gp-map-rescue-css' not in html
+          assert 'js/app.js?v=20260906-mapfix3' in html
           print('PASS canonical UI integration')
           PY
       - name: Commit generated data and UI
