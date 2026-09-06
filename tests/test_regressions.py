@@ -83,3 +83,13 @@ def test_phase6_security_gate_and_hardening_cover_both_browser_surfaces():
     assert 'Content-Security-Policy' in hardener and 'frame-ancestors' in hardener and 'strict-origin-when-cross-origin' in hardener
     for name in ('index.html','intelligence-web.html'):
         text=(ROOT/name).read_text(encoding='utf-8'); assert 'Content-Security-Policy' in text
+
+
+def test_phase7_mobile_performance_layer_is_deferred_and_safe():
+    index=(ROOT/'index.html').read_text(encoding='utf-8'); perf=(ROOT/'global_pulse_performance.js').read_text(encoding='utf-8'); qa=(ROOT/'global_pulse_qa.js').read_text(encoding='utf-8')
+    assert 'global_pulse_performance.js' in index
+    assert 'class="gp-intelweb-frame"' in index and 'loading="lazy"' in index
+    assert 'loading="eager"' not in index
+    assert 'IntersectionObserver' in perf and 'requestIdleCallback' in perf and 'contentVisibility' in perf
+    assert 'prefers-reduced-motion' in perf
+    assert 'requestAnimationFrame' in qa and 'MutationObserver' in qa
