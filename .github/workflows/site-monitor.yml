@@ -34,21 +34,35 @@ jobs:
               with urllib.request.urlopen(req,timeout=20) as r:
                   if r.status != 200: raise RuntimeError(f'{path}: HTTP {r.status}')
                   return r.read()
-          html=get('')
-          text=html.decode('utf-8','replace')
-          assert 'Global Pulse' in text, 'site title/content missing'
-          assert 'global_pulse_core.js' in text, 'canonical core missing from published site'
-          files=['data/snapshot.json','data/history.json','data/sources.json','data/live_articles.json','data/intelligence_graph.json']
+          def age_seconds(value):
+              dt=datetime.fromisoformat(str(value).replace('Z','+00:00'))
+              if dt.tzinfo is None: dt=dt.replace(tzinfo=timezone.utc)
+              return (datetime.now(timezone.utc)-dt.astimezone(timezone.utc)).total_seconds()
+          html=get('').decode('utf-8','replace')
+          assert 'Global Pulse' in html, 'site title/content missing'
+          assert 'global_pulse_core.js' in html, 'canonical core missing from published site'
+          files=['data/snapshot.json','data/history.json','data/sources.json','data/live_articles.json','data/intelligence_graph.json','data/intelligence_brain.json','data/map_points.json']
           for path in files:
               obj=json.loads(get(path).decode('utf-8'))
               assert isinstance(obj,(dict,list)), f'{path} is not valid JSON object/list'
-              if isinstance(obj,dict): assert obj, f'{path} is empty'
-              else: assert obj, f'{path} is empty'
+              assert bool(obj), f'{path} is empty'
               print('OK',path,type(obj).__name__)
           snap=json.loads(get('data/snapshot.json').decode('utf-8'))
-          assert snap.get('lastSuccessfulRefresh') or snap.get('updatedAt'), 'snapshot has no freshness timestamp'
+          stamp=snap.get('lastSuccessfulRefresh') or snap.get('updatedAt')
+          assert stamp, 'snapshot has no freshness timestamp'
+          snap_age=age_seconds(stamp)
+          assert -120 <= snap_age <= 1800, f'snapshot stale or future-dated: {snap_age:.0f}s'
           market=(snap.get('marketData') or {}).get('indicators') or []
           assert len(market)>=20, f'market indicators unexpectedly low: {len(market)}'
           assert any(float(x.get('price',0) or 0)>0 for x in market if isinstance(x,dict)), 'market data contains no positive prices'
-          print('MONITOR PASS',datetime.now(timezone.utc).isoformat(),'market=',len(market))
+          brain=json.loads(get('data/intelligence_brain.json').decode('utf-8'))
+          assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True and brain.get('consolidated') is True
+          assert 10 <= len(brain.get('nodes',[])) <= 35 and len(brain.get('edges',[])) >= 5
+          for edge in brain.get('edges',[]):
+              assert edge.get('source') and edge.get('target') and edge.get('evidence'), 'brain edge missing evidence'
+          mp=json.loads(get('data/map_points.json').decode('utf-8'))
+          markers=mp.get('markers') or []
+          assert len(markers)>=10, f'map marker count unexpectedly low: {len(markers)}'
+          assert all(-90<=float(x['lat'])<=90 and -180<=float(x['lng'])<=180 for x in markers)
+          print('MONITOR PASS',datetime.now(timezone.utc).isoformat(),'snapshotAge=',round(snap_age),'market=',len(market),'mapPoints=',len(markers),'brain=',len(brain.get('nodes',[])),'/',len(brain.get('edges',[])))
           PY
