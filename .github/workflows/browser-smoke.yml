@@ -84,10 +84,19 @@ jobs:
               count_text = page.locator('#gpMapCount').inner_text()
               assert 'signals' in count_text.lower(), f'unexpected map count: {count_text}'
 
-              # Global Pulse circle markers live in the custom gp-signals pane.
-              # Do not target generic Leaflet overlays or Brain relationship lines.
+              # Markers are clustered at the map's default fitted zoom. Zoom into the
+              # rendered map until an individual Global Pulse signal is exposed.
+              map_el = page.locator('#mapContainer')
               marker = page.locator('#mapContainer .leaflet-pane.gp-signals svg path.leaflet-interactive').first
-              marker.wait_for(timeout=30000)
+              for _ in range(7):
+                  if marker.count() and marker.is_visible():
+                      break
+                  box = map_el.bounding_box()
+                  assert box, 'map container has no bounding box'
+                  page.mouse.move(box['x'] + box['width'] / 2, box['y'] + box['height'] / 2)
+                  page.mouse.wheel(0, -900)
+                  page.wait_for_timeout(300)
+              marker.wait_for(timeout=10000)
               marker.click(force=True)
               page.locator('#mapSidePanel').wait_for(timeout=10000, state='visible')
               page.locator('#gpMapClose').wait_for(timeout=10000)
