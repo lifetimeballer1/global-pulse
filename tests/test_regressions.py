@@ -49,11 +49,34 @@ def test_live_news_feed_schema_normalizes_to_browser_story_shape():
     assert story['url'] == item['url']; assert story['source'] == item['url']; assert story['sourceLabel'] == 'Example News'; assert story['sourceName'] == 'Example News'; assert story['sourceType'] == 'news'; assert story['published_date'] == item['published_date']; assert story['time'] == item['published_date']; assert story['title'] == item['title']
 
 
+def test_live_news_timestamp_normalization_is_utc_and_invalid_records_are_rejected():
+    import merge_live_news as merger
+    naive = {'url':'https://example.test/naive','title':'Naive timestamp','published_date':'2026-09-05T12:00:00'}
+    rfc = {'url':'https://example.test/rfc','title':'RFC timestamp','published_date':'Sat, 05 Sep 2026 12:00:00 GMT'}
+    invalid = {'url':'https://example.test/bad','title':'Bad timestamp','published_date':'not-a-date'}
+    assert merger.normalize_article(naive)['published_date'] == '2026-09-05T12:00:00Z'
+    assert merger.normalize_article(rfc)['published_date'] == '2026-09-05T12:00:00Z'
+    assert merger.normalize_article(invalid) is None
+
+
 def test_rss_parser_accepts_normal_feed_shape():
     import news_feed_db
     payload = b'''<?xml version="1.0"?><rss><channel><item><title>Fresh report</title><link>https://example.test/a</link><pubDate>Sat, 05 Sep 2026 12:00:00 GMT</pubDate><description>Summary</description></item></channel></rss>'''
     rows = news_feed_db.parse_feed(payload, 'test', {'name':'Example','type':'news','category':'test','url':'https://example.test/rss'})
     assert len(rows)==1 and rows[0]['url']=='https://example.test/a' and rows[0]['title']=='Fresh report' and rows[0]['source_name']=='Example'
+
+
+def test_source_registry_preserves_explicit_categories():
+    import news_feed_db
+    registry = ROOT / 'data/sources.json'
+    original = registry.read_text(encoding='utf-8') if registry.exists() else None
+    try:
+        registry.write_text('{"feeds":[{"name":"Category Test","url":"https://example.test/rss","type":"news","category":"security"}]}', encoding='utf-8')
+        sources = news_feed_db.load_sources()
+        assert sources['category_test']['category'] == 'security'
+    finally:
+        if original is not None:
+            registry.write_text(original, encoding='utf-8')
 
 
 def test_browser_qa_layer_is_installed_and_distinguishes_fetch_failure():
