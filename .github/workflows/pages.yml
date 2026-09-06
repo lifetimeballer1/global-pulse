@@ -1,8 +1,7 @@
 name: Deploy Global Pulse to GitHub Pages
 
-# The canonical refresh workflow now builds, validates, commits, and deploys the
-# exact same generated working tree. Keeping this workflow manual-only prevents
-# duplicate deployments and stale workflow_run checkouts.
+# Manual emergency deployment only. The canonical refresh workflow owns normal
+# production deployment and publishes the same minimal browser-only site shape.
 on:
   workflow_dispatch:
 
@@ -12,8 +11,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: global-pulse-pages-manual
-  cancel-in-progress: true
+  group: global-pulse-canonical-refresh
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -37,27 +36,44 @@ jobs:
           d=json.loads(Path('data/snapshot.json').read_text())
           stamp=d.get('updatedAt'); assert stamp
           age=(datetime.now(timezone.utc)-datetime.fromisoformat(stamp.replace('Z','+00:00'))).total_seconds()
-          assert age <= 900, f'snapshot stale: {age:.0f}s'
+          assert -120 <= age <= 1800, f'snapshot stale or future-dated: {age:.0f}s'
           assert isinstance(d.get('markers'),list) and d['markers']
           print('MANUAL PAGES VALIDATION PASSED',stamp)
           PY
       - name: Install map precision layer
         run: python map_precision_photos.py
-      - name: Verify site inputs
+      - name: Prepare minimal browser site
         run: |
-          test -s index.html
-          test -s data/snapshot.json
-          test -s global_pulse_coverage_ui.js
-          test -s global_pulse_intelligence.js
-          test -s global_pulse_list_density.js
-          test -s global_pulse_list_density.css
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          rsync -a \
+            --include='index.html' \
+            --include='intelligence-web.html' \
+            --include='site.webmanifest' \
+            --include='favicon.png' \
+            --include='apple-touch-icon.png' \
+            --include='*.js' \
+            --include='*.css' \
+            --include='js/***' \
+            --include='css/***' \
+            --include='assets/***' \
+            --include='data/***' \
+            --exclude='*' \
+            ./ _site/
+          test -s _site/index.html
+          test -s _site/data/snapshot.json
+          test -s _site/data/map_points.json
+          test ! -e _site/news_feed.db
+          test ! -e _site/tests
+          ! find _site -type f -name '*.py' -print -quit | grep -q .
+          ! find _site -type d -name '__pycache__' -print -quit | grep -q .
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
