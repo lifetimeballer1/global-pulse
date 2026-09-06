@@ -47,9 +47,7 @@ function collect(){
   add('state-events',s.mapData?.events);add('state-regional',s.mapData?.regional);add('state-cartel',s.mapData?.cartel);add('state-links',s.mapData?.links);add('state-points',s.mapData?.points);
   add('live-snapshot',mapData?.snapshot);add('live-events',mapData?.events);add('live-regional',mapData?.regional);add('live-cartel',mapData?.cartel);add('live-links',mapData?.links);add('live-points',mapData?.points);
   const brain=mapData?.brain;
-  if(brain?.sourceBackedOnly===true&&Array.isArray(brain.nodes)){
-    add('intelligence-brain',brain.nodes.filter(n=>coords(n)).map(n=>({...n,nodeId:String(n.id),brainNode:true,detail:n.description||n.summary||`${n.mentions||0} mentions · ${n.evidence?.length||0} evidence records`})));
-  }
+  if(brain?.sourceBackedOnly===true&&Array.isArray(brain.nodes))add('intelligence-brain',brain.nodes.filter(n=>coords(n)).map(n=>({...n,nodeId:String(n.id),brainNode:true,detail:n.description||n.summary||`${n.mentions||0} mentions · ${n.evidence?.length||0} evidence records`})));
   return unique(sources.flatMap(([name,data])=>flatten(data,name)));
 }
 function brainEdgesFor(p){
@@ -66,8 +64,7 @@ function renderBrainLinks(){
   brainLinks.clearLayers();
   if(!showBrainLinks)return;
   const brain=mapData?.brain;if(brain?.sourceBackedOnly!==true||!Array.isArray(brain.nodes)||!Array.isArray(brain.edges))return;
-  const byId=new Map();
-  brain.nodes.forEach(n=>{const c=coords(n);if(c)byId.set(String(n.id),c)});
+  const byId=new Map();brain.nodes.forEach(n=>{const c=coords(n);if(c)byId.set(String(n.id),c)});
   for(const e of brain.edges){const a=byId.get(String(e.source)),b=byId.get(String(e.target));if(!a||!b||String(e.source)===String(e.target))continue;
     const line=L.polyline([a,b],{pane:'gp-brain-links',color:'#8da2c4',weight:1.5,opacity:.55,dashArray:'5 6',interactive:false});
     line.bindTooltip(String(e.relationship||e.label||e.type||'Intelligence relationship').slice(0,100),{sticky:true});
@@ -80,14 +77,48 @@ function controls(){
   const box=document.createElement('div');box.id='gpMapControls';box.className='gp-map-mymaps-controls';
   box.innerHTML=`<div class="gp-map-toolbar"><button class="gp-map-tool" id="gpMapLayers">☰ Layers</button><button class="gp-map-tool" id="gpMapFit">◎ Fit all</button><button class="gp-map-tool" id="gpMapReset">↺ Reset</button><input id="gpMapSearch" class="gp-map-search" type="search" placeholder="Search places, events, countries…"><span id="gpMapCount" class="gp-map-count">0 signals</span></div><div id="gpMapLayerPanel" class="gp-map-layers-panel"><strong>MAP LAYERS</strong><div id="gpMapLayerRows"></div><label class="gp-map-layer-row"><input type="checkbox" id="gpMapBrainLinks" ${showBrainLinks?'checked':''}><span class="gp-map-layer-dot" style="background:#8da2c4"></span><span>🧠 Brain relationships</span><b id="gpMapBrainLinkCount">0</b></label></div>`;
   host.insertBefore(box,document.getElementById('mapContainer'));const rows=box.querySelector('#gpMapLayerRows');
-  for(const [k,m] of Object.entries(LAYERS)){const label=document.createElement('label');label.className='gp-map-layer-row';label.innerHTML=`<input type="checkbox" data-layer-check="${k}" ${enabled[k]?'checked':''}><span class="gp-map-layer-dot" style="background:${m.color}"></span><span>${m.icon} ${m.label}</span><b id="gpMapLayerCount-${k}">0</b></label>`;rows.appendChild(label);label.querySelector('input').onchange=e=>{enabled[k]=e.target.checked;localStorage.setItem('gp.mapLayers',JSON.stringify(enabled));renderMap()}}
+  for(const [k,m] of Object.entries(LAYERS)){const label=document.createElement('label');label.className='gp-map-layer-row';label.innerHTML=`<input type="checkbox" data-layer-check="${k}" ${enabled[k]?'checked':''}><span class="gp-map-layer-dot" style="background:${m.color}"></span><span>${m.icon} ${m.label}</span><b id="gpMapLayerCount-${k}">0</b>`;rows.appendChild(label);label.querySelector('input').onchange=e=>{enabled[k]=e.target.checked;localStorage.setItem('gp.mapLayers',JSON.stringify(enabled));renderMap()}}
   box.querySelector('#gpMapLayers').onclick=()=>box.querySelector('#gpMapLayerPanel').classList.toggle('open');box.querySelector('#gpMapFit').onclick=fitAll;box.querySelector('#gpMapReset').onclick=()=>{query='';filter='all';enabled=Object.fromEntries(Object.keys(LAYERS).map(k=>[k,true]));showBrainLinks=true;localStorage.removeItem('gp.mapLayers');localStorage.removeItem('gp.mapFilter');localStorage.removeItem('gp.mapBrainLinks');box.querySelector('#gpMapSearch').value='';box.querySelectorAll('[data-layer-check]').forEach(x=>x.checked=true);box.querySelector('#gpMapBrainLinks').checked=true;renderMap();fitAll()};box.querySelector('#gpMapSearch').oninput=e=>{query=e.target.value.trim().toLowerCase();renderMap()};box.querySelector('#gpMapBrainLinks').onchange=e=>{showBrainLinks=e.target.checked;localStorage.setItem('gp.mapBrainLinks',showBrainLinks?'1':'0');renderBrainLinks()};
 }
-export function initMap(){const el=document.getElementById('mapContainer');if(!el||map||typeof L==='undefined')return;map=L.map(el,{center:CONFIG.mapDefaultCenter,zoom:CONFIG.mapDefaultZoom,worldCopyJump:true,preferCanvas:true,zoomControl:true});map.createPane('gp-brain-links').style.zIndex='430';map.createPane('gp-signals').style.zIndex='650';L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);brainLinks=L.layerGroup().addTo(map);for(const k of Object.keys(LAYERS))groups[k]=L.layerGroup().addTo(map);controls();setTimeout(()=>map.invalidateSize(),100);map.on('click',closeDetail)}
+function makeGroup(){
+  if(typeof L.markerClusterGroup!=='function')return L.layerGroup();
+  return L.markerClusterGroup({
+    pane:'gp-signals',
+    chunkedLoading:true,
+    chunkInterval:80,
+    chunkDelay:20,
+    maxClusterRadius:55,
+    disableClusteringAtZoom:7,
+    spiderfyOnMaxZoom:true,
+    showCoverageOnHover:false,
+    zoomToBoundsOnClick:true,
+    animate:true,
+    animateAddingMarkers:false
+  });
+}
+export function initMap(){
+  const el=document.getElementById('mapContainer');
+  if(!el||map||typeof L==='undefined')return;
+  map=L.map(el,{center:CONFIG.mapDefaultCenter,zoom:CONFIG.mapDefaultZoom,worldCopyJump:true,preferCanvas:true,zoomControl:true});
+  map.createPane('gp-brain-links').style.zIndex='430';map.createPane('gp-signals').style.zIndex='650';
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);
+  brainLinks=L.layerGroup().addTo(map);
+  for(const k of Object.keys(LAYERS)){groups[k]=makeGroup();groups[k].addTo(map)}
+  controls();setTimeout(()=>map.invalidateSize(),100);map.on('click',closeDetail);
+}
 async function getFeed(key){try{const base=CONFIG.endpoints[key];if(!base)return null;const r=await fetch(`${base}${base.includes('?')?'&':'?'}v=${Date.now()}`,{cache:'no-store'});if(!r.ok)return null;return await r.json()}catch{return null}}
 export async function loadMapData(){const keys=['snapshot','mapEvents','mapRegional','mapCartel','mapLinks','mapPoints','intelligenceBrain'];const values=await Promise.all(keys.map(getFeed));const [snapshot,events,regional,cartel,links,points,brain]=values;mapData={snapshot,events,regional,cartel,links,points,brain};renderMap();return mapData}
-export function renderMap(){if(!map)initMap();if(!map)return;for(const g of Object.values(groups))g.clearLayers();renderBrainLinks();const all=collect();const points=all.filter(matches).slice(0,5000);const counts=Object.fromEntries(Object.keys(LAYERS).map(k=>[k,0]));for(const p of points){const k=classify(p);counts[k]++;const m=LAYERS[k];const marker=L.circleMarker([p.__lat,p.__lon],{pane:'gp-signals',radius:p.brainNode?10:8,color:'#ffffff',weight:2.5,fillColor:m.color,fillOpacity:.98,opacity:1,interactive:true});marker.bindTooltip(String(p.title||p.label||p.name||p.location||m.label).slice(0,120),{direction:'top',sticky:true});marker.on('click',e=>{e.originalEvent?.stopPropagation();showDetail(p)});groups[k].addLayer(marker)}const total=points.length;const count=document.getElementById('gpMapCount');if(count)count.textContent=`${total.toLocaleString()} signals`;for(const k of Object.keys(LAYERS)){const e=document.getElementById(`gpMapLayerCount-${k}`);if(e)e.textContent=counts[k].toLocaleString()}const linkCount=document.getElementById('gpMapBrainLinkCount');if(linkCount){const brain=mapData?.brain;linkCount.textContent=String(Array.isArray(brain?.edges)?brain.edges.filter(e=>String(e.source)!==String(e.target)).length:0)}if(total)fitAll(points);else setTimeout(()=>map.invalidateSize(),50)}
-function fitAll(points=collect().filter(matches)){if(!map||!points.length)return;map.fitBounds(L.latLngBounds(points.map(p=>[p.__lat,p.__lon])).pad(.08),{maxZoom:5,animate:false})}
+export function renderMap(){
+  if(!map)initMap();if(!map)return;
+  for(const g of Object.values(groups))g.clearLayers();renderBrainLinks();
+  const all=collect();const points=all.filter(matches).slice(0,5000);const counts=Object.fromEntries(Object.keys(LAYERS).map(k=>[k,0]));
+  for(const p of points){const k=classify(p);counts[k]++;const m=LAYERS[k];const marker=L.circleMarker([p.__lat,p.__lon],{pane:'gp-signals',radius:p.brainNode?10:8,color:'#ffffff',weight:2.5,fillColor:m.color,fillOpacity:.98,opacity:1,interactive:true});marker.bindTooltip(String(p.title||p.label||p.name||p.location||m.label).slice(0,120),{direction:'top',sticky:true});marker.on('click',e=>{e.originalEvent?.stopPropagation();showDetail(p)});groups[k].addLayer(marker)}
+  const total=points.length;const count=document.getElementById('gpMapCount');if(count)count.textContent=`${total.toLocaleString()} signals`;
+  for(const k of Object.keys(LAYERS)){const e=document.getElementById(`gpMapLayerCount-${k}`);if(e)e.textContent=counts[k].toLocaleString()}
+  const linkCount=document.getElementById('gpMapBrainLinkCount');if(linkCount){const brain=mapData?.brain;linkCount.textContent=String(Array.isArray(brain?.edges)?brain.edges.filter(e=>String(e.source)!==String(e.target)).length:0)}
+  if(total)fitAll(points);else setTimeout(()=>map.invalidateSize(),50)
+}
+function fitAll(points=collect().filter(matches)){if(!map||!points.length)return;map.fitBounds(L.latLngBounds(points.map(p=>[p.__lat,p.__lon])).pad(.08),{maxZoom:4,animate:false})}
 function closeDetail(){const p=document.getElementById('mapSidePanel');if(p){p.style.display='none';p.innerHTML=''}selected=null}
-function showDetail(p){closeDetail();selected=p;const panel=document.getElementById('mapSidePanel');if(!panel)return;const k=classify(p),m=LAYERS[k],title=p.title||p.label||p.name||p.location||'Map signal',detail=p.detail||p.summary||p.description||p.reason||'No additional detail available.',url=p.url||p.sourceUrl||p.source_url||'',links=brainEdgesFor(p);panel.style.display='block';panel.innerHTML=`<div class="gp-map-detail-head"><span>${m.icon}</span><div><div class="gp-card-title">${escapeHtml(title)}</div><div class="gp-map-detail-type">${escapeHtml(m.label)}${p.brainNode?' · Intelligence Brain':''}</div></div><button id="gpMapClose" class="gp-btn" type="button">×</button></div><div class="gp-map-detail-coords">${p.__lat.toFixed(4)}, ${p.__lon.toFixed(4)}</div><div class="gp-map-detail-text">${escapeHtml(String(detail).slice(0,1400))}</div>${p.source?`<div class="gp-map-detail-source">Source: ${escapeHtml(p.source)}</div>`:''}${links.length?`<div class="gp-map-detail-source"><strong>Brain connections</strong>${links.map(x=>`<div style="margin-top:6px"><button type="button" class="gp-map-brain-link" data-brain-target="${escapeHtml(x.id)}" style="background:none;border:0;padding:0;color:inherit;text-align:left;cursor:pointer">${escapeHtml(x.label)} — ${escapeHtml(x.relationship)}</button></div>`).join('')}</div>`:''}${/^https?:\/\//i.test(String(url))?`<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`:''}`;panel.querySelector('#gpMapClose').onclick=closeDetail;panel.querySelectorAll('[data-brain-target]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.brainTarget;if(!id)return;window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id,source:'map'}}));document.getElementById('brainBody')?.scrollIntoView({behavior:'smooth',block:'start'});closeDetail()});if(p.brainNode&&p.nodeId){window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id:String(p.nodeId),source:'map'}}))}}
+function showDetail(p){closeDetail();selected=p;const panel=document.getElementById('mapSidePanel');if(!panel)return;const k=classify(p),m=LAYERS[k],title=p.title||p.label||p.name||p.location||'Map signal',detail=p.detail||p.summary||p.description||p.reason||'No additional detail available.',url=p.url||p.sourceUrl||p.source_url||'',links=brainEdgesFor(p);panel.style.display='block';panel.innerHTML=`<div class="gp-map-detail-head"><span>${m.icon}</span><div><div class="gp-card-title">${escapeHtml(title)}</div><div class="gp-map-detail-type">${escapeHtml(m.label)}${p.brainNode?' · Intelligence Brain':''}</div></div><button id="gpMapClose" class="gp-btn" type="button">×</button></div><div class="gp-map-detail-coords">${p.__lat.toFixed(4)}, ${p.__lon.toFixed(4)}</div><div class="gp-map-detail-text">${escapeHtml(String(detail).slice(0,1400))}</div>${p.source?`<div class="gp-map-detail-source">Source: ${escapeHtml(p.source)}</div>`:''}${links.length?`<div class="gp-map-detail-source"><strong>Brain connections</strong>${links.map(x=>`<div style="margin-top:6px"><button type="button" class="gp-map-brain-link" data-brain-target="${escapeHtml(x.id)}" style="background:none;border:0;padding:0;color:inherit;text-align:left;cursor:pointer">${escapeHtml(x.label)} — ${escapeHtml(x.relationship)}</button></div>`).join('')}</div>`:''}${/^https?:\/\//i.test(String(url))?`<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`:''}`;panel.querySelector('#gpMapClose').onclick=closeDetail;panel.querySelectorAll('[data-brain-target]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.brainTarget;if(!id)return;window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id,source:'map'}}));document.getElementById('brainBody')?.scrollIntoView({behavior:'smooth',block:'start'});closeDetail()});if(p.brainNode&&p.nodeId)window.dispatchEvent(new CustomEvent('gp:brain-select',{detail:{id:String(p.nodeId),source:'map'}}))}
 window.addEventListener('gp:brain-select',event=>{const id=event.detail?.id;if(!id||event.detail?.source==='map')return;const points=collect().filter(p=>String(p.nodeId??p.id??'')===String(id));if(!points.length)return;const p=points[0];const k=classify(p);if(!enabled[k]){enabled[k]=true;localStorage.setItem('gp.mapLayers',JSON.stringify(enabled));renderMap();return}if(map){map.setView([p.__lat,p.__lon],Math.max(map.getZoom(),5),{animate:false});showDetail(p)}});
