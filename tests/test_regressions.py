@@ -89,3 +89,33 @@ def test_refresh_pipeline_requires_real_market_prices_and_manifest():
     assert 'market data contains no positive real prices' in text
     assert 'refresh_manifest.json' in text
     assert 'build_what_changed.py' in text
+
+
+def test_phase5_failover_preserves_existing_story_records():
+    import source_failover
+    existing = [
+        {'url': 'https://example.test/old', 'title': 'Existing story', 'published_date': '2026-09-06T01:00:00Z'},
+        {'url': 'https://example.test/keep', 'title': 'Another story', 'published_date': '2026-09-06T02:00:00Z'},
+    ]
+    additions = [
+        {'url': 'https://example.test/new', 'title': 'Fallback story', 'published_date': '2026-09-06T03:00:00Z'},
+        {'url': 'https://example.test/old', 'title': 'Duplicate existing', 'published_date': '2026-09-06T04:00:00Z'},
+    ]
+    merged = source_failover.merge_stories(existing, additions)
+    assert len(merged) == 3
+    assert [x['url'] for x in merged] == [
+        'https://example.test/old',
+        'https://example.test/keep',
+        'https://example.test/new',
+    ]
+
+
+def test_phase5_resilience_validator_is_wired_into_refresh_and_workflows():
+    pipeline = (ROOT / 'refresh_pipeline.py').read_text(encoding='utf-8')
+    workflow = (ROOT / '.github/workflows/update-snapshot.yml').read_text(encoding='utf-8')
+    diagnostics = (ROOT / '.github/workflows/data-resilience.yml').read_text(encoding='utf-8')
+    assert 'validate_data_resilience.py' in pipeline
+    assert 'validate_data_resilience.py' in workflow
+    assert 'python validate_data_resilience.py' in diagnostics
+    assert 'actions/deploy-pages@v4' in workflow
+    assert 'actions/deploy-pages@v4' not in diagnostics
