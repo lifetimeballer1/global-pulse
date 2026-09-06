@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Repair the human-facing Brain from the already source-backed curated graph.
-
-The live news stream can temporarily omit a cartel or country name. The curated
-intelligence graph is produced immediately upstream and contains explicit
-source evidence, so canonical entities are retained instead of disappearing.
-"""
+"""Repair the human-facing Brain from the already source-backed curated graph."""
 from __future__ import annotations
 import json,re
 from datetime import datetime,timezone
@@ -31,8 +26,6 @@ def main():
    else:
     meta.update({'country':label,'lat':COUNTRIES[label][0],'lng':COUNTRIES[label][1],'clusterKey':'country:'+label})
    nodes.append(meta);by[i]=meta
- # Keep the compact size policy while guaranteeing the major group buckets.
- nodes.sort(key=lambda n:(0 if n.get('kind')=='cartel' else 1 if n.get('kind')=='country' else 2,-float(n.get('score') or 0)),key=None) if False else None
  if not any(n.get('kind')=='cartel' for n in nodes):raise RuntimeError('unable to retain a source-backed cartel node')
  if not any(n.get('kind')=='country' for n in nodes):raise RuntimeError('unable to retain a source-backed country node')
  if not any(n.get('kind')=='economic' for n in nodes):raise RuntimeError('unable to retain a source-backed economic node')
