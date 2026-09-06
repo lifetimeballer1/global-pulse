@@ -179,3 +179,8 @@ def validate() -> dict:
 
 if __name__ == "__main__":
     validate()
+    # A successful validation is the safe point to generate next-cycle feed
+    # expansion hints. If feedback generation fails, validation still remains
+    # authoritative and the pipeline surfaces the feedback failure explicitly.
+    import subprocess, sys
+    subprocess.run([sys.executable, str(ROOT / "update_brain_feedback.py")], cwd=ROOT, check=True)
