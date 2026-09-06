@@ -10,6 +10,9 @@ on:
       - '.github/workflows/enforcer-map-watcher.yml'
 permissions:
   contents: write
+concurrency:
+  group: global-pulse-canonical-refresh
+  cancel-in-progress: false
 jobs:
   watch:
     runs-on: ubuntu-latest
