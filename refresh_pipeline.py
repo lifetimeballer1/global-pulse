@@ -5,7 +5,7 @@ import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data'
-REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json','map_points.json','strategic_signals.json')
+REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','canonical_intelligence.json','intelligence_graph.json','intelligence_brain.json','map_points.json','strategic_signals.json')
 def run(label,*cmd):
  print(f'\n=== {label} ===',flush=True);print('$',' '.join(cmd),flush=True);subprocess.run(cmd,cwd=ROOT,check=True);print(f'PASS: {label}',flush=True)
 def load(name):
@@ -48,7 +48,17 @@ def verify_brain(brain):
   if n.get('kind') not in allowed or not n.get('canonical'):raise RuntimeError(f'noncanonical brain node: {n.get("label")}')
  for e in edges:
   if str(e.get('source')) not in ids or str(e.get('target')) not in ids or not e.get('evidence'):raise RuntimeError('invalid or unevidenced brain relationship')
+def verify_canonical_intelligence(document):
+ from intelligence_schema import validate_document
+ errors=validate_document(document)
+ if errors:
+  raise RuntimeError(f'canonical intelligence schema validation failed: {errors[:5]}')
+ if not document.get('generated_at'):raise RuntimeError('canonical intelligence has no generated_at timestamp')
+ if len(document.get('entities') or [])==0:raise RuntimeError('canonical intelligence contains no entities')
+ if len(document.get('evidence') or [])==0:raise RuntimeError('canonical intelligence contains no evidence')
 def main():
+ run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence.py')
+ canonical=verify_json('canonical_intelligence.json',fresh_required=False);verify_canonical_intelligence(canonical)
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
  run('Guarantee U.S. and China major-power hubs',sys.executable,'ensure_major_power_nodes.py')
  run('Ensure Brain group coverage',sys.executable,'ensure_brain_groups.py')
