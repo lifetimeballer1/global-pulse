@@ -5,11 +5,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_map_conflict_filter_has_canonical_classifier_and_rerender():
-    text = (ROOT / 'global_map_ui.py').read_text(encoding='utf-8')
-    assert 'data-f="conflict"' in text
-    assert re.search(r'filter\s*!==\s*["\']all["\']\s*&&\s*k\s*!==\s*filter', text)
-    assert re.search(r'cfr\|conflict\|military\|war\|attack\|strike', text)
-    assert 'window.renderMap' in text
+    # The canonical map renderer now lives in js/modules/map.js.  The legacy
+    # global_map_ui.py installer intentionally removes obsolete map fragments,
+    # so testing that installer for runtime UI strings is incorrect.
+    text = (ROOT / 'js/modules/map.js').read_text(encoding='utf-8')
+    assert "filter='all'" in text
+    assert "filter!=='all'" in text
+    assert "filter==='conflict'&&k==='conflicts'" in text
+    assert re.search(r'cartel|organized.?crime|narco', text)
+    assert re.search(r'cfr|conflict|military|war|attack|strike', text, re.I)
+    assert 'renderMap' in text
+    assert 'window.renderMap' not in text
 
 
 def test_live_news_feed_schema_normalizes_to_browser_story_shape():
