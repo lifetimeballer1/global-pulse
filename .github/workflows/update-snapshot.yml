@@ -7,9 +7,11 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
+      - 'pipeline/build_snapshot.py'
       - 'build_event_pipeline.py'
       - 'global_pulse_core.js'
       - 'global_pulse_event_pipeline.js'
+      - 'global_pulse_brain_ui.js'
       - 'global_pulse_tokens.css'
       - 'global_pulse_enhancements.js'
       - 'global_pulse_breaking.js'
@@ -28,6 +30,8 @@ on:
       - 'global_pulse_qa.js'
       - 'global_pulse_graph.js'
       - 'claim_intelligence.js'
+      - 'js/**'
+      - 'index.html'
       - 'tests/test_regressions.py'
       - 'data/enforcer_maps.json'
 concurrency:
@@ -74,7 +78,7 @@ jobs:
       - name: Verify critical published inputs
         run: |
           set -euo pipefail
-          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py build_what_changed.py update_market_data.py
+          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py
           python - <<'PY'
           import json, hashlib
           from pathlib import Path
@@ -88,16 +92,21 @@ jobs:
           assert isinstance(d.get('failoverState'),dict)
           assert (d.get('conflictDataset') or {}).get('provider')
           assert (d.get('macroData') or {}).get('provider')
-          print('PASS snapshot',d['updatedAt'],'market',len(m['indicators']),'stories',len(s),'failover',d['failoverState'])
+          brain=d.get('intelligenceBrain') or {}
+          assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True
+          print('PASS snapshot',d['updatedAt'],'market',len(m['indicators']),'stories',len(s),'brain',len(brain.get('nodes',[])))
           live=json.loads(Path('data/live_status.json').read_text())
           assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
           print('PASS news',live.get('feedsChecked'),live.get('rowsFetched'))
           manifest=json.loads(Path('data/refresh_manifest.json').read_text())
-          for name,meta in manifest['artifacts'].items():
-              raw=Path('data',name).read_bytes();assert hashlib.sha256(raw).hexdigest()==meta['sha256'],name
+          required=['snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json']
+          for name in required:
+              meta=manifest['artifacts'][name];raw=Path('data',name).read_bytes();assert hashlib.sha256(raw).hexdigest()==meta['sha256'],name
           print('PASS refresh manifest')
           html=Path('index.html').read_text()
-          assert 'global_pulse_core.js' in html and 'global_pulse_event_pipeline.js' in html and 'global_pulse_tokens.css' in html and 'global_pulse_qa.js' in html
+          for asset in ('global_pulse_core.js','global_pulse_event_pipeline.js','global_pulse_brain_ui.js','global_pulse_tokens.css'):
+              assert asset in html,asset
+          assert 'section-brain' in html and 'section-markets' in html and 'mapContainer' in html
           assert 'global_pulse_v22.js' not in html and 'global_pulse_v27.js' not in html
           print('PASS canonical UI integration')
           PY
