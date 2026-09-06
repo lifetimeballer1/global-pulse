@@ -8,6 +8,8 @@ on:
     paths:
       - '.github/workflows/update-snapshot.yml'
       - 'refresh_pipeline.py'
+      - 'build_intelligence_brain.py'
+      - 'validate_intelligence_brain.py'
       - 'build_map_points.py'
       - 'finalize_map_ui.py'
       - 'pipeline/build_snapshot.py'
@@ -104,7 +106,7 @@ jobs:
       - name: Verify critical published inputs
         run: |
           set -euo pipefail
-          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_map_points.py finalize_map_ui.py
+          python -m py_compile harden_site.py install_qa_hardening.py refresh_pipeline.py pipeline/build_snapshot.py build_what_changed.py update_market_data.py ensure_brain_groups.py build_intelligence_brain.py validate_intelligence_brain.py build_map_points.py finalize_map_ui.py
           python - <<'PY'
           import json, hashlib
           from pathlib import Path
@@ -120,6 +122,9 @@ jobs:
           assert (d.get('macroData') or {}).get('provider')
           brain=d.get('intelligenceBrain') or {}
           assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True
+          assert brain.get('consolidated') is True
+          assert 10 <= len(brain.get('nodes',[])) <= 35
+          assert len(brain.get('edges',brain.get('relationships',[]))) >= 5
           print('PASS snapshot',d['updatedAt'],'market',len(m['indicators']),'stories',len(s),'brain',len(brain.get('nodes',[])))
           live=json.loads(Path('data/live_status.json').read_text())
           assert live.get('rowsFetched',0)>0 and live.get('feedsChecked',0)>=20
@@ -180,6 +185,7 @@ jobs:
           assert all(-90 <= float(x['lat']) <= 90 and -180 <= float(x['lng']) <= 180 for x in markers)
           brain=json.loads(Path('_site/data/intelligence_brain.json').read_text())
           assert brain.get('complete') is True and brain.get('sourceBackedOnly') is True
+          assert brain.get('consolidated') is True
           assert 10 <= len(brain.get('nodes',[])) <= 35
           assert len(brain.get('edges',brain.get('relationships',[]))) >= 5
           print(f'PASS exact Pages site: mapPoints={len(markers)} brainNodes={len(brain.get("nodes",[]))}')
