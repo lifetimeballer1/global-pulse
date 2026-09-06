@@ -6,10 +6,11 @@ import { escapeHtml } from '../core/utils.js';
 let map=null;
 let layerGroups={};
 let activeLayers=JSON.parse(localStorage.getItem('gp.mapLayers')||'{"conflicts":true,"hazards":true,"strategic":true,"cartel":true,"osint":true}');
-let activeFilter='all';
+let activeFilter=localStorage.getItem('gp.mapFilter')||'all';
 let selectedMarker=null;
 let fallbackSnapshot=null;
 let fallbackLinks=null;
+let fallbackMapPoints=null;
 let directLoadStarted=false;
 let searchQuery='';
 let controlsBuilt=false;
@@ -128,7 +129,7 @@ function dedupe(points){
 function matchesFilter(group){return activeFilter==='all'||activeFilter===group||(activeFilter==='conflict'&&group==='conflicts')}
 function visiblePoints(){
   const state=getState();
-  const points=dedupe([...collectSnapshot(state.snapshot),...collectMapData(state.mapData),...collectSnapshot(fallbackSnapshot),...collectMapData(fallbackLinks)]);
+  const points=dedupe([...collectSnapshot(state.snapshot),...collectMapData(state.mapData),...collectSnapshot(fallbackSnapshot),...collectSnapshot(fallbackMapPoints),...collectMapData(fallbackLinks)]);
   return points.filter(p=>{if(!coords(p))return false;const group=classify(p,p.__source);if(!activeLayers[group])return false;if(!matchesFilter(group))return false;if(!searchQuery)return true;const hay=[p.title,p.name,p.location,p.country,p.region,p.city,p.detail,p.summary,p.description,p.source,p.type,p.layer,p.eventType,p.category].map(x=>String(x??'').toLowerCase()).join(' ');return hay.includes(searchQuery)}).slice(0,4000);
 }
 async function directMapLoad(){
@@ -136,8 +137,13 @@ async function directMapLoad(){
   directLoadStarted=true;
   const bust=`?map=${Date.now()}`;
   try{
-    const [snapRes,linksRes]=await Promise.all([fetch(`${CONFIG.endpoints.snapshot}${bust}`,{cache:'no-store'}),fetch(`${CONFIG.endpoints.mapLinks}${bust}`,{cache:'no-store'})]);
+    const [snapRes,pointsRes,linksRes]=await Promise.all([
+      fetch(`${CONFIG.endpoints.snapshot}${bust}`,{cache:'no-store'}),
+      fetch(`${CONFIG.endpoints.mapPoints}${bust}`,{cache:'no-store'}),
+      fetch(`${CONFIG.endpoints.mapLinks}${bust}`,{cache:'no-store'})
+    ]);
     fallbackSnapshot=snapRes.ok?await snapRes.json():null;
+    fallbackMapPoints=pointsRes.ok?await pointsRes.json():null;
     fallbackLinks=linksRes.ok?await linksRes.json():null;
   }catch(err){console.warn('Direct map data load failed',err)}
   renderMap();
@@ -152,7 +158,7 @@ export function renderMap(){
   points.forEach(p=>{
     const groupKey=classify(p,p.__source),group=layerGroups[groupKey];if(!group)return;counts[groupKey]++;
     const meta=LAYERS[groupKey],importance=Math.max(.8,Math.min(2,Number(p.importance??p.score??p.severityScore??1)||1));
-    const marker=L.circleMarker([p.__lat,p.__lon],{radius:Math.max(6,Math.min(11,importance*6)),color:'#ffffff',fillColor:meta.color,fillOpacity:.95,weight:2,opacity:1});
+    const marker=L.circleMarker([p.__lat,p.__lon],{radius:Math.max(7,Math.min(12,importance*6)),color:'#ffffff',fillColor:meta.color,fillOpacity:.98,weight:2,opacity:1,interactive:true});
     marker.bindTooltip(String(p.title||p.name||p.location||p.event||meta.label).slice(0,120),{direction:'top',opacity:.95,sticky:false});
     marker.on('click',e=>{if(e.originalEvent)e.originalEvent.stopPropagation();showSidePanel(p)});
     group.addLayer(marker);
@@ -175,7 +181,6 @@ function showSidePanel(p){
   const title=p.title||p.name||p.location||p.event||'Map signal';
   const detail=p.detail||p.summary||p.description||p.reason||p.recent||'No additional detail in source data.';
   const url=p.url||p.sourceUrl||p.source_url||null;
-  const type=p.type||p.layer||p.eventType||p.category||p.__source||'';
   const group=classify(p,p.__source),meta=LAYERS[group];
   panel.style.display='block';
   panel.innerHTML=`<div class="gp-map-detail-head"><span class="gp-map-detail-icon">${meta.icon}</span><div><div class="gp-card-title">${escapeHtml(title)}</div><div class="gp-map-detail-type" style="color:${meta.color}">${escapeHtml(meta.label)}</div></div><button id="mapDetailClose" class="gp-btn" type="button" aria-label="Close">×</button></div><div class="gp-map-detail-coords">${p.__lat.toFixed(4)}, ${p.__lon.toFixed(4)}</div><div class="gp-map-detail-text">${escapeHtml(String(detail).slice(0,1200))}</div>${p.source?`<div class="gp-map-detail-source">Source: ${escapeHtml(p.source)}</div>`:''}${/^https?:\/\//i.test(String(url||''))?`<div style="margin-top:10px"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a></div>`:''}`;
