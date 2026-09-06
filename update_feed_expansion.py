@@ -23,6 +23,29 @@ if '"GDELT — Western Hemisphere Counter-Cartel"' not in s:
     i=s.index(anchor)+len(anchor)
     s=s[:i]+'\n'+feeds+s[i:]
 
+# Feed expansion is now a closed-loop system: the previous Brain run can emit
+# source-backed gaps, and this cycle converts those gaps into additional public
+# RSS queries. The feedback file contains no synthetic intelligence claims.
+feedback=ROOT/'data'/'brain_feedback.json'
+if feedback.exists():
+    try:
+        report=json.loads(feedback.read_text(encoding='utf-8'))
+        dynamic=[]
+        for item in report.get('feedTargets') or []:
+            if not isinstance(item,dict) or not item.get('url') or not item.get('name'): continue
+            dynamic.append((str(item['name']),str(item['url']),str(item.get('type') or 'brain-feedback')))
+        existing_urls=set()
+        for line in s.splitlines():
+            if 'http' in line:
+                existing_urls.update(part.split('"')[0] for part in line.split('"') if part.startswith('http'))
+        if dynamic:
+            additions='\n'.join(f'    ({json.dumps(a,ensure_ascii=False)}, {json.dumps(b)}, {json.dumps(c)}),' for a,b,c in dynamic if b not in existing_urls)
+            if additions:
+                i=s.index(anchor)+len(anchor)
+                s=s[:i]+'\n'+additions+s[i:]
+    except Exception as exc:
+        print(f'WARN: Brain feedback could not be applied: {exc}')
+
 conflict_anchor='CONFLICTS = ['
 conflict='''    ("western-hemisphere-cartel", "Western Hemisphere Counter-Cartel Campaign", "Western Hemisphere", "CRIMINAL CONFLICT", "HIGH", ["socom", "southcom", "southern command", "operation southern spear", "southern spear", "joint task force western hemisphere", "jtf-whem", "americas counter cartel coalition", "counter cartel", "narco-terrorism", "narco terrorist", "narco-terrorist", "cartel", "cartels", "los choneros", "sinaloa cartel", "cjng"]),
 '''
@@ -34,12 +57,10 @@ p.write_text(s,encoding='utf-8')
 
 # IMPORTANT: the live collector reads data/sources.json, not update_snapshot.py.
 # Publish the same canonical feed list immediately so the very next collector
-# cycle polls the newly added SOUTHCOM/counter-cartel sources.
+# cycle polls the newly added sources.
 ns={}
 try:
     ns.update({'feeds': []})
-    # Extract the FEEDS assignment from the now-updated module without importing
-    # it, because importing the snapshot builder has side effects in CI.
     import ast
     tree=ast.parse(s)
     for node in tree.body:
@@ -49,7 +70,6 @@ try:
 except Exception:
     pass
 if ns.get('feeds'):
-    # Keep only the final de-duplicated feed definitions by name+url.
     seen=set();clean=[]
     for item in ns['feeds']:
         key=(item['name'],item['url'])
@@ -60,4 +80,4 @@ if ns.get('feeds'):
     (ROOT/'data').mkdir(exist_ok=True)
     (ROOT/'data'/'sources.json').write_text(json.dumps(ns,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-print('Western Hemisphere SOUTHCOM/counter-cartel feeds, dedicated conflict layer, and live source registry installed.')
+print('Western Hemisphere SOUTHCOM/counter-cartel feeds, Brain gap feedback, dedicated conflict layer, and live source registry installed.')
