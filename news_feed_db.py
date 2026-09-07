@@ -16,7 +16,7 @@ from pathlib import Path
 from urllib.parse import quote,urlparse
 from urllib.request import Request,urlopen
 from xml.etree import ElementTree as ET
-ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';DB_PATH=ROOT/'news_feed.db';JSON_PATH=DATA/'live_articles.json';STATUS_PATH=DATA/'live_status.json';POLL_SECONDS=300;RETENTION_DAYS=7;MAX_WORKERS=15;FETCH_TIMEOUT=8;USER_AGENT='GlobalPulse/13.0 (+https://github.com/lifetimeballer1/global-pulse)'
+ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';DB_PATH=ROOT/'news_feed.db';JSON_PATH=DATA/'live_articles.json';STATUS_PATH=DATA/'live_status.json';POLL_SECONDS=300;RETENTION_DAYS=7;MAX_WORKERS=15;FETCH_TIMEOUT=8;EXPORT_LIMIT=2000;USER_AGENT='GlobalPulse/13.0 (+https://github.com/lifetimeballer1/global-pulse)'
 BUILTIN_SOURCES={
 'cnn':{'name':'CNN','url':'https://rss.cnn.com/rss/edition.rss','type':'news','category':'international'},'fox_politics':{'name':'Fox News Politics','url':'https://moxie.foxnews.com/google-publisher/politics.xml','type':'news','category':'us-politics'},'npr_politics':{'name':'NPR Politics','url':'https://feeds.npr.org/1014/rss.xml','type':'news','category':'us-politics'},'bbc_world':{'name':'BBC World','url':'https://feeds.bbci.co.uk/news/world/rss.xml','type':'news','category':'international'},'guardian_world':{'name':'Guardian World','url':'https://www.theguardian.com/world/rss','type':'news','category':'international'},'al_jazeera':{'name':'Al Jazeera','url':'https://www.aljazeera.com/xml/rss/all.xml','type':'news','category':'international'},'dw_world':{'name':'DW World','url':'https://rss.dw.com/xml/rss-en-world','type':'news','category':'international'},'france24':{'name':'France 24','url':'https://www.france24.com/en/rss','type':'news','category':'international'},'cna_world':{'name':'CNA World','url':'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311','type':'news','category':'international'},'stars_stripes':{'name':'Stars and Stripes','url':'https://subscribe.stripes.com/rss/top-news.xml','type':'news','category':'security'},'morse_audio':{'name':'Morse Report','url':'https://rss.buzzsprout.com/2637181.rss','type':'podcast','category':'us-politics'}}
 X_ACCOUNTS={'NASA':'NASA','WhiteHouse':'White House','POTUS':'POTUS','NATO':'NATO','UN':'United Nations'}
@@ -72,30 +72,23 @@ def parse_x_account(handle,display_name):
   except Exception as exc:last=exc
  raise RuntimeError(str(last) if last else 'X proxy unavailable')
 def load_sources():
- """Load every registered feed, falling back to the built-in safety set."""
- result={}
- registry=DATA/'sources.json'
+ result={};registry=DATA/'sources.json'
  try:
   doc=json.loads(registry.read_text(encoding='utf-8'))
   for i,item in enumerate(doc.get('feeds',[])):
    if not isinstance(item,dict) or not item.get('url') or not item.get('name'):continue
-   key=re.sub(r'[^a-z0-9]+','_',str(item['name']).lower()).strip('_') or f'feed_{i}'
-   base=key;n=2
+   key=re.sub(r'[^a-z0-9]+','_',str(item['name']).lower()).strip('_') or f'feed_{i}';base=key;n=2
    while key in result:key=f'{base}_{n}';n+=1
    result[key]={'name':str(item['name']),'url':str(item['url']),'type':str(item.get('type') or 'news'),'category':str(item.get('category') or item.get('type') or 'general')}
- except Exception as exc:
-  print(f'SOURCE REGISTRY WARNING: {type(exc).__name__}: {exc}; using built-in safety sources')
+ except Exception as exc:print(f'SOURCE REGISTRY WARNING: {type(exc).__name__}: {exc}; using built-in safety sources')
  for key,meta in BUILTIN_SOURCES.items():result.setdefault(key,meta)
  return result
 def is_aggregator(url):
- host=urlparse(url).netloc.lower()
- return any(x in host for x in ('news.google.com','api.gdeltproject.org'))
+ host=urlparse(url).netloc.lower();return any(x in host for x in ('news.google.com','api.gdeltproject.org'))
 def domain_mirror_url(meta):
  host=urlparse(meta['url']).netloc.lower().split(':')[0]
- if not host or is_aggregator(meta['url']) or host.startswith('feeds.') or host.startswith('rss.') or host.startswith('subscribe.'):
-  return None
- query=quote(f'domain:{host}',safe='')
- return f'https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&format=rss&maxrecords=75&timespan=24h&sort=datedesc'
+ if not host or is_aggregator(meta['url']) or host.startswith('feeds.') or host.startswith('rss.') or host.startswith('subscribe.'):return None
+ query=quote(f'domain:{host}',safe='');return f'https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&format=rss&maxrecords=75&timespan=24h&sort=datedesc'
 def fetch_news_source(source_id,meta):
  try:
   rows=parse_feed(fetch(meta['url']),source_id,meta)
@@ -103,19 +96,15 @@ def fetch_news_source(source_id,meta):
   mirror=domain_mirror_url(meta)
   if mirror:
    try:
-    fallback_meta=dict(meta);fallback_meta['url']=mirror
-    rows=parse_feed(fetch(mirror),source_id,fallback_meta)
+    fallback_meta=dict(meta);fallback_meta['url']=mirror;rows=parse_feed(fetch(mirror),source_id,fallback_meta)
     for row in rows:
-     row['source_name']=meta['name'];row['source_type']=meta.get('type','news');row['category']=meta.get('category','general')
-     row['credit_metadata']=json.dumps({'sourceId':source_id,'sourceUrl':meta['url'],'fallback':'GDELT domain mirror','fallbackUrl':mirror,'originalSource':meta['name']},ensure_ascii=False)
+     row['source_name']=meta['name'];row['source_type']=meta.get('type','news');row['category']=meta.get('category','general');row['credit_metadata']=json.dumps({'sourceId':source_id,'sourceUrl':meta['url'],'fallback':'GDELT domain mirror','fallbackUrl':mirror,'originalSource':meta['name']},ensure_ascii=False)
     if rows:return rows,None,{'mode':'gdelt-domain-fallback','httpOk':True,'rowsFetched':len(rows),'empty':False}
-   except Exception as fallback_exc:
-    return [],{'source':meta['name'],'error':f'empty native feed; GDELT fallback failed: {type(fallback_exc).__name__}: {fallback_exc}'[:240]},{'mode':'online-empty','httpOk':True,'rowsFetched':0,'empty':True}
+   except Exception as fallback_exc:return [],{'source':meta['name'],'error':f'empty native feed; GDELT fallback failed: {type(fallback_exc).__name__}: {fallback_exc}'[:240]},{'mode':'online-empty','httpOk':True,'rowsFetched':0,'empty':True}
   return [],None,{'mode':'online-empty','httpOk':True,'rowsFetched':0,'empty':True}
  except Exception as exc:return [],{'source':meta['name'],'error':f'{type(exc).__name__}: {exc}'[:240]},{'mode':'failed','httpOk':False,'rowsFetched':0,'empty':False}
 def fetch_x_source(handle,display_name):
- try:
-  rows=parse_x_account(handle,display_name);return rows,None,{'mode':'native','httpOk':True,'rowsFetched':len(rows),'empty':not bool(rows)}
+ try:rows=parse_x_account(handle,display_name);return rows,None,{'mode':'native','httpOk':True,'rowsFetched':len(rows),'empty':not bool(rows)}
  except Exception as exc:return [],{'source':f'X @{handle}','error':f'{type(exc).__name__}: {exc}'[:240]},{'mode':'failed','httpOk':False,'rowsFetched':0,'empty':False}
 def init_db(conn):
  conn.execute('PRAGMA journal_mode=WAL');conn.execute('PRAGMA busy_timeout=5000');conn.execute('CREATE TABLE IF NOT EXISTS articles (url TEXT PRIMARY KEY,title TEXT NOT NULL,published_date TEXT NOT NULL,summary_snippet TEXT DEFAULT \'\',source_name TEXT NOT NULL,source_type TEXT NOT NULL,category TEXT DEFAULT \'general\',author TEXT DEFAULT \'\',username TEXT DEFAULT \'\',credit_metadata TEXT DEFAULT \'{}\',fetched_at TEXT NOT NULL)');conn.execute('CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published_date DESC)');conn.execute('CREATE INDEX IF NOT EXISTS idx_articles_source ON articles(source_name)');conn.commit()
@@ -128,13 +117,13 @@ def upsert_articles(conn,rows):
    cur=conn.execute('INSERT OR IGNORE INTO articles (url,title,published_date,summary_snippet,source_name,source_type,category,author,username,credit_metadata,fetched_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)',(row['url'],row['title'],row['published_date'],row['summary_snippet'],row['source_name'],row['source_type'],row['category'],row['author'],row['username'],row['credit_metadata'],now));added+=1 if cur.rowcount else 0
   except sqlite3.Error:continue
  conn.commit();return added
-def export_json(conn,limit=500):
+def export_json(conn,limit=EXPORT_LIMIT):
  rows=conn.execute('SELECT url,title,published_date,summary_snippet,source_name,source_type,category,author,username,credit_metadata FROM articles ORDER BY datetime(published_date) DESC LIMIT ?',(limit,)).fetchall();articles=[]
  for r in rows:
   try:credit=json.loads(r[9] or '{}')
   except Exception:credit={'raw':r[9]}
   articles.append({'url':r[0],'title':r[1],'published_date':r[2],'summary_snippet':r[3],'source':r[4],'sourceType':r[5],'category':r[6],'author':r[7],'username':r[8],'credit':credit})
- return json.dumps({'updatedAt':iso_now(),'retentionDays':RETENTION_DAYS,'count':len(articles),'articles':articles},ensure_ascii=False,indent=2)+'\n'
+ return json.dumps({'updatedAt':iso_now(),'retentionDays':RETENTION_DAYS,'count':len(articles),'exportLimit':EXPORT_LIMIT,'articles':articles},ensure_ascii=False,indent=2)+'\n'
 def write_export(conn):DATA.mkdir(exist_ok=True);JSON_PATH.write_text(export_json(conn),encoding='utf-8')
 def run_cycle(conn):
  sources=load_sources();fetched_rows=[];errors=[];source_results=[];jobs=[]
@@ -143,21 +132,19 @@ def run_cycle(conn):
   for handle,name in X_ACCOUNTS.items():jobs.append((f'x:{handle}',{'name':f'X @{handle}','type':'social','category':'osint','url':''},pool.submit(fetch_x_source,handle,name)))
   for source_id,meta,future in jobs:
    try:
-    rows,error,telemetry=future.result();fetched_rows.extend(rows)
-    result={'sourceId':source_id,'name':meta['name'],'type':meta.get('type','news'),'category':meta.get('category','general'),'rowsFetched':len(rows),'httpOk':bool(telemetry.get('httpOk')),'mode':telemetry.get('mode'),'emptyFeed':bool(telemetry.get('empty')),'error':(error or {}).get('error','')}
-    source_results.append(result)
+    rows,error,telemetry=future.result();fetched_rows.extend(rows);result={'sourceId':source_id,'name':meta['name'],'type':meta.get('type','news'),'category':meta.get('category','general'),'rowsFetched':len(rows),'httpOk':bool(telemetry.get('httpOk')),'mode':telemetry.get('mode'),'emptyFeed':bool(telemetry.get('empty')),'error':(error or {}).get('error','')};source_results.append(result)
     if error:errors.append(error)
    except Exception as exc:
     result={'sourceId':source_id,'name':meta['name'],'type':meta.get('type','news'),'category':meta.get('category','general'),'rowsFetched':0,'httpOk':False,'mode':'failed','emptyFeed':False,'error':f'{type(exc).__name__}: {exc}'[:240]};source_results.append(result);errors.append({'source':meta['name'],'error':result['error']})
  purged=purge_old(conn);added=upsert_articles(conn,fetched_rows);write_export(conn);count=conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0];healthy=sum(1 for x in source_results if x['httpOk']);empty=sum(1 for x in source_results if x['httpOk'] and x['emptyFeed']);fallback=sum(1 for x in source_results if x['mode']=='gdelt-domain-fallback');total=len(source_results)
- status={'updatedAt':iso_now(),'feedsChecked':total,'rowsFetched':len(fetched_rows),'newArticles':added,'purged':purged,'databaseArticles':count,'healthySources':healthy,'emptySources':empty,'fallbackSources':fallback,'failedSources':errors,'sourceResults':source_results,'pollSeconds':POLL_SECONDS,'retentionDays':RETENTION_DAYS,'fetchTimeoutSeconds':FETCH_TIMEOUT}
+ status={'updatedAt':iso_now(),'feedsChecked':total,'rowsFetched':len(fetched_rows),'newArticles':added,'purged':purged,'databaseArticles':count,'exportedArticles':min(count,EXPORT_LIMIT),'exportLimit':EXPORT_LIMIT,'healthySources':healthy,'emptySources':empty,'fallbackSources':fallback,'failedSources':errors,'sourceResults':source_results,'pollSeconds':POLL_SECONDS,'retentionDays':RETENTION_DAYS,'fetchTimeoutSeconds':FETCH_TIMEOUT}
  STATUS_PATH.write_text(json.dumps(status,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');return status
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--once',action='store_true');args=parser.parse_args();DATA.mkdir(exist_ok=True);conn=sqlite3.connect(DB_PATH)
  try:
   init_db(conn)
   while True:
-   try:status=run_cycle(conn);print(json.dumps({'feedsChecked':status['feedsChecked'],'rowsFetched':status['rowsFetched'],'newArticles':status['newArticles'],'healthySources':status['healthySources'],'emptySources':status['emptySources'],'fallbackSources':status['fallbackSources'],'failedSources':len(status['failedSources'])},ensure_ascii=False))
+   try:status=run_cycle(conn);print(json.dumps({'feedsChecked':status['feedsChecked'],'rowsFetched':status['rowsFetched'],'newArticles':status['newArticles'],'healthySources':status['healthySources'],'emptySources':status['emptySources'],'fallbackSources':status['fallbackSources'],'failedSources':len(status['failedSources']),'exportedArticles':status['exportedArticles']},ensure_ascii=False))
    except Exception as exc:print(f'collector-cycle-error: {type(exc).__name__}: {exc}')
    if args.once:break
    time.sleep(POLL_SECONDS)
