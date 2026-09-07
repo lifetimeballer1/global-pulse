@@ -51,13 +51,12 @@ def verify_brain(brain):
 def verify_canonical_intelligence(document):
  from intelligence_schema import validate_document
  errors=validate_document(document)
- if errors:
-  raise RuntimeError(f'canonical intelligence schema validation failed: {errors[:5]}')
+ if errors:raise RuntimeError(f'canonical intelligence schema validation failed: {errors[:5]}')
  if not document.get('generated_at'):raise RuntimeError('canonical intelligence has no generated_at timestamp')
  if len(document.get('entities') or [])==0:raise RuntimeError('canonical intelligence contains no entities')
  if len(document.get('evidence') or [])==0:raise RuntimeError('canonical intelligence contains no evidence')
 def main():
- run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence.py')
+ run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence_v3.py')
  canonical=verify_json('canonical_intelligence.json',fresh_required=False);verify_canonical_intelligence(canonical)
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
  run('Guarantee U.S. and China major-power hubs',sys.executable,'ensure_major_power_nodes.py')
