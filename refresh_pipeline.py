@@ -62,6 +62,19 @@ def verify_canonical_intelligence(document):
  if not document.get('generated_at'):raise RuntimeError('canonical intelligence has no generated_at timestamp')
  if len(document.get('entities') or [])==0:raise RuntimeError('canonical intelligence contains no entities')
  if len(document.get('evidence') or [])==0:raise RuntimeError('canonical intelligence contains no evidence')
+def verify_graph(graph):
+ if not isinstance(graph,dict):raise RuntimeError('intelligence graph is not an object')
+ nodes=graph.get('nodes') or [];edges=graph.get('edges') or []
+ if len(nodes)<10:raise RuntimeError(f'intelligence graph has only {len(nodes)} nodes')
+ if len(edges)<5:raise RuntimeError(f'intelligence graph has only {len(edges)} edges')
+ stamp=graph.get('updatedAt')
+ if not stamp:raise RuntimeError('intelligence graph has no updatedAt timestamp')
+ ids={str(n.get('id')) for n in nodes}
+ for e in edges:
+  if str(e.get('source')) not in ids or str(e.get('target')) not in ids or not e.get('evidence'):raise RuntimeError('intelligence graph contains invalid or unevidenced edge')
+ for actor in ('United States','China'):
+  node=next((n for n in nodes if n.get('label')==actor),None)
+  if not node or not node.get('evidence'):raise RuntimeError(f'intelligence graph missing evidence-backed {actor} node')
 def write_refresh_manifest():
  artifacts={}
  for name in MANIFEST_ARTIFACTS:
@@ -76,8 +89,11 @@ def main():
  live_status=load('live_status.json')
  if int(live_status.get('rowsFetched',0))<=0:raise RuntimeError('live intelligence refresh returned no fetched rows')
  if int(live_status.get('exportedArticles',0))<=0:raise RuntimeError('live intelligence refresh exported no articles')
+ run('Build current evidence-backed snapshot graph',sys.executable,'update_intelligence_web.py')
  run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence_v3.py')
  canonical=verify_json('canonical_intelligence.json',fresh_required=False);verify_canonical_intelligence(canonical)
+ run('Publish current Intelligence Web graph',sys.executable,'build_intelligence_graph.py')
+ graph=verify_json('intelligence_graph.json');verify_graph(graph)
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
  run('Guarantee U.S. and China major-power hubs',sys.executable,'ensure_major_power_nodes.py')
  run('Ensure Brain group coverage',sys.executable,'ensure_brain_groups.py')
