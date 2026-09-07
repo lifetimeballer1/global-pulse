@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build canonical intelligence using the shared entity extraction layer."""
+"""Build canonical intelligence using shared entity extraction and scoring."""
 from __future__ import annotations
 import hashlib,json,re
 from pathlib import Path
 from typing import Any
 from intelligence_entity_extractor import extract_entities
+from intelligence_scoring import entity_importance,event_confidence,event_score,evidence_score,relationship_strength
 from intelligence_schema import empty_document,validate_document
 ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data';INPUT=DATA/'live_articles.json';OUTPUT=DATA/'canonical_intelligence.json'
 EVENT_PATTERNS=(("sanction",r"\b(sanction|sanctions|sanctioned|sanctioning)\b"),("military_action",r"\b(strike|strikes|airstrike|airstrikes|missile|bombing|deployment|deploys|military operation|troops|forces)\b"),("diplomatic_action",r"\b(meet|meets|meeting|talks|negotiat|diplomatic|envoy|summit|ceasefire)\b"),("economic_action",r"\b(stimulus|interest rate|rate cut|tariff|tariffs|tax|capital|investment|economic policy)\b"),("trade_action",r"\b(trade|export|exports|import|imports|supply chain|customs)\b"),("technology_action",r"\b(chip|chips|semiconductor|semiconductors|artificial intelligence|technology|tech)\b"),("energy_action",r"\b(oil|gas|lng|energy|electricity|power grid|nuclear|uranium)\b"),("cyber_activity",r"\b(cyber|cyberattack|cyberattacks|hacking|malware|ransomware)\b"),("political_action",r"\b(election|elections|vote|voting|parliament|congress|president|government)\b"))
@@ -24,33 +25,35 @@ def main()->int:
  if not INPUT.exists():print(f"ERROR: missing input {INPUT}");return 2
  try:raw=json.loads(INPUT.read_text(encoding='utf-8'))
  except json.JSONDecodeError as exc:print(f"ERROR: invalid input JSON: {exc}");return 2
- document=empty_document();document['metadata'].update({'input':str(INPUT.relative_to(ROOT)),'method':'shared-entity-extractor-v3','source_backed_only':True})
- entities={};evidence={};events={};relationships={};articles=raw.get('articles',[]) if isinstance(raw,dict) else [];discovered_ids=set()
+ document=empty_document();document['metadata'].update({'input':str(INPUT.relative_to(ROOT)),'method':'shared-entity-extractor-v3','scoring':'shared-intelligence-scoring-v1','source_backed_only':True})
+ entities={};evidence={};events={};relationships={};articles=raw.get('articles',[]) if isinstance(raw,dict) else [];discovered_ids=set();event_evidence={};entity_event_scores={};entity_evidence_scores={}
  for article in articles:
   if not isinstance(article,dict):continue
   title,url=str(article.get('title') or '').strip(),str(article.get('url') or '').strip()
   if not title or not url:continue
   published=str(article.get('published_date') or '');ev_id=stable_id('evd',url,title)
-  evidence[ev_id]={'id':ev_id,'title':title,'source':str(article.get('source') or 'Unknown public source'),'url':url,'published_at':published,'reliability':.5,'excerpt':str(article.get('summary_snippet') or '')[:500]}
+  evidence[ev_id]={'id':ev_id,'title':title,'source':str(article.get('source') or 'Unknown public source'),'url':url,'published_at':published,'reliability':article.get('reliability',.5),'quality':article.get('evidence_quality',.75),'excerpt':str(article.get('summary_snippet') or '')[:500]};ev_score=evidence_score(evidence[ev_id])
   text=article_text(article);found=extract_entities(text);matched=[];names={}
   for found_entity in found:
    entity_id=str(found_entity['id']);name=str(found_entity['canonical_name']);entity_type=str(found_entity['entity_type']);discovered=bool(found_entity.get('discovered',False))
    entity=entities.setdefault(entity_id,{'id':entity_id,'canonical_name':name,'entity_type':entity_type,'aliases':list(found_entity.get('aliases',[])),'country':name if entity_type=='country' else None,'region':None,'importance':0.0,'mention_count':0,'evidence_ids':[]})
-   entity['mention_count']+=1;entity['importance']=min(1.0,entity['importance']+(.02 if not discovered else .01))
+   entity['mention_count']+=1
    if discovered:discovered_ids.add(entity_id)
    if ev_id not in entity['evidence_ids']:entity['evidence_ids'].append(ev_id)
+   entity_evidence_scores.setdefault(entity_id,[]).append(ev_score)
    if entity_id not in matched:matched.append(entity_id)
    names[entity_id]=name
   lowered=text.lower();event_types=[kind for kind,pattern in EVENT_PATTERNS if re.search(pattern,lowered,re.I)]
   for event_type in event_types[:3]:
-   event_id=stable_id('evt',ev_id,event_type);events[event_id]={'id':event_id,'event_type':event_type,'title':title,'timestamp':published,'location':None,'severity':0.0,'confidence':0.5,'entity_ids':matched,'evidence_ids':[ev_id]}
+   event_id=stable_id('evt',ev_id,event_type);event={'id':event_id,'event_type':event_type,'title':title,'timestamp':published,'location':None,'severity':0.0,'confidence':0.5,'entity_ids':matched,'evidence_ids':[ev_id]};event['severity']=__import__('intelligence_scoring').event_severity(event);event['confidence']=event_confidence(event,[evidence[ev_id]]);event['strategic_relevance']=__import__('intelligence_scoring').strategic_relevance(event);event['score']=event_score(event,[evidence[ev_id]]);events[event_id]=event;event_evidence[event_id]=[evidence[ev_id]]
+   for entity_id in matched:entity_event_scores.setdefault(entity_id,[]).append(event['score'])
   kind=relation_type(lowered);positions=[]
   for entity_id in matched:
    match=re.search(r'(?<![a-z])'+re.escape(names[entity_id])+r'(?![a-z])',text,re.I)
    if match:positions.append((match.start(),entity_id))
   positions.sort()
   if kind!='mentioned_with' and len(positions)>=2:
-   source_id,target_id=positions[0][1],positions[1][1];key=f'{source_id}|{kind}|{target_id}';rel=relationships.setdefault(key,{'source_entity_id':source_id,'relationship_type':kind,'target_entity_id':target_id,'confidence':confidence(kind,event_types),'weight':0.0,'first_seen':published,'last_seen':published,'evidence_ids':[],'event_ids':[]});rel['weight']+=1.0;rel['last_seen']=published or rel['last_seen']
+   source_id,target_id=positions[0][1],positions[1][1];key=f'{source_id}|{kind}|{target_id}';rel=relationships.setdefault(key,{'source_entity_id':source_id,'relationship_type':kind,'target_entity_id':target_id,'confidence':confidence(kind,event_types),'weight':0.0,'first_seen':published,'last_seen':published,'evidence_ids':[],'event_ids':[]});rel['weight']+=1.0;rel['last_seen']=published or rel['last_seen'];rel['confidence']=max(rel['confidence'],confidence(kind,event_types))
    if ev_id not in rel['evidence_ids']:rel['evidence_ids'].append(ev_id)
    for event_id,event in events.items():
     if event['evidence_ids']==[ev_id] and event_id not in rel['event_ids']:rel['event_ids'].append(event_id)
@@ -61,6 +64,8 @@ def main()->int:
     if kind!='mentioned_with' and (semantic_a in relationships or semantic_b in relationships):continue
     rel=relationships.setdefault(key,{'source_entity_id':pair[0],'relationship_type':'mentioned_with','target_entity_id':pair[1],'confidence':.45,'weight':0.0,'first_seen':published,'last_seen':published,'evidence_ids':[],'event_ids':[]});rel['weight']+=1.0
     if ev_id not in rel['evidence_ids']:rel['evidence_ids'].append(ev_id)
+ for entity_id,entity in entities.items():entity['importance']=entity_importance(entity,entity_event_scores.get(entity_id),entity_evidence_scores.get(entity_id))
+ for rel in relationships.values():rel['strength']=relationship_strength(rel,[evidence_score(evidence[eid]) for eid in rel['evidence_ids'] if eid in evidence]);rel['weight']=round(rel['strength'],6)
  document['entities']=list(entities.values());document['events']=list(events.values());document['relationships']=list(relationships.values());document['evidence']=list(evidence.values());document['signals']=[]
  document['metadata'].update({'article_count':len(articles),'entity_count':len(entities),'event_count':len(events),'relationship_count':len(relationships),'semantic_relationship_count':sum(r['relationship_type']!='mentioned_with' for r in relationships.values()),'cooccurrence_relationship_count':sum(r['relationship_type']=='mentioned_with' for r in relationships.values()),'discovered_entity_count':len(discovered_ids)})
  errors=validate_document(document)
