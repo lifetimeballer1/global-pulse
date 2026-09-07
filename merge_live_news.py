@@ -44,7 +44,8 @@ def normalize_article(item):
     url = item.get("url") or item.get("link") or item.get("sourceUrl")
     if not url:
         return None
-    published = canonical_time(item.get("published_date") or item.get("publishedDate") or item.get("time"))
+    raw_published = item.get("published_date") or item.get("publishedDate") or item.get("time")
+    published = canonical_time(raw_published)
     if not published:
         return None
     source = item.get("source") or item.get("source_name") or item.get("sourceLabel") or "Live source"
@@ -54,6 +55,9 @@ def normalize_article(item):
     blob = f"{title} {summary}".lower()
     breaking = bool(item.get("breaking")) or any(term in blob for term in breaking_terms)
     credit = item.get("credit") or item.get("credit_metadata") or {}
+    # Preserve the exact source timestamp for the legacy news-feed contract;
+    # non-news inputs continue to use the canonical UTC browser timestamp.
+    browser_published = str(raw_published) if item.get("source_type") == "news" else published
     return {
         "id": hashlib.sha1(str(url).encode("utf-8")).hexdigest()[:12],
         "sourceLabel": source,
@@ -64,9 +68,9 @@ def normalize_article(item):
         "summary_snippet": str(summary)[:420],
         "source": url,
         "url": url,
-        "time": published,
-        "published_date": published,
-        "publishedDate": published,
+        "time": browser_published,
+        "published_date": browser_published,
+        "publishedDate": browser_published,
         "tag": "Breaking" if breaking else "World",
         "confidence": "DEVELOPING",
         "breaking": breaking,
