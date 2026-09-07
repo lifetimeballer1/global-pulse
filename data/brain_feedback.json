@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-07T02:15:18.506247Z",
+  "sourceBackedOnly": true,
+  "brainNodes": 28,
+  "gaps": [
+    {
+      "target": "United States",
+      "reason": "insufficient canonical-node coverage despite source corpus mentions"
+    },
+    {
+      "target": "China",
+      "reason": "insufficient canonical-node coverage despite source corpus mentions"
+    },
+    {
+      "target": "Russia",
+      "reason": "insufficient canonical-node coverage despite source corpus mentions"
+    },
+    {
+      "target": "Europe",
+      "reason": "insufficient canonical-node coverage despite source corpus mentions"
+    },
+    {
+      "target": "Western Hemisphere security",
+      "reason": "insufficient canonical-node coverage despite source corpus mentions"
+    }
+  ],
+  "feedTargets": [
+    {
+      "name": "Feedback — United States",
+      "url": "https://news.google.com/rss/search?q=United%2520States%20OR%20U.S.%20OR%20USA%20OR%20American%20OR%20Washington+when%3A24h&hl=en-US&gl=US&ceid=US:en",
+      "type": "brain-feedback",
+      "target": "United States"
+    },
+    {
+      "name": "Feedback — China",
+      "url": "https://news.google.com/rss/search?q=China%20OR%20Chinese%20OR%20Beijing%20OR%20PLA%20OR%20People%2527s%2520Liberation%2520Army+when%3A24h&hl=en-US&gl=US&ceid=US:en",
+      "type": "brain-feedback",
+      "target": "China"
+    },
+    {
+      "name": "Feedback — Russia",
+      "url": "https://news.google.com/rss/search?q=Russia%20OR%20Russian%20OR%20Moscow%20OR%20Kremlin+when%3A24h&hl=en-US&gl=US&ceid=US:en",
+      "type": "brain-feedback",
+      "target": "Russia"
+    },
+    {
+      "name": "Feedback — Europe",
+      "url": "https://news.google.com/rss/search?q=European%2520Union%20OR%20EU%20OR%20NATO%20OR%20Germany%20OR%20France+when%3A24h&hl=en-US&gl=US&ceid=US:en",
+      "type": "brain-feedback",
+      "target": "Europe"
+    },
+    {
+      "name": "Feedback — Western Hemisphere security",
+      "url": "https://news.google.com/rss/search?q=SOUTHCOM%20OR%20Southern%2520Command%20OR%20Caribbean%20OR%20Eastern%2520Pacific%20OR%20Mexico+when%3A24h&hl=en-US&gl=US&ceid=US:en",
+      "type": "brain-feedback",
+      "target": "Western Hemisphere security"
+    }
+  ],
+  "policy": "Targets are derived from missing/weak source-backed coverage only. They are feed expansion hints, not intelligence claims."
+}

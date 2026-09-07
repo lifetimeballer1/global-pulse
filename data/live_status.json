@@ -1,12 +1,14 @@
 {
-  "updatedAt": "2026-09-06T15:38:07.928044+00:00",
-  "feedsChecked": 50,
-  "rowsFetched": 631,
-  "newArticles": 42,
-  "purged": 41,
-  "databaseArticles": 2053,
-  "healthySources": 28,
-  "emptySources": 2,
+  "updatedAt": "2026-09-07T02:15:01.186677+00:00",
+  "feedsChecked": 61,
+  "rowsFetched": 739,
+  "newArticles": 648,
+  "purged": 0,
+  "databaseArticles": 648,
+  "exportedArticles": 648,
+  "exportLimit": 2000,
+  "healthySources": 53,
+  "emptySources": 13,
   "fallbackSources": 0,
   "failedSources": [
     {
@@ -16,62 +18,6 @@
     {
       "source": "GDELT — Western Hemisphere Counter-Cartel",
       "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Climate & Disaster Watch",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Climate Security Watch",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "FAO GIEWS",
-      "error": "ParseError: undefined entity: line 49, column 82"
-    },
-    {
-      "source": "CNN Politics — GDELT Mirror",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Axios Politics — GDELT Mirror",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Morse Report — GDELT Mirror",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — U.S. Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — World Politics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — Global Economics",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — Global",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — Africa",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — Americas",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "GDELT Live — Middle East",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "ReliefWeb",
-      "error": "ParseError: no element found: line 1, column 0"
     },
     {
       "source": "CNN",
@@ -100,105 +46,6 @@
   ],
   "sourceResults": [
     {
-      "sourceId": "southcom_official_reporting_gdelt_mirror",
-      "name": "SOUTHCOM Official Reporting — GDELT Mirror",
-      "type": "southcom",
-      "category": "southcom",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "google_news_southcom",
-      "name": "Google News — SOUTHCOM",
-      "type": "southcom-news",
-      "category": "southcom-news",
-      "rowsFetched": 8,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_operation_southern_spear",
-      "name": "Google News — Operation Southern Spear",
-      "type": "counter-cartel",
-      "category": "counter-cartel",
-      "rowsFetched": 3,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_joint_task_force_western_hemisphere",
-      "name": "Google News — Joint Task Force Western Hemisphere",
-      "type": "counter-cartel",
-      "category": "counter-cartel",
-      "rowsFetched": 2,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_americas_counter_cartel_coalition",
-      "name": "Google News — Americas Counter Cartel Coalition",
-      "type": "counter-cartel",
-      "category": "counter-cartel",
-      "rowsFetched": 5,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_u_s_counter_cartel_operations",
-      "name": "Google News — U.S. Counter-Cartel Operations",
-      "type": "counter-cartel",
-      "category": "counter-cartel",
-      "rowsFetched": 2,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_los_choneros",
-      "name": "Google News — Los Choneros",
-      "type": "cartel",
-      "category": "cartel",
-      "rowsFetched": 7,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "google_news_sinaloa_cartel_cjng",
-      "name": "Google News — Sinaloa Cartel / CJNG",
-      "type": "cartel",
-      "category": "cartel",
-      "rowsFetched": 3,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "gdelt_western_hemisphere_counter_cartel",
-      "name": "GDELT — Western Hemisphere Counter-Cartel",
-      "type": "counter-cartel",
-      "category": "counter-cartel",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
       "sourceId": "gdacs_global_disaster_alerts",
       "name": "GDACS Global Disaster Alerts",
       "type": "climate-hazard",
@@ -208,39 +55,6 @@
       "mode": "native",
       "emptyFeed": false,
       "error": ""
-    },
-    {
-      "sourceId": "gdelt_climate_disaster_watch",
-      "name": "GDELT Climate & Disaster Watch",
-      "type": "climate-hazard",
-      "category": "climate-hazard",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_climate_security_watch",
-      "name": "GDELT Climate Security Watch",
-      "type": "climate-hazard",
-      "category": "climate-hazard",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "fao_giews",
-      "name": "FAO GIEWS",
-      "type": "food-security",
-      "category": "food-security",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "ParseError: undefined entity: line 49, column 82"
     },
     {
       "sourceId": "npr_politics",
@@ -265,121 +79,11 @@
       "error": ""
     },
     {
-      "sourceId": "cnn_politics_gdelt_mirror",
-      "name": "CNN Politics — GDELT Mirror",
-      "type": "us-politics",
-      "category": "us-politics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "axios_politics_gdelt_mirror",
-      "name": "Axios Politics — GDELT Mirror",
-      "type": "us-politics",
-      "category": "us-politics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "morse_report_gdelt_mirror",
-      "name": "Morse Report — GDELT Mirror",
-      "type": "us-politics",
-      "category": "us-politics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_u_s_politics",
-      "name": "GDELT Live — U.S. Politics",
-      "type": "us-politics",
-      "category": "us-politics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_world_politics",
-      "name": "GDELT Live — World Politics",
-      "type": "world-politics",
-      "category": "world-politics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_global_economics",
-      "name": "GDELT Live — Global Economics",
-      "type": "economics",
-      "category": "economics",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_global",
-      "name": "GDELT Live — Global",
-      "type": "live",
-      "category": "live",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_africa",
-      "name": "GDELT Live — Africa",
-      "type": "africa",
-      "category": "africa",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_americas",
-      "name": "GDELT Live — Americas",
-      "type": "americas",
-      "category": "americas",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "sourceId": "gdelt_live_middle_east",
-      "name": "GDELT Live — Middle East",
-      "type": "middle-east",
-      "category": "middle-east",
-      "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
       "sourceId": "bbc_world",
       "name": "BBC World",
       "type": "international",
       "category": "international",
-      "rowsFetched": 29,
+      "rowsFetched": 30,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -412,7 +116,7 @@
       "name": "BBC Asia",
       "type": "regional",
       "category": "regional",
-      "rowsFetched": 20,
+      "rowsFetched": 17,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -423,18 +127,7 @@
       "name": "BBC Europe",
       "type": "regional",
       "category": "regional",
-      "rowsFetched": 23,
-      "httpOk": true,
-      "mode": "native",
-      "emptyFeed": false,
-      "error": ""
-    },
-    {
-      "sourceId": "bbc_americas",
-      "name": "BBC Americas",
-      "type": "regional",
-      "category": "regional",
-      "rowsFetched": 32,
+      "rowsFetched": 25,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -518,15 +211,389 @@
       "error": ""
     },
     {
-      "sourceId": "reliefweb",
-      "name": "ReliefWeb",
-      "type": "humanitarian",
-      "category": "humanitarian",
+      "sourceId": "southcom_official_reporting_gdelt_mirror",
+      "name": "SOUTHCOM Official Reporting — GDELT Mirror",
+      "type": "southcom",
+      "category": "southcom",
       "rowsFetched": 0,
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "ParseError: no element found: line 1, column 0"
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "sourceId": "google_news_southcom",
+      "name": "Google News — SOUTHCOM",
+      "type": "southcom-news",
+      "category": "southcom-news",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_operation_southern_spear",
+      "name": "Google News — Operation Southern Spear",
+      "type": "counter-cartel",
+      "category": "counter-cartel",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_joint_task_force_western_hemisphere",
+      "name": "Google News — Joint Task Force Western Hemisphere",
+      "type": "counter-cartel",
+      "category": "counter-cartel",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_americas_counter_cartel_coalition",
+      "name": "Google News — Americas Counter Cartel Coalition",
+      "type": "counter-cartel",
+      "category": "counter-cartel",
+      "rowsFetched": 3,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_u_s_counter_cartel_operations",
+      "name": "Google News — U.S. Counter-Cartel Operations",
+      "type": "counter-cartel",
+      "category": "counter-cartel",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_los_choneros",
+      "name": "Google News — Los Choneros",
+      "type": "cartel",
+      "category": "cartel",
+      "rowsFetched": 7,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_sinaloa_cartel_cjng",
+      "name": "Google News — Sinaloa Cartel / CJNG",
+      "type": "cartel",
+      "category": "cartel",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "gdelt_western_hemisphere_counter_cartel",
+      "name": "GDELT — Western Hemisphere Counter-Cartel",
+      "type": "counter-cartel",
+      "category": "counter-cartel",
+      "rowsFetched": 0,
+      "httpOk": false,
+      "mode": "failed",
+      "emptyFeed": false,
+      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "sourceId": "google_news_climate_disaster",
+      "name": "Google News — Climate & Disaster",
+      "type": "climate-hazard",
+      "category": "climate-hazard",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_climate_security",
+      "name": "Google News — Climate Security",
+      "type": "climate-hazard",
+      "category": "climate-hazard",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_humanitarian",
+      "name": "Google News — Humanitarian",
+      "type": "humanitarian",
+      "category": "humanitarian",
+      "rowsFetched": 3,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_u_s_politics",
+      "name": "Google News — U.S. Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 14,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_cnn_politics",
+      "name": "Google News — CNN Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 7,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_axios_politics",
+      "name": "Google News — Axios Politics",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_morse_report",
+      "name": "Google News — Morse Report",
+      "type": "us-politics",
+      "category": "us-politics",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_world_politics",
+      "name": "Google News — World Politics",
+      "type": "world-politics",
+      "category": "world-politics",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_global_economics",
+      "name": "Google News — Global Economics",
+      "type": "economics",
+      "category": "economics",
+      "rowsFetched": 22,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_global_conflict",
+      "name": "Google News — Global Conflict",
+      "type": "live",
+      "category": "live",
+      "rowsFetched": 4,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_africa_security",
+      "name": "Google News — Africa Security",
+      "type": "africa",
+      "category": "africa",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_sudan_conflict",
+      "name": "Google News — Sudan Conflict",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 2,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_drc_m23",
+      "name": "Google News — DRC / M23",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_sahel_security",
+      "name": "Google News — Sahel Security",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 4,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_somalia_security",
+      "name": "Google News — Somalia Security",
+      "type": "africa-conflict",
+      "category": "africa-conflict",
+      "rowsFetched": 3,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_haiti_security",
+      "name": "Google News — Haiti Security",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_mexico_cartel_conflict",
+      "name": "Google News — Mexico Cartel Conflict",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 1,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_ecuador_security",
+      "name": "Google News — Ecuador Security",
+      "type": "americas-conflict",
+      "category": "americas-conflict",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_myanmar_civil_war",
+      "name": "Google News — Myanmar Civil War",
+      "type": "asia-conflict",
+      "category": "asia-conflict",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_afghanistan_security",
+      "name": "Google News — Afghanistan Security",
+      "type": "south-asia-conflict",
+      "category": "south-asia-conflict",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_yemen_red_sea",
+      "name": "Google News — Yemen / Red Sea",
+      "type": "middle-east-conflict",
+      "category": "middle-east-conflict",
+      "rowsFetched": 8,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_iran_israel",
+      "name": "Google News — Iran Israel",
+      "type": "middle-east-conflict",
+      "category": "middle-east-conflict",
+      "rowsFetched": 39,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_ukraine_war",
+      "name": "Google News — Ukraine War",
+      "type": "europe-conflict",
+      "category": "europe-conflict",
+      "rowsFetched": 31,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_south_america_security",
+      "name": "Google News — South America Security",
+      "type": "americas",
+      "category": "americas",
+      "rowsFetched": 0,
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_middle_east_security",
+      "name": "Google News — Middle East Security",
+      "type": "middle-east",
+      "category": "middle-east",
+      "rowsFetched": 8,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
+    },
+    {
+      "sourceId": "google_news_south_asia_security",
+      "name": "Google News — South Asia Security",
+      "type": "south-asia",
+      "category": "south-asia",
+      "rowsFetched": 5,
+      "httpOk": true,
+      "mode": "native",
+      "emptyFeed": false,
+      "error": ""
     },
     {
       "sourceId": "cnn",
