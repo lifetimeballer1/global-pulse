@@ -72,6 +72,10 @@ def write_refresh_manifest():
  (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print(f"PASS: refresh manifest artifacts={len(artifacts)}",flush=True)
 def main():
+ run('Refresh live intelligence sources',sys.executable,'news_feed_db.py','--once')
+ live_status=load('live_status.json')
+ if int(live_status.get('rowsFetched',0))<=0:raise RuntimeError('live intelligence refresh returned no fetched rows')
+ if int(live_status.get('exportedArticles',0))<=0:raise RuntimeError('live intelligence refresh exported no articles')
  run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence_v3.py')
  canonical=verify_json('canonical_intelligence.json',fresh_required=False);verify_canonical_intelligence(canonical)
  run('Build compact major-node Intelligence Brain',sys.executable,'build_intelligence_brain.py')
