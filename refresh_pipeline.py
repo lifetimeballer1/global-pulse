@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Global Pulse canonical refresh pipeline."""
+"""Global Pulse canonical refresh pipeline with explicit resilience gates."""
 from __future__ import annotations
 import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;DATA=ROOT/'data'
 REQUIRED_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','canonical_intelligence.json','intelligence_graph.json','intelligence_brain.json','map_points.json','strategic_signals.json')
+MANIFEST_ARTIFACTS=('snapshot.json','history.json','sources.json','live_articles.json','intelligence_graph.json','intelligence_brain.json')
 def run(label,*cmd):
  print(f'\n=== {label} ===',flush=True);print('$',' '.join(cmd),flush=True);subprocess.run(cmd,cwd=ROOT,check=True);print(f'PASS: {label}',flush=True)
 def load(name):
@@ -24,6 +25,12 @@ def verify_json(name,*,min_list=None,fresh_required=True,max_age=900):
   key,minimum=min_list
   if not isinstance(d.get(key),list) or len(d[key])<minimum:raise RuntimeError(f'{name}: {key} has fewer than {minimum} entries')
  return d
+def verify_market(snapshot):
+ market=snapshot.get('marketData') or {};indicators=market.get('indicators') or []
+ if market.get('noApiKey') is not True:raise RuntimeError('market data must remain keyless')
+ if len(indicators)<20:raise RuntimeError(f'market indicators={len(indicators)} < 20')
+ real=[x for x in indicators if isinstance(x,dict) and float(x.get('price') or 0)>0]
+ if not real:raise RuntimeError('market data contains no positive real prices')
 def verify_strategic_signals(signals):
  if signals.get('sourceBackedOnly') is not True:raise RuntimeError('strategic signals are not source-backed')
  coverage=signals.get('majorActorCoverage') or {}
@@ -55,6 +62,15 @@ def verify_canonical_intelligence(document):
  if not document.get('generated_at'):raise RuntimeError('canonical intelligence has no generated_at timestamp')
  if len(document.get('entities') or [])==0:raise RuntimeError('canonical intelligence contains no entities')
  if len(document.get('evidence') or [])==0:raise RuntimeError('canonical intelligence contains no evidence')
+def write_refresh_manifest():
+ artifacts={}
+ for name in MANIFEST_ARTIFACTS:
+  path=DATA/name
+  if not path.is_file() or path.stat().st_size==0:raise RuntimeError(f'cannot manifest missing/empty {name}')
+  artifacts[name]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'size':path.stat().st_size}
+ manifest={'version':1,'generatedAt':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'artifacts':artifacts}
+ (DATA/'refresh_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ print(f"PASS: refresh manifest artifacts={len(artifacts)}",flush=True)
 def main():
  run('Build canonical intelligence layer',sys.executable,'build_canonical_intelligence_v3.py')
  canonical=verify_json('canonical_intelligence.json',fresh_required=False);verify_canonical_intelligence(canonical)
@@ -67,7 +83,12 @@ def main():
  brain=verify_json('intelligence_brain.json');verify_brain(brain)
  run('Build strategic signals',sys.executable,'build_strategic_signals.py')
  signals=verify_json('strategic_signals.json',fresh_required=False);verify_strategic_signals(signals)
+ snapshot=load('snapshot.json');verify_market(snapshot)
+ run('Build what changed',sys.executable,'build_what_changed.py')
  for name in REQUIRED_ARTIFACTS:
   if not (DATA/name).exists():raise RuntimeError(f'missing required artifact: {name}')
+ write_refresh_manifest()
+ run('Validate data resilience',sys.executable,'validate_data_resilience.py')
+ run('Validate final refresh manifest',sys.executable,'validate_data_resilience.py','--require-manifest')
  print('\n=== STRATEGIC INTELLIGENCE GATE: PASSED ===',flush=True);return 0
 if __name__=='__main__':raise SystemExit(main())
