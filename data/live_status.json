@@ -1,23 +1,19 @@
 {
-  "updatedAt": "2026-09-07T02:32:15.547746+00:00",
+  "updatedAt": "2026-09-07T02:40:11.472305+00:00",
   "feedsChecked": 61,
-  "rowsFetched": 736,
-  "newArticles": 44,
+  "rowsFetched": 737,
+  "newArticles": 43,
   "purged": 41,
-  "databaseArticles": 653,
-  "exportedArticles": 653,
+  "databaseArticles": 655,
+  "exportedArticles": 655,
   "exportLimit": 2000,
-  "healthySources": 53,
-  "emptySources": 13,
+  "healthySources": 54,
+  "emptySources": 14,
   "fallbackSources": 0,
   "failedSources": [
     {
-      "source": "SOUTHCOM Official Reporting — GDELT Mirror",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
       "source": "GDELT — Western Hemisphere Counter-Cartel",
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "ParseError: syntax error: line 1, column 0"
     },
     {
       "source": "CNN",
@@ -216,10 +212,10 @@
       "type": "southcom",
       "category": "southcom",
       "rowsFetched": 0,
-      "httpOk": false,
-      "mode": "failed",
-      "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "httpOk": true,
+      "mode": "online-empty",
+      "emptyFeed": true,
+      "error": ""
     },
     {
       "sourceId": "google_news_southcom",
@@ -281,7 +277,7 @@
       "name": "Google News — Los Choneros",
       "type": "cartel",
       "category": "cartel",
-      "rowsFetched": 8,
+      "rowsFetched": 7,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -307,7 +303,7 @@
       "httpOk": false,
       "mode": "failed",
       "emptyFeed": false,
-      "error": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "ParseError: syntax error: line 1, column 0"
     },
     {
       "sourceId": "google_news_climate_disaster",
@@ -402,7 +398,7 @@
       "name": "Google News — Global Economics",
       "type": "economics",
       "category": "economics",
-      "rowsFetched": 22,
+      "rowsFetched": 23,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
@@ -545,7 +541,7 @@
       "name": "Google News — Iran Israel",
       "type": "middle-east-conflict",
       "category": "middle-east-conflict",
-      "rowsFetched": 37,
+      "rowsFetched": 38,
       "httpOk": true,
       "mode": "native",
       "emptyFeed": false,
