@@ -1,133 +1,56 @@
 #!/usr/bin/env python3
-"""Build a resilient, evidence-first relationship web from the public snapshot.
-
-The Intelligence Web consumes the shared canonical entity extractor so the
-browser graph and intelligence pipeline use one entity identity model.
-"""
+"""Build the Intelligence Web from canonical intelligence."""
 import json
-import re
 from datetime import datetime, timezone
 from pathlib import Path
-
-from intelligence_entity_extractor import extract_entities, entity_id
-
-ROOT = Path(__file__).resolve().parent
-SNAP = ROOT / "data" / "snapshot.json"
-
-def norm(v):
-    return re.sub(r"\s+", " ", str(v or "").lower()).strip()
-
-def record_text(r):
-    keys = ("title", "summary", "description", "content", "text", "name", "region", "country", "location", "category", "type", "tags", "keywords")
-    parts = []
-    for k in keys:
-        v = r.get(k, "") if isinstance(r, dict) else ""
-        parts.append(" ".join(map(str, v)) if isinstance(v, list) else str(v or ""))
-    return norm(" ".join(parts))
-
-def slug(n):
-    return re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-")
+from intelligence_schema import validate_document, SCHEMA_VERSION
+ROOT=Path(__file__).resolve().parent; SNAP=ROOT/'data'/'snapshot.json'; CANONICAL=ROOT/'data'/'canonical_intelligence.json'
 
 def evidence_from(r):
-    if not isinstance(r, dict):
-        return None
-    title = str(r.get("title") or r.get("name") or "Public intelligence record").strip()
-    url = str(r.get("original_link") or r.get("url") or r.get("sourceUrl") or r.get("source_url") or r.get("link") or ((r.get("credit") or {}).get("source_url") if isinstance(r.get("credit"), dict) else "") or "").strip()
-    source = str(r.get("sourceLabel") or r.get("source") or r.get("publisher") or "Public source").strip()
-    time = str(r.get("time") or r.get("publishedAt") or r.get("published_date") or r.get("updatedAt") or "").strip()
-    summary = str(r.get("summary") or r.get("description") or r.get("summary_snippet") or "").strip()
-    if not title and not url and source == "Public source":
-        return None
-    return {"title": title or "Public intelligence record", "url": url, "source": source or "Public source", "time": time, "summary": summary[:420]}
+    if not isinstance(r,dict): return None
+    title=str(r.get('title') or r.get('name') or 'Public intelligence record').strip(); url=str(r.get('url') or r.get('original_link') or r.get('sourceUrl') or r.get('source_url') or r.get('link') or '').strip(); source=str(r.get('source') or r.get('sourceLabel') or r.get('publisher') or 'Public source').strip(); time=str(r.get('published_at') or r.get('publishedAt') or r.get('published_date') or r.get('time') or r.get('updatedAt') or '').strip(); summary=str(r.get('excerpt') or r.get('summary') or r.get('description') or r.get('summary_snippet') or '').strip()
+    return {'title':title,'url':url,'source':source,'time':time,'summary':summary[:420]} if title or url else None
 
 def main():
-    data = json.loads(SNAP.read_text(encoding="utf-8"))
-    nodes = {}
-    edges = {}
-
-    def add_node(entity, mentions=1):
-        name = entity["canonical_name"]
-        kind = entity["entity_type"]
-        n = nodes.setdefault(name, {"id": entity["id"], "label": name, "kind": kind, "mentions": 0, "evidence": []})
-        n["mentions"] += max(0, int(mentions))
-        return n
-
-    def add_edge(a, b, ev, source_type):
-        if not a or not b or a == b or not ev:
-            return
-        key = "|".join(sorted((a, b)))
-        e = edges.setdefault(key, {"source": a, "target": b, "weight": 0, "types": set(), "evidence": [], "relationship": ""})
-        e["weight"] += 1
-        e["types"].add(source_type)
-        e["relationship"] = {
-            "conflict": "Both entities are referenced in the same conflict record.",
-            "graph": "Relationship retained from an evidence-backed graph record.",
-        }.get(source_type, "Both entities are referenced in the same public reporting record.")
-        if ev.get("title") and not any(x.get("title") == ev["title"] for x in e["evidence"]) and len(e["evidence"]) < 8:
-            e["evidence"].append(ev)
-
-    stories = data.get("stories", []) if isinstance(data.get("stories", []), list) else []
-    conflicts = data.get("conflicts", []) if isinstance(data.get("conflicts", []), list) else []
-
-    for record, source_type in [(x, "story") for x in stories[:1200]] + [(x, "conflict") for x in conflicts]:
-        text = record_text(record)
-        extracted = extract_entities(text)
-        ev = evidence_from(record)
-        found = []
-        for entity in extracted:
-            node = add_node(entity)
-            found.append(entity["canonical_name"])
-            if ev and len(node["evidence"]) < 8 and not any(x.get("title") == ev["title"] for x in node["evidence"]):
-                node["evidence"].append(ev)
-        if ev:
-            for i, a in enumerate(found):
-                for b in found[i + 1:]:
-                    add_edge(a, b, ev, source_type)
-
-    # Preserve previously generated graph evidence when both endpoints still
-    # resolve to the shared canonical entity IDs. This prevents data loss while
-    # migrating from the old embedded catalog.
-    old = data.get("intelligenceGraph", {}) if isinstance(data.get("intelligenceGraph"), dict) else {}
-    old_nodes = {str(n.get("id")): n for n in old.get("nodes", []) if isinstance(n, dict)}
-    by_id = {n["id"]: n for n in nodes.values()}
-    for olde in old.get("edges", []) if isinstance(old.get("edges", []), list) else []:
-        if not isinstance(olde, dict):
-            continue
-        s, t = str(olde.get("source", "")), str(olde.get("target", ""))
-        evs = olde.get("evidence") if isinstance(olde.get("evidence"), list) else []
-        if s in by_id and t in by_id:
-            a, b = by_id[s]["label"], by_id[t]["label"]
-            for ev in evs[:8]:
-                if isinstance(ev, dict) and (ev.get("title") or ev.get("url") or ev.get("original_link")):
-                    if not ev.get("url") and ev.get("original_link"):
-                        ev = {**ev, "url": ev.get("original_link")}
-                    add_edge(a, b, ev, "graph")
-
-    edge_list = []
-    for e in edges.values():
-        e["types"] = sorted(e["types"])
-        e["evidence"].sort(key=lambda x: x.get("time", ""), reverse=True)
-        e["evidenceCount"] = len(e["evidence"])
-        if e["evidenceCount"]:
-            edge_list.append(e)
-    edge_list.sort(key=lambda e: (e["evidenceCount"], e["weight"]), reverse=True)
-    edge_list = edge_list[:500]
-
-    degree = {n: 0 for n in nodes}
-    for e in edge_list:
-        degree[e["source"]] = degree.get(e["source"], 0) + e["weight"]
-        degree[e["target"]] = degree.get(e["target"], 0) + e["weight"]
-
-    node_list = sorted(nodes.values(), key=lambda n: (degree.get(n["label"], 0), n["mentions"], n["label"]), reverse=True)[:100]
-    data["intelligenceGraph"] = {
-        "updatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "method": "shared canonical entity extraction with evidence-backed co-occurrence graph from current public stories and conflict records",
-        "caution": "A connection means the entities share a public evidence record; it does not independently prove causation, coordination, alliance, or responsibility.",
-        "nodes": node_list,
-        "edges": edge_list,
-    }
-    SNAP.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Intelligence graph: {len(node_list)} nodes / {len(edge_list)} evidence-backed edges")
-
-if __name__ == "__main__":
-    main()
+    if not CANONICAL.exists(): raise SystemExit('GRAPH BLOCKED: canonical_intelligence.json unavailable')
+    try: canonical=json.loads(CANONICAL.read_text(encoding='utf-8'))
+    except json.JSONDecodeError as exc: raise SystemExit(f'GRAPH BLOCKED: invalid canonical JSON: {exc}')
+    errors=validate_document(canonical)
+    if errors: raise SystemExit(f'GRAPH BLOCKED: canonical schema validation failed ({len(errors)} errors)')
+    if canonical.get('schema_version')!=SCHEMA_VERSION: raise SystemExit('GRAPH BLOCKED: incompatible canonical schema')
+    evidence={str(x.get('id')):x for x in canonical.get('evidence',[]) if isinstance(x,dict) and x.get('id')}; nodes={}
+    for e in canonical.get('entities',[]):
+        if not isinstance(e,dict) or not e.get('id') or not e.get('canonical_name'): continue
+        nid=str(e['id']); nodes[nid]={'id':nid,'label':str(e['canonical_name']),'kind':str(e.get('entity_type') or 'other'),'mentions':int(e.get('mention_count') or 0),'importance':float(e.get('importance') or 0),'evidence':[]}
+        for eid in e.get('evidence_ids',[])[:12]:
+            ev=evidence_from(evidence.get(str(eid)))
+            if ev: nodes[nid]['evidence'].append(ev)
+    edges={}
+    def add_edge(s,t,relation,confidence,weight,event_ids,evidence_ids):
+        if s not in nodes or t not in nodes or s==t: return
+        evs=[evidence_from(evidence.get(str(x))) for x in evidence_ids[:8]]; evs=[x for x in evs if x]
+        if not evs: return
+        key=f'{s}|{relation}|{t}'; edge=edges.setdefault(key,{'source':s,'target':t,'weight':0.,'types':[],'relationship':relation,'confidence':0.,'strength':0.,'eventIds':[],'evidence':[],'evidenceCount':0})
+        edge['weight']+=max(.25,float(weight or 1)); edge['confidence']=max(edge['confidence'],float(confidence or 0))
+        if relation not in edge['types']: edge['types'].append(relation)
+        edge['eventIds'] += [str(x) for x in event_ids if str(x) not in edge['eventIds']]
+        for ev in evs:
+            if not any(x.get('title')==ev.get('title') for x in edge['evidence']) and len(edge['evidence'])<8: edge['evidence'].append(ev)
+        edge['evidenceCount']=len(edge['evidence']); edge['strength']=max(edge['strength'],edge['confidence']*min(1.,edge['weight']/10.))
+    for r in canonical.get('relationships',[]):
+        if isinstance(r,dict): add_edge(str(r.get('source_entity_id') or ''),str(r.get('target_entity_id') or ''),str(r.get('relationship_type') or 'other'),r.get('confidence'),r.get('weight') or r.get('strength'),r.get('event_ids',[]),r.get('evidence_ids',[]))
+    event_rel={'military_action':'military_action_against','sanction':'sanctions','trade_action':'trades_with','diplomatic_action':'negotiates_with','economic_action':'affects','technology_action':'affects','energy_action':'affects','cyber_activity':'targets','political_action':'affects','conflict_event':'opposes'}
+    for event in canonical.get('events',[]):
+        if not isinstance(event,dict): continue
+        relation=event_rel.get(str(event.get('event_type') or ''))
+        if not relation: continue
+        for actor in event.get('actor_ids',[]):
+            for target in event.get('target_ids',[]): add_edge(str(actor),str(target),relation,event.get('confidence'),event.get('score') or 1,[event.get('id')] if event.get('id') else [],event.get('evidence_ids',[]))
+    edge_list=list(edges.values()); degree={nid:0. for nid in nodes}
+    for e in edge_list: degree[e['source']]+=e['weight']; degree[e['target']]+=e['weight']
+    for n in nodes.values(): n['graphImportance']=round(n['importance']+degree.get(n['id'],0),4)
+    node_list=sorted(nodes.values(),key=lambda x:(x['graphImportance'],x['mentions'],x['label']),reverse=True)[:100]; allowed={n['id'] for n in node_list}; edge_list=[e for e in edge_list if e['source'] in allowed and e['target'] in allowed]; edge_list.sort(key=lambda x:(x['strength'],x['weight'],x['evidenceCount']),reverse=True); edge_list=edge_list[:500]
+    output={'updatedAt':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'method':'canonical intelligence events and evidence-backed semantic relationships','caution':'Semantic edges are generated from structured event actor/target roles; evidence-backed associations do not independently prove causation, coordination, alliance, or responsibility.','sourceSchemaVersion':canonical.get('schema_version'),'nodes':node_list,'edges':edge_list}
+    snapshot=json.loads(SNAP.read_text(encoding='utf-8')); snapshot['intelligenceGraph']=output; SNAP.write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print(f'Intelligence graph: {len(node_list)} canonical nodes / {len(edge_list)} evidence-backed edges')
+if __name__=='__main__': main()
