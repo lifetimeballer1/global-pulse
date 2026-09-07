@@ -46,11 +46,39 @@ def source_reliability(source: Mapping[str, Any] | None) -> float:
     return {"a": 0.95, "b": 0.85, "c": 0.70, "d": 0.55}.get(tier, 0.60)
 
 
+def geopolitical_relevance(item: Mapping[str, Any] | None) -> float:
+    """Return bounded geopolitical relevance without inventing intelligence.
+
+    Explicit pipeline-derived relevance is authoritative when present.
+    Otherwise derive a conservative signal from an existing event type and
+    strategic relevance; unknown/general mentions receive a neutral floor.
+    """
+    item = item or {}
+    explicit = item.get("geopolitical_relevance", item.get("geopoliticalRelevance"))
+    if explicit is not None:
+        try:
+            return clamp(float(explicit))
+        except (TypeError, ValueError):
+            pass
+    strategic = item.get("strategic_relevance", item.get("strategicRelevance"))
+    if strategic is not None:
+        try:
+            return clamp(float(strategic))
+        except (TypeError, ValueError):
+            pass
+    event_type = str(item.get("event_type", item.get("type", ""))).lower().replace(" ", "_")
+    if event_type in _EVENT_SEVERITY:
+        return _EVENT_SEVERITY[event_type]
+    return 0.0
+
+
 def evidence_score(evidence: Mapping[str, Any]) -> float:
     reliability = source_reliability(evidence)
     recency = recency_score(evidence.get("published_at", evidence.get("publishedAt", evidence.get("timestamp"))))
     quality = clamp(float(evidence.get("quality", evidence.get("evidence_quality", 0.75))))
-    return clamp(0.45 * reliability + 0.40 * recency + 0.15 * quality)
+    relevance = geopolitical_relevance(evidence)
+    base = 0.45 * reliability + 0.40 * recency + 0.15 * quality
+    return clamp(base * relevance)
 
 
 _EVENT_SEVERITY = {
@@ -95,11 +123,12 @@ def strategic_relevance(event: Mapping[str, Any]) -> float:
 
 def event_score(event: Mapping[str, Any], evidence: list[Mapping[str, Any]] | None = None) -> float:
     confidence = event_confidence(event, evidence)
+    relevance = geopolitical_relevance(event)
     return clamp(
-        0.35 * event_severity(event)
+        (0.35 * event_severity(event)
         + 0.25 * confidence
         + 0.20 * recency_score(event.get("timestamp", event.get("date", event.get("first_seen"))))
-        + 0.20 * strategic_relevance(event)
+        + 0.20 * strategic_relevance(event)) * relevance
     )
 
 
@@ -116,7 +145,8 @@ def relationship_strength(relationship: Mapping[str, Any], evidence_scores: list
     confidence = clamp(float(relationship.get("confidence", evidence)))
     occurrences = max(1, int(relationship.get("occurrences", relationship.get("count", 1))))
     recurrence = 1.0 - exp(-occurrences / 3.0)
-    return clamp(0.55 * evidence + 0.30 * confidence + 0.15 * recurrence)
+    relevance = geopolitical_relevance(relationship)
+    return clamp((0.55 * evidence + 0.30 * confidence + 0.15 * recurrence) * relevance)
 
 
 def entity_importance(entity: Mapping[str, Any], event_scores: list[float] | None = None, evidence_scores: list[float] | None = None) -> float:
