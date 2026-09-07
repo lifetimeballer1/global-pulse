@@ -1,4 +1,11 @@
-from intelligence_scoring import evidence_score, event_score, entity_importance, geopolitical_relevance
+from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from intelligence_scoring import evidence_score, event_score, geopolitical_relevance
 
 
 def test_low_relevance_evidence_is_retained_but_downweighted():
